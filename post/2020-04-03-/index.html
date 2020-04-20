@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.66.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">リスト実験をする時に項目をランダマイズするスクリプト</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../../">Home</a></li>
+                            
+                                <li><a href="../../about/">CV</a></li>
+                            
+                                <li><a href="../../research/">Research</a></li>
+                            
+                                <li><a href="../../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../../software/">Software</a></li>
+                            
+                                <li><a href="../../notes/">Notes</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>リスト実験をする時に項目をランダマイズするスクリプト</h2>
+        <h5>April 3, 2020</h5>
+        
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content"><p>以下のようなリスト実験を行うとする。</p>
+<p><strong>統制群</strong></p>
+<p>Q1. 以下のうち、経験したことのあるものはいくつありますか？</p>
+<ul>
+<li>タバコ</li>
+<li>お酒</li>
+<li>コーヒー</li>
+<li>紅茶</li>
+</ul>
+<ol>
+<li>1個　　2. 2個　　3. 3個　　4. 4個</li>
+</ol>
+<p><strong>実験群</strong></p>
+<p>Q1. 以下のうち、経験したことのあるものはいくつありますか？</p>
+<ul>
+<li>タバコ</li>
+<li>お酒</li>
+<li>コーヒー</li>
+<li>紅茶</li>
+<li><em>マリファナ</em></li>
+</ul>
+<ol>
+<li>1個　　2. 2個　　3. 3個　　4. 4個　　5. 5個</li>
+</ol>
+<p>Qualtricsなら質問の順番や選択肢の順番をランダマイズする機能を基本的に搭載しているが、質問文の中にある項目するランダマイズする機能は持っていない。ここでは質問文内の内容をランダマイズする方法を紹介する。</p>
+<h2 id="1-phpスクリプトのダウンロード修正">1. PHPスクリプトのダウンロード&amp;修正</h2>
+<ol>
+<li>筆者が作成したスクリプトをダウンロードする。[Download]</li>
+<li>PHPファイルの中身をみると3行目に項目が書いてある。
+<code>$listarray = array(&quot;1番目の項目&quot;, &quot;2番目の項目&quot;, &quot;3番目の項目&quot;, &quot;4番目の項目&quot;, &quot;5番目の項目&quot;);</code>の部分を<code>$listarray = array(&quot;タバコ&quot;, &quot;お酒&quot;, &quot;コーヒー&quot;, &quot;紅茶&quot;);</code>に修正する。</li>
+<li>適当な名前を付けて保存する。(たとえば<code>List1.php</code>)</li>
+<li>先に修正した部分にマリファナを付けて他の名前を付けて保存する(<code>List2.php</code>)。たとえば、<code>$listarray = array(&quot;タバコ&quot;, &quot;お酒&quot;, &quot;コーヒー&quot;, &quot;紅茶&quot;, &quot;マリファナ&quot;);</code></li>
+<li>PHPを走らせるサーバーにアップロードする。</li>
+</ol>
+<h2 id="2-qualtricsのweb-service登録">2. QualtricsのWeb Service登録</h2>
+<ol>
+<li>Qualtircsの質問紙作成画面でSurvey Flowをクリック</li>
+<li>Add a New Element hereをクリック</li>
+<li>Web Serviceを選択し、URLにphpファイルのアドレスを入力
+<ul>
+<li>たとえば、<code>http://www.jaysong.net/cjoint/List_Rand.php</code></li>
+</ul>
+</li>
+<li>Test URLをクリック</li>
+<li>Selectの隣のAllを選択し、Add Embedded Dataをクリック</li>
+<li>Web Serviceのブロックをリスト実験の質問ブロックの上へ移動 <em>(必ず!!!)</em></li>
+</ol>
+<h2 id="3-質問文の作成">3. 質問文の作成</h2>
+<ol>
+<li>普通のSingle Answer形式の質問文を作成するが、質問文を以下のように書く。たとえば、</li>
+</ol>
+<blockquote>
+<p>Q1. 以下の項目の中で該当することはいくつありますか。</p>
+<p><code>${e://Field/List-1}</code></p>
+<p><code>${e://Field/List-2}</code></p>
+<p><code>${e://Field/List-3}</code></p>
+<p>…</p>
+</blockquote>
+<ol start="2">
+<li>同じ手順でもう一つのPHPファイルをWeb Serviceで読み込んで、質問文を作る。今回は項目が一個増えたから1番目より１行長くなる。</li>
+<li>Survey Flowから見て以下の中の一つのように設定する。</li>
+</ol>
+<ul>
+<li>Web Service(統制群) → 質問文(統制群) → Web Service(実験群) → 質問文(実験群)になるようにする。</li>
+<li>あるいはWeb Serviceを埋め込む時にKeyを設定すればWS→WS→統制質問→実験質問の形でも可能である。</li>
+</ul>
+<ol start="4">
+<li>確実(かつ、面倒くさい)な方法としてはスクリプト12行目の<code>List-</code>の部分を変えながらアップロードする。</li>
+<li>出現する質問をランダマイズする。</li>
+<li>完了</li>
+</ol>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/qualtrics-order-randomizer/">Qualtricsの順序尺度をランダムに逆転させる方法</a></h4>
+    <h5>April 7, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-05-randomimagepath/">ランダムにイメージパスを取得するスクリプト</a></h4>
+    <h5>April 5, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-05-conjointsdt-fixattributes/">Conjoint SDTの用いる際、一部の属性のみを固定する方法</a></h4>
+    <h5>April 5, 2020</h5>
+    
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+        <h4 class="page-header">Comments</h4>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Jaehyun Song" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

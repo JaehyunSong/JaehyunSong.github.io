@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ランダムにイメージパスを取得するスクリプト</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.66.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">ランダムにイメージパスを取得するスクリプト</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../../">Home</a></li>
+                            
+                                <li><a href="../../about/">CV</a></li>
+                            
+                                <li><a href="../../research/">Research</a></li>
+                            
+                                <li><a href="../../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../../software/">Software</a></li>
+                            
+                                <li><a href="../../notes/">Notes</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>ランダムにイメージパスを取得するスクリプト</h2>
+        <h5>April 5, 2020</h5>
+        
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content"><p>Qualtricsでランダムに画像を出す場合、2〜3枚の中から1枚を見せるならそれぞれの質問文を用意し、Randomizerを使うことで十分です。</p>
+<p>しかし、画像が数十〜数千枚であり、この中から1枚、あるいは数枚をランダムに示したい場合があります。画像を使う実験ではよくありがちな話です。</p>
+<p>以下のスクリプトを使うとスクリプトの中身を修正する必要なく、画像ファイルが保存されているフォルダーに入れておくだけで、簡単に出来ます。</p>
+<p>画像のタイプ（png/jpgなど）や抽出する枚数を調整するためにスクリプトの中身を修正する必要はなく、スクリプトのアドレスの後ろにパラメーターを指定するだけで使えます。しかも、ファイル名が規則正しく指定されている必要もありません。</p>
+<hr>
+<h3 id="1-phpスクリプトのダウンロードアップロード">1. PHPスクリプトのダウンロード&amp;アップロード</h3>
+<ol>
+<li>筆者が作成したスクリプトをダウンロードする。[<a href="https://www.dropbox.com/s/na0kby0r6yatnfp/RIP.php?dl=0">Download</a>]</li>
+<li>FTPクライアントなどでサーバーへアクセスし、<strong><u>イメージファイルが保存されているフォルダー</u></strong>にスクリプトファイルをアップロードする。
+<ul>
+<li>画像ファイル名にスペースが含まれている場合、Qualtricsで読み込めませんので、予めスペースを消しておいてください。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-動作の確認">2. 動作の確認</h3>
+<ol>
+<li>以下のアドレスでアクセスします。
+<ul>
+<li><code>アドレス名/RIP.php?Ext=拡張子&amp;N=持ってくる画像数</code></li>
+</ul>
+</li>
+<li>もし、RIP.phpと画像ファイルが保存されている場所が<code>http://jaysong.net/Qualtrics/RIP_Script/</code>であり、画像ファイルの拡張子が<code>png</code>、ランダムに持ってくる画像数が3枚なら<code>http://jaysong.net/Qualtrics/RIP_Script/RIP.php?Ext=png&amp;N=3</code>のように入力します。
+<ul>
+<li>上記のフォルダー内には4枚のpng画像、6枚の<code>jpg</code>画像が保存されています。<code>Ext</code>と<code>N</code>パラメーターを変えてみて、どんな感じなのかを確認するのも良いでしょう。</li>
+</ul>
+</li>
+<li><code>{&quot;Path1&quot; : &quot;blahblah&quot;, &quot;Path2&quot; : &quot;hogehoge&quot;, …}</code>のように出力されたらOK</li>
+</ol>
+<h3 id="3-qualtricsのweb-service登録">3. QualtricsのWeb Service登録</h3>
+<ol>
+<li>Qualtircsの質問紙作成画面でSurvey Flowをクリック</li>
+<li>Add a New Element hereをクリック</li>
+<li>Web Serviceを選択し、先ほど動作を確認した際のURLを入力
+<ul>
+<li>たとえば、<code>http://jaysong.net/Qualtrics/RIP_Script/RIP.php?Ext=jpg&amp;N=3</code></li>
+</ul>
+</li>
+<li>Test URLをクリック</li>
+<li>Selectの隣のAllを選択し、Add Embedded Dataをクリック
+6 Web Serviceのブロックを実験の質問文が含まれているブロックの上へ移動(必ず!!!)</li>
+</ol>
+<h3 id="4-質問文の作成">4. 質問文の作成</h3>
+<ol>
+<li>質問文の修正はHTMLで行います。</li>
+<li>適切な場所に以下のようにタグを挿入します。
+<ul>
+<li>例) <code>&lt;img src = ${e://Field/Path1}&gt;</code></li>
+<li>Path1は適宜修正してください。</li>
+</ul>
+</li>
+<li>以上です。</li>
+</ol>
+<hr>
+<h4 id="修正履歴">修正履歴</h4>
+<ul>
+<li>20200302: スクリプトが最上位フォルダー (www)に位置している場合、URLが正しく取得できない問題を修正しました。立教大学の五十嵐彰先生からご指摘頂きました。ありがとうございます。</li>
+</ul>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/qualtrics-order-randomizer/">Qualtricsの順序尺度をランダムに逆転させる方法</a></h4>
+    <h5>April 7, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-05-conjointsdt-fixattributes/">Conjoint SDTの用いる際、一部の属性のみを固定する方法</a></h4>
+    <h5>April 5, 2020</h5>
+    
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-03-/">リスト実験をする時に項目をランダマイズするスクリプト</a></h4>
+    <h5>April 3, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+        <h4 class="page-header">Comments</h4>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Jaehyun Song" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

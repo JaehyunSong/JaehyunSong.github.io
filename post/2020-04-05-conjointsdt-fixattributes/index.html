@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.66.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Conjoint SDTの用いる際、一部の属性のみを固定する方法</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../../">Home</a></li>
+                            
+                                <li><a href="../../about/">CV</a></li>
+                            
+                                <li><a href="../../research/">Research</a></li>
+                            
+                                <li><a href="../../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../../software/">Software</a></li>
+                            
+                                <li><a href="../../notes/">Notes</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Conjoint SDTの用いる際、一部の属性のみを固定する方法</h2>
+        <h5>April 5, 2020</h5>
+        
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content"><p>以下のようなコンジョイント分析を行うとする。</p>
+
+<table class="pure-table pure-table-horizontal table table-responsive table-striped">
+<thead>
+<tr>
+<th></th>
+<th>候補者1</th>
+<th>候補者2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>性別</td>
+<td>男性</td>
+<td>女性</td>
+</tr>
+
+<tr>
+<td>年齢</td>
+<td>39歳</td>
+<td>35歳</td>
+</tr>
+
+<tr>
+<td>二郎の値段</td>
+<td>ラーメンの値下げ</td>
+<td>ラーメンの値段の現状維持</td>
+</tr>
+
+<tr>
+<td>二郎のトッピング</td>
+<td>やさい増々の義務化</td>
+<td>にんにくの義務化</td>
+</tr>
+</tbody>
+</table>
+
+<p>Q1. あなたはどっちの候補者を支持しますか。</p>
+
+<ul>
+<li>候補者1</li>
+<li>候補者2</li>
+</ul>
+
+<hr>
+
+<p>この場合、Conjoint SDT(以下、SDTと略す)で属性の順番ををランダマイズすると、場合によっては「二郎のトッピング、性別、年齢、二郎の値段」などの順番で表示されうる。しかし、直感的に考えると年齢や性別などの候補者の個人情報は政策の前に来るのが自然である。</p>
+
+<p>SDTはこのように一部の属性のみを固定する機能を提供しないため、生成されたPHPファイルを直接修正する必要がある。</p>
+
+<p>ここから提示する方法はこのポスト[<a href="../../post/2020-04-05-conjointsdt-qualtrics/">Link</a>]にしたがってPHPファイルまで生成されたと仮定したうえでの方法である。ただし、<strong>1.1の画像でRandomize order of attributes for each respondentsにチェックを入れておく必要がある</strong>。</p>
+
+<hr>
+
+<ol>
+<li>PHPファイルを読み込む</li>
+<li>93行目を見ると以下のような項目が見える。
+
+<ul>
+<li><code>shuffle($featureArrayKeys);</code></li>
+<li>修正するのはこの箇所である。
+<br></li>
+</ul></li>
+</ol>
+
+<hr>
+
+<h3 id="基本的な考え方">基本的な考え方</h3>
+
+<table class="pure-table pure-table-horizontal table table-responsive table-striped">
+<thead>
+<tr>
+<th>アドレス</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>項目名</td>
+<td>性別</td>
+<td>年齢</td>
+<td>二郎の値段</td>
+<td>二郎のトッピング</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>PHPの配列のアドレスはRとは違って、一般的なプログラミング言語と同様、0から始まる。</li>
+<li><code>shuffle()</code>関数は配列の順番をランダマイズする機能を持つが、ここでは0から1を切り取って臨時のオブジェクトに格納し(オブジェクト1)、続いて2から3を切り取って他のオブジェクトに格納する(オブジェクト2)。</li>
+<li>次に、オブジェクト2の中身だけ<code>shuffle()</code>関数を使って順番をランダマイズし、オブジェクト1とオブジェクト2を統合する。</li>
+<li>具体的な方法は以下のようである。
+<code>$temp_obj1 = array_slice($featureArrayKeys, 0, 2);
+$temp_obj2 = array_slice($featureArrayKeys, 2, 2);
+shuffle($temp_obj2);
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);</code></li>
+<li>説明すると
+
+<ol>
+<li><code>$featureArrayKeys</code>配列で0から2個の要素（性別、年齢）を切り取り、<code>$temp_obj1</code>に格納する。</li>
+<li><code>$featureArrayKeys</code>配列で2から2個の要素（二郎の値段、二郎のトッピング）を切り取り、<code>$temp_obj2</code>に格納する。</li>
+<li><code>$temp_obj2</code>内の要素をランダマイズする。</li>
+<li><code>$temp_obj1</code>と<code>$temp_obj2</code>を統合し、元の<code>$featureArrayKeys</code>に格納する。</li>
+</ol></li>
+</ul>
+
+<hr>
+
+<p>結果的に見るとPHPファイルの93行目は</p>
+
+<p><strong>Before</strong></p>
+<pre><code>// Re-randomize the $featurearray keys
+shuffle($featureArrayKeys);</code></pre>
+<p><strong>After</strong></p>
+<pre><code>// Re-randomize the $featurearray keys
+// shuffle($featureArrayKeys); &lt;- 元の部分はコメントアウト
+$temp_obj1 = array_slice($featureArrayKeys, 0, 4);
+$temp_obj2 = array_slice($featureArrayKeys, 4);
+shuffle($temp_obj2);
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);</code></pre>
+<p>のようになる。これだけで、年齢と性別のみ固定し、残りの部分はランダマイズすることが可能である。以降は普通のやり方でQualtricsに埋め込めばいい。</p>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/qualtrics-order-randomizer/">Qualtricsの順序尺度をランダムに逆転させる方法</a></h4>
+    <h5>April 7, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-05-randomimagepath/">ランダムにイメージパスを取得するスクリプト</a></h4>
+    <h5>April 5, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="../../post/2020-04-03-/">リスト実験をする時に項目をランダマイズするスクリプト</a></h4>
+    <h5>April 3, 2020</h5>
+    
+<a href="../../tags/qualtrics"><kbd class="item-tag">Qualtrics</kbd></a>
+
+<a href="../../tags/conjoint"><kbd class="item-tag">Conjoint</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+        <h4 class="page-header">Comments</h4>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Jaehyun Song" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
