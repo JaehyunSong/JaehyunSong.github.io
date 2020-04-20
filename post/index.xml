@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>モデルの比較と選択の基準:AICとBIC</title>
+      <link>/post/aic-bic/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/aic-bic/</guid>
+      <description>以下の論文の要点のみを整理したものです。短い論文なので直接読んだ方がいいかも知れません。 Aho, Ken, DeWayne Derryberry, and Teri Peterson. 2014. &amp;quot;Model Selection for Ecologists: the Worldviews of AIC and BIC.&amp;quot; Ecology. 95 (3) pp. 631-636 AIC BIC Is</description>
+    </item>
     
     <item>
       <title>方法論探求</title>
