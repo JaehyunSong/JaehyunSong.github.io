@@ -36,15 +36,17 @@ data.frame(関数名 = c("`filter`", "`arrange`", "`select`",
 
 これらの機能を最大限発揮するために、いくつかの良き友達がいる
 
-```{r, echo = FALSE}
-data.frame(関数名 = c("`group_by`", "`%>%`"),
+```{r, echo = FALSE, results='asis'}
+data.frame(関数名 = c("`group_by`", "`%>%` (注)"),
            機能 = c("データのグループ化",
                     "複数の処理を逐次的に実行")) %>%
-    kable(escape = FALSE) %>%
+    kable(escape = FALSE, format = "html") %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed",
                                         "responsive"),
                   full_width = FALSE)
 ```
+
+※なぜか2行目は`%&gt;%`と表示されていますが、正しいのは`%>%`です。
 
 ---
 
