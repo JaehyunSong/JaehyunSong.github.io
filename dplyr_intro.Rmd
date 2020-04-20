@@ -173,3 +173,82 @@ arrange(flights, desc(month), desc(day))
 最後に、欠損値(`NA`)は常に一番最後の行になる。
 
 ---
+
+### select()
+
+これは指定した変数のみを抽出する関数である。
+
+まず、`year`, `month`, `day`列のみを抽出してみよう。
+
+```{r}
+select(flights, year, month, day)
+```
+
+このように隣接している変数同士なら`:`が使える。`year:day`は「`year`から`day`まで」という意味だ。
+
+```{r}
+select(flights, year:day)
+```
+
+`year`から`day`まで表示するのではなく`year`から`day`までを表示**させない**こともできる。その時に使うのが`-`である。
+
+```{r}
+select(flights, -(year:day))
+```
+
+`-year:day`でなく、`-(year:day)`であることに注意しよう。もし`:`を使わないなら`-c(year, month, day)`のように書く。
+
+```{r}
+select(flights, -c(year, month, day))
+```
+
+これだけでも`select()`は大変便利な関数だが、もっと高度な使い方もある。
+
+まずは、そのリストから
+
+```{r, echo = FALSE, results='asis'}
+data.frame(演算子 = c("`starts_with(\"ABC\")`", 
+                      "`ends_with(\"XYZ\")`", 
+                      "`contains(\"LMN\")`",
+                      "`matches(\"(.)\\\\1\")`", 
+                      "`num_range(\"X\", 1:3)`"),
+           意味 = c("変数名がABCで始まる変数",
+                    "変数名がXYZで終わる変数",
+                    "変数名にLMNが含まれている変数",
+                    "正規表現パターン",
+                    "X1, X2, X3")) %>%
+    kable(escape = FALSE, format = "html") %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed",
+                                        "responsive"),
+                  full_width = FALSE)
+```
+
+まずは、変数名が`dep`で始まる変数のみを抽出してみる。
+
+```{r}
+select(flights, starts_with("dep"))
+```
+
+続いて、変数名が`time`で終わるやつ
+
+```{r}
+select(flights, ends_with("time"))
+```
+
+最後に`_`(アンダーバー)が含まれているやつ
+
+```{r}
+select(flights, contains("_"))
+```
+
+`matches`に関しては私も詳しくない。正規表現を使う時はいつもネットを参照しているので…
+
+`num_range`はこのデータでは使えないが`select(data, num_range("X", 3:5))`と書いたら、`data`というデータから`X3`, `X4`, `X5`のみを抽出せよという意味である。
+
+個人的にあまり使わない機能だが、抽出後、新しい名前を付けることもできる。
+
+```{r}
+select(flights, 年 = year, 月 = month, 日 = day)
+```
+
+---
