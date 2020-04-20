@@ -16,3 +16,66 @@ markup: "mmark"
 dplyrはR業界の神様、[Hadley Wickham](http://hadley.nz/)が作成したRのパッケージである。 R内蔵の関数でもデータの管理はできるが、dplyrを使うと生産性は何倍も向上する。
 
 dplyrの主な使い道は以下のとおり
+
+```{r, echo = FALSE}
+library(knitr)
+library(kableExtra)
+
+data.frame(関数名 = c("`filter`", "`arrange`", "`select`", 
+                      "`mutate`", "`summarise`"),
+           機能 = c("ある条件に合ったケースだけを抽出",
+                    "データをある基準に合わせて揃える",
+                    "指定した変数のみを抽出",
+                    "計算した結果を新しい変数として定義",
+                    "データの要約")) %>%
+    kable() %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed",
+                                        "responsive"),
+                  full_width = FALSE)
+```
+
+これらの機能を最大限発揮するために、いくつかの良き友達がいる
+
+```{r, echo = FALSE}
+data.frame(関数名 = c("`group_by`", "`%>%`"),
+           機能 = c("データのグループ化",
+                    "複数の処理を逐次的に実行")) %>%
+    kable(escape = FALSE) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed",
+                                        "responsive"),
+                  full_width = FALSE)
+```
+
+---
+
+## 実習の準備
+
+まずは、dplyrのインストールと読み込みである。dplyrはCRANに登録されているので、`install.packages()`でインストールできる。
+
+```{r, eval = FALSE}
+install.packages("dplyr")
+```
+
+```{r}
+library(dplyr)
+```
+
+実習用データは有名な`nycflights13`データを使う。これはニューヨーク出発の航空便のデータで、336,776のケースが含まれている。インストールされていない場合、`install.packages("nycflights13")`でインストールしておこう。
+
+まず、データを読み込み、中身を見てみよう。
+
+```{r}
+library(nycflights13)
+
+head(flights) # データの中身を見る(最初の6行だけ)
+```
+
+
+---
+    
+### filter()
+
+```{r}
+a <- 1
+1 %in% a
+```
