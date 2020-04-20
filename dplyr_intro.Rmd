@@ -255,3 +255,154 @@ select(flights, 年 = year, 月 = month, 日 = day)
 
 ### mutate()
 
+`mutate`はデータを計算し、その結果を新しい変数として格納する関数である。
+
+使い方は`mutate(データ, 新しい変数名 = 計算式)`である。
+
+とくに意味はないが、年(`year`)を2倍にし、`double_year`という変数として表示させてみよう。 (変数が多すぎて画面上に表示されないので、`year`から`day`まで抽出したデータ(`flights2`)を使う。)
+
+```{r}
+flights2 <- select(flights, year:day)
+mutate(flights2, doble_year = year * 2)
+```
+
+ちゃんと`double_year`という列さ生成されて、`year`の2倍になっていることが分かる。
+
+次は`year`、`month`、`day`を全部足し、`sum_data`と名付けよう。
+
+```{r}
+mutate(flights2, sum_date = year + month + day)
+```
+
+これ以外にも`cumsum`、`log`などの関数を使うこともできるし、平均値を引くことも出来る。
+
+例として`day`から`day`の平均値を引いた値を`centered_day`として表示させてみる。
+
+```{r}
+mutate(flights2, centered_day = day - mean(day))
+```
+
+---
+
+### summarise()
+
+`summarise`は変数の平均、中央値、標準偏差などの統計量を表示させる関数である。
+
+使い方は`summarise(データ, 新しい変数名 = 関数(変数))`である。
+
+ここでは`flight`データに戻って`dep_time`と`arr_time`の平均値を見てみたい。 `dep_time`の平均値は`dep.mean`、`arr_time`の平均値は`arr.mean`としよう。
+
+```{r}
+summarise(flights, dep.mean = mean(dep_time), arr.mean = mean(arr_time))
+```
+
+`mean()`関数は欠損値が含まれていると`NA`を返すので、これを無視するように引数として`na.rm = TRUE`を付ける。
+
+```{r}
+summarise(flights, 
+          dep.mean = mean(dep_time, na.rm = TRUE), 
+          arr.mean = mean(arr_time, na.rm = TRUE))
+```
+
+ちゃんと出来た。
+
+ここでの`mean()`以外に標準偏差(`sd()`)、IQR(`IQR()`)、中央値(`median()`)なども使える。 また、よく使われるものとしてケース数(`n()`)がある。
+
+`summarise`関数はこれから紹介する`group_by`と一緒に使う時が多い。
+
+---
+
+## group_by()と%>%
+
+### pipeline (%>%)
+
+まずは`%>%`から紹介する。実はこれはdplyr独特のものではないが、dplyrとの相性がいい。
+
+先ほど、`flights`の変数が多すぎて`year:day`のみ抽出し、`mutate`を使ったの例を考えてみる。 まずは`flights2`を作って、そこから`mutate`をした。まぁ、二行で終わったし、そこまで面倒くさくはないかも知れない。
+
+それでは次の例を考えてみよう。
+
+1. `year`, `month`, `day`, `dep_delay`, `carrier`を抽出
+2. 3月のデータのみ抽出
+3. `dep_delay`を60で割って、`sixty_delay`と名付ける。
+4. `sixty_delay`が大きい順に並べ替える。
+
+これをこれまでの方式でやってみよう。
+
+```{r}
+temp.flights <- select(flights, year:day, dep_delay, carrier)
+temp.flights <- filter(temp.flights, month == 3)
+temp.flights <- mutate(temp.flights, sixty_delay = dep_delay / 60)
+arrange(temp.flights, desc(sixty_delay))
+```
+
+これを%>%を使って短めにする。
+
+```{r}
+flights %>% 
+    select(year:day, dep_delay, carrier) %>% 
+    filter(month == 3) %>% 
+    mutate(sixty_delay = dep_delay / 60) %>%
+    arrange(desc(sixty_delay))
+```
+
+まったく同じ結果が得られた。
+
+これまで`select()`や`filter()`などの関数の最初の引数はデータ名だったが、それも要らなくなった。
+
+`flights %>%`は「次に処理するデータは`flights`です」という意味だ。この例では`flights`データを使って`select()`をした。
+
+`select()`で絞られたデータはそのまま次の`filter()`のデータとして使われる。
+
+こんな感じでデータが次々へと伝達されていくのが`%>%`の素晴らしいところだ。
+
+---
+
+### group_by()
+
+では、最後に`group_by()`を見てみよう。
+
+これはある変数(ほとんどカテゴリカル変数)でデータをグループ化するものである。
+
+たとえば各月の平均延着時間の見たいとする。
+
+* `flights %>% filter(month == 1) %>% summarise(mean.delay = mean(dep_delay))`
+* `flights %>% filter(month == 2) %>% summarise(mean.delay = mean(dep_delay))`
+* …
+* `flights %>% filter(month == 12) %>% summarise(mean.delay = mean(dep_delay))`
+
+のように12回やってもいいが、`month`を基準にグループ化すると一瞬で終わる。
+
+```{r}
+flights %>% 
+    group_by(month) %>% 
+    summarise(mean.delay = mean(dep_delay, na.rm = TRUE))
+```
+
+これは`flights`データを`month`を基準にグループ化し、それぞれ`summarise()`した結果を表示する仕組みである。
+
+航空会社(`carrier`)ごとに見てみよう。
+
+```{r}
+flights %>% 
+    group_by(carrier) %>% 
+    summarise(mean.delay = mean(dep_delay, na.rm = TRUE)) %>%
+    arrange(desc(mean.delay))
+```
+
+F9社 (アメリカのFrontier Airlinesらしい)の平均延着時間が最も長いらしい。
+
+グループは一つの変数でなく、複数の変数を指定することもできる。各航空会社の月別平均延着時間は
+
+```{r}
+flights %>% 
+    group_by(carrier, month) %>%
+    summarise(mean.delay = mean(dep_delay, na.rm = TRUE)) %>%
+    arrange(desc(mean.delay))
+```
+
+もっとも延着時間が長いのは7月の9E社 (アメリカのEndeavor Air)のようだ。
+
+---
+
+大雑把にdplyrの機能を紹介したが、ここで紹介したよりも多くの機能があり、その便利さは我らの想像を超えるほどだ。 興味のある人は[Datacamp](https://www.datacamp.com/courses/dplyr-data-manipulation-r-tutorial)とか、他のチュートリアルを見てみるのもいいと思う。
