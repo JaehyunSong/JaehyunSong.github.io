@@ -19,12 +19,33 @@
   </url>
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/dplyr_intro/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -71,12 +92,6 @@
   <url>
     <loc>/post/kobe2019-qpm1/</loc>
     <lastmod>2020-04-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

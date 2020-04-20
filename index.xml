@@ -6,7 +6,7 @@
     <description>Recent content on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -45,6 +45,15 @@
       
       <guid>/project/project4/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr入門</title>
+      <link>/dplyr_intro/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/dplyr_intro/</guid>
+      <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
     <item>
