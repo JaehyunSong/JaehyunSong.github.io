@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Logistic Regressionによる分類と可視化・評価</title>
+      <link>/post/logit-classification/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/logit-classification/</guid>
+      <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
+    </item>
+    
+    <item>
       <title>モデルの比較と選択の基準:AICとBIC</title>
       <link>/post/aic-bic/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
