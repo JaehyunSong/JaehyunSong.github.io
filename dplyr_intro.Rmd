@@ -1,0 +1,18 @@
+---
+title: "dplyr入門"
+date: '2020-04-20'
+categories: []
+tags: ["統計学", "R", "データハンドリング"]
+markup: "mmark"
+---
+
+## 参考資料
+
+* [dplyr of Datacamp](https://www.datacamp.com/courses/dplyr-data-manipulation-r-tutorial): 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。
+* [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
+
+---
+
+dplyrはR業界の神様、[Hadley Wickham](http://hadley.nz/)が作成したRのパッケージである。 R内蔵の関数でもデータの管理はできるが、dplyrを使うと生産性は何倍も向上する。
+
+dplyrの主な使い道は以下のとおり
