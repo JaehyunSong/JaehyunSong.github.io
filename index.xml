@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>大数の法則</title>
+      <link>/simulation/llm/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/simulation/llm/</guid>
+      <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
+    </item>
+    
+    <item>
       <title>dplyr入門</title>
       <link>/dplyr_intro/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>

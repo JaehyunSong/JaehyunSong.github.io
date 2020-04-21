@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>大数の法則</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.66.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-96999602-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">大数の法則</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../../">Home</a></li>
+                            
+                                <li><a href="../../about/">CV</a></li>
+                            
+                                <li><a href="../../research/">Research</a></li>
+                            
+                                <li><a href="../../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../../software/">Software</a></li>
+                            
+                                <li><a href="../../notes/">Notes</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>大数の法則</h2>
+        <h5></h5>
+        
+<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content">
+
+
+<div id="大数の法則" class="section level2">
+<h2>大数の法則？</h2>
+<p>統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」のは問題ない。しかし、その手法の背後にあるこれらの法則を知らないと「使う」ことは出来ても「理解」することは難しい。</p>
+<p>とにかく、この法則は強法則と弱法則があるが、簡単に言えば「<em>ある母集団から相互独立的に選ばれたサンプルのサイズが大きければ大きいほど、そのサンプルの平均値(標本平均)は母集団の平均値(母平均)に収斂する</em>」ということ。</p>
+<p>…？</p>
+<p>簡単に言ったつもりだが、今見たらそこまで分かりやすい表現ではなさそうだ。</p>
+<p>例えば地球上にいる人々の身長の平均値はどうだろうか。適当に一人を選んで身長を測ったとしても、それが地球上の人々の平均値と一致する可能性は極めて低い(厳密に言うとゼロ)し、直観的に考えてみて平均値からかなり外れている可能性も高いと考えられる。 しかし、１億人くらいを適当に選んで平均をとったら？その場合は先と比べてかなり平均値に近いと考えられる。これが大数の法則である。 今後やってみようと思うが、「中心極限定理」とは違う。中心極限定理は「標本平均の分布」の話であって、「標本平均そのもの」の話ではない。 ならば早速シミュレーションしてみよう。
+　
+—</p>
+</div>
+<div id="シミュレーション設計" class="section level2">
+<h2>シミュレーション設計</h2>
+<p>太平洋の島国、ナウルの人々の収入の平均値はいくらだろうか。なぜナウルかというと理由はない。ちょうど人口が１万くらいの何らかの例が欲しかっただけ。あくまでも用いるデータは仮想のデータである。</p>
+<ul>
+<li>ナウルの人口は1万210人とする。</li>
+<li>ナウル国民の所得の平均値は約5千ドルであって、標準偏差2千ドルの正規分布をしている。つまり、所得が5千ドルくらいの人が最も多く、9千ドル以上とか1千ドル以下は非常に少ない。</li>
+<li>この1万210人の所得データから無作為にナウル人を抽出し、抽出されたナウル人の所得の平均値をとる。</li>
+<li>ただし、無作為に「何人」ととるかが問題。ここでは大数の法則を経験的に確認するために1人から1000人まで徐々に増やしていく。</li>
+<li>一回抽出したデータはまた抽出されることもある（復元抽出）。これはサンプリングが相互独立であるためである。</li>
+</ul>
+<hr />
+</div>
+<div id="シミュレーションコードfor-r" class="section level2">
+<h2>シミュレーション・コード(for R)</h2>
+<p>まずは、ナウル国民の所得を生成する。ナウル国民の所得は<span class="math inline">\(\text{Normal}(\mu = 5000, \sigma = 2000)\)</span>の分布をしている。</p>
+<pre class="r"><code># まずはtidyverseを読み込んでおく
+library(tidyverse)</code></pre>
+<pre><code>## ─ Attaching packages ───────────────── tidyverse 1.3.0 ─</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
+## ✓ tibble  3.0.0     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ─ Conflicts ─────────────────── tidyverse_conflicts() ─
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>nauru.income &lt;- round(rnorm(10210, mean = 5000, sd = 2000))</code></pre>
+<p>これで10210人のナウル国民の所得を設定した。ならば生成されたデータを見てみる。</p>
+<pre class="r"><code>summary(nauru.income)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -3194    3653    5033    5030    6411   12194</code></pre>
+<p>ナウル国民の所得の平均は5017ドル、最小値は-1761だそうだ。「所得にマイナスなんてあり得るか！」と思うかも知れないが、細かいことは無視しよう。知りたいのは大数の法則を経験的に確認することであって、ナウル国民の所得ではない。</p>
+<p>次はヒストグラムで見てみよう。</p>
+<pre class="r"><code>plot1 &lt;- ggplot(data = data.frame(nauru.income)) + 
+    geom_histogram(aes(x = nauru.income, y = ..density..),
+                   fill = &quot;white&quot;, color = &quot;black&quot;, binwidth = 500) +
+    stat_function(fun = dnorm, args = list(mean = 5000, sd = 2000),
+                  color = &quot;red&quot;, size = 1) +
+    labs(x = &quot;Income&quot;, y = &quot;Density&quot;)
+
+print(plot1)</code></pre>
+<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>きれいな正規分布の形をしている。 次は、この1万210人の国民からランダムに抽出し、抽出された人の所得の平均値を見てみる。抽出される人数は最初は一人とし、徐々に増やしていく。</p>
+<pre class="r"><code>#まずは空のデータフレイムを作っとく
+result.df &lt;- data.frame(n = NA, mean = NA) 
+
+for(i in 1:1000){
+  result.df[i, ] &lt;- c(i, mean(sample(nauru.income, i, replace = TRUE)))
+}</code></pre>
+<pre class="r"><code>head(result.df)</code></pre>
+<pre><code>##   n     mean
+## 1 1 3088.000
+## 2 2 5130.000
+## 3 3 4195.333
+## 4 4 4486.750
+## 5 5 4087.800
+## 6 6 4811.333</code></pre>
+<p>抽出された人が一人の場合、彼(女)の所得は7710ドルであって、6人の場合、彼(女)らの所得の平均値は5502ドルである。 これをグラフで見ると</p>
+<pre class="r"><code>plot2 &lt;- ggplot(data = result.df) + 
+  geom_hline(yintercept = mean(result.df$mean), color = &quot;red&quot;) +
+  geom_line(aes(x = n, y = mean)) +
+  labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
+print(plot2)</code></pre>
+<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>抽出される人が多くなるほど、その平均値はナウル国民の平均値に近づいていくことが確認できる。</p>
+<blockquote>
+<p>「でも、こんなの偶然かも知れないじゃん！」</p>
+</blockquote>
+<p>と思うこともできる。この作業を10回くらいやってみよう。</p>
+<pre class="r"><code>result.df &lt;- as.data.frame(matrix(rep(NA, 1000 * 11), ncol = 11))
+names(result.df) &lt;- c(&quot;n&quot;, paste0(&quot;mean&quot;, 1:10))
+
+for (i in 1:1000) {
+    result.df[i, 1] &lt;- i
+    for (j in 2:11) {
+        result.df[i, j] &lt;- c(mean(sample(nauru.income, i, replace = TRUE)))   
+    }
+}
+
+plot3 &lt;- ggplot(data = result.df) +
+    geom_hline(yintercept = 5000, color = &quot;red&quot;) +
+    geom_line(aes(x = n, y = mean1), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean2), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean3), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean4), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean5), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean6), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean7), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean8), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean9), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean10), alpha = 0.2) +
+  labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
+
+print(plot3)</code></pre>
+<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>だいたいこんなもんだ。むしろ、偶然とろろかよりきれいなグラフが出来上がったと思う。もうちょっと拡大してみると</p>
+<pre class="r"><code>plot4 &lt;- result.df %&gt;%
+    filter(n &lt;= 100) %&gt;%
+    ggplot() +
+    geom_hline(yintercept = 5000, color = &quot;red&quot;) +
+    geom_line(aes(x = n, y = mean1), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean2), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean3), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean4), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean5), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean6), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean7), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean8), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean9), alpha = 0.2) +
+    geom_line(aes(x = n, y = mean10), alpha = 0.2) +
+  labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
+
+print(plot4)</code></pre>
+<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>こんなもんだ。抽出される人が多くなると彼(女)らの所得の平均値は全体国民の平均値に近づく。 これが大数の法則である。 直観的に考えれば当然のことでもあるが、この法則といつかはシミュレーションする中心極限定理などによって(伝統的)統計学による「仮説検定」が成り立っているとも言える。</p>
+<p>PS. 伝統的統計学と表現したのはベイズ統計学の仮説検定とは異なるためである。</p>
+</div>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
