@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Simulations on Jaehyun Song, Ph.D.</title>
-    <link>/simulation/</link>
-    <description>Recent content in Simulations on Jaehyun Song, Ph.D.</description>
+    <title>ベイズ統計学 on Jaehyun Song, Ph.D.</title>
+    <link>/tags/%E3%83%99%E3%82%A4%E3%82%BA%E7%B5%B1%E8%A8%88%E5%AD%A6/</link>
+    <description>Recent content in ベイズ統計学 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/simulation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%E3%83%99%E3%82%A4%E3%82%BA%E7%B5%B1%E8%A8%88%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>/simulation/mhp/</guid>
       <description>ゲームの説明 統計学の教科書でしばしば紹介される例の一つがモンティ・ホール問題である。これはアメリカのテレビ番組の中のゲームであり、様々な論争</description>
-    </item>
-    
-    <item>
-      <title>大数の法則</title>
-      <link>/simulation/llm/</link>
-      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/simulation/llm/</guid>
-      <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
     </item>
     
   </channel>

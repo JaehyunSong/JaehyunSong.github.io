@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>モンティ・ホール問題</title>
+      <link>/simulation/mhp/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/simulation/mhp/</guid>
+      <description>ゲームの説明 統計学の教科書でしばしば紹介される例の一つがモンティ・ホール問題である。これはアメリカのテレビ番組の中のゲームであり、様々な論争</description>
+    </item>
+    
+    <item>
       <title>大数の法則</title>
       <link>/simulation/llm/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>

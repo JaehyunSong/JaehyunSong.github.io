@@ -3,8 +3,7 @@ title: 大数の法則
 author: Jaehyun Song
 date: '2020-04-21'
 slug: llm
-categories: []
-tags: ["統計学"]
+tags: ["統計学", "シミュレーション", "仮説検定"]
 ---
 
 ## 大数の法則？
@@ -67,7 +66,7 @@ print(plot1)
 
 きれいな正規分布の形をしている。 次は、この1万210人の国民からランダムに抽出し、抽出された人の所得の平均値を見てみる。抽出される人数は最初は一人とし、徐々に増やしていく。
 
-```{r}
+```{r, cache = TRUE}
 #まずは空のデータフレイムを作っとく
 result.df <- data.frame(n = NA, mean = NA) 
 
@@ -96,7 +95,7 @@ print(plot2)
 
 と思うこともできる。この作業を10回くらいやってみよう。
 
-```{r}
+```{r, cache = TRUE}
 result.df <- as.data.frame(matrix(rep(NA, 1000 * 11), ncol = 11))
 names(result.df) <- c("n", paste0("mean", 1:10))
 
