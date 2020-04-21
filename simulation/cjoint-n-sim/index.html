@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../fa/fontawesome-all.js"></script>
+        <script defer src="../../fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tags</title>
+        <title>Conjoint Analysis Sample Size Simulator</title>
         
         <style>
 
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../../css/main.css">
 
 
 
@@ -67,9 +67,6 @@
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
  <meta name="generator" content="Hugo 0.66.0" />
         
-            <link href="../tags/index.xml" rel="alternate" type="application/rss&#43;xml" title="Jaehyun Song, Ph.D." />
-            <link href="../tags/index.xml" rel="feed" type="application/rss&#43;xml" title="Jaehyun Song, Ph.D." />
-        
 
         
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
@@ -95,7 +92,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">Tags</a>
+                    <a class="navbar-brand visible-xs" href="#">Conjoint Analysis Sample Size Simulator</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -106,17 +103,17 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../">Home</a></li>
+                                <li><a href="../../">Home</a></li>
                             
-                                <li><a href="../about/">CV</a></li>
+                                <li><a href="../../about/">CV</a></li>
                             
-                                <li><a href="../research/">Research</a></li>
+                                <li><a href="../../research/">Research</a></li>
                             
-                                <li><a href="../teaching/">Teaching</a></li>
+                                <li><a href="../../teaching/">Teaching</a></li>
                             
-                                <li><a href="../software/">Software</a></li>
+                                <li><a href="../../software/">Software</a></li>
                             
-                                <li><a href="../notes/">Notes</a></li>
+                                <li><a href="../../notes/">Notes</a></li>
                             
                         </ul>
                     
@@ -142,102 +139,63 @@
 
 <main>
 
-    <h2>Tags</h2>
+    <div>
+        <h2>Conjoint Analysis Sample Size Simulator</h2>
+        <h5></h5>
+        
+<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
 
-     <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90/">コンジョイント分析</a></h4>
-    <h5>April 21, 2020</h5>
-    
+<a href="../../tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90"><kbd class="item-tag">コンジョイント分析</kbd></a>
 
 
+    </div>
+
+    <div align="start" class="content">
+
+
+<div id="使い方" class="section level2">
+<h2>使い方</h2>
+<pre><code># コードの読み込み
+source(&quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&quot;)
+
+Cjoint.N.Sim(n.Attr, n.Level, n.Choice, n.Sim, n.Min, n.Max, 
+             chk.dupli, min.occur)</code></pre>
+<ul>
+<li>並列演算を行うため<code>doMC</code>, <code>foreach</code>パッケージを事前にインストールしておいてください。
+<ul>
+<li>CPUがシングルコアの場合でも、一応インストールしておいて下さい。</li>
+<li>本シミュレーターは、CPUのコア全てを使います。(並列演算を行わない場合と比べて数倍早くなりました。)</li>
+</ul></li>
+<li>引数について
+<ul>
+<li><code>n.Attr</code> : 属性の数 (スカラー)</li>
+<li><code>n.Level</code> : 各属性の水準の数 (ベクトル)</li>
+<li><code>n.Choice</code> : プロフィールの数 (スカラー)</li>
+<li><code>n.Sim</code> : 各サンプルサイズごとのシミュレーション回数 (スカラー)</li>
+<li><code>n.Min</code> : 最小サンプルサイズ (スカラー)</li>
+<li><code>n.Max</code> : 最大サンプルサイズ (スカラー)</li>
+<li><code>chk.dupli</code> : 同じ水準が同時に出現したら欠損扱いする (論理型)</li>
+<li><code>min.occur</code> : 各属性が何回出現されるべきか (スカラー)</li>
+</ul></li>
+<li><strong>Tip:</strong> 属性の数が結果に与える影響はほぼありません。したがって、<code>n.Attr = 2</code>とし、<code>n.Level = c(2, 水準の最大数)</code>と設定した方が早くシミュレーションできます。</li>
+</ul>
+<hr />
 </div>
-  <div class="item">
+<div id="実行例" class="section level2">
+<h2>実行例</h2>
+<pre class="r"><code>source(&quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&quot;)
 
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/">シミュレーション</a></h4>
-    <h5>April 21, 2020</h5>
-    
-
-
+Cjoint.N.Sim(n.Attr = 2, n.Level = c(2, 4), n.Choice = 2, 
+             n.Sim = 100, n.Min = 1300, n.Max = 1550, 
+             chk.dupli = TRUE, min.occur = 500)</code></pre>
+<pre><code>##  要求されたパッケージ foreach をロード中です</code></pre>
+<pre><code>##  要求されたパッケージ iterators をロード中です</code></pre>
+<pre><code>##  要求されたパッケージ parallel をロード中です</code></pre>
+<p><img src="../../simulation/2020-04-21-cjoint_n_sim_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../tags/%E3%83%99%E3%82%A4%E3%82%BA%E7%B5%B1%E8%A8%88%E5%AD%A6/">ベイズ統計学</a></h4>
-    <h5>April 21, 2020</h5>
-    
-
-
 </div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../tags/%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A/">仮説検定</a></h4>
-    <h5>April 21, 2020</h5>
-    
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6/">統計学</a></h4>
-    <h5>April 21, 2020</h5>
-    
-
-
-</div>
- 
 
 </main>
-
-
-
-<div class="pages">
-
-    
-
-    
-        <a class="icon pages-icon" href="../tags/page/2/" rel="next">
-            <i class="fa fa-arrow-right"></i>
-        </a>
-    
-
-</div>
-
-
 
         <footer>
             <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>

@@ -1,6 +1,6 @@
 ---
 title: モンティ・ホール問題 
-author: ~
+author: Jaehyun Song
 date: '2020-04-21'
 slug: mhp
 tags: ["シミュレーション", "ベイズ統計学"]

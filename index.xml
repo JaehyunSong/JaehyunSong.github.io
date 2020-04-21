@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>Conjoint Analysis Sample Size Simulator</title>
+      <link>/simulation/cjoint-n-sim/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/simulation/cjoint-n-sim/</guid>
+      <description>使い方 # コードの読み込み source(&amp;quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&amp;quot;) Cjoint.N.Sim(n.Attr, n.Level, n.Choice, n.Sim, n.Min, n.Max, chk.dupli, min.occur) 並列演算を行うためdoMC, foreachパッケージを事前にインストールしておいてください。 CPU</description>
+    </item>
+    
+    <item>
       <title>モンティ・ホール問題</title>
       <link>/simulation/mhp/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
