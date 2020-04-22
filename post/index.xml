@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jaehyun Song, Ph.D.</title>
-    <link>/post/</link>
+    <link>https://www.jaysong.net/post/</link>
     <description>Recent content in Posts on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jaysong.net/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>/post/logit-classification/</link>
+      <link>https://www.jaysong.net/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/logit-classification/</guid>
+      <guid>https://www.jaysong.net/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     
     <item>
       <title>モデルの比較と選択の基準:AICとBIC</title>
-      <link>/post/aic-bic/</link>
+      <link>https://www.jaysong.net/post/aic-bic/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/aic-bic/</guid>
+      <guid>https://www.jaysong.net/post/aic-bic/</guid>
       <description>以下の論文の要点のみを整理したものです。短い論文なので直接読んだ方がいいかも知れません。 Aho, Ken, DeWayne Derryberry, and Teri Peterson. 2014. &amp;quot;Model Selection for Ecologists: the Worldviews of AIC and BIC.&amp;quot; Ecology. 95 (3) pp. 631-636 AIC BIC Is</description>
     </item>
     
     <item>
       <title>方法論探求</title>
-      <link>/post/keio-ms/</link>
+      <link>https://www.jaysong.net/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/keio-ms/</guid>
+      <guid>https://www.jaysong.net/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>/post/kobe2019-qpm1/</link>
+      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/kobe2019-qpm1/</guid>
+      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス 授業</description>
     </item>
     
     <item>
       <title>政治学実験</title>
-      <link>/post/waseda2019exppolsci/</link>
+      <link>https://www.jaysong.net/post/waseda2019exppolsci/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/waseda2019exppolsci/</guid>
+      <guid>https://www.jaysong.net/post/waseda2019exppolsci/</guid>
       <description>内容 スライド データ 参考資料 1 イントロダクション スライド RStudio 2 因果推論の考え方 スライド データ R Code 3 因果推論の諸方法 スライド Matching DID RDD R Code 4 ランダム化</description>
     </item>
     
     <item>
       <title>Qualtricsの順序尺度をランダムに逆転させる方法</title>
-      <link>/post/qualtrics-order-randomizer/</link>
+      <link>https://www.jaysong.net/post/qualtrics-order-randomizer/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/qualtrics-order-randomizer/</guid>
+      <guid>https://www.jaysong.net/post/qualtrics-order-randomizer/</guid>
       <description>Q. なんか知りませんが、賛成します？ 賛成 どちらかと言えば賛成 どちらとも言えない どちらかと言えば反対 反対 のような設問があるとします。別にこれだけ</description>
     </item>
     
     <item>
       <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
-      <link>/post/2020-04-05-conjointsdt-fixattributes/</link>
+      <link>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-05-conjointsdt-fixattributes/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</guid>
       <description>以下のようなコンジョイント分析を行うとする。 候補者1 候補者2 性別 男性 女性 年齢 39歳 35歳 二郎の値段 ラーメンの値下げ ラーメンの値段の現状維持 二</description>
     </item>
     
     <item>
       <title>ランダムにイメージパスを取得するスクリプト</title>
-      <link>/post/2020-04-05-randomimagepath/</link>
+      <link>https://www.jaysong.net/post/2020-04-05-randomimagepath/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-05-randomimagepath/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-05-randomimagepath/</guid>
       <description>Qualtricsでランダムに画像を出す場合、2〜3枚の中から1枚を見せるならそれぞれの質問文を用意し、Randomizerを使うことで十分</description>
     </item>
     
     <item>
       <title>私の道具箱</title>
-      <link>/post/toolbox/</link>
+      <link>https://www.jaysong.net/post/toolbox/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/toolbox/</guid>
+      <guid>https://www.jaysong.net/post/toolbox/</guid>
       <description>文書・メモ作成 Evernote メモ用で使っています。メモを体系的に管理する時は便利です。検索機能もかなり強力です。 Sublime Text Sublime Textは無料でも、有料でもないシ</description>
     </item>
     
     <item>
       <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
-      <link>/post/2020-04-03-/</link>
+      <link>https://www.jaysong.net/post/2020-04-03-/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-03-/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-03-/</guid>
       <description>以下のようなリスト実験を行うとする。 統制群 Q1. 以下のうち、経験したことのあるものはいくつありますか？ タバコ お酒 コーヒー 紅茶 1個 2. 2個 3. 3個 4. 4</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <link>https://www.jaysong.net/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>https://www.jaysong.net/post/2015-07-23-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
@@ -114,30 +114,30 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/post/creating-a-new-theme/</link>
+      <link>https://www.jaysong.net/post/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/creating-a-new-theme/</guid>
+      <guid>https://www.jaysong.net/post/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>/post/goisforlovers/</link>
+      <link>https://www.jaysong.net/post/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/goisforlovers/</guid>
+      <guid>https://www.jaysong.net/post/goisforlovers/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/post/hugoisforlovers/</link>
+      <link>https://www.jaysong.net/post/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/hugoisforlovers/</guid>
+      <guid>https://www.jaysong.net/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo
@@ -148,10 +148,10 @@ Follow the following steps:
     
     <item>
       <title>Migrate from Jekyll</title>
-      <link>/post/migrate-from-jekyll/</link>
+      <link>https://www.jaysong.net/post/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/migrate-from-jekyll/</guid>
+      <guid>https://www.jaysong.net/post/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
