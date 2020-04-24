@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/r/</link>
+    <link>/tags/r/</link>
     <description>Recent content in R on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/tags/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>dplyr入門</title>
-      <link>https://www.jaysong.net/dplyr_intro/</link>
+      <link>/dplyr_intro/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/dplyr_intro/</guid>
+      <guid>/dplyr_intro/</guid>
       <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>https://www.jaysong.net/post/logit-classification/</link>
+      <link>/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/logit-classification/</guid>
+      <guid>/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     

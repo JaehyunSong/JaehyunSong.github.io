@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>データハンドリング on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0/</link>
+    <link>/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0/</link>
     <description>Recent content in データハンドリング on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>dplyr入門</title>
-      <link>https://www.jaysong.net/dplyr_intro/</link>
+      <link>/dplyr_intro/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/dplyr_intro/</guid>
+      <guid>/dplyr_intro/</guid>
       <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
