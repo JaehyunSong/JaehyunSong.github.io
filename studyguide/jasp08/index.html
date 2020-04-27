@@ -152,7 +152,104 @@
 
     </div>
 
-    <div align="start" class="content"></div>
+    <div align="start" class="content"><h2 id="データの前処理">データの前処理</h2>
+<ul>
+<li>今回は新しいデータを使います。<a href="http://tintstyle.cafe24.com/Data/JASP/JASP_Sample2.csv">JASP_Sample2.csv</a>ファイルをダウンロードし、ExcelまたはLibreOfficeなどでで開きます。</li>
+<li>このファイルの中身は以下の通りです
+<ul>
+<li><code>ID</code></li>
+<li><code>Pref</code>: 出身都道府県 (番号はISO/JIS番号に従ってます。詳細はネットで検索)</li>
+<li><code>Univ</code>: 在学中の大学 (1 = K大学, 2 = O大学)</li>
+<li><code>Grade</code>: 学年</li>
+<li><code>Sex</code>: 性別 (1 = 女性, 2 = 男性)</li>
+<li><code>Tako</code>: たこ焼き器を所有しているか (0 = いいえ; 1 = はい)</li>
+<li><code>TakoN</code>: たこ焼きを何個持っているか</li>
+<li><code>Blood</code>: 血液型 (1 = A; 2 = B, 3 = O, 4 = AB, 5 = その他、不明)</li>
+<li><code>Phone</code>: 使用スマホ (1 = Android, 2 = iPhone)</li>
+</ul>
+</li>
+<li>クロス表を作成するためには名目変数か順序変数を用いますが、都道府県は名目変数とはいえ、47種類もあるので、今回は「大阪出身か否か」の変数を作成します。</li>
+</ul>
+<p><img src="../Figs/JASP08_01.png" alt=""></p>
+<ul>
+<li>データの右端に新しい変数名（<code>Osaka</code>）を作成します。</li>
+</ul>
+<p><img src="../Figs/JASP08_02.png" alt=""></p>
+<ul>
+<li>下のセルに以下のように入力します。
+<ul>
+<li><code>=IF(B2 = 27, 1, 0)</code></li>
+</ul>
+</li>
+<li>これは、「もしB2セルの値が27なら、1を、それ以外の場合は0を表示する」という意味です。ちなみに27は大阪府の番号ですね。</li>
+</ul>
+<p><img src="../Figs/JASP08_03.png" alt=""></p>
+<ul>
+<li>同じ数式を何回も書くのは面倒くさいですね。先ほど入力したセル (J2)の右下に小さい「■」がありますね。これをクリックしたままデータの最下段までドラッグします。</li>
+</ul>
+<p><img src="../Figs/JASP08_04.png" alt=""></p>
+<ul>
+<li>同じ数式の中で「B2」と書かれている部分だけが修正され、自動的にコピペされます。このまま保存し、JASPで読み込みます。</li>
+</ul>
+<hr>
+<h2 id="jaspによる分析">JASPによる分析</h2>
+<ul>
+<li>JASPでファイルを読み込みます。</li>
+</ul>
+<p><img src="../Figs/JASP08_05.png" alt=""></p>
+<ul>
+<li>まずは値ラベルを付けます。ラベルを付ける変数名「<code>Tako</code>」をクリックしたら、上段にラベル作成の画面が出てきますね。ここで「0 = Not Having」、「1 = Having」と入力し、「X」をクリックします。</li>
+<li>同じく「<code>Osaka</code>」変数も「0 = From non-Osaka」、「1 = From Osaka」のラベルを付けます。</li>
+</ul>
+<p><img src="../Figs/JASP08_06.png" alt=""></p>
+<ul>
+<li>分析メニュの「Frequencies」→「Contingency Tables」をクリックします。</li>
+</ul>
+<p><img src="../Figs/JASP08_07.png" alt=""></p>
+<ul>
+<li>行と列に入る変数を選択します。ここでは「<code>Tako</code>」は「Columns (列)」へ、「<code>Osaka</code>」は「Rows (行)」へ入れます。
+<ul>
+<li>行と列を逆に入れても問題ありません。自分が見やすい表になるように、色々試してみましょう。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../Figs/JASP08_08.png" alt=""></p>
+<ul>
+<li>つづいて、下段の「Statistics」と「Cells」をクリックします。</li>
+</ul>
+<p><img src="../Figs/JASP08_09.png" alt=""></p>
+<ul>
+<li>まずは「Statistics」からです。ここでは「χ<!-- raw HTML omitted -->2<!-- raw HTML omitted -->(カイ二乗統計量)」と「χ<!-- raw HTML omitted -->2<!-- raw HTML omitted --> continuity correction (連続補正)」にチェックをします。通常、2 x 2のクロス表の場合は、連続補正された統計量で解釈した方が望ましいと言われています。
+<ul>
+<li>ちなみに、JASP 0.8.1ではFisherの直接法 (exact test)の結果は表示されません。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../Figs/JASP08_10.png" alt=""></p>
+<ul>
+<li>つづいて、「Cell」画面です。</li>
+<li>ここではCountsの「Observed」と「Expected」を選択します。それぞれ、「観測値」と「期待値」を意味します。</li>
+<li>Percentagesでは「Row」のみチェックをしました。もし、行単位だけでなく、列単位の割合も見たい場合は「Column」、全体における割合なら「Total」にチェックします。解釈しやすくなるよう、自分で試してみてください。</li>
+</ul>
+<p><img src="../Figs/JASP08_11.png" alt=""></p>
+<ul>
+<li>これがクロス表です。全体的に大阪出身の方がたこ焼き器を持っている傾向が見えますね。この「出身地とたこ焼き器の有無」の関係は統計的に有意な関係でしょうか。</li>
+</ul>
+<p><img src="../Figs/JASP08_12.png" alt=""></p>
+<ul>
+<li>下に表示される表がカイ二乗検定の結果です。今回は2 x 2のクロス表なので連続補正 (χ<!-- raw HTML omitted -->2<!-- raw HTML omitted --> continuity correction)のp値をみたら0.063でした。一般的に使われる有意水準 (= 0.05)より大きいので
+<ul>
+<li>
+<blockquote>
+<p>「出身地とたこ焼き器の有無は連関しているとは言えない」</p>
+</blockquote>
+</li>
+<li>という結果になります。</li>
+<li>むろん、単純なχ2統計量を基準にした場合は、統計的に有意な連関が見られますね。どっちを見るかは分析者の責任です。</li>
+</ul>
+</li>
+</ul>
+</div>
 
 </main>
 
