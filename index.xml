@@ -66,69 +66,6 @@
     </item>
     
     <item>
-      <title>JASP入門講座10</title>
-      <link>/studyguide/jasp10/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp10/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座4</title>
-      <link>/studyguide/jasp04/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp04/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座5</title>
-      <link>/studyguide/jasp05/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp05/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座6</title>
-      <link>/studyguide/jasp06/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp06/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座7</title>
-      <link>/studyguide/jasp07/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp07/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座8</title>
-      <link>/studyguide/jasp08/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp08/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
-      <title>JASP入門講座9</title>
-      <link>/studyguide/jasp09/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/studyguide/jasp09/</guid>
-      <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
-    </item>
-    
-    <item>
       <title>データの編集・ラベル作成</title>
       <link>/studyguide/jasp03/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
@@ -144,6 +81,69 @@
       
       <guid>/studyguide/jasp02/</guid>
       <description>実習用データセットをダウンロードしておきます。 JASPを起動します。 これがJASPの画面です。SPSSなどに比べればかなりシンプルですね。出</description>
+    </item>
+    
+    <item>
+      <title>可視化</title>
+      <link>/studyguide/jasp05/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp05/</guid>
+      <description>棒グラフ まずは棒グラフを作ってみましょう。棒グラフの横軸は各項目を意味し、縦軸は各項目の数 (度数)、あるいはデータ内で占める割合を意味します</description>
+    </item>
+    
+    <item>
+      <title>差の検定 (1)：t検定</title>
+      <link>/studyguide/jasp06/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp06/</guid>
+      <description>今回は2群の平均値の差に統計的に有意な差があるか否かを検定するt検定のやり方を紹介します。 独立したサンプルのt検定 ここでは東日本と西日本にお</description>
+    </item>
+    
+    <item>
+      <title>差の検定 (2)：一元配置分散分析 (ANOVA)</title>
+      <link>/studyguide/jasp07/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp07/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>独立性の検定</title>
+      <link>/studyguide/jasp08/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp08/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>相関分析</title>
+      <link>/studyguide/jasp09/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp09/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>線形回帰分析</title>
+      <link>/studyguide/jasp10/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>記述統計</title>
+      <link>/studyguide/jasp04/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/studyguide/jasp04/</guid>
+      <description>ここでは記述統計の出し方を実習します。ここでは以下の項目について実習します。 名目変数・順序変数 度数分布表 連続変数 平均値、中央値、分散、標準偏</description>
     </item>
     
     <item>

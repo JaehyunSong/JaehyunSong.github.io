@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>JASP入門講座6</title>
+        <title>差の検定 (1)：t検定</title>
         
         <style>
 
@@ -92,7 +92,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">JASP入門講座6</a>
+                    <a class="navbar-brand visible-xs" href="#">差の検定 (1)：t検定</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -142,7 +142,7 @@
 <main>
 
     <div>
-        <h2>JASP入門講座6</h2>
+        <h2>差の検定 (1)：t検定</h2>
         <h5></h5>
         
 <a href="../../tags/jasp"><kbd class="item-tag">JASP</kbd></a>
@@ -152,31 +152,82 @@
 
     </div>
 
-    <div align="start" class="content"><h2 id="はじめに">はじめに</h2>
-<p>このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成したデータを使ったものです。</p>
-<p>このページは以下の環境で作成されました。</p>
-<ul>
-<li>Macbook Pro 13″ (2016 Late)</li>
-<li>macOS Sierra 10.12.4</li>
-<li>macOSの言語設定は英語</li>
-<li>JASPのバージョンは 0.8.8.1</li>
+    <div align="start" class="content"><ul>
+<li>今回は2群の平均値の差に統計的に有意な差があるか否かを検定する<em>t</em>検定のやり方を紹介します。</li>
 </ul>
-<p>Windowsも操作法に関しましては大きな違いはないかと思います。</p>
-<p>内容についてご不明な点、ご指摘がありましたら宋までご連絡頂けましたら幸いです。</p>
+<h2 id="独立したサンプルのt検定">独立したサンプルの<em>t</em>検定</h2>
+<ul>
+<li>ここでは東日本と西日本における維新の得票率の差を検定してみましょう。
+<ul>
+<li>ここでは「維新の得票率」変数 (<code>Ishin</code>)を東/西日本変数 (<code>Region2</code>)変数で分割して平均値の差を比較する分析なので「独立サンプルのt検定」となります。</li>
+<li>まだはっきり理解できていない場合は色々とクリックしてみながら試行錯誤してみましょう。そのうちに慣れてきます。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../Figs/JASP06_01.png" alt=""></p>
+<ul>
+<li>分析メニューの「T-Test」から「Independent Samples T-Test」を選択します。</li>
+</ul>
+<p><img src="../Figs/JASP06_02.png" alt=""></p>
+<ul>
+<li>まず、どの変数の差を見るかを決めるのが「Dependent Variables (従属変数)」になります。今回は維新の得票率の差を検定するので「<code>Ishin</code>」変数を選択し、「▶」をクリックして従属変数リストへ入れます。</li>
+<li>次は、維新の得票率変数をどのようにグループ分けするかを決めます。これが「Grouping Variable」です。今回は東日本/西日本に分けたいので、この二つの地域情報が格納されている「Region2」変数をクリックし、「▶」をクリックしてグループ化変数へ入れます。</li>
+</ul>
+<p><img src="../Figs/JASP06_03.png" alt=""></p>
+<ul>
+<li>選択項目がかなり多いですが、今回はできるかぎりSPSSの結果に近い結果が得られるようにします。
+<ul>
+<li>「Tests」は「Students」のチェックを外し、「Welch」にチェツクします。「Student」は等分散を仮定したt検定であり、「Welch」は等分散を仮定しないt検定です。私の講義では基本的に等分散を仮定しない分析結果を採用すると申し上げましたね。したがって、「Welch」にチェックを入れます。むろん、他の項目にチェックを入れても結果が変わることはありませんので、試してみてください。</li>
+<li>「Additional Statistics」は分析結果をより楽に解釈できるような情報を提供してくれます。
+<ul>
+<li>「Mean Difference」: 二つのグループの平均値の差を表示します。この場合、東/西日本における維新の得票率の差ですね。</li>
+<li>「Confidential Interval」: 本講義では説明しませんでしたが、95%信頼区間です。教科書や講義によっては「この区間内に真の差分が含まれる確率は95%です！」と説明されますが、ウソです。注意してください。具体的な意味に関してはネットを調べてみましょう。</li>
+<li>「Descriptive Statistics」: 記述統計です。維新の得票率の記述統計を東日本/西日本に分けて表示してくれるので便利です。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../Figs/JASP06_04.png" alt=""></p>
+<ul>
+<li>分析結果です。下段の「Descriptives」は記述統計なので説明は省きます。ここでは上段の「t」、「df」、「p」、「Mean Difference」について説明します。
+<ul>
+<li>t: t統計量です。具体的な説明は省きますが、レポート・論文なので結果を報告する際には必ず必要です。</li>
+<li>df: 自由度です。これも報告の際には必要になる項目です。</li>
+<li>p: 有意確率 (p値)です。今回は0.033ですね。一般的に有意水準 (α)は0.05であり、この結果はp値がαより小さいので帰無仮説は棄却されます。つまり、「東日本と西日本の維新の得票率には統計的に有意な差がある (95%水準で差がある)。」と解釈できます。</li>
+<li>Mean Difference: 平均値の差分です。この場合は「東日本における維新の得票率 – 西日本における維新の得票率」となります。つまり、西日本が3.370%ポイント高いという意味です。</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h2 id="目次">目次</h2>
-<ol>
-<li>JASPの入手・インストール</li>
-<li>データの読み込み</li>
-<li>データの編集・ラベル作成</li>
-<li>記述統計</li>
-<li>可視化</li>
-<li>差の検定 (1)：t検定</li>
-<li>差の検定 (2)：一元配置分散分析 (ANOVA)</li>
-<li>独立性の検定</li>
-<li>相関分析</li>
-<li>線形回帰分析</li>
-</ol>
+<h2 id="対応サンプルのt検定">対応サンプルのt検定</h2>
+<ul>
+<li>今回は公明党と共産党の得票率に統計的に有意な差があるか否かを検定してみましょう。</li>
+</ul>
+<p><img src="../Figs/JASP06_05.png" alt=""></p>
+<ul>
+<li>分析メニューの「T-Tests」の「Paired Samples T-Test」を選択します。</li>
+</ul>
+<p><img src="../Figs/JASP06_06.png" alt=""></p>
+<ul>
+<li>比較する二つの変数を右のリストへ投入します。今回は公明党と共産党の得票率を比較するので、「<code>Komei</code>」変数と「<code>JCP</code>」変数を選択し、「▶」をクリックして右のリストへ移動させます。</li>
+</ul>
+<p><img src="../Figs/JASP06_07.png" alt=""></p>
+<ul>
+<li>独立サンプルのt検定と似たような画面ですね。右の「Additional Statistics」は先ほどの画面と同一なので説明は省略します。ここで異なるのは「Tests」の方です（下段のAssumption Checksにも等分散検定の項目がなくなりました）。
+<ul>
+<li>ここでは「Student」一択です。「Wilcoxonの符号順位検定 (signed rank)」についてはネットで調べてみましょう。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../Figs/JASP06_08.png" alt=""></p>
+<ul>
+<li>以上が分析結果です。結果の読み方は独立サンプルのt検定と同じです。
+<ul>
+<li>この場合、有意確率 (p値)が0.001未満であり、一般的な有意水準 (α = 0.05)より小さいので帰無仮説は棄却されます。つまり、「公明党と共産党の得票率には統計的に有意な差がある (95%水準で差がある)。」と解釈できます。また、「Mean Difference」は4.150であり、公明党の方が高いので「公明党の得票率は共産党より統計的に有意に高い (95%水準で高い)。」とも言えるでしょうね。</li>
+</ul>
+</li>
+</ul>
 </div>
 
 </main>

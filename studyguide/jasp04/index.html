@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>JASP入門講座4</title>
+        <title>記述統計</title>
         
         <style>
 
@@ -92,7 +92,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">JASP入門講座4</a>
+                    <a class="navbar-brand visible-xs" href="#">記述統計</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -142,7 +142,7 @@
 <main>
 
     <div>
-        <h2>JASP入門講座4</h2>
+        <h2>記述統計</h2>
         <h5></h5>
         
 <a href="../../tags/jasp"><kbd class="item-tag">JASP</kbd></a>
@@ -152,31 +152,154 @@
 
     </div>
 
-    <div align="start" class="content"><h2 id="はじめに">はじめに</h2>
-<p>このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成したデータを使ったものです。</p>
-<p>このページは以下の環境で作成されました。</p>
+    <div align="start" class="content"><ul>
+<li>ここでは記述統計の出し方を実習します。ここでは以下の項目について実習します。
+
 <ul>
-<li>Macbook Pro 13″ (2016 Late)</li>
-<li>macOS Sierra 10.12.4</li>
-<li>macOSの言語設定は英語</li>
-<li>JASPのバージョンは 0.8.8.1</li>
+<li>名目変数・順序変数
+
+<ul>
+<li>度数分布表</li>
+</ul></li>
+<li>連続変数
+
+<ul>
+<li>平均値、中央値、分散、標準偏差、四分位数</li>
+</ul></li>
+</ul></li>
 </ul>
-<p>Windowsも操作法に関しましては大きな違いはないかと思います。</p>
-<p>内容についてご不明な点、ご指摘がありましたら宋までご連絡頂けましたら幸いです。</p>
+
+<p><figure><img src="../Figs/JASP04_01.png" alt=""></figure></p>
+
+<ul>
+<li>分析メニューの「Descriptives」をクリックし、「Descriptive Statistics」を選択します。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_02.png" alt=""></figure></p>
+
+<ul>
+<li>記述統計を出すためにはまず、変数選択領域で記述統計を出す変数を選択します。つづいて、どのような統計量を出すかを指定し、必要によっては記述統計をグラフで表現します。また、名目変数や順序変数の場合は、度数分布表を作成することも可能です。</li>
+<li>ここでは可視化を除いて説明します。記述統計の可視化については今後の講義で説明します。</li>
+</ul>
+
 <hr>
-<h2 id="目次">目次</h2>
-<ol>
-<li>JASPの入手・インストール</li>
-<li>データの読み込み</li>
-<li>データの編集・ラベル作成</li>
-<li>記述統計</li>
-<li>可視化</li>
-<li>差の検定 (1)：t検定</li>
-<li>差の検定 (2)：一元配置分散分析 (ANOVA)</li>
-<li>独立性の検定</li>
-<li>相関分析</li>
-<li>線形回帰分析</li>
-</ol>
+
+<h2 id="名目変数の記述統計">名目変数の記述統計</h2>
+
+<ul>
+<li>名目変数の場合、主に「度数分布表」と「最頻値」を使います。これは、各値が何個あるかを表で表したものです。
+
+<ul>
+<li>名目変数の場合、ほとんどの場合において平均値、中央値、分散に意味がありません。</li>
+</ul></li>
+<li>今回の実習データに名目変数は「<code>ID</code>」、「<code>Region2</code>」、「<code>Region3</code>」があります。ここでは「Region3」の度数分布表を作成しましょう。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_03.png" alt=""></figure></p>
+
+<ul>
+<li>変数選択領域の左側にはデータ内の変数名が並んでいます。ここから「<code>Region3</code>」を選択し、「▶」をクリックして右側のボックスに移動します。</li>
+<li>この時点で右側の分析結果画面に何か表が出てきますが、無視して先に進みましょう。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_04.png" alt=""></figure></p>
+
+<ul>
+<li>「Display frequency tables (nominal and ordinal variables)」にチェックを入れます。
+
+<ul>
+<li>「度数分布表の表示 (名目・順序変数)」という意味です。つまり、連続変数を入れてからチェックをしても何も変わりません。</li>
+</ul></li>
+<li>ここまでしたら度数分布表が表示されます。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_05.png" alt=""></figure></p>
+
+<ul>
+<li>分析結果画面の見方について説明します。
+
+<ul>
+<li>Descriptive Statics (記述統計)
+
+<ul>
+<li>Valid（有効ケースの数）：欠損値を除外した値の数です。今回は欠損値がないので47個です。</li>
+<li>Missing（欠損値の数）：欠損値、つまり空白になっているセルの数です。今回は欠損値がないので0です。</li>
+<li>以下の部分：平均値、標準偏差、最小値、最大値です。しかし、名目変数の場合、これらの統計量に意味がないので無視します。しかし、順序変数の場合は、ここも見ます。</li>
+</ul></li>
+<li>Frequencies (度数 / 頻度)
+
+<ul>
+<li>1列目: 各項目のラベルが表示されます。もし、ラベルを付けなかった場合は、元の数字が出ます。</li>
+<li>Frequency（2列目）：各項目がデータ内に何個あるかです。たとえば、データ内にKanto (関東)は7個、Chubu (中部)は9個含まれていることを意味します。
+
+<ul>
+<li>ここから最頻値 (mode)が算出できます。ここではChubu (中部)とChugoku_Shikoku (中国・四国)の度数が9個であり、最も多い値ですね。したがって、最頻値はChubuとChugoku_Shikokuです。</li>
+</ul></li>
+<li>Percent（3列目）：各項目がデータの何割を占めているかです。たとえば、Hokkaido_Tohoku (北海道・東北)は全体の14.9%を占めています。</li>
+<li>Valid Percent（4列目）：上のPercentと似ていますが、この場合は、ケースの数ではなく、上の表にあるValid (有効ケース数)で割った値です。今回は欠損値がないので「ケース数 = 有効ケース数」なのでPercentと一致します。</li>
+<li>Cumulative Percent（5列目）：累積割合です。北海道・東北の累積割合は14.9%、関東の累積割合は北海道・東北の累積割合 + 関東の割合 = 29.8のような感じです。最終的には100.0%になりますね。</li>
+</ul></li>
+</ul></li>
+<li>これで名目変数の記述統計の出し方は終わりです。順序変数の度数分布表も同様に出します。</li>
+</ul>
+
+<hr>
+
+<h2 id="連続変数の記述統計">連続変数の記述統計</h2>
+
+<ul>
+<li>これからは連続変数の記述統計を出してみましょう。ここでの連続変数は各政党の得票率です。先ほどと同様、「記述統計」画面を出します。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_06.png" alt=""></figure></p>
+
+<ul>
+<li>各政党の得票率は「<code>LDP</code>」から「<code>SDP</code>」変数です。これを同時に選択し (<code>LDP</code>を選択→Shiftキーを押したまま<code>SDP</code>選択)、「▶」をクリックしてから、下段の「Statistics」(統計量)を選択します。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_07.png" alt=""></figure></p>
+
+<ul>
+<li>どのような統計量を表示させるかが選択できます。ここでは私の担当講義で取り上げた統計量について説明します。
+
+<ul>
+<li>分位数
+
+<ul>
+<li>「Quartiles」：四分位数</li>
+</ul></li>
+<li>代表値
+
+<ul>
+<li>「Mean」：平均値</li>
+<li>「Median」：中央値</li>
+<li>「Mode」：最頻値</li>
+</ul></li>
+<li>散らばり具合
+
+<ul>
+<li>「Std. deviation」：標準偏差</li>
+<li>「Variance」：分散</li>
+<li>「Minimum」：最小値</li>
+<li>「Maximum」：最大値</li>
+</ul></li>
+<li>歪度・尖度：ここでは説明しません。</li>
+</ul></li>
+<li>この中から、「Quartiles」、「Mean」、「Median」、「Std. deviation」、「Variance」、「Minimum」、「Maximum」にチェックを入れます。</li>
+</ul>
+
+<p><figure><img src="../Figs/JASP04_08.png" alt=""></figure></p>
+
+<ul>
+<li>分析結果画面に記述統計の表が表示されます。</li>
+<li>代表値と散らばり具合は先ほどの図と同様です。ここでは分位数についてのみ説明します。
+
+<ul>
+<li>「25th percentile」: 第1四分位点 (Q<sub>1/4</sub>)</li>
+<li>「50th percentile」: 第2四分位点 (Q<sub>2/4</sub>) =中央値</li>
+<li>「75th percentile」: 第3四分位点 (Q<sub>3/4</sub>)</li>
+</ul></li>
+</ul>
 </div>
 
 </main>
