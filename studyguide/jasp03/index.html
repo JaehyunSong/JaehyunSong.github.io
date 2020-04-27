@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>JASP入門講座3</title>
+        <title>データの編集・ラベル作成</title>
         
         <style>
 
@@ -92,7 +92,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">JASP入門講座3</a>
+                    <a class="navbar-brand visible-xs" href="#">データの編集・ラベル作成</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -142,7 +142,7 @@
 <main>
 
     <div>
-        <h2>JASP入門講座3</h2>
+        <h2>データの編集・ラベル作成</h2>
         <h5></h5>
         
 <a href="../../tags/jasp"><kbd class="item-tag">JASP</kbd></a>
@@ -152,31 +152,57 @@
 
     </div>
 
-    <div align="start" class="content"><h2 id="はじめに">はじめに</h2>
-<p>このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成したデータを使ったものです。</p>
-<p>このページは以下の環境で作成されました。</p>
-<ul>
-<li>Macbook Pro 13″ (2016 Late)</li>
-<li>macOS Sierra 10.12.4</li>
-<li>macOSの言語設定は英語</li>
-<li>JASPのバージョンは 0.8.8.1</li>
+    <div align="start" class="content"><ul>
+<li>JASP Ver. 0.8.8.1では、データの中身を修正することはできません。中身の編集はExcel、LibreOffice、Numbersなどを利用します。ここでは尺度の指定とラベルの作成について紹介します。</li>
+<li>データ領域の1行目は変数名です。1列目の変数名は「<code>ID</code>」ですね。</li>
 </ul>
-<p>Windowsも操作法に関しましては大きな違いはないかと思います。</p>
-<p>内容についてご不明な点、ご指摘がありましたら宋までご連絡頂けましたら幸いです。</p>
-<hr>
-<h2 id="目次">目次</h2>
+<p><img src="../Figs/JASP03_01.png" alt=""></p>
+<ul>
+<li>変数名の左には可愛いアイコンが付いていますね。これはこの変数の尺度を表します。このアイコンをクリックしてみましょう。</li>
+</ul>
+<p><img src="../Figs/JASP03_02.png" alt=""></p>
+<ul>
+<li>3種類のアイコンがあります。各アイコンの意味は
 <ol>
-<li>JASPの入手・インストール</li>
-<li>データの読み込み</li>
-<li>データの編集・ラベル作成</li>
-<li>記述統計</li>
-<li>可視化</li>
-<li>差の検定 (1)：t検定</li>
-<li>差の検定 (2)：一元配置分散分析 (ANOVA)</li>
-<li>独立性の検定</li>
-<li>相関分析</li>
-<li>線形回帰分析</li>
+<li>上のアイコン (定規)：連続変数 (間隔・比率変数)</li>
+<li>中間のアイコン (棒グラフ)：順序変数</li>
+<li>下のアイコン (3つの円)：名目変数</li>
 </ol>
+</li>
+<li>IDは定規のアイコンなので、デフォルト上では連続変数扱いされていることが分かります。しかし、IDは名目変数ですね。なので、一番下にあるアイコンをクリックし、名目変数として指定してあげましょう。
+<ul>
+<li>尺度については私が担当する授業で説明しました。</li>
+<li>IDの場合、数値自体には意味がありませんので、名目変数です。別に北海道が2で、青森が1でも問題ないからです。あくまでも便宜上割り当てたものです。</li>
+</ul>
+</li>
+<li>他に財政力指数 (<code>Zaisei</code>)や高齢者・若者人口比 (<code>Over65</code>, <code>Under30</code>)、各政党の得票率 (<code>LDP</code>から<code>SDP</code>まで)は連続変数ですし、ちゃんと連続変数として指定されているのでこのままでいいでしょう。</li>
+</ul>
+<p><img src="../Figs/JASP03_03.png" alt=""></p>
+<ul>
+<li>一番右の変数 (Region2とRegion3)は「地域区分」(東日本、西日本など)です。地域区分もまた名目変数です。つまり、「東日本 = 1 / 西日本 =2」でも、「東日本 = 9 / 西日本 = 5」でも問題ないということです。これはちゃんと名目変数になっていますね。</li>
+<li>しかし、1と2といった数値で表示されているとちょっと意味が分かりづらくなりますね。このような名目変数・順序変数にはラベルを付けることができます。</li>
+<li>今回は変数名のアイコンではなく、変数名そのものをクリックします。</li>
+</ul>
+<p><img src="../Figs/JASP03_04.png" alt=""></p>
+<ul>
+<li>このようなラベル指定画面がデータ領域に表示されます。Labelの「1」を「East_Japan」に、「2」を「West_Japan」に書き換えましょう。</li>
+</ul>
+<p><img src="../Figs/JASP03_05.png" alt=""></p>
+<ul>
+<li>先までデータ領域で「1」と表示された値が「East_Japan」になりました。ここではお見せしませんが、下の方に行けば、「2」は「West_Japan」になっていることが分かります。</li>
+<li>ここまでしたら、ラベル指定画面右上の「X」ボタンをクリックします。</li>
+<li>「<code>Region3</code>」変数もやってみましょう。各値の意味は以下のとおりです。
+<ul>
+<li>１：Hokkaido_Tohoku</li>
+<li>２：Kanto</li>
+<li>３：Chubu</li>
+<li>４：Kinki</li>
+<li>５：Chugoku_Shikoku</li>
+<li>６：Kyushu_Okinawa</li>
+</ul>
+</li>
+<li>「Region3」列も数値が文字列に変換されたことが確認できます。</li>
+</ul>
 </div>
 
 </main>
