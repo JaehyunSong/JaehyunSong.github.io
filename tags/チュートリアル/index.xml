@@ -89,7 +89,7 @@
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/studyguide/jasp09/</guid>
-      <description></description>
+      <description>今回は相関係数の算出と散布図の作成のやり方を紹介します。使用するデータはこれまで主に使ってきたJASP_Sample.csvデータです。 各都</description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/studyguide/jasp10/</guid>
-      <description></description>
+      <description>今回は線形回帰分析です。使用するデータはこれまでと同様、都道府県ごとの財政力指数、高齢者比、各政党の得票率データです。 推定するモデルは以下の</description>
     </item>
     
     <item>

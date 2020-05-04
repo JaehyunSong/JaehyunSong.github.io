@@ -125,7 +125,7 @@
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/studyguide/jasp09/</guid>
-      <description></description>
+      <description>今回は相関係数の算出と散布図の作成のやり方を紹介します。使用するデータはこれまで主に使ってきたJASP_Sample.csvデータです。 各都</description>
     </item>
     
     <item>
@@ -134,7 +134,7 @@
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/studyguide/jasp10/</guid>
-      <description></description>
+      <description>今回は線形回帰分析です。使用するデータはこれまでと同様、都道府県ごとの財政力指数、高齢者比、各政党の得票率データです。 推定するモデルは以下の</description>
     </item>
     
     <item>
@@ -251,7 +251,7 @@
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tutorial/</guid>
-      <description>JASP入門講座 あるあーるのほん (執筆中) 矢内勇生先生との共著</description>
+      <description>JASP入門講座 あるあーるのほん (Social Science Computing with R) 略して「あるアホ」です 正式名称は未定です... Rプログラミングの入門教材 現在、執筆中です 矢内勇生先</description>
     </item>
     
     <item>

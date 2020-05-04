@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.66.0" />
+ <meta name="generator" content="Hugo 0.69.2" />
         
 
         
@@ -152,11 +152,44 @@
 
     </div>
 
-    <div align="start" class="content"><p><img src="../Figs/JASP09_01.png" alt=""></p>
+    <div align="start" class="content"><ul>
+<li>
+<p>今回は相関係数の算出と散布図の作成のやり方を紹介します。使用するデータはこれまで主に使ってきた<a href="http://tintstyle.cafe24.com/Data/JASP/JASP_Sample.csv">JASP_Sample.csv</a>データです。</p>
+</li>
+<li>
+<p>各都道府県の財政力指数、65歳以上人口比、自民党の得票率の相関係数と散布図を作成してみましょう。</p>
+</li>
+</ul>
+<p><img src="../Figs/JASP09_01.png" alt=""></p>
+<ul>
+<li>分析メニューの「Regression」から「Correlation Matrix」を選択します。</li>
+</ul>
 <p><img src="../Figs/JASP09_02.png" alt=""></p>
+<ul>
+<li>相関係数を算出する変数を投入します。相関係数は<em>連続変数と順序変数のみ</em>計算可能です。今回は財政力指数 (<code>Zaisei</code>)と65歳以上人口比 (<code>Over65</code>)、自民党の得票率 (<code>LDP</code>)を選択し、右の変数リストへ移動させます。</li>
+</ul>
 <p><img src="../Figs/JASP09_03.png" alt=""></p>
+<ul>
+<li>つづいて、下の「Correlation Coefficients」を見てみましょう。基本的には「Pearson」にチェックされていますが、今回は全ての変数が連続変数なのでこのままにしておきます。
+<ul>
+<li>順序変数同士の場合は「Spearman (スペアマンの順位相関係数)」が「Kendall’s tau-b (ケンダルの順位相関係数)」を選択します。</li>
+<li>順序変数と連続変数同士なら好みによりますが、筆者なら順位相関係数を使います。全てにチェックを入れてみて、結果を比較してみるのもいいでしょう。</li>
+</ul>
+</li>
+<li>づぎは、「Plot」です。基本的にはチェックが入っていませんが、今回は全てチェックします。</li>
+</ul>
 <p><img src="../Figs/JASP09_04.png" alt=""></p>
+<ul>
+<li>まず、相関係数からです。読み方としては列と行がクロスするところです。対角線上は同じ変数同士なので常に相関係数は1であり、省略されています。また対角線の下は上と対称なので、ここも省略ですね。</li>
+<li>たとえば、「<code>Zaisei</code>」と「<code>LDP</code>」の相関係数は-0.457であり、p値は約0.001です。つまり、財政力指数が高い都道府県ほど、自民党の得票率が低いことを意味し、この相関関係は統計的に有意な関係と言えます。</li>
+<li>同じく、「<code>Over65</code>」と「<code>LDP</code>」の相関係数は0.546、p値は0.001未満ですね。ここもまた、高齢者が多い都道府県ほど、自民党の得票率は高いことを意味し、統計的に有意な関係が確認できます。</li>
+</ul>
 <p><img src="../Figs/JASP09_05.png" alt=""></p>
+<ul>
+<li>つづいてプロットですね。まず、対角線上は各変数のヒストグラムです。これは先ほど「Plot」で「Densities for variables」をチェックすることで表示されます。</li>
+<li>対角線上の上は散布図です。「<code>Zaisei</code>」と「<code>Over65</code>」の散布図を見ると負の関係が見られますね。</li>
+<li>対角線上の下は相関係数です。「<code>Zaisei</code>」と「<code>LDP</code>」の相関係数は-0.457ですね。先ほどの表の結果とも一致します。</li>
+</ul>
 </div>
 
 </main>

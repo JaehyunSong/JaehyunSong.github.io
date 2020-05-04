@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.66.0" />
+ <meta name="generator" content="Hugo 0.69.2" />
         
 
         
@@ -152,12 +152,53 @@
 
     </div>
 
-    <div align="start" class="content"><p><img src="../Figs/JASP09_01.png" alt=""></p>
-<p><img src="../Figs/JASP09_02.png" alt=""></p>
-<p><img src="../Figs/JASP09_03.png" alt=""></p>
-<p><img src="../Figs/JASP09_04.png" alt=""></p>
-<p><img src="../Figs/JASP09_05.png" alt=""></p>
-<p><img src="../Figs/JASP09_06.png" alt=""></p>
+    <div align="start" class="content"><ul>
+<li>今回は線形回帰分析です。使用するデータはこれまでと同様、都道府県ごとの財政力指数、高齢者比、各政党の得票率データです。</li>
+<li>推定するモデルは以下のモデルです。</li>
+</ul>
+<p><span class="math display">\[\text{自民党得票率} = \beta_0+ \beta_1 \cdot \text{65歳以上人口比} + \beta_2 \cdot \text{財政力指数} + \varepsilon\]</span></p>
+<ul>
+<li>回帰分析から推定される値は切片 (<span class="math inline">\(\beta_0\)</span>)と傾き (<span class="math inline">\(\beta_{1, 2}\)</span>)、誤差項 (<span class="math inline">\(\varepsilon\)</span>)の標準偏差です。
+<ul>
+<li>私の講義において誤差項 (<span class="math inline">\(\varepsilon\)</span>)については説明しませんでした。簡単に説明すると、切片・傾きが推定されれば自民党得票率の予測値が計算できます。この予測値を実際の観測値から引いたものを「残差 (residuals)」といい、これは「誤差 (errors)」の推定値となります。この残差の標準偏差が誤差項の標準偏差の推定値となります。</li>
+<li>回帰分析が最良線形不偏推定量 (Best Linear Unbiased Estimator; BLUE)であるためには、いくつかの条件がありますが、中には「誤差項が正規分布に従うこと」、「誤差項の分散が説明変数と独立していること」、「誤差項間の相関 (自己相関)がないこと」など、誤差項に関するものが多いです。したがって、実際のデータ分析では残差のグラフなどを見て回帰分析の診断 (diagnostic)を行います。</li>
+</ul></li>
+</ul>
+<p><img src="../Figs/JASP10_01.png" /></p>
+<ul>
+<li>分析メニューの「Regression」から「Linear Regression」を選択します。</li>
+</ul>
+<p><img src="../Figs/JASP10_02.png" /></p>
+<ul>
+<li>応答変数と説明変数を指定します。自民党得票率 (<code>LDP</code>)変数を選択し、「Dependent」へ投入します。「Dependent variable」は従属変数とも呼ばれ、私の授業では「応答変数」と説明しました。</li>
+<li>続いて財政力指数 (<code>Zaisei</code>)と65歳以上人口比 (<code>Over65</code>)を「Covariates」へ投入します。「Covariates」は「共変量」と訳されますが、この授業では「説明変数」と説明しました。</li>
+</ul>
+<p><img src="../Figs/JASP10_03.png" /></p>
+<ul>
+<li>実はこれだけでも線形回帰分析は出来ますが、可能なら記述統計も一緒に見る習慣を付けましょう。下にある「Statistics」をクリックします。</li>
+</ul>
+<p><img src="../Figs/JASP10_04.png" /></p>
+<ul>
+<li>「Descriptive」にチェックを入れます。これで記述統計が表示されます。</li>
+</ul>
+<p><img src="../Figs/JASP10_05.png" /></p>
+<ul>
+<li>右側の結果画面に表が4つ出てきますが、ここでは「Model Summary」と「Coefficients」の表のみを紹介します。まず、「Model Summary」で見るところは「Adjusted <span class="math inline">\(R^2\)</span>」です。これが調整済み決定係数です。この値が高いほど良いモデルと言われています。</li>
+</ul>
+<p><img src="../Figs/JASP10_06.png" /></p>
+<ul>
+<li>つづいて、「Coefficients」の表です。まず、第2列目には変数名が書いてあります。「Intercept」は切片を意味します。</li>
+<li>「Unstandardized」列が係数です。つまり、最初にお見せしたモデルだと以下のような数式に表現できます。</li>
+</ul>
+<p><span class="math display">\[自民得票率の予測値 = 16.479 + 0.864 \times 65歳以上人口比 – 4.482 \times 財政力指数 \]</span></p>
+<ul>
+<li>「Standard Error」は標準誤差です。レポートや論文などに掲載する際には係数と一緒に出す場合が多いです。</li>
+<li>「Standardized」は標準化係数です。係数同士の大きさを比較する際に用いられます。</li>
+<li>「t」は係数を標準誤差で割った値です。</li>
+<li>「p」は有意確率 (p値)です。この結果だと「65歳以上人口比」の係数が95%水準で有意ですね。</li>
+<li>65歳以上人口比が1%ポイント上がると、自民党の得票率は0.864%ポイント上がりますね。高齢者が0%で、財政力指数が0の都道府県なら自民得票率の予測値は16.479%になります。</li>
+<li>財政力指数や高齢者比は「中心化」あるいは「標準化」した方が良いですが、現在、JASP内でデータの修正はできません。中心化や単位変換などをする場合は他の表計算ソフトや統計ソフトでデータを修正することになります。</li>
+</ul>
 </div>
 
 </main>
