@@ -17,7 +17,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>R</title>
+        <title>Rによるオブジェクト指向プログラミング入門</title>
         
         <style>
 
@@ -78,9 +78,6 @@
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
  <meta name="generator" content="Hugo 0.70.0" />
         
-            <link href="../../tags/r/index.xml" rel="alternate" type="application/rss&#43;xml" title="Jaehyun Song, Ph.D." />
-            <link href="../../tags/r/index.xml" rel="feed" type="application/rss&#43;xml" title="Jaehyun Song, Ph.D." />
-        
 
         
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
@@ -106,7 +103,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">R</a>
+                    <a class="navbar-brand visible-xs" href="#">Rによるオブジェクト指向プログラミング入門</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -155,74 +152,67 @@
 
 <main>
 
-    <h2>R</h2>
-
-     <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../../r/oop_intro/">Rによるオブジェクト指向プログラミング入門</a></h4>
-    <h5>May 20, 2020</h5>
-    
+    <div>
+        <h2>Rによるオブジェクト指向プログラミング入門</h2>
+        <h5></h5>
+        
 <a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
 <a href="https://www.jaysong.net/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0"><kbd class="item-tag">プログラミング</kbd></a>
 
 
+    </div>
 
+    <div align="start" class="content"><div id="まずは例から" class="section level1">
+<h1>1. まずは例から</h1>
+<pre class="r"><code>Vector1 &lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1)
+Vector2 &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;D&quot;, &quot;B&quot;, &quot;E&quot;, &quot;A&quot;, &quot;A&quot;, &quot;D&quot;, &quot;C&quot;, &quot;C&quot;)</code></pre>
+<pre class="r"><code>summary(Vector1)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.00    5.70    8.50   12.00</code></pre>
+<pre class="r"><code>summary(Vector2)</code></pre>
+<pre><code>##    Length     Class      Mode 
+##        10 character character</code></pre>
+<p>同じ<code>summary()</code>関数ですが、中のデータのタイプによって動きが異なります。これがオブジェクト指向プログラミングにおいて「<strong>多態性</strong> (polymorphism)」と呼ばれる概念です。同じ関数でもデータ型、またはデータ構造に応じて異なる動きをすることです。ここでのデータ型やデータ構造を、OOPでは「<strong>クラス</strong> (class)」と呼びます。クラスは<code>class()</code>関数で確認することができます。</p>
+<pre class="r"><code>class(Vector1)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>class(Vector2)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p><code>Vector1</code>はnumeric、<code>Vector2</code>はcharacterです。もし、無理矢理に<code>Vector1</code>のクラスをcharacterに変えればどうなるでしょうか。クラスの変更は<code>class(オブジェクト名) &lt;- "クラス名"</code>でできます。一つのオブジェクトは複数のクラスが持てますが、これはOOPの「<strong>継承</strong> (inheritance)」概念に関係するので後で解説します。ここではまず、<code>Vector1</code>のクラスをcharacterにし、もう一回<code>summary()</code>を使ってみましょう。</p>
+<pre class="r"><code>class(Vector1) &lt;- &quot;character&quot;
+summary(Vector1)</code></pre>
+<pre><code>##    Length     Class      Mode 
+##        10 character character</code></pre>
+<p>データの中身は変わっていませんが、<code>summary()</code>関数の動き方が変わりました。このように、Rで頻繁に使う<code>summary()</code>、<code>print()</code>、<code>plot()</code>などの関数は様々なクラスの対応しております。<code>lm()</code>関数を使った回帰分析の結果オブジェクトのクラス名は<code>lm</code>であり、その結果を見るためにも<code>summary()</code>関数を使います。他にも<code>plot(lmオブジェクト名)</code>をすると回帰診断の図が表示されます。これができないと、各クラスに応じた関数を作成する必要がありますね。numeric型専用の<code>numeric_print()</code>、character型専用の<code>character_print()</code>、lm型専用の<code>lm_plot()</code>など…、覚えなきゃいけない関数が増えてきます。ユーザー側でも大変ですが、コードを作成する側も大変です。実際、下の図<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>を見ると、プログラマーにとって最も大変な仕事は「名付け」であることが分かります。</p>
+<p><img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" /><!-- --></p>
+<p>OOPの多態性にはこのような煩わしい仕事を軽減する機能があります。OOPにはここで紹介した多態性以外にも、「<strong>継承</strong> (inheritance)」、「<strong>カプセル化</strong> (encapsulation)」のような特徴があります。他にも人によっては「メッセージパッシング (message passing)」、「動的バインディング (dynamic binding)」などの特徴を述べたりしますが、詳しい話は専門書に譲り合いと思います。また、ここではRのS3クラスについて解説しますが、S3はカプセル化に対応しておりません。したがって、ここでは以下の概念について例と一緒に解説していきたいと思います。</p>
+<ol style="list-style-type: decimal">
+<li>オブジェクト (object)</li>
+<li>クラス (class)</li>
+<li>メソッド (method)</li>
+<li>多態性 (polymorphism)　</li>
+<li>継承 (inheritance)</li>
+</ol>
+<hr />
 </div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../../dplyr_intro/">dplyr入門</a></h4>
-    <h5>April 20, 2020</h5>
-    
-<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
-
-<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
-
-<a href="https://www.jaysong.net/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
-
-
-
+<div id="oopとは" class="section level1">
+<h1>2. OOPとは</h1>
 </div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="../../post/logit-classification/">Logistic Regressionによる分類と可視化・評価</a></h4>
-    <h5>April 20, 2020</h5>
-    
-<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
-
-<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
-
-<a href="https://www.jaysong.net/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92"><kbd class="item-tag">機械学習</kbd></a>
-
-
-
+<div id="rにおけるoop" class="section level1">
+<h1>3. RにおけるOOP</h1>
 </div>
- 
+<div id="とりあえず作ってみる" class="section level1">
+<h1>4. とりあえず作ってみる</h1>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>図の出典は<a href="https://www.itworld.com/article/2833265/don-t-go-into-programming-if-you-don-t-have-a-good-thesaurus.html">IT WORLD</a>です (アクセス: 2020-05-21)。<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</div>
 
 </main>
-
-
 
         <footer>
             <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rs on Jaehyun Song, Ph.D.</title>
+    <link>https://www.jaysong.net/r/</link>
+    <description>Recent content in Rs on Jaehyun Song, Ph.D.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jaysong.net/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rによるオブジェクト指向プログラミング入門</title>
+      <link>https://www.jaysong.net/r/oop_intro/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jaysong.net/r/oop_intro/</guid>
+      <description>1. まずは例から Vector1 &amp;lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1) Vector2 &amp;lt;- c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;C&amp;quot;) summary(Vector1) ## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 1.00 3.25 5.00 5.70 8.50 12.00 summary(Vector2) ## Length Class Mode ## 10 character character 同じsummary()関数</description>
+    </item>
+    
+  </channel>
+</rss>
