@@ -893,6 +893,7 @@ arrange(temp.flights, desc(sixty_delay))</code></pre>
 <pre class="r"><code>flights %&gt;% 
     group_by(month) %&gt;% 
     summarise(mean.delay = mean(dep_delay, na.rm = TRUE))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 12 x 2
 ##    month mean.delay
 ##    &lt;int&gt;      &lt;dbl&gt;
@@ -914,6 +915,7 @@ arrange(temp.flights, desc(sixty_delay))</code></pre>
     group_by(carrier) %&gt;% 
     summarise(mean.delay = mean(dep_delay, na.rm = TRUE)) %&gt;%
     arrange(desc(mean.delay))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 16 x 2
 ##    carrier mean.delay
 ##    &lt;chr&gt;        &lt;dbl&gt;
@@ -939,6 +941,7 @@ arrange(temp.flights, desc(sixty_delay))</code></pre>
     group_by(carrier, month) %&gt;%
     summarise(mean.delay = mean(dep_delay, na.rm = TRUE)) %&gt;%
     arrange(desc(mean.delay))</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;carrier&#39; (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 185 x 3
 ## # Groups:   carrier [16]
 ##    carrier month mean.delay
