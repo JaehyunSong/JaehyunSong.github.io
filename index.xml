@@ -2,300 +2,300 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/</link>
+    <link>/</link>
     <description>Recent content on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rによるオブジェクト指向プログラミング入門</title>
-      <link>https://www.jaysong.net/r/oop_intro/</link>
+      <link>/r/oop_intro/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/r/oop_intro/</guid>
+      <guid>/r/oop_intro/</guid>
       <description>1. まずは例から Vector1 &amp;lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1) Vector2 &amp;lt;- c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;C&amp;quot;) summary(Vector1) ## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 1.00 3.25 5.00 5.70 8.50 12.00 summary(Vector2) ## Length Class Mode ## 10 character character 同じsummary()関数</description>
     </item>
     
     <item>
       <title>JASPの入手・インストール</title>
-      <link>https://www.jaysong.net/studyguide/jasp01/</link>
+      <link>/studyguide/jasp01/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp01/</guid>
+      <guid>/studyguide/jasp01/</guid>
       <description>JASPのホームページへアクセスします。アドレスはhttps://jasp-stats.orgです。 DOWNLOADをクリックします。 自分の</description>
     </item>
     
     <item>
       <title>JASP入門講座</title>
-      <link>https://www.jaysong.net/studyguide/jasp/</link>
+      <link>/studyguide/jasp/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp/</guid>
+      <guid>/studyguide/jasp/</guid>
       <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
     </item>
     
     <item>
       <title>データの編集・ラベル作成</title>
-      <link>https://www.jaysong.net/studyguide/jasp03/</link>
+      <link>/studyguide/jasp03/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp03/</guid>
+      <guid>/studyguide/jasp03/</guid>
       <description>JASP Ver. 0.8.8.1では、データの中身を修正することはできません。中身の編集はExcel、LibreOffice、Numbersなどを利用しま</description>
     </item>
     
     <item>
       <title>データの読み込み</title>
-      <link>https://www.jaysong.net/studyguide/jasp02/</link>
+      <link>/studyguide/jasp02/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp02/</guid>
+      <guid>/studyguide/jasp02/</guid>
       <description>実習用データセットをダウンロードしておきます。 JASPを起動します。 これがJASPの画面です。SPSSなどに比べればかなりシンプルですね。出</description>
     </item>
     
     <item>
       <title>可視化</title>
-      <link>https://www.jaysong.net/studyguide/jasp05/</link>
+      <link>/studyguide/jasp05/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp05/</guid>
+      <guid>/studyguide/jasp05/</guid>
       <description>棒グラフ まずは棒グラフを作ってみましょう。棒グラフの横軸は各項目を意味し、縦軸は各項目の数 (度数)、あるいはデータ内で占める割合を意味します</description>
     </item>
     
     <item>
       <title>差の検定 (1)：t検定</title>
-      <link>https://www.jaysong.net/studyguide/jasp06/</link>
+      <link>/studyguide/jasp06/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp06/</guid>
+      <guid>/studyguide/jasp06/</guid>
       <description>今回は2群の平均値の差に統計的に有意な差があるか否かを検定するt検定のやり方を紹介します。 独立したサンプルのt検定 ここでは東日本と西日本にお</description>
     </item>
     
     <item>
       <title>差の検定 (2)：一元配置分散分析 (ANOVA)</title>
-      <link>https://www.jaysong.net/studyguide/jasp07/</link>
+      <link>/studyguide/jasp07/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp07/</guid>
+      <guid>/studyguide/jasp07/</guid>
       <description>前回のt検定では二つのグループ間、あるいは二つの変数の平均値に差があるか否かを検定しました。今回は3つ以上のグループ間に平均値の差があるかを</description>
     </item>
     
     <item>
       <title>独立性の検定</title>
-      <link>https://www.jaysong.net/studyguide/jasp08/</link>
+      <link>/studyguide/jasp08/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp08/</guid>
+      <guid>/studyguide/jasp08/</guid>
       <description>データの前処理 今回は新しいデータを使います。JASP_Sample2.csvファイルをダウンロードし、ExcelまたはLibreOffice</description>
     </item>
     
     <item>
       <title>相関分析</title>
-      <link>https://www.jaysong.net/studyguide/jasp09/</link>
+      <link>/studyguide/jasp09/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp09/</guid>
+      <guid>/studyguide/jasp09/</guid>
       <description>今回は相関係数の算出と散布図の作成のやり方を紹介します。使用するデータはこれまで主に使ってきたJASP_Sample.csvデータです。 各都</description>
     </item>
     
     <item>
       <title>線形回帰分析</title>
-      <link>https://www.jaysong.net/studyguide/jasp10/</link>
+      <link>/studyguide/jasp10/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp10/</guid>
+      <guid>/studyguide/jasp10/</guid>
       <description>今回は線形回帰分析です。使用するデータはこれまでと同様、都道府県ごとの財政力指数、高齢者比、各政党の得票率データです。 推定するモデルは以下の</description>
     </item>
     
     <item>
       <title>記述統計</title>
-      <link>https://www.jaysong.net/studyguide/jasp04/</link>
+      <link>/studyguide/jasp04/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp04/</guid>
+      <guid>/studyguide/jasp04/</guid>
       <description>ここでは記述統計の出し方を実習します。ここでは以下の項目について実習します。 名目変数・順序変数 度数分布表 連続変数 平均値、中央値、分散、標準偏</description>
     </item>
     
     <item>
       <title>黒ひげ危機一発</title>
-      <link>https://www.jaysong.net/simulation/kurohige/</link>
+      <link>/simulation/kurohige/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/kurohige/</guid>
+      <guid>/simulation/kurohige/</guid>
       <description>洗濯機が回ってる間、やることが無くて「黒ひげ危機一発」のシミュレーションをやってみた。 誰だったかは覚えてないが、学部1年生のサークル合宿の時</description>
     </item>
     
     <item>
       <title>Conjoint Analysis Sample Size Simulator</title>
-      <link>https://www.jaysong.net/simulation/cjoint-n-sim/</link>
+      <link>/simulation/cjoint-n-sim/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/cjoint-n-sim/</guid>
+      <guid>/simulation/cjoint-n-sim/</guid>
       <description>使い方 # コードの読み込み source(&amp;quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&amp;quot;) Cjoint.N.Sim(n.Attr, n.Level, n.Choice, n.Sim, n.Min, n.Max, chk.dupli, min.occur) 並列演算を行うためdoMC, foreachパッケージを事前にインストールしておいてください。 CPU</description>
     </item>
     
     <item>
       <title>モンティ・ホール問題</title>
-      <link>https://www.jaysong.net/simulation/mhp/</link>
+      <link>/simulation/mhp/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/mhp/</guid>
+      <guid>/simulation/mhp/</guid>
       <description>ゲームの説明 統計学の教科書でしばしば紹介される例の一つがモンティ・ホール問題である。これはアメリカのテレビ番組の中のゲームであり、様々な論争</description>
     </item>
     
     <item>
       <title>大数の法則</title>
-      <link>https://www.jaysong.net/simulation/llm/</link>
+      <link>/simulation/llm/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/llm/</guid>
+      <guid>/simulation/llm/</guid>
       <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
     </item>
     
     <item>
       <title>dplyr入門</title>
-      <link>https://www.jaysong.net/dplyr_intro/</link>
+      <link>/dplyr_intro/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/dplyr_intro/</guid>
+      <guid>/dplyr_intro/</guid>
       <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>https://www.jaysong.net/post/logit-classification/</link>
+      <link>/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/logit-classification/</guid>
+      <guid>/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     
     <item>
       <title>モデルの比較と選択の基準:AICとBIC</title>
-      <link>https://www.jaysong.net/post/aic-bic/</link>
+      <link>/post/aic-bic/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/aic-bic/</guid>
+      <guid>/post/aic-bic/</guid>
       <description>以下の論文の要点のみを整理したものです。短い論文なので直接読んだ方がいいかも知れません。 Aho, Ken, DeWayne Derryberry, and Teri Peterson. 2014. &amp;quot;Model Selection for Ecologists: the Worldviews of AIC and BIC.&amp;quot; Ecology. 95 (3) pp. 631-636 AIC BIC Is</description>
     </item>
     
     <item>
       <title>方法論探求</title>
-      <link>https://www.jaysong.net/post/keio-ms/</link>
+      <link>/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/keio-ms/</guid>
+      <guid>/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
+      <link>/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
+      <guid>/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス: Dropbox</description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>https://www.jaysong.net/teaching/</link>
+      <link>/teaching/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/teaching/</guid>
+      <guid>/teaching/</guid>
       <description>これまで担当してきた講義のシラバスおよび講義資料を公開します。学期が終了した講義については原則、シラバスのみの公開となります。過去の講義資料</description>
     </item>
     
     <item>
       <title>The ASA’s statement on p-values [日本語まとめ]</title>
-      <link>https://www.jaysong.net/asa_p_value_japanese/</link>
+      <link>/asa_p_value_japanese/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/asa_p_value_japanese/</guid>
+      <guid>/asa_p_value_japanese/</guid>
       <description>原文のリンク ASA Statement on Statistical Significance and P-values PDF 最終更新 2016年3月15日 注意事項 このページはアメリカ統計学会の雑誌、『The American Statistician』に掲</description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>https://www.jaysong.net/tutorial/</link>
+      <link>/tutorial/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/tutorial/</guid>
+      <guid>/tutorial/</guid>
       <description>R あるあーるのほん (Social Science Computing with R) 略して「あるアホ」です 正式名称は未定です... Rプログラミングの入門教材 現在、執筆中です 矢内勇生先生との共著 dp</description>
     </item>
     
     <item>
       <title>政治学実験</title>
-      <link>https://www.jaysong.net/post/waseda2019exppolsci/</link>
+      <link>/post/waseda2019exppolsci/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/waseda2019exppolsci/</guid>
+      <guid>/post/waseda2019exppolsci/</guid>
       <description>シラバス: PDF 内容 スライド データ 参考資料 1 イントロダクション スライド RStudio 2 因果推論の考え方 スライド データ R Code 3 因果推論の諸方法 スライド Matching DID RDD R Code</description>
     </item>
     
     <item>
       <title>Qualtricsの順序尺度をランダムに逆転させる方法</title>
-      <link>https://www.jaysong.net/post/qualtrics-order-randomizer/</link>
+      <link>/post/qualtrics-order-randomizer/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/qualtrics-order-randomizer/</guid>
+      <guid>/post/qualtrics-order-randomizer/</guid>
       <description>Q. なんか知りませんが、賛成します？ 賛成 どちらかと言えば賛成 どちらとも言えない どちらかと言えば反対 反対 のような設問があるとします。別にこれだけ</description>
     </item>
     
     <item>
       <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
-      <link>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</link>
+      <link>/post/2020-04-05-conjointsdt-fixattributes/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</guid>
+      <guid>/post/2020-04-05-conjointsdt-fixattributes/</guid>
       <description>以下のようなコンジョイント分析を行うとする。 候補者1 候補者2 性別 男性 女性 年齢 39歳 35歳 二郎の値段 ラーメンの値下げ ラーメンの値段の現状維持 二</description>
     </item>
     
     <item>
       <title>Qualtricsでコンジョイント分析</title>
-      <link>https://www.jaysong.net/studynote/methodology/qualtrics_conjoint/</link>
+      <link>/studynote/methodology/qualtrics_conjoint/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studynote/methodology/qualtrics_conjoint/</guid>
+      <guid>/studynote/methodology/qualtrics_conjoint/</guid>
       <description>Qualtricsでコンジョイント(Conjoint)分析のための調査票を作成する手順を紹介します。QualtricsにもConjoint機</description>
     </item>
     
     <item>
       <title>ランダムにイメージパスを取得するスクリプト</title>
-      <link>https://www.jaysong.net/post/2020-04-05-randomimagepath/</link>
+      <link>/post/2020-04-05-randomimagepath/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-05-randomimagepath/</guid>
+      <guid>/post/2020-04-05-randomimagepath/</guid>
       <description>Qualtricsでランダムに画像を出す場合、2〜3枚の中から1枚を見せるならそれぞれの質問文を用意し、Randomizerを使うことで十分</description>
     </item>
     
     <item>
       <title>私の道具箱</title>
-      <link>https://www.jaysong.net/post/toolbox/</link>
+      <link>/post/toolbox/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/toolbox/</guid>
+      <guid>/post/toolbox/</guid>
       <description>文書・メモ作成 Evernote メモ用で使っています。メモを体系的に管理する時は便利です。検索機能もかなり強力です。 Sublime Text Sublime Textは無料でも、有料でもないシ</description>
     </item>
     
     <item>
       <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
-      <link>https://www.jaysong.net/post/2020-04-03-/</link>
+      <link>/post/2020-04-03-/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-03-/</guid>
+      <guid>/post/2020-04-03-/</guid>
       <description>以下のようなリスト実験を行うとする。 統制群 Q1. 以下のうち、経験したことのあるものはいくつありますか？ タバコ お酒 コーヒー 紅茶 1個 2. 2個 3. 3個 4. 4</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://www.jaysong.net/post/2015-07-23-r-rmarkdown/</link>
+      <link>/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://www.jaysong.net/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>/post/2015-07-23-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
@@ -303,37 +303,37 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>Jaehyun Song, Ph.D.</title>
-      <link>https://www.jaysong.net/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/about/</guid>
+      <guid>/about/</guid>
       <description>[Full CV] Basic Information Name(Eng): SONG Jaehyun Name(Kor): 송 재현 Name(Jpn): 宋 財泫 (ソン ジェヒョン) Nationality: Republic of Korea Birth: Seoul, Korea Living: Kyoto, Japan Academic Position Apr. 2020 ~: Assistant Professor, Doshisha University Apr. 2018 ~ Mar.2020: Assistant Professor, Waseda University Partime Lecturer Oct. 2019 ~ Mar. 2020: Keio University Jul. 2019 ~ Aug. 2019 / Aug. 2018 ~ Sep.</description>
     </item>
     
     <item>
       <title>Notes</title>
-      <link>https://www.jaysong.net/notes/</link>
+      <link>/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/notes/</guid>
+      <guid>/notes/</guid>
       <description>道具箱 私の道具箱 社会調査 Qualtricsによるコンジョイント分析(Conjoint Analysis)の設問票作成方法 Conjoint SDTの用いる際、一</description>
     </item>
     
     <item>
       <title>Research</title>
-      <link>https://www.jaysong.net/research/</link>
+      <link>/research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/research/</guid>
+      <guid>/research/</guid>
       <description>学位論文 宋財泫. 2018.「争点空間の歪みと有権者の選択―伸縮近接性モデルによる争点投票理論の統合―」神戸大学法学研究科 Kernel 宋財泫. 2015.</description>
     </item>
     
     <item>
       <title>Software</title>
-      <link>https://www.jaysong.net/software/</link>
+      <link>/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/software/</guid>
+      <guid>/software/</guid>
       <description>R Packages BalanceR [GitHub] SimpleConjoint [GitHub] PRcalc [GitHub] Scripts For Qualtrics リスト実験をする時に項目をランダマイズするスクリプト ランダムにイメージパスを取得するスクリプト</description>
     </item>
     
