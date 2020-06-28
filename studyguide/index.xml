@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Studyguides on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/studyguide/</link>
+    <link>/studyguide/</link>
     <description>Recent content in Studyguides on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/studyguide/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/studyguide/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JASPの入手・インストール</title>
-      <link>https://www.jaysong.net/studyguide/jasp01/</link>
+      <link>/studyguide/jasp01/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp01/</guid>
+      <guid>/studyguide/jasp01/</guid>
       <description>JASPのホームページへアクセスします。アドレスはhttps://jasp-stats.orgです。 DOWNLOADをクリックします。 自分の</description>
     </item>
     
     <item>
       <title>JASP入門講座</title>
-      <link>https://www.jaysong.net/studyguide/jasp/</link>
+      <link>/studyguide/jasp/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp/</guid>
+      <guid>/studyguide/jasp/</guid>
       <description>はじめに このページが私が担当しているデータ分析系授業のために作成されたものです。したがって、ここで用いる例は全て私の担当科目の中で配布・作成</description>
     </item>
     
     <item>
       <title>データの編集・ラベル作成</title>
-      <link>https://www.jaysong.net/studyguide/jasp03/</link>
+      <link>/studyguide/jasp03/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp03/</guid>
+      <guid>/studyguide/jasp03/</guid>
       <description>JASP Ver. 0.8.8.1では、データの中身を修正することはできません。中身の編集はExcel、LibreOffice、Numbersなどを利用しま</description>
     </item>
     
     <item>
       <title>データの読み込み</title>
-      <link>https://www.jaysong.net/studyguide/jasp02/</link>
+      <link>/studyguide/jasp02/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp02/</guid>
+      <guid>/studyguide/jasp02/</guid>
       <description>実習用データセットをダウンロードしておきます。 JASPを起動します。 これがJASPの画面です。SPSSなどに比べればかなりシンプルですね。出</description>
     </item>
     
     <item>
       <title>可視化</title>
-      <link>https://www.jaysong.net/studyguide/jasp05/</link>
+      <link>/studyguide/jasp05/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp05/</guid>
+      <guid>/studyguide/jasp05/</guid>
       <description>棒グラフ まずは棒グラフを作ってみましょう。棒グラフの横軸は各項目を意味し、縦軸は各項目の数 (度数)、あるいはデータ内で占める割合を意味します</description>
     </item>
     
     <item>
       <title>差の検定 (1)：t検定</title>
-      <link>https://www.jaysong.net/studyguide/jasp06/</link>
+      <link>/studyguide/jasp06/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp06/</guid>
+      <guid>/studyguide/jasp06/</guid>
       <description>今回は2群の平均値の差に統計的に有意な差があるか否かを検定するt検定のやり方を紹介します。 独立したサンプルのt検定 ここでは東日本と西日本にお</description>
     </item>
     
     <item>
       <title>差の検定 (2)：一元配置分散分析 (ANOVA)</title>
-      <link>https://www.jaysong.net/studyguide/jasp07/</link>
+      <link>/studyguide/jasp07/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp07/</guid>
+      <guid>/studyguide/jasp07/</guid>
       <description>前回のt検定では二つのグループ間、あるいは二つの変数の平均値に差があるか否かを検定しました。今回は3つ以上のグループ間に平均値の差があるかを</description>
     </item>
     
     <item>
       <title>独立性の検定</title>
-      <link>https://www.jaysong.net/studyguide/jasp08/</link>
+      <link>/studyguide/jasp08/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp08/</guid>
+      <guid>/studyguide/jasp08/</guid>
       <description>データの前処理 今回は新しいデータを使います。JASP_Sample2.csvファイルをダウンロードし、ExcelまたはLibreOffice</description>
     </item>
     
     <item>
       <title>相関分析</title>
-      <link>https://www.jaysong.net/studyguide/jasp09/</link>
+      <link>/studyguide/jasp09/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp09/</guid>
+      <guid>/studyguide/jasp09/</guid>
       <description>今回は相関係数の算出と散布図の作成のやり方を紹介します。使用するデータはこれまで主に使ってきたJASP_Sample.csvデータです。 各都</description>
     </item>
     
     <item>
       <title>線形回帰分析</title>
-      <link>https://www.jaysong.net/studyguide/jasp10/</link>
+      <link>/studyguide/jasp10/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp10/</guid>
+      <guid>/studyguide/jasp10/</guid>
       <description>今回は線形回帰分析です。使用するデータはこれまでと同様、都道府県ごとの財政力指数、高齢者比、各政党の得票率データです。 推定するモデルは以下の</description>
     </item>
     
     <item>
       <title>記述統計</title>
-      <link>https://www.jaysong.net/studyguide/jasp04/</link>
+      <link>/studyguide/jasp04/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/studyguide/jasp04/</guid>
+      <guid>/studyguide/jasp04/</guid>
       <description>ここでは記述統計の出し方を実習します。ここでは以下の項目について実習します。 名目変数・順序変数 度数分布表 連続変数 平均値、中央値、分散、標準偏</description>
     </item>
     
