@@ -156,16 +156,16 @@
 <main>
 
     <div>
-        <h2>dplyr入門 (新版)</h2>
-        <h5></h5>
-        
+        <h2><center>dplyr入門 (新版)</center></h2>
+        <h5><center></center></h5>
+        <center>
 <a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
 <a href="../tags/r"><kbd class="item-tag">R</kbd></a>
 
 <a href="../tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
 
-
+</center>
     </div>
 
     <div align="start" class="content">
@@ -362,7 +362,7 @@
 </div>
 <div id="パイプ演算子" class="section level2">
 <h2>パイプ演算子</h2>
-<p><code>dplyr</code>パッケージを利用する前にパイプ演算子について説明します。パイプ演算子は<code>dplyr</code>に含まれている演算子ではなく、<code>magrittr</code>という別のパッケージから提供される演算子ですが、<code>tidyverse</code>パッケージを読み込むと自動的に読み込まれます。パイプ演算子は<code>x %&gt;% y()</code>のような書き方となりますが、これは「<code>x</code>を<code>y()</code>の第一引数として渡す」ことを意味します。<code>x</code>の部分はベクトルやデータフレームのようなオブジェクトでも、関数でも構いません。なぜなら、関数から得られた結果もまたベクトルやデータフレームといったものになるからです。</p>
+<p><code>dplyr</code>パッケージを利用する前にパイプ演算子について説明します。パイプ演算子は<code>dplyr</code>に含まれている演算子ではなく、<code>magrittr</code>という別のパッケージから提供される演算子ですが、<code>tidyverse</code>パッケージを読み込むと自動的に読み込まれます。パイプ演算子は<code>x %&gt;% y()</code>のような書き方となりますが、これは「<code>x</code>を<code>y()</code>の第一引数として渡す」ことを意味します。<code>x</code>の部分はベクトルやデータフレーム (または、tibble)のようなオブジェクトでも、関数でも構いません。なぜなら、関数から得られた結果もまたベクトルやデータフレーム(または、tibble)といったものになるからです。</p>
 <p>たとえば、「<code>paste(3, "+", 5, "=", 8)</code>を実行し、その結果を<code>rep()</code>関数を使って3回複製し、それを<code>print()</code>を使って出力する」コードを考えてみましょう。方法としては2つ考えられます。まずは、それぞれの処理を別途のオブジェクトに格納する方法です。そして二つ目は関数の中に関数を使う方法です。</p>
 <pre class="r"><code># 方法1: 一関数一オブジェクト
 Result1 &lt;- paste(3, &quot;+&quot;, 5, &quot;=&quot;, 8)
@@ -389,7 +389,7 @@ paste(3, &quot;+&quot;, 5, &quot;=&quot;, 8) %&gt;%
 <h2>列の抽出</h2>
 <div id="特定の列を抽出する" class="section level3">
 <h3>特定の列を抽出する</h3>
-<p>まずは、データフレームから特定の列のみを残す、除去する方法について紹介します。たとえば、<code>df</code>から<code>ID</code>、<code>Name</code>、<code>Pref</code>、<code>Score</code>のみを残すとします。<code>dplyr</code>を使わない方法と<code>dplyr</code>の<code>select()</code>関数を使った方法を紹介します。</p>
+<p>まずは、データフレーム (または、tibble)から特定の列のみを残す、除去する方法について紹介します。たとえば、<code>df</code>から<code>ID</code>、<code>Name</code>、<code>Pref</code>、<code>Score</code>のみを残すとします。<code>dplyr</code>を使わない方法と<code>dplyr</code>の<code>select()</code>関数を使った方法を紹介します。</p>
 <pre class="r"><code># dplyrを使わない方法
 df[, c(&quot;ID&quot;, &quot;Name&quot;, &quot;Pref&quot;, &quot;Score&quot;)]</code></pre>
 <pre><code>## # A tibble: 6,292 x 4
@@ -425,7 +425,7 @@ df %&gt;%
 ## 10 gggb200 中国料理 天安門                                          東京都 NA   
 ## # … with 6,282 more rows</code></pre>
 <p>どれも結果は同じですが、<code>select()</code>関数を使った方がより読みやすいコードになっているでしょう。むろん、<code>select()</code>関数を使わない方がスッキリする方も知るかも知れません。実際、自分でパッケージなどを作成する際は<code>select()</code>を使わない場合が多いです。ただし、一般的な分析の流れでは<code>select()</code>の方がコードも意味も明確となり、パイプ演算子でつなぐのも容易です。</p>
-<p><code>select()</code>関数の使い方は非常に簡単です。第一引数はデータフレームですが、パイプ演算子を使う場合は省略可能です。第二引数以降の引数はデータフレームの変数名です。つまり、ここには残す変数名のみを書くだけで十分です。</p>
+<p><code>select()</code>関数の使い方は非常に簡単です。第一引数はデータフレーム (または、tibble)ですが、パイプ演算子を使う場合は省略可能です。第二引数以降の引数はデータフレーム/tibble内の変数名です。つまり、ここには残す変数名のみを書くだけで十分です。</p>
 <p>また、<code>select()</code>関数を使って列の順番を変えることもできます。たとえば、<code>ID</code>、<code>Pref</code>、<code>Name</code>、<code>Score</code>の順で列を残すなら、この順番で引数を書くだけです。</p>
 <pre class="r"><code>df %&gt;%
   select(ID, Pref, Name)</code></pre>
@@ -464,12 +464,12 @@ df %&gt;%
 ## 10 gggb200 中国料理 天安門                                      東京都     NA   
 ## # … with 6,282 more rows</code></pre>
 <p>抽出する際、変数を<code>新しい変数名 = 既存の変数名</code>にするだけで、変数名が簡単に変更できました。もし、特定の列は抽出しないものの、変数名を変えるにはどうすれば良いでしょうか。ここでは<code>df</code>の<code>Pref</code>を<code>Prefecture</code>に、<code>Walk</code>を<code>Distance</code>に変更してみます。<code>dplyr</code>を使わない場合と<code>dplyr</code>の<code>rename()</code>関数を使う場合を両方紹介します。</p>
-<p>まずは、<code>name()</code>関数についてですが、これはデータフレームの変数名をベクトルとして出力する関数です。</p>
+<p>まずは、<code>name()</code>関数についてですが、これはデータフレーム (または、tibble)の変数名をベクトルとして出力する関数です。</p>
 <pre class="r"><code>names(df)</code></pre>
 <pre><code>##  [1] &quot;ID&quot;        &quot;Name&quot;      &quot;Pref&quot;      &quot;Zipcode&quot;   &quot;Latitude&quot;  &quot;Longitude&quot;
 ##  [7] &quot;Line&quot;      &quot;Station&quot;   &quot;Walk&quot;      &quot;Bus&quot;       &quot;Car&quot;       &quot;Budget&quot;   
 ## [13] &quot;ScoreN&quot;    &quot;Score&quot;</code></pre>
-<p>察しの良い読者は気づいたかも知れませんが、<code>names(データフレーム名)</code>の結果はベクトルであり、上書きも可能です。つまり、<code>names(df)</code>の3番目と9番目の要素を<code>"Prefecture"</code>と<code>"Distance"</code>に上書きすることができるということです。</p>
+<p>察しの良い読者は気づいたかも知れませんが、<code>names(データフレーム/tibble名)</code>の結果はベクトルであり、上書きも可能です。つまり、<code>names(df)</code>の3番目と9番目の要素を<code>"Prefecture"</code>と<code>"Distance"</code>に上書きすることができるということです。</p>
 <pre class="r"><code># dplyrを使わずに列名を変更する方法
 names(df)[c(3, 9)] &lt;- c(&quot;Prefecture&quot;, &quot;Distance&quot;)
 
@@ -498,7 +498,7 @@ df &lt;- df %&gt;%
 </div>
 <div id="特定の列を除外する" class="section level3">
 <h3>特定の列を除外する</h3>
-<p>逆に、一部の変数をデータフレームから除去したい場合もあるでしょう。たとえば、緯度 (<code>Latitude</code>)と経度 (<code>Longitude</code>)はラーメン屋の情報としては不要かもしれません。この2つの変数を除外するためにはどうすれば良いでしょうか。まず考えられるのは、この2つの変数を除いた変数を指定・抽出する方法です。</p>
+<p>逆に、一部の変数をデータフレーム (または、tibble)から除去したい場合もあるでしょう。たとえば、緯度 (<code>Latitude</code>)と経度 (<code>Longitude</code>)はラーメン屋の情報としては不要かもしれません。この2つの変数を除外するためにはどうすれば良いでしょうか。まず考えられるのは、この2つの変数を除いた変数を指定・抽出する方法です。</p>
 <pre class="r"><code>df %&gt;%
   select(ID, Name, Pref, Zipcode, 
          Line, Station, Walk, Bus, Car, Budget, ScoreN, Score)</code></pre>
@@ -546,7 +546,7 @@ df &lt;- df %&gt;%
 <pre><code>##  [1] &quot;ID&quot;        &quot;Name&quot;      &quot;Pref&quot;      &quot;Zipcode&quot;   &quot;Latitude&quot;  &quot;Longitude&quot;
 ##  [7] &quot;Line&quot;      &quot;Station&quot;   &quot;Walk&quot;      &quot;Bus&quot;       &quot;Car&quot;       &quot;Budget&quot;   
 ## [13] &quot;ScoreN&quot;    &quot;Score&quot;</code></pre>
-<p>ここで便利な演算子が<code>:</code>です。これまで、<code>x</code>から<code>y</code>までの公差1の等差数列を作成する際に<code>x:y</code>を使って来ましたが、これに非常に似ています。データフレームの「<code>x</code>列から<code>y</code>列まで」の表記も<code>select()</code>関数内では<code>:</code>と書くことができます。したがって、上記のコードは以下のように短縮化可能です。</p>
+<p>ここで便利な演算子が<code>:</code>です。これまで、<code>x</code>から<code>y</code>までの公差1の等差数列を作成する際に<code>x:y</code>を使って来ましたが、これに非常に似ています。データフレーム (または、tibble)の「<code>x</code>列から<code>y</code>列まで」の表記も<code>select()</code>関数内では<code>:</code>と書くことができます。したがって、上記のコードは以下のように短縮化可能です。</p>
 <pre class="r"><code>df %&gt;%
   select(ID:Zipcode, Line:Score)</code></pre>
 <p>「<code>df</code>の<code>ID</code>から<code>Zipcode</code>まで、そして<code>Line</code>から<code>Score</code>までの列を選択する」という意味です。非常に便利な演算子ですので、<code>-</code>と合わせて覚えておきましょう。</p>
@@ -571,7 +571,7 @@ df &lt;- df %&gt;%
 ## 10 NA         0 gggb… 中国料理… 東京都… 1140002     35.8      140. 地下鉄南… 王子駅      2
 ## # … with 6,282 more rows, and 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;,
 ## #   Budget &lt;dbl&gt;</code></pre>
-<p>しかし、<code>dplyr</code>には<code>relocate()</code>というより便利な専用関数を提供しています。<code>relocate()</code>には変数名を指定するだけですが、ここで指定した変数がデータフレームの最初列の方に移動します。</p>
+<p>しかし、<code>dplyr</code>には<code>relocate()</code>というより便利な専用関数を提供しています。<code>relocate()</code>には変数名を指定するだけですが、ここで指定した変数がデータフレーム (または、tibble)の最初列の方に移動します。</p>
 <pre class="r"><code>df %&gt;%
   relocate(Score, ScoreN)</code></pre>
 <pre><code>## # A tibble: 6,292 x 14
@@ -688,7 +688,8 @@ df %&gt;%
 ## 10 東京都 NA   
 ## # … with 6,282 more rows</code></pre>
 <p>他の使い方としては<code>X1</code>、<code>X2</code>のような「文字+数字」の変数を選択する際、<code>starts_with()</code>が活躍します。たとえば、以下のような<code>myDF1</code>があるとします。</p>
-<pre class="r"><code>myDF1 &lt;- data.frame(
+<pre class="r"><code># tibble()の代わりにdata.frame()も使用可能
+myDF1 &lt;- tibble(
   ID  = 1:5,
   X1  = c(2, 4, 6, 2, 7),
   Y1  = c(3, 5, 1, 1, 0),
@@ -702,59 +703,71 @@ df %&gt;%
 )
 
 myDF1</code></pre>
-<pre><code>##   ID X1 Y1 X1D X2 Y2 X2D X3 Y3 X3D
-## 1  1  2  3   4  5  3   8  3  1   9
-## 2  2  4  5   2  5  3   9  0  5   1
-## 3  3  6  1   1  6  2   5  3  9   3
-## 4  4  2  1   6  0  3   0  0  1   3
-## 5  5  7  0   9  2  1   1  2  3   8</code></pre>
+<pre><code>## # A tibble: 5 x 10
+##      ID    X1    Y1   X1D    X2    Y2   X2D    X3    Y3   X3D
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     2     3     4     5     3     8     3     1     9
+## 2     2     4     5     2     5     3     9     0     5     1
+## 3     3     6     1     1     6     2     5     3     9     3
+## 4     4     2     1     6     0     3     0     0     1     3
+## 5     5     7     0     9     2     1     1     2     3     8</code></pre>
 <p>この<code>myDF1</code>から<code>ID</code>、<code>Y1</code>、<code>Y2</code>、<code>Y3</code>を抽出するにはどうすれば良いでしょうか。これらの変数は隣接していないため、<code>:</code>も使えませんが、<code>starts_with()</code>を使えば簡単です。</p>
 <pre class="r"><code>myDF1 %&gt;%
   select(ID, starts_with(&quot;Y&quot;))</code></pre>
-<pre><code>##   ID Y1 Y2 Y3
-## 1  1  3  3  1
-## 2  2  5  3  5
-## 3  3  1  2  9
-## 4  4  1  3  1
-## 5  5  0  1  3</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##      ID    Y1    Y2    Y3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     3     3     1
+## 2     2     5     3     5
+## 3     3     1     2     9
+## 4     4     1     3     1
+## 5     5     0     1     3</code></pre>
 <p>それでは、<code>ID</code>、<code>X1</code>、<code>X2</code>、<code>X3</code>はどうでしょうか。<code>starts_with("X")</code>だと、<code>X1c</code>なども選択されてしまいますね。ここで<code>-ends_with()</code>の出番です。つまり、「まずは<code>starts_with("X")</code>で<code>X</code>で始まる変数を選択し、続いて、<code>D</code>で終わるものを除外すればいいじゃん？」です。それでは、やってみましょうか。</p>
 <pre class="r"><code>myDF1 %&gt;%
   select(ID, starts_with(&quot;X&quot;), -ends_with(&quot;D&quot;))</code></pre>
-<pre><code>##   X1 X2 X3
-## 1  2  5  3
-## 2  4  5  0
-## 3  6  6  3
-## 4  2  0  0
-## 5  7  2  2</code></pre>
+<pre><code>## # A tibble: 5 x 3
+##      X1    X2    X3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     2     5     3
+## 2     4     5     0
+## 3     6     6     3
+## 4     2     0     0
+## 5     7     2     2</code></pre>
 <p>あらら、<code>ID</code>も同時になくなりましたね<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>。実はこのような時のために用意された関数があり、それが<code>num_range()</code>です。<code>num_range()</code>の第一引数は<code>starts_with()</code>関数と同じですが、第二引数も必要です。この第二引数にはnumeric型のベクトルが必要です。<code>1:3</code>でも、<code>c(1, 2, 3)</code>でも構いません。たとえば、<code>ID</code>、<code>X1</code>、<code>X2</code>、<code>X3</code>するには以下のように書きます。</p>
 <pre class="r"><code>myDF1 %&gt;%
   select(ID, num_range(&quot;X&quot;, 1:3))</code></pre>
-<pre><code>##   ID X1 X2 X3
-## 1  1  2  5  3
-## 2  2  4  5  0
-## 3  3  6  6  3
-## 4  4  2  0  0
-## 5  5  7  2  2</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##      ID    X1    X2    X3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     2     5     3
+## 2     2     4     5     0
+## 3     3     6     6     3
+## 4     4     2     0     0
+## 5     5     7     2     2</code></pre>
 <p>ぱっぱらぱー！</p>
 <p><strong><code>all_of()</code>と<code>any_of()</code>: 文字型ベクトルを用いた変数の選択</strong></p>
 <p><code>all_of()</code>と<code>any_of()</code>は<code>select()</code>内の変数名として文字型ベクトルを使う際に用いる関数です。これは抽出したい列名が既にcharacter型ベクトルとして用意されている場合、便利な関数です。たとえば、以下の<code>Name_Vec</code>を考えてみましょう。</p>
 <pre class="r"><code>Name_Vec &lt;- c(&quot;X1&quot;, &quot;X2&quot;, &quot;X3&quot;)</code></pre>
 <p>この<code>Name_Vec</code>の要素と同じ列名を持つ列と<code>ID</code>列を<code>myDF1</code>から抽出する方法は以下の2通りです。</p>
 <pre class="r"><code>myDF1[, c(&quot;ID&quot;, Name_Vec)]</code></pre>
-<pre><code>##   ID X1 X2 X3
-## 1  1  2  5  3
-## 2  2  4  5  0
-## 3  3  6  6  3
-## 4  4  2  0  0
-## 5  5  7  2  2</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##      ID    X1    X2    X3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     2     5     3
+## 2     2     4     5     0
+## 3     3     6     6     3
+## 4     4     2     0     0
+## 5     5     7     2     2</code></pre>
 <pre class="r"><code>myDF1 %&gt;%
   select(ID, all_of(Name_Vec))</code></pre>
-<pre><code>##   ID X1 X2 X3
-## 1  1  2  5  3
-## 2  2  4  5  0
-## 3  3  6  6  3
-## 4  4  2  0  0
-## 5  5  7  2  2</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##      ID    X1    X2    X3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     2     5     3
+## 2     2     4     5     0
+## 3     3     6     6     3
+## 4     4     2     0     0
+## 5     5     7     2     2</code></pre>
 <p>今の例だと、<code>select()</code>を使わない前者の方が便利かも知れませんが、<code>select()</code>内に外の変数名も指定する場合も多いので、後者の方が汎用性は高いです。私から見れば、今の例でも後者の方が読みやすく、使いやすいと思います。</p>
 <p>それでは以下のような<code>Name_Vec</code>はどうでしょう。今回は、<code>myDF1</code>に含まれていない<code>X4</code>と<code>X5</code>もあります。</p>
 <pre class="r"><code>Name_Vec &lt;- c(&quot;X1&quot;, &quot;X2&quot;, &quot;X3&quot;, &quot;X4&quot;, &quot;X5&quot;)
@@ -763,15 +776,17 @@ myDF1 %&gt;%
   select(all_of(Name_Vec))</code></pre>
 <pre><code>## Error: Can&#39;t subset columns that don&#39;t exist.
 ## [31mx[39m Columns `X4` and `X5` don&#39;t exist.</code></pre>
-<p>このようにエラーが出てしまします。つまり、<code>all_of()</code>の場合、引数の要素全てがデータフレームに存在する必要があります。もし、ないものは無視して、合致する列だけ取り出したいはどうすれば良いでしょうか。そこで登場するのが<code>any_of()</code>です。</p>
+<p>このようにエラーが出てしまします。つまり、<code>all_of()</code>の場合、引数の要素全てがデータフレーム (または、tibble)に存在する必要があります。もし、ないものは無視して、合致する列だけ取り出したいはどうすれば良いでしょうか。そこで登場するのが<code>any_of()</code>です。</p>
 <pre class="r"><code>myDF1 %&gt;%
   select(any_of(Name_Vec))</code></pre>
-<pre><code>##   X1 X2 X3
-## 1  2  5  3
-## 2  4  5  0
-## 3  6  6  3
-## 4  2  0  0
-## 5  7  2  2</code></pre>
+<pre><code>## # A tibble: 5 x 3
+##      X1    X2    X3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     2     5     3
+## 2     4     5     0
+## 3     6     6     3
+## 4     2     0     0
+## 5     7     2     2</code></pre>
 <p><code>any_of()</code>の方がより使いやすいと思う方も多いでしょうが、必ずしもそうとは限りません。たとえば、<code>Name_Vec</code>に誤字などが含まれる場合、<code>any_of()</code>だと誤字が含まれている変数は取り出しません。この場合はむしろちゃんとエラーを表示してくれた方が嬉しいですね。</p>
 <p><strong><code>last_col()</code>: 最後の列を選択する</strong></p>
 <p>普段あまり使わない機能ですが、最後の列を選択する<code>last_col()</code>という関数もあります。たとえば、<code>last_col(0)</code>にすると最後の列を選択し、<code>last_col(1)</code>なら最後から2番目の列を選択します。たとえば、<code>df</code>から<code>ID</code>と最後の列を取り出してみましょう。</p>
@@ -891,10 +906,10 @@ df %&gt;%
 <h2>行の抽出</h2>
 <p>他にも特定の行を抽出する場合があります。多くの場合、「何かの条件と合致するケースのみ抽出する」または、「何かの条件と合致しないケースのみを抽出する」やこれらの組み合わせで行の抽出を行います。そこで登場するのが<code>dplyr()</code>パッケージの<code>filter()</code>関数です。<code>filter()</code>関数の使い方は以下の通りです。</p>
 <pre class="r"><code># dplyr::filter()の使い方
-filter(データフレーム名, 条件1, 条件2, ...)</code></pre>
+filter(データフレーム/tibble名, 条件1, 条件2, ...)</code></pre>
 <p>むろん、第一引数がデータですから、<code>%&gt;%</code>を使うことも可能です。</p>
 <pre class="r"><code># dplyr::filter()の使い方 (パイプを使う方法)
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   filter(条件1, 条件2, ...)</code></pre>
 <p>まずは、条件が一つの場合を考えてみましょう。ここでは「<code>Pref</code>が<code>"京都府"</code>であるケースのみに絞り、<code>Name</code>と<code>Station</code>、<code>Score</code>列のみを出力する」ケースを考えてみましょう。まず、<code>filter()</code>関数で行を抽出し、続いて<code>select()</code>関数で抽出する列を指定します。むろん、今回の場合、<code>filter()</code>と<code>select()</code>の順番は替えても構いません。</p>
 <pre class="r"><code># dfからPrefが&quot;京都府&quot;であるケースのみ残し、df2という名で保存
@@ -936,7 +951,7 @@ df2 %&gt;%
 ##  9 めんや龍神                                              北大路駅   NA   
 ## 10 無尽蔵 京都八条家                                       京都駅      3.5 
 ## # … with 404 more rows</code></pre>
-<p>全く同じ結果ですが、無駄に<code>df2</code>というデータフレームを作らず済むので、メモリの観点からも嬉しいですし、何よりコードが短く、しかも可読性も上がりました。</p>
+<p>全く同じ結果ですが、無駄に<code>df2</code>というデータフレーム (または、tibble)を作らず済むので、メモリの観点からも嬉しいですし、何よりコードが短く、しかも可読性も上がりました。</p>
 <p>今回は<code>==</code>を使って<strong>合致する</strong>ものに絞りましたが、<code>!=</code>を使って<strong>合致しない</strong>ものに絞ることも可能です。または、比較演算子 (<code>&lt;</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;=</code>など)を使うことも可能です。それでは、組み込み数 (<code>ScoreN</code>)が<em>0ではない</em>ケースを取り出し、<code>Name</code>、<code>Station</code>、<code>ScoreN</code>、<code>Score</code>列を出力させてみましょう。</p>
 <pre class="r"><code>df %&gt;%
   filter(ScoreN != 0) %&gt;%
@@ -1220,12 +1235,12 @@ df2 %&gt;%
 </div>
 <div id="記述統計量の計算" class="section level2">
 <h2>記述統計量の計算</h2>
-<div id="summariseによる記述統計料の計算" class="section level3">
-<h3><code>summarise()</code>による記述統計料の計算</h3>
+<div id="summariseによる記述統計量の計算" class="section level3">
+<h3><code>summarise()</code>による記述統計量の計算</h3>
 <p>ある変数の平均値や標準偏差、最小値、最大値などの記述統計量 (要約統計量)を計算することも可能です。これは<code>summarize()</code>または<code>summarise()</code>関数を使いますが、この関数は後で紹介する<code>group_by()</code>関数と組み合わせることで力を発揮します。ここではグルーピングを考えずに、全データの記述統計量を計算する方法を紹介します。</p>
 <p><code>summarise()</code>関数の使い方は以下の通りです。</p>
 <pre class="r"><code># summarise()関数の使い方
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   summarise(新しい変数名 = 関数名(計算の対象となる変数名))</code></pre>
 <p>もし、<code>Score</code>変数の平均値を計算し、その結果を<code>Mean</code>という列にしたい場合は以下のようなコードになります。</p>
 <pre class="r"><code>df %&gt;%
@@ -1246,7 +1261,7 @@ df2 %&gt;%
 ##    Mean
 ##   &lt;dbl&gt;
 ## 1  3.66</code></pre>
-<p><code>df</code>の<code>Score</code>変数の平均値はNAであることが分かります。また、<code>summarise()</code>関数は複数の記述統計量を同時に計算することも可能です。以下は<code>Score</code>変数の平均値、中央値、標準偏差、最小値、最大値、第一四分位点、第三四分位点を計算し、<code>Score.Desc</code>という名のデータフレームに格納するコードです。</p>
+<p><code>df</code>の<code>Score</code>変数の平均値はNAであることが分かります。また、<code>summarise()</code>関数は複数の記述統計量を同時に計算することも可能です。以下は<code>Score</code>変数の平均値、中央値、標準偏差、最小値、最大値、第一四分位点、第三四分位点を計算し、<code>Score.Desc</code>という名のデータフレーム (または、tibble)に格納するコードです。</p>
 <pre class="r"><code>Score.Desc &lt;- df %&gt;%
   summarize(Mean   =     mean(Score,       na.rm = TRUE),  # 平均値
             Median =   median(Score,       na.rm = TRUE),  # 中央値
@@ -1272,7 +1287,7 @@ df2 %&gt;%
 <p>のように書きます。実は<code>summarise()</code>はこれくらいで十分便利です。ただし、以上の操作はもっと簡単なコードに置換できます。ただし、ラムダ式など、やや高度な内容になるため、以下の内容は飛ばして、次の節 (グルーピング)を読んでいただいても構いません。</p>
 <p>まずは、複数の変数に対して同じ記述統計量を求める例を考えてみましょう。たとえば、<code>Budget</code>、<code>ScoreN</code>、<code>Score</code>に対して平均値を求める例です。これは<code>across()</code>関数を使うとよりコードが短くなります。まずは<code>across()</code>関数の書き方から見ましょう。</p>
 <pre class="r"><code># across()の使い方
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   summarise(across(変数名のベクトル, 記述統計を計算する関数名, 関数の引数))</code></pre>
 <p><em>変数名のベクトル</em>は長さ1以上のベクトルです。たとえば、<code>Budget</code>、<code>ScoreN</code>、<code>Score</code>の場合<code>c(Budget, ScoreN, Score)</code>になります。これは<code>df</code>内で隣接する変数ですから<code>Budget:Score</code>の書き方も使えます。また、<code>where()</code>や<code>any_of()</code>、<code>starts_with()</code>のような関数を使って変数を指定することも可能です。<em>関数名</em>は<code>mean</code>や<code>sd</code>などの関数名です。ここは<code>関数名()</code>でななく、<code>関数名</code>であることに注意してください。<em>引数</em>は前の関数に必要な引数です。引数を必要としない関数なら省略可能ですが、<code>na.rm = TRUE</code>などの引数が必要な場合は指定する必要があります。それでは<code>Budget</code>、<code>ScoreN</code>、<code>Score</code>の平均値を計算してみましょう。</p>
 <pre class="r"><code>df %&gt;%
@@ -1296,9 +1311,9 @@ df2 %&gt;%
 ## 1       800      1000         0         0        3        4</code></pre>
 <p>この作業も<code>across()</code>を使ってより短縮することができます。ここではラムダ式の知識が必要になります。ラムダ関数とは関数名を持たない<a href="https://ja.wikipedia.org/wiki/無名関数">無名関数 (anonymous functions)</a>を意味しますが、詳細は割愛します。興味のある読者は<a href="https://ja.wikipedia.org/wiki/無名関数">Wikipedia</a>などを参照してください。簡単にいうとその場で即席に関数を作成し、計算が終わったら破棄する関数です。ただ、Rは基本的にラムダ式を提供しているのではなく、<code>purrr</code>パッケージのラムダ式スタイルを使用します。まずは、書き方から確認します。</p>
 <pre class="r"><code># ラムダ式を用いたacross()の使い方
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   summarise(across(変数名のベクトル, list(結果の変数名 = ラムダ式)))</code></pre>
-<p>先ほどの書き方と似ていますが、関数を複数書く必要があるため、今回は関数名をlist型にまとめます。そして、<em>結果の変数名</em>は結果として出力されるデータフレームの列名を指定する引数です。たとえば、<code>Mean</code>にすると結果は<code>元の変数名1_Mean</code>、<code>元の変数名2_Mean</code>…のように出力されます。そして、ラムダ式が実際の関数が入る箇所です。とりあえず今回はコードを走らせ、結果から確認してみましょう。</p>
+<p>先ほどの書き方と似ていますが、関数を複数書く必要があるため、今回は関数名をlist型にまとめます。そして、<em>結果の変数名</em>は結果として出力されるデータフレーム (または、tibble)の列名を指定する引数です。たとえば、<code>Mean</code>にすると結果は<code>元の変数名1_Mean</code>、<code>元の変数名2_Mean</code>…のように出力されます。そして、ラムダ式が実際の関数が入る箇所です。とりあえず今回はコードを走らせ、結果から確認してみましょう。</p>
 <pre class="r"><code>df %&gt;%
   summarize(across(Budget:Score, list(Q1 = ~quantile(.x, 0.25, na.rm = TRUE),
                                       Q3 = ~quantile(.x, 0.75, na.rm = TRUE))))</code></pre>
@@ -1486,7 +1501,7 @@ mean(df$Score, na.rm = TRUE)</code></pre>
 <pre><code>## [1] 3.854762</code></pre>
 <pre class="r"><code>mean(df$Score[df$Pref == &quot;和歌山県&quot;], na.rm = TRUE)</code></pre>
 <pre><code>## [1] 3.96999</code></pre>
-<p>変わったのは<code>df$Score</code>が<code>df$Score[df$Pref == "東京都"]</code>に変わっただけです。<code>df$Pref</code>が<code>"東京都"</code>であるか否かを<code>TRUE</code>と<code>FALSE</code>で判定し、これを基準に<code>df$Score</code>を抽出する仕組みです。<code>df$Score</code>と<code>df$Pref</code>は同じデータフレームですから、このような書き方で問題ありません。</p>
+<p>変わったのは<code>df$Score</code>が<code>df$Score[df$Pref == "東京都"]</code>に変わっただけです。<code>df$Pref</code>が<code>"東京都"</code>であるか否かを<code>TRUE</code>と<code>FALSE</code>で判定し、これを基準に<code>df$Score</code>を抽出する仕組みです。<code>df$Score</code>と<code>df$Pref</code>は同じデータフレーム (または、tibble)ですから、このような書き方で問題ありません。</p>
 <p>これだけでもかなり書くのが面倒ですが、これが47都道府県なら、あるいは200ヶ国ならかなり骨の折れる作業でしょう。ここで大活躍するのが<code>dplyr</code>パッケージの<code>group_by()</code>関数です。引数はグループ化する変数名だけです。先ほどの作業を<code>dplyr</code>を使うなら<code>Pref</code>変数でグループ化し、<code>summarise()</code>関数で平均値を求めるだけです。今回は<code>Score</code>だけでなく、<code>ScoreN</code>の平均値も求めてみましょう。そして、評価が高い順にソートもしてみます。</p>
 <pre class="r"><code># ScoreNとScoreの平均値をPrefごとに求める
 df %&gt;%
@@ -1510,7 +1525,7 @@ df %&gt;%
 <p>評判が最も高い都府県は和歌山県、最も低いのは神奈川県ですね。Songも和歌山ラーメンは井出系も車庫前系も好きです。しかし、大事なのは「井出系」と「車庫前系」といった分類が正しいかどうかではありません。コードが非常に簡潔となり、ソートなども自由自在であることです。都府県ごとに<code>ScoreN</code>と<code>Score</code>の平均値を求める場合、<code>dplyr()</code>を使わなかったら18行のコードとなり、ソートも自分でやる必要があります。一方、<code>group_by()</code>関数を使うことによってコードが5行になりました。</p>
 <p>また、これは2020年6月に公開された<code>dplyr</code>1.0.0からの問題ですが、<code>group_by()</code>の後に<code>summarise()</code>を使うと以下のようなメッセージが出力されます。</p>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<p>これは<code>group_by()</code>で指定された変数のグループ化が自動的に解除されたことを意味します。なぜなら<code>summarise()</code>をする際は<code>Pref</code>をグループ変数として使いましたが、出力された結果の<code>Pref</code>変数はもはやグループとして機能できなくなるからです。元の<code>df</code>には<code>Pref</code>が<code>"東京都"</code>だったケースが1000行、<code>"京都府"</code>だったのが414行あったので、<code>Pref</code>変数でグループ化する意味がありました。しかし、<code>summarise()</code>から得られたデータフレームは<code>Pref == "東京都"</code>の行が1つしかありません。これはグループ化する意味がなくなったことを意味します。したがって、自動的にグループを解除してくれます。自動的にやってくれるのはありがたいことですが、可能ならば関数内に自分で明記することが推奨されます。そこで使う引数が<code>.groups</code>であり、<code>"drop"</code>を指定すると<strong>全ての</strong>グループ化変数を解除します。以下のようなコードだと先ほどのメッセージが表示されません。今後、意識的に入れるようにしましょう。</p>
+<p>これは<code>group_by()</code>で指定された変数のグループ化が自動的に解除されたことを意味します。なぜなら<code>summarise()</code>をする際は<code>Pref</code>をグループ変数として使いましたが、出力された結果の<code>Pref</code>変数はもはやグループとして機能できなくなるからです。元の<code>df</code>には<code>Pref</code>が<code>"東京都"</code>だったケースが1000行、<code>"京都府"</code>だったのが414行あったので、<code>Pref</code>変数でグループ化する意味がありました。しかし、<code>summarise()</code>から得られたデータフレーム (または、tibble)は<code>Pref == "東京都"</code>の行が1つしかありません。これはグループ化する意味がなくなったことを意味します。したがって、自動的にグループを解除してくれます。自動的にやってくれるのはありがたいことですが、可能ならば関数内に自分で明記することが推奨されます。そこで使う引数が<code>.groups</code>であり、<code>"drop"</code>を指定すると<strong>全ての</strong>グループ化変数を解除します。以下のようなコードだと先ほどのメッセージが表示されません。今後、意識的に入れるようにしましょう。</p>
 <pre class="r"><code># ScoreNとScoreの平均値をPrefごとに求める
 df %&gt;%
   group_by(Pref) %&gt;%
@@ -1652,11 +1667,11 @@ df %&gt;%
 <h2>変数の計算</h2>
 <div id="mutate関数の使い方" class="section level3">
 <h3><code>mutate()</code>関数の使い方</h3>
-<p>続いて、データフレーム内の変数を用いて計算を行い、その結果を新しい列として格納する<code>mutate()</code>関数について紹介します。まず、<code>mutate()</code>関数の書き方からです。</p>
+<p>続いて、データフレーム (または、tibble)内の変数を用いて計算を行い、その結果を新しい列として格納する<code>mutate()</code>関数について紹介します。まず、<code>mutate()</code>関数の書き方からです。</p>
 <pre class="r"><code># mutate()関数の使い方
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   mutate(新しい変数名 = 処理内容)</code></pre>
-<p>これは何らかの処理を行い、その結果を新しい変数としてデータフレームに追加することを意味します。新しく出来た変数は、基本的に最後の列になります。ここでは分単位である<code>Walk</code>を時間単位に変換した<code>Walk_Hour</code>変数を作成するとします。処理内容は<code>Walk / 60</code>です。最後に、都府県名、店舗名、徒歩距離 (分)、徒歩距離 (時間)のみを残し、遠い順にソートします。</p>
+<p>これは何らかの処理を行い、その結果を新しい変数としてデータフレーム (または、tibble)に追加することを意味します。新しく出来た変数は、基本的に最後の列になります。ここでは分単位である<code>Walk</code>を時間単位に変換した<code>Walk_Hour</code>変数を作成するとします。処理内容は<code>Walk / 60</code>です。最後に、都府県名、店舗名、徒歩距離 (分)、徒歩距離 (時間)のみを残し、遠い順にソートします。</p>
 <pre class="r"><code>df %&gt;%
   filter(!is.na(Walk)) %&gt;%
   mutate(Walk_Hour = Walk / 60) %&gt;%
@@ -1676,7 +1691,7 @@ df %&gt;%
 ##  9 兵庫県   濃厚醤油 中華そば いせや 大蔵谷店    35     0.583
 ## 10 大阪府   河童ラーメン本舗 松原店              31     0.517
 ## # … with 5,365 more rows</code></pre>
-<p><code>mutate()</code>は3行目に登場しますが、これは<code>Walk</code>を60に割った結果を<code>Walk_Hour</code>としてデータフレームの最後の列として格納することを意味します。もし、最後の列でなく、ある変数の前、または後にしたい場合は、<code>.before</code>または<code>.after</code>引数を追加します。これは<code>select()</code>関数の<code>.before</code>と<code>.after</code>と同じ使い方です。たとえば、新しく出来た<code>Walk_Hour</code>を<code>ID</code>と<code>Name</code>の間に入れたい場合は</p>
+<p><code>mutate()</code>は3行目に登場しますが、これは<code>Walk</code>を60に割った結果を<code>Walk_Hour</code>としてデータフレーム (または、tibble)の最後の列として格納することを意味します。もし、最後の列でなく、ある変数の前、または後にしたい場合は、<code>.before</code>または<code>.after</code>引数を追加します。これは<code>select()</code>関数の<code>.before</code>と<code>.after</code>と同じ使い方です。たとえば、新しく出来た<code>Walk_Hour</code>を<code>ID</code>と<code>Name</code>の間に入れたい場合は</p>
 <pre class="r"><code># コードの3行名を修正 (.before使用)
 mutate(Walk_Hour = Walk / 60,
        .before   = Name)
@@ -1765,7 +1780,7 @@ df %&gt;%
             .groups = &quot;drop&quot;)</code></pre>
 <p>書く手間の観点では<code>case_when()</code>は<code>ifelse()</code>と大きく違いはないかも知れませんが、コードが非常に読みやすくなっています。<code>case_when()</code>関数の書き方は以下の通りです。</p>
 <pre class="r"><code># case_when()の使い方
-データフレーム名 %&gt;%
+データフレーム/tibble名 %&gt;%
   mutate(新変数名 = case_when(条件1 ~ 条件1を満たす場合の結果値, 
                              条件2 ~ 条件2を満たす場合の結果値, 
                              条件3 ~ 条件3を満たす場合の結果値, 
@@ -1797,8 +1812,8 @@ df2 %&gt;%
 ## 8 兵庫県         1197.        230       3.54   591 Hyogo   
 ## 9 和歌山県       1252          83       3.97   140 Wakayama</code></pre>
 <p>使い方は非常に直感的です。</p>
-<pre class="r"><code># case_when()の使い方
-データフレーム名 %&gt;%
+<pre class="r"><code># recode()の使い方
+データフレーム/tibble名 %&gt;%
   mutate(新変数名 = recode(元の変数名,
                             元の値1 =  新しい値1, 
                             元の値2 =  新しい値2, 
@@ -1901,31 +1916,37 @@ df3$EastJapan</code></pre>
 <h2>行単位の操作</h2>
 <p>ここでは行単位の操作について考えたいと思います。<code>select()</code>の説明で使った<code>myDF1</code>を見てみましょう。</p>
 <pre class="r"><code>myDF1</code></pre>
-<pre><code>##   ID X1 Y1 X1D X2 Y2 X2D X3 Y3 X3D
-## 1  1  2  3   4  5  3   8  3  1   9
-## 2  2  4  5   2  5  3   9  0  5   1
-## 3  3  6  1   1  6  2   5  3  9   3
-## 4  4  2  1   6  0  3   0  0  1   3
-## 5  5  7  0   9  2  1   1  2  3   8</code></pre>
+<pre><code>## # A tibble: 5 x 10
+##      ID    X1    Y1   X1D    X2    Y2   X2D    X3    Y3   X3D
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     2     3     4     5     3     8     3     1     9
+## 2     2     4     5     2     5     3     9     0     5     1
+## 3     3     6     1     1     6     2     5     3     9     3
+## 4     4     2     1     6     0     3     0     0     1     3
+## 5     5     7     0     9     2     1     1     2     3     8</code></pre>
 <p>ここで<code>X1</code>と<code>X2</code>と<code>X3</code>の平均値を計算し、<code>X_Mean</code>という名の変数にする場合、以下のような書き方が普通でしょう。</p>
 <pre class="r"><code>myDF1 %&gt;%
   mutate(X_Mean = mean(c(X1, X2, X3)))</code></pre>
-<pre><code>##   ID X1 Y1 X1D X2 Y2 X2D X3 Y3 X3D   X_Mean
-## 1  1  2  3   4  5  3   8  3  1   9 3.133333
-## 2  2  4  5   2  5  3   9  0  5   1 3.133333
-## 3  3  6  1   1  6  2   5  3  9   3 3.133333
-## 4  4  2  1   6  0  3   0  0  1   3 3.133333
-## 5  5  7  0   9  2  1   1  2  3   8 3.133333</code></pre>
+<pre><code>## # A tibble: 5 x 11
+##      ID    X1    Y1   X1D    X2    Y2   X2D    X3    Y3   X3D X_Mean
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1     2     3     4     5     3     8     3     1     9   3.13
+## 2     2     4     5     2     5     3     9     0     5     1   3.13
+## 3     3     6     1     1     6     2     5     3     9     3   3.13
+## 4     4     2     1     6     0     3     0     0     1     3   3.13
+## 5     5     7     0     9     2     1     1     2     3     8   3.13</code></pre>
 <p>あら、なんかおかしくありませんか。1行目の場合、<code>X1</code>と<code>X2</code>、<code>X3</code>それぞれ2、5、3であり、平均値は3.333であるはずなのに3.133になりました。これは2行目以降も同じです。なぜでしょうか。</p>
-<p>実は<code>dplyr</code>は行単位の計算が苦手です。実際、データフレームというのは既に説明したとおり、縦ベクトルを横に並べたものです。列をまたがる場合、データ型が異なる場合も多いため、そもそも使う場面も多くありません。したがって、以下のような書き方が必要でした。</p>
+<p>実は<code>dplyr</code>は行単位の計算が苦手です。実際、データフレーム (または、tibble)というのは既に説明したとおり、縦ベクトルを横に並べたものです。列をまたがる場合、データ型が異なる場合も多いため、そもそも使う場面も多くありません。したがって、以下のような書き方が必要でした。</p>
 <pre class="r"><code>myDF1 %&gt;%
   mutate(X_Mean = (X1 + X2 + X3) / 3)</code></pre>
-<pre><code>##   ID X1 Y1 X1D X2 Y2 X2D X3 Y3 X3D    X_Mean
-## 1  1  2  3   4  5  3   8  3  1   9 3.3333333
-## 2  2  4  5   2  5  3   9  0  5   1 3.0000000
-## 3  3  6  1   1  6  2   5  3  9   3 5.0000000
-## 4  4  2  1   6  0  3   0  0  1   3 0.6666667
-## 5  5  7  0   9  2  1   1  2  3   8 3.6666667</code></pre>
+<pre><code>## # A tibble: 5 x 11
+##      ID    X1    Y1   X1D    X2    Y2   X2D    X3    Y3   X3D X_Mean
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1     2     3     4     5     3     8     3     1     9  3.33 
+## 2     2     4     5     2     5     3     9     0     5     1  3    
+## 3     3     6     1     1     6     2     5     3     9     3  5    
+## 4     4     2     1     6     0     3     0     0     1     3  0.667
+## 5     5     7     0     9     2     1     1     2     3     8  3.67</code></pre>
 <p>先ほどの<code>mean(c(X1, X2, X3))</code>は(<code>X1</code>列と<code>X2</code>列、<code>X3</code>列)の平均値です。<code>X1</code>は長さ1のベクトルではなく、その列全体を指すものです。つまり、<code>mean(c(X1, X2, X3))</code>は<code>mean(c(myD1F$X1, myDF1$X2, myDF1$X3))</code>と同じことになります。だから全て3.133という結果が得られました。ただし、後者はベクトル同士の加減乗除になるため問題ありません。実際<code>c(1, 2, 3) + c(3, 5, 0)</code>は同じ位置の要素同士の計算になります。</p>
 <p>ここで<code>mean()</code>関数を使う場合には全ての演算を、一行一行に分けて行う必要があります。ある一行のみに限定する場合、<code>mean(c(X1, X2, X3))</code>の<code>X1</code>などは長さ1のベクトルになるため、<code>(X1 + X2 + X3) / 3</code>と同じことになります。この「一行単位で処理を行う」ことを指定する関数が<code>rowwise()</code>関数です。これは行単位の作業を行う前に指定するだけです。</p>
 <pre class="r"><code>myDF1 %&gt;%
