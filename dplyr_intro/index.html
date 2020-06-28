@@ -1712,7 +1712,7 @@ quantile(df$Walk, na.rm = TRUE)</code></pre>
 ##  9 京都府 ＪＲ山陰本線（京都-米子）  9.23     3   
 ## 10 京都府 ＪＲ山陰本線（京都-米子）  9.23    13   
 ## # … with 1,008 more rows</code></pre>
-<p>最初のグループ化変数であった<code>Pref</code>と<code>Line</code>が、<code>summarise()</code>後もグループ化変数として残っていることが分かります。</p>
+<p>同じ<code>Pref</code>、<code>Line</code>のケースが2つずつ出来ています。最初に来る数値は第一四分位点、次に来るのが第三四分位点です。そして最初のグループ化変数であった<code>Pref</code>と<code>Line</code>が、<code>summarise()</code>後もグループ化変数として残っていることが分かります。</p>
 <p><code>.groups</code>引数は記述統計量だけを計算する意味ではあまり意識する必要がありません。しかし、得られた記述統計量から何らかの計算をしたり、さらにもう一回記述統計量を求めたりする際、予期せぬ結果が得られる可能性があるため注意する必要があります。出来る限り<code>.groups</code>引数は指定するようにしましょう。</p>
 <hr />
 </div>
