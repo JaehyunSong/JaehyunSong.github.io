@@ -172,25 +172,30 @@
 <script src="../rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
+<div id="はじめに" class="section level2">
+<h2>はじめに</h2>
 <ul>
 <li>以下の内容は現在執筆中の内容の一部となります。
 <ul>
-<li>Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない』(E-book)</li>
+<li>Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない (仮)』(E-book)</li>
+<li>したがって、いきなり<strong>オブジェクト</strong>、<strong>関数</strong>、<strong>引数</strong>といった馴染みのない概念が出てきます。これらの概念に馴染みのない方は、予め「<a href="../rprogramming/">Rプログラミング入門の入門</a>」をご一読ください。</li>
 </ul></li>
-<li>旧版は<a href="../dplyr_intro_old/">ここ</a>から閲覧できます。以下の内容は2020年6月に公開されましたdplyr 1.0.0に対応しております。</li>
+<li>2020年6月に公開されましたdplyr 1.0.0に対応しております。</li>
+<li>2016年5月に作成しました旧版は<a href="../dplyr_intro_old/">ここ</a>から閲覧できます。</li>
 <li>実習データは<a href="../Data/Ramen.csv">ここ</a>からダウンロード可能です。</li>
 </ul>
 <hr />
+</div>
 <div id="パッケージと実習用データの読み込み" class="section level2">
 <h2>パッケージと実習用データの読み込み</h2>
 <p>パッケージは<code>dplyr</code>でも、<code>tidyverse</code>でもどれでも構いません。ここではデータをtibble型として読み込むため、<code>tidyverse</code>を読み込んでおきます。</p>
 <pre class="r numberLines"><code>library(tidyverse)</code></pre>
-<pre><code>## ─ Attaching packages ─────────────────────── tidyverse 1.3.0 ─</code></pre>
+<pre><code>## ─ Attaching packages ────────────────────────── tidyverse 1.3.0 ─</code></pre>
 <pre><code>## ✓ ggplot2 3.3.1     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ─ Conflicts ──────────────────────── tidyverse_conflicts() ─
+<pre><code>## ─ Conflicts ──────────────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>それでは今回の実習用データを読み込みましょう。<a href="../Data/Ramen.csv">Ramen.csv</a>には「<a href="https://www.gnavi.co.jp">ぐるなび</a>」から取得したラーメン屋6292店舗の情報が入っています。具体的には東京、神奈川、千葉、埼玉、大阪、京都、兵庫、奈良、和歌山それぞれ都府県にあるラーメン屋の中から最大1000店舗の情報を抽出したものです。東京都は、ぐるなびに登録したラーメン屋が3000店舗以上ですが、1000店舗の基準はぐるなびの「おすすめ」の順で上位1000店舗となります。また、店側またはぐるなびが登録したカテゴリを基準に抽出したため、実際はラーメン屋ではないにもかかわらずラーメン屋としてデータ内に含まれている可能性があります。</p>

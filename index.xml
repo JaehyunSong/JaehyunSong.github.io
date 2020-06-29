@@ -6,10 +6,19 @@
     <description>Recent content on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rプログラミング入門の入門</title>
+      <link>/rprogramming/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/rprogramming/</guid>
+      <description>Rプログラミングの基礎 ここでは統計ソフトウェアではなく、プログラミング言語としてのRについて解説します。プログラミングとは難しそうなイメージ</description>
+    </item>
     
     <item>
       <title>dplyr入門 (新版)</title>
@@ -17,7 +26,7 @@
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>/dplyr_intro/</guid>
-      <description>以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない』(E-book) 旧版</description>
+      <description>はじめに 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない (仮)』(E-</description>
     </item>
     
     <item>
