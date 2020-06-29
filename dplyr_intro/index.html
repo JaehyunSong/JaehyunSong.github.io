@@ -199,8 +199,9 @@
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>それでは今回の実習用データを読み込みましょう。<a href="../Data/Ramen.csv">Ramen.csv</a>には「<a href="https://www.gnavi.co.jp">ぐるなび</a>」から取得したラーメン屋6292店舗の情報が入っています。具体的には東京、神奈川、千葉、埼玉、大阪、京都、兵庫、奈良、和歌山それぞれ都府県にあるラーメン屋の中から最大1000店舗の情報を抽出したものです。東京都は、ぐるなびに登録したラーメン屋が3000店舗以上ですが、1000店舗の基準はぐるなびの「おすすめ」の順で上位1000店舗となります。また、店側またはぐるなびが登録したカテゴリを基準に抽出したため、実際はラーメン屋ではないにもかかわらずラーメン屋としてデータ内に含まれている可能性があります。</p>
-<p>まず、このデータを読み込み、<code>df</code>という名付けます。</p>
-<pre class="r numberLines"><code>df &lt;- read_csv(&quot;Data/Ramen.csv&quot;)</code></pre>
+<p>まず、このデータを読み込み、<code>df</code>という名付けます。R内蔵関数である<code>read.csv()</code>を使ってデータを読み込んでも以下の内容を実習するにあたって全く問題はございません。<code>read.csv()</code>から読み込まれたデータのクラスはデータフレーム、<code>read_csv()</code>の場合はtibbleです。tibbleはデータフレームの拡張版であり、データフレームで可能な操作は全てtibbleにおいても可能です。ここではtibbleを使いますが、こちらの方が、結果が読みやすく出力されるからです。</p>
+<pre class="r numberLines"><code># ファイルのパスは適宜修正してください
+df &lt;- read_csv(&quot;Data/Ramen.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_character(),
@@ -218,6 +219,12 @@
 ##   ScoreN = col_double(),
 ##   Score = col_double()
 ## )</code></pre>
+<p>本サンプルデータはUTF-8で保存されており、文字化けが生じる場合、以下のように対処してください。</p>
+<pre class="r"><code># readrパッケージのread_csv()を使う場合
+df &lt;- read_csv(&quot;Data/Ramen.csv&quot;, locale = locale(encoding = &quot;utf8&quot;))
+
+# R内臓のread.csv()を使う場合
+df &lt;- read_csv(&quot;Data/Ramen.csv&quot;, fileEncoding = &quot;utf8&quot;)</code></pre>
 <p>データの中身を確認してみましょう。</p>
 <pre class="r numberLines"><code>df</code></pre>
 <pre><code>## # A tibble: 6,292 x 14
