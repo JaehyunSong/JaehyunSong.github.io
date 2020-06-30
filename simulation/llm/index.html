@@ -36,7 +36,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -159,11 +159,11 @@
         <h2><center>大数の法則</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+<a href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
 
-<a href="../../tags/%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A"><kbd class="item-tag">仮説検定</kbd></a>
+<a href="https://www.jaysong.net/tags/%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A"><kbd class="item-tag">仮説検定</kbd></a>
 
 </center>
     </div>
@@ -199,7 +199,7 @@
 <pre class="r"><code># まずはtidyverseを読み込んでおく
 library(tidyverse)</code></pre>
 <pre><code>## ─ Attaching packages ────────────────────────── tidyverse 1.3.0 ─</code></pre>
-<pre><code>## ✓ ggplot2 3.3.1     ✓ purrr   0.3.4
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
@@ -210,7 +210,7 @@ library(tidyverse)</code></pre>
 <p>これで10210人のナウル国民の所得を設定した。ならば生成されたデータを見てみる。</p>
 <pre class="r"><code>summary(nauru.income)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -1781    3679    5000    5014    6327   13137</code></pre>
+##   -2519    3667    5005    5007    6337   13872</code></pre>
 <p>ナウル国民の所得の平均は5017ドル、最小値は-1761だそうだ。「所得にマイナスなんてあり得るか！」と思うかも知れないが、細かいことは無視しよう。知りたいのは大数の法則を経験的に確認することであって、ナウル国民の所得ではない。</p>
 <p>次はヒストグラムで見てみよう。</p>
 <pre class="r"><code>plot1 &lt;- ggplot(data = data.frame(nauru.income)) + 
