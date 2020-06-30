@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        
-        
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-96999602-1');
-  gtag('set', {'user_id': 'USER_ID'});
-</script>
-
-
-        
         <script defer src="../../fa/fontawesome-all.js"></script>
         
 
@@ -210,7 +197,7 @@ library(tidyverse)</code></pre>
 <p>これで10210人のナウル国民の所得を設定した。ならば生成されたデータを見てみる。</p>
 <pre class="r"><code>summary(nauru.income)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2519    3667    5005    5007    6337   13872</code></pre>
+##   -2592    3644    5011    5007    6361   13698</code></pre>
 <p>ナウル国民の所得の平均は5017ドル、最小値は-1761だそうだ。「所得にマイナスなんてあり得るか！」と思うかも知れないが、細かいことは無視しよう。知りたいのは大数の法則を経験的に確認することであって、ナウル国民の所得ではない。</p>
 <p>次はヒストグラムで見てみよう。</p>
 <pre class="r"><code>plot1 &lt;- ggplot(data = data.frame(nauru.income)) + 
