@@ -36,7 +36,7 @@
 </style>
 
 
-<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
+<link rel="stylesheet" href="../../css/main.css">
 
 
 
@@ -159,7 +159,7 @@
         <h2><center>黒ひげ危機一発</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
 
 </center>
     </div>
@@ -205,7 +205,7 @@
 Kuro1</code></pre>
 <pre><code>## result
 ##     1     2     3     4 
-## 24867 25200 25063 24870</code></pre>
+## 25014 24986 25121 24879</code></pre>
 <p>結果を見ると順番なんか関係なく、当たりの確率は全てのブレイヤーにおいて約25%、つまり2万5千回くらいである。黒ひげ危機一発って、わりと公平なゲームだな…</p>
 <p>でも、もし5人でやったら？7人でやったら？つまり、穴の数をプレイヤーの数で割って余りがある場合はどうなるか。 せっかく関数も作ったからやってみよう。今回こそ100万回だ！</p>
 <p>24穴、5人、100万回試行</p>
@@ -213,13 +213,13 @@ Kuro1</code></pre>
 Kuro2</code></pre>
 <pre><code>## result
 ##      1      2      3      4      5 
-## 208363 208810 208481 207780 166566</code></pre>
+## 207372 208727 209611 208214 166076</code></pre>
 <p>24穴、7人、100万回試行</p>
 <pre class="r"><code>Kuro3 &lt;- kuro.sim(hole = 24, player = 7, trial = 1000000)
 Kuro3</code></pre>
 <pre><code>## result
 ##      1      2      3      4      5      6      7 
-## 166373 166885 166423 125033 125080 124661 125545</code></pre>
+## 166755 166706 166899 125104 124205 124898 125433</code></pre>
 <p>5人の場合は5番目のプレイヤーが、7人の場合は4番目以降のプレイヤーが当たる確率が確実に下る。つまり、<code>mod(hole, player)</code>番目以降のプレイヤーが当たる確率が低い。</p>
 </div>
 

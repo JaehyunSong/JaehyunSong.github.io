@@ -49,6 +49,11 @@ kuro.sim <- function(hole = 24, player = 4, trial = 100){ #関数を定義する
 結果を確認してみよう。
 
 24穴、4人、10万回試行
+
+```{r, echo = FALSE}
+set.seed(19861008)
+```
+
 ```{r, cache = TRUE}
 Kuro1 <- kuro.sim(hole = 24, player = 4, trial = 100000)
 Kuro1

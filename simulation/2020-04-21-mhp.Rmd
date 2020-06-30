@@ -77,6 +77,10 @@ MH.sim <- function(trials = 1000){
 
 ## シミュレーションの実行
 
+```{r, echo = FALSE}
+set.seed(19861008)
+```
+
 ```{r}
 MH.Result <- MH.sim(trials = 10000)
 
