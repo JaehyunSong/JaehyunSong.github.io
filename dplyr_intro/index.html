@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
+<link rel="stylesheet" href="../css/main.css">
 
 
 
@@ -146,11 +146,11 @@
         <h2><center>dplyr入門 (新版)</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="../tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="https://www.jaysong.net/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
+<a href="../tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
 
 </center>
     </div>
@@ -385,18 +385,18 @@ paste(3, &quot;+&quot;, 5, &quot;=&quot;, 8) %&gt;% rep(3) %&gt;% print()</code>
 paste(3, &quot;+&quot;, 5, &quot;=&quot;, 8) %&gt;% 
     rep(3) %&gt;% 
     print()</code></pre>
-<p>パイプ演算子を使わない方法は図1のようにイメージできます。一回の処理ごとに結果を保存し、それをまた次の処理時においてデータとして使うイメージです。</p>
+<p>パイプ演算子を使わない方法は図<a href="#fig:pipe1">1</a>のようにイメージできます。一回の処理ごとに結果を保存し、それをまた次の処理時においてデータとして使うイメージです。</p>
 <div class="figure" style="text-align: center"><span id="fig:pipe1"></span>
-<img src="Figures/Handling1/Pipeline1.png" alt="図1. パイプ演算子を使わない場合" width="444" />
+<img src="Figures/Handling1/Pipeline1.png" alt="パイプ演算子を使わない場合" width="444" />
 <p class="caption">
-Figure 1: 図1. パイプ演算子を使わない場合
+Figure 1: パイプ演算子を使わない場合
 </p>
 </div>
-<p>一方、図2はパイプ演算子を使う場合のプロセスです。処理後の結果を保存せず、すぐに次のプロセスに渡すことで、メモリ (図だとボウル)や時間、コードの無駄を減らすことができます。むろん、図<a href="#fig:pipe1">1</a>の結果1を使って色々試してみたい場合は、一旦結果1までは格納し、適宜引き出して使った方が効率的でしょう。パイプ演算子はたしかに便利で、「今どき」のRの書き方を象徴するようなものですが、一つの結果を出すまであまりにも多くのパイプ演算子を使うことはあ望ましくありません。</p>
+<p>一方、図<a href="#fig:pipe2">2</a>はパイプ演算子を使う場合のプロセスです。処理後の結果を保存せず、すぐに次のプロセスに渡すことで、メモリ (図だとボウル)や時間、コードの無駄を減らすことができます。むろん、図<a href="#fig:pipe1">1</a>の結果1を使って色々試してみたい場合は、一旦結果1までは格納し、適宜引き出して使った方が効率的でしょう。パイプ演算子はたしかに便利で、「今どき」のRの書き方を象徴するようなものですが、一つの結果を出すまであまりにも多くのパイプ演算子を使うことはあ望ましくありません。</p>
 <div class="figure" style="text-align: center"><span id="fig:pipe2"></span>
-<img src="Figures/Handling1/Pipeline2.png" alt="図2. パイプ演算子を使う場合" width="100%" />
+<img src="Figures/Handling1/Pipeline2.png" alt="パイプ演算子を使う場合" width="100%" />
 <p class="caption">
-Figure 2: 図2. パイプ演算子を使う場合
+Figure 2: パイプ演算子を使う場合
 </p>
 </div>
 <p>データハンドリングもこれど同様に、様々な作業を順に沿って行う必要があります。例えば、「(1) 列を選択して、(2) 欠損値を含む列を除去して、 (3) ある変数の値を100倍にして、(4) ある変数の値がが小さい行から大きい順へ並び替える」といった手順です。これらの作業はパイプ演算子を使えば、スムーズに行うことが可能です。</p>
@@ -1011,18 +1011,18 @@ select.df %&gt;%
 select.df %&gt;% 
   slice_sample(n = 10)</code></pre>
 <pre><code>## # A tibble: 10 x 5
-##    ID      Name                         Pref     Budget Score
-##    &lt;chr&gt;   &lt;chr&gt;                        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
-##  1 7625538 らー麺つけ麺 みやがわ        神奈川県     NA    NA
-##  2 6277951 第一旭 関目店                大阪府       NA     4
-##  3 7615401 珍來四街道店                 千葉県       NA    NA
-##  4 7377096 一蘭 大阪茨木店              大阪府      800    NA
-##  5 7711948 越後秘蔵麺 無尽蔵 かわぐち家 埼玉県     1000    NA
-##  6 5026511 ラーメン ゆき                千葉県       NA    NA
-##  7 6981989 コトホギ                     埼玉県       NA    NA
-##  8 7378934 宮本商店 川口新井宿店        埼玉県       NA    NA
-##  9 5507875 天竜ラーメン                 大阪府       NA    NA
-## 10 6272919 めん家                       京都府       NA    NA</code></pre>
+##    ID      Name                               Pref     Budget Score
+##    &lt;chr&gt;   &lt;chr&gt;                              &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 5495843 くるまやラーメン 成田西三里塚店    千葉県       NA    NA
+##  2 7210389 煮干しらーめん玉五郎 鶴橋店        大阪府      870    NA
+##  3 7403194 横浜家系ラーメン 横浜道 野田蕃昌店 千葉県       NA    NA
+##  4 5495086 らあめん花月嵐 坂戸わかば店        埼玉県       NA     1
+##  5 7344197 てんがら 寝屋川店                  大阪府       NA    NA
+##  6 5676733 麺や 幸村                          神奈川県     NA     4
+##  7 7493572 春木屋 羽田空港店                  東京都       NA    NA
+##  8 6915234 橘                                 奈良県       NA    NA
+##  9 5508492 ラーメン泰平                       兵庫県       NA    NA
+## 10 7178609 ひぶた                             千葉県       NA    NA</code></pre>
 <p>のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
 </div>
 <div id="条件に合致する行を抽出する" class="section level3">
@@ -2087,6 +2087,328 @@ df3$EastJapan</code></pre>
 </div>
 <div id="factor型の処理に便利な関数" class="section level3">
 <h3>factor型の処理に便利な関数</h3>
+<p>話がずれますが、可視化における名目変数の扱いについて考えたいと思います。横軸、または縦軸が気温、成績、身長のような連続変数ではなく、都道府県や国、企業のような名目変数になる場合があります。たとえば、棒グラフの横軸は図<a href="#fig:factor1">3</a>のように、一般的に名目変数になる場合が多いです。</p>
+<div class="figure" style="text-align: center"><span id="fig:factor1"></span>
+<img src="../dplyr_intro_files/figure-html/factor1-1.png" alt="横軸が名目変数の棒グラフ" width="576" />
+<p class="caption">
+Figure 3: 横軸が名目変数の棒グラフ
+</p>
+</div>
+<p>ここでは横軸の順番に注目してください。京都府、埼玉県、神奈川県、…の順番になっていますね。「この順番で大満足だよ!」という方がいるかも知れませんが、そうでない方もおおいでしょう。普通考えられるものとしては、都道府県コードの順か、縦軸が高い順 (低い順)でしょう。都道府県コードの順だと、埼玉県、千葉県、東京都、神奈川県、京都府、大阪府、兵庫県、奈良県、和歌山県の順番になります。または、縦軸 (口コミ評価の平均値)が高い順なら和歌山県、奈良県、大阪府、…の順番になります。あるいは50音順も考えられるでしょう。アメリカの場合、州を並べる際、アルファベット順で並べます。</p>
+<p>自分でこの順番をコントロールするには可視化の前の段階、つまりデータハンドリングの段階で順番を決めなくてはなりません。これを決めておかない場合、Rが勝手に順番を指定します。具体的にはロケール (locale)というパソコン内の空間に文字情報が含まれているわけですが、そこに保存されている文字の順番となります。たとえば、日本語ロケールには「京」が「埼」よりも先に保存されているわけです。</p>
+<p>したがって、名目変数がグラフに含まれる場合は、名目変数の表示順番を決める必要があり、そこで必要なのがfactor型です。名目変数がcharacter型の場合、ロケールに保存されている順でソートされますが、factor型の場合、予め指定した順番でソートされます。</p>
+<p>たとえば、<code>df</code>を用いて、都道府県ごとの口コミ評価の平均値を計算し、その結果を<code>Score_df</code>として保存します。</p>
+<pre class="r"><code>Score_df &lt;- df %&gt;%
+    group_by(Pref) %&gt;%
+    summarise(Score   = mean(Score, na.rm = TRUE),
+              .groups = &quot;drop&quot;)
+
+Score_df</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     Score
+##   &lt;chr&gt;    &lt;dbl&gt;
+## 1 京都府    3.68
+## 2 埼玉県    3.64
+## 3 神奈川県  3.53
+## 4 千葉県    3.72
+## 5 大阪府    3.77
+## 6 東京都    3.67
+## 7 奈良県    3.85
+## 8 兵庫県    3.54
+## 9 和歌山県  3.97</code></pre>
+<p>この時点で勝手にロケール順になります。実際、表示された<code>Score_df</code>を見ると<code>Pref</code>の下に`<code>&lt;chr&gt;</code>と表記されており、<code>Pref</code>はcharacter型であることが分かります。これをこのまま棒グラフに出してみましょう。可視化の方法は執筆中のE-Bookで詳細に解説する予定ですので、ここでは結果だけに注目してください。</p>
+<pre class="r"><code>Score_df %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Pref, y = Score), stat = &quot;identity&quot;) +
+  labs(x = &quot;都府県&quot;, y = &quot;口コミ評価の平均値 (1~5)&quot;) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;) +
+  theme(text = element_text(size = 12))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:factor2"></span>
+<img src="../dplyr_intro_files/figure-html/factor2-1.png" alt="Prefがcharacter型の場合 (1)" width="576" />
+<p class="caption">
+Figure 4: Prefがcharacter型の場合 (1)
+</p>
+</div>
+<p>横軸の順番があまり直感的ではありませんね。それでは、<code>Score_df</code>を<code>Score</code>が高い順にソートし、<code>Score_df2</code>で保存してから、もう一回試してみます。</p>
+<pre class="r"><code>Score_df2 &lt;- Score_df %&gt;%
+  arrange(desc(Score))
+
+Score_df2</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     Score
+##   &lt;chr&gt;    &lt;dbl&gt;
+## 1 和歌山県  3.97
+## 2 奈良県    3.85
+## 3 大阪府    3.77
+## 4 千葉県    3.72
+## 5 京都府    3.68
+## 6 東京都    3.67
+## 7 埼玉県    3.64
+## 8 兵庫県    3.54
+## 9 神奈川県  3.53</code></pre>
+<p>ここでも<code>Pref</code>はcharacter型ですが、とりあえず、これで図を出してみます。</p>
+<pre class="r"><code>Score_df2 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Pref, y = Score), stat = &quot;identity&quot;) +
+  labs(x = &quot;都府県&quot;, y = &quot;口コミ評価の平均値 (1~5)&quot;) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;) +
+  theme(text = element_text(size = 12))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:factor3"></span>
+<img src="../dplyr_intro_files/figure-html/factor3-1.png" alt="Prefがcharacter型の場合 (2)" width="576" />
+<p class="caption">
+Figure 5: Prefがcharacter型の場合 (2)
+</p>
+</div>
+<p>結果は全く変わっておりません。それでは、<code>Score_df</code>の<code>Pref</code>列をfactor型に変換し、順番は口コミ評価の平均値が高い順番にしてみましょう。結果は<code>Score_df_f1</code>という名で保存します。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df %&gt;%
+  mutate(Pref = factor(Pref, levels = c(&quot;和歌山県&quot;, &quot;奈良県&quot;, &quot;大阪府&quot;,
+                                        &quot;千葉県&quot;, &quot;京都府&quot;, &quot;東京都&quot;,
+                                        &quot;埼玉県&quot;, &quot;兵庫県&quot;, &quot;神奈川県&quot;)))
+
+Score_df_f1</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     Score
+##   &lt;fct&gt;    &lt;dbl&gt;
+## 1 京都府    3.68
+## 2 埼玉県    3.64
+## 3 神奈川県  3.53
+## 4 千葉県    3.72
+## 5 大阪府    3.77
+## 6 東京都    3.67
+## 7 奈良県    3.85
+## 8 兵庫県    3.54
+## 9 和歌山県  3.97</code></pre>
+<p>表示される順番は<code>Score_df</code>と<code>Score_df_f1</code>も同じですが、<code>Pref</code>のデータ型が<code>&lt;fct&gt;</code>、つまりfactor型であることが分かります。実際、<code>Pref</code>列だけ抽出した場合、factor型として、和歌山県から神奈川県の順になっていることが確認できます。</p>
+<pre class="r"><code>Score_df_f1$Pref</code></pre>
+<pre><code>## [1] 京都府   埼玉県   神奈川県 千葉県   大阪府   東京都   奈良県   兵庫県  
+## [9] 和歌山県
+## 9 Levels: 和歌山県 奈良県 大阪府 千葉県 京都府 東京都 埼玉県 ... 神奈川県</code></pre>
+<p>この<code>Score_df_f1</code>データを使って、図<a href="#fig:factor2">4</a>と全く同じコードを実行した結果が図<a href="#fig:factor4">6</a>です。</p>
+<div class="figure" style="text-align: center"><span id="fig:factor4"></span>
+<img src="../dplyr_intro_files/figure-html/factor4-1.png" alt="Prefがfactor型の場合 (1)" width="576" />
+<p class="caption">
+Figure 6: Prefがfactor型の場合 (1)
+</p>
+</div>
+<p>これまでの話をまとめるの以下の2点が分かります。</p>
+<ol style="list-style-type: decimal">
+<li>変数がcharacter型である場合、自動的にロケール順でソートされる。</li>
+<li>変数がfactor型である場合、データ内の順番やロケール順と関係なく、指定されたレベル (水準)の順でソートされる。</li>
+</ol>
+<p>とくに2番目の点についてですが、これは必ずしも順序付きfactorである必要はありません。順序付きfactor型でなくても、<code>factor()</code>内で指定した順にソートされます。むろん、順序付きfactor型なら指定された順序でソートされます。</p>
+<p>これからはfactor型変換の際に便利な関数をいくつか紹介しますが、その前に数値として表現された名目変数について話します。たとえば、<code>Score_df_f1</code>に関東地域なら<code>1</code>を、その他の地域なら<code>0</code>を付けた<code>Kanto</code>という変数があるとします。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Kanto = ifelse(Pref %in% c(&quot;東京都&quot;, &quot;神奈川県&quot;, &quot;千葉県&quot;, &quot;埼玉県&quot;), 1, 0))
+
+Score_df_f1</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Pref     Score Kanto
+##   &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 京都府    3.68     0
+## 2 埼玉県    3.64     1
+## 3 神奈川県  3.53     1
+## 4 千葉県    3.72     1
+## 5 大阪府    3.77     0
+## 6 東京都    3.67     1
+## 7 奈良県    3.85     0
+## 8 兵庫県    3.54     0
+## 9 和歌山県  3.97     0</code></pre>
+<p><code>Kanto</code>変数のデータ型は、<code>&lt;dbl&gt;</code>、つまりnumeric型です。しかし、これは明らかに名目変数ですね。これをこのまま<code>Kanto</code>を横軸にした図を出すと図<a href="#fig:factor5">7</a>のようになります。</p>
+<div class="figure" style="text-align: center"><span id="fig:factor5"></span>
+<img src="../dplyr_intro_files/figure-html/factor5-1.png" alt="Kantoがnumeric型の場合" width="288" />
+<p class="caption">
+Figure 7: Kantoがnumeric型の場合
+</p>
+</div>
+<p>この場合、図の横軸は<code>Kanto</code>の値が小さい順でソートされます。ただし、このような図は非常に見にくいため、<code>1</code>に<code>"関東"</code>、<code>0</code>に<code>"関西"</code>とラベルを付けたfactor型に変換した方が望ましいです。numeric型をラベル付きのfactor型にするためには、<code>levels</code>引数には元の数値を、<code>labels</code>引数にはそれぞれの数値に対応したラベルを指定します。また、関東の方を先に出したいので、<code>factor()</code>内の<code>levels</code>引数は<code>c(0, 1)</code>でなく、<code>c(1, 0)</code>にします。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Kanto = factor(Kanto, levels = c(1, 0), labels = c(&quot;関東&quot;, &quot;その他&quot;)))
+
+Score_df_f1</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Pref     Score Kanto 
+##   &lt;fct&gt;    &lt;dbl&gt; &lt;fct&gt; 
+## 1 京都府    3.68 その他
+## 2 埼玉県    3.64 関東  
+## 3 神奈川県  3.53 関東  
+## 4 千葉県    3.72 関東  
+## 5 大阪府    3.77 その他
+## 6 東京都    3.67 関東  
+## 7 奈良県    3.85 その他
+## 8 兵庫県    3.54 その他
+## 9 和歌山県  3.97 その他</code></pre>
+<p><code>Kanto</code>変数がfactor型に変換されたことが分かります。</p>
+<pre class="r"><code>Score_df_f1$Kanto</code></pre>
+<pre><code>## [1] その他 関東   関東   関東   その他 関東   その他 その他 その他
+## Levels: 関東 その他</code></pre>
+<p>また、<code>"関東"</code>、<code>"その他"</code>の順になっていますね。これを図として出力した結果が図<a href="#fig:factor6">8</a>です。</p>
+<div class="figure" style="text-align: center"><span id="fig:factor6"></span>
+<img src="../dplyr_intro_files/figure-html/factor6-1.png" alt="Kantoがfactor型の場合" width="288" />
+<p class="caption">
+Figure 8: Kantoがfactor型の場合
+</p>
+</div>
+<p>このように数値型名目変数でも、factor化することによって、自由に横軸の順番を変えることができます。それでは、factor化に使える便利な関数をいくつか紹介します。</p>
+</div>
+<div id="forcatsパッケージについて" class="section level3">
+<h3><code>forcats</code>パッケージについて</h3>
+<p>実はfactor型への変換や、順番に変更などは全てR内蔵の<code>factor()</code>関数で対応可能ですが、ここでは<code>forcats</code>パッケージが提供している<code>fct_*()</code>関数を使用します。<code>forcats</code>パッケージは<code>tidyverse</code>を読み込む際、自動的に読み込まれるため、既に<code>tidyverse</code>を読み込んでいる場合、別途のコードは要りません。</p>
+<p><strong><code>fct_relevel()</code>: 水準の順番を変更する</strong></p>
+<p><code>Score_df_f1</code>の<code>f1</code>は<code>Score</code>が高い順になっています。これを50音順に変更する際、<code>fct_relevel()</code>関数を使います。</p>
+<pre class="r"><code># 新しい変数名と元となる変数名が一致すると上書きになる
+データフレーム名 %&gt;%
+  mutate(新しい変数名 = fct_releve(元となる変数名, 
+                                    &quot;水準1&quot;, &quot;水準2&quot;, &quot;水準3&quot;, ...))</code></pre>
+<p>ここでは、<code>Pref</code>変数を再調整した<code>Pref2</code>変数を作ってみましょう。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Pref2 = fct_relevel(Pref, &quot;大阪府&quot;, &quot;神奈川県&quot;, &quot;京都府&quot;, 
+                             &quot;埼玉県&quot;, &quot;千葉県&quot;, &quot;東京都&quot;, 
+                             &quot;奈良県&quot;, &quot;兵庫県&quot;, &quot;和歌山県&quot;))
+
+Score_df_f1</code></pre>
+<pre><code>## # A tibble: 9 x 4
+##   Pref     Score Kanto  Pref2   
+##   &lt;fct&gt;    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;   
+## 1 京都府    3.68 その他 京都府  
+## 2 埼玉県    3.64 関東   埼玉県  
+## 3 神奈川県  3.53 関東   神奈川県
+## 4 千葉県    3.72 関東   千葉県  
+## 5 大阪府    3.77 その他 大阪府  
+## 6 東京都    3.67 関東   東京都  
+## 7 奈良県    3.85 その他 奈良県  
+## 8 兵庫県    3.54 その他 兵庫県  
+## 9 和歌山県  3.97 その他 和歌山県</code></pre>
+<p>一見、<code>Pref</code>と<code>Pref2</code>変数は同じように見えますが、水準はどうなっているでしょうか。</p>
+<pre class="r"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;埼玉県&quot;  
+## [8] &quot;兵庫県&quot;   &quot;神奈川県&quot;</code></pre>
+<pre class="r"><code>levels(Score_df_f1$Pref2) # Pref2の水準</code></pre>
+<pre><code>## [1] &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;京都府&quot;   &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;東京都&quot;   &quot;奈良県&quot;  
+## [8] &quot;兵庫県&quot;   &quot;和歌山県&quot;</code></pre>
+<p>問題なく50音順になっていることが分かります。他にも<code>fct_relevel()</code>には全ての水準名を指定する必要がありません。一部の水準名も可能です。たとえば、「関東が関西の先に来るなんでけしからん！」と思う読者もいるでしょう。この場合、関西の府県名を入れると、指定した水準が最初に位置するようになります。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Pref3 = fct_relevel(Pref, &quot;京都府&quot;, &quot;大阪府&quot;,
+                             &quot;兵庫県&quot;, &quot;奈良県&quot;, &quot;和歌山県&quot;))
+
+levels(Score_df_f1$Pref3) # Pref3の水準</code></pre>
+<pre><code>## [1] &quot;京都府&quot;   &quot;大阪府&quot;   &quot;兵庫県&quot;   &quot;奈良県&quot;   &quot;和歌山県&quot; &quot;千葉県&quot;   &quot;東京都&quot;  
+## [8] &quot;埼玉県&quot;   &quot;神奈川県&quot;</code></pre>
+<p>一部の水準名のみを指定するとその水準が最初に移動されますが、<code>after</code>引数を指定すると、位置を調整することも可能です。<code>after = 2</code>の場合、元となる変数の1、3番目の水準は維持され、3番目以降に指定した水準、それに続いて指定されていない水準の順番になります。<code>Pref</code>は和歌山、奈良、大阪の順ですが、ここで京都と東京を、奈良と大阪の間に移動するなら、</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Pref4 = fct_relevel(Pref, &quot;京都府&quot;, &quot;東京都&quot;, after = 2))
+
+levels(Score_df_f1$Pref4) # Pref4の水準</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;埼玉県&quot;  
+## [8] &quot;兵庫県&quot;   &quot;神奈川県&quot;</code></pre>
+<p>のように書きます。<code>after</code>を指定しない場合のデフォルト値は0であるため、最初に移動します。</p>
+<p><strong><code>fct_recode()</code>: 水準のラベルを変更する</strong></p>
+<p><code>fct_recode()</code>は水準のラベルを変更する時に使う関数で、以下のように使います。</p>
+<pre class="r"><code># 新しい変数名と元となる変数名が一致すると上書きになる
+データフレーム名 %&gt;%
+  mutate(新しい変数名 = fct_recode(元となる変数名, 
+                                   新しいラベル1 = &quot;既存のラベル1&quot;,
+                                   新しいラベル2 = &quot;既存のラベル2&quot;,
+                                   新しいラベル3 = &quot;既存のラベル3&quot;,
+                                   ...))</code></pre>
+<p>注意点としては新しいラベルは<code>"</code>で囲まず、既存のラベルは<code>"</code>で囲む点です。それでは、<code>Pref</code>のラベルをローマ字に変更してみましょう。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Pref5 = fct_recode(Pref,
+                            Saitama  = &quot;埼玉県&quot;,
+                            Wakayama = &quot;和歌山県&quot;,
+                            Kyoto    = &quot;京都府&quot;,
+                            Osaka    = &quot;大阪府&quot;,
+                            Tokyo    = &quot;東京都&quot;,
+                            Nara     = &quot;奈良県&quot;,
+                            Kanagawa = &quot;神奈川県&quot;,
+                            Hyogo    = &quot;兵庫県&quot;,
+                            Chiba    = &quot;千葉県&quot;))
+
+Score_df_f1</code></pre>
+<pre><code>## # A tibble: 9 x 7
+##   Pref     Score Kanto  Pref2    Pref3    Pref4    Pref5   
+##   &lt;fct&gt;    &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;fct&gt;    &lt;fct&gt;    &lt;fct&gt;   
+## 1 京都府    3.68 その他 京都府   京都府   京都府   Kyoto   
+## 2 埼玉県    3.64 関東   埼玉県   埼玉県   埼玉県   Saitama 
+## 3 神奈川県  3.53 関東   神奈川県 神奈川県 神奈川県 Kanagawa
+## 4 千葉県    3.72 関東   千葉県   千葉県   千葉県   Chiba   
+## 5 大阪府    3.77 その他 大阪府   大阪府   大阪府   Osaka   
+## 6 東京都    3.67 関東   東京都   東京都   東京都   Tokyo   
+## 7 奈良県    3.85 その他 奈良県   奈良県   奈良県   Nara    
+## 8 兵庫県    3.54 その他 兵庫県   兵庫県   兵庫県   Hyogo   
+## 9 和歌山県  3.97 その他 和歌山県 和歌山県 和歌山県 Wakayama</code></pre>
+<p><code>fct_recode()</code>の中に指定する水準の順番は無視されます。つまり、水準の順番はそのまま維持されるため、好きな順番で結構です。また、全ての水準を指定せず、一部のみ変更することも可能です。それでは<code>Pref5</code>の順番が<code>Pref</code>の順番と同じかを確認してみましょう。</p>
+<pre class="r"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;埼玉県&quot;  
+## [8] &quot;兵庫県&quot;   &quot;神奈川県&quot;</code></pre>
+<pre class="r"><code>levels(Score_df_f1$Pref5) # Pref5の水準</code></pre>
+<pre><code>## [1] &quot;Wakayama&quot; &quot;Nara&quot;     &quot;Osaka&quot;    &quot;Chiba&quot;    &quot;Kyoto&quot;    &quot;Tokyo&quot;    &quot;Saitama&quot; 
+## [8] &quot;Hyogo&quot;    &quot;Kanagawa&quot;</code></pre>
+<p><strong><code>fct_rev()</code>: 水準の順番を逆転させる</strong></p>
+<p>水準の順番を逆転することは非常によくあります。たとえば、グラフの読みやすさのために、左右または上下を反転するケースがあります。既に何回も強調しましたように、名目変数は基本的にfactor型にすべきであり、ここで<code>fct_rev()</code>関数が非常に便利です。たとえば、<code>Pref2</code>の水準は50音順でありますが、これを逆転し、<code>Pref6</code>という名の列として追加してみましょう。</p>
+<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+  mutate(Pref6 = fct_rev(Pref2))
+
+levels(Score_df_f1$Pref6)</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;兵庫県&quot;   &quot;奈良県&quot;   &quot;東京都&quot;   &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;京都府&quot;  
+## [8] &quot;神奈川県&quot; &quot;大阪府&quot;</code></pre>
+<p>関数一つで水準の順番が逆転されました。</p>
+<p><strong><code>fct_infreq()</code>: 頻度順に順番を変更する</strong></p>
+<p><strong><code>fct_inorder()</code>: データ内の出現順番に順番を変更する</strong></p>
+<p><strong><code>fct_shift()</code>: 水準の順番をずらす</strong></p>
+<p><strong><code>fct_shuffle()</code>: 水準の順番をランダム化する</strong></p>
+<p><strong><code>fct_reorder()</code>: 別の1変数の値を基準に水準の順番を変更する</strong></p>
+<p><strong><code>fct_reorder2()</code>: 別の2変数の値を基準に水準の順番を変更する</strong></p>
+<p><strong><code>fct_collapse()</code>: 水準を統合する</strong></p>
+<p><strong><code>fct_drop()</code>: 使われていない水準を除去する</strong></p>
+<pre class="r"><code>Score_df_f2 &lt;- df %&gt;%
+  mutate(Pref = fct_inorder(Pref)) %&gt;%
+  filter(Pref != &quot;奈良県&quot;) %&gt;%
+  group_by(Pref) %&gt;%
+  summarise(Score   = mean(Score, na.rm = TRUE),
+            .groups = &quot;drop&quot;)
+
+Score_df_f2</code></pre>
+<pre><code>## # A tibble: 8 x 2
+##   Pref     Score
+##   &lt;fct&gt;    &lt;dbl&gt;
+## 1 東京都    3.67
+## 2 神奈川県  3.53
+## 3 千葉県    3.72
+## 4 埼玉県    3.64
+## 5 大阪府    3.77
+## 6 京都府    3.68
+## 7 兵庫県    3.54
+## 8 和歌山県  3.97</code></pre>
+<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
+<pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
+## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
+<pre class="r"><code>Score_df_f2 &lt;- Score_df_f2 %&gt;%
+  mutate(Pref = fct_drop(Pref))</code></pre>
+<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
+<pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
+## [8] &quot;和歌山県&quot;</code></pre>
+<p><strong><code>fct_expand()</code>: 水準を追加する</strong></p>
+<pre class="r"><code>Score_df_f2 &lt;- Score_df_f2 %&gt;%
+  mutate(Pref = fct_expand(Pref, &quot;奈良県&quot;, &quot;滋賀県&quot;))
+
+Score_df_f2</code></pre>
+<pre><code>## # A tibble: 8 x 2
+##   Pref     Score
+##   &lt;fct&gt;    &lt;dbl&gt;
+## 1 東京都    3.67
+## 2 神奈川県  3.53
+## 3 千葉県    3.72
+## 4 埼玉県    3.64
+## 5 大阪府    3.77
+## 6 京都府    3.68
+## 7 兵庫県    3.54
+## 8 和歌山県  3.97</code></pre>
+<p>見た目は全く変わらず、奈良県の行が新しく出来たわけでもありません。それでは、<code>Pref</code>の水準を確認してみましょう。</p>
+<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
+<pre><code>##  [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;  
+##  [7] &quot;兵庫県&quot;   &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;滋賀県&quot;</code></pre>
+<p><code>"奈良県"</code>と<code>"滋賀県"</code>という新しい水準が出来ましたね。ただし、新しく追加された水準は最後の順番になりますので、修正が必要な場合は<code>fct_relevel()</code>などを使って適宜修正してください。</p>
+<p><strong><code>fct_explicit_na()</code>: 欠損値に水準を与える</strong></p>
 <hr />
 </div>
 </div>
@@ -2159,11 +2481,11 @@ df3$EastJapan</code></pre>
 <h2>データの結合</h2>
 <div id="行の結合" class="section level3">
 <h3>行の結合</h3>
-<p>まずは、複数のデータフレームまたはtibbleを縦に結合する方法について解説します。イメージとしては図<a href="#fig:merge-row">3</a>のようなものです。</p>
+<p>まずは、複数のデータフレームまたはtibbleを縦に結合する方法について解説します。イメージとしては図<a href="#fig:merge-row">9</a>のようなものです。</p>
 <div class="figure" style="text-align: center"><span id="fig:merge-row"></span>
 <img src="Figures/Handling1/Merge1.png" alt="行の結合" width="80%" />
 <p class="caption">
-Figure 3: 行の結合
+Figure 9: 行の結合
 </p>
 </div>
 <p>行を結合する際には<code>dplyr</code>パッケージの<code>bind_rows()</code>関数を使います。この関数の使い方は以下の通りです。</p>
@@ -2269,11 +2591,11 @@ Binded_df3</code></pre>
 </div>
 <div id="列の結合" class="section level3">
 <h3>列の結合</h3>
-<p>実はデータ分析においてデータの結合といえば、列の結合が一般的です。これは図<a href="#fig:merge-col">4</a>のような操作を意味します。</p>
+<p>実はデータ分析においてデータの結合といえば、列の結合が一般的です。これは図<a href="#fig:merge-col">10</a>のような操作を意味します。</p>
 <div class="figure" style="text-align: center"><span id="fig:merge-col"></span>
 <img src="Figures/Handling1/Merge2.png" alt="列の結合" width="80%" />
 <p class="caption">
-Figure 4: 列の結合
+Figure 10: 列の結合
 </p>
 </div>
 <p>まずは、本章で作成した<code>df2</code>をもう一回作ってみます。</p>
@@ -2524,11 +2846,11 @@ df4</code></pre>
 ## 10 群馬県    488
 ## # … with 37 more rows</code></pre>
 <p>これから共通変数名の値をキー (key)と呼びます。今回の例だと<code>Pref</code>が<code>df2</code>と<code>df4</code>のキー変数であり、その値である<code>"東京都"</code>、<code>"北海道"</code>などがキーです。</p>
-<p>まずは、<code>inner_join()</code>の仕組みについて考えます。これは<code>df2</code>と<code>df4</code>に共通するキーを持つケースのみ結合する関数です。<code>df4</code>には<code>"北海道"</code>というキーがありますが、<code>df2</code>にはありません。したがって、キーが<code>"北海道"</code>のケースは結合から除外されます。これをイメージにしたものが図<a href="#fig:inner-join">5</a>です<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。それぞれ3 <span class="math inline">\(\times\)</span> 2 (3行2列)のデータですが、キーが一致するケースは2つしかないため、結合後のデータは3 <span class="math inline">\(\times\)</span> 2となります。</p>
+<p>まずは、<code>inner_join()</code>の仕組みについて考えます。これは<code>df2</code>と<code>df4</code>に共通するキーを持つケースのみ結合する関数です。<code>df4</code>には<code>"北海道"</code>というキーがありますが、<code>df2</code>にはありません。したがって、キーが<code>"北海道"</code>のケースは結合から除外されます。これをイメージにしたものが図<a href="#fig:inner-join">11</a>です<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。それぞれ3 <span class="math inline">\(\times\)</span> 2 (3行2列)のデータですが、キーが一致するケースは2つしかないため、結合後のデータは3 <span class="math inline">\(\times\)</span> 2となります。</p>
 <div class="figure" style="text-align: center"><span id="fig:inner-join"></span>
 <img src="Figures/Handling1/Merge_Inner.png" alt="`inner_join()`の仕組み" width="80%" />
 <p class="caption">
-Figure 5: <code>inner_join()</code>の仕組み
+Figure 11: <code>inner_join()</code>の仕組み
 </p>
 </div>
 <p>実際にやってみましょう。</p>
@@ -2546,11 +2868,11 @@ Figure 5: <code>inner_join()</code>の仕組み
 ## 8 兵庫県         1197.        230       3.54   591    591
 ## 9 和歌山県       1252          83       3.97   140    140</code></pre>
 <p>共通するキーは9つのみであり、結果として返されたデータの大きさも9 <span class="math inline">\(\times\)</span> 6です。<code>df2</code>に足された<code>df4</code>は2列のデータですが、キー変数である<code>Pref</code>は共通するため、1列のみ足されました。キー変数を両方残す場合は<code>keep = TRUE</code>引数を追加してください。</p>
-<p>一方、<code>full_join()</code>は、すべてのキーに対して結合を行います (図<a href="#fig:full-join">6</a>)。たとえば、<code>df2</code>には<code>"北海道"</code>というキーがありません。それでも新しく出来上がるデータには北海道の列が追加されます。ただし、道内店舗の平均予算、口コミ数などの情報はないため、欠損値が代入されます。</p>
+<p>一方、<code>full_join()</code>は、すべてのキーに対して結合を行います (図<a href="#fig:full-join">12</a>)。たとえば、<code>df2</code>には<code>"北海道"</code>というキーがありません。それでも新しく出来上がるデータには北海道の列が追加されます。ただし、道内店舗の平均予算、口コミ数などの情報はないため、欠損値が代入されます。</p>
 <div class="figure" style="text-align: center"><span id="fig:full-join"></span>
 <img src="Figures/Handling1/Merge_Full.png" alt="`full_join()`の仕組み" width="80%" />
 <p class="caption">
-Figure 6: <code>full_join()</code>の仕組み
+Figure 12: <code>full_join()</code>の仕組み
 </p>
 </div>
 <p>それでは実際、結果を確認してみましょう。今回は結合後、<code>RamenN</code>が大きい順で出力します。</p>
@@ -2571,18 +2893,18 @@ Figure 6: <code>full_join()</code>の仕組み
 ## 10 静岡県           NA          NA      NA       NA    679
 ## # … with 37 more rows</code></pre>
 <p><code>df2</code>にはなかった北海道や愛知県などの行ができました。そして、<code>df2</code>にはない情報はすべて欠損値 (<code>NA</code>)となりました。</p>
-<p>続いて、<code>left_join()</code>ですが、これは先に指定したデータに存在するキーのみで結合を行います (図<a href="#fig:left-join">7</a>)。今回は<code>df2</code>が先に指定されていますが、<code>df2</code>のキーは<code>df4</code>のキーの部分集合であるため、<code>inner_join()</code>と同じ結果が得られます。</p>
+<p>続いて、<code>left_join()</code>ですが、これは先に指定したデータに存在するキーのみで結合を行います (図<a href="#fig:left-join">13</a>)。今回は<code>df2</code>が先に指定されていますが、<code>df2</code>のキーは<code>df4</code>のキーの部分集合であるため、<code>inner_join()</code>と同じ結果が得られます。</p>
 <div class="figure" style="text-align: center"><span id="fig:left-join"></span>
 <img src="Figures/Handling1/Merge_Left.png" alt="`left_join()`の仕組み" width="80%" />
 <p class="caption">
-Figure 7: <code>left_join()</code>の仕組み
+Figure 13: <code>left_join()</code>の仕組み
 </p>
 </div>
-<p>一方、<code>right_join()</code>は<code>left_join()</code>と逆の関数であり、後に指定したデータに存在するキーを基準に結合を行います (図<a href="#fig:right-join">8</a>)。後に指定された<code>df4</code>のキーは<code>df2</code>のキーを完全に含むので、<code>full_join()</code>と同じ結果が得られます。</p>
+<p>一方、<code>right_join()</code>は<code>left_join()</code>と逆の関数であり、後に指定したデータに存在するキーを基準に結合を行います (図<a href="#fig:right-join">14</a>)。後に指定された<code>df4</code>のキーは<code>df2</code>のキーを完全に含むので、<code>full_join()</code>と同じ結果が得られます。</p>
 <div class="figure" style="text-align: center"><span id="fig:right-join"></span>
 <img src="Figures/Handling1/Merge_Right.png" alt="`right_join()`の仕組み" width="80%" />
 <p class="caption">
-Figure 8: <code>right_join()</code>の仕組み
+Figure 14: <code>right_join()</code>の仕組み
 </p>
 </div>
 <p>これからは<code>df2</code>と<code>df4</code>を結合することになりますが、この2つのtibbleの大きさが異なります。<code>df2</code>は9つの都府県のみであるに対し、<code>df4</code>は47都道府県全てのデータが入っているからです。</p>

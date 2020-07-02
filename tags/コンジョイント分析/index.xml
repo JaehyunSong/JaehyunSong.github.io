@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>コンジョイント分析 on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90/</link>
+    <link>/tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90/</link>
     <description>Recent content in コンジョイント分析 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%E3%82%B3%E3%83%B3%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%B3%E3%83%88%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Conjoint Analysis Sample Size Simulator</title>
-      <link>https://www.jaysong.net/simulation/cjoint-n-sim/</link>
+      <link>/simulation/cjoint-n-sim/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/cjoint-n-sim/</guid>
+      <guid>/simulation/cjoint-n-sim/</guid>
       <description>使い方 # コードの読み込み source(&amp;quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&amp;quot;) Cjoint.N.Sim(n.Attr, n.Level, n.Choice, n.Sim, n.Min, n.Max, chk.dupli, min.occur) 並列演算を行うためdoMC, foreachパッケージを事前にインストールしておいてください。 CPU</description>
     </item>
     
