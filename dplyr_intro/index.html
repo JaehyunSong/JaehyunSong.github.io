@@ -177,12 +177,12 @@
 <h2>パッケージと実習用データの読み込み</h2>
 <p>パッケージは<code>dplyr</code>でも、<code>tidyverse</code>でもどれでも構いません。ここではデータをtibble型として読み込むため、<code>tidyverse</code>を読み込んでおきます。</p>
 <pre class="r numberLines"><code>library(tidyverse)</code></pre>
-<pre><code>## ─ Attaching packages ────────────────────────── tidyverse 1.3.0 ─</code></pre>
+<pre><code>## ─ Attaching packages ───────────────────────────── tidyverse 1.3.0 ─</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ─ Conflicts ──────────────────────────── tidyverse_conflicts() ─
+<pre><code>## ─ Conflicts ────────────────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>それでは今回の実習用データを読み込みましょう。<a href="../Data/Ramen.csv">Ramen.csv</a>には「<a href="https://www.gnavi.co.jp">ぐるなび</a>」から取得したラーメン屋6292店舗の情報が入っています。具体的には東京、神奈川、千葉、埼玉、大阪、京都、兵庫、奈良、和歌山それぞれ都府県にあるラーメン屋の中から最大1000店舗の情報を抽出したものです。東京都は、ぐるなびに登録したラーメン屋が3000店舗以上ですが、1000店舗の基準はぐるなびの「おすすめ」の順で上位1000店舗となります。また、店側またはぐるなびが登録したカテゴリを基準に抽出したため、実際はラーメン屋ではないにもかかわらずラーメン屋としてデータ内に含まれている可能性があります。</p>
@@ -917,7 +917,114 @@ df %&gt;%
 </div>
 <div id="行の抽出" class="section level2">
 <h2>行の抽出</h2>
-<p>他にも特定の行を抽出する場合があります。多くの場合、「何かの条件と合致するケースのみ抽出する」または、「何かの条件と合致しないケースのみを抽出する」やこれらの組み合わせで行の抽出を行います。そこで登場するのが<code>dplyr()</code>パッケージの<code>filter()</code>関数です。<code>filter()</code>関数の使い方は以下の通りです。</p>
+<div id="指定した行を抽出する" class="section level3">
+<h3>指定した行を抽出する</h3>
+<p>他にも特定の行を抽出する場合があります。たとえば、「<code>df</code>の最初の5行」や「<code>df</code>の8行目のケース」といった場合です。この操作には<code>dplyr</code>の<code>slice_*()</code>関数群が便利です。それではそれぞれの関数の使い方について紹介していきます。その前に、実習用データとして<code>df</code>から一部の列のみを抽出した<code>selelct.df</code>を作成します。</p>
+<pre class="r"><code>select.df &lt;- df %&gt;% 
+  select(ID, Name, Pref, Budget, Score)</code></pre>
+<p><strong><code>slice()</code>: 指定した番号の行のみ抽出する</strong></p>
+<p><code>select.df</code>から2, 8, 9行目の行を抽出したいとします。このような簡単な操作はパッケージを使わず、以下のように抽出することができます。</p>
+<pre class="r"><code># select.dfから2, 8, 9行目の行を抽出し、出力する
+select.df[c(2, 8, 9),]</code></pre>
+<pre><code>## # A tibble: 3 x 5
+##   ID      Name                                  Pref   Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 gfeb600 本格上海料理 新錦江 上野御徒町本店    東京都   2000  4.5 
+## 2 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店 東京都   2000  3.33
+## 3 gdvk200 中国料理 宝龍                         東京都   1000  2.5</code></pre>
+<p>しかし、以下の<code>slice()</code>関数を使うとパイプ演算子を前後に付けることが可能であり<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>、コードの可読性も高いです。<code>slice()</code>関数には以下のように抽出したい行の番号を入れるだけです。</p>
+<pre class="r"><code># select.dfから2, 8, 9行目の行を抽出し、出力する
+select.df %&gt;% 
+  slice(2, 8, 9) # slice(c(2, 8, 9))もOK</code></pre>
+<pre><code>## # A tibble: 3 x 5
+##   ID      Name                                  Pref   Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 gfeb600 本格上海料理 新錦江 上野御徒町本店    東京都   2000  4.5 
+## 2 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店 東京都   2000  3.33
+## 3 gdvk200 中国料理 宝龍                         東京都   1000  2.5</code></pre>
+<p><code>slice(2, 8, 9)</code>でも<code>slice(c(2, 8, 9))</code>でも構いません。また、隣接した行でしたら<code>:</code>を使うことも可能です。たとえば、10行目から15行目まで抽出する場合は<code>slice(10:15)</code>のような書き方も出来ます。</p>
+<p><strong><code>slice_head()</code>: 最初のn行を抽出する</strong></p>
+<pre class="r"><code># select.dfから最初の3行抽出し、出力する
+select.df %&gt;% 
+  slice_head(n = 3)</code></pre>
+<pre><code>## # A tibble: 3 x 5
+##   ID      Name                                       Pref   Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                                      &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 e539604 居酒屋 龍記 京橋店                         東京都   3000  NA  
+## 2 gfeb600 本格上海料理 新錦江 上野御徒町本店         東京都   2000   4.5
+## 3 ggt5900 食べ飲み放題×中華ビストロ NOZOMI（のぞみ） 東京都   2980  NA</code></pre>
+<p>これは<code>head(データ名, n = 出力する個数)</code>と同じ動きをする関数です。注意点としては引数<code>n =</code>を必ず付ける点です。たとえば、<code>slice_head(3)</code>にすると、<code>select.df</code>の3行目のみ抽出されます。</p>
+<p><strong><code>slice_tail()</code>: 最後のn行を抽出する</strong></p>
+<pre class="r"><code># select.dfから最後の7行を抽出し、出力する
+select.df %&gt;% 
+  slice_tail(n = 7)</code></pre>
+<pre><code>## # A tibble: 7 x 5
+##   ID      Name                    Pref     Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1 5508852 場鶴                    和歌山県     NA    NA
+## 2 7113351 来来亭 橋本店           和歌山県     NA    NA
+## 3 6364939 ばり馬 和歌山紀三井寺店 和歌山県     NA    NA
+## 4 7103349 ramen BIRDMAN           和歌山県     NA    NA
+## 5 7315303 薩摩ラーメン 斗天王     和歌山県     NA    NA
+## 6 7703472 まるしげ                和歌山県     NA    NA
+## 7 6395035 暴豚製麺所              和歌山県     NA    NA</code></pre>
+<p>これは<code>tail(データ名, n = 出力する個数)</code>と同じ動きをする関数です。ちなみに、この<code>n</code>引数も<code>n =</code>を明記する必要があります。</p>
+<p><strong><code>slice_max()</code>: 指定した変数が大きい順でn行抽出する</strong></p>
+<p><code>slice_max()</code>は指定した変数が大きい順で<code>n</code>行抽出する関数です。たとえば、<code>Budget</code>が高い順で4店舗を抽出する場合は以下のように書きます。</p>
+<pre class="r"><code># select.dfからScoreの値が高い順で5行を抽出し、出力する
+select.df %&gt;% 
+  slice_max(Budget, n = 4)</code></pre>
+<pre><code>## # A tibble: 4 x 5
+##   ID      Name                                              Pref    Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                                             &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 g670609 横浜ベイシェラトン ホテル＆タワーズ 中国料理 彩龍 神奈川県…   8000    NA
+## 2 g910420 JASMINE 憶江南                                    東京都    7000    NA
+## 3 7176666 赤坂焼鳥 鳳                                       東京都    7000    NA
+## 4 b612800 羽衣 銀座本店                                     東京都    6000    NA</code></pre>
+<p><strong><code>slice_min()</code>: 指定した変数が小さい順でn行抽出する</strong></p>
+<p>一方、<code>slice_min()</code>関数が小さい順で抽出します。</p>
+<pre class="r"><code># select.dfからScoreの値が低い順で3行を抽出し、出力する
+select.df %&gt;% 
+  slice_min(Score, n = 3)</code></pre>
+<pre><code>## # A tibble: 4 x 5
+##   ID      Name                        Pref   Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                       &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 6384909 葛西大勝軒                  東京都     NA     1
+## 2 6929243 由丸 アトレヴィ大塚店       東京都     NA     1
+## 3 5816075 ラーメン戯拉戯拉            千葉県     NA     1
+## 4 5495086 らあめん花月嵐 坂戸わかば店 埼玉県     NA     1</code></pre>
+<p>ただし、<code>n = 3</code>と指定したはずなのに、4行が抽出されました。これは同点のケースがあるからです。実際、<code>select.df</code>には<code>Score</code>が1のケースが4つあります。もし、同点の存在により<code>n</code>に収まらない場合、<code>slice_max()</code>、<code>slice_min()</code>関数は<code>n</code>を超える行を出力します。これを強制的に<code>n</code>行に合わせるためには<code>with_ties = FALSE</code>引数を付けます。この場合、データで格納されている順で<code>n</code>個のみ出力されます。</p>
+<pre class="r"><code>select.df %&gt;% 
+  slice_min(Score, n = 3, with_ties = FALSE)</code></pre>
+<pre><code>## # A tibble: 3 x 5
+##   ID      Name                  Pref   Budget Score
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 6384909 葛西大勝軒            東京都     NA     1
+## 2 6929243 由丸 アトレヴィ大塚店 東京都     NA     1
+## 3 5816075 ラーメン戯拉戯拉      千葉県     NA     1</code></pre>
+<p><strong><code>slice_sample()</code>: 無作為にn行を抽出する</strong></p>
+<p>最後に無作為に<code>n</code>行を抽出する<code>slice_sample()</code>関数です。引数は<code>n</code>であり、抽出したい行数を指定します。たとえば、<code>select.df</code>から無作為に10行抽出したい場合は、</p>
+<pre class="r"><code># select.dfから無作為に5行を抽出し、出力する
+select.df %&gt;% 
+  slice_sample(n = 10)</code></pre>
+<pre><code>## # A tibble: 10 x 5
+##    ID      Name                      Pref     Budget Score
+##    &lt;chr&gt;   &lt;chr&gt;                     &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 6167549 かわせ 田尻店             和歌山県     NA    NA
+##  2 6908106 つけめん桜の如く          神奈川県    900    NA
+##  3 5026511 ラーメン ゆき             千葉県       NA    NA
+##  4 5507656 ひごっこ                  大阪府      850    NA
+##  5 7115947 麺69 チキンヒーロー       兵庫県       NA    NA
+##  6 6361506 百歩ラーメン 南浦和店     埼玉県       NA    NA
+##  7 5713514 ラーメン どん             神奈川県     NA    NA
+##  8 5495461 ラーメン亭よ志乃 幕張店   千葉県       NA    NA
+##  9 5494222 来集軒                    埼玉県       NA    NA
+## 10 5495447 ラーメンめん丸 おゆみ野店 千葉県       NA    NA</code></pre>
+<p>のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
+</div>
+<div id="条件に合致する行を抽出する" class="section level3">
+<h3>条件に合致する行を抽出する</h3>
+<p>これまで見てきた<code>slice()</code>を用いる行の抽出は、実際あまり使う機会がありません。多くの場合、「何かの条件と合致するケースのみ抽出する」または、「何かの条件と合致しないケースのみを抽出する」やこれらの組み合わせで行の抽出を行います。そこで登場するのが<code>dplyr()</code>パッケージの<code>filter()</code>関数です。<code>filter()</code>関数の使い方は以下の通りです。</p>
 <pre class="r numberLines"><code># dplyr::filter()の使い方
 filter(データフレーム/tibble名, 条件1, 条件2, ...)</code></pre>
 <p>むろん、第一引数がデータですから、<code>%&gt;%</code>を使うことも可能です。</p>
@@ -1103,9 +1210,10 @@ df2 %&gt;%
 <p>Songが大好きな神座がヒットして嬉しいです。</p>
 <hr />
 </div>
+</div>
 <div id="行のソート" class="section level2">
 <h2>行のソート</h2>
-<p>続いて、行のソートについて解説します。「食べログ」などのレビューサービスを利用する場合、口コミ評価が高い順で見るのが一般的でしょう<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。また、サッカーのランキングも多くは1位から下の順位で掲載されるのが一般的です。ここではこのようにある変数の値順に行を並び替える方法について説明します。</p>
+<p>続いて、行のソートについて解説します。「食べログ」などのレビューサービスを利用する場合、口コミ評価が高い順で見るのが一般的でしょう<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>。また、サッカーのランキングも多くは1位から下の順位で掲載されるのが一般的です。ここではこのようにある変数の値順に行を並び替える方法について説明します。</p>
 <p>ソートには<code>dplyr</code>パッケージの<code>arrange()</code>関数を使います。引数は変数名のみです。たとえば、奈良県のラーメン屋を検索してみましょう。並び替える順は駅から近い店舗を上位に、遠い店舗を下位に並べます。このような順は<strong>昇順 (ascending)</strong>と呼ばれ、ランキング表などでよく見ます。駅から近い順にソートするので、まず最寄りの駅情報が欠損でないことが必要です。また、ラーメン屋の評価も気になるので口コミが1つ以上付いている店舗に絞りましょう。表示する列は店舗名、最寄りの駅、徒歩距離、口コミ数、点数です。</p>
 <pre class="r numberLines"><code>df %&gt;%
   filter(Pref == &quot;奈良県&quot;, !is.na(Station), ScoreN &gt; 0) %&gt;%
@@ -1173,7 +1281,7 @@ df2 %&gt;%
 ## 22 彩華ラーメン 桜井店                   大福駅                18      1  3   
 ## 23 天下一品 新大宮店                     新大宮駅               6      1  3   
 ## 24 博多長浜らーめん 夢街道 四条大路店    新大宮駅              29      4  2.88</code></pre>
-<p>よく考えてみれば、「評価が同点の場合、どうなるの?」と疑問を抱く方がいるかも知れません。たとえば、7行目の「河童ラーメン本舗 押熊店」と8行目の「無鉄砲がむしゃら」はどれも評価が4点ですが、「河童ラーメン本舗 押熊店」が先に表示されます。そのこれは簡単です。同点の場合、データセット内で上に位置する行が先に表示されます。これを確認するには<code>which()</code>関数を使います。<code>()</code>内に条件文を指定することで、この条件に合致する要素の位置を返します。もし、条件に合致するものが複数あった場合は全ての位置を返します<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>。</p>
+<p>よく考えてみれば、「評価が同点の場合、どうなるの?」と疑問を抱く方がいるかも知れません。たとえば、7行目の「河童ラーメン本舗 押熊店」と8行目の「無鉄砲がむしゃら」はどれも評価が4点ですが、「河童ラーメン本舗 押熊店」が先に表示されます。そのこれは簡単です。同点の場合、データセット内で上に位置する行が先に表示されます。これを確認するには<code>which()</code>関数を使います。<code>()</code>内に条件文を指定することで、この条件に合致する要素の位置を返します。もし、条件に合致するものが複数あった場合は全ての位置を返します<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>。</p>
 <pre class="r numberLines"><code>which(df$Name == &quot;河童ラーメン本舗 押熊店&quot;)</code></pre>
 <pre><code>## [1] 6021</code></pre>
 <pre class="r numberLines"><code>which(df$Name == &quot;無鉄砲がむしゃら&quot;)</code></pre>
@@ -2042,13 +2150,485 @@ df3$EastJapan</code></pre>
 ## 4     4     2     1     6     0     3     0     0     1     3    2.5
 ## 5     5     7     0     9     2     1     1     2     3     8    7.5</code></pre>
 <p>実は<code>rowwise()</code>関数、2020年6月に公開されたdplyr 1.0.0で注目された関数ですが、昔のdplyrにも<code>rowwise()</code>関数はありました。ただし、<code>purrr</code>パッケージや<code>tidyr</code>パッケージの<code>nest()</code>関数などにより使い道がなくなりましたが、なぜか華麗に復活しました。データ分析に使うデータは基本単位は列であるため、実際に<code>rowwise()</code>が使われる場面は今の段階では多くないでしょう。また、簡単な作業なら<code>X1 + X2</code>のような演算でも対応できます。それでも、覚えておけば便利な関数であることには間違いありません。</p>
+<hr />
+</div>
+<div id="データの結合" class="section level2">
+<h2>データの結合</h2>
+<div id="行の結合" class="section level3">
+<h3>行の結合</h3>
+<p>まずは、複数のデータフレームまたはtibbleを縦に結合する方法について解説します。イメージとしては図<a href="#fig:merge-row">3</a>のようなものです。</p>
+<div class="figure" style="text-align: center"><span id="fig:merge-row"></span>
+<img src="Figures/Handling1/Merge1.png" alt="行の結合" width="80%" />
+<p class="caption">
+Figure 3: 行の結合
+</p>
+</div>
+<p>行を結合する際には<code>dplyr</code>パッケージの<code>bind_rows()</code>関数を使います。この関数の使い方は以下の通りです。</p>
+<pre class="r"><code># 新しいデータ名ではなく、既にあるデータ名にすると上書きとなる
+新しいデータ名 &lt;-  bind_rows(データ1, データ2, ...)</code></pre>
+<p>それでは早速実際に使ってみましょう。実習のために、4つのtibbleを作成します (tibbleでなくデータフレームでも問題ありません)。</p>
+<pre class="r"><code># tibble()の代わりにdata.frame()も可
+rbind_df1 &lt;- tibble(X1 = 1:3,
+                    X2 = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;),
+                    X3 = c(T, T, F)) # TRUEとFALSEはTはFと省略可能
+
+rbind_df2 &lt;- tibble(X1 = 4:6,
+                    X2 = c(&quot;D&quot;, &quot;E&quot;, &quot;F&quot;),
+                    X3 = c(F, T, F))
+
+rbind_df3 &lt;- tibble(X1 = 7:9,
+                    X3 = c(T, T, T),
+                    X2 = c(&quot;G&quot;, &quot;H&quot;, &quot;I&quot;))
+
+rbind_df4 &lt;- tibble(X1 = 10:12,
+                    X2 = c(&quot;J&quot;, &quot;K&quot;, &quot;L&quot;),
+                    X5 = c(&quot;Song&quot;, &quot;Yanai&quot;, &quot;Hadley&quot;))
+
+rbind_df1 # rbind_df1を出力</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##      X1 X2    X3   
+##   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
+## 1     1 A     TRUE 
+## 2     2 B     TRUE 
+## 3     3 C     FALSE</code></pre>
+<pre class="r"><code>rbind_df2 # rbind_df2を出力</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##      X1 X2    X3   
+##   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
+## 1     4 D     FALSE
+## 2     5 E     TRUE 
+## 3     6 F     FALSE</code></pre>
+<pre class="r"><code>rbind_df3 # rbind_df3を出力</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##      X1 X3    X2   
+##   &lt;int&gt; &lt;lgl&gt; &lt;chr&gt;
+## 1     7 TRUE  G    
+## 2     8 TRUE  H    
+## 3     9 TRUE  I</code></pre>
+<pre class="r"><code>rbind_df4 # rbind_df4を出力</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##      X1 X2    X5    
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1    10 J     Song  
+## 2    11 K     Yanai 
+## 3    12 L     Hadley</code></pre>
+<p>まずは、<code>rbind_df1</code>と<code>rbind_df2</code>を結合してみます。この2つのデータは同じ変数が同じ順番で並んでいますね。</p>
+<pre class="r"><code>Binded_df1 &lt;- bind_rows(rbind_df1, rbind_df2)
+Binded_df1</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##      X1 X2    X3   
+##   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
+## 1     1 A     TRUE 
+## 2     2 B     TRUE 
+## 3     3 C     FALSE
+## 4     4 D     FALSE
+## 5     5 E     TRUE 
+## 6     6 F     FALSE</code></pre>
+<p>2つのデータが結合されたことが確認できます。それでは<code>rbind_df1</code>と<code>rbind_df2</code>、<code>rbind_df3</code>はどうでしょうか。確かに3つのデータは同じ変数を持ちますが、<code>rbind_df3</code>は変数の順番が<code>X1</code>、<code>X3</code>、<code>X2</code>になっています。このまま結合するとエラーが出るでしょうか。とりあえず、やってみます。</p>
+<pre class="r"><code>Binded_df2 &lt;- bind_rows(rbind_df1, rbind_df2, rbind_df3)
+Binded_df2</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##      X1 X2    X3   
+##   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;
+## 1     1 A     TRUE 
+## 2     2 B     TRUE 
+## 3     3 C     FALSE
+## 4     4 D     FALSE
+## 5     5 E     TRUE 
+## 6     6 F     FALSE
+## 7     7 G     TRUE 
+## 8     8 H     TRUE 
+## 9     9 I     TRUE</code></pre>
+<p>このように変数の順番が異なっても、先に指定したデータの変数順で問題なく結合できました。これまでの作業は<code>dplyr</code>パッケージの<code>bind_rows()</code>を使わずに、R内蔵関数の<code>rbind()</code>でも同じやり方でできます。<code>bind_rows()</code>の特徴は、変数名が一致しない場合、つまり今回の例だと<code>rbind_df4</code>が含まれる場合です。<code>rbind_df1</code>から<code>rbind_df3</code>までは順番が違っても<code>X1</code>、<code>X2</code>、<code>X3</code>変数で構成されていました。一方、<code>rbind_dr4</code>には<code>X3</code>がなく、新たに<code>X4</code>という変数があります。これを<code>rbind()</code>関数で結合するとエラーが出力されます。</p>
+<pre class="r"><code># rbind()を使う場合
+rbind(rbind_df1, rbind_df2, rbind_df3, rbind_df4)</code></pre>
+<pre><code>## Error in match.names(clabs, names(xi)):  名前が以前の名前と一致しません</code></pre>
+<p>一方、<code>bind_rows()</code>はどうでしょうか。</p>
+<pre class="r"><code>Binded_df3 &lt;- bind_rows(rbind_df1, rbind_df2, rbind_df3, rbind_df4)
+Binded_df3</code></pre>
+<pre><code>## # A tibble: 12 x 4
+##       X1 X2    X3    X5    
+##    &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;chr&gt; 
+##  1     1 A     TRUE  &lt;NA&gt;  
+##  2     2 B     TRUE  &lt;NA&gt;  
+##  3     3 C     FALSE &lt;NA&gt;  
+##  4     4 D     FALSE &lt;NA&gt;  
+##  5     5 E     TRUE  &lt;NA&gt;  
+##  6     6 F     FALSE &lt;NA&gt;  
+##  7     7 G     TRUE  &lt;NA&gt;  
+##  8     8 H     TRUE  &lt;NA&gt;  
+##  9     9 I     TRUE  &lt;NA&gt;  
+## 10    10 J     NA    Song  
+## 11    11 K     NA    Yanai 
+## 12    12 L     NA    Hadley</code></pre>
+<p><code>X1</code>から<code>X4</code>まで全ての列が生成され、元のデータにはなかった列に関しては<code>NA</code>で埋められています。</p>
+<p>ならば、<code>bind_rows()</code>の完全勝利かというと、そうとは限りません。自分で架空した複数のデータフレーム、またはtibbleを結合する際、「このデータは全て同じ変数を持っているはず」と事前に分かっているなら<code>rbind()</code>の方が効果的です。なぜなら、変数名が異なる場合、エラーが出力されるからです。<code>bind_rows()</code>を使うと、コーディングミスなどにより、列名の相違がある場合でも結合してくれてしまうので、分析の結果を歪ませる可能性があります。</p>
+</div>
+<div id="列の結合" class="section level3">
+<h3>列の結合</h3>
+<p>実はデータ分析においてデータの結合といえば、列の結合が一般的です。これは図<a href="#fig:merge-col">4</a>のような操作を意味します。</p>
+<div class="figure" style="text-align: center"><span id="fig:merge-col"></span>
+<img src="Figures/Handling1/Merge2.png" alt="列の結合" width="80%" />
+<p class="caption">
+Figure 4: 列の結合
+</p>
+</div>
+<p>まずは、本章で作成した<code>df2</code>をもう一回作ってみます。</p>
+<pre class="r"><code>df2 &lt;- df %&gt;%
+  group_by(Pref) %&gt;%
+  summarise(Budget_Mean = mean(Budget, na.rm = TRUE),
+            ScoreN_Sum  = sum(ScoreN, na.rm = TRUE),
+            Score_Mean  = mean(Score, na.rm = TRUE),
+            N           = n(),
+            .groups     = &quot;drop&quot;)
+
+df2</code></pre>
+<pre><code>## # A tibble: 9 x 5
+##   Pref     Budget_Mean ScoreN_Sum Score_Mean     N
+##   &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+## 1 京都府         1399.        216       3.68   414
+## 2 埼玉県         1147.        278       3.64  1000
+## 3 神奈川県       1239.        587       3.53  1000
+## 4 千葉県         1124.        259       3.72  1000
+## 5 大阪府         1203.        516       3.77  1000
+## 6 東京都         1283.       1165       3.67  1000
+## 7 奈良県         1169.         45       3.85   147
+## 8 兵庫県         1197.        230       3.54   591
+## 9 和歌山県       1252          83       3.97   140</code></pre>
+<p>ラーメン屋の店舗ですが、たしかにデータには埼玉、東京、大阪などは1000店舗しか入っておりません。実はもっと多いですが、ぐるなびAPIの仕様上、最大1000店舗しか情報取得が出来ないからです。ここに実際の店舗数が入っている新しいデータセット、<a href="Data/Ramen2.csv">Ramen2.csv</a>があります。これを読み込み、<code>df3</code>という名で格納しましょう。</p>
+<pre class="r"><code>df3 &lt;- read_csv(&quot;Data/Ramen2.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Pref = col_character(),
+##   Pop = col_number(),
+##   Area = col_number(),
+##   RamenN = col_double(),
+##   Turnout = col_double(),
+##   LDP = col_double(),
+##   CDP = col_double(),
+##   DPFP = col_double(),
+##   Komei = col_double(),
+##   JIP = col_double(),
+##   JCP = col_double(),
+##   SDP = col_double(),
+##   Reiwa = col_double(),
+##   NHK = col_double(),
+##   HRP = col_double()
+## )</code></pre>
+<pre class="r"><code>df3</code></pre>
+<pre><code>## # A tibble: 47 x 15
+##    Pref     Pop   Area RamenN Turnout   LDP   CDP  DPFP Komei   JIP   JCP   SDP
+##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 北海道… 5.38e6 83424.   1454    53.8  32.3  20.8  6.65 11.7   7.78 11.6   1.31
+##  2 青森県… 1.31e6  9646.    336    42.9  39.8  22.0  7.24 11.3   3.4   8.31  2.36
+##  3 岩手県… 1.28e6 15275.    285    56.5  35.5  17.8 12.5   8.22  4.36 10.4   3.83
+##  4 宮城県… 2.33e6  7282.    557    51.2  39.6  17.8  9.02 11.1   4.6   7.89  2.1 
+##  5 秋田県… 1.02e6 11638.    301    56.3  44.5  13.5  8.64 10.6   4.48  8.09  3.77
+##  6 山形県… 1.12e6  9323.    512    60.7  45.2  14.9  7.37  9.87  4.28  6.51  5.08
+##  7 福島県… 1.91e6 13784.    550    52.4  38.2  13.6 12.1  12.8   5.31  7.99  3.01
+##  8 茨城県… 2.92e6  6097.    663    45.0  39.3  15.2  7.15 15.1   6.73  7.73  1.46
+##  9 栃木県… 1.97e6  6408.    595    44.1  40.3  18.9  9.94 12.8   4.9   5.04  1.03
+## 10 群馬県… 1.97e6  6362.    488    48.2  40.6  16.4  9.76 12.4   4.67  7.58  1.87
+## # … with 37 more rows, and 3 more variables: Reiwa &lt;dbl&gt;, NHK &lt;dbl&gt;, HRP &lt;dbl&gt;</code></pre>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;text-align: center;">
+変数名
+</th>
+<th style="text-align:left;text-align: center;">
+説明
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>Pref</code>
+</td>
+<td style="text-align:left;">
+都道府県名
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Pop</code>
+</td>
+<td style="text-align:left;">
+日本人人口 (2015年国勢調査)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Area</code>
+</td>
+<td style="text-align:left;">
+面積 (2015年国勢調査)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>RamenN</code>
+</td>
+<td style="text-align:left;">
+ぐるなびに登録されたラーメン屋の店舗数
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Turnout</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 投票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>LDP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 自民党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>CDP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 立憲民主党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>DPFP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 国民民主党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Komei</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 公明党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>JIP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 日本維新の会の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>JCP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 日本共産党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>SDP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 社会民主党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Reiwa</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: れいわ新選組の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>NHK</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: NHKから国民を守る党の得票率 (比例)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>HRP</code>
+</td>
+<td style="text-align:left;">
+2019年参院選: 幸福実現党の得票率 (比例)
+</td>
+</tr>
+</tbody>
+</table>
+<p>本データは都道府県ごとの人口、面積、ぐるなびに登録されたラーメン屋の店舗数、2019年参議院議員通常選挙の結果が格納されています。人口と面積は2015年国勢調査、ぐるなびの情報は2020年6月時点での情報です。</p>
+<p><code>df2</code>にデータ上の店舗数ではなく、実際の店舗数を新しい列として追加したい場合はどうすれば良いでしょうか。簡単な方法としては<code>df3</code>から情報を取得し、それを自分で入れる方法です。</p>
+<pre class="r"><code>df3 %&gt;%
+  # df2のPrefベクトルの要素と一致するものに絞る
+  filter(Pref %in% df2$Pref) %&gt;%
+  # 都道府県名とラーメン屋の店舗数のみ抽出
+  select(Pref, RamenN)</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     RamenN
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 埼玉県     1106
+## 2 千葉県     1098
+## 3 東京都     3220
+## 4 神奈川県   1254
+## 5 京都府      415
+## 6 大阪府     1325
+## 7 兵庫県      591
+## 8 奈良県      147
+## 9 和歌山県    140</code></pre>
+<p>そして、この情報を<code>df2$RamenN &lt;- c(415, 1106, 1254, ...)</code>のように追加すればいいですね。</p>
+<p>しかし、このような方法は非効率的です。そもそも<code>df3</code>から得られた結果の順番と<code>df2</code>の順番も一致しないので、一々対照しながらベクトルを作ることになります。ここで登場する関数が<code>dplyr</code>の<code>*_join()</code>関数群です。この関数群には4つの関数が含まれており、以下のような使い方になります。</p>
+<pre class="r"><code># 新しいデータ名ではなく、データ1またはデータ2の名前に格納すると上書きとなる
+
+# 1. データ1を基準に結合
+新しいデータ名 &lt;-  left_join(データ1, データ2, by = &quot;共通変数名&quot;)
+
+# 2. データ2を基準に結合
+新しいデータ名 &lt;- right_join(データ1, データ2, by = &quot;共通変数名&quot;)
+
+# 3. データ1とデータ2両方に共通するケースのみ結合
+新しいデータ名 &lt;- inner_join(データ1, データ2, by = &quot;共通変数名&quot;)
+
+# 4. データ1とデータ2、どれかに存在するケースを結合
+新しいデータ名 &lt;-  full_join(データ1, データ2, by = &quot;共通変数名&quot;)</code></pre>
+<p>4つの関数の違いについて説明する前に、<code>by</code>引数について話したいと思います。これは主にキー (key)変数と呼ばれる変数で、それぞれのデータに同じ名前の変数がある必要があります。<code>df2</code>と<code>df3</code>だとそれが<code>Pref</code>変数です。どの<code>*_join()</code>関数でも、<code>Pref</code>の値が同じもの同士を結合することになります。</p>
+<p>データのキー変数名が異なる場合もあります。たとえば、データ1の都道府県名は<code>Pref</code>という列に、データ2の都道府県名は<code>Prefecture</code>という列になっている場合、<code>by = "Pref"</code>でなく、<code>by = c("データ1のキー変数名" = "データ2のキー変数名")</code>、つまり、<code>by = c("Pref" = "Prefecture")</code>と指定します。</p>
+<p>それでは、<code>df3</code>から都道府県名とラーメン屋の店舗数だけ抽出し、<code>df4</code>として格納しておきます。</p>
+<pre class="r"><code>df4 &lt;- df3 %&gt;%
+  select(Pref, RamenN)
+
+df4</code></pre>
+<pre><code>## # A tibble: 47 x 2
+##    Pref   RamenN
+##    &lt;chr&gt;   &lt;dbl&gt;
+##  1 北海道   1454
+##  2 青森県    336
+##  3 岩手県    285
+##  4 宮城県    557
+##  5 秋田県    301
+##  6 山形県    512
+##  7 福島県    550
+##  8 茨城県    663
+##  9 栃木県    595
+## 10 群馬県    488
+## # … with 37 more rows</code></pre>
+<p>これから共通変数名の値をキー (key)と呼びます。今回の例だと<code>Pref</code>が<code>df2</code>と<code>df4</code>のキー変数であり、その値である<code>"東京都"</code>、<code>"北海道"</code>などがキーです。</p>
+<p>まずは、<code>inner_join()</code>の仕組みについて考えます。これは<code>df2</code>と<code>df4</code>に共通するキーを持つケースのみ結合する関数です。<code>df4</code>には<code>"北海道"</code>というキーがありますが、<code>df2</code>にはありません。したがって、キーが<code>"北海道"</code>のケースは結合から除外されます。これをイメージにしたものが図<a href="#fig:inner-join">5</a>です<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。それぞれ3 <span class="math inline">\(\times\)</span> 2 (3行2列)のデータですが、キーが一致するケースは2つしかないため、結合後のデータは3 <span class="math inline">\(\times\)</span> 2となります。</p>
+<div class="figure" style="text-align: center"><span id="fig:inner-join"></span>
+<img src="Figures/Handling1/Merge_Inner.png" alt="`inner_join()`の仕組み" width="80%" />
+<p class="caption">
+Figure 5: <code>inner_join()</code>の仕組み
+</p>
+</div>
+<p>実際にやってみましょう。</p>
+<pre class="r"><code>inner_join(df2, df4, by = &quot;Pref&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 6
+##   Pref     Budget_Mean ScoreN_Sum Score_Mean     N RamenN
+##   &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1 京都府         1399.        216       3.68   414    415
+## 2 埼玉県         1147.        278       3.64  1000   1106
+## 3 神奈川県       1239.        587       3.53  1000   1254
+## 4 千葉県         1124.        259       3.72  1000   1098
+## 5 大阪府         1203.        516       3.77  1000   1325
+## 6 東京都         1283.       1165       3.67  1000   3220
+## 7 奈良県         1169.         45       3.85   147    147
+## 8 兵庫県         1197.        230       3.54   591    591
+## 9 和歌山県       1252          83       3.97   140    140</code></pre>
+<p>共通するキーは9つのみであり、結果として返されたデータの大きさも9 <span class="math inline">\(\times\)</span> 6です。<code>df2</code>に足された<code>df4</code>は2列のデータですが、キー変数である<code>Pref</code>は共通するため、1列のみ足されました。キー変数を両方残す場合は<code>keep = TRUE</code>引数を追加してください。</p>
+<p>一方、<code>full_join()</code>は、すべてのキーに対して結合を行います (図<a href="#fig:full-join">6</a>)。たとえば、<code>df2</code>には<code>"北海道"</code>というキーがありません。それでも新しく出来上がるデータには北海道の列が追加されます。ただし、道内店舗の平均予算、口コミ数などの情報はないため、欠損値が代入されます。</p>
+<div class="figure" style="text-align: center"><span id="fig:full-join"></span>
+<img src="Figures/Handling1/Merge_Full.png" alt="`full_join()`の仕組み" width="80%" />
+<p class="caption">
+Figure 6: <code>full_join()</code>の仕組み
+</p>
+</div>
+<p>それでは実際、結果を確認してみましょう。今回は結合後、<code>RamenN</code>が大きい順で出力します。</p>
+<pre class="r"><code>full_join(df2, df4, by = &quot;Pref&quot;) %&gt;%
+  arrange(desc(RamenN)) # ぐるなびに登録された店舗の多い都道府県から出力</code></pre>
+<pre><code>## # A tibble: 47 x 6
+##    Pref     Budget_Mean ScoreN_Sum Score_Mean     N RamenN
+##    &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+##  1 東京都         1283.       1165       3.67  1000   3220
+##  2 北海道           NA          NA      NA       NA   1454
+##  3 大阪府         1203.        516       3.77  1000   1325
+##  4 愛知県           NA          NA      NA       NA   1255
+##  5 神奈川県       1239.        587       3.53  1000   1254
+##  6 埼玉県         1147.        278       3.64  1000   1106
+##  7 千葉県         1124.        259       3.72  1000   1098
+##  8 福岡県           NA          NA      NA       NA    985
+##  9 新潟県           NA          NA      NA       NA    705
+## 10 静岡県           NA          NA      NA       NA    679
+## # … with 37 more rows</code></pre>
+<p><code>df2</code>にはなかった北海道や愛知県などの行ができました。そして、<code>df2</code>にはない情報はすべて欠損値 (<code>NA</code>)となりました。</p>
+<p>続いて、<code>left_join()</code>ですが、これは先に指定したデータに存在するキーのみで結合を行います (図<a href="#fig:left-join">7</a>)。今回は<code>df2</code>が先に指定されていますが、<code>df2</code>のキーは<code>df4</code>のキーの部分集合であるため、<code>inner_join()</code>と同じ結果が得られます。</p>
+<div class="figure" style="text-align: center"><span id="fig:left-join"></span>
+<img src="Figures/Handling1/Merge_Left.png" alt="`left_join()`の仕組み" width="80%" />
+<p class="caption">
+Figure 7: <code>left_join()</code>の仕組み
+</p>
+</div>
+<p>一方、<code>right_join()</code>は<code>left_join()</code>と逆の関数であり、後に指定したデータに存在するキーを基準に結合を行います (図<a href="#fig:right-join">8</a>)。後に指定された<code>df4</code>のキーは<code>df2</code>のキーを完全に含むので、<code>full_join()</code>と同じ結果が得られます。</p>
+<div class="figure" style="text-align: center"><span id="fig:right-join"></span>
+<img src="Figures/Handling1/Merge_Right.png" alt="`right_join()`の仕組み" width="80%" />
+<p class="caption">
+Figure 8: <code>right_join()</code>の仕組み
+</p>
+</div>
+<p>これからは<code>df2</code>と<code>df4</code>を結合することになりますが、この2つのtibbleの大きさが異なります。<code>df2</code>は9つの都府県のみであるに対し、<code>df4</code>は47都道府県全てのデータが入っているからです。</p>
+<p>ここまではキー変数が一つである場合についてのみ考えましたが、複数のキー変数が必要な場合もあります。たとえば、市区町村の人口・面積データと市区町村の投票率データを結合するとします。各自治体に与えられている「<a href="https://www.soumu.go.jp/denshijiti/code.html">全国地方公共団体コード</a>」が両データに含まれている場合は、このコードをキー変数として使えば問題ありませんが、市区町村名をキー変数として使わざる得ないケースもあるでしょう。しかし、キー変数が複数ある場合もあります。たとえば、府中市は東京都と広島県にありますし、太子町は大阪府と兵庫県にあります。この場合、市区町村名のみでケースをマッチングすると、重複されてマッチングされる恐れがあります。この場合はキー変数を増やすことで対処できます。たとえば、同じ都道府県なら同じ市区町村は存在しないでしょう<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>。キー変数を複数指定する方法は簡単です。たとえば、市区町村名変数が<code>Munip</code>、都道府県名変数が<code>Pref</code>なら<code>by = c("Munip", "Pref")</code>と指定するだけです。</p>
+<p>最後に、キー変数以外の変数名が重複する場合について考えましょう。これはパネルデータを結合する時によく直面する問題です。同じ回答者に2回の調査を行った場合、回答者のIDでデータを結合することになります。ただし、それぞれのデータにおいて回答者の性別に関する変数が<code>F1</code>という名前の場合、どうなるでしょうか。同じデータの同じ名前の変数が複数あると、非常に扱いにくくなります。実際の結果を見てみましょう。</p>
+<pre class="r"><code>Wave1_df &lt;- tibble(ID = c(1, 2, 3, 4, 5),
+                   F1 = c(1, 1, 0, 0, 1),
+                   F2 = c(18, 77, 37, 50, 41),
+                   Q1 = c(1, 5, 2, 2, 3))
+
+Wave2_df &lt;- tibble(ID = c(1, 3, 4, 6, 7),
+                   F1 = c(1, 0, 0, 0, 1),
+                   F2 = c(18, 37, 50, 20, 62),
+                   Q1 = c(1, 2, 2, 5, 4))
+
+full_join(Wave1_df, Wave2_df, by = &quot;ID&quot;)</code></pre>
+<pre><code>## # A tibble: 7 x 7
+##      ID  F1.x  F2.x  Q1.x  F1.y  F2.y  Q1.y
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1    18     1     1    18     1
+## 2     2     1    77     5    NA    NA    NA
+## 3     3     0    37     2     0    37     2
+## 4     4     0    50     2     0    50     2
+## 5     5     1    41     3    NA    NA    NA
+## 6     6    NA    NA    NA     0    20     5
+## 7     7    NA    NA    NA     1    62     4</code></pre>
+<p>それぞれの変数名の後に<code>.x</code>と<code>.y</code>が付きます。この接尾辞 (suffix)は<code>suffix</code>引数を指定することで、分析側からカスタマイズ可能です。たとえば、接尾辞を<code>_W1</code>、<code>_W2</code>にしたい場合は</p>
+<pre class="r"><code>full_join(Wave1_df, Wave2_df, by = &quot;ID&quot;, suffix = c(&quot;_W1&quot;, &quot;_W2&quot;))</code></pre>
+<pre><code>## # A tibble: 7 x 7
+##      ID F1_W1 F2_W1 Q1_W1 F1_W2 F2_W2 Q1_W2
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1    18     1     1    18     1
+## 2     2     1    77     5    NA    NA    NA
+## 3     3     0    37     2     0    37     2
+## 4     4     0    50     2     0    50     2
+## 5     5     1    41     3    NA    NA    NA
+## 6     6    NA    NA    NA     0    20     5
+## 7     7    NA    NA    NA     1    62     4</code></pre>
+<p>のように、データ1とデータ2それぞれの接尾辞を指定するだけです。</p>
+</div>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
 <li id="fn1"><p>実は<code>select(starts_with("X"), -ends_with("D"), ID)</code>のように順番を変えると<code>ID</code>は最後の列になりますが、とりあえず残ります。なぜなら、<code>select()</code>関数は左側から右側の方へコードを実行するからです。<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>サービスによってはこの機能が有料になっていたりもしますね。<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>たとえば、データ内に「ラーメンショップ」という店舗は3店舗あり、この場合、長さ3のベクトルが返されます。<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>実は<code>select.df[, c(2, 8, 9)]</code>でも前後にパイプ演算子を使うことは可能ですが、コードが読みにくくなるため、推奨しません。<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>サービスによってはこの機能が有料になっていたりもしますね。<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>たとえば、データ内に「ラーメンショップ」という店舗は3店舗あり、この場合、長さ3のベクトルが返されます。<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>これらの図は<a href="https://r4ds.had.co.nz">Garrett Grolemund and Hadley Wickham. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data.</em> O’Reilly.</a>を参考にしました。<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>行政区も含むなら多くの政令指定都市にある「南区」とか「北区」が重複しますが、ここでは考えないことにしましょう。<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 </div>
