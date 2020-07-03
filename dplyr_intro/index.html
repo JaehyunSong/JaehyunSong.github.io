@@ -1018,18 +1018,18 @@ select.df %&gt;%
 select.df %&gt;% 
   slice_sample(n = 10)</code></pre>
 <pre><code>## # A tibble: 10 x 5
-##    ID      Name                              Pref     Budget Score
-##    &lt;chr&gt;   &lt;chr&gt;                             &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
-##  1 7703105 かなで                            東京都       NA    NA
-##  2 7178609 ひぶた                            千葉県       NA    NA
-##  3 6369913 らーめん花月嵐 流山おおたかの森店 千葉県       NA    NA
-##  4 7724155 中華料理 龍屋                     千葉県       NA    NA
-##  5 7097633 四川ラーメン 醍醐店               京都府       NA    NA
-##  6 6085018 ラーメン・中華料理 よっちゃん     大阪府       NA    NA
-##  7 6403308 ラーメンショップ鎌ケ谷            千葉県       NA    NA
-##  8 1072492 熊きち                            大阪府       NA    NA
-##  9 7179814 希望軒 堺泉北2号八田店            大阪府       NA    NA
-## 10 7512502 中華料理 珍味楼                   神奈川県   2000    NA</code></pre>
+##    ID      Name                           Pref     Budget Score
+##    &lt;chr&gt;   &lt;chr&gt;                          &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 6403308 ラーメンショップ鎌ケ谷         千葉県       NA    NA
+##  2 7692892 豚骨らーめん 一指禅 ふじみ野店 埼玉県       NA    NA
+##  3 7751678 江乃華 JAPAN RAMEN             神奈川県     NA    NA
+##  4 6718395 ラーメン 菱和                  神奈川県     NA    NA
+##  5 7640843 餃子の王様 龍吟 ペリエ千葉店   千葉県       NA    NA
+##  6 5668071 串とろ                         東京都       NA     4
+##  7 6280401 優勝軒 所沢店                  埼玉県       NA    NA
+##  8 7505960 はつがい商店                   埼玉県       NA    NA
+##  9 7168548 ラーメン酒場清雅               神奈川県     NA    NA
+## 10 7200038 麺場 田所商店 木更津店         千葉県       NA    NA</code></pre>
 <p>のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
 </div>
 <div id="条件に合致する行を抽出する" class="section level3">
@@ -2451,67 +2451,151 @@ df4</code></pre>
 データ名 %&gt;%
   mutate(新しい変数名 = fct_shift(元の変数名, n = 左方向へずらす個数))</code></pre>
 <p>問題は<code>n =</code>引数ですが、その挙動については以下の表を参照してください。</p>
-<table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th>水準の順番</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
+<tr>
+<th style="text-align:left;">
+水準の順番
+</th>
+<th style="text-align:center;">
+1番目
+</th>
+<th style="text-align:center;">
+2番目
+</th>
+<th style="text-align:center;">
+3番目
+</th>
+<th style="text-align:center;">
+4番目
+</th>
+<th style="text-align:center;">
+5番目
+</th>
+<th style="text-align:center;">
+6番目
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><code>n = -2</code></td>
-<td><strong><code>E</code></strong></td>
-<td><strong><code>F</code></strong></td>
-<td><code>A</code></td>
-<td><code>B</code></td>
-<td><code>C</code></td>
-<td><code>D</code></td>
+<tr>
+<td style="text-align:left;">
+<code>n = -2</code>
+</td>
+<td style="text-align:center;">
+<code>E</code>
+</td>
+<td style="text-align:center;">
+<code>F</code>
+</td>
+<td style="text-align:center;">
+<code>A</code>
+</td>
+<td style="text-align:center;">
+<code>B</code>
+</td>
+<td style="text-align:center;">
+<code>C</code>
+</td>
+<td style="text-align:center;">
+<code>D</code>
+</td>
 </tr>
-<tr class="even">
-<td><code>n = -1</code></td>
-<td><strong><code>F</code></strong></td>
-<td><code>A</code></td>
-<td><code>B</code></td>
-<td><code>C</code></td>
-<td><code>D</code></td>
-<td><code>E</code></td>
+<tr>
+<td style="text-align:left;">
+<code>n = -1</code>
+</td>
+<td style="text-align:center;">
+<code>F</code>
+</td>
+<td style="text-align:center;">
+<code>A</code>
+</td>
+<td style="text-align:center;">
+<code>B</code>
+</td>
+<td style="text-align:center;">
+<code>C</code>
+</td>
+<td style="text-align:center;">
+<code>D</code>
+</td>
+<td style="text-align:center;">
+<code>E</code>
+</td>
 </tr>
-<tr class="odd">
-<td><code>n = 0</code></td>
-<td><code>A</code></td>
-<td><code>B</code></td>
-<td><code>C</code></td>
-<td><code>D</code></td>
-<td><code>E</code></td>
-<td><code>F</code></td>
+<tr>
+<td style="text-align:left;">
+<code>n = 0</code>
+</td>
+<td style="text-align:center;">
+<code>A</code>
+</td>
+<td style="text-align:center;">
+<code>B</code>
+</td>
+<td style="text-align:center;">
+<code>C</code>
+</td>
+<td style="text-align:center;">
+<code>D</code>
+</td>
+<td style="text-align:center;">
+<code>E</code>
+</td>
+<td style="text-align:center;">
+<code>F</code>
+</td>
 </tr>
-<tr class="even">
-<td><code>n = 1</code></td>
-<td><code>B</code></td>
-<td><code>C</code></td>
-<td><code>D</code></td>
-<td><code>E</code></td>
-<td><code>F</code></td>
-<td><strong><code>A</code></strong></td>
+<tr>
+<td style="text-align:left;">
+<code>n = 1</code>
+</td>
+<td style="text-align:center;">
+<code>B</code>
+</td>
+<td style="text-align:center;">
+<code>C</code>
+</td>
+<td style="text-align:center;">
+<code>D</code>
+</td>
+<td style="text-align:center;">
+<code>E</code>
+</td>
+<td style="text-align:center;">
+<code>F</code>
+</td>
+<td style="text-align:center;">
+<code>A</code>
+</td>
 </tr>
-<tr class="odd">
-<td><code>n = 2</code></td>
-<td><code>C</code></td>
-<td><code>D</code></td>
-<td><code>E</code></td>
-<td><code>F</code></td>
-<td><strong><code>A</code></strong></td>
-<td><strong><code>B</code></strong></td>
+<tr>
+<td style="text-align:left;">
+<code>n = 2</code>
+</td>
+<td style="text-align:center;">
+<code>C</code>
+</td>
+<td style="text-align:center;">
+<code>D</code>
+</td>
+<td style="text-align:center;">
+<code>E</code>
+</td>
+<td style="text-align:center;">
+<code>F</code>
+</td>
+<td style="text-align:center;">
+<code>A</code>
+</td>
+<td style="text-align:center;">
+<code>B</code>
+</td>
 </tr>
 </tbody>
 </table>
-<p>具体的には水準は左方向へ<code>n</code>個移動します。元の水準がA, B, C, Dの順で、<code>n = 1</code>の場合、AがDの後ろへ移動し、B, C, Dが前の方へ移動します。逆に右側へ1つ移動したい場合は<code>n = -1</code>のように書きます。今回は最初の水準を最後に移動させたいので、<code>n = 1</code>と指定します。</p>
+<p>具体的には水準は左方向へ<code>n</code>個移動します。元の水準が<code>A</code>, <code>B</code>, <code>C</code>, …, <code>F</code>の順で、<code>n = 1</code>の場合、<code>A</code>が<code>F</code>の後ろへ移動し、<code>B</code>, <code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>が前の方へ1つずつ移動します。逆に右側へ1つ移動したい場合は<code>n = -1</code>のように書きます。今回は最初の水準を最後に移動させたいので、<code>n = 1</code>と指定します。</p>
 <pre class="r numberLines"><code>df4 &lt;- df4 %&gt;%
   # Q1_Rの水準を左方向で1ずらす
   mutate(Q1_R = fct_shift(Q1_R, n = 1))
@@ -2542,14 +2626,14 @@ Score_df</code></pre>
 ## 8 兵庫県    3.54 兵庫県   兵庫県   兵庫県  
 ## 9 和歌山県  3.97 和歌山県 和歌山県 和歌山県</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref2)</code></pre>
-<pre><code>## [1] &quot;京都府&quot;   &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;東京都&quot;   &quot;神奈川県&quot; &quot;大阪府&quot;   &quot;兵庫県&quot;  
-## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;京都府&quot;   &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;奈良県&quot;   &quot;埼玉県&quot;   &quot;神奈川県&quot;
+## [8] &quot;千葉県&quot;   &quot;東京都&quot;</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref3)</code></pre>
-<pre><code>## [1] &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;神奈川県&quot; &quot;京都府&quot;  
-## [8] &quot;東京都&quot;   &quot;埼玉県&quot;</code></pre>
+<pre><code>## [1] &quot;奈良県&quot;   &quot;神奈川県&quot; &quot;和歌山県&quot; &quot;京都府&quot;   &quot;東京都&quot;   &quot;大阪府&quot;   &quot;兵庫県&quot;  
+## [8] &quot;千葉県&quot;   &quot;埼玉県&quot;</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref4)</code></pre>
-<pre><code>## [1] &quot;京都府&quot;   &quot;神奈川県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;兵庫県&quot;   &quot;東京都&quot;  
-## [8] &quot;埼玉県&quot;   &quot;和歌山県&quot;</code></pre>
+<pre><code>## [1] &quot;兵庫県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;京都府&quot;   &quot;和歌山県&quot; &quot;千葉県&quot;  
+## [8] &quot;東京都&quot;   &quot;奈良県&quot;</code></pre>
 <p><code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
 <p><strong><code>fct_reorder()</code>: 別の1変数の値を基準に水準の順番を変更する</strong></p>
 <p><code>fct_infreq()</code>は出現頻度順に並び替える関数でしたが、それと似たような関数として<code>fct_reorder()</code>があります。ただし、これは出現頻度を基準にするのではなく、ある変数の平均値が低い順、中央値が高い順などでソートされます。まずは使い方から確認します。</p>
@@ -2650,7 +2734,7 @@ Reorder2_df</code></pre>
   scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
   labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
 <p>このグラフに違和感はあまりありませんが、「読みやすさ」の麺では改善の余地があります。たとえば、7月1日の時点で、新規感染者数が多いのは日本、韓国、香港、中国 (本土)、台湾の順です。しかし、右側の凡例の順番はそうではありません。この順番が一致すれば、更に図は読みやすくなるでしょう。</p>
 <pre class="r"><code>factor(Reorder2_df$Country)</code></pre>
 <pre><code>##  [1] 日本        日本        日本        日本        日本        韓国       
@@ -2690,7 +2774,7 @@ Reorder2_df</code></pre>
   scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
   labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>これで図がさらに読みやすくなりました。ちなみに、<code>forcats</code>パッケージは<code>last2()</code>以外にも<code>first2()</code>という関数も提供しております。これを使うと、7月1日でなく、6月27日の新規感染者数の降順で水準の順番が調整されます。他にも引数を2つ使用する自作関数も使えますが、<code>fct_reorder2()</code>の主な使いみちは<code>last2()</code>で十分でしょう。</p>
 <p><strong><code>fct_collapse()</code>: 水準を統合する</strong></p>
 <p>水準数をより水準数に減らすためには、<code>fct_recode()</code>を使います。先ほど、<code>fct_shift()</code>で使った<code>df4</code>の例を考えてみましょう。<code>df4</code>の<code>Q1</code>の水準数は6つです。</p>
