@@ -162,11 +162,18 @@
 <div id="はじめに" class="section level2">
 <h2>はじめに</h2>
 <ul>
+<li>修正履歴
+<ul>
+<li>2020/06/28: 公開</li>
+<li>2020/07/01: データの結合を追加</li>
+<li>2020/07/03: factor型の扱い方を追加</li>
+<li>誤字・脱字は随時修正しております。</li>
+</ul></li>
 <li>以下の内容は現在執筆中の内容の一部となります。
 <ul>
 <li>Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない (仮)』(E-book)
 <ul>
-<li>前半は「データハンドリング [基礎編: 抽出]」章、後半は「データハンドリング [基礎編: 拡張]」章に基づいており、factor型の扱いについては「可視化」章を一部抜粋しております。</li>
+<li>前半は「データハンドリング [基礎編: 抽出]」章、後半は「データハンドリング [基礎編: 拡張]」章に基づいており、factor型の扱いについては「データハンドリング [基礎編: factor型]」章を一部抜粋しております。</li>
 </ul></li>
 <li>したがって、いきなり<strong>オブジェクト</strong>、<strong>関数</strong>、<strong>引数</strong>といった馴染みのない概念が出てきます。これらの概念に馴染みのない方は、予め「<a href="../rprogramming/">Rプログラミング入門の入門</a>」をご一読ください。</li>
 </ul></li>
@@ -180,12 +187,12 @@
 <h2>パッケージと実習用データの読み込み</h2>
 <p>パッケージは<code>dplyr</code>でも、<code>tidyverse</code>でもどれでも構いません。ここではデータをtibble型として読み込むため、<code>tidyverse</code>を読み込んでおきます。</p>
 <pre class="r numberLines"><code>library(tidyverse)</code></pre>
-<pre><code>## ─ Attaching packages ───────────────────────────── tidyverse 1.3.0 ─</code></pre>
+<pre><code>## ─ Attaching packages ───────────────────────── tidyverse 1.3.0 ─</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ─ Conflicts ────────────────────────────── tidyverse_conflicts() ─
+<pre><code>## ─ Conflicts ─────────────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>それでは今回の実習用データを読み込みましょう。<a href="../Data/Ramen.csv">Ramen.csv</a>には「<a href="https://www.gnavi.co.jp">ぐるなび</a>」から取得したラーメン屋6292店舗の情報が入っています。具体的には東京、神奈川、千葉、埼玉、大阪、京都、兵庫、奈良、和歌山それぞれ都府県にあるラーメン屋の中から最大1000店舗の情報を抽出したものです。東京都は、ぐるなびに登録したラーメン屋が3000店舗以上ですが、1000店舗の基準はぐるなびの「おすすめ」の順で上位1000店舗となります。また、店側またはぐるなびが登録したカテゴリを基準に抽出したため、実際はラーメン屋ではないにもかかわらずラーメン屋としてデータ内に含まれている可能性があります。</p>
@@ -1011,18 +1018,18 @@ select.df %&gt;%
 select.df %&gt;% 
   slice_sample(n = 10)</code></pre>
 <pre><code>## # A tibble: 10 x 5
-##    ID      Name                               Pref     Budget Score
-##    &lt;chr&gt;   &lt;chr&gt;                              &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
-##  1 5495843 くるまやラーメン 成田西三里塚店    千葉県       NA    NA
-##  2 7210389 煮干しらーめん玉五郎 鶴橋店        大阪府      870    NA
-##  3 7403194 横浜家系ラーメン 横浜道 野田蕃昌店 千葉県       NA    NA
-##  4 5495086 らあめん花月嵐 坂戸わかば店        埼玉県       NA     1
-##  5 7344197 てんがら 寝屋川店                  大阪府       NA    NA
-##  6 5676733 麺や 幸村                          神奈川県     NA     4
-##  7 7493572 春木屋 羽田空港店                  東京都       NA    NA
-##  8 6915234 橘                                 奈良県       NA    NA
-##  9 5508492 ラーメン泰平                       兵庫県       NA    NA
-## 10 7178609 ひぶた                             千葉県       NA    NA</code></pre>
+##    ID      Name                              Pref     Budget Score
+##    &lt;chr&gt;   &lt;chr&gt;                             &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 7703105 かなで                            東京都       NA    NA
+##  2 7178609 ひぶた                            千葉県       NA    NA
+##  3 6369913 らーめん花月嵐 流山おおたかの森店 千葉県       NA    NA
+##  4 7724155 中華料理 龍屋                     千葉県       NA    NA
+##  5 7097633 四川ラーメン 醍醐店               京都府       NA    NA
+##  6 6085018 ラーメン・中華料理 よっちゃん     大阪府       NA    NA
+##  7 6403308 ラーメンショップ鎌ケ谷            千葉県       NA    NA
+##  8 1072492 熊きち                            大阪府       NA    NA
+##  9 7179814 希望軒 堺泉北2号八田店            大阪府       NA    NA
+## 10 7512502 中華料理 珍味楼                   神奈川県   2000    NA</code></pre>
 <p>のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
 </div>
 <div id="条件に合致する行を抽出する" class="section level3">
@@ -2085,8 +2092,11 @@ df3$EastJapan</code></pre>
 ## Levels: 1 0</code></pre>
 <p>ただし、levelの順番は<code>recode_factor()</code>内で定義された順番になることに注意してください。</p>
 </div>
-<div id="factor型の処理に便利な関数" class="section level3">
-<h3>factor型の処理に便利な関数</h3>
+</div>
+<div id="factor型の処理に便利な関数" class="section level2">
+<h2>factor型の処理に便利な関数</h2>
+<div id="factor型の必要性" class="section level3">
+<h3>factor型の必要性</h3>
 <p>話がずれますが、可視化における名目変数の扱いについて考えたいと思います。横軸、または縦軸が気温、成績、身長のような連続変数ではなく、都道府県や国、企業のような名目変数になる場合があります。たとえば、棒グラフの横軸は図<a href="#fig:factor1">3</a>のように、一般的に名目変数になる場合が多いです。</p>
 <div class="figure" style="text-align: center"><span id="fig:factor1"></span>
 <img src="../dplyr_intro_files/figure-html/factor1-1.png" alt="横軸が名目変数の棒グラフ" width="576" />
@@ -2253,6 +2263,7 @@ Figure 8: Kantoがfactor型の場合
 <div id="forcatsパッケージについて" class="section level3">
 <h3><code>forcats</code>パッケージについて</h3>
 <p>実はfactor型への変換や、順番に変更などは全てR内蔵の<code>factor()</code>関数で対応可能ですが、ここでは<code>forcats</code>パッケージが提供している<code>fct_*()</code>関数を使用します。<code>forcats</code>パッケージは<code>tidyverse</code>を読み込む際、自動的に読み込まれるため、既に<code>tidyverse</code>を読み込んでいる場合、別途のコードは要りません。</p>
+<p>実はfactor型への変換や、順番に変更などは全てR内蔵の<code>factor()</code>関数で対応可能ですが、ここでは<code>forcats</code>パッケージが提供している<code>fct_*()</code>関数を使用します。<code>forcats</code>パッケージは<code>tidyverse</code>を読み込む際、自動的に読み込まれるため、既に<code>tidyverse</code>を読み込んでいる場合、別途のコードは要りません。</p>
 <p><strong><code>fct_relevel()</code>: 水準の順番を変更する</strong></p>
 <p><code>Score_df_f1</code>の<code>f1</code>は<code>Score</code>が高い順になっています。これを50音順に変更する際、<code>fct_relevel()</code>関数を使います。</p>
 <pre class="r"><code># 新しい変数名と元となる変数名が一致すると上書きになる
@@ -2260,7 +2271,7 @@ Figure 8: Kantoがfactor型の場合
   mutate(新しい変数名 = fct_releve(元となる変数名, 
                                     &quot;水準1&quot;, &quot;水準2&quot;, &quot;水準3&quot;, ...))</code></pre>
 <p>ここでは、<code>Pref</code>変数を再調整した<code>Pref2</code>変数を作ってみましょう。</p>
-<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+<pre class="r numberLines"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
   mutate(Pref2 = fct_relevel(Pref, &quot;大阪府&quot;, &quot;神奈川県&quot;, &quot;京都府&quot;, 
                              &quot;埼玉県&quot;, &quot;千葉県&quot;, &quot;東京都&quot;, 
                              &quot;奈良県&quot;, &quot;兵庫県&quot;, &quot;和歌山県&quot;))
@@ -2279,14 +2290,14 @@ Score_df_f1</code></pre>
 ## 8 兵庫県    3.54 その他 兵庫県  
 ## 9 和歌山県  3.97 その他 和歌山県</code></pre>
 <p>一見、<code>Pref</code>と<code>Pref2</code>変数は同じように見えますが、水準はどうなっているでしょうか。</p>
-<pre class="r"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
+<pre class="r numberLines"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
 <pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;埼玉県&quot;  
 ## [8] &quot;兵庫県&quot;   &quot;神奈川県&quot;</code></pre>
-<pre class="r"><code>levels(Score_df_f1$Pref2) # Pref2の水準</code></pre>
+<pre class="r numberLines"><code>levels(Score_df_f1$Pref2) # Pref2の水準</code></pre>
 <pre><code>## [1] &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;京都府&quot;   &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;東京都&quot;   &quot;奈良県&quot;  
 ## [8] &quot;兵庫県&quot;   &quot;和歌山県&quot;</code></pre>
 <p>問題なく50音順になっていることが分かります。他にも<code>fct_relevel()</code>には全ての水準名を指定する必要がありません。一部の水準名も可能です。たとえば、「関東が関西の先に来るなんでけしからん！」と思う読者もいるでしょう。この場合、関西の府県名を入れると、指定した水準が最初に位置するようになります。</p>
-<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+<pre class="r numberLines"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
   mutate(Pref3 = fct_relevel(Pref, &quot;京都府&quot;, &quot;大阪府&quot;,
                              &quot;兵庫県&quot;, &quot;奈良県&quot;, &quot;和歌山県&quot;))
 
@@ -2294,7 +2305,7 @@ levels(Score_df_f1$Pref3) # Pref3の水準</code></pre>
 <pre><code>## [1] &quot;京都府&quot;   &quot;大阪府&quot;   &quot;兵庫県&quot;   &quot;奈良県&quot;   &quot;和歌山県&quot; &quot;千葉県&quot;   &quot;東京都&quot;  
 ## [8] &quot;埼玉県&quot;   &quot;神奈川県&quot;</code></pre>
 <p>一部の水準名のみを指定するとその水準が最初に移動されますが、<code>after</code>引数を指定すると、位置を調整することも可能です。<code>after = 2</code>の場合、元となる変数の1、3番目の水準は維持され、3番目以降に指定した水準、それに続いて指定されていない水準の順番になります。<code>Pref</code>は和歌山、奈良、大阪の順ですが、ここで京都と東京を、奈良と大阪の間に移動するなら、</p>
-<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+<pre class="r numberLines"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
   mutate(Pref4 = fct_relevel(Pref, &quot;京都府&quot;, &quot;東京都&quot;, after = 2))
 
 levels(Score_df_f1$Pref4) # Pref4の水準</code></pre>
@@ -2311,7 +2322,7 @@ levels(Score_df_f1$Pref4) # Pref4の水準</code></pre>
                                    新しいラベル3 = &quot;既存のラベル3&quot;,
                                    ...))</code></pre>
 <p>注意点としては新しいラベルは<code>"</code>で囲まず、既存のラベルは<code>"</code>で囲む点です。それでは、<code>Pref</code>のラベルをローマ字に変更してみましょう。</p>
-<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+<pre class="r numberLines"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
   mutate(Pref5 = fct_recode(Pref,
                             Saitama  = &quot;埼玉県&quot;,
                             Wakayama = &quot;和歌山県&quot;,
@@ -2337,30 +2348,414 @@ Score_df_f1</code></pre>
 ## 8 兵庫県    3.54 その他 兵庫県   兵庫県   兵庫県   Hyogo   
 ## 9 和歌山県  3.97 その他 和歌山県 和歌山県 和歌山県 Wakayama</code></pre>
 <p><code>fct_recode()</code>の中に指定する水準の順番は無視されます。つまり、水準の順番はそのまま維持されるため、好きな順番で結構です。また、全ての水準を指定せず、一部のみ変更することも可能です。それでは<code>Pref5</code>の順番が<code>Pref</code>の順番と同じかを確認してみましょう。</p>
-<pre class="r"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
+<pre class="r numberLines"><code>levels(Score_df_f1$Pref)  # Prefの水準</code></pre>
 <pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;埼玉県&quot;  
 ## [8] &quot;兵庫県&quot;   &quot;神奈川県&quot;</code></pre>
-<pre class="r"><code>levels(Score_df_f1$Pref5) # Pref5の水準</code></pre>
+<pre class="r numberLines"><code>levels(Score_df_f1$Pref5) # Pref5の水準</code></pre>
 <pre><code>## [1] &quot;Wakayama&quot; &quot;Nara&quot;     &quot;Osaka&quot;    &quot;Chiba&quot;    &quot;Kyoto&quot;    &quot;Tokyo&quot;    &quot;Saitama&quot; 
 ## [8] &quot;Hyogo&quot;    &quot;Kanagawa&quot;</code></pre>
-<p><strong><code>fct_rev()</code>: 水準の順番を逆転させる</strong></p>
-<p>水準の順番を逆転することは非常によくあります。たとえば、グラフの読みやすさのために、左右または上下を反転するケースがあります。既に何回も強調しましたように、名目変数は基本的にfactor型にすべきであり、ここで<code>fct_rev()</code>関数が非常に便利です。たとえば、<code>Pref2</code>の水準は50音順でありますが、これを逆転し、<code>Pref6</code>という名の列として追加してみましょう。</p>
-<pre class="r"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
+<p><strong><code>fct_rev()</code>: 水準の順番を反転する</strong></p>
+<p>水準の順番を反転することは非常によくあります。たとえば、グラフの読みやすさのために、左右または上下を反転するケースがあります。既に何回も強調しましたように、名目変数は基本的にfactor型にすべきであり、ここで<code>fct_rev()</code>関数が非常に便利です。たとえば、<code>Pref2</code>の水準は50音順でありますが、これを反転し、<code>Pref6</code>という名の列として追加してみましょう。</p>
+<pre class="r numberLines"><code>Score_df_f1 &lt;- Score_df_f1 %&gt;%
   mutate(Pref6 = fct_rev(Pref2))
 
 levels(Score_df_f1$Pref6)</code></pre>
 <pre><code>## [1] &quot;和歌山県&quot; &quot;兵庫県&quot;   &quot;奈良県&quot;   &quot;東京都&quot;   &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;京都府&quot;  
 ## [8] &quot;神奈川県&quot; &quot;大阪府&quot;</code></pre>
-<p>関数一つで水準の順番が逆転されました。</p>
+<p>関数一つで水準の順番が反転されました。</p>
 <p><strong><code>fct_infreq()</code>: 頻度順に順番を変更する</strong></p>
+<p>続いて、水準の順番を頻度順に合わせる<code>fct_infreq()</code>関数です。たとえば、<code>Score</code>が欠損でないケースのみで構成された<code>df2</code>を考えてみましょう。</p>
+<pre class="r numberLines"><code>df2 &lt;- df %&gt;%
+  filter(!is.na(Score))</code></pre>
+<p>そして、都府県ごとのケース数を計算します。</p>
+<pre class="r numberLines"><code>table(df2$Pref)</code></pre>
+<pre><code>## 
+##   京都府   埼玉県 神奈川県   千葉県   大阪府   東京都   奈良県   兵庫県 
+##       79      118      219      108      175      298       28       85 
+## 和歌山県 
+##       24</code></pre>
+<p>ここで<code>Pref</code>をfactor化しますが、水準の順番を店舗数が多い方を先にするにはどうすれば良いでしょうか。<code>fct_infreq()</code>関数は指定された変数の各値の個数を計算し、多い順にfactorの水準を調整します。</p>
+<pre class="r numberLines"><code>df2 &lt;- df2 %&gt;%
+  # 多く出現した値順でfactor化する
+  mutate(Pref = fct_infreq(Pref))
+
+levels(df2$Pref) # df2のPref変数の水準を出力</code></pre>
+<pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;大阪府&quot;   &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;兵庫県&quot;   &quot;京都府&quot;  
+## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
+<p><code>"東京都"</code>、<code>"神奈川県"</code>、<code>"大阪府"</code>、…の順で水準の順番が調整され、これは<code>table(df$Pref2)</code>の順位とも一致します。</p>
 <p><strong><code>fct_inorder()</code>: データ内の出現順番に順番を変更する</strong></p>
+<p>続いて、<code>fct_inorder()</code>ですが、これは意外と頻繁に使われる関数です。たとえば、自分でデータフレームなどを作成し、ケースの順番も綺麗に整えたとします。しかし、既に指摘した通り、データフレーム (または、tibble)での順番とグラフにおける順番は一致するとは限りません。データフレームに格納された順番でfactorの水準が設定できれば非常に便利でしょう。そこで使うのが<code>fct_inorder()</code>です。</p>
+<p>たとえば、<code>df</code>の<code>Pref</code>は<code>"東京都"</code>が1000個並び、続いて<code>"神奈川県"</code>が1000個、<code>"千葉県"</code>が1000個、…の順番で格納されています。この順番をそのままfactorの順番にするには以下のように書きます。</p>
+<pre class="r numberLines"><code>df3 &lt;- df %&gt;%
+  # Pref変数をfactor化し、水準は出現順とする
+  # 変換後の結果はPrefに上書きする
+  mutate(Pref = fct_inorder(Pref))
+
+levels(df3$Pref)</code></pre>
+<pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
+## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
 <p><strong><code>fct_shift()</code>: 水準の順番をずらす</strong></p>
+<p>続いて、水準の順番をずらす<code>fct_shift()</code>関数を紹介します。たとえば、「1:そう思う」〜「5:そう思わない」、「9:答えたくない」の6水準で構成された変数があるとします。</p>
+<pre class="r numberLines"><code>df4 &lt;- tibble(
+  ID = 1:10,
+  Q1 = c(1, 5, 3, 2, 9, 2, 4, 9, 5, 1)
+) 
+
+df4 &lt;- df4 %&gt;%
+  mutate(Q1 = factor(Q1, levels = c(1:5, 9),
+                     labels = c(&quot;そう思う&quot;, 
+                                &quot;どちらかと言えばそう思う&quot;,
+                                &quot;どちらとも言えない&quot;,
+                                &quot;どちらかと言えばそう思わない&quot;,
+                                &quot;そう思わない&quot;,
+                                &quot;答えたくない&quot;)))
+
+df4</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##       ID Q1                          
+##    &lt;int&gt; &lt;fct&gt;                       
+##  1     1 そう思う                    
+##  2     2 そう思わない                
+##  3     3 どちらとも言えない          
+##  4     4 どちらかと言えばそう思う    
+##  5     5 答えたくない                
+##  6     6 どちらかと言えばそう思う    
+##  7     7 どちらかと言えばそう思わない
+##  8     8 答えたくない                
+##  9     9 そう思わない                
+## 10    10 そう思う</code></pre>
+<p>水準の順番も「そう思う」〜「答えたくない」順で綺麗に整っています。この水準を反転するには<code>fct_rev()</code>関数が便利です。<code>Q1</code>の水準を反転した変数を<code>Q1_R</code>という新しい列として追加し、水準を確認してみましょう。</p>
+<pre class="r numberLines"><code>df4 &lt;- df4 %&gt;%
+  mutate(Q1_R = fct_rev(Q1))
+
+df4</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##       ID Q1                           Q1_R                        
+##    &lt;int&gt; &lt;fct&gt;                        &lt;fct&gt;                       
+##  1     1 そう思う                     そう思う                    
+##  2     2 そう思わない                 そう思わない                
+##  3     3 どちらとも言えない           どちらとも言えない          
+##  4     4 どちらかと言えばそう思う     どちらかと言えばそう思う    
+##  5     5 答えたくない                 答えたくない                
+##  6     6 どちらかと言えばそう思う     どちらかと言えばそう思う    
+##  7     7 どちらかと言えばそう思わない どちらかと言えばそう思わない
+##  8     8 答えたくない                 答えたくない                
+##  9     9 そう思わない                 そう思わない                
+## 10    10 そう思う                     そう思う</code></pre>
+<pre class="r numberLines"><code>levels(df4$Q1_R)</code></pre>
+<pre><code>## [1] &quot;答えたくない&quot;                 &quot;そう思わない&quot;                
+## [3] &quot;どちらかと言えばそう思わない&quot; &quot;どちらとも言えない&quot;          
+## [5] &quot;どちらかと言えばそう思う&quot;     &quot;そう思う&quot;</code></pre>
+<p>「答えたくない」が最初の順番に来ましてね。できれば、「そう思わない」〜「そう思う」、「答えたくない」の順番にしたいところです。ここで使うのが<code>fct_shift()</code>ですが、書き方がややこしいので、噛み砕いて解説します。</p>
+<pre class="r"><code># fct_shift()の使い方
+データ名 %&gt;%
+  mutate(新しい変数名 = fct_shift(元の変数名, n = 左方向へずらす個数))</code></pre>
+<p>問題は<code>n =</code>引数ですが、その挙動については以下の表を参照してください。</p>
+<table>
+<thead>
+<tr class="header">
+<th>水準の順番</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>n = -2</code></td>
+<td><strong><code>E</code></strong></td>
+<td><strong><code>F</code></strong></td>
+<td><code>A</code></td>
+<td><code>B</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+</tr>
+<tr class="even">
+<td><code>n = -1</code></td>
+<td><strong><code>F</code></strong></td>
+<td><code>A</code></td>
+<td><code>B</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+<td><code>E</code></td>
+</tr>
+<tr class="odd">
+<td><code>n = 0</code></td>
+<td><code>A</code></td>
+<td><code>B</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+<td><code>E</code></td>
+<td><code>F</code></td>
+</tr>
+<tr class="even">
+<td><code>n = 1</code></td>
+<td><code>B</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+<td><code>E</code></td>
+<td><code>F</code></td>
+<td><strong><code>A</code></strong></td>
+</tr>
+<tr class="odd">
+<td><code>n = 2</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+<td><code>E</code></td>
+<td><code>F</code></td>
+<td><strong><code>A</code></strong></td>
+<td><strong><code>B</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>具体的には水準は左方向へ<code>n</code>個移動します。元の水準がA, B, C, Dの順で、<code>n = 1</code>の場合、AがDの後ろへ移動し、B, C, Dが前の方へ移動します。逆に右側へ1つ移動したい場合は<code>n = -1</code>のように書きます。今回は最初の水準を最後に移動させたいので、<code>n = 1</code>と指定します。</p>
+<pre class="r numberLines"><code>df4 &lt;- df4 %&gt;%
+  # Q1_Rの水準を左方向で1ずらす
+  mutate(Q1_R = fct_shift(Q1_R, n = 1))
+
+levels(df4$Q1_R)</code></pre>
+<pre><code>## [1] &quot;そう思わない&quot;                 &quot;どちらかと言えばそう思わない&quot;
+## [3] &quot;どちらとも言えない&quot;           &quot;どちらかと言えばそう思う&quot;    
+## [5] &quot;そう思う&quot;                     &quot;答えたくない&quot;</code></pre>
+<p>これで水準の反転が完了しました。<code>fct_shift()</code>はこのように世論調査データの処理に便利ですが、他にも曜日の処理に使えます。例えば、1週間の始まりを月曜にするか日曜にするかによって、<code>fct_shift()</code>を使うケースがあります。</p>
 <p><strong><code>fct_shuffle()</code>: 水準の順番をランダム化する</strong></p>
+<p>あまり使わない機能ですが、水準の順番をランダム化することも可能です。使い方は非常に簡単で、<code>fct_shuffle()</code>に元の変数名を入れるだけです。たとえば、<code>Score_df</code>の<code>Pref</code>の順番をランダム化し、<code>Pref2</code>として追加します。同じことをもう2回繰り返し、それぞれ<code>Pref3</code>と<code>Pref4</code>という名前で追加してみましょう。</p>
+<pre class="r numberLines"><code>Score_df &lt;- Score_df %&gt;%
+  mutate(Pref2 = fct_shuffle(Pref),
+         Pref3 = fct_shuffle(Pref),
+         Pref4 = fct_shuffle(Pref))
+
+Score_df</code></pre>
+<pre><code>## # A tibble: 9 x 5
+##   Pref     Score Pref2    Pref3    Pref4   
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;    &lt;fct&gt;   
+## 1 京都府    3.68 京都府   京都府   京都府  
+## 2 埼玉県    3.64 埼玉県   埼玉県   埼玉県  
+## 3 神奈川県  3.53 神奈川県 神奈川県 神奈川県
+## 4 千葉県    3.72 千葉県   千葉県   千葉県  
+## 5 大阪府    3.77 大阪府   大阪府   大阪府  
+## 6 東京都    3.67 東京都   東京都   東京都  
+## 7 奈良県    3.85 奈良県   奈良県   奈良県  
+## 8 兵庫県    3.54 兵庫県   兵庫県   兵庫県  
+## 9 和歌山県  3.97 和歌山県 和歌山県 和歌山県</code></pre>
+<pre class="r numberLines"><code>levels(Score_df$Pref2)</code></pre>
+<pre><code>## [1] &quot;京都府&quot;   &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;東京都&quot;   &quot;神奈川県&quot; &quot;大阪府&quot;   &quot;兵庫県&quot;  
+## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
+<pre class="r numberLines"><code>levels(Score_df$Pref3)</code></pre>
+<pre><code>## [1] &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;神奈川県&quot; &quot;京都府&quot;  
+## [8] &quot;東京都&quot;   &quot;埼玉県&quot;</code></pre>
+<pre class="r numberLines"><code>levels(Score_df$Pref4)</code></pre>
+<pre><code>## [1] &quot;京都府&quot;   &quot;神奈川県&quot; &quot;奈良県&quot;   &quot;大阪府&quot;   &quot;千葉県&quot;   &quot;兵庫県&quot;   &quot;東京都&quot;  
+## [8] &quot;埼玉県&quot;   &quot;和歌山県&quot;</code></pre>
+<p><code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
 <p><strong><code>fct_reorder()</code>: 別の1変数の値を基準に水準の順番を変更する</strong></p>
+<p><code>fct_infreq()</code>は出現頻度順に並び替える関数でしたが、それと似たような関数として<code>fct_reorder()</code>があります。ただし、これは出現頻度を基準にするのではなく、ある変数の平均値が低い順、中央値が高い順などでソートされます。まずは使い方から確認します。</p>
+<pre class="r"><code>データ名 %&gt;%
+  mutate(新しい変数名 = fct_reorder(元の変数名, 基準となる変数, 
+                                   関数名, 関数の引数))</code></pre>
+<p>必要な引数が多いですね。解説よりも実際の例を見ながら説明します。今回も<code>Pref</code>をfactor変数にし、<code>Pref_R</code>という列で格納しますが、平均予算が安い順でfactorの水準を決めたいと思います。</p>
+<pre class="r numberLines"><code>df &lt;- df %&gt;%
+  mutate(Pref_R = fct_reorder(Pref, Budget, mean, na.rm = TRUE))
+
+levels(df$Pref_R)</code></pre>
+<pre><code>## [1] &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;奈良県&quot;   &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;和歌山県&quot;
+## [8] &quot;東京都&quot;   &quot;京都府&quot;</code></pre>
+<p><code>Pref_R</code>の水準は千葉県、埼玉県、奈良県、…の順ですが、本当にそうでしょうか。<code>group_by()</code>と<code>summarise()</code>などを使って確認してみましょう。</p>
+<pre class="r numberLines"><code>df %&gt;% 
+  group_by(Pref) %&gt;%
+  summarise(Budget  = mean(Budget, na.rm = TRUE),
+            .groups = &quot;drop&quot;) %&gt;%
+  arrange(Budget)</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     Budget
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 千葉県    1124.
+## 2 埼玉県    1147.
+## 3 奈良県    1169.
+## 4 兵庫県    1197.
+## 5 大阪府    1203.
+## 6 神奈川県  1239.
+## 7 和歌山県  1252 
+## 8 東京都    1283.
+## 9 京都府    1399.</code></pre>
+<p>問題なくソートされましたね。注意点としては<code>fct_reorder()</code>内に関数名を書く際、<code>()</code>は不要という点です。関数名の次の引数としてはその関数に別途必要な引数を指定します。引数が省略可能、あるいは不要な関数を使う場合は、省略しても構いませんし、数に制限はありません。</p>
+<p>また、低い順ではなく、高い順にすることも可能です。次は<code>Score</code>の中央値が高い順に水準を設定した<code>Pref_R2</code>を作ってみましょう。</p>
+<pre class="r numberLines"><code>df &lt;- df %&gt;%
+  mutate(Pref_R2 = fct_reorder(Pref, Score, median, na.rm = TRUE, .desc = TRUE))
+
+levels(df$Pref_R2)</code></pre>
+<pre><code>## [1] &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;千葉県&quot;   &quot;大阪府&quot;   &quot;東京都&quot;   &quot;埼玉県&quot;   &quot;京都府&quot;  
+## [8] &quot;神奈川県&quot; &quot;兵庫県&quot;</code></pre>
+<p>変わったのは<code>mean</code>の代わりに<code>median</code>を使ったこと、そして<code>.desc</code>引数が追加された点です。<code>fct_reorder()</code>には<code>.desc = FALSE</code>がデフォルトとして指定されており、省略した場合は昇順でfactorの水準が決まります。ここで<code>.desc = TRUE</code>を指定すると、降順となります。実際、<code>Score</code>の中央値順になっているかを確認してみましょう。</p>
+<pre class="r numberLines"><code>df %&gt;% 
+  group_by(Pref) %&gt;%
+  summarise(Score   = median(Score, na.rm = TRUE),
+            .groups = &quot;drop&quot;) %&gt;%
+  arrange(desc(Score))</code></pre>
+<pre><code>## # A tibble: 9 x 2
+##   Pref     Score
+##   &lt;chr&gt;    &lt;dbl&gt;
+## 1 和歌山県  4   
+## 2 奈良県    3.88
+## 3 千葉県    3.75
+## 4 大阪府    3.75
+## 5 東京都    3.64
+## 6 埼玉県    3.61
+## 7 京都府    3.5 
+## 8 神奈川県  3.5 
+## 9 兵庫県    3.5</code></pre>
 <p><strong><code>fct_reorder2()</code>: 別の2変数の値を基準に水準の順番を変更する</strong></p>
+<p>この関数は別の変数を基準に水準が調整される点では<code>fct_reorder()</code>と類似しています。ただし、よく誤解されるのは「変数Aの値が同じなら変数Bを基準に…」といったものではありません。たとえば、<code>fct_reorder(x, y, mean)</code>の場合、<code>y</code>の平均値 (<code>mean()</code>)の順で<code>x</code>の水準を調整するという意味です。この<code>mean()</code>関数に必要なデータはベクトル1つです。しかし、関数によっては2つの変数が必要な場合があります。</p>
+<p>これは頻繁に直面する問題ではありませんが、この<code>fct_reorder2()</code>関数が活躍するケースを紹介します。以下は6月27日から7月1日までの5日間、5地域におけるCOVID-19新規感染者数を表したデータです<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。入力が面倒な方は<a href="../Data/COVID19.csv">ここ</a>からダウンロードして読み込んでください。</p>
+<pre class="r"><code># 入力が面倒ならデータをダウンロードし、
+# Reorder2_df &lt;- read_csv(&quot;Data/COVID19.csv&quot;)
+Reorder2_df &lt;- tibble(
+  Country = rep(c(&quot;日本&quot;, &quot;韓国&quot;, &quot;中国 (本土)&quot;, &quot;台湾&quot;, &quot;香港&quot;),
+                each = 5),
+  Date    = rep(c(&quot;2020/06/27&quot;, &quot;2020/06/28&quot;, &quot;2020/06/29&quot;,
+                  &quot;2020/06/30&quot;, &quot;2020/07/01&quot;), 5),
+  NewPat  = c(100, 93, 86, 117, 130, 
+               62, 42, 43,  50,  54,
+               17, 12, 19,   3,   5,
+                0,  0,  0,   0,   0,
+                1,  2,  4,   2,  28)
+)
+
+Reorder2_df &lt;- Reorder2_df %&gt;%
+  mutate(Date = as.Date(Date))
+
+Reorder2_df</code></pre>
+<pre><code>## # A tibble: 25 x 3
+##    Country Date       NewPat
+##    &lt;chr&gt;   &lt;date&gt;      &lt;dbl&gt;
+##  1 日本    2020-06-27    100
+##  2 日本    2020-06-28     93
+##  3 日本    2020-06-29     86
+##  4 日本    2020-06-30    117
+##  5 日本    2020-07-01    130
+##  6 韓国    2020-06-27     62
+##  7 韓国    2020-06-28     42
+##  8 韓国    2020-06-29     43
+##  9 韓国    2020-06-30     50
+## 10 韓国    2020-07-01     54
+## # … with 15 more rows</code></pre>
+<p>可視化のコードはとりあえず無視し、グラフを出力してみましょう。</p>
+<pre class="r"><code>Reorder2_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = NewPat, color = Country),
+            size = 1) +
+  scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
+  labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+<p>このグラフに違和感はあまりありませんが、「読みやすさ」の麺では改善の余地があります。たとえば、7月1日の時点で、新規感染者数が多いのは日本、韓国、香港、中国 (本土)、台湾の順です。しかし、右側の凡例の順番はそうではありません。この順番が一致すれば、更に図は読みやすくなるでしょう。</p>
+<pre class="r"><code>factor(Reorder2_df$Country)</code></pre>
+<pre><code>##  [1] 日本        日本        日本        日本        日本        韓国       
+##  [7] 韓国        韓国        韓国        韓国        中国 (本土) 中国 (本土)
+## [13] 中国 (本土) 中国 (本土) 中国 (本土) 台湾        台湾        台湾       
+## [19] 台湾        台湾        香港        香港        香港        香港       
+## [25] 香港       
+## Levels: 韓国 香港 台湾 中国 (本土) 日本</code></pre>
+<p>実際、何も指定せずに<code>Reorder2_df</code>の<code>Country</code>をfactor化すると、韓国、香港、台湾、…の順であり、これは上のグラフと一致します。これをグラフにおける7月1日の新規感染者数の順で並べるためには、<code>Date</code>を昇順にソートし、そして最後の要素 (<code>"2020/07/01"</code>)内で新規感染者数 (<code>NewPat</code>)を降順に並べ替えた場合の順番にする必要があります。実際、<code>Reorder2_df</code>を<code>Date</code>で昇順、<code>NewPat</code>で降順にソートし、最後の5行を抽出した結果が以下のコードです。</p>
+<pre class="r"><code>Reorder2_df %&gt;%
+  arrange(Date, desc(NewPat)) %&gt;%
+  slice_tail(n = 5)</code></pre>
+<pre><code>## # A tibble: 5 x 3
+##   Country     Date       NewPat
+##   &lt;chr&gt;       &lt;date&gt;      &lt;dbl&gt;
+## 1 日本        2020-07-01    130
+## 2 韓国        2020-07-01     54
+## 3 香港        2020-07-01     28
+## 4 中国 (本土) 2020-07-01      5
+## 5 台湾        2020-07-01      0</code></pre>
+<p>このように、水準を調整する際に2つの変数 (<code>Date</code>と<code>NewPat</code>)が使用されます。<code>fct_reorder2()</code>は<code>fct_reorder()</code>と買い方がほぼ同じですが、基準となる変数がもう一つ加わります。</p>
+<pre class="r"><code>データ名 %&gt;%
+  mutate(新しい変数名 = fct_reorder2(元の変数名, 
+                                    基準となる変数1, 基準となる変数2,
+                                    関数名, 関数の引数))</code></pre>
+<p>重要なのはここの関数のところですが、<code>fct_reorder2()</code>はデフォルトで<code>last2()</code>という関数が指定されており、まさに私たちに必要な関数です。したがって、ここでは関数名も省略できますが、ここでは一応明記しておきます。</p>
+<pre class="r"><code>Reorder2_df &lt;- Reorder2_df %&gt;%
+  mutate(Country2 = fct_reorder2(Country, Date, NewPat, last2)) </code></pre>
+<p>それでは新しく出来た<code>Country2</code>の水準を確認してみましょう。</p>
+<pre class="r"><code>levels(Reorder2_df$Country2)</code></pre>
+<pre><code>## [1] &quot;日本&quot;        &quot;韓国&quot;        &quot;香港&quot;        &quot;中国 (本土)&quot; &quot;台湾&quot;</code></pre>
+<p>ちゃんと7月1日の新規感染者数基準で水準の順番が調整されましたので、これを使ってグラフをもう一回作ってみます。</p>
+<pre class="r"><code>Reorder2_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = NewPat, color = Country2),
+            size = 1) +
+  scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
+  labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<p>これで図がさらに読みやすくなりました。ちなみに、<code>forcats</code>パッケージは<code>last2()</code>以外にも<code>first2()</code>という関数も提供しております。これを使うと、7月1日でなく、6月27日の新規感染者数の降順で水準の順番が調整されます。他にも引数を2つ使用する自作関数も使えますが、<code>fct_reorder2()</code>の主な使いみちは<code>last2()</code>で十分でしょう。</p>
 <p><strong><code>fct_collapse()</code>: 水準を統合する</strong></p>
+<p>水準数をより水準数に減らすためには、<code>fct_recode()</code>を使います。先ほど、<code>fct_shift()</code>で使った<code>df4</code>の例を考えてみましょう。<code>df4</code>の<code>Q1</code>の水準数は6つです。</p>
+<pre class="r numberLines"><code>levels(df4$Q1)</code></pre>
+<pre><code>## [1] &quot;そう思う&quot;                     &quot;どちらかと言えばそう思う&quot;    
+## [3] &quot;どちらとも言えない&quot;           &quot;どちらかと言えばそう思わない&quot;
+## [5] &quot;そう思わない&quot;                 &quot;答えたくない&quot;</code></pre>
+<p>これを4つに減らして見ましょう。具体的には「そう思う」と「どちらかと言えばそう思う」を「そう思う」に、「そう思わない」と「どちらかと言えばそう思わない」を「そう思わない」に統合します。これを<code>fct_recode()</code>で処理したのが以下のコードです。</p>
+<pre class="r numberLines"><code># fct_recode()を使った例
+df4 &lt;- df4 %&gt;% 
+    mutate(Q1_R2 = fct_recode(Q1,
+                              そう思う          = &quot;そう思う&quot;,
+                              そう思う          = &quot;どちらかと言えばそう思う&quot;,
+                              どちらとも言えない  = &quot;どちらとも言えない&quot;,
+                              そう思わない       = &quot;どちらかと言えばそう思わない&quot;,
+                              そう思わない       = &quot;そう思わない&quot;,
+                              答えたくない       = &quot;答えたくない&quot;))
+
+df4</code></pre>
+<pre><code>## # A tibble: 10 x 4
+##       ID Q1                          Q1_R                       Q1_R2           
+##    &lt;int&gt; &lt;fct&gt;                       &lt;fct&gt;                      &lt;fct&gt;           
+##  1     1 そう思う                    そう思う                   そう思う        
+##  2     2 そう思わない                そう思わない               そう思わない    
+##  3     3 どちらとも言えない          どちらとも言えない         どちらとも言えない…
+##  4     4 どちらかと言えばそう思う    どちらかと言えばそう思う   そう思う        
+##  5     5 答えたくない                答えたくない               答えたくない    
+##  6     6 どちらかと言えばそう思う    どちらかと言えばそう思う   そう思う        
+##  7     7 どちらかと言えばそう思わない… どちらかと言えばそう思わない… そう思わない    
+##  8     8 答えたくない                答えたくない               答えたくない    
+##  9     9 そう思わない                そう思わない               そう思わない    
+## 10    10 そう思う                    そう思う                   そう思う</code></pre>
+<pre class="r numberLines"><code>levels(df4$Q1_R2)</code></pre>
+<pre><code>## [1] &quot;そう思う&quot;           &quot;どちらとも言えない&quot; &quot;そう思わない&quot;      
+## [4] &quot;答えたくない&quot;</code></pre>
+<p>しかし、水準を統合するに特化した<code>fct_collapse()</code>を使えばより便利です。使い方は、<code>fct_recode()</code>に非常に似ているため省略しますが、<code>=</code>の右側を<code>c()</code>でまとめることが出来ます。</p>
+<pre class="r numberLines"><code># fct_collapse()を使った例
+df4 &lt;- df4 %&gt;% 
+    mutate(Q1_R3 = fct_collapse(Q1,
+                                そう思う = c(&quot;そう思う&quot;, &quot;どちらかと言えばそう思う&quot;),
+                                どちらとも言えない = &quot;どちらとも言えない&quot;,
+                                そう思わない = c( &quot;どちらかと言えばそう思わない&quot;, &quot;そう思わない&quot;),
+                                答えたくない = &quot;答えたくない&quot;))
+
+df4</code></pre>
+<pre><code>## # A tibble: 10 x 5
+##       ID Q1                    Q1_R                  Q1_R2         Q1_R3        
+##    &lt;int&gt; &lt;fct&gt;                 &lt;fct&gt;                 &lt;fct&gt;         &lt;fct&gt;        
+##  1     1 そう思う              そう思う              そう思う      そう思う     
+##  2     2 そう思わない          そう思わない          そう思わない  そう思わない 
+##  3     3 どちらとも言えない    どちらとも言えない    どちらとも言えない… どちらとも言えない…
+##  4     4 どちらかと言えばそう思う… どちらかと言えばそう思う… そう思う      そう思う     
+##  5     5 答えたくない          答えたくない          答えたくない  答えたくない 
+##  6     6 どちらかと言えばそう思う… どちらかと言えばそう思う… そう思う      そう思う     
+##  7     7 どちらかと言えばそう思わない… どちらかと言えばそう思わない… そう思わない  そう思わない 
+##  8     8 答えたくない          答えたくない          答えたくない  答えたくない 
+##  9     9 そう思わない          そう思わない          そう思わない  そう思わない 
+## 10    10 そう思う              そう思う              そう思う      そう思う</code></pre>
+<pre class="r numberLines"><code>levels(df4$Q1_R3)</code></pre>
+<pre><code>## [1] &quot;そう思う&quot;           &quot;どちらとも言えない&quot; &quot;そう思わない&quot;      
+## [4] &quot;答えたくない&quot;</code></pre>
+<p><code>fct_recode()</code>の結果と同じ結果が得られました。元の水準数や、減らされる水準数などによっては書く手間があまり変わらないので、好きな方を使っても良いでしょう。</p>
 <p><strong><code>fct_drop()</code>: 使われていない水準を除去する</strong></p>
-<pre class="r"><code>Score_df_f2 &lt;- df %&gt;%
+<p>水準としては存在するものの、データとしては存在しないケースもあります。これをここでは「空水準 (empty levels)」と呼びます。たとえば、以下のコードは<code>Pref</code>をfactor化してから<code>Pref == "奈良県"</code>のケースを落としたものです。</p>
+<pre class="r numberLines"><code>Score_df_f2 &lt;- df %&gt;%
   mutate(Pref = fct_inorder(Pref)) %&gt;%
   filter(Pref != &quot;奈良県&quot;) %&gt;%
   group_by(Pref) %&gt;%
@@ -2379,36 +2774,169 @@ Score_df_f2</code></pre>
 ## 6 京都府    3.68
 ## 7 兵庫県    3.54
 ## 8 和歌山県  3.97</code></pre>
-<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
+<p>このように結果としては、奈良県のデータを除外したため空水準である奈良県は表示されませんが、<code>Pref</code>変数はどうでしょうか。</p>
+<pre class="r numberLines"><code>levels(Score_df_f2$Pref)</code></pre>
 <pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
 ## [8] &quot;奈良県&quot;   &quot;和歌山県&quot;</code></pre>
-<pre class="r"><code>Score_df_f2 &lt;- Score_df_f2 %&gt;%
+<p>このように水準としては残っていることが分かります。使われていない水準が分析や可視化に影響を与えないケースもありますが、与えるケースもあります。これもこれまで勉強してきた<code>fct_*()</code>関数群で対応可能ですが、<code>fct_drop()</code>関数を使えば一発で終わります。実際にやってみましょう。</p>
+<pre class="r numberLines"><code>Score_df_f2 &lt;- Score_df_f2 %&gt;%
   mutate(Pref = fct_drop(Pref))</code></pre>
-<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
+<pre class="r numberLines"><code>levels(Score_df_f2$Pref)</code></pre>
 <pre><code>## [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
 ## [8] &quot;和歌山県&quot;</code></pre>
+<p>水準から奈良県が消えました。同じ機能をする関数としてはR内蔵関数である<code>droplevels()</code>関数があり、使い方は<code>fct_drop()</code>と同じです。</p>
 <p><strong><code>fct_expand()</code>: 水準を追加する</strong></p>
-<pre class="r"><code>Score_df_f2 &lt;- Score_df_f2 %&gt;%
-  mutate(Pref = fct_expand(Pref, &quot;奈良県&quot;, &quot;滋賀県&quot;))
+<p>一方、空水準を追加することも可能です。<code>fct_expand()</code>関数には元の変数名に加え、追加する水準名を入れるだけです。たとえば、<code>df</code>の<code>Pref</code>の水準は関東と関西の9都府県名となっていますが、ここに<code>"滋賀県"</code>という水準を追加してみます。。</p>
+<pre class="r numberLines"><code>df5 &lt;- df %&gt;%
+  mutate(Pref = fct_expand(Pref, &quot;滋賀県&quot;))
 
-Score_df_f2</code></pre>
-<pre><code>## # A tibble: 8 x 2
-##   Pref     Score
-##   &lt;fct&gt;    &lt;dbl&gt;
-## 1 東京都    3.67
-## 2 神奈川県  3.53
-## 3 千葉県    3.72
-## 4 埼玉県    3.64
-## 5 大阪府    3.77
-## 6 京都府    3.68
-## 7 兵庫県    3.54
-## 8 和歌山県  3.97</code></pre>
-<p>見た目は全く変わらず、奈良県の行が新しく出来たわけでもありません。それでは、<code>Pref</code>の水準を確認してみましょう。</p>
-<pre class="r"><code>levels(Score_df_f2$Pref)</code></pre>
-<pre><code>##  [1] &quot;東京都&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;大阪府&quot;   &quot;京都府&quot;  
-##  [7] &quot;兵庫県&quot;   &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;滋賀県&quot;</code></pre>
-<p><code>"奈良県"</code>と<code>"滋賀県"</code>という新しい水準が出来ましたね。ただし、新しく追加された水準は最後の順番になりますので、修正が必要な場合は<code>fct_relevel()</code>などを使って適宜修正してください。</p>
+levels(df5$Pref)</code></pre>
+<pre><code>##  [1] &quot;京都府&quot;   &quot;埼玉県&quot;   &quot;神奈川県&quot; &quot;千葉県&quot;   &quot;大阪府&quot;   &quot;東京都&quot;  
+##  [7] &quot;奈良県&quot;   &quot;兵庫県&quot;   &quot;和歌山県&quot; &quot;滋賀県&quot;</code></pre>
+<p><code>"滋賀県"</code>という新しい水準が出来ましたね。ただし、新しく追加された水準は最後の順番になりますので、修正が必要な場合は<code>fct_relevel()</code>などを使って適宜修正してください。</p>
+<p>新しく水準が追加されることによって、何かの変化はあるでしょうか。まずは都府県ごとに<code>Score</code>の平均値とケース数を計算してみましょう。</p>
+<pre class="r numberLines"><code>df5 %&gt;%
+  group_by(Pref) %&gt;%
+  summarise(Score   = mean(Score, na.rm = TRUE),
+            N       = n(),
+            .groups = &quot;drop&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Pref     Score     N
+##   &lt;fct&gt;    &lt;dbl&gt; &lt;int&gt;
+## 1 京都府    3.68   414
+## 2 埼玉県    3.64  1000
+## 3 神奈川県  3.53  1000
+## 4 千葉県    3.72  1000
+## 5 大阪府    3.77  1000
+## 6 東京都    3.67  1000
+## 7 奈良県    3.85   147
+## 8 兵庫県    3.54   591
+## 9 和歌山県  3.97   140</code></pre>
+<p>見た目は全く変わらず、滋賀県の行が新しく出来たわけでもありません。<code>dplyr</code>の<code>group_by()</code>の場合、空水準はグループ化の対象になりません。一方、多くのR内蔵関数はケースとして存在しなくても計算の対象となります。たとえば、ベクトル内のある値が何個格納されているか確認する<code>table()</code>関数の例を見てみましょう。</p>
+<pre class="r numberLines"><code>table(df5$Pref)</code></pre>
+<pre><code>## 
+##   京都府   埼玉県 神奈川県   千葉県   大阪府   東京都   奈良県   兵庫県 
+##      414     1000     1000     1000     1000     1000      147      591 
+## 和歌山県   滋賀県 
+##      140        0</code></pre>
+<p><code>"滋賀県"</code>という列があり、合致するケースが0と表示されます。<code>group_by()</code>でも空の水準まで含めて出力する引数<code>.drop</code>があります。デフォルトは<code>TRUE</code>ですが、これを<code>FALSE</code>に指定してみます。</p>
+<pre class="r numberLines"><code>df5 %&gt;%
+  group_by(Pref, .drop = FALSE) %&gt;%
+  summarise(Score   = mean(Score, na.rm = TRUE),
+            N       = n(),
+            .groups = &quot;drop&quot;)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##    Pref      Score     N
+##    &lt;fct&gt;     &lt;dbl&gt; &lt;int&gt;
+##  1 京都府     3.68   414
+##  2 埼玉県     3.64  1000
+##  3 神奈川県   3.53  1000
+##  4 千葉県     3.72  1000
+##  5 大阪府     3.77  1000
+##  6 東京都     3.67  1000
+##  7 奈良県     3.85   147
+##  8 兵庫県     3.54   591
+##  9 和歌山県   3.97   140
+## 10 滋賀県   NaN        0</code></pre>
+<p>空水準も出力され、<code>Score</code>の平均値は計算不可 (<code>NaN</code>)、ケース数は0という結果が得られました。</p>
 <p><strong><code>fct_explicit_na()</code>: 欠損値に水準を与える</strong></p>
+<p>まずは、実習用データ<code>df6</code>を作ってみまます。<code>X1</code>はnumeric型変数ですが、これをfactor化します。最初から<code>tibble()</code>内でfactor化しておいても問題ありませんが、練習だと思ってください。</p>
+<pre class="r numberLines"><code>df6 &lt;- tibble(
+  ID = 1:10,
+  X1 = c(1, 3, 2, NA, 2, 2, 1, NA, 3, NA)
+)
+
+df6 &lt;- df6 %&gt;%
+  mutate(X1 = factor(X1, 
+                     levels = c(1, 2, 3),
+                     labels = c(&quot;ラーメン&quot;, &quot;うどん&quot;, &quot;そば&quot;)))
+
+df6</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##       ID X1      
+##    &lt;int&gt; &lt;fct&gt;   
+##  1     1 ラーメン
+##  2     2 そば    
+##  3     3 うどん  
+##  4     4 &lt;NA&gt;    
+##  5     5 うどん  
+##  6     6 うどん  
+##  7     7 ラーメン
+##  8     8 &lt;NA&gt;    
+##  9     9 そば    
+## 10    10 &lt;NA&gt;</code></pre>
+<p>それでは<code>X1</code>をグループ化変数とし、ケース数を計算してみましょう。</p>
+<pre class="r numberLines"><code>df6 %&gt;%
+  group_by(X1) %&gt;%
+  summarise(N       = n(),
+            .groups = &quot;drop&quot;)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   X1           N
+##   &lt;fct&gt;    &lt;int&gt;
+## 1 ラーメン     2
+## 2 うどん       3
+## 3 そば         2
+## 4 &lt;NA&gt;         3</code></pre>
+<p><code>NA</code>もグループ化の対象となります。以下はこの欠損値も一つの水準として指定する方法について紹介します。欠損値を欠損値のままにするケースが多いですが、欠損値が何らかの意味を持つ場合、分析の対象になります。たとえば、多項ロジスティック回帰の応答変数として「分からない/答えたくない」を含めたり、<a href="https://ci.nii.ac.jp/naid/40021269699">「分からない/答えたくない」を選択する要因を分析</a>したい場合は、欠損値に値を与える必要があります。なぜなら、一般的な分析において欠損値は分析対象から除外されるからです。</p>
+<p>まずは、これまで紹介した関数を使ったやり方から紹介します。</p>
+<pre class="r numberLines"><code>df6 %&gt;%
+         # まず、X1をcharacter型に変換し、X2という列に保存
+  mutate(X2 = as.character(X1),
+         # X2がNAなら&quot;欠損値&quot;、それ以外なら元のX2の値に置換
+         X2 = ifelse(is.na(X2), &quot;欠損値&quot;, X2),
+         # X2を再度factor化する
+         X2 = factor(X2, 
+                     levels = c(&quot;ラーメン&quot;, &quot;うどん&quot;, &quot;そば&quot;, &quot;欠損値&quot;)))</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##       ID X1       X2      
+##    &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;   
+##  1     1 ラーメン ラーメン
+##  2     2 そば     そば    
+##  3     3 うどん   うどん  
+##  4     4 &lt;NA&gt;     欠損値  
+##  5     5 うどん   うどん  
+##  6     6 うどん   うどん  
+##  7     7 ラーメン ラーメン
+##  8     8 &lt;NA&gt;     欠損値  
+##  9     9 そば     そば    
+## 10    10 &lt;NA&gt;     欠損値</code></pre>
+<p><code>X1</code>をcharacter型に戻す理由<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>は、水準にない値が入るとfactor化が解除されるからです。factor型をcharacter型に戻さずに<code>df6$X1</code>の<code>NA</code>を<code>"欠損値"</code>に置換すると、以下のようになります。</p>
+<pre class="r numberLines"><code># df6のX1がNAなら&quot;欠損&quot;、それ以外なら元のX1の値を返す
+ifelse(is.na(df6$X1), &quot;欠損値&quot;, df6$X1)</code></pre>
+<pre><code>##  [1] &quot;1&quot;      &quot;3&quot;      &quot;2&quot;      &quot;欠損値&quot; &quot;2&quot;      &quot;2&quot;      &quot;1&quot;      &quot;欠損値&quot;
+##  [9] &quot;3&quot;      &quot;欠損値&quot;</code></pre>
+<p><code>"ラーメン"</code>と<code>"うどん"</code>、<code>"そば"</code>がfactor化前の1, 2, 3に戻っただけでなく、<code>NA</code>が<code>"欠損値"</code>というcharacter型に置換されたため、全体がcharacter型に変換されました。このように欠損値に水準を与える作業は難しくはありませんが、面倒な作業です。そこで登場する関数が<code>fct_exlpicit_na()</code>関数です。使い方は、元の変数に加え、欠損値の水準名を指定する<code>na_level</code>です。</p>
+<pre class="r numberLines"><code>df6 &lt;- df6 %&gt;%
+  # na_levelのデフォルト値は&quot;(Missing)&quot;
+  mutate(X2 = fct_explicit_na(X1, na_level = &quot;欠損値&quot;))
+
+df6</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##       ID X1       X2      
+##    &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;   
+##  1     1 ラーメン ラーメン
+##  2     2 そば     そば    
+##  3     3 うどん   うどん  
+##  4     4 &lt;NA&gt;     欠損値  
+##  5     5 うどん   うどん  
+##  6     6 うどん   うどん  
+##  7     7 ラーメン ラーメン
+##  8     8 &lt;NA&gt;     欠損値  
+##  9     9 そば     そば    
+## 10    10 &lt;NA&gt;     欠損値</code></pre>
+<p>欠損値が一つの水準になったことが分かります。</p>
+<pre class="r numberLines"><code>df6 %&gt;%
+  group_by(X2) %&gt;%
+  summarise(N       = n(),
+            .groups = &quot;drop&quot;)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   X2           N
+##   &lt;fct&gt;    &lt;int&gt;
+## 1 ラーメン     2
+## 2 うどん       3
+## 3 そば         2
+## 4 欠損値       3</code></pre>
+<p>むろん、<code>group_by()</code>を使ってもちゃんと出力されます。</p>
 <hr />
 </div>
 </div>
@@ -2846,7 +3374,7 @@ df4</code></pre>
 ## 10 群馬県    488
 ## # … with 37 more rows</code></pre>
 <p>これから共通変数名の値をキー (key)と呼びます。今回の例だと<code>Pref</code>が<code>df2</code>と<code>df4</code>のキー変数であり、その値である<code>"東京都"</code>、<code>"北海道"</code>などがキーです。</p>
-<p>まずは、<code>inner_join()</code>の仕組みについて考えます。これは<code>df2</code>と<code>df4</code>に共通するキーを持つケースのみ結合する関数です。<code>df4</code>には<code>"北海道"</code>というキーがありますが、<code>df2</code>にはありません。したがって、キーが<code>"北海道"</code>のケースは結合から除外されます。これをイメージにしたものが図<a href="#fig:inner-join">11</a>です<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。それぞれ3 <span class="math inline">\(\times\)</span> 2 (3行2列)のデータですが、キーが一致するケースは2つしかないため、結合後のデータは3 <span class="math inline">\(\times\)</span> 2となります。</p>
+<p>まずは、<code>inner_join()</code>の仕組みについて考えます。これは<code>df2</code>と<code>df4</code>に共通するキーを持つケースのみ結合する関数です。<code>df4</code>には<code>"北海道"</code>というキーがありますが、<code>df2</code>にはありません。したがって、キーが<code>"北海道"</code>のケースは結合から除外されます。これをイメージにしたものが図<a href="#fig:inner-join">11</a>です<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>。それぞれ3 <span class="math inline">\(\times\)</span> 2 (3行2列)のデータですが、キーが一致するケースは2つしかないため、結合後のデータは3 <span class="math inline">\(\times\)</span> 2となります。</p>
 <div class="figure" style="text-align: center"><span id="fig:inner-join"></span>
 <img src="Figures/Handling1/Merge_Inner.png" alt="`inner_join()`の仕組み" width="80%" />
 <p class="caption">
@@ -2908,7 +3436,7 @@ Figure 14: <code>right_join()</code>の仕組み
 </p>
 </div>
 <p>これからは<code>df2</code>と<code>df4</code>を結合することになりますが、この2つのtibbleの大きさが異なります。<code>df2</code>は9つの都府県のみであるに対し、<code>df4</code>は47都道府県全てのデータが入っているからです。</p>
-<p>ここまではキー変数が一つである場合についてのみ考えましたが、複数のキー変数が必要な場合もあります。たとえば、市区町村の人口・面積データと市区町村の投票率データを結合するとします。各自治体に与えられている「<a href="https://www.soumu.go.jp/denshijiti/code.html">全国地方公共団体コード</a>」が両データに含まれている場合は、このコードをキー変数として使えば問題ありませんが、市区町村名をキー変数として使わざる得ないケースもあるでしょう。しかし、キー変数が複数ある場合もあります。たとえば、府中市は東京都と広島県にありますし、太子町は大阪府と兵庫県にあります。この場合、市区町村名のみでケースをマッチングすると、重複されてマッチングされる恐れがあります。この場合はキー変数を増やすことで対処できます。たとえば、同じ都道府県なら同じ市区町村は存在しないでしょう<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>。キー変数を複数指定する方法は簡単です。たとえば、市区町村名変数が<code>Munip</code>、都道府県名変数が<code>Pref</code>なら<code>by = c("Munip", "Pref")</code>と指定するだけです。</p>
+<p>ここまではキー変数が一つである場合についてのみ考えましたが、複数のキー変数が必要な場合もあります。たとえば、市区町村の人口・面積データと市区町村の投票率データを結合するとします。各自治体に与えられている「<a href="https://www.soumu.go.jp/denshijiti/code.html">全国地方公共団体コード</a>」が両データに含まれている場合は、このコードをキー変数として使えば問題ありませんが、市区町村名をキー変数として使わざる得ないケースもあるでしょう。しかし、キー変数が複数ある場合もあります。たとえば、府中市は東京都と広島県にありますし、太子町は大阪府と兵庫県にあります。この場合、市区町村名のみでケースをマッチングすると、重複されてマッチングされる恐れがあります。この場合はキー変数を増やすことで対処できます。たとえば、同じ都道府県なら同じ市区町村は存在しないでしょう<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>。キー変数を複数指定する方法は簡単です。たとえば、市区町村名変数が<code>Munip</code>、都道府県名変数が<code>Pref</code>なら<code>by = c("Munip", "Pref")</code>と指定するだけです。</p>
 <p>最後に、キー変数以外の変数名が重複する場合について考えましょう。これはパネルデータを結合する時によく直面する問題です。同じ回答者に2回の調査を行った場合、回答者のIDでデータを結合することになります。ただし、それぞれのデータにおいて回答者の性別に関する変数が<code>F1</code>という名前の場合、どうなるでしょうか。同じデータの同じ名前の変数が複数あると、非常に扱いにくくなります。実際の結果を見てみましょう。</p>
 <pre class="r"><code>Wave1_df &lt;- tibble(ID = c(1, 2, 3, 4, 5),
                    F1 = c(1, 1, 0, 0, 1),
@@ -2953,8 +3481,10 @@ full_join(Wave1_df, Wave2_df, by = &quot;ID&quot;)</code></pre>
 <li id="fn2"><p>実は<code>select.df[, c(2, 8, 9)]</code>でも前後にパイプ演算子を使うことは可能ですが、コードが読みにくくなるため、推奨しません。<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>サービスによってはこの機能が有料になっていたりもしますね。<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>たとえば、データ内に「ラーメンショップ」という店舗は3店舗あり、この場合、長さ3のベクトルが返されます。<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>これらの図は<a href="https://r4ds.had.co.nz">Garrett Grolemund and Hadley Wickham. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data.</em> O’Reilly.</a>を参考にしました。<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>行政区も含むなら多くの政令指定都市にある「南区」とか「北区」が重複しますが、ここでは考えないことにしましょう。<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>データの出典は<a href="https://news.google.com/covid19/map">Google</a>です。<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>character型でなく、numeric型でも出来ます。<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>これらの図は<a href="https://r4ds.had.co.nz">Garrett Grolemund and Hadley Wickham. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data.</em> O’Reilly.</a>を参考にしました。<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>行政区も含むなら多くの政令指定都市にある「南区」とか「北区」が重複しますが、ここでは考えないことにしましょう。<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 </div>
