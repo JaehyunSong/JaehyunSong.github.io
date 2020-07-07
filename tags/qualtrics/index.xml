@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qualtrics on Jaehyun Song, Ph.D.</title>
-    <link>/tags/qualtrics/</link>
+    <link>https://www.jaysong.net/tags/qualtrics/</link>
     <description>Recent content in Qualtrics on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/qualtrics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jaysong.net/tags/qualtrics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Qualtricsの順序尺度をランダムに逆転させる方法</title>
-      <link>/post/qualtrics-order-randomizer/</link>
+      <link>https://www.jaysong.net/post/qualtrics-order-randomizer/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/qualtrics-order-randomizer/</guid>
+      <guid>https://www.jaysong.net/post/qualtrics-order-randomizer/</guid>
       <description>Q. なんか知りませんが、賛成します？ 賛成 どちらかと言えば賛成 どちらとも言えない どちらかと言えば反対 反対 のような設問があるとします。別にこれだけ</description>
     </item>
     
     <item>
       <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
-      <link>/post/2020-04-05-conjointsdt-fixattributes/</link>
+      <link>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-05-conjointsdt-fixattributes/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</guid>
       <description>以下のようなコンジョイント分析を行うとする。 候補者1 候補者2 性別 男性 女性 年齢 39歳 35歳 二郎の値段 ラーメンの値下げ ラーメンの値段の現状維持 二</description>
     </item>
     
     <item>
       <title>Qualtricsでコンジョイント分析</title>
-      <link>/studynote/methodology/qualtrics_conjoint/</link>
+      <link>https://www.jaysong.net/studynote/methodology/qualtrics_conjoint/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/studynote/methodology/qualtrics_conjoint/</guid>
+      <guid>https://www.jaysong.net/studynote/methodology/qualtrics_conjoint/</guid>
       <description>Qualtricsでコンジョイント(Conjoint)分析のための調査票を作成する手順を紹介します。QualtricsにもConjoint機</description>
     </item>
     
     <item>
       <title>ランダムにイメージパスを取得するスクリプト</title>
-      <link>/post/2020-04-05-randomimagepath/</link>
+      <link>https://www.jaysong.net/post/2020-04-05-randomimagepath/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-05-randomimagepath/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-05-randomimagepath/</guid>
       <description>Qualtricsでランダムに画像を出す場合、2〜3枚の中から1枚を見せるならそれぞれの質問文を用意し、Randomizerを使うことで十分</description>
     </item>
     
     <item>
       <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
-      <link>/post/2020-04-03-/</link>
+      <link>https://www.jaysong.net/post/2020-04-03-/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-04-03-/</guid>
+      <guid>https://www.jaysong.net/post/2020-04-03-/</guid>
       <description>以下のようなリスト実験を行うとする。 統制群 Q1. 以下のうち、経験したことのあるものはいくつありますか？ タバコ お酒 コーヒー 紅茶 1個 2. 2個 3. 3個 4. 4</description>
     </item>
     
