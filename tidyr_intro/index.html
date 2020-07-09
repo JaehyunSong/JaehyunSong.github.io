@@ -299,8 +299,8 @@ Treatment
 <p>たとえば、表<a href="#tab:messy-data1">1</a>の場合、各列は以下のような3つの情報があります。</p>
 <ol style="list-style-type: decimal">
 <li><code>Name</code>: 被験者名</li>
-<li><code>Control</code>: 投薬前の数学成績</li>
-<li><code>Treatment</code>: 投薬後の数学成績</li>
+<li><code>Control</code>: <strong>投薬前</strong>の<strong>数学成績</strong></li>
+<li><code>Treatment</code>: <strong>投薬後</strong>の<strong>数学成績</strong></li>
 </ol>
 <p>このデータの問題は「投薬有無」と「数学成績」が2回登場したという点です。1は問題ありませんが、2と3の値は「投薬有無 <span class="math inline">\(\times\)</span> 数学成績」の組み合わせです。一つの変数に2つの情報が含まれていますね。これによって、投薬有無を行にしても列にしてもいいわけです。「ならばこっちの方が柔軟だしいいのでは?」と思う方もいるかも知れません。しかし、パソコンはこの曖昧さが嫌いです。なぜなら、人間のような思考ができないからです。データフレームは縦ベクトルの集合であるから、各列には一つの情報のみ格納する必要があります。たとえば、以下のように列を変更するとしましょう。</p>
 <ol style="list-style-type: decimal">
