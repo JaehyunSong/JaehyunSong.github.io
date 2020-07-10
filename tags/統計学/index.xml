@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>統計学 on Jaehyun Song, Ph.D.</title>
-    <link>/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6/</link>
+    <link>https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6/</link>
     <description>Recent content in 統計学 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>tidyr入門</title>
-      <link>/tidyr_intro/</link>
+      <link>https://www.jaysong.net/tidyr_intro/</link>
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tidyr_intro/</guid>
+      <guid>https://www.jaysong.net/tidyr_intro/</guid>
       <description>はじめに 修正履歴 2020/07/09: 公開 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない</description>
     </item>
     
     <item>
       <title>Rプログラミング入門の入門</title>
-      <link>/rprogramming/</link>
+      <link>https://www.jaysong.net/rprogramming/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/rprogramming/</guid>
+      <guid>https://www.jaysong.net/rprogramming/</guid>
       <description>はじめに 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない (仮)』(E-</description>
     </item>
     
     <item>
       <title>dplyr入門 (新版)</title>
-      <link>/dplyr_intro/</link>
+      <link>https://www.jaysong.net/dplyr_intro/</link>
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/dplyr_intro/</guid>
+      <guid>https://www.jaysong.net/dplyr_intro/</guid>
       <description>はじめに 修正履歴 2020/06/28: 公開 2020/07/01: データの結合を追加 2020/07/03: factor型の扱い方を追加 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部</description>
     </item>
     
     <item>
       <title>大数の法則</title>
-      <link>/simulation/llm/</link>
+      <link>https://www.jaysong.net/simulation/llm/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/simulation/llm/</guid>
+      <guid>https://www.jaysong.net/simulation/llm/</guid>
       <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
     </item>
     
     <item>
       <title>dplyr入門 (旧版)</title>
-      <link>/dplyr_intro_old/</link>
+      <link>https://www.jaysong.net/dplyr_intro_old/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/dplyr_intro_old/</guid>
+      <guid>https://www.jaysong.net/dplyr_intro_old/</guid>
       <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>/post/logit-classification/</link>
+      <link>https://www.jaysong.net/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/logit-classification/</guid>
+      <guid>https://www.jaysong.net/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     
     <item>
       <title>モデルの比較と選択の基準:AICとBIC</title>
-      <link>/post/aic-bic/</link>
+      <link>https://www.jaysong.net/post/aic-bic/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/aic-bic/</guid>
+      <guid>https://www.jaysong.net/post/aic-bic/</guid>
       <description>以下の論文の要点のみを整理したものです。短い論文なので直接読んだ方がいいかも知れません。 Aho, Ken, DeWayne Derryberry, and Teri Peterson. 2014. &amp;quot;Model Selection for Ecologists: the Worldviews of AIC and BIC.&amp;quot; Ecology. 95 (3) pp. 631-636 AIC BIC Is</description>
     </item>
     
     <item>
       <title>方法論探求</title>
-      <link>/post/keio-ms/</link>
+      <link>https://www.jaysong.net/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/keio-ms/</guid>
+      <guid>https://www.jaysong.net/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>/post/kobe2019-qpm1/</link>
+      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/kobe2019-qpm1/</guid>
+      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス: Dropbox</description>
     </item>
     
     <item>
       <title>The ASA’s statement on p-values [日本語まとめ]</title>
-      <link>/asa_p_value_japanese/</link>
+      <link>https://www.jaysong.net/asa_p_value_japanese/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/asa_p_value_japanese/</guid>
+      <guid>https://www.jaysong.net/asa_p_value_japanese/</guid>
       <description>原文のリンク ASA Statement on Statistical Significance and P-values PDF 最終更新 2016年3月15日 注意事項 このページはアメリカ統計学会の雑誌、『The American Statistician』に掲</description>
     </item>
     

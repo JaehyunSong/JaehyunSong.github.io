@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Jaehyun Song, Ph.D.</title>
-    <link>/tags/r/</link>
+    <link>https://www.jaysong.net/tags/r/</link>
     <description>Recent content in R on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jaysong.net/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>tidyr入門</title>
-      <link>/tidyr_intro/</link>
+      <link>https://www.jaysong.net/tidyr_intro/</link>
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tidyr_intro/</guid>
+      <guid>https://www.jaysong.net/tidyr_intro/</guid>
       <description>はじめに 修正履歴 2020/07/09: 公開 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない</description>
     </item>
     
     <item>
       <title>Rプログラミング入門の入門</title>
-      <link>/rprogramming/</link>
+      <link>https://www.jaysong.net/rprogramming/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/rprogramming/</guid>
+      <guid>https://www.jaysong.net/rprogramming/</guid>
       <description>はじめに 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR: あなたのために書いたわけじゃない (仮)』(E-</description>
     </item>
     
     <item>
       <title>dplyr入門 (新版)</title>
-      <link>/dplyr_intro/</link>
+      <link>https://www.jaysong.net/dplyr_intro/</link>
       <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/dplyr_intro/</guid>
+      <guid>https://www.jaysong.net/dplyr_intro/</guid>
       <description>はじめに 修正履歴 2020/06/28: 公開 2020/07/01: データの結合を追加 2020/07/03: factor型の扱い方を追加 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部</description>
     </item>
     
     <item>
       <title>Rによるオブジェクト指向プログラミング入門</title>
-      <link>/r/oop_intro/</link>
+      <link>https://www.jaysong.net/r/oop_intro/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/r/oop_intro/</guid>
+      <guid>https://www.jaysong.net/r/oop_intro/</guid>
       <description>1. まずは例から Vector1 &amp;lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1) Vector2 &amp;lt;- c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;C&amp;quot;) summary(Vector1) ## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 1.00 3.25 5.00 5.70 8.50 12.00 summary(Vector2) ## Length Class Mode ## 10 character character 同じsummary()関数</description>
     </item>
     
     <item>
       <title>dplyr入門 (旧版)</title>
-      <link>/dplyr_intro_old/</link>
+      <link>https://www.jaysong.net/dplyr_intro_old/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/dplyr_intro_old/</guid>
+      <guid>https://www.jaysong.net/dplyr_intro_old/</guid>
       <description>参考資料 dplyr of Datacamp: 実はこんなもん読むよりこっちのホームページへアクセスして実習した方が100倍いいと思う。 Introduction to dplyr dplyrはR業界の神様、Had</description>
     </item>
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>/post/logit-classification/</link>
+      <link>https://www.jaysong.net/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/logit-classification/</guid>
+      <guid>https://www.jaysong.net/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     

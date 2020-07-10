@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>因果推論 on Jaehyun Song, Ph.D.</title>
-    <link>/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96/</link>
+    <link>https://www.jaysong.net/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96/</link>
     <description>Recent content in 因果推論 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jaysong.net/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>方法論探求</title>
-      <link>/post/keio-ms/</link>
+      <link>https://www.jaysong.net/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/keio-ms/</guid>
+      <guid>https://www.jaysong.net/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>/post/kobe2019-qpm1/</link>
+      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/kobe2019-qpm1/</guid>
+      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス: Dropbox</description>
     </item>
     
     <item>
       <title>政治学実験</title>
-      <link>/post/waseda2019exppolsci/</link>
+      <link>https://www.jaysong.net/post/waseda2019exppolsci/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/waseda2019exppolsci/</guid>
+      <guid>https://www.jaysong.net/post/waseda2019exppolsci/</guid>
       <description>シラバス: PDF 内容 スライド データ 参考資料 1 イントロダクション スライド RStudio 2 因果推論の考え方 スライド データ R Code 3 因果推論の諸方法 スライド Matching DID RDD R Code</description>
     </item>
     
