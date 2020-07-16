@@ -2,48 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>担当科目 on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE/</link>
+    <link>/tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE/</link>
     <description>Recent content in 担当科目 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.jaysong.net/tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>情報処理応用演習</title>
+      <link>/post/kpu2020/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/kpu2020/</guid>
+      <description>講師：宋財泫 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：1号館・情報処理室 シラバス: (準備中) 授業内容 第1講：Rの基</description>
+    </item>
+    
+    <item>
+      <title>計量政治学方法論I</title>
+      <link>/post/kobe2020-qpm1/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/kobe2020-qpm1/</guid>
+      <description>講師：宋財泫 日時：2020年9月1, 3, 4, 7, 8日 教室：Zoom シラバス: (準備中) 授業資料 第1講 (9月1日)：因果推論の考え方、ランダム化比較</description>
+    </item>
+    
+    <item>
       <title>方法論探求</title>
-      <link>https://www.jaysong.net/post/keio-ms/</link>
+      <link>/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/keio-ms/</guid>
+      <guid>/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
+      <link>/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
+      <guid>/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス: Dropbox</description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>https://www.jaysong.net/teaching/</link>
+      <link>/teaching/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/teaching/</guid>
+      <guid>/teaching/</guid>
       <description>これまで担当してきた講義のシラバスおよび講義資料を公開します。学期が終了した講義については原則、シラバスのみの公開となります。過去の講義資料</description>
     </item>
     
     <item>
       <title>政治学実験</title>
-      <link>https://www.jaysong.net/post/waseda2019exppolsci/</link>
+      <link>/post/waseda2019exppolsci/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/waseda2019exppolsci/</guid>
+      <guid>/post/waseda2019exppolsci/</guid>
       <description>シラバス: PDF 内容 スライド データ 参考資料 1 イントロダクション スライド RStudio 2 因果推論の考え方 スライド データ R Code 3 因果推論の諸方法 スライド Matching DID RDD R Code</description>
     </item>
     
