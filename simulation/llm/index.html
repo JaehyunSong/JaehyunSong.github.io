@@ -187,7 +187,7 @@
 <p>まずは、ナウル国民の所得を生成する。ナウル国民の所得は<span class="math inline">\(\text{Normal}(\mu = 5000, \sigma = 2000)\)</span>の分布をしている。</p>
 <pre class="r"><code># まずはtidyverseを読み込んでおく
 library(tidyverse)</code></pre>
-<pre><code>## ─ Attaching packages ──────────────────────── tidyverse 1.3.0 ─</code></pre>
+<pre><code>## ─ Attaching packages ───────────────────────── tidyverse 1.3.0 ─</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
@@ -199,7 +199,7 @@ library(tidyverse)</code></pre>
 <p>これで10210人のナウル国民の所得を設定した。ならば生成されたデータを見てみる。</p>
 <pre class="r"><code>summary(nauru.income)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -3314    3632    4986    5011    6372   12654</code></pre>
+##   -2269    3653    4962    4990    6307   11625</code></pre>
 <p>ナウル国民の所得の平均は5017ドル、最小値は-1761だそうだ。「所得にマイナスなんてあり得るか！」と思うかも知れないが、細かいことは無視しよう。知りたいのは大数の法則を経験的に確認することであって、ナウル国民の所得ではない。</p>
 <p>次はヒストグラムで見てみよう。</p>
 <pre class="r"><code>plot1 &lt;- ggplot(data = data.frame(nauru.income)) + 
