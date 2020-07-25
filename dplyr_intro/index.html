@@ -1020,18 +1020,18 @@ select.df %&gt;%
 select.df %&gt;% 
   slice_sample(n = 10)</code></pre>
 <pre><code>## # A tibble: 10 x 5
-##    ID      Name                              Pref     Budget Score
-##    &lt;chr&gt;   &lt;chr&gt;                             &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
-##  1 7180249 麺処 夏海                         東京都      800  4.12
-##  2 7499728 希望新風 R171伊丹店               兵庫県      800 NA   
-##  3 7679710 鶏しゃぶ屋 つるん                 東京都     2500 NA   
-##  4 7208378 麺処 サッポロ軒                   千葉県       NA NA   
-##  5 5801615 いげたやラーメン                  神奈川県     NA NA   
-##  6 7510235 櫻井中華そば店                    神奈川県     NA NA   
-##  7 7625229 らーめん春樹 イーオンモール船橋店 千葉県       NA NA   
-##  8 5496227 みそ膳 俵田店                     千葉県       NA NA   
-##  9 6276716 あんびしゃす花                    京都府       NA NA   
-## 10 5506641 天下一品 九条店                   京都府       NA  5</code></pre>
+##    ID      Name                            Pref     Budget Score
+##    &lt;chr&gt;   &lt;chr&gt;                           &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 7617467 一刻魁堂 アピタテラス横浜綱島店 神奈川県     NA    NA
+##  2 7377091 一蘭 新宿歌舞伎町店             東京都      800    NA
+##  3 7751513 ラーメン＆BAR 本陣              千葉県       NA    NA
+##  4 5508596 ぶ～け                          奈良県       NA     5
+##  5 7426716 横浜家系ラーメン 稲田家 深谷店  埼玉県     1000    NA
+##  6 7486377 幸楽苑モリシア津田沼店          千葉県       NA    NA
+##  7 5506797 めん屋550                       京都府       NA    NA
+##  8 5914605 らーめんごん神                  大阪府       NA    NA
+##  9 5508609 来来亭 奈良女子大前店           奈良県       NA    NA
+## 10 5496103 民芸風らーめん いなほ           千葉県       NA    NA</code></pre>
 <p>のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
 </div>
 <div id="条件に合致する行を抽出する" class="section level3">
@@ -2628,14 +2628,14 @@ Score_df</code></pre>
 ## 8 兵庫県    3.54 兵庫県   兵庫県   兵庫県  
 ## 9 和歌山県  3.97 和歌山県 和歌山県 和歌山県</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref2)</code></pre>
-<pre><code>## [1] &quot;京都府&quot;   &quot;奈良県&quot;   &quot;神奈川県&quot; &quot;埼玉県&quot;   &quot;千葉県&quot;   &quot;和歌山県&quot; &quot;兵庫県&quot;  
-## [8] &quot;東京都&quot;   &quot;大阪府&quot;</code></pre>
+<pre><code>## [1] &quot;千葉県&quot;   &quot;京都府&quot;   &quot;東京都&quot;   &quot;兵庫県&quot;   &quot;神奈川県&quot; &quot;和歌山県&quot; &quot;埼玉県&quot;  
+## [8] &quot;大阪府&quot;   &quot;奈良県&quot;</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref3)</code></pre>
-<pre><code>## [1] &quot;東京都&quot;   &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;埼玉県&quot;   &quot;和歌山県&quot; &quot;千葉県&quot;  
-## [8] &quot;京都府&quot;   &quot;奈良県&quot;</code></pre>
+<pre><code>## [1] &quot;千葉県&quot;   &quot;埼玉県&quot;   &quot;兵庫県&quot;   &quot;大阪府&quot;   &quot;和歌山県&quot; &quot;京都府&quot;   &quot;東京都&quot;  
+## [8] &quot;神奈川県&quot; &quot;奈良県&quot;</code></pre>
 <pre class="r numberLines"><code>levels(Score_df$Pref4)</code></pre>
-<pre><code>## [1] &quot;東京都&quot;   &quot;千葉県&quot;   &quot;大阪府&quot;   &quot;神奈川県&quot; &quot;埼玉県&quot;   &quot;京都府&quot;   &quot;兵庫県&quot;  
-## [8] &quot;和歌山県&quot; &quot;奈良県&quot;</code></pre>
+<pre><code>## [1] &quot;神奈川県&quot; &quot;和歌山県&quot; &quot;奈良県&quot;   &quot;東京都&quot;   &quot;兵庫県&quot;   &quot;埼玉県&quot;   &quot;京都府&quot;  
+## [8] &quot;千葉県&quot;   &quot;大阪府&quot;</code></pre>
 <p><code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
 <p><strong><code>fct_reorder()</code>: 別の1変数の値を基準に水準の順番を変更する</strong></p>
 <p><code>fct_infreq()</code>は出現頻度順に並び替える関数でしたが、それと似たような関数として<code>fct_reorder()</code>があります。ただし、これは出現頻度を基準にするのではなく、ある変数の平均値が低い順、中央値が高い順などでソートされます。まずは使い方から確認します。</p>
