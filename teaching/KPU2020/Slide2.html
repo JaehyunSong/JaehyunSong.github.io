@@ -18,6 +18,343 @@ class: center, middle, inverse, title-slide
 
 ---
 
+
+
+
+## 本日の内容
+
+`dplyr`と`tidyr`パッケージの使い方
+
+* パイプ演算子 (`%&gt;%`)の使い方
+* 行と列の抽出
+* 行のソート
+* 表の中身を要約
+  * 列の平均値、標準誤差、分散など
+* 表の中身をグループごとに要約
+* 表の結合
+* データ分析に適したデータ (Tidy data; 整然データ)とは何か
+  * 3日目の内容は整然データを用いた可視化を解説
+* Wide型とLong型の変換など
+
+---
+class: inverse, center, middle
+
+# Tidyverseとパイプ演算子
+
+---
+
+## Tidyverseの世界
+
+&lt;div style = "text-align:center;"&gt;
+&lt;img src = "https://www.tidyverse.org/images/tidyverse-default.png" width = "50%"&gt;
+&lt;/div&gt;
+
+データサイエンスのために考案された、強い信念と思想に基づいたRパッケージの集合
+* Tidyverseに属するパッケージは思想、文法およびデータ構造を共有
+  * `dplyr`、`tidyr`、`readr`、`ggplot2`など
+* オブジェクトはパイプ (`%&gt;%`)で繋ぐ
+
+---
+
+## パイプ演算子
+
+Tidyverseにおいてオブジェクトは`%&gt;%`で繋がっている。
+
+* 既存の書き方: 書き方と読み方が逆
+  * 一般的なプログラミング言語共通
+  * 書き方: `print(sum(X))` (`print`、`sum`、`X`の順で書く)
+  * 読み方: `X`を`sum()`し、`print()`する
+* Tidyverseな書き方: 書き方と読み方が一致
+  * 今どきのRの書き方
+  * 書き方: `X %&gt;% sum() %&gt;% print()`
+  * 読み方: `X`を`sum()`し、`print()`する
+  
+---
+
+## パイプ演算子の原理
+
+* `%&gt;%`の左側を右側の最初の引数として渡すだけ
+* `X %&gt;% sum(na.rm = TRUE)`は`sum(X, na.rm = TRUE)`と同じ
+* `X %&gt;% sum(na.rm = TRUE) %&gt;% print()`は`print(sum(X, na.rm = TRUE))`と同じ
+
+
+```r
+# 既存の書き方
+X &lt;- c(2, 3, 5, NA, 11)
+print(sum(X, na.rm = TRUE))
+```
+
+```
+## [1] 21
+```
+
+
+```r
+# Tidyverseな書き方
+X &lt;- c(2, 3, 5, NA, 11)
+X %&gt;% sum(na.rm = TRUE) %&gt;% print()
+```
+
+```
+## [1] 21
+```
+
+---
+class: inverse, middle, center
+
+# dplyrについて
+
+---
+
+# dplyrとは
+
+* 表形式データ (データフレームやtibble)を操作するパッケージ
+* 前回の講義で解説した行・列の抽出も簡単に可能
+* Tidyverseパッケージを読み込む際に自動的に読み込まれる
+
+
+```r
+library(tidyverse)
+```
+
+---
+
+# 実習用データ
+
+[Countries.csv](Data/Countries.csv): 186カ国の社会経済・政治体制のデータ
+
+
+```r
+df &lt;- read_csv("Data/Countries.csv")
+print(df, n = 5)
+```
+
+
+```
+## # A tibble: 186 x 18
+##   Country Population   Area    GDP     PPP GDP_per_capita
+##   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Afghan…   38928346 6.53e5 1.91e4  82737.           491.
+## 2 Albania    2877797 2.74e4 1.53e4  39658.          5309.
+## 3 Algeria   43851044 2.38e6 1.70e5 496572.          3876.
+## 4 Andorra      77265 4.70e2 3.15e3     NA          40821.
+## 5 Angola    32866272 1.25e6 9.46e4 218533.          2879.
+## # … with 181 more rows, and 12 more variables: PPP_per_capita &lt;dbl&gt;,
+## #   G7 &lt;dbl&gt;, G20 &lt;dbl&gt;, OECD &lt;dbl&gt;, HDI_2018 &lt;dbl&gt;,
+## #   Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;,
+## #   FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+* データのサイズ: 186カ国 `\(\times\)` 18変数
+
+---
+
+## 列の選択
+
+`select()`関数を使用
+* 書き方: `select(データ, 変数名1, 変数名2, ...)`
+* 推奨: `データ %&gt;% select(変数名1, 変数名2, ...)`
+
+
+```r
+# dfからCountry, Population, Area, GDP, PPP, HDI_2018列を抽出
+df %&gt;%
+* select(Country, Population, Area, GDP, PPP, HDI_2018) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 6
+##   Country     Population    Area     GDP     PPP HDI_2018
+##   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Afghanistan   38928346  652860  19101.  82737.    0.496
+## 2 Albania        2877797   27400  15278.  39658.    0.791
+## 3 Algeria       43851044 2381740 169988. 496572.    0.759
+## 4 Andorra          77265     470   3154.     NA     0.857
+## 5 Angola        32866272 1246700  94635. 218533.    0.574
+## # … with 181 more rows
+```
+
+---
+
+## 変数指定の方法 (1)
+* 隣接した列を選択する: 「`:`」
+* `Country`から`PPP`列は隣接している-&gt; `Country:PPP`
+
+
+```r
+# dfからCountry~PPP, HDI_2018列を抽出
+df %&gt;%
+* select(Country:PPP, HDI_2018) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 6
+##   Country     Population    Area     GDP     PPP HDI_2018
+##   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Afghanistan   38928346  652860  19101.  82737.    0.496
+## 2 Albania        2877797   27400  15278.  39658.    0.791
+## 3 Algeria       43851044 2381740 169988. 496572.    0.759
+## 4 Andorra          77265     470   3154.     NA     0.857
+## 5 Angola        32866272 1246700  94635. 218533.    0.574
+## # … with 181 more rows
+```
+
+---
+
+## 変数指定の方法 (2)
+* 特定の文字列で始まる列を選択: `starts_with()`
+  * 特定の文字列で終わる列を選択: `ends_with()`
+  * 特定の文字列を含む列を選択: `contains()`
+* FHで始まる列の選択 -&gt; `starts_with("FH")`
+
+
+```r
+# dfからCountry列, FHで始まる列を抽出
+df %&gt;%
+* select(Country, starts_with("FH")) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 5
+##   Country     FH_PR FH_CL FH_Total FH_Status
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
+## 1 Afghanistan    13    14       27 NF       
+## 2 Albania        27    40       67 PF       
+## 3 Algeria        10    24       34 NF       
+## 4 Andorra        39    55       94 F        
+## 5 Angola         11    21       32 NF       
+## # … with 181 more rows
+```
+
+---
+
+## 変数指定の方法 (3)
+
+* 特定の列を除外する: `!`または`-`
+  * `:`、`starts_with()`などと組み合わせることも可能
+
+
+```r
+# dfからGDP_per_capita~FH_Status列を除外
+df %&gt;%
+* select(!GDP_per_capita:FH_Status) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 6
+##   Country     Population    Area     GDP     PPP Continent
+##   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    
+## 1 Afghanistan   38928346  652860  19101.  82737. Asia     
+## 2 Albania        2877797   27400  15278.  39658. Europe   
+## 3 Algeria       43851044 2381740 169988. 496572. Africa   
+## 4 Andorra          77265     470   3154.     NA  Europe   
+## 5 Angola        32866272 1246700  94635. 218533. Africa   
+## # … with 181 more rows
+```
+
+---
+
+## 変数名 (列名)の確認
+
+`names()`関数を使う
+
+
+```r
+# dfの変数名を出力
+*names(df)
+```
+
+
+```
+##  [1] "Country"        "Population"     "Area"          
+##  [4] "GDP"            "PPP"            "GDP_per_capita"
+##  [7] "PPP_per_capita" "G7"             "G20"           
+## [10] "OECD"           "HDI_2018"       "Polity_Score"  
+## [13] "Polity_Type"    "FH_PR"          "FH_CL"         
+## [16] "FH_Total"       "FH_Status"      "Continent"
+```
+
+---
+
+## 行の選択 (1)
+
+`filter()`関数を使用
+* 書き方: `filter(データ, 条件1, 条件2, ...)`
+* 推奨: `データ %&gt;% filter(条件1, 条件2, ...)`
+
+
+```r
+# dfからContinentが"Europe"の行を抽出し、Country~PPP, HDI_2018列を抽出
+df %&gt;%
+* filter(Continent == "Europe") %&gt;%
+  select(Country:PPP, HDI_2018) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 50 x 6
+##   Country    Population  Area     GDP     PPP HDI_2018
+##   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Albania       2877797 27400  15278.  39658.    0.791
+## 2 Andorra         77265   470   3154.     NA     0.857
+## 3 Armenia       2963243 28470  13673.  38446.    0.76 
+## 4 Austria       9006398 82409 446315. 502771.    0.914
+## 5 Azerbaijan   10139177 82658  48048. 144556.    0.754
+## # … with 45 more rows
+```
+
+---
+
+## 行の選択 (1): 注意
+
+`filter()`と`select()`の順番
+* 先に`select()`を行うと、`Continent`列がなくなるため、`filter()`内の条件式が無効に
+* `select()`に`Continent`が含まれるなら、問題なし
+
+
+```r
+# select()の後にfilter()を使うと...
+df %&gt;%
+  select(Country:PPP, HDI_2018) %&gt;%
+  filter(Continent == "Europe") %&gt;%
+  print(n = 5)
+```
+
+```
+## Error: Problem with `filter()` input `..1`.
+## x  オブジェクト 'Continent' がありません 
+## ℹ Input `..1` is `Continent == "Europe"`.
+```
+
+---
+
+## 行の選択 (2)
+
+* 等号 (`==`) だけでなく、不等号も使用可能
+
+```r
+# dfからContinentが"Asia" (条件1)、HDI_2018が0.8以上 (条件2)の行を抽出し、
+# Country~PPP, HDI_2018列を抽出
+df %&gt;%
+* filter(Continent == "Asia", HDI_2018 &gt;= 0.85) %&gt;%
+  select(Country:PPP, HDI_2018)
+```
+
+```
+## # A tibble: 6 x 6
+##   Country              Population    Area      GDP      PPP HDI_2018
+##   &lt;chr&gt;                     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Israel                  8655535   21640  395099.  357633.    0.906
+## 2 Japan                 126476461  364555 5081770. 5247581.    0.915
+## 3 South Korea            51269185   97230 1642383. 2046766.    0.906
+## 4 Saudi Arabia           34813871 2149690  792967. 1643080.    0.857
+## 5 Singapore               5850342     700  372063.  557255.    0.935
+## 6 United Arab Emirates    9890402   83600  421142.  650568.    0.866
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
