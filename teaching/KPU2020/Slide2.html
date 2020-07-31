@@ -102,7 +102,7 @@ X %&gt;% sum(na.rm = TRUE) %&gt;% print()
 ---
 class: inverse, middle, center
 
-# dplyrについて
+# dplyr: 抽出
 
 ---
 
@@ -280,6 +280,147 @@ df %&gt;%
 
 ---
 
+## 変数名 (列名)の変更
+
+2つの方法がある
+* `select()`: 列の抽出と同時に、新しい列名が指定可能
+* `rename()`: 列は温存したまま、列名のみ変更
+
+---
+
+## 変数名 (列名)の変更: `select()`
+
+* 抽出と同時に行うには`select()`内に`=`を使用
+* 列名のみ変更の場合は、変更しない列も指定する必要があるため、やや面倒
+* `Population`を`Jinko`へ、`Area`を`Menseki`へ変更
+
+
+```r
+df %&gt;%
+* select(Country,
+*        Jinko = Population, Menseki = Area,
+*        GDP:Continent) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 18
+##   Country  Jinko Menseki    GDP     PPP GDP_per_capita PPP_per_capita    G7
+##   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
+## 1 Afghan… 3.89e7  652860 1.91e4  82737.           491.          2125.     0
+## 2 Albania 2.88e6   27400 1.53e4  39658.          5309.         13781.     0
+## 3 Algeria 4.39e7 2381740 1.70e5 496572.          3876.         11324.     0
+## 4 Andorra 7.73e4     470 3.15e3     NA          40821.            NA      0
+## 5 Angola  3.29e7 1246700 9.46e4 218533.          2879.          6649.     0
+## # … with 181 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
+## #   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
+## #   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
+## 変数名 (列名)の変更: `reanme()`
+
+* `select()`と`=`の組み合わせと書き方は同じ
+  * ただし、変更しない列名は指定しなくてもOK
+* `Population`を`Jinko`へ、`Area`を`Menseki`へ変更
+
+
+```r
+df %&gt;%
+* rename(Jinko = Population, Menseki = Area) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 18
+##   Country  Jinko Menseki    GDP     PPP GDP_per_capita PPP_per_capita    G7
+##   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
+## 1 Afghan… 3.89e7  652860 1.91e4  82737.           491.          2125.     0
+## 2 Albania 2.88e6   27400 1.53e4  39658.          5309.         13781.     0
+## 3 Algeria 4.39e7 2381740 1.70e5 496572.          3876.         11324.     0
+## 4 Andorra 7.73e4     470 3.15e3     NA          40821.            NA      0
+## 5 Angola  3.29e7 1246700 9.46e4 218533.          2879.          6649.     0
+## # … with 181 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
+## #   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
+## #   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
+## 列の順番変更
+
+2つの方法がある
+* `select()`: `()`内に指定した順番で列が抽出される
+* `relocate()`: 指定した変数を特定の変数の前、または後ろに移動させる
+
+---
+
+## 列の順番変更: `select()`
+
+`G7`から`OECD`列を`Country`と`Population`の間へ移動
+
+
+```r
+df %&gt;%
+* select(Country, G7:OECD,
+         Population:PPP_per_capita, HDI_2018:Continent)
+```
+
+```
+## # A tibble: 186 x 18
+##    Country    G7   G20  OECD Population   Area    GDP     PPP GDP_per_capita
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Afghan…     0     0     0   38928346 6.53e5 1.91e4  8.27e4           491.
+##  2 Albania     0     0     0    2877797 2.74e4 1.53e4  3.97e4          5309.
+##  3 Algeria     0     0     0   43851044 2.38e6 1.70e5  4.97e5          3876.
+##  4 Andorra     0     0     0      77265 4.70e2 3.15e3 NA              40821.
+##  5 Angola      0     0     0   32866272 1.25e6 9.46e4  2.19e5          2879.
+##  6 Antigu…     0     0     0      97929 4.40e2 1.73e3  2.08e3         17643.
+##  7 Argent…     0     1     0   45195774 2.74e6 4.50e5  1.04e6          9949.
+##  8 Armenia     0     0     0    2963243 2.85e4 1.37e4  3.84e4          4614.
+##  9 Austra…     0     1     1   25499884 7.68e6 1.39e6  1.28e6         54615.
+## 10 Austria     0     0     1    9006398 8.24e4 4.46e5  5.03e5         49555.
+## # … with 176 more rows, and 9 more variables: PPP_per_capita &lt;dbl&gt;,
+## #   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
+## #   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
+## 列の順番変更: `relocate()`
+
+`G7`から`OECD`列を`Country`の後ろへ移動
+* `.after = Country`を指定 (`.`に注意)
+* `.before = Population`もOK
+
+
+```r
+df %&gt;%
+* relocate(G7:OECD, .after = Country)
+```
+
+```
+## # A tibble: 186 x 18
+##    Country    G7   G20  OECD Population   Area    GDP     PPP GDP_per_capita
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Afghan…     0     0     0   38928346 6.53e5 1.91e4  8.27e4           491.
+##  2 Albania     0     0     0    2877797 2.74e4 1.53e4  3.97e4          5309.
+##  3 Algeria     0     0     0   43851044 2.38e6 1.70e5  4.97e5          3876.
+##  4 Andorra     0     0     0      77265 4.70e2 3.15e3 NA              40821.
+##  5 Angola      0     0     0   32866272 1.25e6 9.46e4  2.19e5          2879.
+##  6 Antigu…     0     0     0      97929 4.40e2 1.73e3  2.08e3         17643.
+##  7 Argent…     0     1     0   45195774 2.74e6 4.50e5  1.04e6          9949.
+##  8 Armenia     0     0     0    2963243 2.85e4 1.37e4  3.84e4          4614.
+##  9 Austra…     0     1     1   25499884 7.68e6 1.39e6  1.28e6         54615.
+## 10 Austria     0     0     1    9006398 8.24e4 4.46e5  5.03e5         49555.
+## # … with 176 more rows, and 9 more variables: PPP_per_capita &lt;dbl&gt;,
+## #   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
+## #   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
 ## 行の選択 (1)
 
 `filter()`関数を使用
@@ -355,6 +496,971 @@ df %&gt;%
 ## 5 Singapore               5850342     700  372063.  557255.    0.935
 ## 6 United Arab Emirates    9890402   83600  421142.  650568.    0.866
 ```
+
+---
+
+## 行のソート (1)
+
+`arrange()`関数を使用
+* 書き方: `arrange(データ, 変数名1, 変数名2, ...)`
+* 推奨: `データ %&gt;% arrange(変数名1, 変数名2, ...)`
+
+基本的には昇順 (小さい行が先にくる)
+* 降順にする場合は`desc(変数名)`
+* `変数名1`を基準にソートし、同点の場合は`変数名2`を基準に
+
+---
+
+## 行のソート
+
+`df`からアフリカのみを抽出し、`Polity_Score`が低い行を上位にする。そして、`Country`と`PPP`列のみ残す。
+* Polity Scoreが高い (低い) = より民主主義 (権威主義)に近い
+
+
+```r
+df %&gt;%
+  filter(Continent == "Africa") %&gt;%
+* arrange(Polity_Score) %&gt;%
+  select(Country, Polity_Score)
+```
+
+```
+## # A tibble: 54 x 2
+##    Country             Polity_Score
+##    &lt;chr&gt;                      &lt;dbl&gt;
+##  1 Eswatini                      -9
+##  2 Eritrea                       -7
+##  3 Equatorial Guinea             -6
+##  4 Cameroon                      -4
+##  5 Congo (Brazzaville)           -4
+##  6 Egypt                         -4
+##  7 Morocco                       -4
+##  8 Sudan                         -4
+##  9 Comoros                       -3
+## 10 Congo (Kinshasa)              -3
+## # … with 44 more rows
+```
+
+---
+
+## 行のソート
+
+* `df`からアフリカのみを抽出し、`Polity_Score`が低い行を上位に
+* `Polity_Score`が同点の場合、`PPP_per_capita`が高い行を上位に
+* `Country`と`Polity_Score`, `PPP_per_capita`列のみ残す
+* `Polity_Score`は`Polity`に、`PPP_per_capita`は`PPP`と名前を変更
+
+
+```r
+df %&gt;%
+  filter(Continent == "Africa") %&gt;%
+* arrange(Polity_Score, desc(PPP_per_capita)) %&gt;%
+  select(Country, Polity = Polity_Score, PPP = PPP_per_capita)
+```
+
+```
+## # A tibble: 54 x 3
+##    Country             Polity    PPP
+##    &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Eswatini                -9  8634.
+##  2 Eritrea                 -7  1860.
+##  3 Equatorial Guinea       -6 19458.
+##  4 Egypt                   -4 11198.
+##  5 Morocco                 -4  7554.
+##  6 Sudan                   -4  4063.
+##  7 Cameroon                -4  3506.
+##  8 Congo (Brazzaville)     -4  3191.
+##  9 Comoros                 -3  3007.
+## 10 Rwanda                  -3  2008.
+## # … with 44 more rows
+```
+
+---
+
+## これまでの内容: データの抽出
+
+いずれも元のデータの一部 (subset)が結果として出力される
+
+* 列を抽出する
+* 列を並び替える
+* 行を抽出する
+* 行を並び替える
+
+#### これからの内容: データの拡張
+
+* 人口を面積で割って人口密度を計算し、新しい列として追加する
+* G7, G20, OECDいずれかに所属しているか否かを表す新しい変数を作成する
+
+#### これからの内容: データの要約
+
+* 大陸ごとに平均一人当たりGDPを計算する
+* 大陸ごとに民主主義の度合いを計算する
+
+---
+class: inverse, center, middle
+
+# dplyr: データの拡張
+---
+
+## 新しい列の追加追加: `mutate()`
+* `データ %&gt;% mutate(新しい変数名 = ベクトル)`
+  * ベクトルの長さはデータの行数と一致する必要あり
+* **例)** `ID`という列に1から`nrow(df)`の数列を入れ、`Country`の後へ
+  * `nrow(データ)`はデータの行数を出力する関数
+  * `.after`または`.before`を指定しないと、最後列へ
+
+
+```r
+df %&gt;%
+* mutate(ID = 1:nrow(df), .after = Country) %&gt;%
+  print(n = 5)
+```
+
+```
+## # A tibble: 186 x 19
+##   Country    ID Population   Area    GDP     PPP GDP_per_capita PPP_per_capita
+##   &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Afghan…     1   38928346 6.53e5 1.91e4  82737.           491.          2125.
+## 2 Albania     2    2877797 2.74e4 1.53e4  39658.          5309.         13781.
+## 3 Algeria     3   43851044 2.38e6 1.70e5 496572.          3876.         11324.
+## 4 Andorra     4      77265 4.70e2 3.15e3     NA          40821.            NA 
+## 5 Angola      5   32866272 1.25e6 9.46e4 218533.          2879.          6649.
+## # … with 181 more rows, and 11 more variables: G7 &lt;dbl&gt;, G20 &lt;dbl&gt;,
+## #   OECD &lt;dbl&gt;, HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;,
+## #   FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
+## `mutate()`の仕組み
+
+`データ %&gt;% mutate(新しい変数名 = ベクトル)`
+
+* `ベクトル`はデータの行数と一致するものなら何でも良い
+* `df$Population / df$Area`の場合、データの行数と一致するベクトルが出力される
+  * 計算式を入れることが可能 (こちらが主な使い方)
+
+
+```r
+# PopulationをAreaで割った値をDensity列に格納し、Areaの後に
+df %&gt;%
+* mutate(Density = Population / Area, .after = Area)
+```
+
+```
+## # A tibble: 186 x 19
+##    Country Population   Area Density    GDP     PPP GDP_per_capita
+##    &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Afghan…   38928346 6.53e5   59.6  1.91e4  8.27e4           491.
+##  2 Albania    2877797 2.74e4  105.   1.53e4  3.97e4          5309.
+##  3 Algeria   43851044 2.38e6   18.4  1.70e5  4.97e5          3876.
+##  4 Andorra      77265 4.70e2  164.   3.15e3 NA              40821.
+##  5 Angola    32866272 1.25e6   26.4  9.46e4  2.19e5          2879.
+##  6 Antigu…      97929 4.40e2  223.   1.73e3  2.08e3         17643.
+##  7 Argent…   45195774 2.74e6   16.5  4.50e5  1.04e6          9949.
+##  8 Armenia    2963243 2.85e4  104.   1.37e4  3.84e4          4614.
+##  9 Austra…   25499884 7.68e6    3.32 1.39e6  1.28e6         54615.
+## 10 Austria    9006398 8.24e4  109.   4.46e5  5.03e5         49555.
+## # … with 176 more rows, and 12 more variables: PPP_per_capita &lt;dbl&gt;, G7 &lt;dbl&gt;,
+## #   G20 &lt;dbl&gt;, OECD &lt;dbl&gt;, HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;,
+## #   Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;,
+## #   FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+```
+
+---
+
+## `mutate()`の応用
+
+
+```r
+# %&gt;%が多すぎても可読性が落ちるので適宜、オブジェクトとして保存しながら進める
+df2 &lt;- df %&gt;%
+  filter(Population &gt;= 10000000, Continent == "Asia") %&gt;%
+* mutate(Density = Population / Area, .after = Area)
+df2 %&gt;% 
+  arrange(desc(Density)) %&gt;%
+  select(Country:PPP)
+```
+
+--
+
+
+```
+## # A tibble: 25 x 6
+##    Country     Population    Area Density      GDP      PPP
+##    &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Bangladesh   164689383  130170   1265.  302571.  734108.
+##  2 Taiwan        23816775   35410    673.  589391  1099030 
+##  3 South Korea   51269185   97230    527. 1642383. 2046766.
+##  4 India       1380004385 2973190    464. 2875142. 9058692.
+##  5 Philippines  109581078  298170    368.  376796.  887474.
+##  6 Japan        126476461  364555    347. 5081770. 5247581.
+##  7 Sri Lanka     21413249   62710    341.   84009.  287228.
+##  8 Vietnam       97338579  310070    314.  261921.  742462.
+##  9 Pakistan     220892340  770880    287.  278222. 1030292.
+## 10 Nepal         29136808  143350    203.   30641.   93550.
+## # … with 15 more rows
+```
+
+---
+
+## `mutate()`の応用
+
+先進国か否かを表す`Developed`列を追加
+* G7, G20, OECDのいずれかに加入している場合、「先進国」と定義
+* G7, G20, OECD加入有無は0/1 -&gt; この合計を`Developed`として格納
+* `Developed`が1以上なら`"Developed Country"`、0なら`"Etc"`とする
+  * `ifelse()`または`case_when()`関数を使用
+
+
+```r
+# Country, GDP, G7, G20, OECD列のみ抽出し、df3に保存
+df3 &lt;- df %&gt;%
+  select(Country, GDP, G7:OECD)
+df3
+```
+
+```
+## # A tibble: 186 x 5
+##    Country                  GDP    G7   G20  OECD
+##    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Afghanistan           19101.     0     0     0
+##  2 Albania               15278.     0     0     0
+##  3 Algeria              169988.     0     0     0
+##  4 Andorra                3154.     0     0     0
+##  5 Angola                94635.     0     0     0
+##  6 Antigua and Barbuda    1728.     0     0     0
+##  7 Argentina            449663.     0     1     0
+##  8 Armenia               13673.     0     0     0
+##  9 Australia           1392681.     0     1     1
+## 10 Austria              446315.     0     0     1
+## # … with 176 more rows
+```
+
+---
+
+## `mutate()`の応用
+
+
+```r
+df3 %&gt;%
+* mutate(Developed = G7 + G20 + OECD)
+```
+
+```
+## # A tibble: 186 x 6
+##    Country                  GDP    G7   G20  OECD Developed
+##    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan           19101.     0     0     0         0
+##  2 Albania               15278.     0     0     0         0
+##  3 Algeria              169988.     0     0     0         0
+##  4 Andorra                3154.     0     0     0         0
+##  5 Angola                94635.     0     0     0         0
+##  6 Antigua and Barbuda    1728.     0     0     0         0
+##  7 Argentina            449663.     0     1     0         1
+##  8 Armenia               13673.     0     0     0         0
+##  9 Australia           1392681.     0     1     1         2
+## 10 Austria              446315.     0     0     1         1
+## # … with 176 more rows
+```
+
+---
+
+## `mutate()`の応用
+
+
+```r
+df3 %&gt;%
+* mutate(Developed = G7 + G20 + OECD,
+*        Developed = ifelse(Developed &gt;= 1, "Developed Country",
+*                           "Etc"))
+```
+
+```
+## # A tibble: 186 x 6
+##    Country                  GDP    G7   G20  OECD Developed        
+##    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            
+##  1 Afghanistan           19101.     0     0     0 Etc              
+##  2 Albania               15278.     0     0     0 Etc              
+##  3 Algeria              169988.     0     0     0 Etc              
+##  4 Andorra                3154.     0     0     0 Etc              
+##  5 Angola                94635.     0     0     0 Etc              
+##  6 Antigua and Barbuda    1728.     0     0     0 Etc              
+##  7 Argentina            449663.     0     1     0 Developed Country
+##  8 Armenia               13673.     0     0     0 Etc              
+##  9 Australia           1392681.     0     1     1 Developed Country
+## 10 Austria              446315.     0     0     1 Developed Country
+## # … with 176 more rows
+```
+
+---
+
+## `ifelse()`と`case_when()`
+
+`ifelse()`の使い方
+
+
+```r
+ifelse(条件式, TRUEの場合の返り値, FALSEの場合の返り値)
+# 例
+ifelse(Developed &gt;= 1, "Developed Country", "Etc")
+```
+
+`case_when()`の使い方
+* 条件が複数の場合には推奨
+* 返り値として欠損値は指定できない
+
+```r
+case_when(条件1 ~ 条件1がTRUEの場合の返り値, 
+          条件2 ~ 条件2がTRUEの場合の返り値, 
+          ...,
+          TRUE  ~ その他の場合の返り値)
+#例
+case_when(Developed &gt;= 1 ~ "Developed Country",
+          TRUE           ~ "Etc")
+```
+
+---
+
+## `mutate()`の応用
+
+
+```r
+df4 &lt;- df %&gt;%
+  select(Country, GDP, PPP, Continent)
+```
+
+---
+
+## `mutate()`の応用
+
+
+```r
+df4 %&gt;%
+* mutate(Continent_JP = recode(Continent,
+*                              "Africa"  = "アフリカ",
+*                              "America" = "アメリカ",
+*                              "Asia"    = "アジア",
+*                              "Europe"  = "ヨーロッパ",
+*                              .default = "オセアニア"))
+```
+
+```
+## # A tibble: 186 x 5
+##    Country                  GDP      PPP Continent Continent_JP
+##    &lt;chr&gt;                  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       
+##  1 Afghanistan           19101.   82737. Asia      アジア      
+##  2 Albania               15278.   39658. Europe    ヨーロッパ  
+##  3 Algeria              169988.  496572. Africa    アフリカ    
+##  4 Andorra                3154.      NA  Europe    ヨーロッパ  
+##  5 Angola                94635.  218533. Africa    アフリカ    
+##  6 Antigua and Barbuda    1728.    2083. America   アメリカ    
+##  7 Argentina            449663. 1036721. America   アメリカ    
+##  8 Armenia               13673.   38446. Europe    ヨーロッパ  
+##  9 Australia           1392681. 1275027. Oceania   オセアニア  
+## 10 Austria              446315.  502771. Europe    ヨーロッパ  
+## # … with 176 more rows
+```
+
+---
+
+## `recode()`: 値の置換
+
+* `.default`は「その他の場合」を意味する
+
+
+```r
+recode(基になる変数名,
+       "基の値1" = "新しい値1",
+       "基の値2" = "新しい値2",
+       ....,
+       .default  = "新しい変数")
+```
+
+---
+class: inverse, center, middle
+
+# dplyr: データの要約
+---
+
+## データ要約の例
+
+記述統計量 (要約統計量): 変数の性質を表す数値を計算すること
+
+* 平均値: `mean()`
+* 中央値: `median()`
+* 分散: `var()`
+* 標準偏差: `sd()`
+* 分位数: `quantile()`
+* 四分位範囲: `IQR()`
+* 最小値: `min()`
+* 最大値: `max()`
+* 尖度: `e1071::kurtosis()`
+* 歪度: `e1071::skewness()`
+* その他
+
+---
+
+## データの要約: `summarise()`関数
+
+`summarise(新しい変数名 = 関数(変数名))`
+* `新しい変数名`は記述統計量が格納される任意の変数名
+* 全く新しいデータが出力される
+  * これまでは既存のデータの一部を抽出したり、列を追加するなど、原型が残っていた
+
+
+```r
+df %&gt;%
+* summarise(Pop_mean  = mean(Population),
+*           Pop_sd    = sd(Population),
+*           Area_mean = mean(Area),
+*           Area_sd   = sd(Area))
+```
+
+```
+## # A tibble: 1 x 4
+##    Pop_mean     Pop_sd Area_mean  Area_sd
+##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 41737773. 151270298.   696069. 1872412.
+```
+
+---
+
+## データの要約: `summarise()`関数
+
+ただし、単にある変数の記述統計料を計算するだけなら、`summarise()`使わない方が早い
+
+
+```r
+mean(df$Population) # dfのPopulation列の平均値
+```
+
+```
+## [1] 41737773
+```
+
+```r
+sd(df$Population)   # dfのPopulation列の標準偏差
+```
+
+```
+## [1] 151270298
+```
+
+```r
+mean(df$Area)       # dfのArea列の平均値
+```
+
+```
+## [1] 696069.2
+```
+
+```r
+sd(df$Area)         # dfのArea列の標準偏差
+```
+
+```
+## [1] 1872412
+```
+
+---
+
+## データの要約: `group_by()`関数
+
+* グループごとに記述統計量を計算したい
+  * `group_by()`を使用
+  * **例)** `dplyr`を使わず、大陸ごとに`GDP`の平均値を計算
+  
+
+```r
+mean(df$GDP[df$Continent == "Africa"])
+```
+
+```
+## [1] 44941.25
+```
+
+```r
+mean(df$GDP[df$Continent == "America"])
+```
+
+```
+## [1] 804002.1
+```
+(省略)
+
+```r
+mean(df$GDP[df$Continent == "Oceania"])
+```
+
+```
+## [1] 407528.6
+```
+
+---
+
+## データの要約: `group_by()`関数
+
+* `group_by(グループ変数名)`: グループごとの計算を行う
+  
+
+```r
+# 1. 大陸 (Continent)ごとにGDPの平均値と最小値、最大値を計算
+# 2. GDPの平均値が高い順でソート
+df %&gt;%
+* group_by(Continent) %&gt;%
+  # GDPが欠損している国もあるので、na.rm = TRUEを指定
+  summarise(GDP_mean = mean(GDP, na.rm = TRUE),
+            GDP_min  = min(GDP, na.rm = TRUE),
+            GDP_max  = max(GDP, na.rm = TRUE)) %&gt;%
+  arrange(desc(GDP_mean))
+```
+
+```
+## # A tibble: 5 x 4
+##   Continent GDP_mean GDP_min   GDP_max
+##   &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 America    804002.    596. 21544825 
+## 2 Asia       762373.   1674. 14762792.
+## 3 Europe     458979.   1638.  3845630.
+## 4 Oceania    407529.   5536.  1392681.
+## 5 Africa      44941.    429.   448120.
+```
+
+---
+
+## 便利な関数: `n()`
+
+* `n()`: グループに属するケース数を計算
+  * グループごとに国数とOECD加盟国数を計算し、加盟国の割合を計算する
+
+```r
+df %&gt;%
+  group_by(Continent) %&gt;%
+  summarise(OECD        = sum(OECD),
+*           N_Countries = n()) %&gt;%
+  mutate(OECD_Prop = OECD / N_Countries)
+```
+
+```
+## # A tibble: 5 x 4
+##   Continent  OECD N_Countries OECD_Prop
+##   &lt;chr&gt;     &lt;dbl&gt;       &lt;int&gt;     &lt;dbl&gt;
+## 1 Africa        0          54    0     
+## 2 America       5          36    0.139 
+## 3 Asia          3          42    0.0714
+## 4 Europe       27          50    0.54  
+## 5 Oceania       2           4    0.5
+```
+
+---
+class: inverse, center, middle
+
+# dplyr: データの結合
+---
+
+## データの結合
+
+行の結合と列の結合
+
+* 行の結合: `bind_rows()`関数
+* 列の結合: `bind_cols()`、`*_join()`関数
+
+---
+
+## 行の結合
+
+列数と列名の一致を確認すること (列の順番は一致しなくてもOK)
+
+
+```r
+# サンプルデータを作成する
+data1 &lt;- df %&gt;%
+  filter(Continent == "Oceania") %&gt;%
+  select(Country:GDP, Continent)
+
+data2 &lt;- df %&gt;%
+  filter(Continent == "Asia") %&gt;%
+  select(Country:GDP, Continent)
+
+dim(data1) # data1のサイズ: 4行5列
+```
+
+```
+## [1] 4 5
+```
+
+```r
+dim(data2) # data2のサイズ: 42行5列
+```
+
+```
+## [1] 42  5
+```
+
+---
+
+## 行の結合
+
+
+```r
+# data1とdata2を結合しbinded_dataという名のオブジェクトとして格納
+*binded_data &lt;- bind_rows(data1, data2)
+dim(binded_data) # binded_dataのサイズ: 46行5列
+```
+
+```
+## [1] 46  5
+```
+
+```r
+print(binded_data, n = 7)
+```
+
+```
+## # A tibble: 46 x 5
+##   Country          Population    Area      GDP Continent
+##   &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
+## 1 Australia          25499884 7682300 1392681. Oceania  
+## 2 Fiji                 896445   18270    5536. Oceania  
+## 3 New Zealand         4842780  263820  206929. Oceania  
+## 4 Papua New Guinea    8947024  452860   24970. Oceania  
+## 5 Afghanistan        38928346  652860   19101. Asia     
+## 6 Bahrain             1701575     760   38574. Asia     
+## 7 Bangladesh        164689383  130170  302571. Asia     
+## # … with 39 more rows
+```
+
+---
+
+## 列の結合 (1)
+
+
+```r
+# data1を列単位で2つに分割
+data1_a &lt;- data1 %&gt;%
+  select(Country, Population)
+
+data1_b &lt;- data1 %&gt;%
+  select(Area, GDP)
+```
+
+.pull-left[
+
+```r
+data1_a
+```
+
+```
+## # A tibble: 4 x 2
+##   Country          Population
+##   &lt;chr&gt;                 &lt;dbl&gt;
+## 1 Australia          25499884
+## 2 Fiji                 896445
+## 3 New Zealand         4842780
+## 4 Papua New Guinea    8947024
+```
+]
+.pull-right[
+
+```r
+data1_b
+```
+
+```
+## # A tibble: 4 x 2
+##      Area      GDP
+##     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 7682300 1392681.
+## 2   18270    5536.
+## 3  263820  206929.
+## 4  452860   24970.
+```
+]
+
+---
+
+## 列の結合: `bind_cols()`
+
+* 同じ行数を持つデータを単純結合
+
+
+```r
+*binded_data1 &lt;- bind_cols(data1_a, data1_b)
+binded_data1
+```
+
+```
+## # A tibble: 4 x 4
+##   Country          Population    Area      GDP
+##   &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Australia          25499884 7682300 1392681.
+## 2 Fiji                 896445   18270    5536.
+## 3 New Zealand         4842780  263820  206929.
+## 4 Papua New Guinea    8947024  452860   24970.
+```
+
+---
+
+## 列の結合
+
+以下の場合は?
+* `bind_cols()`で結合すると大混乱が生じる
+
+.pull-left[
+データ1
+
+```
+## # A tibble: 3 x 2
+##   Country    Population
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 Australia    25499884
+## 2 Fiji           896445
+## 3 New Zealnd    4842780
+```
+]
+.pull-right[
+データ2
+
+```
+## # A tibble: 3 x 2
+##   Country             Area
+##   &lt;chr&gt;              &lt;dbl&gt;
+## 1 Australia        7682300
+## 2 Fiji               18270
+## 3 Papua New Guinea  452860
+```
+]
+
+---
+
+## 列の結合: `*_join()`関数群
+
+* 結合のキーとなる変数が存在する場合使用
+  * スライド前頁の場合、`Country`
+  
+
+```r
+# 実習用データを作成
+
+# スライド前頁のデータ1
+data1_c &lt;- data1 %&gt;%
+  filter(Country %in% c("Australia", "Fiji", "New Zealand")) %&gt;%
+  select(Country, Population)
+
+# スライド前頁のデータ2
+data1_d &lt;- data1 %&gt;%
+  filter(Country %in% c("Australia", "Fiji", "Papua New Guinea")) %&gt;%
+  select(Country, Area)
+```
+
+---
+
+## 列の結合: 4つの考え方
+
+* キー変数は常に一致するとは限らない
+  * データ1内の国: オーストラリア、フィジー、**ニュージーランド**
+  * データ2内の国: オーストラリア、フィジー、**パプアニューギニア**
+* どのデータを基準に結合するか
+  * `left_join()`: データ1の国で結合
+  * `right_join()`: データ2の国で結合
+  * `inner_join()`: データ1と2に共通する国のみ結合
+  * `left_join()`: データ1と2両方の国で結合
+* 結合後、存在しない値は欠損値 (`NA`)となる
+
+---
+
+## 列の結合: `left_join()`
+
+データ1の国が残る
+* **使い方:** `left_join(データ1, データ2, by = "キー変数名")`
+
+
+```r
+*left_join(data1_c, data1_d, by = "Country")
+```
+
+```
+## # A tibble: 3 x 3
+##   Country     Population    Area
+##   &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Australia     25499884 7682300
+## 2 Fiji            896445   18270
+## 3 New Zealand    4842780      NA
+```
+
+---
+
+## 列の結合: `right_join()`
+
+データ2の国が残る
+* **使い方:** `right_join(データ1, データ2, by = "キー変数名")`
+
+
+```r
+*right_join(data1_c, data1_d, by = "Country")
+```
+
+```
+## # A tibble: 3 x 3
+##   Country          Population    Area
+##   &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Australia          25499884 7682300
+## 2 Fiji                 896445   18270
+## 3 Papua New Guinea         NA  452860
+```
+
+---
+
+## 列の結合: `inner_join()`
+
+データ1と2に共通する国が残る
+* **使い方:** `inner_join(データ1, データ2, by = "キー変数名")`
+
+
+```r
+*inner_join(data1_c, data1_d, by = "Country")
+```
+
+```
+## # A tibble: 2 x 3
+##   Country   Population    Area
+##   &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Australia   25499884 7682300
+## 2 Fiji          896445   18270
+```
+
+---
+
+## 列の結合: `full_join()`
+
+データ1と2両方の国が残る
+* **使い方:** `full_join(データ1, データ2, by = "キー変数名")`
+
+
+```r
+*full_join(data1_c, data1_d, by = "Country")
+```
+
+```
+## # A tibble: 4 x 3
+##   Country          Population    Area
+##   &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Australia          25499884 7682300
+## 2 Fiji                 896445   18270
+## 3 New Zealand         4842780      NA
+## 4 Papua New Guinea         NA  452860
+```
+
+---
+
+## 列の結合: 複数のキー
+
+複数のキーを指定することも可能: `by = c("キー1", "キー2")`
+
+.pull-left[
+`Press_df`の中身
+
+```
+##   Country Year PressRank
+## 1   Japan 2019        67
+## 2   Japan 2020        66
+## 3   Korea 2019        41
+## 4   Korea 2020        42
+```
+]
+.pull-right[
+`PPP_df`の中身
+
+```
+##   Country Year   PPP
+## 1   Japan 2019 39763
+## 2   Japan 2020 40085
+## 3   Korea 2019 39060
+## 4   Korea 2020 39764
+```
+]
+
+
+```r
+left_join(Press_df, PPP_df, by = c("Country", "Year"))
+```
+
+```
+## # A tibble: 4 x 4
+##   Country  Year PressRank   PPP
+##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1 Japan    2019        67 39763
+## 2 Japan    2020        66 40085
+## 3 Korea    2019        41 39060
+## 4 Korea    2020        42 39764
+```
+
+---
+
+## 表形式データの作り方
+
+`tibble()`関数を使用
+* `data.frame()`関数もOK。しかし、tibbleの方が機能的に豊富
+
+
+```r
+Press_df &lt;- tibble(
+  Country   = c("Japan", "Japan", "Korea", "Korea"),
+  Year      = c(2019, 2020, 2019, 2020),
+  PressRank = c(67, 66, 41, 42)
+)
+Press_df
+```
+
+```
+## # A tibble: 4 x 3
+##   Country  Year PressRank
+##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Japan    2019        67
+## 2 Japan    2020        66
+## 3 Korea    2019        41
+## 4 Korea    2020        42
+```
+
+---
+class: inverse, middle, center
+
+# tidyr: 整然データ構造
+
+---
+
+## 整然データ構造とはなにか
+
+#### 整然データ (Tidy data)
+
+* Tidy data: Hadley Wickahが提唱した「データ分析に適した」データ構造
+  * 3日目は`ggplot2`を用いた可視化を解説するが、`ggplot2`は整然データを前提として開発されたパッケージ
+  * 整然データ、簡潔データと呼ばれる
+* `tidyr`パッケージは雑然データを整然データへ変形するパッケージ
+
+#### 4つの原則
+
+1. 1つの列は、1つの変数を表す
+2. 1つの行は、1つの観測を表す
+3. 1つのセルは、1つの値を表す
+4. 1つの表は、1つの観測単位をもつ
+
+---
+
+## 原則1: 1列1変数
+
+---
+
+## 原則2: 1行1観察
+
+---
+
+## 原則3: 1セル1値
+
+---
+
+## 原則4: 1表1単位
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
