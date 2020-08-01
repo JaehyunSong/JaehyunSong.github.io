@@ -1450,17 +1450,273 @@ class: inverse, middle, center
 
 ## 原則1: 1列1変数
 
+* 1列には1つの変数のみ
+  * 3人の被験者に対し、薬を飲む前後の数学成績を測定した場合
+
+&lt;img src = "Figs/02/TidyData1.png"&gt;
+
 ---
 
 ## 原則2: 1行1観察
+
+* 1観察 `\(\neq\)` 1値
+  * 観察: 観察単位ごとに測定された**値の集合**
+  * 観察単位: 人、企業、国、時間など
+* 以下の例の場合、観察単位は「人 `\(\times\)` 時間 」
+
+&lt;img src = "Figs/02/TidyData2.png"&gt;
 
 ---
 
 ## 原則3: 1セル1値
 
+* この原則に反するケースは多くない
+* **例外)** 1セルに`2020年8月24日`という値がある場合
+  * 分析の目的によっては年月日を全て異なるセルに割り当てる必要もある
+  * このままで問題とならないケースも
+
+&lt;div align = "center"&gt;
+&lt;img src = "Figs/02/TidyData3.png" height = "300"&gt;
+&lt;/div&gt;
+
 ---
 
 ## 原則4: 1表1単位
+
+* 政府統計: 日本を代表する雑然データ
+  * データの中身は良いが、構造が...
+  * 表に「国」、「都道府県」、「市区町村」、「行政区」の単位が混在
+
+&lt;div align = "center"&gt;
+&lt;img src = "Figs/02/MessyData4.png" height = "350"&gt;
+&lt;/div&gt;
+
+---
+
+## 原則4: 1表1単位
+
+&lt;img src = "Figs/02/TidyData4.png"&gt;
+
+---
+
+## `tidyr`パッケージ
+
+雑然データから整然データへ変形をサポートするパッケージ
+* `pivot_longer()`: Wide型データからLong型データへ
+* `pivot_wider()`: Long型データからWide型データへ
+* `separate()`: セルの分割（「年月日」から「年」、「月」、「日」へ）
+
+&lt;div align = "center"&gt;
+&lt;img src = "Figs/02/TidyingUp.jpg" height = "300"&gt;
+&lt;/div&gt;
+
+---
+
+## 実習用データ
+
+* [COVID19_Asia.csv](Data/COVID19_Asia.csv)
+* 日本、韓国、中国、台湾、香港の5つ間のCOVID-19新規感染者数
+  * 変数名が数字で始まったり、記号が含まれている場合、`` `変数名` ``で表記
+
+
+```r
+COVID_df &lt;- read_csv("Data/COVID19_Asia.csv")
+COVID_df
+```
+
+```
+## # A tibble: 5 x 6
+##   Country   `2020/06/27` `2020/06/28` `2020/06/29` `2020/06/30` `2020/07/01`
+##   &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Japan              100           93           86          117          130
+## 2 Korea               62           42           43           50           54
+## 3 China               17           12           19            3            5
+## 4 Taiwan               0            0            0            0            0
+## 5 Hong Kong            1            2            4            2           28
+```
+
+````
+
+````
+
+---
+
+## このデータの問題点
+
+* 観察単位は? 測定した変数は?
+  * 観察単位: 国 (?) `\(\times\)` 時間
+  * 変数: 新規感染者数
+* 新規感染者数が5列にわたって格納されている
+
+
+|Country   | 2020/06/27| 2020/06/28| 2020/06/29| 2020/06/30| 2020/07/01|
+|:---------|----------:|----------:|----------:|----------:|----------:|
+|Japan     |        100|         93|         86|        117|        130|
+|Korea     |         62|         42|         43|         50|         54|
+|China     |         17|         12|         19|          3|          5|
+|Taiwan    |          0|          0|          0|          0|          0|
+|Hong Kong |          1|          2|          4|          2|         28|
+
+---
+
+## Wide型からLong型へ
+
+* 整然な`COVID_df`の構造は?
+  * 5列を1列にまとめるため、縦に長くなる
+  * WideからLongへ
+
+
+|Country   |Date       | Positive|
+|:---------|:----------|--------:|
+|Japan     |2020/06/27 |      100|
+|Japan     |2020/06/28 |       93|
+|Japan     |2020/06/29 |       86|
+|Japan     |2020/06/30 |      117|
+|Japan     |2020/07/01 |      130|
+|Korea     |2020/06/27 |       62|
+|Korea     |2020/06/28 |       42|
+|Korea     |2020/06/29 |       43|
+|Korea     |2020/06/30 |       50|
+|Korea     |2020/07/01 |       54|
+|China     |2020/06/27 |       17|
+|China     |2020/06/28 |       12|
+|China     |2020/06/29 |       19|
+|China     |2020/06/30 |        3|
+|China     |2020/07/01 |        5|
+|Taiwan    |2020/06/27 |        0|
+|Taiwan    |2020/06/28 |        0|
+|Taiwan    |2020/06/29 |        0|
+|Taiwan    |2020/06/30 |        0|
+|Taiwan    |2020/07/01 |        0|
+|Hong Kong |2020/06/27 |        1|
+|Hong Kong |2020/06/28 |        2|
+|Hong Kong |2020/06/29 |        4|
+|Hong Kong |2020/06/30 |        2|
+|Hong Kong |2020/07/01 |       28|
+
+---
+
+## `pivot_longer()`: Wide to Long
+
+* `cols`は`dplyr::select()`と同じ使い方
+  * `c()`で個別の変数名を指定することも、`:`や`starts_with()`を使うこともOK
+  
+
+```r
+データ %&gt;%
+  pivot_longer(cols      = 変数が格納されている列,
+               names_to  = "元の列名が入る変数名",
+               values_to = "変数の値が入る変数名")
+```
+
+---
+
+## `pivot_longer()`: Wide to Long
+
+* `cols = starts_with("2020")`もOK
+
+
+```r
+COVID_Long &lt;- COVID_df %&gt;%
+* pivot_longer(cols      = `2020/06/27`:`2020/07/01`,
+*              names_to  = "Date",
+*              values_to = "Positive")
+COVID_Long
+```
+
+```
+## # A tibble: 25 x 3
+##    Country Date       Positive
+##    &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt;
+##  1 Japan   2020/06/27      100
+##  2 Japan   2020/06/28       93
+##  3 Japan   2020/06/29       86
+##  4 Japan   2020/06/30      117
+##  5 Japan   2020/07/01      130
+##  6 Korea   2020/06/27       62
+##  7 Korea   2020/06/28       42
+##  8 Korea   2020/06/29       43
+##  9 Korea   2020/06/30       50
+## 10 Korea   2020/07/01       54
+## # … with 15 more rows
+```
+
+---
+
+## `pivot_wider()`: Long to Wide
+
+* Long型をWideへ戻す関数
+  * 人間にとってはLong型よりWide型の方が読みやすいケースも多い
+  * 1列に2つの変数が入っている場合もある
+
+
+```r
+COVID_Long %&gt;%
+* pivot_wider(names_from = "Date",
+*             values_from = "Positive")
+```
+
+```
+## # A tibble: 5 x 6
+##   Country   `2020/06/27` `2020/06/28` `2020/06/29` `2020/06/30` `2020/07/01`
+##   &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Japan              100           93           86          117          130
+## 2 Korea               62           42           43           50           54
+## 3 China               17           12           19            3            5
+## 4 Taiwan               0            0            0            0            0
+## 5 Hong Kong            1            2            4            2           28
+```
+
+---
+
+## `separate()`: 列の分割
+
+`COVID_Long`の`Date`列を`Year`、`Month`、`Day`に分けたい
+* `Date`列を`/`を基準に分割する
+
+
+```r
+データ %&gt;%
+  separate(col  = "分割する列名",
+           into = c("分割後の列名1", "分割後の列名2", ...),
+           sep  = "分割する基準")
+```
+
+---
+
+## `separate()`: 列の分割
+
+
+```r
+COVID_Long %&gt;%
+* separate(col  = "Date",
+*          into = c("Year", "Month", "Day"),
+*          sep  = "/")
+```
+
+```
+## # A tibble: 25 x 5
+##    Country Year  Month Day   Positive
+##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1 Japan   2020  06    27         100
+##  2 Japan   2020  06    28          93
+##  3 Japan   2020  06    29          86
+##  4 Japan   2020  06    30         117
+##  5 Japan   2020  07    01         130
+##  6 Korea   2020  06    27          62
+##  7 Korea   2020  06    28          42
+##  8 Korea   2020  06    29          43
+##  9 Korea   2020  06    30          50
+## 10 Korea   2020  07    01          54
+## # … with 15 more rows
+```
+
+---
+
+## `tidyr`について
+
+ここで紹介した`tidyr`の機能はごく一部
+* より詳しく知りたい場合、SONG・矢内の資料第15章を参照
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
