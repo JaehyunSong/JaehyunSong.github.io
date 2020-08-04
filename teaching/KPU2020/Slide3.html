@@ -256,13 +256,454 @@ class: inverse, middle, center
   * 記述統計の棒グラフ
   * グループごとの記述統計量はいかに異なるか
   * **例)** 大陸ごとの人間開発指数の平均値は?
+  
+---
+
+## 度数の棒グラフ
+
+* 幾何オブジェクト: `geom_bar()`
+* 必須マッピング: `x = 度数を計算する変数`
+* `ggplot()`までは`%&gt;%`を使用し、以降は`+`でレイヤーを追加する
+
+
+```r
+データ %&gt;%
+  ggplot() +
+* geom_bar(aes(x = 変数名))
+```
+
+---
+
+## 度数の棒グラフ
+
+
+```r
+Barplot1 &lt;- Country_df %&gt;%
+  ggplot() +
+* geom_bar(aes(x = Continent))
+Barplot1
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 見た目の調整
+
+ラベルの修正: `labs()`
+
+
+```r
+labs(x = "横軸のラベル", y = "縦軸のラベル")
+```
+
+テーマの変更: `theme_*()`
+* テーマは`theme_gray()`、`theme_bw()`、`theme_minimal()`など
+* macOS、かつ日本語を使う場合は`base_family = `指定
+
+
+```r
+theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+文字サイズの変更: `theme()`の`text`引数
+
+
+```r
+theme(`text = element_text(size = 16)`)
+```
+
+---
+
+## 度数の棒グラフ
+
+
+```r
+Barplot1 +
+  labs(x = "大陸", y = "国数") +
+  theme_minimal(base_family = "HiraKakuProN-W3") +
+  theme(text = element_text(size = 16))
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 記述統計の棒グラフ
+
+* 予めグループごとの記述統計量を計算し、オブジェクトとして格納
+
+
+```r
+Barplot2_df &lt;- Country_df %&gt;%
+  group_by(Continent) %&gt;%
+  summarise(HDI = mean(HDI_2018, na.rm = TRUE))
+```
+
+---
+
+## 記述統計の棒グラフ
+
+* 幾何オブジェクト: `geom_bar()`
+* 必須マッピング: `x = グループ`, `y = 記述統計量`
+* `stat = "identity"`は必須
+
+
+```r
+データ %&gt;%
+  ggplot() +
+* geom_bar(aes(x = グループ, y = 記述統計量), stat = "identity") +
+  その他のレイヤー()
+```
+
+---
+
+## 記述統計の棒グラフ
+
+
+```r
+Barplot2 &lt;- Barplot2_df %&gt;%
+  ggplot() +
+* geom_bar(aes(x = Continent, y = HDI), stat = "identity") +
+  labs(x = "大陸", y = "人間開発指数の平均値") +
+  theme_minimal(base_family = "HiraKakuProN-W3") +
+  theme(text = element_text(size = 16))
+
+Barplot2
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 座標系の調整
+
+* デカルト座標系（直交座標系）のカスタマイズ: `coord_cartesian()`
+  * 横軸の上限・下限は`xlim`、縦軸は`ylim`で調整
+
+
+```r
+# 縦軸の下限を0、上限を1に
+Barplot2 +
+* coord_cartesian(ylim = c(0, 1))
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加
+
+* 今のグラフは2次元
+  * 「大陸」と「人間開発指数の平均値」
+* 次元を追加することも可能
+  * **例)** 更にOECD加盟有無で比較する
+
+---
+
+## 次元の追加: データの準備
+
+
+```r
+Barplot2_df2 &lt;- Country_df %&gt;%
+  group_by(Continent, OECD) %&gt;%
+  summarise(HDI = mean(HDI_2018, na.rm = TRUE)) %&gt;%
+  mutate(OECD = recode(OECD, 
+                       "0" = "非加盟国",
+                       "1" = "加盟国"))
+Barplot2_df2
+```
+
+```
+## # A tibble: 9 x 3
+## # Groups:   Continent [5]
+##   Continent OECD       HDI
+##   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;
+## 1 Africa    非加盟国 0.553
+## 2 America   非加盟国 0.726
+## 3 America   加盟国   0.843
+## 4 Asia      非加盟国 0.708
+## 5 Asia      加盟国   0.909
+## 6 Europe    非加盟国 0.807
+## 7 Europe    加盟国   0.899
+## 8 Oceania   非加盟国 0.634
+## 9 Oceania   加盟国   0.930
+```
+
+---
+
+## 次元の追加: グラフの作成
+
+* `OECD`ごとに棒の色を変える場合: `aes()`&lt;u&gt;内&lt;/u&gt;に`fill = OECD`を追加
+* `aes()`&lt;u&gt;外&lt;/u&gt;に`position = "dodge"`を追加
+
+
+```r
+Barplot3 &lt;- Barplot2_df2 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = HDI, `fill = OECD`), 
+           stat = "identity", `position = "dodge"`) +
+  labs(x = "大陸", y = "人間開発指数の平均値") +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_minimal(base_family = "HiraKakuProN-W3") +
+  theme(text = element_text(size = 16))
+```
+
+---
+
+## 次元の追加: グラフの作成
+
+* `OECD`ごとに棒の色を変える場合: `aes()`&lt;u&gt;内&lt;/u&gt;に`fill = OECD`を追加
+* `aes()`&lt;u&gt;外&lt;/u&gt;に`position = "dodge"`を追加
+
+
+
+
+```r
+Barplot3
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加: ファセット分割
+
+ファセット (facet): 変数ごとの異なるグラフとして出力
+* `facet_wrap(~ 変数名)`
+
+
+```r
+Barplot4 &lt;- Barplot2_df2 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = HDI), 
+           stat = "identity") +
+  labs(x = "大陸", y = "人間開発指数の平均値") +
+  coord_cartesian(ylim = c(0, 1)) +
+* facet_wrap(~ OECD) +
+  theme_minimal(base_family = "HiraKakuProN-W3") +
+  theme(text = element_text(size = 16))
+```
+
+---
+
+## 次元の追加: ファセット分割
+
+ファセット (facet): 変数ごとの異なるグラフとして出力
+* `facet_wrap(~ 変数名)`
+
+
+
+
+```r
+Barplot4
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, middle, center
+
+# ヒストグラム
+
+---
+
+## ヒストグラム
+
+* 幾何オブジェクト: `geom_histogram()`
+* 必須マッピング: `x = 度数を計算する変数`
+  * 各区間の度数は自動的に計算してくれるため、指定しない
+
+
+```r
+# 2次元 (区間、度数)の場合
+データ %&gt;% 
+  ggplot() +
+* geom_histogram(aes(x = 変数名))
+
+# 3次元 (区間、度数、グループ)の場合
+# alphaは透明度であり、0に近いほど透明になる
+データ %&gt;%
+  ggplot() +
+* geom_histogram(aes(x = 変数名, fill = グループ変数),
+*                alpha = 0.5, position = "identity")
+```
+
+---
+
+## ヒストグラム
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+* geom_histogram(aes(x = HDI_2018)) +
+  labs(x = "人間開発指数", y = "度数") +
+  theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## ヒストグラム: カスタマイズ
+
+`aes()`の外側に入れる引数
+* `bins`: 区間の数
+* `binwidth`: 区間の幅
+  * `bins`と`binwidth`は一方のみ指定
+* `color`: 枠線の色
+* `fill`: 棒の色
+  * `color`と`fill`は`aes()`の中に入れて変数に対応させることも可
+
+
+```r
+Histogram2 &lt;- Country_df %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), `bins = 10`, `color = "white"`) +
+  labs(x = "人間開発指数", y = "度数") +
+  theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## ヒストグラム: カスタマイズ
+
+
+
+
+```r
+Histogram2
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加
+
+* OECD加盟有無で色分け
+  * OECD変数を事前に数値型から文字型（または、factor型）へ変換
+* `facet_wrap()`によるファセット分割も使用可
+
+
+```r
+Histogram3 &lt;- Country_df %&gt;%
+* mutate(OECD = recode(OECD,
+*                      "0" = "非加盟国",
+*                      "1" = "加盟国")) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018, `fill = OECD`), 
+                 `position = "identity"`, `alpha = 0.5`,
+                 bins = 10, color = "white") +
+  labs(x = "人間開発指数", y = "度数") +
+  theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## 次元の追加
+
+
+
+
+```r
+Histogram3
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-32-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, middle, center
+
+# 箱ひげ図
+
+---
+
+## 箱ひげ図
+
+* 複数のグループ間で変数の分布を素早く比較可能
+  * 中央値、最小値、最大値、第1四分位点、第3四分位点
+
+![](Slide3_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+
+---
+
+## 箱ひげ図
+
+* 幾何オブジェクト: `geom_boxplot()`
+* 必須マッピング: `y = 分布を確認したい変数`
+  * 中央値、四分位点などは自動的に計算してくれる
+* 推奨マッピング: `x = グループ変数`
+
+
+```r
+データ %&gt;%
+  ggplot() +
+* geom_histogram(aes(x = グループ変数, y = 変数))
+```
+
+---
+
+## 箱ひげ図
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+* geom_boxplot(aes(x = Continent, y = HDI_2018)) +
+  labs(y = "人間開発指数 (2018)", x = "大陸") +
+  theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+![](Slide3_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+
+---
+
+## 次元の追加
+
+* 推奨する方法: `aes()`内に`fill`引数追加、またはファセット分割
+
+
+```r
+Boxplot2 &lt;- Country_df %&gt;%
+  mutate(OECD = recode(OECD,
+                       "0" = "非加盟国",
+                       "1" = "加盟国")) %&gt;% 
+  ggplot() +
+  geom_boxplot(aes(x = Continent, y = HDI_2018, `fill = OECD`)) +
+  labs(y = "人間開発指数 (2018)", x = "大陸") +
+  theme_minimal(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## 次元の追加
+
+
+
+
+```r
+Boxplot2
+```
+
+![](Slide3_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+
+---
+class: inverse, middle, center
+
+# 散布図
+
+---
+
+## 散布図
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"highlightSpans": false,
+"highlightSpans": true,
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
