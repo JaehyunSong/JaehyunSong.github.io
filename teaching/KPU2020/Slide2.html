@@ -4,6 +4,7 @@
     <title>情報処理応用演習</title>
     <meta charset="utf-8" />
     <meta name="author" content="SONG Jaehyun (同志社大学)" />
+    <script src="libs/header-attrs-2.3/header-attrs.js"></script>
     <link rel="stylesheet" href="my-fonts.css" type="text/css" />
     <link rel="stylesheet" href="my-default.css" type="text/css" />
   </head>
@@ -450,7 +451,7 @@ df %&gt;%
 
 ---
 
-## 行の選択 (1): 注意
+## 行の選択 (1): 注意事項1
 
 `filter()`と`select()`の順番
 * 先に`select()`を行うと、`Continent`列がなくなるため、`filter()`内の条件式が無効に
@@ -469,6 +470,29 @@ df %&gt;%
 ## Error: Problem with `filter()` input `..1`.
 ## x  オブジェクト 'Continent' がありません 
 ## ℹ Input `..1` is `Continent == "Europe"`.
+```
+
+---
+
+## 行の選択 (1): 注意事項2
+
+欠損値を含む行の除去について
+* **例)** `PPP_per_capita`が欠損しているケースを除去
+* `PPP_per_capita != NA`は使えない
+
+
+```r
+df %&gt;%
+* filter(PPP_per_capita != NA) # ダメな例
+```
+
+* 代わりに`!is.na(PPP_per_capita)`を使用
+
+
+```r
+# ダメな例
+df %&gt;%
+* filter(!is.na(PPP_per_capita)) # 正しい例
 ```
 
 ---
@@ -1716,7 +1740,9 @@ COVID_Long %&gt;%
 ## `tidyr`について
 
 ここで紹介した`tidyr`の機能はごく一部
-* より詳しく知りたい場合、SONG・矢内の資料第15章を参照
+* より詳しく知りたい場合、[SONG・矢内の資料第15章](https://www.jaysong.net/RBook/tidydata.html)を参照
+* 今どきのRにおいて整然データの概念は重要
+  * 多くのパッケージが整然データを前提に提供されている
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

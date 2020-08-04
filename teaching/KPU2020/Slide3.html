@@ -4,6 +4,7 @@
     <title>情報処理応用演習</title>
     <meta charset="utf-8" />
     <meta name="author" content="SONG Jaehyun (同志社大学)" />
+    <script src="libs/header-attrs-2.3/header-attrs.js"></script>
     <link rel="stylesheet" href="my-fonts.css" type="text/css" />
     <link rel="stylesheet" href="my-default.css" type="text/css" />
   </head>
@@ -18,6 +19,243 @@ class: center, middle, inverse, title-slide
 
 ---
 
+
+class: inverse, center, middle
+
+# ggplot2の仕組み
+
+---
+
+## 本日の内容
+
+* グラフィックの文法
+* 代表的な5つのグラフ
+  1. 棒グラフ
+  2. ヒストグラム
+  3. 箱ひげ図
+  4. 散布図
+  5. 折れ線グラフ
+* 期末課題について
+  
+---
+
+## `ggplot2`とは
+
+グラフィックの文法（**g**rammar of **g**raphics）をRで実装したパッケージ
+
+* グラフをいくつかの要素に分解し、それぞれを一つの**レイヤー（layer; 層）**として捉える
+* レイヤーを重ねることでグラフを作成する
+
+
+```r
+#コードの例
+
+library(tidyverse)
+Country_df &lt;- read_csv("Data/Countries.csv")
+Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, "加盟国", "非加盟国")) %&gt;%
+* ggplot() +
+* geom_point(aes(x = PPP_per_capita, y = HDI_2018, color = OECD2),
+*            size = 2, alpha = 0.5) +
+* labs(x = "一人当たり購買力平価基準GDP (米ドル)",
+*      y = "人間開発指数 (2018)",
+*      color = "OECD") +
+* theme_minimal(base_family = "HiraKakuProN-W3") +
+* theme(legend.position = "bottom")
+```
+
+---
+
+## 例) データの用意
+
+
+```r
+library(tidyverse)
+Country_df &lt;- read_csv("Data/Countries.csv")
+
+Country_df2 &lt;- Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, "加盟国", "非加盟国")) %&gt;%
+  select(Country, PPP = PPP_per_capita, HDI = HDI_2018, OECD = OECD2)
+
+Country_df2
+```
+
+```
+## # A tibble: 186 x 4
+##    Country                PPP   HDI OECD    
+##    &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   
+##  1 Afghanistan          2125. 0.496 非加盟国
+##  2 Albania             13781. 0.791 非加盟国
+##  3 Algeria             11324. 0.759 非加盟国
+##  4 Andorra                NA  0.857 非加盟国
+##  5 Angola               6649. 0.574 非加盟国
+##  6 Antigua and Barbuda 21267. 0.776 非加盟国
+##  7 Argentina           22938. 0.83  非加盟国
+##  8 Armenia             12974. 0.76  非加盟国
+##  9 Australia           50001. 0.938 加盟国  
+## 10 Austria             55824. 0.914 加盟国  
+## # … with 176 more rows
+```
+
+---
+
+## 例) キャンバスの用意
+
+
+```r
+*ggplot(data = Country_df2)
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 例) 散布図の出力
+
+
+```r
+ggplot(data = Country_df2) + 
+  # x軸はPPP変数、y軸はHDI変数とし、OCEDの値ごとに色分け
+* geom_point(aes(x = PPP, y = HDI, color = OECD))
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 例) ラベルの修正
+
+
+```r
+ggplot(data = Country_df2) + 
+  geom_point(aes(x = PPP, y = HDI, color = OECD)) + 
+* labs(x = "一人当たり購買力平価基準GDP (米ドル)",
+*      y = "人間開発指数 (2018)",  color = "OECD")
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 例) グラフのテーマ選択
+
+
+```r
+ggplot(data = Country_df2) + 
+  geom_point(aes(x = PPP, y = HDI, color = OECD)) +
+  labs(x = "一人当たり購買力平価基準GDP (米ドル)",
+       y = "人間開発指数 (2018)",  color = "OECD") +
+* theme_bw(base_family = "HiraKakuProN-W3") # フォント指定はmacOSの場合
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 例) 凡例の位置調整
+
+
+```r
+ggplot(data = Country_df2) + 
+  geom_point(aes(x = PPP, y = HDI, color = OECD)) + 
+  labs(x = "一人当たり購買力平価基準GDP (米ドル)", 
+       y = "人間開発指数 (2018)",  color = "OECD") + 
+  theme_minimal(base_family = "HiraKakuProN-W3") + 
+* theme(legend.position = "bottom")
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## `ggplot2`の図が出来上がるまで
+
+* レイヤーを重ねるイメージ
+  * 図の核心部は幾何オブジェクト（`geom_*()`）とマッピング（`aes()`）
+
+![](Figs/03/Layer.png)
+
+---
+
+## `ggplot2`の必須要素
+
+以下の要素があればグラフは出来上がる
+
+1. データ（Data）
+2. 幾何オブジェクト（Geometry Object）
+  * 散布図、棒グラフ、折れ線グラフ、...
+3. マッピング（Mapping）
+  * 散布図の場合、点の位置（横軸と縦軸）
+  * 棒グラフの場合、棒の位置（横軸）と高さ（縦軸）
+  * 折れ線グラフの場合、線の傾きが変化する点の位置（横軸と縦軸）
+4. 座標系（Coordinate System）
+  * デカルト座標系（直交座標系）、極座標系など
+  * 座標系の上限の下限など
+  * 座標系は`ggplot2`が自動的に設定してくれるが、カスタマイズ可
+  
+凡例の位置、フォント、点の大きさ、軸ラベルの修正などは任意
+
+---
+
+## `ggplot2`の必須要素
+
+&lt;img src = "Figs/03/Structure.png", width = "95%"&gt;
+
+---
+class: inverse, middle, center
+
+# 5NG
+
+---
+
+## 5 named plots (5NG)
+
+1. 棒グラフ: `geom_bar()`
+  * 必須マッピング1: 棒の横軸上の位置（`x`）
+  * 必須マッピング2: 棒の横軸上の位置（`x`）と棒の高さ（`y`）
+2. ヒストグラム: `geom_histogram()`
+  * 必須マッピング: 分布が知りたい変数（`x`）
+3. 箱ひげ図: `geom_boxplot()`
+  * 必須マッピング: 分布が知りたい変数（`y`）
+4. 散布図: `geom_point()`
+  * 必須マッピング: 点の横軸上の位置（`x`）と縦軸上の位置（`y`）
+5. 折れ線グラフ: `geom_line()`
+  * 必須マッピング: 線の傾きが変化する点の横軸上の位置（`x`）と縦軸上の位置（`y`）
+
+---
+
+## 目的別グラフ
+
+一変数の分布が知りたい
+
+1. 棒グラフ: 離散変数
+2. ヒストグラム: 連続変数
+3. 箱ひげ図: 連続変数
+  * ヒストグラムより情報量は少ないが、複数のグループ間の分布を素早く比較可能
+  
+二変数間の関係が知りたい
+1. 棒グラフ: 離散変数と記述統計量
+2. 散布図: 連続変数と連続変数
+3. 折れ線グラフ: 順序付き離散変数（日付など）と連続変数
+4. 離散変数同士はクロス集計表、またはモザイクプロット
+
+---
+class: inverse, middle, center
+
+# 棒グラフ
+
+---
+
+## 2つの棒グラフ
+
+1. &lt;span style = "color:#FF0000;"&gt;一変数の分布&lt;/span&gt;が知りたい場合
+  * 度数の棒グラフ
+  * ある変数において各値はいくつ存在するか
+  * **例)** `Country_df`の`Continent`列において`Asia`、`Africa`、...はそれぞれいくつあるか
+2. &lt;span style = "color:#FF0000;"&gt;二変数の関係&lt;/span&gt;が知りたい場合
+  * 記述統計の棒グラフ
+  * グループごとの記述統計量はいかに異なるか
+  * **例)** 大陸ごとの人間開発指数の平均値は?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
