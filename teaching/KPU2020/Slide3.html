@@ -697,6 +697,126 @@ class: inverse, middle, center
 ---
 
 ## 散布図
+
+* 幾何オブジェクト: `geom_point()`
+* 必須マッピング: 点の位置（`x`（横軸上）と`y`（縦軸上））
+  * 主に使う次元追加の方法
+    * `facet_wrap()`: ファセット分割
+    * `color`: 点の色分け
+      * 枠線付きの点の場合、`color`は枠線、`fill`が点の色
+    * `size`: 点の大きさ
+    
+
+```r
+データ %&gt;%
+  ggplot() +
+* geom_point(aes(x = 横軸上の点の位置, y = 縦軸上の点の位置)) +
+  その他のレイヤー
+```
+
+---
+
+## 散布図
+
+一人当たりGDPと人間開発指数の関係は？
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+* geom_point(aes(x = GDP_per_capita, y = HDI_2018)) +
+  labs(x = "一人当たりGDP (米ドル)", y = "人間開発指数 (2018)") +
+  theme_gray(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## 散布図
+
+一人当たりGDPと人間開発指数の関係は？
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加: 色分け
+
+大陸ごとに色分けをする: `color`
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+* geom_point(aes(x = GDP_per_capita, y = HDI_2018,
+*                color = Continent)) +
+  labs(x = "一人当たりGDP (米ドル)", y = "人間開発指数 (2018)",
+       color = "大陸") +
+  theme_gray(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## 次元の追加: 色分け
+
+大陸ごとに色分けをする: `color`
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加: 大きさ
+
+更に人口に応じて大きさを変更: `size`
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+* geom_point(aes(x = GDP_per_capita, y = HDI_2018,
+*                color = Continent, size = Population),
+*            alpha = 0.5) +
+  labs(x = "一人当たりGDP (米ドル)", y = "人間開発指数 (2018)",
+       color = "大陸") +
+  theme_gray(base_family = "HiraKakuProN-W3")
+```
+
+---
+
+## 次元の追加: 大きさ
+
+更に人口に応じて大きさを変更: `size`
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 次元の追加: ファセット
+
+OECD加盟有無でファセットを分割
+
+
+```r
+Country_df %&gt;%
+  mutate(OECD2 = recode(OECD,
+                        "0" = "非加盟国",
+                        "1" = "加盟国")) %&gt;% 
+  ggplot() +
+  geom_point(aes(x = GDP_per_capita, y = HDI_2018,  
+                 size = Population), alpha = 0.5) + 
+  labs(x = "一人当たりGDP (米ドル)", y = "人間開発指数 (2018)",
+       size = "人口") +
+* facet_wrap(~OECD2) +
+  theme_gray(base_family = "HiraKakuProN-W3") +
+  theme(legend.position = "bottom")
+```
+
+---
+
+## 次元の追加: ファセット
+
+OECD加盟有無でファセットを分割
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
