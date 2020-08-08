@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ggplot2入門 [基礎編]</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.70.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-96999602-1');
+              gtag('set', {'user_id': 'USER_ID'});
+            </script>
+        
+
+        <meta name="google-site-verification" content="QJouPRaPKBPU1jDp6VaBuFbVV5imTI-Aazl_ScJwVgU" />
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">ggplot2入門 [基礎編]</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../">Home</a></li>
+                            
+                                <li><a href="../about/">CV</a></li>
+                            
+                                <li><a href="../research/">Research</a></li>
+                            
+                                <li><a href="../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../software/">Software</a></li>
+                            
+                                <li><a href="../notes/">Notes</a></li>
+                            
+                                <li><a href="../tutorial/">Tutorial</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2><center>ggplot2入門 [基礎編]</center></h2>
+        <h5><center></center></h5>
+        <center>
+<a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+
+<a href="../tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="../tags/%E5%8F%AF%E8%A6%96%E5%8C%96"><kbd class="item-tag">可視化</kbd></a>
+
+</center>
+    </div>
+
+    <div align="start" class="content">
+<script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="../rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="はじめに" class="section level2">
+<h2>はじめに</h2>
+<ul>
+<li>修正履歴
+<ul>
+<li>2020/08/08: 公開</li>
+<li>誤字・脱字は随時修正しております。</li>
+</ul></li>
+<li>以下の内容は現在執筆中の内容の一部となります。
+<ul>
+<li>Song Jaehyun・矢内勇生『私たちのR: ぼくらがかんがえたさいきょうRほん (仮)』(E-book)
+<ul>
+<li>「可視化 [基礎]」章を抜粋したものであり、[応用]も執筆する次第、こちらにアップロードします。</li>
+<li>ここをお読みになる前に、まず、<a href="../dplyr_intro/">dplyr入門 (新版)</a>と<a href="../ggplot_intro1/">ggplot2入門 [理論編]</a>を一読して下さい。</li>
+</ul></li>
+<li>したがって、いきなり<strong>オブジェクト</strong>、<strong>関数</strong>、<strong>引数</strong>といった馴染みのない概念が出てきます。これらの概念に馴染みのない方は、予め「<a href="../rprogramming/">Rプログラミング入門の入門</a>」の前半をご一読ください。</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="基礎編の内容" class="section level2">
+<h2>基礎編の内容</h2>
+<p>　<a href="../ggplot_intro1/">理論編</a>では<code>ggplot2</code>の仕組みおよびグラフィックの文法と良いグラフについて説明しました。基礎編では実際に簡単なグラフを作りながら<code>ggplot2</code>に慣れて頂きたいと思います。<code>ggplot2</code>で作れる図の種類は非常に多いですが、ここでは、データサイエンスで頻繁に利用される以下の5つのプロットの作り方を紹介します。</p>
+<ol style="list-style-type: decimal">
+<li><a href="#visual2-barplot">棒グラフ</a></li>
+<li><a href="#visual2-histogram">ヒストグラム</a></li>
+<li><a href="#visual2-box">箱ひげ図</a></li>
+<li><a href="#visual2-scatter">散布図</a></li>
+<li><a href="#visual2-line">折れ線グラフ</a></li>
+</ol>
+<p>　その他の図や、図の細かい修正については応用編で解説します。</p>
+</div>
+<div id="visual2-data" class="section level2">
+<h2>実習用データ</h2>
+<p>　実習の前に基礎編で使用するデータと<code>ggplot2</code>パッケージが含まれている<code>tidyverse</code>を読み込みます。</p>
+<ul>
+<li><a href="../Data/Countries.csv">データ1: 国家別民主主義および政治的自由データ</a></li>
+<li><a href="../Data/COVID19_Worldwide.csv">データ2: COVID-19データ</a></li>
+</ul>
+<p>　<code>COVID19_Worldwide.csv</code>の場合、普通に読み込むと<code>Test_Day</code>と<code>Test_Total</code>が数値型であるにも関わらず、logical型変数として読み込まれます。<code>read_csv</code>はデフォルトだと最初の100行までのデータからデータ型を判断しますが、<code>COVID19_Worldwide.csv</code>の場合、<code>Test_Day</code>と<code>Test_Total</code>の最初の100要素は全て欠損しており、判断不可となるため、自動的にlogical型として判断します。これを避けるために、<code>guess_max = 10000</code>を追加します。これは「データ型を判断するなら10000行までは読んでから判断しろ」という意味です。</p>
+<pre class="r numberLines"><code>library(tidyverse)
+Country_df &lt;- read_csv(&quot;Data/Countries.csv&quot;)
+COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10000)</code></pre>
+<p>　これらの変数はSONGが適当にインターネットなどで集めたデータであり、あくまでも実習用データとしてのみお使い下さい。各変数の詳細は以下の通りです。</p>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-3">Table 1: </span><code>Countries.csv</code>の詳細
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: center;">
+変数名
+</th>
+<th style="text-align:left;text-align: center;">
+説明
+</th>
+<th style="text-align:left;text-align: center;">
+詳細
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>Country</code>
+</td>
+<td style="text-align:left;">
+国名
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Population</code>
+</td>
+<td style="text-align:left;">
+人口
+</td>
+<td style="text-align:left;">
+人
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Area</code>
+</td>
+<td style="text-align:left;">
+面積
+</td>
+<td style="text-align:left;">
+km<span class="math inline">\(^2\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>GDP</code>
+</td>
+<td style="text-align:left;">
+国内総生産 (GDP)
+</td>
+<td style="text-align:left;">
+100万米ドル
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>PPP</code>
+</td>
+<td style="text-align:left;">
+GDP (購買力平価):
+</td>
+<td style="text-align:left;">
+100万米ドル
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>GDP_per_capita</code>
+</td>
+<td style="text-align:left;">
+一人あたりGDP
+</td>
+<td style="text-align:left;">
+米ドル
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>PPP_per_capita</code>
+</td>
+<td style="text-align:left;">
+一人あたりGDP (購買力平価)
+</td>
+<td style="text-align:left;">
+米ドル
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>G7</code>
+</td>
+<td style="text-align:left;">
+G7構成国
+</td>
+<td style="text-align:left;">
+1:構成国, 0:構成国以外
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>G20</code>
+</td>
+<td style="text-align:left;">
+G20構成国
+</td>
+<td style="text-align:left;">
+1:構成国, 0:構成国以外
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>OECD</code>
+</td>
+<td style="text-align:left;">
+OECD構成国
+</td>
+<td style="text-align:left;">
+1:構成国, 0:構成国以外
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>HDI_2018</code>
+</td>
+<td style="text-align:left;">
+人間開発指数
+</td>
+<td style="text-align:left;">
+2018年基準
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Polity_Score</code>
+</td>
+<td style="text-align:left;">
+民主主義の程度
+</td>
+<td style="text-align:left;">
+Polity IVから; -10:権威主義〜10:民主主義
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Polity_Type</code>
+</td>
+<td style="text-align:left;">
+民主主義の程度 (カテゴリ)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>FH_PR</code>
+</td>
+<td style="text-align:left;">
+政治的自由の指標
+</td>
+<td style="text-align:left;">
+2020年基準; Freedom Houseから
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>FH_CL</code>
+</td>
+<td style="text-align:left;">
+市民的自由の指標
+</td>
+<td style="text-align:left;">
+2020年基準; Freedom Houseから
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>FH_Total</code>
+</td>
+<td style="text-align:left;">
+政治的自由と市民的自由の合計
+</td>
+<td style="text-align:left;">
+2020年基準; Freedom Houseから
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>FH_Status</code>
+</td>
+<td style="text-align:left;">
+総合評価
+</td>
+<td style="text-align:left;">
+F:完全な自由; PF:一部自由; NF:不自由
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Continent</code>
+</td>
+<td style="text-align:left;">
+大陸
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-4">Table 2: </span><code>COVID19_Worldwide.csv</code>の詳細
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: center;">
+変数名
+</th>
+<th style="text-align:left;text-align: center;">
+説明
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>ID</code>
+</td>
+<td style="text-align:left;">
+ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Country</code>
+</td>
+<td style="text-align:left;">
+国名
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Date</code>
+</td>
+<td style="text-align:left;">
+年月日
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Confirmed_Day</code>
+</td>
+<td style="text-align:left;">
+COVID-19 新規感染者数（人）
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Confirmed_Total</code>
+</td>
+<td style="text-align:left;">
+COVID-19 累積感染者数（人）
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Death_Day</code>
+</td>
+<td style="text-align:left;">
+COVID-19 新規死亡者数（人）
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Death_Total</code>
+</td>
+<td style="text-align:left;">
+COVID-19 累積死亡者数（人）
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Test_Day</code>
+</td>
+<td style="text-align:left;">
+COVID-19 新規検査数（人）
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>Test_Total</code>
+</td>
+<td style="text-align:left;">
+COVID-19 累積検査数（人）
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="visual2-barplot" class="section level2">
+<h2>棒グラフ</h2>
+<p>　棒グラフについては以下の2つのタイプについて説明します。</p>
+<ol style="list-style-type: decimal">
+<li>ある変数の数の表す棒グラフ</li>
+<li>各グループの統計量を表す棒グラフ</li>
+</ol>
+<p>　前者は「データ内にアフリカのケースはいくつあるか、アジアの行はいくつあるか」のようなものであり、後者は「大陸ごとの民主主義の度合いの平均値はいくつか」を出力するグラフです。</p>
+<div id="ケース数のグラフ" class="section level3">
+<h3>ケース数のグラフ</h3>
+<p>　まず、<code>Country_df</code>の<code>Continent</code>変数における各値の頻度数を棒グラフとして出してみましょう。表としてまとめる簡単な方法は<code>table()</code>関数があります。</p>
+<pre class="r numberLines"><code>table(Country_df$Continent)</code></pre>
+<pre><code>## 
+##  Africa America    Asia  Europe Oceania 
+##      54      36      42      50       4</code></pre>
+<p>　ケース数の棒グラフは、大陸名を横軸に、ケース数を縦軸にしたグラフです。それではグラフを作ってみます。データは<code>Country_df</code>であり、使う幾何オブジェクトは<code>geom_bar()</code>です。ここで必要な情報は横軸、つまり大陸 (<code>Continent</code>)のみです。縦軸も「ケース数」という情報も必要ですが、<code>ggplot2</code>が勝手に計算してくれるので、指定しません。また、<code>labs()</code>レイヤーを追加します。<code>labs()</code>レイヤーはマッピング要素のラベルを指定するものです。これを指定しない場合、<code>aes()</code>内で指定した変数名がそのまま出力されます。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent)) +
+  labs(x = &quot;大陸&quot;, y = &quot;ケース数&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-6-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　使用しているPCのOSによっては、このように文字化けすることもあります。この場合は、プロットで使用するフォント群 (font family)を指定する必要があります。たとえば、macOSの場合、ヒラギノ角コジックW3がよく使われます (W0からW9まであり、数字が大きくなると太字になります)。フォント群の指定は<code>theme_*()</code>関数の<code>base_family</code>引数で行います。ここの<code>theme_*()</code>ですが、<code>*</code>の箇所には<code>gray</code>や<code>bw</code>、<code>minimal</code>などが入ります。<code>ggplot2</code>が提供しているテーマについては<a href="https://www.r-graph-gallery.com/192-ggplot-themes.html">ここ</a>を参照してください。また、<code>ggthemes</code>や<code>egg</code>、<code>hrbrthemes</code>などのパッケージを導入すると様々なテーマが利用可能になります。デフォルトのテーマは<code>gray</code>ですが、今回は<code>bw</code>にし、ヒラギノ角コジックW3 (<code>"HiraKakuProN-W3"</code>)をフォント群として指定します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent)) +
+  labs(x = &quot;大陸&quot;, y = &quot;ケース数&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これで初めてのggplot2を用いたグラフが完成しました。</p>
+</div>
+<div id="記述統計量のグラフ" class="section level3">
+<h3>記述統計量のグラフ</h3>
+<p>　次は記述統計量のグラフを出してみます。たとえば、大陸ごとに民主主義の指標の1つであるPolity Scoreの平均値を図示するとします。まずは、<code>dplyr</code>を使って、大陸ごとにPolity Score (<code>Polity_Score</code>)の平均値を計算し、<code>Bar_df1</code>という名で保存します。</p>
+<pre class="r numberLines"><code>Bar_df1 &lt;- Country_df %&gt;%
+  group_by(Continent) %&gt;%
+  summarise(Democracy = mean(Polity_Score, na.rm = TRUE),
+            .groups   = &quot;drop&quot;)
+
+Bar_df1</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   Continent Democracy
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 Africa        2.48 
+## 2 America       6.93 
+## 3 Asia          0.342
+## 4 Europe        7.93 
+## 5 Oceania       7.25</code></pre>
+<p>　それでは、この<code>Bar_df1</code>を基にグラフを作りますが、今回は縦軸の情報も必要です。横軸は<code>Continent</code>、縦軸は<code>Democracy</code>変数に指定します。そして、重要なものとして<code>stat</code>引数を指定します。これはマッピングと関係なく、棒グラフの性質に関係するものなので、<code>aes()</code>の外側に位置します。これを指定しない場合、<code>geom_bar()</code>は基本的にはケース数を計算し、図示します。<code>Passenger</code>の値そのものを縦軸にしたい場合は<code>stat = "identity"</code>を指定します。後は、先ほどの棒グラフと同じです。</p>
+<pre class="r numberLines"><code>Bar_df1 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = Democracy), stat = &quot;identity&quot;) +
+  labs(x = &quot;大陸&quot;, y = &quot;Polity IV スコアの平均値&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　考えてみれば、大陸名が英語になっていますね。図内の言語は統一するのが原則であり、図の言語は論文やレポート、報告書の言語とも一致させるべきです。ここは<code>Bar_df1</code>の<code>Continent</code>列の値を日本語に置換するだけでいいので、<code>recode()</code>関数を使います。<code>recode()</code>の使い方は「<a href="../dplyr_intro/">dplyr入門 (新版)</a>」を参照してください。また、順番はローマ字順にしたいので、<code>fct_inorder()</code>を使って、<code>Bar_df1</code>における表示順でfactor化を行います。</p>
+<pre class="r numberLines"><code>Bar_df1 %&gt;%
+  mutate(Continent = recode(Continent,
+                            &quot;Africa&quot;   = &quot;アフリカ&quot;,
+                            &quot;America&quot;  = &quot;アメリカ&quot;,
+                            &quot;Asia&quot;     = &quot;アジア&quot;,
+                            &quot;Europe&quot;   = &quot;ヨーロッパ&quot;,
+                            .default   = &quot;オセアニア&quot;),
+         Continent = fct_inorder(Continent)) %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = Democracy), stat = &quot;identity&quot;) +
+  labs(x = &quot;大陸&quot;, y = &quot;Polity IV スコアの平均値&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-10-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="図の保存" class="section level3">
+<h3>図の保存</h3>
+<p>　綺麗な図も出来上がりましたので、みんなに自慢してみましょう。ただ、自慢のためにパソコンを持ち歩くのは大変なので、ファイルと保存してみんなに配りましょう。自慢する相手がいないなら<a href="mailto:jasong@mail.doshisha.ac.jp">SONG</a>に自慢しても結構です。図のフォーマットはPNGかPDFが一般的です。JPEGなど圧縮フォーマットは絶対にダメです。PNGとPDFは前者はピクセルベース、後者がベクトルベースで、PDFの方が拡大してもカクカクせず綺麗です。ただし、一部の文書作成ソフトウェアでPDFを図として扱えない点や、サイズの問題 (一般的にPDFの方がサイズが大きい)もあるので、PNGを使うケースも多いです。むろん、<span class="math inline">\(\LaTeX\)</span>を使うなら、PDF一択です。</p>
+<p>　保存方法として以下の2つを紹介します。</p>
+<ol style="list-style-type: decimal">
+<li><code>ggsave()</code>を利用: 簡単。ただし、macOSで日本語が含まれるPDFとして保存する場合は問題が生じる。</li>
+<li><code>quartz()</code>を利用: macOS、かつ日本語が含まれるPDFならこちらを利用</li>
+</ol>
+<div id="ggsaveを利用した図の保存" class="section level4">
+<h4><code>ggsave()</code>を利用した図の保存</h4>
+<p>　<code>ggsave()</code>が<code>ggplot2</code>が提供する図の保存関数です。まずは、使い方から紹介します。</p>
+<pre class="r numberLines"><code># ggsave()を利用した保存方法
+ggsave(filename = &quot;ファイル名&quot;,
+       plot     = 図のオブジェクト名,
+       device   = &quot;pdf&quot;や&quot;png&quot;など,
+       width    = 図の幅,
+       height   = 図の高さ、
+       units    = &quot;in&quot;や&quot;cm&quot;など、幅/高さの単位)</code></pre>
+<p>　<code>device</code>で指定可能なフォーマットとしては<code>"png"</code>、<code>"eps"</code>、<code>"ps"</code>、<code>"tex"</code>、<code>"pdf"</code>、<code>"jpeg"</code>、<code>"tiff"</code>、<code>"bmp"</code>、<code>"svg"</code>、<code>"wmf"</code>があります。また、<code>units</code>は<code>"in"</code> (インチ)、<code>"cm"</code>、<code>"mm"</code>が指定可能です。他にも<code>dpi</code>引数でdpi (dots per inch; 1平方インチにどれだけのドットの表現ができるか)の指定も可能ですが、デフォルトは300となっており、出版用としては一般的なdpiとなっています。それでは、最初に作成した棒グラフを<code>BarPlot1</code>という名で保存し、<code>Figs</code>フォルダー内に<code>BarPlot1.png</code>として保存してみます。幅と高さは5インチにします。</p>
+<pre class="r numberLines"><code>BarPlot1 &lt;- Country_df %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent)) +
+  labs(x = &quot;大陸&quot;, y = &quot;ケース数&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)
+
+ggsave(filename = &quot;Figs/BarPlot.png&quot;,
+       plot     = BarPlot1,
+       device   = &quot;png&quot;,
+       width    = 5,
+       height   = 5,
+       units    = &quot;in&quot;)</code></pre>
+</div>
+<div id="quartzを利用した図の保存" class="section level4">
+<h4><code>quartz()</code>を利用した図の保存</h4>
+<p>　macOSを使用し、日本語などのマルチバイトの文字が含まれる図の場合、<code>ggsave()</code>が正しく作動しません。この場合は<code>quartz()</code>と<code>dev.off()</code>関数を利用して図を保存します。この関数の使い方は以下の通りです。</p>
+<pre class="r numberLines"><code># quartz()を利用した保存方法
+quartz(type = &quot;pdf&quot;, file = &quot;ファイル名&quot;, width = 図の幅, height = 図の高さ)
+作図のコード、または図オブジェクトの呼び出し
+dev.off()</code></pre>
+<p><code>quartz()</code>の<code>width</code>と<code>height</code>引数の場合、単位はインチ (=2.54cm)です。</p>
+<p>　たとえば、最初に作成した図を<code>Figs</code>フォルダーの<code>BarPlot1.pdf</code>という名で保存し、幅と高さを5インチにするなら以下のようなコードになります。</p>
+<pre class="r numberLines"><code># 方法1
+quartz(type = &quot;pdf&quot;, file = &quot;Figs/BarPlot1.pdf&quot;, width = 5, height = 5)
+Country_df %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent)) +
+  labs(x = &quot;大陸&quot;, y = &quot;ケース数&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)
+dev.off()</code></pre>
+<p>　または、予め図をオブジェクトとして保存しておいたなら (先ほどの<code>BarPlot1</code>オブジェクトのように)、以下のようなコードも可能です。</p>
+<pre class="r numberLines"><code># 方法2
+quartz(type = &quot;pdf&quot;, file = &quot;Figs/BarPlot1.pdf&quot;, width = 5, height = 5)
+BarPlot1
+dev.off()</code></pre>
+</div>
+</div>
+<div id="次元を追加する" class="section level3">
+<h3>次元を追加する</h3>
+<p>　記述統計量のグラフを見るとマッピング要素は2つであり、これは図が2つの次元、つまり大陸とPolity IVスコアの平均値で構成されていることを意味します。記述統計量のグラフはマッピング要素は1つですが、ケース数という次元が自動的に計算されるため2次元です。ここにもう一つの次元を追加してみましょう。たとえば、大陸ごとのPolity IVスコアの平均値を出しますが、これを更にOECD加盟有無で分けてみましょう。そのためには、まず大陸とOECD加盟有無でグループを分けてPolity IVスコアの平均値を計算する必要があります。</p>
+<pre class="r numberLines"><code>Bar_df2 &lt;- Country_df %&gt;%
+  group_by(Continent, OECD) %&gt;%
+  summarise(Democracy = mean(Polity_Score, na.rm = TRUE),
+            .groups   = &quot;drop&quot;)
+
+Bar_df2</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Continent  OECD Democracy
+##   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Africa        0     2.48 
+## 2 America       0     6.55 
+## 3 America       1     8.6  
+## 4 Asia          0    -0.314
+## 5 Asia          1     8    
+## 6 Europe        0     5.87 
+## 7 Europe        1     9.12 
+## 8 Oceania       0     4.5  
+## 9 Oceania       1    10</code></pre>
+<p>　続いて、<code>Continent</code>と<code>OECD</code>列を日本語に直します。また、順番を指定するためにfactor化しましょう。</p>
+<pre class="r numberLines"><code>Bar_df2 &lt;- Bar_df2 %&gt;%
+  mutate(Continent = recode(Continent,
+                            &quot;Africa&quot;   = &quot;アフリカ&quot;,
+                            &quot;America&quot;  = &quot;アメリカ&quot;,
+                            &quot;Asia&quot;     = &quot;アジア&quot;,
+                            &quot;Europe&quot;   = &quot;ヨーロッパ&quot;,
+                            .default   = &quot;オセアニア&quot;),
+         Continent = fct_inorder(Continent),
+         OECD      = recode(OECD,
+                            &quot;0&quot; = &quot;OECD非加盟国&quot;,
+                            &quot;1&quot; = &quot;OECD加盟国&quot;),
+         OECD      = fct_inorder(OECD)) 
+
+Bar_df2</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Continent  OECD         Democracy
+##   &lt;fct&gt;      &lt;fct&gt;            &lt;dbl&gt;
+## 1 アフリカ   OECD非加盟国     2.48 
+## 2 アメリカ   OECD非加盟国     6.55 
+## 3 アメリカ   OECD加盟国       8.6  
+## 4 アジア     OECD非加盟国    -0.314
+## 5 アジア     OECD加盟国       8    
+## 6 ヨーロッパ OECD非加盟国     5.87 
+## 7 ヨーロッパ OECD加盟国       9.12 
+## 8 オセアニア OECD非加盟国     4.5  
+## 9 オセアニア OECD加盟国      10</code></pre>
+<p>　これで作図の準備ができました。それではこの新しい次元である<code>OECD</code>をどのように表現すれば良いでしょうか。<code>Continent</code>は横軸の位置で表現され、<code>Democracy</code>は縦軸の位置として表現されているため、<code>x</code>と<code>y</code>以外の要素を考えてみましょう。棒グラフの場合、もう一つの軸が追加されるとしたらそれは、棒の色です。棒の色は<code>fill</code>で指定できます。<code>color</code>でないことに注意してください。<code>color</code>も指定可能ですが、これは棒の色ではなく、棒を囲む線の色であり、通常は「なし」となっています。それでは<code>fill</code>を<code>aes()</code>内に書き加えます。</p>
+<pre class="r numberLines"><code>Bar_df2 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = Democracy, fill = OECD), 
+           stat = &quot;identity&quot;) +
+  labs(x = &quot;大陸&quot;, y = &quot;Polity IV スコアの平均値&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>　なんか思ったものと違うものが出てきました。たとえば、アメリカ大陸の場合、Polity IVスコアの平均値が約15ですが、明らかにおかしいです。なぜならPolity IVスコアの最大値は10だからです。これは2つの棒が積み上げられているからです。アメリカ大陸においてOECD加盟国の平均値は8.6、非加盟国のそれは6.55であり、足したら15.15になります。これをずらすためには<code>position</code>を設定する必要があります。しかし、<code>position</code>というのは<code>Bar_df2</code>の何かと変数の値を表すわけではないため、<code>aes()</code>の外側に入れます。そして、その値ですが、ここでは<code>"dodge"</code>を指定します。これは棒の位置が重ならないように調整することを意味します。この<code>position</code>のデフォルト値は<code>"stack"</code>であり、言葉通り「積み上げ」です。</p>
+<pre class="r numberLines"><code>Bar_df2 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = Democracy, fill = OECD), 
+           stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
+  labs(x = &quot;大陸&quot;, y = &quot;Polity IV スコアの平均値&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>　これで私たちが期待した図が出来上がりました。「<code>"dodge"</code>の方が普通なのになぜデフォルトが<code>"stack"</code>か」と思う方もいるかも知れませんが、実は<code>"stack"</code>も頻繁に使われます。それはケース数のグラフにおいてです。</p>
+<p>　たとえば、大陸ごとにOECD加盟/非加盟国を計算してみましょう。</p>
+<pre class="r numberLines"><code>Bar_df3 &lt;- Country_df %&gt;%
+  group_by(Continent, OECD) %&gt;%
+  summarise(N = n(),
+            .groups   = &quot;drop&quot;) %&gt;%
+  mutate(Continent = recode(Continent,
+                            &quot;Africa&quot;   = &quot;アフリカ&quot;,
+                            &quot;America&quot;  = &quot;アメリカ&quot;,
+                            &quot;Asia&quot;     = &quot;アジア&quot;,
+                            &quot;Europe&quot;   = &quot;ヨーロッパ&quot;,
+                            .default   = &quot;オセアニア&quot;),
+         Continent = fct_inorder(Continent),
+         OECD      = recode(OECD,
+                            &quot;0&quot; = &quot;OECD非加盟国&quot;,
+                            &quot;1&quot; = &quot;OECD加盟国&quot;),
+         OECD      = fct_inorder(OECD)) 
+
+Bar_df3</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   Continent  OECD             N
+##   &lt;fct&gt;      &lt;fct&gt;        &lt;int&gt;
+## 1 アフリカ   OECD非加盟国    54
+## 2 アメリカ   OECD非加盟国    31
+## 3 アメリカ   OECD加盟国       5
+## 4 アジア     OECD非加盟国    39
+## 5 アジア     OECD加盟国       3
+## 6 ヨーロッパ OECD非加盟国    23
+## 7 ヨーロッパ OECD加盟国      27
+## 8 オセアニア OECD非加盟国     2
+## 9 オセアニア OECD加盟国       2</code></pre>
+<p>　これを可視化したのが以下の図です。</p>
+<pre class="r numberLines"><code>Bar_df3 %&gt;%
+  ggplot() +
+  geom_bar(aes(x = Continent, y = N, fill = OECD), 
+           stat = &quot;identity&quot;) +
+  labs(x = &quot;大陸&quot;, y = &quot;国家数&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>　この図は<code>position = "dodge"</code>でも良いと思いますが、大陸内の比率を考えるなら<code>position = "stack"</code>でも問題ないでしょう。また、積み上げグラフの特性上、大陸ごとの国数の合計も一瞬で判別できるといった長所もあります。<code>position = "dodoge"</code>だと、それが難しいですね。むろん、積み上げ棒グラフはベースラインが一致したいため、避けるべきという人も多いですし、著者 (SONG)も同意見です。どの図を作成するかは分析者の責任で判断しましょう。</p>
+<hr />
+</div>
+</div>
+<div id="visual2-histogram" class="section level2">
+<h2>ヒストグラム</h2>
+<p>　ヒストグラムは棒グラフと非常に形が似ていますが、横軸が大陸のような離散変数でなく、連続変数であるのが特徴です。連続変数をいくつの区間 (階級)に分け、その区間内に属するケース数 (度数)を示したのが度数分布表、そして度数分布表をかしかしたものがヒストグラムです。連続変数を扱っているため、棒間に隙間がありません。それでもケース数の棒グラフと非常に似通っているため、マッピングの仕方も同じです。異なるのは幾何オブジェクトが<code>geom_bar()</code>でなく、<code>geom_histogram()</code>に変わるくらいです。世界の富がどのように分布しているかを確認するために、<code>Country_df</code>の<code>GDP</code>のヒストグラムを作ってみます。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (100万米ドル)&quot;, y = &quot;度数&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-21-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　ケース数の棒グラフのコードとほぼ同じです。横軸の数値が<code>2.0e+07</code>になっているのは<code>2 \times 10^7</code>、つまり2千万を意味します。普通に表記すると<code>20000000</code>になりますね。また、GDPの単位は100万ドルであるため、実際のGDPは20兆ドルになります。つまり、今のヒストグラムにおいて横軸の目盛りは5兆ドルになっています。この軸の数値を「0, 5e+06, 1e+07, 1.5e+07, 2e+07」から「0, 5, 10, 15, 20」 にし、X軸のラベルを「国内総生産 (100万米ドル)」から「国内総生産 (兆米ドル)」に替えてみましょう。ここで使うのは<code>scale_x_continuous()</code>関数です。これは横軸 (X軸)が連続変数 (continuous)の場合のスケール調整関数です。目盛りの再調整には<code>breaks</code>と<code>labels</code>引数が必要です。<code>breaks</code>は新しい目盛りの位置、<code>labels</code>は目盛りに表記する値です。それぞれベクトルが必要であり、<code>breaks</code>と<code>labels</code>の実引数の長さは必ず一致する必要があります。また、<code>breaks</code>は数値型ベクトルですが、<code>labels</code>は数値型でも文字型でも構いません。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (兆米ドル)&quot;, y = &quot;度数&quot;) +
+  scale_x_continuous(breaks = c(0, 5000000, 10000000, 15000000, 20000000),
+                     labels = c(0, 5, 10, 15, 20)) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-22-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これで一通りヒストグラムが完成しました。ほんの一部の国は非常に高いGDPを誇っていることが分かります。GDPが10兆ドル以上の国はアメリカと中国のみであり、5兆ドルを国まで拡大しても日本が加わるだけです。そもそも1兆ドルを超える国はデータには16カ国しかなく、90%以上の国が図の非常に狭い範囲内 (0~1兆ドル)に集まっていることが分かります。</p>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-23-1.png" width="768" /></p>
+<p>　この場合、2つの方法が考えられます。1つ目は方法は情報の損失を覚悟した上で、GDPが1兆ドル未満の国でヒストグラムを書く方法です。これはデータを<code>ggplot()</code>関数を渡す前に<code>filter()</code>を使って、<code>GDP</code>が100万未満のケースに絞るだけで出来ます。ただし、横軸の最大値が2000万でなく、100万になるため、目盛りを調整した方が良いでしょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  filter(GDP &lt; 1000000) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (兆米ドル)&quot;, y = &quot;度数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1000000, 100000),
+                     labels = seq(0, 1, 0.1)) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-24-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　2つ目の方法は横軸を対数化することです。GDPを底10の対数化 (常用対数)をすると、10兆のような非常に大きい値があっても比較的に狭い範囲内にデータを収めることが出来ます。たとえば、10を常用対数化すると1, 1000は3, 10000000は7になります。自然対数 (底が<span class="math inline">\(e\)</span>)も可能ですが、「読む」ためのグラフとしては底が10の方が読みやすいでしょう。横軸の変数が対数化されるということは、横軸のスケールを対数化することと同じです。そのためには<code>scale_x_continuous()</code>内に<code>trans</code>引数を指定し、<code>"log10"</code>を渡します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (兆米ドル)&quot;, y = &quot;度数&quot;) +
+  scale_x_continuous(breaks = seq(0, 20000000, by = 5000000),
+                     labels = seq(0, 20, by = 5),
+                     trans = &quot;log10&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-25-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　対数化することによってGDPの分布が綺麗な形になりました。対数化すると横軸における目盛りの間隔が等間隔でないことに注意すべきです。0から5兆ドルの距離はかなり広めですが、5兆から10兆までの距離は短くなり、10兆から15兆までの距離は更に短くなります。したがって、この図から「世界のGDPは鐘型に分布している」と解釈することは出来ません。分布を可視化するには対数化する前の図が適します。</p>
+<p>　対数化のもう一つの方法は<code>scale_x_continuous()</code>の代わりに<code>scale_x_log10()</code>を使うことです。使い方は<code>scale_x_continuous()</code>と同じですが、<code>trans = "log10"</code>の指定は不要です。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (兆米ドル)&quot;, y = &quot;度数&quot;) +
+  scale_x_log10() +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-26-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　横軸を修正するには<code>scale_x_continuous()</code>と同様、<code>breaks</code>と<code>labels</code>引数を指定します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  ggplot() +
+  geom_histogram(aes(x = GDP)) +
+  labs(x = &quot;国内総生産 (兆米ドル)&quot;, y = &quot;度数&quot;) +
+  scale_x_log10(breaks = c(0, 1000, 10000, 100000, 1000000, 10000000),
+                labels = c(0, 0.001, 0.01, 0.1, 1, 10)) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-27-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　他にも<code>coord_*()</code>関数群、つまり座標系の操作を用いて軸を対数化することも可能です。他にも、データを<code>ggplot()</code>を渡す前に変数を対数化するのもありでしょう。プログラミングにおいてある結果にたどり着く方法は複数あるので、色々試してみるのも良いでしょう。</p>
+<div id="ヒストグラムの棒の大きさを調整する" class="section level3">
+<h3>ヒストグラムの棒の大きさを調整する</h3>
+<p>　棒グラフのようにもう一つの次元を追加してみましょう。まず、人間開発指数 (<code>HDI_2018</code>)の分布を示してみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018)) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 6 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
+<p>　これでもヒストグラムとしては十分すぎるかも知れませんが、色々調整してみましょう。まずは、棒の枠線を白にしてみましょう。枠線はデータ内の変数に対応していないため、<code>aes()</code>の外側に入れます。枠線を指定する引数は<code>color</code>です。ちなみに棒の色を指定する引数は<code>fill</code>です。また、警告メッセージも気になるので、<code>HDI_2018</code>が欠損している行を除外します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), color = &quot;white&quot;) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-29-1.png" width="768" /></p>
+<p>　人によってはこちらの方が見やすかも知れません。</p>
+<p>　これで一通りの作図は出来ましたが、これまで無視してきたメッセージについて考えてみましょう。</p>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p>　これは「連続変数<code>HDI_2018</code>を30区間 (=階級)に分けました」という意味です。この区間数を調整する方法は2つあり、(1) 区間数を指定する、(2) 区間の幅を指定する方法があります。</p>
+<p>　区間数を指定することはすなわちヒストグラムの棒の数を指定することであり、<code>bins</code>引数で調整可能です。たとえば、棒の数を10個にするためには<code>geom_histogram()</code>内に<code>bins = 10</code>を指定します。むろん、棒の数もデータとは無関係であるため、<code>aes()</code>の外側に位置します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), color = &quot;white&quot;, bins = 10) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-30-1.png" width="768" /></p>
+<p>　数えてみると棒が10個だということが分かります。</p>
+<p>　他にも区間の幅を指定することも可能です。区間の幅は棒の幅と一致します。たとえば、棒の幅を0.1にしてみましょう。棒の幅は<code>binwidth</code>で調整可能です。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), color = &quot;white&quot;, binwidth = 0.1) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-31-1.png" width="768" /></p>
+<p>　ヒストグラムが出力されましたが、棒の幅が<code>binwidth</code>で指定した0.1と一致することが分かります。たとえば、一番左の棒は0.35から0.45まで、つまり幅が0.1です。そして、一番右の棒は0.95から1.05に渡って位置します。ただし、ここでに疑問を持つ読者もいるでしょう「。なぜ0.3から0.4、0.4から0.5、…ではなく、0.35から0.45、0.45から0.55なのか」です。これは<code>ggplot2</code>の基本仕様です。ヒストグラムは度数分布表を基に作成されますが、本グラフの度数分布表は以下のようになります。</p>
+<pre><code>## Warning in kableExtra::kable_styling(., full_width = FALSE): Please specify
+## format in kable. kableExtra can customize either HTML or LaTeX outputs. See
+## https://haozhu233.github.io/kableExtra/ for details.</code></pre>
+<pre><code>## Warning in kableExtra::row_spec(., 0, align = &quot;c&quot;): Please specify format in
+## kable. kableExtra can customize either HTML or LaTeX outputs. See https://
+## haozhu233.github.io/kableExtra/ for details.</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">から</th>
+<th align="right">まで</th>
+<th align="right">度数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.35</td>
+<td align="right">0.45</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">0.45</td>
+<td align="right">0.55</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="right">0.55</td>
+<td align="right">0.65</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="right">0.65</td>
+<td align="right">0.75</td>
+<td align="right">37</td>
+</tr>
+<tr class="odd">
+<td align="right">0.75</td>
+<td align="right">0.85</td>
+<td align="right">47</td>
+</tr>
+<tr class="even">
+<td align="right">0.85</td>
+<td align="right">0.95</td>
+<td align="right">37</td>
+</tr>
+<tr class="odd">
+<td align="right">0.95</td>
+<td align="right">1.05</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>　簡単に言うと、ヒストグラムの最初の棒は0を中央にした上で、棒の幅を0.1にしたとも言えます。これによってヒストグラムの境界線 (boundary)が、データより左右に0.05 (<code>binwidth</code>の半分)ずつ広くなります。もし、これを調整したい場合は、<code>boundary</code>引数を指定します。指定しない場合、<code>boundary</code>は「棒の広さ / 2」となります。棒がデータの範囲を超えないようにするためには、<code>geom_histogram()</code>内に<code>boundary = 0</code>を指定します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), color = &quot;white&quot;, 
+                 binwidth = 0.1, boundary = 0) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-33-1.png" width="768" /></p>
+<p>　ここまで抑えとけば、普段使われるヒストグラムは問題なく作れるでしょう。</p>
+</div>
+<div id="密度を追加する" class="section level3">
+<h3>密度を追加する</h3>
+<p>　ヒストグラムには以下のように密度の表す線を同時に載せるケースもあります。</p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-34-1.png" width="768" /></p>
+<p>　この密度の線を追加するには<code>geom_density()</code>という幾何オブジェクトを追加する必要があります。密度の線を示すには、横軸と縦軸両方の情報が必要です。横軸は<code>HDI_2018</code>で問題ないですが、縦軸はどうでしょう。縦軸には密度の情報が必要ですが、<code>Country_df</code>にそのような情報はありません。幸い、<code>ggplot2</code>は<code>y = ..density..</code>と指定するだけで、自動的に<code>HDI_2018</code>のある時点における密度を計算してくれます。したがって、マッピングは<code>aes(x = HDI_2018, y = ..density..)</code>のように書きます。こうなるとマッピング要素<code>x</code>は<code>geom_histogram()</code>と<code>geom_density()</code>に共通するため、<code>ggplot()</code>に入れても問題ありません。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  # 全幾何オブジェクトにおいてxを共有するため、ここでマッピング指定
+  ggplot(aes(x = HDI_2018)) +
+  geom_histogram(color = &quot;white&quot;, binwidth = 0.05, boundary = 0) +
+  geom_density(aes(y = ..density..), size = 1) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;密度&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-35-1.png" width="768" /></p>
+<p>　なんとも言えない微妙なグラフが出来ました。考えたものと全然違いますね。これはなぜでしょうか。それは<code>geom_density()</code>は<strong>密度</strong>を表す一方、<code>geom_histogram()</code>は<strong>度数</strong>を表すからです。2つは単位が全然違います。したがって、どちらかに単位を合わせる必要があり、この場合はヒストグラムの縦軸を度数でなく、密度に調整する必要があります。ヒストグラムの縦軸を密度にするためには、<code>y = ..density..</code>を指定するだけです。こうなると、<code>geom_histogram()</code>と<code>geom_density()</code>は<code>x</code>と<code>y</code>を共有するため、全部<code>ggplot()</code>内で指定しましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot(aes(x = HDI_2018, y = ..density..)) +
+  geom_histogram(color = &quot;white&quot;, binwidth = 0.05, boundary = 0) +
+  geom_density(size = 1) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;密度&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-36-1.png" width="768" /></p>
+<p>　これで密度を表す線が出来ました。</p>
+</div>
+<div id="次元を追加する-1" class="section level3">
+<h3>次元を追加する</h3>
+<p>　次元を追加するには棒グラフと同様、<code>aes()</code>内にマッピング要素を追加します。たとえば、OECD加盟有無によって人間開発指数の分布がどう異なるかを確認してみましょう。<code>OECD</code>変数は0/1であり、Rでは連続変数扱いになっているため、これを離散変数化するためには文字型かfactor型にする必要があります。<code>ifelse()</code>を使って、<code>OECD == 1</code>なら「OECD加盟国」、<code>OECD == 0</code>なら「OECD非加盟国」と置換したものを<code>OECD2</code>という列として追加します。そして、<code>OECD2</code>ごとに棒の色を変えるために、マッピング要素として<code>fill</code>を追加します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, &quot;加盟国&quot;, &quot;非加盟国&quot;)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018, fill = OECD2), 
+                 color = &quot;white&quot;, binwidth = 0.05, boundary = 0) +
+  # fill要素のラベルをOECDに変更
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;, fill = &quot;OECD&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-37-1.png" width="768" /></p>
+<p>　ヒストグラムが出来上がりました。OECD加盟国の場合、人間開発指数が相対的に高いことが分かります。しかし、積み上げヒストグラムになっています。これはある階級においてOECD加盟国と非加盟国の比率を比較する際に有効ですが、OECD加盟国と非加盟国の分布の違いを見るにはやや物足りません。したがって、棒グラフ同様、<code>position</code>引数で棒の位置を調整します。ただし、ヒストグラムの場合、<code>postion = "dodge"</code>は向いていないので、ここでは<code>position = "identity"</code>を指定します。しかし、この場合、棒が重なってしまうと、一方の棒が見えなくなる可能性もあるので、<code>alpha</code>引数で棒の透明度を調整します。<code>alpha</code>の値は0から1までであり、0になると、完全透明になります。ここでは0.5くらいにしてみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, &quot;OECD加盟国&quot;, &quot;OECD非加盟国&quot;)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018, fill = OECD2), 
+                 color = &quot;white&quot;, alpha = 0.5, position = &quot;identity&quot;,
+                 binwidth = 0.05, boundary = 0) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;, fill = &quot;OECD&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-38-1.png" width="768" /></p>
+<p>　これで2つのヒストグラムを綺麗にオーバーラッピングできました。また、先ほど紹介しました<code>geom_density()</code>オブジェクトを重ねることも可能です。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, &quot;OECD加盟国&quot;, &quot;OECD非加盟国&quot;)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  # xはHDI_2018、yは密度 (..density..)とする
+  ggplot(aes(x = HDI_2018, y = ..density..)) +
+  geom_histogram(aes(fill = OECD2), 
+                 color = &quot;white&quot;, alpha = 0.5, position = &quot;identity&quot;,
+                 binwidth = 0.05, boundary = 0) +
+  # OECD2ごとに異なる色を付ける。線の太さは1、凡例には表示させない
+  geom_density(aes(color = OECD2), size = 1, show.legend = FALSE) +
+  # 縦軸のラベルを「密度」に変更
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;密度&quot;, fill = &quot;OECD&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-39-1.png" width="768" /></p>
+<p>　この場合、OECD加盟国と非加盟国の密度をそれぞれ計算するため、ヒストグラムの見た目がこれまでのものと変わることに注意してください。</p>
+<p>　ここまで、次元拡張の方法としてヒストグラムのオーバーラッピングについて紹介しました。しかし、ヒストグラムを重なってしまうと、読みにくい人もいるかも知れません。オーバーラップ以外の方法はプロットを2つに分けることです。つまり、1つのプロットに小さいブロットを複数載せることであり、この小さいプロットをファセット (facet)と呼びます。これには<code>facet_*()</code>関数群の中の、<code>facet_wrap()</code>関数を使います。<code>facet_wrap(~ 分ける変数名)</code>を追加すると変数ごとにプロットを分割してくれます。<code>ncol</code>や<code>nrow</code>引数を指定すると、ファセットの列数や行数も指定可能です。</p>
+<p>　それではやってみましょう。<code>facet_wrap(~ OECD2)</code>を追加するだけです。2つのファセットを縦に並べるために、<code>ncol = 1</code>を追加します。2つのファセットを1列に並べるという意味です。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(OECD2 = ifelse(OECD == 1, &quot;OECD加盟国&quot;, &quot;OECD非加盟国&quot;)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), 
+                 color = &quot;white&quot;,
+                 binwidth = 0.05, boundary = 0) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;, fill = &quot;OECD&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  facet_wrap(~ OECD2, ncol = 1) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-40-1.png" width="768" /></p>
+<p>　OECDは加盟/非加盟だけですから、オーバーラッピングされたヒストグラムで十分かも知れません。しかし、大陸のように、3つ以上のグループになると、オーバーラッピングよりもファセットで分けた方が効率的です。たとえば、大陸ごとの人間開発指数のヒストグラムを作ってみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_histogram(aes(x = HDI_2018), 
+                 color = &quot;white&quot;,
+                 binwidth = 0.1, boundary = 0) +
+  labs(x = &quot;人間開発指数 (2018)&quot;, y = &quot;ケース数&quot;, fill = &quot;OECD&quot;) +
+  scale_x_continuous(breaks = seq(0, 1, 0.1),
+                     labels = seq(0, 1, 0.1)) +
+  facet_wrap(~ Continent, ncol = 3) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-41-1.png" width="768" /></p>
+<hr />
+</div>
+</div>
+<div id="visual2-box" class="section level2">
+<h2>箱ひげ図</h2>
+<p>　データの分布を示す際には、離散変数ならケース数 (度数)の棒グラフ、連続変数ならヒストグラムがよく使われますが、連続変数の場合、もう一つの方法があります。それが箱ひげ図です。箱ひげ図はヒストグラムより情報量がやや損なわれますが、データの中央値、四分位点（四分位範囲）、最小値と最大値の情報を素早く読み取れます。また、複数の変数、またはグループの分布を1つのプロットに示すにはヒストグラムより優れています。</p>
+<p>　まずは人間開発指数の箱ひげ図を出してみます。使用する幾何オブジェクトは<code>geom_boxplot()</code>です。そして、指定するマッピング要素は<code>y</code>のみです。箱ひげ図から読み取れる情報は最小値・最大値、中央値、第1四分位点、第3四分位点ですが、これらの情報は縦軸として表現されます。それでは、とりあえず実際に作ってみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_boxplot(aes(y = HDI_2018)) +
+  labs(y = &quot;人間開発指数 (2018)&quot;) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-42-1.png" width="768" /></p>
+<p>　箱ひげ図の読み方は以下の通りです。</p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-43-1.png" width="768" /></p>
+<p>　これで箱ひげ図は完成ですが、人間開発指数は0から1の相対を取るので、座標系の縦軸を調整してみましょう。座標系の操作は<code>coord_*()</code>関数群を使いますが、現在使っているのは直交座標系（デカルト座標系）ですので<code>coord_cartesian()</code>を使います。ここで縦軸の上限と下限を指定する引数が<code>ylim</code>であり、長さ2の数値型ベクトルが必要です。下限0、上限1ですので、<code>ylim = c(0, 1)</code>とします。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_boxplot(aes(y = HDI_2018)) +
+  labs(y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-44-1.png" width="768" /></p>
+<p>　まだまだ改善の余地はありますが、それなりの箱ひげ図の出来上がりです。しかし、一変数の箱ひげ図はあまり使われません。変数が1つだけならヒストグラムの方がより情報量は豊富でしょう。情報量が豊富ということはヒストグラムから（完璧には無理ですが）箱ひげ図を作ることは可能である一方、その逆は不可能か非常に難しいことを意味します。</p>
+<p>　ヒストグラムが力を発揮するのは複数の変数、または複数のグループごとの分布を比較する際です。先ほど、大陸ごとの人間開発指数の分布を確認するためにヒストグラムを5つのファセットで分割しました。箱ひげ図なら1つのグラフに5つの箱を並べるだけです。これは横軸を大陸 (<code>Continent</code>)にすることを意味します。先ほどのコードのマッピングに<code>x</code>引数を追加してみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = Continent, y = HDI_2018)) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-45-1.png" width="768" /></p>
+<p>　いかがでしょうか。5大陸の分布を素早く確認することができました。ヨーロッパの場合、人間開発指数が高く、バラツキも小さいことが分かります。一方、アジアとアフリカはバラツキが非常に大きいですね。アメリカ大陸はバラツキは非常に小さいですが、極端に高い国や低い国が含まれています。このアメリカ大陸に3つの点がありますが、これは外れ値です。つまり、最小値より小さい、または最大値より大きいケースを表します。最小値より小さい、または最大値より大きいという表現に違和感を感じるかも知れません。実は一般的な箱ひげ図の最小値は「第1四分位点 - 1.5 <span class="math inline">\(\times\)</span> 四分位範囲」より大きい値の中での最小値です。同じく最大値は「第3四分位点 + 1.5 <span class="math inline">\(\times\)</span> 四分位範囲」より小さい値の中での最大値です。普通に分布している場合、ほとんどのケースは箱ひげ図の最小値と最大値の範囲内に収まりますが、極端に大きい値、小さい値が含まれる場合は箱ひげ図の最小値と最大値の範囲からはみ出る場合があります。</p>
+<p>　また、複数の箱を並べる際、それぞれの箱に異なる色を付ける場合があります。これはデータ・インク比の観点から見れば非効率的ですが、可読性を落とすこともないのでさほど問題はないでしょう。先ほどの箱ひげ図の場合、大陸ごとに異なる色を付けるにはマッピング要素として<code>fill = Continent</code>を追加するだけです。この場合、色に関する凡例が自動的に出力されますが、既に横軸で大陸の情報が分かるため、この判例は不要でしょう。したがって、<code>aes()</code>の外側に<code>show.legned = FALSE</code>を付けます。これは当該幾何オブジェクトに関する凡例を表示させないことを意味します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = Continent, y = HDI_2018, fill = Continent),
+               show.legend = FALSE) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-46-1.png" width="768" /></p>
+<p>　彩りどりでちょっとテンションが上がる箱ひげ図ができました。</p>
+<div id="個別のデータを表示する" class="section level3">
+<h3>個別のデータを表示する</h3>
+<p>　箱ひげ図は複数のグループや変数の分布を素早く比較できる長所がありますが、中央値、最小値、最大値、第1・3四分位点、外れ値の情報しか持ちません。人によってはもうちょっと情報量を増やすために個々の観測値を点として示す場合もあります。点を出力する幾何オブジェクトは次節で紹介する<code>geom_point()</code>です。以下の内容は散布図の節を一読してから読むのをおすすめします。</p>
+<p>　点の幾何オブジェクトにおける必須マッピング要素は点の横軸の位置と縦軸の位置、つまり<code>x</code>と<code>y</code>です。今回の場合、点の横軸が大陸（<code>Continent</code>）、縦軸は人間開発指数（<code>HDI_2018</code>）です。つまり、<code>geom_boxplot()</code>のマッピングと同じです。したがって、<code>x</code>と<code>y</code>は<code>ggplot()</code>に入れておきます。あとは大陸ごとに店の色分けをしたいので、<code>color</code>引数を<code>aes()</code>内に指定します。また、点が重なる場合、読みづらくなる可能性があるため、<code>alpha</code>引数を<code>aes()</code>外に指定して透明度を調整します。また、箱ひげ図もある程度は透明にしないと、裏にある点が見えないため、こちらも<code>alpha</code>を調整します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  # 全幾何オブジェクトにおいてxとyは共有されるため、ここで指定
+  ggplot(aes(x = Continent, y = HDI_2018)) +
+  geom_point(aes(color = Continent), alpha = 0.5,
+             show.legend = FALSE) +
+  geom_boxplot(aes(fill = Continent),
+               alpha = 0.5, show.legend = FALSE) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-47-1.png" width="768" /></p>
+<p>　点が透明ではあるものの、それでも重なっている箇所は相変わらず読みにくいです。この場合有効な方法がジッター（jitter）です。これは点の位置に若干のノイズを付けることによって、点が重ならないようにすることです。ジッターの方法は2つありますが、ここではジッター専用の幾何オブジェクト<code>geom_jitter()</code>を使います<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>。<code>geom_jitter()</code>はノイズが追加された散布図ですので、<code>geom_point()</code>と使い方はほぼ同じです。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot(aes(x = Continent, y = HDI_2018)) +
+  geom_jitter(aes(color = Continent),
+              show.legend = FALSE) +
+  geom_boxplot(aes(fill = Continent),
+               alpha = 0.5, show.legend = FALSE) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-48-1.png" width="768" /></p>
+<p>　これで点が重ならなくなりましたが、ちょっと散らばりすぎるという印象もあります。この散らばり具合を調整する引数が<code>width</code>と<code>height</code>です。もちろん、これはデータの中身に対応する要素ではないため、<code>aes()</code>の外側にいれます。それぞれの実引数は0から1の間の数値になりますが、数字が大きいほど散らばり具合が大きくなり、0になるとジッター無しの散布図と同じものになります。ここでは横の散らばり具合を0.15（<code>width = 0.15</code>）、縦の散らばり具合は0（<code>height = 0</code>）にしてみましょう。そして、横軸が英語のままなので、これも日本語に直します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Continent2 = factor(Continent,
+                             levels = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;,
+                                        &quot;Europe&quot;, &quot;Oceania&quot;),
+                             labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;,
+                                        &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;))) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot(aes(x = Continent2, y = HDI_2018)) +
+  geom_jitter(aes(color = Continent2),
+              width = 0.15, height = 0,
+              show.legend = FALSE) +
+  geom_boxplot(aes(fill = Continent2),
+               alpha = 0.5, show.legend = FALSE) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-49-1.png" width="768" /></p>
+</div>
+<div id="次元を追加する-2" class="section level3">
+<h3>次元を追加する</h3>
+<p>　箱ひげ図に次元を追加する方法はこれまで見てきたように、1つのグラフに次元を追加するか、次元でファセットを分割するかの問題になります。まずは、簡単なファセット分割からやってみます。追加する次元は先進国か否かです。先進国の基準は不明瞭ですが、ここではG7、G20、OECDいずれかに加盟していれば先進国と定義しましょう。そのために<code>Country_df</code>に<code>Developed</code>変数を追加します。この変数は<code>G7</code>、<code>G20</code>、<code>OECD</code>の合計が1以上の場合は1、0の場合は0とします。そして、この<code>Developed</code>変数をfactor化します。具体的には<code>Developed</code>が1だと<code>"先進国"</code>、0だと<code>"その他"</code>にします。あとは<code>facet_wrap()</code>でファセットを分割します。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Continent2 = factor(Continent,
+                             levels = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;,
+                                        &quot;Europe&quot;, &quot;Oceania&quot;),
+                             labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;,
+                                        &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;)),
+         # G7 + G20 + OECDが1以上なら1、0なら0とするDeveloped変数作成
+         Developed  = ifelse(G7 + G20 + OECD &gt;= 1, 1, 0),
+         # Developed変数のfactor化
+         Developed  = factor(Developed, levels = c(1, 0),
+                             labels = c(&quot;先進国&quot;, &quot;その他&quot;),
+                             ordered = TRUE)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot(aes(x = Continent2, y = HDI_2018)) +
+  geom_jitter(aes(color = Continent2), alpha = 0.5,
+              width = 0.15, height = 0,
+              show.legend = FALSE) +
+  geom_boxplot(aes(fill = Continent2),
+               alpha = 0.5, show.legend = FALSE) +
+  # caption引数で図の右下にテキストを入れる
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;,
+       caption = &quot;先進国: G7, G20, OECDのいずれかに加盟している国&quot;) +
+  # ファセット分割
+  facet_wrap(~ Developed) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-50-1.png" width="768" /></p>
+<p>　次の方法はファセットを分割せずに次元を追加する方法です。ファセットに分ける場合、「先進国における大陸別人間開発指数の分布」、「先進国外における大陸別人間開発指数の分布」は素早く読み取れますが、「ある大陸における先進国/その他の国の人間開発指数の分布」を比較するにはあまり向いておりません。なぜなら目の動線が長いからです。先進国とその他の国を大陸ごとに横に並べると視線の動線が短くなり比較しやすくなります。</p>
+<p>　やり方はあまり変わりませんが、今回は色分けを<code>Continent</code>でなく<code>Developed</code>でする必要があります。1つの画面に先進国とその他の国の情報が同時に出力されるため、この2つを見分けるためには色分けが有効です。したがって、<code>geom_jitter()</code>と<code>geom_boxplot()</code>の<code>color</code>と<code>fill</code>を<code>Continent</code>から<code>Developed</code>へ変更します。</p>
+<p>　そしてもう一つ重要なことがあります。それは<code>geom_jitter()</code>の位置です。次元ごとに横軸の位置をずらす場合、<code>geom_bar()</code>は<code>position = "dodge"</code>を使いました。しかし、<code>geom_jitter()</code>では<code>"dodge"</code>が使えません。その代わりに<code>positon</code>の実引数として<code>position_jitterdodge()</code>を指定します。この中には更に<code>jitter.width</code>と<code>jitter.height</code>引数があり、散らばりの具合をここで調整します。なぜ、<code>geom_jitter()</code>で<code>width</code>と<code>height</code>を指定するのではなく、<code>position_jitter()</code>内で指定するかですが、これは<code>geom_jitter()</code>関数の仕様です。<code>geom_jitter()</code>の場合、<code>position</code>と<code>width</code>または<code>height</code>を同時に指定することは出来ません。
+　
+　それでは早速やってみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Continent2 = factor(Continent,
+                             levels = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;,
+                                        &quot;Europe&quot;, &quot;Oceania&quot;),
+                             labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;,
+                                        &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;)),
+         Developed  = ifelse(G7 + G20 + OECD &gt;= 1, 1, 0),
+         Developed  = factor(Developed, levels = c(1, 0),
+                             labels = c(&quot;先進国&quot;, &quot;その他&quot;),
+                             ordered = TRUE)) %&gt;%
+  filter(!is.na(HDI_2018)) %&gt;%
+  ggplot(aes(x = Continent2, y = HDI_2018)) +
+  # jitterでdodgeを使うためにはposition_jitterdodgeを使う
+  geom_jitter(aes(color = Developed), alpha = 0.5,
+              position = position_jitterdodge(jitter.width = 0.5,
+                                              jitter.height = 0),
+              show.legend = FALSE) +
+  geom_boxplot(aes(fill = Developed),
+               alpha = 0.5) +
+  labs(x = &quot;大陸&quot;, y = &quot;人間開発指数 (2018)&quot;, fill = &quot;&quot;,
+       caption = &quot;先進国: G7, G20, OECDのいずれかに加盟している国&quot;) +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-51-1.png" width="768" /></p>
+<p>　ファセット分割と色分け、どれが良いかという正解はありません。分析者の目的に依存するものです。もし、先進国の中での比較を強調したい場合はファセット分割が有効でしょう。しかし、同じ大陸内で先進国とその他の国の比較なら色分けの方が適切です。</p>
+</div>
+<div id="複数の変数の場合" class="section level3">
+<h3>複数の変数の場合</h3>
+<p>　箱ひげ図はグループごとにある変数の分布を比較することもできますが、複数の変数の比較も可能です。そのためにはデータの形を変形する必要があります。たとえば、Polity IVの民主主義指標（<code>Polity_Score</code>）とFreedom Houseの民主主義指標（<code>FH_Total</code>）の分布を、大陸ごとに示したいとします。<code>Country_df</code>の場合、<code>Polity_Score</code>と<code>FH_Total</code>は別々の変数になっていますが、<code>pivot_longer()</code>を使って、これらを1つの変数にまとめる必要があります。</p>
+<pre class="r numberLines"><code>Democracy_df &lt;- Country_df %&gt;% 
+  select(Country, Continent, Polity_Score, FH_Total) %&gt;%
+  filter(!is.na(Polity_Score), !is.na(FH_Total)) %&gt;%
+  pivot_longer(cols      = contains(&quot;_&quot;),
+               names_to  = &quot;Type&quot;,
+               values_to = &quot;Value&quot;) %&gt;%
+  mutate(Type = recode(Type,
+                       &quot;FH_Total&quot;     = &quot;Freedom House&quot;,
+                       &quot;Polity_Score&quot; = &quot;Polity IV&quot;))
+
+Democracy_df</code></pre>
+<pre><code>## # A tibble: 316 x 4
+##    Country     Continent Type          Value
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;
+##  1 Afghanistan Asia      Polity IV        -1
+##  2 Afghanistan Asia      Freedom House    27
+##  3 Albania     Europe    Polity IV         9
+##  4 Albania     Europe    Freedom House    67
+##  5 Algeria     Africa    Polity IV         2
+##  6 Algeria     Africa    Freedom House    34
+##  7 Angola      Africa    Polity IV        -2
+##  8 Angola      Africa    Freedom House    32
+##  9 Argentina   America   Polity IV         9
+## 10 Argentina   America   Freedom House    85
+## # … with 306 more rows</code></pre>
+<p>　続いて、箱ひげ図の作成ですが、これは次元の追加と全く同じやり方になります。<code>fill</code>で色分けをするか、ファセット分割をするかですね。ここでは箱の色分けをします。</p>
+<pre class="r numberLines"><code>Democracy_df %&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = Continent, y = Value, fill = Type)) +
+  labs(x = &quot;大陸&quot;, y = &quot;民主主義の程度&quot;, fill = &quot;指標&quot;) +
+  scale_x_discrete(breaks = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;,&quot;Europe&quot;, &quot;Oceania&quot;), 
+                   labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;, &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-53-1.png" width="768" /></p>
+<p>　しかし、1つ問題があります。それはPolity IVは-10から10までの指標なのに対して、Freedom Houseは0から100までの指標になっている点です。この場合、正確な比較が出来ません。複数の変数を1つの箱ひげ図に出す際は、変数のスケールが一致させた方が良いでしょう。たとえば、複数の人、または団体に対する感情温度はスケールが0から100であるため、使えます。しかし、今回の場合はあまり良いケースではありません。</p>
+<p>　もし、スケールが異なるものを示すためにはスケールを調整する必要があります。よく使われるのはスケールを平均0、標準偏差1にする「標準化」ですが、変数の分布を似通ったものにするため、あまり良くないかも知れません。ここではFreedom House指標から50を引き、そこから5で割った値を使います。こうすることで、Freedom House指標が100なら10、0なら-10になり、最小値と最大値のスケールをPolity IVに合わせることが可能です。</p>
+<pre class="r numberLines"><code>Democracy_df &lt;- Country_df %&gt;% 
+  select(Country, Continent, Polity_Score, FH_Total) %&gt;%
+  # FH_Totalのすケース調整
+  mutate(FH_Total = (FH_Total - 50) / 5) %&gt;%
+  filter(!is.na(Polity_Score), !is.na(FH_Total)) %&gt;%
+  pivot_longer(cols      = contains(&quot;_&quot;),
+               names_to  = &quot;Type&quot;,
+               values_to = &quot;Value&quot;) %&gt;%
+  mutate(Type2 = recode(Type,
+                        &quot;FH_Total&quot;     = &quot;Freedom House&quot;,
+                        &quot;Polity_Score&quot; = &quot;Polity IV&quot;))
+
+Democracy_df %&gt;%
+  ggplot() +
+  geom_boxplot(aes(x = Continent, y = Value, fill = Type2)) +
+  labs(x = &quot;大陸&quot;, y = &quot;民主主義の程度&quot;, fill = &quot;指標&quot;) +
+  scale_x_discrete(breaks = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;,&quot;Europe&quot;, &quot;Oceania&quot;), 
+                   labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;, &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;)) +
+  theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-54-1.png" width="768" /></p>
+<p>　先よりは比較可能な図のように見えますが、あくまでも最小値と最大値を一致させたものであるため、厳密な意味ではこれもよくありません。複数の変数を1つの箱ひげ図としてまとめる場合は、スケールが一致するもののみを使うことを推奨します。</p>
+<hr />
+</div>
+</div>
+<div id="visual2-scatter" class="section level2">
+<h2>散布図</h2>
+<p>　続いて、散布図の作成について解説します。散布図においてデータは点で表現され、点を表示するためには、少なくとも横軸と縦軸といった2つの情報が必要です。したがって、マッピングに使う変数は最低2つであり、横軸は<code>x</code>、縦軸は<code>y</code>で指定します。今回は<code>Country_df</code>を使って、一人当たりGDP (購買力平価基準)と人間開発指数の関係を調べてみましょう。散布図の幾何オブジェクト関数は<code>geom_point()</code>です。そして、それぞれの変数は<code>PPP_per_capita</code>、<code>HDI_2018</code>であるから、マッピングは<code>aes(x = PPP_per_capita, y = HDI_2018)</code>になります。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018)) +
+  labs(x = &quot;一人当たり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-55-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　以下のメッセージが表示されますが、これは一人当たりGDP (購買力平価基準)または人間開発指数が欠損しているケースが11カ国あることを意味します。たとえば、教皇聖座 (Holy See; いわゆるバチカン)や西サハラ、ソマリアなどの国があります。</p>
+<pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
+<p>　どのようなケースが除外されたかは<code>dplyr::filter()</code>関数を使えば簡単に調べられます。</p>
+<pre class="r numberLines"><code>Country_df %&gt;% 
+  filter(is.na(PPP_per_capita) | is.na(HDI_2018)) %&gt;% 
+  select(Country, PPP_per_capita, HDI_2018)</code></pre>
+<pre><code>## # A tibble: 11 x 3
+##    Country        PPP_per_capita HDI_2018
+##    &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Andorra                   NA     0.857
+##  2 Cuba                      NA     0.778
+##  3 Holy See                  NA    NA    
+##  4 Kosovo                 11078.   NA    
+##  5 Liechtenstein             NA     0.917
+##  6 Monaco                    NA    NA    
+##  7 San Marino             62554.   NA    
+##  8 Somalia                   NA     0.557
+##  9 Syria                     NA     0.549
+## 10 Taiwan                 46145.   NA    
+## 11 Western Sahara            NA    NA</code></pre>
+<p>　このように何らかのケースが除外されたとメッセージが出力された場合、ちゃんとどのケースが除外されたかを確認することは重要です。この11カ国は未承認国や国内政治の不安定によりデータが正確に把握できないところがほとんどですね。</p>
+<p>　散布図を見ると経済力と人間開発指数の間には正の関係が確認できます。ただし、経済力が高くなるにつれ、人間開発指数の増加幅は減少していきます。どちらかと言えば対数関数のような関係でしょう。実際、<code>scale_x_log10()</code>や、<code>scale_x_continuous(trans = "log10")</code>などで横軸を対数化するとほぼ線形の関係が観察できます。今回は座標系を変換して横軸を対数化してみます。座標系の調整は<code>coord_*()</code>関数群を使いますが、対数化には<code>coord_trans()</code>を使います。ここで変換する軸と変換方法を指定します。今回は横軸を底10の対数化を行うから<code>x = "log10"</code>と指定します。これは<code>scale_x_log10()</code>と全く同じですが、縦軸も対数化するなどの場面においては<code>coord_trans()</code>の方が便利でしょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018)) +
+  labs(x = &quot;一人当たり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;) +
+  coord_trans(x = &quot;log10&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-57-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　対数化してみたら、かなり綺麗な線形関係が確認できます。事実を言うと、そもそも人間開発指数は所得も評価項目であるため、線形関係があるのは当たり前です。</p>
+<div id="次元を追加する-3" class="section level3">
+<h3>次元を追加する</h3>
+<p>　散布図の点は横軸の数値と縦軸の数値を持っています。2次元平面で表現できる散布図は少なくとも2つの情報を持つことになります。しかし、2次元平面であっても、3つ以上の情報、つまり3次元以上の情報を示すことが可能です。たとえば、点ごとに色を変更することもできます。OECD加盟国と非加盟国に異なる色を与えると、2次元平面上であっても、3つの情報を含む散布図が作れます。他にも透明度（<code>alpha</code>）、点の形（<code>shape</code>）、大きさ（<code>size</code>）などで点に情報を持たせることが可能です。たとえば、国の面積に応じて点の大きさが変わる散布図を作成するなら<code>aes()</code>内に<code>size = Area</code>を追加するだけです。面積の単位は非常に大きいので、<code>Area</code>を100万で割った値を使います。また、点が大きくなると重なりやすくなるため、半透明（<code>alpha = 0.5</code>）にします。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Area2 = Area / 1000000) %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, size = Area2),
+             alpha = 0.5) +
+  labs(x = &quot;一人あたり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;,
+       size = &quot;面積 (100万km2)&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-58-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　一人当たりGDPが非常に高い国の多くは面積が小さい国が多いですね。</p>
+<p>　以上のコードでは、<code>aes()</code>だけでなく、<code>labs()</code>内にも<code>size</code>引数を指定しました。<code>labs()</code>内に<code>x</code>と<code>y</code>以外の引数を指定することはヒストグラムのところでもしましたが、説明はしませんでした。ここで詳しく説明します。<code>labs()</code>内の引数はマッピング要素と対応します。今回は<code>geom_point()</code>幾何オブジェクト内に<code>x</code>、<code>y</code>、<code>size</code>があり、それぞれにラベルを付けることになります。これを指定しない場合、変数名がデフォルト値として出力されます。<code>x</code>と<code>y</code>は縦軸と横軸のラベルですが、その他のマッピング要素は凡例として出力される場合が多いです。凡例のラベルを修正したい時にはとりあえず<code>labs()</code>から覗いてみましょう。</p>
+<p>　続きまして、もう一つ次元を追加してみましょう。散布図は他のグラフに比べ次元拡張が容易なグラフです。ここでは色分けをしてみましょう。たとえば、OECD加盟有無（<code>OECD</code>）で色分けする場合、これまでと同様、<code>color</code>を<code>aes()</code>内に加えるだけです。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Area2 = Area / 1000000) %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, 
+                 size = Area, color = OECD)) +
+  labs(x = &quot;一人あたり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;,
+       size = &quot;面積 (100万km2)&quot;, color = &quot;OECD加盟有無&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-59-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　色分けはされていますが、凡例を見ると想像したものとやや違いますね。なぜなら<code>OECD</code>変数が数値型になっているからです。実際のデータには<code>OECD = 0.5</code>や<code>OECD = 0.71</code>のような値は存在しませんが、数値型である以上、その値をとること自体は出来ます。したがって、0から1までの数値に対応できるように、色分けもグラデーションになっています。これを見やすく二分するためには、<code>OECD</code>変数をfactor型か文字型に変換する必要があります。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Area2 = Area / 1000000,
+         OECD2 = factor(OECD, levels = 0:1, 
+                      labels = c(&quot;非加盟国&quot;, &quot;加盟国&quot;))) %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, 
+                 size = Area2, color = OECD2)) +
+  labs(x = &quot;一人あたり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;,
+       size = &quot;面積 (100万km2)&quot;, color = &quot;OECD加盟有無&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-60-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これで散布図の出来上がりです。2次元座標系で表現された散布図ですが、この図から分かる情報は何があるでしょうか。</p>
+<ol style="list-style-type: decimal">
+<li>一人当たり購買力平価GDP</li>
+<li>人間開発指数</li>
+<li>面積</li>
+<li>OECD加盟有無</li>
+</ol>
+<p>　1つの図から4つの情報が読み取れます。つまり、4次元グラフと言えます。ここにファセット分割、透明度の調整、点の形の変更まですると7次元のグラフもできます。ただし、あまりにも次元数の多いグラフは読みにくくなるため、必要だと思う変数のみマッピングしましょう。</p>
+</div>
+<div id="一部の点をハイライトする" class="section level3">
+<h3>一部の点をハイライトする</h3>
+<p>　これまでの図と比べ、散布図は一般的に表示される情報が多いです。棒グラフ、箱ひげ図の場合、数個、あるいは十数個程度の項目ごとに棒や箱が出力されますが、散布図の場合、データのサイズだけ点が出力されます。むろん、散布図というのは個々の点の情報よりも二変数間の関係を確認するために使われるため、これは短所ではありません。</p>
+<p>　しかし、散布図の中で一部の点をハイライトしたい場合もあるでしょう。たとえば、先ほどの図において日中韓だけハイライトするためにはどうすれば良いでしょうか。まず、考えられるのは<code>color</code>によるマッピングでしょう。<code>Country</code>変数を日本、韓国、中国、その他の4つの水準にまとめ、この値によって色分けをすればいいでしょう。実際にやってみましょう。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Area2    = Area / 1000000,
+         Country2 = case_when(Country == &quot;Japan&quot;       ~ &quot;Japan&quot;,
+                              Country == &quot;South Korea&quot; ~ &quot;South Korea&quot;,
+                              Country == &quot;China&quot;       ~ &quot;China&quot;,
+                              TRUE                     ~ &quot;Other&quot;),
+         Country2 = factor(Country2, 
+                           levels = c(&quot;Japan&quot;, &quot;South Korea&quot;, &quot;China&quot;,
+                                      &quot;Other&quot;),
+                           labels = c(&quot;Japan&quot;, &quot;South Korea&quot;, &quot;China&quot;,
+                                      &quot;Other&quot;))) %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, 
+                 size = Area2, color = Country2)) +
+  labs(x = &quot;一人あたり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;,
+       size = &quot;面積 (100万km2)&quot;, color = &quot;国家&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-61-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　日本と韓国を見つけるのは大変ですが、目的達成と言えるでしょう。ただ、もっと楽な方法があります。それが<a href="https://twitter.com/yutannihilation">湯谷啓明</a>さんが開発した<code>gghighlight</code>パッケージです。詳しい使い方は<a href="https://cran.r-project.org/web/packages/gghighlight/vignettes/gghighlight.html">湯谷さんによる解説ページ</a>を参照して頂きますが、ここでは簡単な使い方のみ紹介します。まずは、<code>install.packages("gghighlight")</code>でパッケージをインストールし、読み込みます。</p>
+<pre class="r numberLines"><code># gghighlightがインストールされていない場合、CRANからインストール
+# install.packages(&quot;gghighlight&quot;)
+
+library(gghighlight)</code></pre>
+<p>　続いてですが、国ごとに色分けする予定ですので、散布図の<code>color</code>は<code>Country</code>変数でマッピングします。そして、<code>gghighlight</code>幾何オブジェクトを追加します。まずは使い方からです。</p>
+<pre class="r numberLines"><code># gghighlight()の使い方
+gghighlight(条件式, label_params = list(引数1, 引数2, ...))</code></pre>
+<p>　第一引数は条件式であり、これは<code>dplyr::filter()</code>の条件式をそのまま使えます。そして、<code>label_parms</code>を指定しますが、実引数はリスト型です。中には<code>geom_labels()</code>幾何オブジェクトに使用する引数が使えます。たとえば、ハイライトされた点にはラベルが付きますが、<code>size</code>引数を入れてラベルの大きさを指定できます。それでは実際にやってみましょう。条件式は<code>Country %in% c("Japan", "South Korea", "China")</code>であり、ラベルの大きさは3にします。</p>
+<pre class="r numberLines"><code>Country_df %&gt;%
+  mutate(Area2 = Area / 1000000) %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, 
+                 size = Area2, color = Country)) +
+  gghighlight(Country %in% c(&quot;Japan&quot;, &quot;South Korea&quot;, &quot;China&quot;),
+              label_params = list(size = 3)) +
+  labs(x = &quot;一人あたり購買力平価GDP (USD)&quot;, y = &quot;人間開発指数&quot;,
+       size = &quot;面積 (100万km2)&quot;, color = &quot;OECD加盟有無&quot;) +
+  theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## label_key: Country</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-64-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　非常に簡単なやり方で点のハイライトが出来ました。これは後ほど紹介する折れ線グラフだけでなく、様々な幾何オブジェクトにも対応しています。湯谷さんの解説ページを参照して下さい。</p>
+<hr />
+</div>
+</div>
+<div id="visual2-line" class="section level2">
+<h2>折れ線グラフ</h2>
+<p>　続きまして、折れ線グラフについて解説します。折れ線グラフは横軸が順序付き変数、縦軸は連続変数になります。横軸は順序付きであれば、年月日のような離散変数でも、連続変数でも構いません。注意すべき点は横軸上の値はグループ内において1回のみ登場するという点です。たとえば、株価のデータなら「2020年8月8日」はデータは1回だけ登場します。世界各国の株価データなら、グループ（国）内において「2020年8月8日」は一回のみ登場することになります。</p>
+<p>　必要なマッピング要素は線の傾きが変化しうるポイントの横軸上の位置（<code>x</code>）と縦軸上の位置（<code>y</code>）です。ここではCOVID-19の新規感染者数データを使用します。まず、<code>Date</code>変数が文字型になっているため、これをDate型に変換します。文字型の場合、順序関係がないからです。基本的に折れ線グラフの横軸になり得るデータ型はnumeric、順序付きfactor、Date、complex型だと考えていただいても結構です。</p>
+<pre class="r numberLines"><code>COVID19_df &lt;- COVID19_df %&gt;%
+  mutate(Date = as.Date(Date))</code></pre>
+<p>　それでは図を作成してみましょう。横軸は日付（<code>Date</code>）、縦軸は累積感染者数（<code>Confirmed_Total</code>）にしましょう。また、縦軸のスケールは底10の対数を取ります。感染者数が数百万人となるアメリカと、数万人の国が同じグラフになると、見にくくなるからです。</p>
+<pre class="r numberLines"><code>COVID19_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-66-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　??????????????????なんでしょう…。想像したものと違いますね。また、警告メッセージも出力されますが、これは0を対数化すると<code>-Inf</code>になるから出力されるものです。大きな問題はないので、ここでは無視しましょう。</p>
+<p>　先ほど申し上げた通り、横軸の値はデータ内に1回のみ登場すべきです。しかし、<code>COVID19_df</code>の場合、（たとえば）2020年5月1日の行が国の数だけあります。この場合は、ちゃんと国（<code>Country</code>）ごとに線を分けるように指定する必要があります。ここで使うマッピング要素が<code>group</code>です。<code>group</code>で指定した変数の値ごとに異なる折れ線グラフを出力してくれます。</p>
+<pre class="r numberLines"><code>COVID19_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total, group = Country)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-67-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これで折れ線グラフは出力されましたが、どの線がどの国かが分かりませんね。<code>group</code>の場合、凡例が表示されないので、<code>group</code>でなく、<code>color</code>で色分けしてみましょう。</p>
+<pre class="r numberLines"><code>COVID19_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total, color = Country)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-68-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　???????????????????なんか出ましたが、国数が多すぎて凡例だけで図が埋め尽くされています。この場合、方法は3つあります。1つ目の方法は図のサイズを大きくする方法です。これは保存の際、サイズを再調整するだけですので、ここでは割愛します。また、それでも凡例内の項目が非常に多いグラフをグラフの種類と関係なく推奨されません。2つ目は国を絞る方法であり、3つ目は<code>gghighlight()</code>で一部の国のみハイライトする方法です。まずは、G7（カナダ、フランス、ドイツ、イタリア、日本、イギリス、アメリカ）のみデータを絞って折れ線グラフを作ってみましょう。</p>
+<pre class="r numberLines"><code>G7 &lt;- c(&quot;Cananda&quot;, &quot;France&quot;, &quot;Germany&quot;, &quot;Italy&quot;, &quot;Japan&quot;, 
+        &quot;United Kingdom&quot;, &quot;United States&quot;)
+
+COVID19_df %&gt;%
+  filter(Country %in% G7) %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total, color = Country)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;, color = &quot;国&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-69-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これだけでもG7国のCOVID-19の状況が比較可能ですが、この図は改善の余地があります。それは凡例の順番です。できれば、一番最新の日付のデータを基準に凡例の順番を揃えることが出来たら、どの線がどの国かが分かりやすくなります。そこで登場するのは<a href="../dplyr_intro/">dplyr入門 (新版)</a>で紹介しました<code>fct_reorder2</code>関数です。実際にやってみましょう。</p>
+<pre class="r numberLines"><code>COVID19_df %&gt;%
+  filter(Country %in% G7) %&gt;%
+  mutate(Country = fct_reorder2(Country, Date, Confirmed_Total, last2)) %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total, color = Country)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;, color = &quot;国&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-70-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　これでより読みやすい図が出来上がりました。</p>
+<div id="一部の線をハイライトする" class="section level3">
+<h3>一部の線をハイライトする</h3>
+<p>　グループが多すぎる場合の対処法、その2つ目はデータを全て使い、一部の国のみハイライトする方法です。線のハイライトにも<code>gghighlight()</code>が使えます。同じく日米中韓の線のみハイライトしてみましょう。</p>
+<pre class="r numberLines"><code>COVID19_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Total, color = Country)) +
+  gghighlight(Country %in% c(&quot;Japan&quot;, &quot;China&quot;, &quot;South Korea&quot;,
+                             &quot;United States&quot;)) +
+  scale_y_continuous(breaks = c(10, 100, 1000, 10000, 100000, 1000000),
+                     labels = c(&quot;10&quot;, &quot;100&quot;, &quot;1000&quot;, &quot;10000&quot;, 
+                                &quot;100000&quot;, &quot;1000000&quot;),
+                     trans = &quot;log10&quot;) +
+  labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
+  theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-71-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>　情報量の損失を最小化しながら、一部の国のみをハイライトすることによって世界における日米中韓のトレンドが確認出来ました。</p>
+<hr />
+</div>
+</div>
+<div id="まとめ" class="section level2">
+<h2>まとめ</h2>
+<p>　以上の話をまとめると、データが与えられた場合、ある図を作成するためには少なくとも以下の情報が必要です。</p>
+<ol style="list-style-type: decimal">
+<li>どの幾何オブジェクトを使用するか</li>
+<li>その幾何オブジェクトに必要なマッピング要素は何か</li>
+</ol>
+<p>　座標系や、スケール、ラベルの設定なども最終的には必要ですが、これらは設定しなくても<code>ggplot2</code>自動的に生成してくれます。しかし、幾何オブジェクトとマッピングは必須です。幾何オブジェクトはグーグルで「ggplot 棒グラフ」や「ggplot 等高線図」などで検索すれば、どのような幾何オブジェクトが必要化が分かります。問題はマッピングです。この幾何オブジェクトに使える引数は何か、そしてどの引数を<code>aes()</code>の中に入れるべきかなどはコンソールで<code>?geom_barplot</code>などで検索すれば分かります。</p>
+<p>　筆者のオススメは以下のチートシートを印刷し、手元に置くことです。</p>
+<ul>
+<li><a href="https://rstudio.com/resources/cheatsheets/">ggplot2 cheatsheet</a></li>
+<li><a href="https://drive.google.com/file/d/1Dvul1p6TYH6gWJzZRwpE0YX1dO0hDF-b/view">ggplot2 aesthetics cheatsheet</a></li>
+</ul>
+<p>　2番目の資料は非常に分かりやすい資料ですが、Google Drive経由で公開されているため、いつリンクが切れかが不明です。念の為に本ページにも資料を転載します。</p>
+<div class="figure">
+<img src="Figures/ggplot_aesthetics_cheatsheet.png" alt="" />
+<p class="caption">ggplot2 aesthetics cheatsheet</p>
+</div>
+<p>　青い点は「ほとんど」のケースにおいて<code>aes()</code>の中に位置する引数です。ただし、<code>geom_bar()</code>と<code>geom_histogram()</code>は自動的に度数を計算してくれるため、<code>x</code>と<code>y</code>一方だけでも可能です。黄色い資格は<code>aes()</code>の中でも、外でも使うことが可能な引数です。<code>aes()</code>の中ならマッピング要素となるため、データの変数と対応させる必要があります。ピンク色のひし形四角形は必ず<code>aes()</code>の外に位置する引数です。</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>もう一つの方法は<code>geom_point()</code>に<code>position = position_jitter()</code>を付けることです。<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted" align = "center">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>. Customized by <a href="https://www.jaysong.net">Jaehyun Song</a></p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
