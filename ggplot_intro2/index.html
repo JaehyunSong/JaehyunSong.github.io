@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
 
 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css"> 
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -43,7 +43,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
     
@@ -1401,7 +1401,7 @@ gghighlight(条件式, label_params = list(引数1, 引数2, ...))</code></pre>
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
 <pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-66-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-67-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　??????????????????なんでしょう…。想像したものと違いますね。また、警告メッセージも出力されますが、これは0を対数化すると<code>-Inf</code>になるから出力されるものです。大きな問題はないので、ここでは無視しましょう。</p>
 <p>　先ほど申し上げた通り、横軸の値はデータ内に1回のみ登場すべきです。しかし、<code>COVID19_df</code>の場合、（たとえば）2020年5月1日の行が国の数だけあります。この場合は、ちゃんと国（<code>Country</code>）ごとに線を分けるように指定する必要があります。ここで使うマッピング要素が<code>group</code>です。<code>group</code>で指定した変数の値ごとに異なる折れ線グラフを出力してくれます。</p>
 <pre class="r numberLines"><code>COVID19_df %&gt;%
@@ -1413,7 +1413,7 @@ gghighlight(条件式, label_params = list(引数1, 引数2, ...))</code></pre>
                      trans = &quot;log10&quot;) +
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-67-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-68-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　これで折れ線グラフは出力されましたが、どの線がどの国かが分かりませんね。<code>group</code>の場合、凡例が表示されないので、<code>group</code>でなく、<code>color</code>で色分けしてみましょう。</p>
 <pre class="r numberLines"><code>COVID19_df %&gt;%
   ggplot() +
@@ -1424,7 +1424,7 @@ gghighlight(条件式, label_params = list(引数1, 引数2, ...))</code></pre>
                      trans = &quot;log10&quot;) +
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-68-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-69-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　???????????????????なんか出ましたが、国数が多すぎて凡例だけで図が埋め尽くされています。この場合、方法は3つあります。1つ目の方法は図のサイズを大きくする方法です。これは保存の際、サイズを再調整するだけですので、ここでは割愛します。また、それでも凡例内の項目が非常に多いグラフをグラフの種類と関係なく推奨されません。2つ目は国を絞る方法であり、3つ目は<code>gghighlight()</code>で一部の国のみハイライトする方法です。まずは、G7（カナダ、フランス、ドイツ、イタリア、日本、イギリス、アメリカ）のみデータを絞って折れ線グラフを作ってみましょう。</p>
 <pre class="r numberLines"><code>G7 &lt;- c(&quot;Cananda&quot;, &quot;France&quot;, &quot;Germany&quot;, &quot;Italy&quot;, &quot;Japan&quot;, 
         &quot;United Kingdom&quot;, &quot;United States&quot;)
@@ -1439,7 +1439,7 @@ COVID19_df %&gt;%
                      trans = &quot;log10&quot;) +
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;, color = &quot;国&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-69-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-70-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　これだけでもG7国のCOVID-19の状況が比較可能ですが、この図は改善の余地があります。それは凡例の順番です。できれば、一番最新の日付のデータを基準に凡例の順番を揃えることが出来たら、どの線がどの国かが分かりやすくなります。そこで登場するのは<a href="../dplyr_intro/">dplyr入門 (新版)</a>で紹介しました<code>fct_reorder2</code>関数です。実際にやってみましょう。</p>
 <pre class="r numberLines"><code>COVID19_df %&gt;%
   filter(Country %in% G7) %&gt;%
@@ -1452,7 +1452,7 @@ COVID19_df %&gt;%
                      trans = &quot;log10&quot;) +
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;, color = &quot;国&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-70-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-71-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　これでより読みやすい図が出来上がりました。</p>
 <div id="一部の線をハイライトする" class="section level3">
 <h3>一部の線をハイライトする</h3>
@@ -1468,7 +1468,7 @@ COVID19_df %&gt;%
                      trans = &quot;log10&quot;) +
   labs(x = &quot;月&quot;, y = &quot;累積感染者数 (人)&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-71-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="../ggplot_intro2_files/figure-html/unnamed-chunk-72-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　情報量の損失を最小化しながら、一部の国のみをハイライトすることによって世界における日米中韓のトレンドが確認出来ました。</p>
 <hr />
 </div>
