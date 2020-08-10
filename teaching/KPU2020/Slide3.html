@@ -208,7 +208,7 @@ class: inverse, middle, center
 
 ---
 
-## 5 named plots (5NG)
+## 5 Named Graphs (5NG)
 
 1. 棒グラフ: `geom_bar()`
   * 必須マッピング1: 棒の横軸上の位置（`x`）
@@ -238,6 +238,57 @@ class: inverse, middle, center
 2. 散布図: 連続変数と連続変数
 3. 折れ線グラフ: 順序付き離散変数（日付など）と連続変数
 4. 離散変数同士はクロス集計表、またはモザイクプロット
+
+---
+
+## 実習用データ
+
+* [Countries.csv](Data/Countries.csv): 世界諸国の社会経済状況および民主主義指標
+* [COVID19_Asia2.csv](Data/COVID19_Asia2.csv): 
+
+
+```r
+library(tidyverse)
+Country_df &lt;- read_csv("Data/Countries.csv")
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   Country = col_character(),
+##   Population = col_double(),
+##   Area = col_double(),
+##   GDP = col_double(),
+##   PPP = col_double(),
+##   GDP_per_capita = col_double(),
+##   PPP_per_capita = col_double(),
+##   G7 = col_double(),
+##   G20 = col_double(),
+##   OECD = col_double(),
+##   HDI_2018 = col_double(),
+##   Polity_Score = col_double(),
+##   Polity_Type = col_character(),
+##   FH_PR = col_double(),
+##   FH_CL = col_double(),
+##   FH_Total = col_double(),
+##   FH_Status = col_character(),
+##   Continent = col_character()
+## )
+```
+
+```r
+COVID_df   &lt;- read_csv("Data/COVID19_Asia2.csv")
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   Country = col_character(),
+##   Date = col_character(),
+##   Confirmed_Day = col_double(),
+##   Confirmed_Total = col_double()
+## )
+```
 
 ---
 class: inverse, middle, center
@@ -284,7 +335,7 @@ Barplot1 &lt;- Country_df %&gt;%
 Barplot1
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -325,7 +376,7 @@ Barplot1 +
   theme(text = element_text(size = 16))
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -372,7 +423,7 @@ Barplot2 &lt;- Barplot2_df %&gt;%
 Barplot2
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -388,7 +439,7 @@ Barplot2 +
 * coord_cartesian(ylim = c(0, 1))
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -463,7 +514,7 @@ Barplot3 &lt;- Barplot2_df2 %&gt;%
 Barplot3
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -499,7 +550,7 @@ Barplot4 &lt;- Barplot2_df2 %&gt;%
 Barplot4
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 class: inverse, middle, center
@@ -542,7 +593,7 @@ Country_df %&gt;%
   theme_minimal(base_family = "HiraKakuProN-W3")
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -576,7 +627,7 @@ Histogram2 &lt;- Country_df %&gt;%
 Histogram2
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -611,7 +662,7 @@ Histogram3 &lt;- Country_df %&gt;%
 Histogram3
 ```
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-32-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 class: inverse, middle, center
@@ -625,7 +676,7 @@ class: inverse, middle, center
 * 複数のグループ間で変数の分布を素早く比較可能
   * 中央値、最小値、最大値、第1四分位点、第3四分位点
 
-![](Slide3_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+![](Slide3_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -656,7 +707,7 @@ Country_df %&gt;%
   theme_minimal(base_family = "HiraKakuProN-W3")
 ```
 
-![](Slide3_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](Slide3_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -687,7 +738,7 @@ Boxplot2 &lt;- Country_df %&gt;%
 Boxplot2
 ```
 
-![](Slide3_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+![](Slide3_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
 
 ---
 class: inverse, middle, center
@@ -735,7 +786,7 @@ Country_df %&gt;%
 
 一人当たりGDPと人間開発指数の関係は？
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -760,7 +811,7 @@ Country_df %&gt;%
 
 大陸ごとに色分けをする: `color`
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -786,7 +837,7 @@ Country_df %&gt;%
 
 更に人口に応じて大きさを変更: `size`
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -816,10 +867,210 @@ Country_df %&gt;%
 
 OECD加盟有無でファセットを分割
 
-&lt;img src="Slide3_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, middle, center
+
+# 折れ線グラフ
+
+---
+
+## 折れ線グラフ
+
+* 幾何オブジェクト: `geom_line()`
+* 必須マッピング: 線の傾きが変化し得る点の位置（`x`（横軸上）と`y`（縦軸上））
+  * `y`は数値型の連続変数
+  * `x`は順序付き連続変数（数値型、factor型、日付型）
+    * 横軸において、ある値はデータ内において一回のみ登場すること
+    * **例)** 株価データの場合、「2020年8月25日」は一回のみ登場
+    * 数カ国データの場合、グループ内において一回のみ登場
+    
+
+```r
+データ %&gt;%
+  ggplot() +
+* geom_line(aes(x = 横軸上の点の位置, y = 縦軸上の点の位置)) +
+  その他のレイヤー
+```
+
+---
+
+## 折れ線グラフ
+
+* [COVID19_Asia2.csv](Data/COVID19_Asia2.csv)を使用
+* `Country`: 国
+* `Date`: 年月日
+  * 文字型になっているため、`as.Date()`で日付型へ変換が必要
+* `Confirmed_Day`: 「新規」感染者数
+* `Confirmed_Total`: 「累積」感染者数
+
+
+```r
+COVID_df
+```
+
+```
+## # A tibble: 684 x 4
+##    Country Date      Confirmed_Day Confirmed_Total
+##    &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt;           &lt;dbl&gt;
+##  1 China   2020/1/22           548             548
+##  2 China   2020/1/23            95             643
+##  3 China   2020/1/24           277             920
+##  4 China   2020/1/25           486            1406
+##  5 China   2020/1/26           669            2075
+##  6 China   2020/1/27           802            2877
+##  7 China   2020/1/28          2632            5509
+##  8 China   2020/1/29           578            6087
+##  9 China   2020/1/30          2054            8141
+## 10 China   2020/1/31          1661            9802
+## # … with 674 more rows
+```
+
+---
+
+## 日付型へ変換
+
+* データ型に関しては[SONG・矢内資料の第8章](https://www.jaysong.net/RBook/datatype.html)を参照
+
+
+```r
+COVID_df &lt;- COVID_df %&gt;%
+  mutate(Date = as.Date(Date))
+
+COVID_df
+```
+
+```
+## # A tibble: 684 x 4
+##    Country Date       Confirmed_Day Confirmed_Total
+##    &lt;chr&gt;   &lt;date&gt;             &lt;dbl&gt;           &lt;dbl&gt;
+##  1 China   2020-01-22           548             548
+##  2 China   2020-01-23            95             643
+##  3 China   2020-01-24           277             920
+##  4 China   2020-01-25           486            1406
+##  5 China   2020-01-26           669            2075
+##  6 China   2020-01-27           802            2877
+##  7 China   2020-01-28          2632            5509
+##  8 China   2020-01-29           578            6087
+##  9 China   2020-01-30          2054            8141
+## 10 China   2020-01-31          1661            9802
+## # … with 674 more rows
+```
+
+---
+
+## 折れ線グラフ
+
+* 日本における日付ごとの新規感染者数
+
+
+```r
+COVID_df %&gt;%
+* filter(Country == "Japan") %&gt;%
+  ggplot() +
+* geom_line(aes(x = Date, y = Confirmed_Day)) +
+  labs(x = "月", y = "新規感染者数 (人)") +
+  theme_bw(base_family = "HiraKakuProN-W3") 
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 折れ線グラフ: 複数の線の場合
+
+* 線ごとに色を変える場合: `color`を指定
+
+
+```r
+COVID_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Day, `color = Country`)) +
+  labs(x = "月", y = "新規感染者数 (人)") +
+  theme_bw(base_family = "HiraKakuProN-W3") 
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-54-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 折れ線グラフ: 複数の線の場合
+
+* 線ごとに線の種類を変える場合: `linetype`を指定
+
+
+```r
+COVID_df %&gt;%
+  ggplot() +
+  geom_line(aes(x = Date, y = Confirmed_Day, `linetype = Country`)) +
+  labs(x = "月", y = "新規感染者数 (人)") +
+  theme_bw(base_family = "HiraKakuProN-W3") 
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-56-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 整然データの必要性
+
+* 新規感染者数という1つの変数が4列にわたって格納
+  * 雑線データ
+* `pivot_longer()`などを使って整然データへ
+
+
+|Country     | 2020/05/01| 2020/05/02| 2020/05/03| 2020/05/04|
+|:-----------|----------:|----------:|----------:|----------:|
+|China       |          3|          0|          5|          2|
+|Japan       |        274|        303|        200|        168|
+|South Korea |          6|         13|          8|          3|
+|Taiwan      |          0|          3|          4|          2|
+
+---
+
+## 整然データの必要性
+
+* `2020/05/01`列から`2020/05/04`列をLong型へ
+  * 変数名が数字や記号で始まる場合は、変数名を`` ` ``か`"`で囲む
+     * 推奨する方法は`` ` ``
+  * 日付を`Date`列へ
+  * 新規感染者数を`Confirmed`列へ
+  * 日付はデータ型をDate型へ
+
+````markdown
+データ名 %&gt;%
+  pivot_longer(cols = "2020/05/01":"2020/05/04",
+               names_to = "Date",
+               values_to = "Confirmed") %&gt;%
+  mutate(Date = as.Date(Date))
+````
+
+---
+
+## 整然データの必要性
+
+
+|Country     |Date       | Confirmed|
+|:-----------|:----------|---------:|
+|China       |2020/05/01 |         3|
+|China       |2020/05/02 |         0|
+|China       |2020/05/03 |         5|
+|China       |2020/05/04 |         2|
+|Japan       |2020/05/01 |       274|
+|Japan       |2020/05/02 |       303|
+|Japan       |2020/05/03 |       200|
+|Japan       |2020/05/04 |       168|
+|South Korea |2020/05/01 |         6|
+|South Korea |2020/05/02 |        13|
+|South Korea |2020/05/03 |         8|
+|South Korea |2020/05/04 |         3|
+|Taiwan      |2020/05/01 |         0|
+|Taiwan      |2020/05/02 |         3|
+|Taiwan      |2020/05/03 |         4|
+|Taiwan      |2020/05/04 |         2|
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
