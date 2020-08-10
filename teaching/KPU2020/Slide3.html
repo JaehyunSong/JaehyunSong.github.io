@@ -1068,6 +1068,116 @@ COVID_df %&gt;%
 |Taiwan      |2020/05/02 |         3|
 |Taiwan      |2020/05/03 |         4|
 |Taiwan      |2020/05/04 |         2|
+
+---
+class: inverse, middle, center
+
+# ggplot2いろいろ
+
+---
+
+## 図の保存
+
+`ggsave()`関数を使用
+* 保存する図をオブジェクトに格納しておくこと
+* ファイル名の拡張子を必ず指定（`ファイル名.png`、`ファイル名.pdf`など）
+* 大きさの単位はインチ（`"in"`）、センチメートル（`"cm"`）、ミリメートル（`"mm"`）
+
+
+```r
+ggsave(filename = "保存するファイル名",
+       plot     = 図のオブジェクト名,
+       units    = "幅と高さの単位", 
+       width    = 図の幅,
+       height   = 図の高さ)
+```
+
+macOS使用、かつ図内に日本語が含まれている場合
+* `quartz()`を使用: [教科書第17.3.3章](https://www.jaysong.net/RBook/visualization2.html#図の保存)
+
+---
+
+## 幾何オブジェクトの引数
+
+`color`引数の例
+
+* `aes()`内で指定: 変数ごとに色分け（変数を指定）
+
+
+```r
+geom_point(aes(x = PPP_per_capita, y = HDI_2018, `color = Continent`))
+```
+
+* `aes()`外で指定: 全要素の色指定（具体的な色を指定）
+
+
+```r
+geom_point(aes(x = PPP_per_capita, y = HDI_2018), `color = "Red"`)
+```
+
+---
+
+## 幾何オブジェクトの引数
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018, color = Continent))
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-62-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 幾何オブジェクトの引数
+
+
+```r
+Country_df %&gt;%
+  ggplot() +
+  geom_point(aes(x = PPP_per_capita, y = HDI_2018), color = "Red")
+```
+
+&lt;img src="Slide3_files/figure-html/unnamed-chunk-63-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## `theme()`レイヤー
+
+図全体を貫通する見た目を細かく調整可能
+
+
+```r
+データ %&gt;%
+  ggplot() +
+  geom_*() +
+* theme()
+```
+
+凡例の位置調整（`"left"`、`"bottom"`、`"top"`、`"right"`）
+
+```r
+theme(legend.position = "bottom")
+```
+
+文字サイズの調整
+
+```r
+theme(text = element_text(size = 16))
+```
+
+---
+
+## R Graph Gallery
+
+様々なグラフの例とコードが見られるホームページ
+
+* [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+
+&lt;center&gt;
+&lt;img src = "Figs/03/R_Graph_Gallery.png" width = "90%"&gt;
+&lt;/center&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>
