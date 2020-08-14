@@ -1,0 +1,338 @@
+---
+title: "情報処理応用演習: 期末課題" # 修正しない
+# 以下に学籍番号と氏名を入力
+# 例) author: "123456789_田中太郎"
+author: "学籍番号(半角)_氏名" # <- ここを修正
+date: "`r Sys.Date()`" # 修正しない
+output: 
+  html_document:
+    highlight: "tango"
+editor_options: 
+  chunk_output_type: console
+---
+
+<!--修正しないこと-->
+
+```{r}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+<!--以下から課題に取り組むこと-->
+
+## 1. `Countries_SES.csv`の処理と可視化
+
+1. パッケージ`tidyverse`を読み込む。
+2. `Countries_SES.csv`を読み込み、`SES_df`という名のオブジェクトで格納する。
+    * `Country`: 国名
+    * `Population`: 人口 (人)
+    * `Area`: 面積（Km^2^）
+    * `GDP`: 国内総生産（100万米ドル）
+    * `Continent`: 大陸
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+3. 人口密度を計算し、`Density`という名の新しい列に格納する。`Density`列は`Area`と`GDP`の間へ移動させる。
+
+$$
+人口密度 = \frac{人口}{面積}.
+$$
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+4. 大陸ごとに何カ国のケースがあるかを表す棒グラフを作成する。
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+5. `table()`関数を使用し、`Continent`変数の度数を確認する。
+
+```{r, message = FALSE}
+table(SES_df$Continent)
+```
+
+6. 一人当たりGDPを計算し、`GDP_per_capita`という名の新しい列に格納する。`GDP_per_capita`は列は`GDP`と`Continent`列の間へ移動させる。
+    * `GDP`の単位は100万ドルであることに注意
+
+$$
+一人当たり\text{GDP} = \frac{\text{GDP} \times 1000000}{人口}.
+$$
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+7. ここまでの処理を確認するために改めて`SES_df`を出力する。
+
+```{r, message = FALSE}
+SES_df
+```
+
+8. 一人当たりGDP (`GDP_per_capita`)の平均値とデータ内の国家数を大陸 (`Continet`)ごとに計算し、計算結果を`SES_Summary1`という名のオブジェクトとして格納する。国家数の列名は`N`、一人当たりGDPの平均値は`GDP_per_capita`とする。
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+9. `SES_Summary1`を出力する。
+
+```{r, message = FALSE}
+SES_Summary1
+```
+
+10. `SES_Summary1`を用い、棒グラフを作成する。横軸は大陸名、縦軸は一人当たりGDPとする。
+    * 横軸のラベルは「Continent」、縦軸のラベルは「Mean of GDP per capita (USD)」とする。
+
+```{r, echo = FALSE, message = FALSE}
+
+```
+
+---
+
+## 2. `Countries_HDI.csv`の処理と可視化
+
+1. `Countries_HDI.csv`ファイルを読み込み、`HDI_df`という名のオブジェクトに格納する。
+    * `Ranking`: 人間開発指数ランキング
+    * `Country`: 国名
+    * `HDI`: 2018年人間開発指数
+    * `Life_expectancy_at_birth`: 期待寿命
+    * `Expected_yrs_of_schooling`: 期待教育年数
+    * `Mean_yrs_of_schooling`: 平均教育年数
+    * `GNI_per_capita`: 国民総所得（100万米ドル）
+
+```{r}
+
+```
+
+2. `SES_df`と`HDI_df`を結合し、`Country_df`という名のオブジェクトに格納する。キーは`Country`変数である。
+    * `SES_df`には185カ国、`HDI_df`には179カ国のデータが入っている。`Country_df`は185カ国データになるようにすること。
+    
+```{r}
+
+```
+
+3. `Country_df`の変数名を出力する。
+
+```{r}
+names(Country_df)
+```
+
+4. `Country_df`から`Mean_yrs_of_schooling`、`GIN_per_capita`変数を除外する。
+5. `Expected_yrs_of_schooling`と`Life_expectancy_at_birth`の変数名をそれぞれ`Education`、`Life`に変更する。
+
+```{r}
+
+```
+
+6. 修正済みの`Country_df`の中身を出力する。
+
+```{r}
+Country_df
+```
+
+7. 期待教育年数の分布をヒストグラムで出力する。棒の枠線は白とする（`color = "white"`）。
+
+```{r}
+
+```
+
+8. 大陸ごとの期待寿命の箱ひげ図を作成する。`fill`マッピングを使用し、大陸ごとに異なる色を付けること。
+
+```{r}
+
+```
+
+---
+
+## 3. `Countries_Politics.csv`の処理と可視化
+
+1. `Countries_Politics.csv`ファイルを読み込み、`Politics_df`という名のオブジェクトに格納する。
+    * `Country`: 国名
+    * `G7`: G7加盟有無 (0: No / 1: Yes)
+    * `G20`: G29加盟有無 (0: No / 1: Yes)
+    * `OECD`: OECD加盟有無 (0: No / 1: Yes)
+    * `Freedom`: Freedom House指数（民主主義指標の1つ）
+
+```{r}
+
+```
+
+2. `G7`、`G20`、`OECD`列の数値を足し、`Developed`という名の列として追加する。
+
+```{r}
+
+```
+
+3. `Politics_df`を出力し、`Developed`列が追加されたことを確認する。
+
+```{r}
+Politics_df
+```
+
+4. `Developed`の値が1以上なら`"Developed"` (先進国)、0なら`"Developing"` (開発途上国)へ置換する。
+
+```{r}
+
+```
+
+5. `Politics_df`を出力し、`Developed`列が修正されたことを確認する。
+
+```{r}
+Politics_df
+```
+
+6. `Politics_df`の列を抽出する。抽出する列は`Country`、`Freedom`、`Developed`列のみてある。抽出後、`Politics_df`に上書きする。
+
+```{r}
+
+```
+
+6. `Country_df`と`Politics_df`を結合し、`Country_df`という名のオブジェクトに上書きする。キーは`Country`変数である。
+    * 既存の`Country_df`には185カ国、`Politics_df`には186カ国のデータが入っている。新しい`Country_df`は185カ国データになるようにすること。
+    
+```{r}
+
+```
+
+7. 新しい`Country_df`の列名のみを出力し、正しくデータが結合されたかを確認する。
+
+```{r}
+names(Country_df)
+```
+
+8. 散布図を作成する。横軸は民主主義指標 （`Freedom`）、縦軸は一人当たりGDP（`GDP_per_capita`）とする。
+
+```{r}
+
+```
+
+9. 先進国と開発途上国で色分けをする。
+   * `color`にマッピング
+
+```{r}
+
+```
+
+10. 人口に応じて異なるサイズを与える。
+   * `size`にマッピング
+
+```{r}
+
+```
+
+11. 大陸ごとの民主主義指標の箱ひげ図を作成する。先進国と開発途上国で色分けすること。
+
+```{r}
+
+```
+
+---
+
+### 4. `COVID19_Worldwide.csv`の処理と可視化
+
+1. `COVID_Worldwide.csv`ファイルを読み込み、`COVID_df`という名のオブジェクトに格納する。
+   * `Country`: 国家名
+   * 各列は当該年月日におけるCOVID-19累積感染者数を意味する。
+
+```{r}
+
+```
+
+2. データの中身を確認する。
+
+```{r}
+COVID_df
+```
+
+3. データをWide型からLong型へ変換する。年月日は`Date`列、新規感染者数は`Confirmed`列とする。
+    * 変数は`"2020/1/22"`から`"2020/7/10"`までである。
+
+```{r}
+
+```
+
+4. `Date`変数をDate型へ変換する。
+
+```{r}
+
+```
+
+5. データから日本（`"Japan"`）、韓国（`"South Korea"`）、シンガポール（`"Singapore"`）、スイス（`"Switzerland"`）のみを抽出する。抽出したデータは`COVID_df2`という名のオブジェクトとして格納する。
+
+```{r}
+
+```
+
+6. 変換後のデータを確認する。
+
+```{r}
+COVID_df2
+```
+
+7. 横軸を年月日、縦軸を累積感染者数とした折れ線グラフを作成する。国ごとに異なる色を付ける。
+
+```{r}
+
+```
+
+8. `COVID_df`から（`COVID_df2`ではない）年月日が2020年7月10日（`"2020-07-10"`）である行のみ抽出し、`Date`列を除外する。結果を`COVID_df3`という名のオブジェクトとして格納する。
+
+```{r}
+
+```
+
+9. `COVID_df3`を累積感染者数が多い順でソートする。
+
+```{r}
+
+```
+
+10. `Country_df`と`COVID_df3`を結合する。キーは`"Country"`である。`Country_df`に合わせて結合すること。
+
+```{r}
+
+```
+
+11. `Country_df`の中身を確認する。
+
+```{r}
+names(Country_df)
+```
+
+12. 人口100万人当たり感染者数を計算し、`Confirmed2`という列としてデータに追加する。
+
+$$
+100万人当たり感染者数 = \frac{累積感染者数 \times 1000000}{人口}.
+$$
+
+```{r}
+
+```
+
+13. 横軸は人口密度、縦軸は100万人当たり累積感染者数を示した散布図を作成する。
+
+```{r}
+
+```
+
+14. `dplyr::filter()`を利用して`Density`が5000未満のみを抽出し、同じグラフを出力する。
+
+```{r}
+
+```
+
+15. 大陸がオセアニア（`"Oceania"`）の国を除外し、大陸ごとの民主主義指標と100万人当たり感染者数の関係を散布図で示す。
+
+```{r}
+
+```
+
+16. これまで作業した`Country_df`を`Data_xxxxxxxxx.csv`という名でパソコンに保存する。`xxxxxxxxx`は自分の学籍番号にする。
+
+```{r}
+
+```
