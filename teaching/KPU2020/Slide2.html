@@ -64,7 +64,8 @@ Tidyverseにおいてオブジェクトは`%&gt;%`で繋がっている。
 * 既存の書き方: 書き方と読み方が逆
   * 一般的なプログラミング言語共通
   * 書き方: `print(sum(X))` (`print`、`sum`、`X`の順で書く)
-  * 読み方: `X`を`sum()`し、`print()`する
+  * 読み方1: `X`を`sum()`し、`print()`する (コードの順番と逆)
+  * 読み方2: `print()`する内容は`sum()`で、`sum()`は`X`に対して行う（直感的でない読み方）
 * Tidyverseな書き方: 書き方と読み方が一致
   * 今どきのRの書き方
   * 書き方: `X %&gt;% sum() %&gt;% print()`
@@ -146,7 +147,7 @@ print(df, n = 5)
 ## #   FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
 ```
 
-* データのサイズ: 186カ国 `\(\times\)` 18変数
+* データのサイズ: 186カ国 `\(\times\)` 18変数（`dim(df)`でも確認可能）
 
 ---
 
@@ -629,26 +630,26 @@ class: inverse, center, middle
 ## 新しい列の追加追加: `mutate()`
 * `データ %&gt;% mutate(新しい変数名 = ベクトル)`
   * ベクトルの長さはデータの行数と一致する必要あり
-* **例)** `ID`という列に1から`nrow(df)`の数列を入れ、`Country`の後へ
+* **例)** `ID`という列に1から`nrow(df)`の数列を入れ、`Country`の前へ
   * `nrow(データ)`はデータの行数を出力する関数
   * `.after`または`.before`を指定しないと、最後列へ
 
 
 ```r
 df %&gt;%
-* mutate(ID = 1:nrow(df), .after = Country) %&gt;%
+* mutate(ID = 1:nrow(df), .before = Country) %&gt;%
   print(n = 5)
 ```
 
 ```
 ## # A tibble: 186 x 19
-##   Country    ID Population   Area    GDP     PPP GDP_per_capita PPP_per_capita
-##   &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
-## 1 Afghan…     1   38928346 6.53e5 1.91e4  82737.           491.          2125.
-## 2 Albania     2    2877797 2.74e4 1.53e4  39658.          5309.         13781.
-## 3 Algeria     3   43851044 2.38e6 1.70e5 496572.          3876.         11324.
-## 4 Andorra     4      77265 4.70e2 3.15e3     NA          40821.            NA 
-## 5 Angola      5   32866272 1.25e6 9.46e4 218533.          2879.          6649.
+##      ID Country Population   Area    GDP     PPP GDP_per_capita PPP_per_capita
+##   &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+## 1     1 Afghan…   38928346 6.53e5 1.91e4  82737.           491.          2125.
+## 2     2 Albania    2877797 2.74e4 1.53e4  39658.          5309.         13781.
+## 3     3 Algeria   43851044 2.38e6 1.70e5 496572.          3876.         11324.
+## 4     4 Andorra      77265 4.70e2 3.15e3     NA          40821.            NA 
+## 5     5 Angola    32866272 1.25e6 9.46e4 218533.          2879.          6649.
 ## # … with 181 more rows, and 11 more variables: G7 &lt;dbl&gt;, G20 &lt;dbl&gt;,
 ## #   OECD &lt;dbl&gt;, HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;,
 ## #   FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
@@ -701,6 +702,7 @@ df %&gt;%
 df2 &lt;- df %&gt;%
   filter(Population &gt;= 10000000, Continent == "Asia") %&gt;%
 * mutate(Density = Population / Area, .after = Area)
+
 df2 %&gt;% 
   arrange(desc(Density)) %&gt;%
   select(Country:PPP)
@@ -821,7 +823,7 @@ df3 %&gt;%
 
 ## `ifelse()`と`case_when()`
 
-`ifelse()`の使い方
+`ifelse()`の使い方（`if_else()`もOK）
 
 
 ```r
@@ -1268,16 +1270,40 @@ binded_data1
 # 実習用データを作成
 
 # スライド前頁のデータ1
-data1_c &lt;- data1 %&gt;%
+data1_c &lt;- df %&gt;%
   filter(Country %in% c("Australia", "Fiji", "New Zealand")) %&gt;%
   select(Country, Population)
 
 # スライド前頁のデータ2
-data1_d &lt;- data1 %&gt;%
+data1_d &lt;- df %&gt;%
   filter(Country %in% c("Australia", "Fiji", "Papua New Guinea")) %&gt;%
   select(Country, Area)
 ```
 
+---
+
+## `%in%`演算子
+
+「`X %in% Y`」の場合
+* `X`が`Y`に含まれているか否かをTRUE/FALSEで判定
+    * 一般的に`X`は長さ1、`Y`は長さ2以上のベクトル
+
+`Country`の値が`"Australia"`、`"Fiji"`、`"New Zealand"`のいずれかと一致する行を抽出し、`Country`と`Population`列のみ残す
+
+```r
+df %&gt;%
+  filter(Country %in% c("Australia", "Fiji", "New Zealand")) %&gt;%
+  select(Country, Population)
+```
+
+```
+## # A tibble: 3 x 2
+##   Country     Population
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Australia     25499884
+## 2 Fiji            896445
+## 3 New Zealand    4842780
+```
 ---
 
 ## 列の結合: 4つの考え方
@@ -1422,7 +1448,7 @@ left_join(Press_df, PPP_df, by = c("Country", "Year"))
 
 ---
 
-## 表形式データの作り方
+## （もう一回）表形式データの作り方
 
 `tibble()`関数を使用
 * `data.frame()`関数もOK。しかし、tibbleの方が機能的に豊富
@@ -1458,7 +1484,7 @@ class: inverse, middle, center
 
 #### 整然データ (Tidy data)
 
-* Tidy data: Hadley Wickahが提唱した「データ分析に適した」データ構造
+* Tidy data: Hadley Wickhamが提唱した「データ分析に適した」データ構造
   * 3日目は`ggplot2`を用いた可視化を解説するが、`ggplot2`は整然データを前提として開発されたパッケージ
   * 整然データ、簡潔データと呼ばれる
 * `tidyr`パッケージは雑然データを整然データへ変形するパッケージ
