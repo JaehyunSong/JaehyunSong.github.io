@@ -1,9 +1,5 @@
 ---
 title: "情報処理応用演習: 期末課題" # 修正しない
-# 以下に学籍番号と氏名を入力
-# 例) author: "123456789_田中太郎"
-author: "学籍番号(半角)_氏名" # <- ここを修正
-date: "`r Sys.Date()`" # 修正しない
 output: 
   html_document:
     highlight: "tango"
@@ -18,6 +14,12 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 ```
 
 <!--以下から課題に取り組むこと-->
+
+```{r, eval = FALSE, echo = FALSE}
+# 以下に学籍番号と氏名を入力
+学籍番号：
+氏　　名：
+```
 
 ## 1. `Countries_SES.csv`の処理と可視化
 
