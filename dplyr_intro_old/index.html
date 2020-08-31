@@ -157,8 +157,9 @@
 </center>
     </div>
 
-    <div align="start" class="content"><script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+    <div align="start" class="content"><p><script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <script src="../rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="../rmarkdown-libs/lightable/lightable.css" rel="stylesheet" /></p>
 
 <div id="参考資料" class="section level2">
 <h2>参考資料</h2>
@@ -263,16 +264,16 @@
 <pre class="r"><code>install.packages(&quot;dplyr&quot;)</code></pre>
 <pre class="r"><code>library(dplyr)</code></pre>
 <pre><code>## 
-##  次のパッケージを付け加えます: &#39;dplyr&#39;</code></pre>
-<pre><code>##  以下のオブジェクトは &#39;package:kableExtra&#39; からマスクされています: 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:kableExtra&#39;:
 ## 
-##      group_rows</code></pre>
-<pre><code>##  以下のオブジェクトは &#39;package:stats&#39; からマスクされています: 
+##     group_rows</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
-##      filter, lag</code></pre>
-<pre><code>##  以下のオブジェクトは &#39;package:base&#39; からマスクされています: 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
-##      intersect, setdiff, setequal, union</code></pre>
+##     intersect, setdiff, setequal, union</code></pre>
 <p>実習用データは有名な<code>nycflights13</code>データを使う。これはニューヨーク出発の航空便のデータで、336,776のケースが含まれている。インストールされていない場合、<code>install.packages("nycflights13")</code>でインストールしておこう。</p>
 <p>まず、データを読み込み、中身を見てみよう。</p>
 <pre class="r"><code>library(nycflights13)
