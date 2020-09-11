@@ -47,5 +47,14 @@
       <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
     </item>
     
+    <item>
+      <title>Rによる無作為配分のシミュレーション</title>
+      <link>/simulation/sim-random-assignment/</link>
+      <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/simulation/sim-random-assignment/</guid>
+      <description>このシミュレーションの目的は一つのグループに何人くらい配分したら全体の平均値に近づくのかを経験的に確認するためのものです。 趣味でしたものなの</description>
+    </item>
+    
   </channel>
 </rss>
