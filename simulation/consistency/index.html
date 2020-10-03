@@ -159,18 +159,7 @@
 <script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<pre class="r"><code>library(tidyverse)
-df &lt;- tibble(Trial = paste0(&quot;Trial&quot;, 1:1000000),
-             X1    = rnorm(1000000, 0, 100),
-             X2    = rnorm(1000000, 0, 100),
-             X3    = rnorm(1000000, 0, 100))
-
-df %&gt;% 
-  mutate(Max_Abs_X = case_when(abs(X1) &gt; abs(X2) &amp; abs(X2) &gt; abs(X3) ~ X1,
-                               abs(X2) &gt; abs(X3) ~ X2,
-                               TRUE ~ X3)) %&gt;%
-  ungroup() %&gt;%
-  summarise(Max_X_bar = mean(Max_Abs_X))</code></pre>
+<p>ここでは統計学を勉強する上でよく混同される一致性と不偏性について解説します。</p>
 <div id="一致性とは" class="section level2">
 <h2>一致性とは</h2>
 <p>一致性はサンプルサイズが大きくなると、推定値が母数へ収束することを意味します。たとえば、<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>の正規分布から独立的に抽出された<span class="math inline">\(n\)</span>個の確率変数<span class="math inline">\(X\)</span>があるとします。つまり、以下のような状況を考えます。</p>
@@ -227,7 +216,7 @@ ggplot() +
   geom_line(aes(x = 1:1000, y = X_bar_vec)) +
   geom_hline(yintercept = 0, color = &quot;red&quot;) +
   labs(x = &quot;n&quot;, y = expression(hat(theta)))</code></pre>
-<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><span class="math inline">\(n\)</span>を大きくすることによって<span class="math inline">\(\bar{X}\)</span>が<span class="math inline">\(\mu (=0)\)</span>へ近づくことが分かります。この<span class="math inline">\(n\)</span>を無限にすると (<span class="math inline">\(n \rightarrow \infty\)</span>)、<span class="math inline">\(\bar{X} = \mu\)</span>になるでしょう。したがって、<span class="math inline">\(\bar{X}\)</span>は<span class="math inline">\(\mu\)</span>の一致推定量となります。</p>
 <hr />
 </div>
@@ -329,10 +318,11 @@ var(X) * ((length(X) - 1) / length(X)) # 標本分散</code></pre>
              X3    = rnorm(10000, 0, 100),
              X4    = rnorm(10000, 0, 100),
              X5    = rnorm(10000, 0, 100))
+
 df &lt;- df %&gt;%
-  rowwise() %&gt;%
-  mutate(S_2         = var(c(X1, X2, X3, X4, X5)) * (4/5),
-         Sigma_hat_2 = var(c(X1, X2, X3, X4, X5)))
+  rowwise() %&gt;% # 行単位の演算
+  mutate(S_2         = var(c(X1, X2, X3, X4, X5)) * (4/5), # 各試行における標本分散
+         Sigma_hat_2 = var(c(X1, X2, X3, X4, X5)))         # 各試行における不偏分散
 
 head(df)</code></pre>
 <pre><code>## # A tibble: 6 x 8
@@ -369,7 +359,7 @@ ggplot() +
   geom_line(aes(x = 1:1000, y = theta_hat_vec)) +
   geom_hline(yintercept = 0, color = &quot;red&quot;) +
   labs(x = &quot;n&quot;, y = expression(hat(theta)))</code></pre>
-<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>このように<span class="math inline">\(n\)</span>をいくら増やしても<span class="math inline">\(\hat{\theta}\)</span>は母数である0へ収束しないことが分かります。つまり、この推定量は一致推定量ではありません。それでは、この推定量は不偏推定量でしょうか。ここでは話を単純にするために<span class="math inline">\(n = 3\)</span>の例を考えてみましょう。不偏性はサンプルサイズ（<span class="math inline">\(n\)</span>）と無関係ですので、これでも問題ないでしょう。試行数は100万とします。</p>
 <pre class="r"><code># シミュレーション用のデータを作成
 df &lt;- tibble(Trial = paste0(&quot;Trial&quot;, 1:1000000),

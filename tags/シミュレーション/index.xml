@@ -17,7 +17,7 @@
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/simulation/consistency/</guid>
-      <description>library(tidyverse) df &amp;lt;- tibble(Trial = paste0(&amp;quot;Trial&amp;quot;, 1:1000000), X1 = rnorm(1000000, 0, 100), X2 = rnorm(1000000, 0, 100), X3 = rnorm(1000000, 0, 100)) df %&amp;gt;% mutate(Max_Abs_X = case_when(abs(X1) &amp;gt; abs(X2) &amp;amp; abs(X2) &amp;gt; abs(X3) ~ X1, abs(X2) &amp;gt; abs(X3) ~ X2, TRUE ~ X3)) %&amp;gt;% ungroup() %&amp;gt;% summarise(Max_X_bar = mean(Max_Abs_X)) 一致性とは 一致性はサンプルサイズが大きくな</description>
+      <description>ここでは統計学を勉強する上でよく混同される一致性と不偏性について解説します。 一致性とは 一致性はサンプルサイズが大きくなると、推定値が母数へ収</description>
     </item>
     
     <item>
