@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="../../fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>一致性と不偏性</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="../../css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.70.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-96999602-1');
+              gtag('set', {'user_id': 'USER_ID'});
+            </script>
+        
+
+        <meta name="google-site-verification" content="QJouPRaPKBPU1jDp6VaBuFbVV5imTI-Aazl_ScJwVgU" />
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">一致性と不偏性</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="../../">Home</a></li>
+                            
+                                <li><a href="../../about/">CV</a></li>
+                            
+                                <li><a href="../../research/">Research</a></li>
+                            
+                                <li><a href="../../teaching/">Teaching</a></li>
+                            
+                                <li><a href="../../software/">Software</a></li>
+                            
+                                <li><a href="../../notes/">Notes</a></li>
+                            
+                                <li><a href="../../tutorial/">Tutorial</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:jasong@mail.doshisha.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2><center>一致性と不偏性</center></h2>
+        <h5><center></center></h5>
+        <center>
+<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+
+<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+
+</center>
+    </div>
+
+    <div align="start" class="content">
+<script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>library(tidyverse)
+df &lt;- tibble(Trial = paste0(&quot;Trial&quot;, 1:1000000),
+             X1    = rnorm(1000000, 0, 100),
+             X2    = rnorm(1000000, 0, 100),
+             X3    = rnorm(1000000, 0, 100))
+
+df %&gt;% 
+  mutate(Max_Abs_X = case_when(abs(X1) &gt; abs(X2) &amp; abs(X2) &gt; abs(X3) ~ X1,
+                               abs(X2) &gt; abs(X3) ~ X2,
+                               TRUE ~ X3)) %&gt;%
+  ungroup() %&gt;%
+  summarise(Max_X_bar = mean(Max_Abs_X))</code></pre>
+<div id="一致性とは" class="section level2">
+<h2>一致性とは</h2>
+<p>一致性はサンプルサイズが大きくなると、推定値が母数へ収束することを意味します。たとえば、<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>の正規分布から独立的に抽出された<span class="math inline">\(n\)</span>個の確率変数<span class="math inline">\(X\)</span>があるとします。つまり、以下のような状況を考えます。</p>
+<p><span class="math display">\[
+X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
+\]</span></p>
+<p>ただし、ここでは<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>を仮定しましたが、実際において私たちは<span class="math inline">\(\mu\)</span>と<span class="math inline">\(\sigma\)</span>の値は分かりません。たとえば、手元に男女100人の身長データがあっても、日本人全体の身長の平均値と分散は分かりません。したがって、私たちは手元にあるこの<span class="math inline">\(X\)</span>のみを用いて、未知である母集団の特徴を推論する必要があります。手元の<span class="math inline">\(X\)</span>から母集団における平均値（<span class="math inline">\(\mu\)</span>）を推定する際によく使われるが平均値（<span class="math inline">\(\bar{X}\)</span>）です。</p>
+<p>たとえば、<span class="math inline">\(n = 5\)</span>の場合を考えてみましょう。</p>
+<pre class="r"><code>set.seed(19861009) # 乱数のseedを指定
+X1 &lt;- rnorm(5, 0, 100) # N(0, 100)から乱数を5個抽出する
+print(X1) # 抽出された乱数を出力する</code></pre>
+<pre><code>## [1] -195.662813  153.088455   25.989905   -3.071453  -53.218536</code></pre>
+<pre class="r"><code>mean(X1) # 抽出された乱数の平均値を出力する</code></pre>
+<pre><code>## [1] -14.57489</code></pre>
+<p><span class="math inline">\(n = 5\)</span>の場合、<span class="math inline">\(\bar{X}\)</span>は-14.5748884です。それでは<span class="math inline">\(n = 100\)</span>ならどうでしょうか。</p>
+<pre class="r"><code>X2 &lt;- rnorm(100, 0, 100) # N(0, 100)から乱数を100個抽出する
+print(X2) # 抽出された乱数を出力する</code></pre>
+<pre><code>##   [1]  -12.513448   16.473814  -55.827125  -86.033925  196.563039  -59.660676
+##   [7]  178.879309  -95.615549 -117.455299   53.094037   80.033960  -47.082599
+##  [13] -102.146620   89.866926   -7.909525  -31.347797   30.952894  107.081687
+##  [19] -195.426684  -71.759205   48.629528  116.743532   51.594264 -211.544831
+##  [25]  160.766456  308.931296   36.696450   78.402401   13.495426  -19.456266
+##  [31] -120.529780    6.163411  -24.332314  138.872863  -30.410003   39.268512
+##  [37] -124.424084   59.200185   54.027469   72.515763 -178.219784 -179.507844
+##  [43]   47.350023  -52.366831   98.083261  -44.570705  217.776695   62.598027
+##  [49]  -90.665200  103.918722 -142.114845   58.524963  -33.849776   75.790091
+##  [55]  -89.727866    5.718650  -14.870296  -42.457583  -39.518473   49.421506
+##  [61]   17.351046  -39.949024  -62.180725  -21.830242   42.782942   35.902584
+##  [67]  -28.100441  -86.049005   37.312739  -43.398827 -288.436043   40.767558
+##  [73]   18.953100   -4.163539   59.720674   97.730085   48.131342  -83.222430
+##  [79]   71.003268  181.770553   82.021292  -59.789360   61.338302 -154.959971
+##  [85] -173.761830 -177.086379  147.810801  -58.044487  140.592706   32.867267
+##  [91]   60.883589  -50.408130 -124.858910   32.480463 -104.253371  -26.842073
+##  [97]  -76.278107  -92.971755   16.245089  -78.430475</code></pre>
+<pre class="r"><code>mean(X2) # 抽出された乱数の平均値を出力する</code></pre>
+<pre><code>## [1] -2.732595</code></pre>
+<p><span class="math inline">\(n = 100\)</span>の場合の<span class="math inline">\(\bar{X}\)</span>は-2.732595ですね。最後に、<span class="math inline">\(n = 10000\)</span>ならどうでしょうか。このサンプルを出力するのはあまりにも結果が長くなるので、ここでは平均値だけを出力します。</p>
+<pre class="r"><code>X3 &lt;- rnorm(10000, 0, 100) # N(0, 100)から乱数を1万個抽出する
+mean(X3) # 抽出された乱数の平均値を出力する</code></pre>
+<pre><code>## [1] -0.9447894</code></pre>
+<p><span class="math inline">\(n = 10000\)</span>の場合の<span class="math inline">\(\bar{X}\)</span>は-0.9447894ですね。このように<span class="math inline">\(n\)</span>が大きくなると、<span class="math inline">\(\bar{X}\)</span>は母集団の平均値（ここでは<span class="math inline">\(\mu = 0\)</span>）へ近づきます。このようにサンプルサイズが大きくなると推定値が母数へ近づくことを「<strong>一致性</strong> (consistency)」と呼びます。この例だと、「標本の平均値（<span class="math inline">\(\bar{X}\)</span>）は母集団の平均値（<span class="math inline">\(\mu\)</span>）の一致推定量である」と言えます。これは<span class="math inline">\(\bar{X} \overset{p}{\rightarrow} \mu\)</span>と表記されます。より一般的に書くと推定値<span class="math inline">\(\hat{\theta}\)</span>が母数<span class="math inline">\(\theta\)</span>の一致推定量である場合、<span class="math inline">\(\hat{\theta} \overset{p}{\rightarrow} \theta\)</span>と表記します。</p>
+<p>この表記は大数の弱法則とも共通しますが、実際、一致性は大数の弱法則によって成り立ちます。</p>
+<pre class="r"><code>library(tidyverse)
+
+X_bar_vec &lt;- rep(NA, 1000)     # 長さ1000の空ベクトルを作成
+for (i in 1:1000) {            # iを1から1000へ増やしながら反復
+  temp_vec &lt;- rnorm(i, 0, 100) # N(0, 100)からi個の乱数を抽出し、temp_vecに格納
+  # temp_vecの平均値をX_bar_vecのi番目要素として格納
+  X_bar_vec[i] &lt;- mean(temp_vec)
+}
+
+# 可視化
+ggplot() +
+  geom_line(aes(x = 1:1000, y = X_bar_vec)) +
+  geom_hline(yintercept = 0, color = &quot;red&quot;) +
+  labs(x = &quot;n&quot;, y = expression(hat(theta)))</code></pre>
+<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><span class="math inline">\(n\)</span>を大きくすることによって<span class="math inline">\(\bar{X}\)</span>が<span class="math inline">\(\mu (=0)\)</span>へ近づくことが分かります。この<span class="math inline">\(n\)</span>を無限にすると (<span class="math inline">\(n \rightarrow \infty\)</span>)、<span class="math inline">\(\bar{X} = \mu\)</span>になるでしょう。したがって、<span class="math inline">\(\bar{X}\)</span>は<span class="math inline">\(\mu\)</span>の一致推定量となります。</p>
+<hr />
+</div>
+<div id="不偏性とは" class="section level2">
+<h2>不偏性とは</h2>
+<p>一致性と混同されやすい概念が「不偏性（unbiasedness）」です。これは推定値<span class="math inline">\(\hat{\theta}\)</span>の<strong>期待値</strong>が母数<span class="math inline">\(\theta\)</span>と一致することを意味します。数式で表すと<span class="math inline">\(\mathbb{E}[\hat{\theta}] = \theta\)</span>であり、一致性と違って、サンプルサイズ（<span class="math inline">\(n\)</span>）とは無関係な性質です。</p>
+<p>たとえば、<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>の正規分布から独立的に5個の値を抽出します（<span class="math inline">\(n = 5\)</span>）。そして、この5個の値の平均値（<span class="math inline">\(\bar{X}\)</span>）を計算します。この作業を1万回繰り返したいと思います。</p>
+<pre class="r"><code>df &lt;- tibble(Trial = 1:10000,
+             X1    = rnorm(10000, 0, 100),
+             X2    = rnorm(10000, 0, 100),
+             X3    = rnorm(10000, 0, 100),
+             X4    = rnorm(10000, 0, 100),
+             X5    = rnorm(10000, 0, 100))
+
+head(df)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   Trial    X1     X2     X3     X4     X5
+##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 -91.6  -20.6   42.1 -28.8  -134. 
+## 2     2 -22.7 -204.    66.6 134.     66.2
+## 3     3 -26.1   89.4   37.4 146.   -108. 
+## 4     4 -27.9  -68.9   94.8  39.6   -50.7
+## 5     5  48.4  -65.0  110.  -23.1   -17.2
+## 6     6  99.2  -29.2 -142.   -9.03   39.9</code></pre>
+<p>それでは<span class="math inline">\(X_1\)</span>から<span class="math inline">\(X_5\)</span>までの平均値を計算します。</p>
+<pre class="r"><code>df &lt;- df %&gt;%
+  mutate(X_bar = (X1 + X2 + X3 + X4 + X5) / 5)
+
+head(df)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   Trial    X1     X2     X3     X4     X5  X_bar
+##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 -91.6  -20.6   42.1 -28.8  -134.  -46.5 
+## 2     2 -22.7 -204.    66.6 134.     66.2   8.13
+## 3     3 -26.1   89.4   37.4 146.   -108.   27.9 
+## 4     4 -27.9  -68.9   94.8  39.6   -50.7  -2.62
+## 5     5  48.4  -65.0  110.  -23.1   -17.2  10.6 
+## 6     6  99.2  -29.2 -142.   -9.03   39.9  -8.18</code></pre>
+<p>この<span class="math inline">\(\bar{X}\)</span>の平均値（<span class="math inline">\(\bar{\bar{X}}\)</span>）、つまり<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>はどうでしょうか。厳密には<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>ではありませんが、試行回数が無限回となると<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>となります。試行回数1万は十分多いと考えられるので、期待値に近い結果が得られると考えられます。</p>
+<pre class="r"><code>mean(df$X_bar)</code></pre>
+<pre><code>## [1] 0.09291811</code></pre>
+<p><span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>は0.0929181であり、ほぼ0であることが分かります。この0が母数（<span class="math inline">\(\mu\)</span>）であり、<span class="math inline">\(\mathbb{E}[\bar{X}] = \mu\)</span>の関係が成り立つことが分かります。したがって、<span class="math inline">\(\bar{X}\)</span>は<span class="math inline">\(\mu\)</span>の不偏推定量となります。</p>
+<p>不偏推定量は複数存在することもあります。ここまで見てきました標本平均<span class="math inline">\(\bar{X}\)</span>も<span class="math inline">\(\mu\)</span>の不偏推定量の一つに過ぎません。たとえば、以下のような推定量を考えてみましょう。</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+  Y_1 &amp; = X_3 \\
+  Y_2 &amp; = \frac{1}{9}(X_1 + 2 \cdot X_2 + 3 \cdot X_3 + 2 \cdot X_4 + X+5).
+\end{eqnarray}
+\]</span></p>
+<pre class="r"><code>df &lt;- df %&gt;%
+  mutate(Y1 = X3,
+         Y2 = (1/9) * (X1 + 2 * X2 + 3 * X3 + 2 * X4 + X5))
+
+head(df)</code></pre>
+<pre><code>## # A tibble: 6 x 9
+##   Trial    X1     X2     X3     X4     X5  X_bar     Y1    Y2
+##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 -91.6  -20.6   42.1 -28.8  -134.  -46.5    42.1 -22.0
+## 2     2 -22.7 -204.    66.6 134.     66.2   8.13   66.6  11.6
+## 3     3 -26.1   89.4   37.4 146.   -108.   27.9    37.4  50.0
+## 4     4 -27.9  -68.9   94.8  39.6   -50.7  -2.62   94.8  16.4
+## 5     5  48.4  -65.0  110.  -23.1   -17.2  10.6   110.   20.6
+## 6     6  99.2  -29.2 -142.   -9.03   39.9  -8.18 -142.  -40.3</code></pre>
+<p>それでは<span class="math inline">\(\mathbb{E}[Y_1]\)</span>と<span class="math inline">\(\mathbb{E}[Y_2]\)</span>を計算してみましょう。</p>
+<pre class="r"><code>mean(df$Y1)</code></pre>
+<pre><code>## [1] 0.5527504</code></pre>
+<pre class="r"><code>mean(df$Y2)</code></pre>
+<pre><code>## [1] 0.1050386</code></pre>
+<p>それぞれ0.5527504と0.1050386の結果が得られており、こちらも<span class="math inline">\(\mu\)</span>に非常に近いことが分かります。標本平均以外にも母平均の不偏推定量がいくらでもあり得ることが分かります。</p>
+<p>しかし、なぜ<span class="math inline">\(\mu\)</span>の不偏推定量として<span class="math inline">\(\bar{X}\)</span>が使われているのでしょうか。それは<span class="math inline">\(\bar{X}\)</span>が最も効率的な推定量であるからです。</p>
+<hr />
+</div>
+<div id="効率性とは" class="section level2">
+<h2>効率性とは</h2>
+<p>不偏推定量の中で一つ選ぶとしたら「効率性（efficiency）」というものを基準とします。同じ不偏推定量であれば、精度の高い推定量、つまり分散が小さい推定量がいいでしょう。この精度の良さが「効率性」です。他にも、「有効性」と呼ばれる場合もあります。</p>
+<p>効率性の最も良い推定量のことを有効推定量と呼びます。この効率性は簡単にいうと推定量の分散を意味します。これまで<span class="math inline">\(\mu\)</span>の不偏推定量として<span class="math inline">\(\bar{X}\)</span>、<span class="math inline">\(Y_1\)</span>、<span class="math inline">\(Y_2\)</span>を見てきました。これら3つの不偏推定量の効率性は<span class="math inline">\(V[\bar{X}]\)</span>、<span class="math inline">\(V[Y_1]\)</span>、<span class="math inline">\(V[Y_2]\)</span>を用いて調べることが可能です。</p>
+<pre class="r"><code>var(df$X_bar)</code></pre>
+<pre><code>## [1] 2004.154</code></pre>
+<pre class="r"><code>var(df$Y1)</code></pre>
+<pre><code>## [1] 9974.554</code></pre>
+<pre class="r"><code>var(df$Y2)</code></pre>
+<pre><code>## [1] 2359.181</code></pre>
+<p>それぞれの分散は2004.1535382、9974.5536133、2359.1813379であり、<span class="math inline">\(V[\bar{X}]\)</span>が最も分散が小さい、つまり最も効率的な推定量であることが分かります。<span class="math inline">\(\bar{X}\)</span>は一致推定量でありながら不偏推定量であり、そして最も効率的な<span class="math inline">\(\mu\)</span>の推定量となります。</p>
+<hr />
+</div>
+<div id="一致推定量不偏推定量" class="section level2">
+<h2>一致推定量=不偏推定量?</h2>
+<p>先ほどの標本平均は一致推定量でありながら、不偏推定量でした。しかし、世の中には一致推定量でありながら、不偏推定量ではない推定量が存在します。その代表的な例が標本分散（<span class="math inline">\(s^2\)</span>）です。標本分散（<span class="math inline">\(s^2\)</span>）は母集団における分散（<span class="math inline">\(\sigma^2\)</span>）の一致推定量ですが、不偏推定量ではありません。</p>
+<p>たとえば、<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>の正規分布から独立的に1000万個の乱数を生成したとします。この場合、母分散（<span class="math inline">\(\sigma^2\)</span>）は10000となります。そして、この1000万個の値の標本分散（<span class="math inline">\(s^2\)</span>）と不偏分散（<span class="math inline">\(\hat{\sigma}^2\)</span>）を計算します。ちなみに、Rの<code>var()</code>は不偏分散を計算するため、標本分散を求めるためには不偏分散に<span class="math inline">\(\frac{n-1}{n}\)</span>を掛ける必要があります。</p>
+<pre class="r"><code>X &lt;- rnorm(10000000, 0, 100)
+var(X) * ((length(X) - 1) / length(X)) # 標本分散</code></pre>
+<pre><code>## [1] 9996.52</code></pre>
+<pre class="r"><code>var(X) # 不偏分散</code></pre>
+<pre><code>## [1] 9996.521</code></pre>
+<p>どれも母分散に非常に近い値が得られており、<span class="math inline">\(n\)</span>を無限にすると母分散に一致すると予想されます。したがって、<span class="math inline">\(s^2 \overset{p}{\rightarrow} \sigma^2\)</span>、<span class="math inline">\(\hat{\sigma}^2 \overset{p}{\rightarrow} \sigma^2\)</span>であり、どれも一致推定量であることが分かります。</p>
+<pre class="r"><code>df &lt;- tibble(Trial = 1:10000,
+             X1    = rnorm(10000, 0, 100),
+             X2    = rnorm(10000, 0, 100),
+             X3    = rnorm(10000, 0, 100),
+             X4    = rnorm(10000, 0, 100),
+             X5    = rnorm(10000, 0, 100))
+df &lt;- df %&gt;%
+  rowwise() %&gt;%
+  mutate(S_2         = var(c(X1, X2, X3, X4, X5)) * (4/5),
+         Sigma_hat_2 = var(c(X1, X2, X3, X4, X5)))
+
+head(df)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+## # Rowwise: 
+##   Trial     X1    X2    X3    X4     X5    S_2 Sigma_hat_2
+##   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;
+## 1     1  -59.1  29.6  44.2 -70.3  -14.7  2097.       2621.
+## 2     2  149.   37.8 -25.9 -19.8  145.   5847.       7308.
+## 3     3   47.6 158.  -20.8 123.  -219.  17846.      22307.
+## 4     4 -175.  -17.2 138.   12.2  -93.2 11005.      13756.
+## 5     5  137.  173.   53.6 -33.2   29.7  5521.       6902.
+## 6     6  118.   28.8  40.6 -15.6   76.7  2021.       2526.</code></pre>
+<p>それでは<span class="math inline">\(s^2\)</span>と<span class="math inline">\(\hat{\sigma}^2\)</span>の平均値（<span class="math inline">\(\simeq\)</span>期待値）を計算してみましょう。</p>
+<pre class="r"><code>mean(df$S_2) # 標本分散の期待値</code></pre>
+<pre><code>## [1] 8067.114</code></pre>
+<pre class="r"><code>mean(df$Sigma_hat_2) # 不偏分散の期待値</code></pre>
+<pre><code>## [1] 10083.89</code></pre>
+<p>標本分散の期待値は約8000で、母分散の<span class="math inline">\(\frac{n-1}{n}\)</span>、つまり<span class="math inline">\(\frac{4}{5}\)</span>となります。一方、不偏分散の場合期待値が母分散に非常に近いことが分かります。したがって、不偏分散は一致性と不偏性があり、標本分散は一致性のみあることが分かります。</p>
+<p>逆に不偏推定量でありながら一致推定量ではない推定量も存在します。たとえば、以下のような例を考えてみましょう。</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100)\)</span>とする</li>
+<li><span class="math inline">\(|X_i| = \max{(|X_1|, |X_2|, |X_3|, ..., |X_i|, ..., |X_n|)}\)</span>の場合、<span class="math inline">\(\hat{\theta} = X_i\)</span></li>
+</ol>
+<p>要するに、絶対値の最も高かった値を<span class="math inline">\(\theta\)</span>の推定量（<span class="math inline">\(\hat{\theta}\)</span>）として用いることを意味します。この場合、<span class="math inline">\(\hat{\theta}\)</span>は一致推定量でしょうか。<span class="math inline">\(n\)</span>を1から1000まで増やしながら確認してみましょう。</p>
+<pre class="r"><code>theta_hat_vec &lt;- rep(NA, 1000) # 長さ1000の空ベクトルを作成
+for (i in 1:1000) {            # iを1から1000へ増やしながら反復
+  temp_vec &lt;- rnorm(i, 0, 100) # N(0, 100)からi個の乱数を抽出し、temp_vecに格納
+  # temp_vecの中で最も絶対値の高い値はtheta_hat_vecのi番目要素として格納
+  theta_hat_vec[i] &lt;- temp_vec[abs(temp_vec) == max(abs(temp_vec))]
+}
+
+# 可視化
+ggplot() +
+  geom_line(aes(x = 1:1000, y = theta_hat_vec)) +
+  geom_hline(yintercept = 0, color = &quot;red&quot;) +
+  labs(x = &quot;n&quot;, y = expression(hat(theta)))</code></pre>
+<p><img src="../../simulation/2020-10-01-consitency_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>このように<span class="math inline">\(n\)</span>をいくら増やしても<span class="math inline">\(\hat{\theta}\)</span>は母数である0へ収束しないことが分かります。つまり、この推定量は一致推定量ではありません。それでは、この推定量は不偏推定量でしょうか。ここでは話を単純にするために<span class="math inline">\(n = 3\)</span>の例を考えてみましょう。不偏性はサンプルサイズ（<span class="math inline">\(n\)</span>）と無関係ですので、これでも問題ないでしょう。試行数は100万とします。</p>
+<pre class="r"><code># シミュレーション用のデータを作成
+df &lt;- tibble(Trial = paste0(&quot;Trial&quot;, 1:1000000),
+             X1    = rnorm(1000000, 0, 100),
+             X2    = rnorm(1000000, 0, 100),
+             X3    = rnorm(1000000, 0, 100))
+
+df &lt;- df %&gt;% 
+  # X1, X2, X3の中で絶対値の最も高い値をTheta_Hatとする
+  mutate(Theta_Hat = case_when(abs(X1) &gt; abs(X2) &amp; abs(X2) &gt; abs(X3) ~ X1,
+                               abs(X2) &gt; abs(X3)                     ~ X2,
+                               TRUE                                  ~ X3)) 
+
+head(df) # dfの中身を確認する</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   Trial       X1    X2     X3 Theta_Hat
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Trial1   48.6   73.3  -70.9      73.3
+## 2 Trial2 -377.   152.  -182.     -182. 
+## 3 Trial3  105.   -46.6   90.8      90.8
+## 4 Trial4   52.5  -83.3  -66.8     -83.3
+## 5 Trial5 -121.   -56.9   83.9      83.9
+## 6 Trial6    8.23  51.4   92.5      92.5</code></pre>
+<pre class="r"><code># dfのTheta_Hat列の期待値（平均値）を計算する。
+mean(df$Theta_Hat)</code></pre>
+<pre><code>## [1] -0.02872534</code></pre>
+<p>非常に0に近い結果が得られており、これはほぼ<span class="math inline">\(\mu\)</span>と同じ値となります。施行数が無限回になると、<span class="math inline">\(\mathbb{E}[\hat{\theta}]\)</span>は<span class="math inline">\(\mu\)</span>と一致していくだろうと考えられます。</p>
+<p>我々が教科書でよく見る推定量は一般的に一致性と不偏性を同時に満たす推定量が多いでしょう。しかし、例外も常に存在します。標本分散もその一つの例です。他にも、最尤推定法から得られた分散の推定量は一致推定量ではあるものの、不偏推定量ではないことが知られています。</p>
+</div>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted" align = "center">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>. Customized by <a href="https://www.jaysong.net">Jaehyun Song</a></p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

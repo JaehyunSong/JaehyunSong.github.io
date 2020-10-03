@@ -6,10 +6,19 @@
     <description>Recent content in シミュレーション on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一致性と不偏性</title>
+      <link>/simulation/consistency/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/simulation/consistency/</guid>
+      <description>library(tidyverse) df &amp;lt;- tibble(Trial = paste0(&amp;quot;Trial&amp;quot;, 1:1000000), X1 = rnorm(1000000, 0, 100), X2 = rnorm(1000000, 0, 100), X3 = rnorm(1000000, 0, 100)) df %&amp;gt;% mutate(Max_Abs_X = case_when(abs(X1) &amp;gt; abs(X2) &amp;amp; abs(X2) &amp;gt; abs(X3) ~ X1, abs(X2) &amp;gt; abs(X3) ~ X2, TRUE ~ X3)) %&amp;gt;% ungroup() %&amp;gt;% summarise(Max_X_bar = mean(Max_Abs_X)) 一致性とは 一致性はサンプルサイズが大きくな</description>
+    </item>
     
     <item>
       <title>黒ひげ危機一発</title>
