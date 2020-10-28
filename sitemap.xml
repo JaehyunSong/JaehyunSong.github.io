@@ -1,6 +1,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+<loc>/rmarkdown-intro/</loc>
+
+<lastmod>2020-10-28T00:00:00+00:00</lastmod>
+
+</url>
+
+<url>
 <loc>/simulation/consistency/</loc>
 
 <lastmod>2020-10-01T00:00:00+00:00</lastmod>
