@@ -6,11 +6,7 @@
     <description>Recent content in Conjoint on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/conjoint/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/conjoint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
       <link>/post/2020-04-05-conjointsdt-fixattributes/</link>
