@@ -1,309 +1,316 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/rmarkdown-intro/</loc>
+<loc>https://www.jaysong.net/post/ut2020-ci/</loc>
+
+<lastmod>2020-11-27T00:00:00+00:00</lastmod>
+
+</url>
+
+<url>
+<loc>https://www.jaysong.net/rmarkdown-intro/</loc>
 
 <lastmod>2020-10-28T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/consistency/</loc>
+<loc>https://www.jaysong.net/simulation/consistency/</loc>
 
 <lastmod>2020-10-01T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/ggplot_intro2/</loc>
+<loc>https://www.jaysong.net/ggplot_intro2/</loc>
 
 <lastmod>2020-08-08T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/ggplot_intro1/</loc>
+<loc>https://www.jaysong.net/ggplot_intro1/</loc>
 
 <lastmod>2020-07-17T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/kpu2020/</loc>
+<loc>https://www.jaysong.net/post/kpu2020/</loc>
 
 <lastmod>2020-07-16T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/kobe2020-qpm1/</loc>
+<loc>https://www.jaysong.net/post/kobe2020-qpm1/</loc>
 
 <lastmod>2020-07-16T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/tidyr_intro/</loc>
+<loc>https://www.jaysong.net/tidyr_intro/</loc>
 
 <lastmod>2020-07-09T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/rprogramming/</loc>
+<loc>https://www.jaysong.net/rprogramming/</loc>
 
 <lastmod>2020-06-29T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/dplyr_intro/</loc>
+<loc>https://www.jaysong.net/dplyr_intro/</loc>
 
 <lastmod>2020-06-28T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/r/oop_intro/</loc>
+<loc>https://www.jaysong.net/r/oop_intro/</loc>
 
 <lastmod>2020-05-20T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp01/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp01/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp03/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp03/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp02/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp02/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp05/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp05/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp06/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp06/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp07/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp07/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp08/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp08/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp09/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp09/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp10/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp10/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studyguide/jasp04/</loc>
+<loc>https://www.jaysong.net/studyguide/jasp04/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/kurohige/</loc>
+<loc>https://www.jaysong.net/simulation/kurohige/</loc>
 
 <lastmod>2020-04-24T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/cjoint-n-sim/</loc>
+<loc>https://www.jaysong.net/simulation/cjoint-n-sim/</loc>
 
 <lastmod>2020-04-21T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/mhp/</loc>
+<loc>https://www.jaysong.net/simulation/mhp/</loc>
 
 <lastmod>2020-04-21T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/llm/</loc>
+<loc>https://www.jaysong.net/simulation/llm/</loc>
 
 <lastmod>2020-04-21T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/dplyr_intro_old/</loc>
+<loc>https://www.jaysong.net/dplyr_intro_old/</loc>
 
 <lastmod>2020-04-20T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/logit-classification/</loc>
+<loc>https://www.jaysong.net/post/logit-classification/</loc>
 
 <lastmod>2020-04-20T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/aic-bic/</loc>
+<loc>https://www.jaysong.net/post/aic-bic/</loc>
 
 <lastmod>2020-04-20T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/keio-ms/</loc>
+<loc>https://www.jaysong.net/post/keio-ms/</loc>
 
 <lastmod>2020-04-18T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/kobe2019-qpm1/</loc>
+<loc>https://www.jaysong.net/post/kobe2019-qpm1/</loc>
 
 <lastmod>2020-04-18T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/teaching/</loc>
+<loc>https://www.jaysong.net/teaching/</loc>
 
 <lastmod>2020-04-17T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/asa_p_value_japanese/</loc>
+<loc>https://www.jaysong.net/asa_p_value_japanese/</loc>
 
 <lastmod>2020-04-17T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/tutorial/</loc>
+<loc>https://www.jaysong.net/tutorial/</loc>
 
 <lastmod>2020-04-17T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/waseda2019exppolsci/</loc>
+<loc>https://www.jaysong.net/post/waseda2019exppolsci/</loc>
 
 <lastmod>2020-04-17T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/qualtrics-order-randomizer/</loc>
+<loc>https://www.jaysong.net/post/qualtrics-order-randomizer/</loc>
 
 <lastmod>2020-04-07T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/2020-04-05-conjointsdt-fixattributes/</loc>
+<loc>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</loc>
 
 <lastmod>2020-04-05T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/studynote/methodology/qualtrics_conjoint/</loc>
+<loc>https://www.jaysong.net/studynote/methodology/qualtrics_conjoint/</loc>
 
 <lastmod>2020-04-05T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/2020-04-05-randomimagepath/</loc>
+<loc>https://www.jaysong.net/post/2020-04-05-randomimagepath/</loc>
 
 <lastmod>2020-04-05T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/toolbox/</loc>
+<loc>https://www.jaysong.net/post/toolbox/</loc>
 
 <lastmod>2020-04-04T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/post/2020-04-03-/</loc>
+<loc>https://www.jaysong.net/post/2020-04-03-/</loc>
 
 <lastmod>2020-04-03T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/simulation/sim-random-assignment/</loc>
+<loc>https://www.jaysong.net/simulation/sim-random-assignment/</loc>
 
 <lastmod>2015-05-21T00:00:00+00:00</lastmod>
 
 </url>
 
 <url>
-<loc>/about/</loc>
+<loc>https://www.jaysong.net/about/</loc>
 
 </url>
 
 <url>
-<loc>/notes/</loc>
+<loc>https://www.jaysong.net/notes/</loc>
 
 </url>
 
 <url>
-<loc>/research/</loc>
+<loc>https://www.jaysong.net/research/</loc>
 
 </url>
 
 <url>
-<loc>/software/</loc>
+<loc>https://www.jaysong.net/software/</loc>
 
 </url>
 
