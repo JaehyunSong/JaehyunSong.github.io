@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qualtrics on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/categories/qualtrics/</link>
+    <link>/categories/qualtrics/</link>
     <description>Recent content in Qualtrics on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/categories/qualtrics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/qualtrics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
-      <link>https://www.jaysong.net/post/2020-04-03-/</link>
+      <link>/post/2020-04-03-/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-03-/</guid>
+      <guid>/post/2020-04-03-/</guid>
       <description>以下のようなリスト実験を行うとする。 統制群 Q1. 以下のうち、経験したことのあるものはいくつありますか？ タバコ お酒 コーヒー 紅茶 1個 2. 2個 3. 3個 4. 4</description>
     </item>
     

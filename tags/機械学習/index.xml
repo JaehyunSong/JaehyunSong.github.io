@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>機械学習 on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</link>
+    <link>/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</link>
     <description>Recent content in 機械学習 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>https://www.jaysong.net/post/logit-classification/</link>
+      <link>/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/logit-classification/</guid>
+      <guid>/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     

@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>シミュレーション on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
+    <link>/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
     <description>Recent content in シミュレーション on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一致性と不偏性</title>
-      <link>https://www.jaysong.net/simulation/consistency/</link>
+      <link>/simulation/consistency/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/consistency/</guid>
+      <guid>/simulation/consistency/</guid>
       <description>ここでは統計学を勉強する上でよく混同される一致性と不偏性について解説します。 一致性とは 一致性はサンプルサイズが大きくなると、推定値が母数へ収</description>
     </item>
     
     <item>
       <title>黒ひげ危機一発</title>
-      <link>https://www.jaysong.net/simulation/kurohige/</link>
+      <link>/simulation/kurohige/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/kurohige/</guid>
+      <guid>/simulation/kurohige/</guid>
       <description>洗濯機が回ってる間、やることが無くて「黒ひげ危機一発」のシミュレーションをやってみた。 誰だったかは覚えてないが、学部1年生のサークル合宿の時</description>
     </item>
     
     <item>
       <title>Conjoint Analysis Sample Size Simulator</title>
-      <link>https://www.jaysong.net/simulation/cjoint-n-sim/</link>
+      <link>/simulation/cjoint-n-sim/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/cjoint-n-sim/</guid>
+      <guid>/simulation/cjoint-n-sim/</guid>
       <description>使い方 # コードの読み込み source(&amp;quot;https://raw.githubusercontent.com/JaehyunSong/Simulation/master/Cjoint_N_Simulation.R&amp;quot;) Cjoint.N.Sim(n.Attr, n.Level, n.Choice, n.Sim, n.Min, n.Max, chk.dupli, min.occur) 並列演算を行うためdoMC, foreachパッケージを事前にインストールしておいてください。 CPU</description>
     </item>
     
     <item>
       <title>モンティ・ホール問題</title>
-      <link>https://www.jaysong.net/simulation/mhp/</link>
+      <link>/simulation/mhp/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/mhp/</guid>
+      <guid>/simulation/mhp/</guid>
       <description>ゲームの説明 統計学の教科書でしばしば紹介される例の一つがモンティ・ホール問題である。これはアメリカのテレビ番組の中のゲームであり、様々な論争</description>
     </item>
     
     <item>
       <title>大数の法則</title>
-      <link>https://www.jaysong.net/simulation/llm/</link>
+      <link>/simulation/llm/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/llm/</guid>
+      <guid>/simulation/llm/</guid>
       <description>大数の法則？ 統計学を勉強するなら「大数の法則(Law of large numbers)」は一度くらいは聞くはず。この法則が知らなくても統計的手法を「使う」</description>
     </item>
     
     <item>
       <title>Rによる無作為配分のシミュレーション</title>
-      <link>https://www.jaysong.net/simulation/sim-random-assignment/</link>
+      <link>/simulation/sim-random-assignment/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/simulation/sim-random-assignment/</guid>
+      <guid>/simulation/sim-random-assignment/</guid>
       <description>このシミュレーションの目的は一つのグループに何人くらい配分したら全体の平均値に近づくのかを経験的に確認するためのものです。 趣味でしたものなの</description>
     </item>
     

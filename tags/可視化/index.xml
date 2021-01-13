@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>可視化 on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/tags/%E5%8F%AF%E8%A6%96%E5%8C%96/</link>
+    <link>/tags/%E5%8F%AF%E8%A6%96%E5%8C%96/</link>
     <description>Recent content in 可視化 on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/tags/%E5%8F%AF%E8%A6%96%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E5%8F%AF%E8%A6%96%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ggplot2入門 [応用編]</title>
-      <link>https://www.jaysong.net/ggplot_intro3/</link>
+      <link>/ggplot_intro3/</link>
       <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/ggplot_intro3/</guid>
+      <guid>/ggplot_intro3/</guid>
       <description>はじめに 修正履歴 2020/12/30: 公開 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR</description>
     </item>
     
     <item>
       <title>ggplot2入門 [基礎編]</title>
-      <link>https://www.jaysong.net/ggplot_intro2/</link>
+      <link>/ggplot_intro2/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/ggplot_intro2/</guid>
+      <guid>/ggplot_intro2/</guid>
       <description>はじめに 修正履歴 2020/08/08: 公開 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR</description>
     </item>
     
     <item>
       <title>ggplot2入門 [理論編]</title>
-      <link>https://www.jaysong.net/ggplot_intro1/</link>
+      <link>/ggplot_intro1/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/ggplot_intro1/</guid>
+      <guid>/ggplot_intro1/</guid>
       <description>はじめに 修正履歴 2020/07/17: 公開 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR</description>
     </item>
     

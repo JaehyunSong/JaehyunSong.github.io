@@ -2,125 +2,134 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jaehyun Song, Ph.D.</title>
-    <link>https://www.jaysong.net/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 27 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>因果推論の道具箱</title>
+      <link>/post/causal_inference/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/causal_inference/</guid>
+      <description>少しずつ埋めていきます 因果推論全般 Miguel A. Hernán and James M. Robins. 2020. Causal Inference: What If. Boca Raton: Chapman &amp;amp; Hall/CRC. [Amazon] [Web] Scott Cunningham. 2021. Causal Inference: The Mixtape. Yale University Press. [Amazon] [Web] Guido W. Imbens and Donald B. Rubin. 2015. Causal Inference for Statistics, Social, and Biomedical Sciences: An</description>
+    </item>
+    
     <item>
       <title>特殊講義「ヨーロッパ国際政治経済」・国際関係論演習III</title>
-      <link>https://www.jaysong.net/post/ut2020-ci/</link>
+      <link>/post/ut2020-ci/</link>
       <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/ut2020-ci/</guid>
+      <guid>/post/ut2020-ci/</guid>
       <description>講師：宋財泫（同志社大学文化情報学部 助教） 日時：2020年12月23, 24, 25, 26, 28 23, 28日は13:00-16:40 24, 25, 26日は10:25-16:</description>
     </item>
     
     <item>
       <title>情報処理応用演習</title>
-      <link>https://www.jaysong.net/post/kpu2020/</link>
+      <link>/post/kpu2020/</link>
       <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/kpu2020/</guid>
+      <guid>/post/kpu2020/</guid>
       <description>講師：宋財泫（SONG JAEHYUN; そん じぇひょん） 日時：2029年8月21, 24, 25日；2〜4コース（25日は2〜3コース） 教室：1号館・情報処理室 シラ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I</title>
-      <link>https://www.jaysong.net/post/kobe2020-qpm1/</link>
+      <link>/post/kobe2020-qpm1/</link>
       <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/kobe2020-qpm1/</guid>
+      <guid>/post/kobe2020-qpm1/</guid>
       <description>講師：宋財泫（同志社大学文化情報学部 助教） 日時：2020年9月1, 3, 4, 7, 8日 教室：Zoom (IDはSlack経由でお知らせします) シラバス:</description>
     </item>
     
     <item>
       <title>Logistic Regressionによる分類と可視化・評価</title>
-      <link>https://www.jaysong.net/post/logit-classification/</link>
+      <link>/post/logit-classification/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/logit-classification/</guid>
+      <guid>/post/logit-classification/</guid>
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     
     <item>
       <title>モデルの比較と選択の基準:AICとBIC</title>
-      <link>https://www.jaysong.net/post/aic-bic/</link>
+      <link>/post/aic-bic/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/aic-bic/</guid>
+      <guid>/post/aic-bic/</guid>
       <description>以下の論文の要点のみを整理したものです。短い論文なので直接読んだ方がいいかも知れません。 Aho, Ken, DeWayne Derryberry, and Teri Peterson. 2014. &amp;quot;Model Selection for Ecologists: the Worldviews of AIC and BIC.&amp;quot; Ecology. 95 (3) pp. 631-636 AIC BIC Is</description>
     </item>
     
     <item>
       <title>方法論探求</title>
-      <link>https://www.jaysong.net/post/keio-ms/</link>
+      <link>/post/keio-ms/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/keio-ms/</guid>
+      <guid>/post/keio-ms/</guid>
       <description>担当：宋財泫 http://www.jaysong.net 日時：月曜日5時限 (16:30〜18:00) 教室：\(\omega\) (オメガ) 22教室 内容 スライド データ アンケート 1 イントロ</description>
     </item>
     
     <item>
       <title>計量政治学方法論I (2019)</title>
-      <link>https://www.jaysong.net/post/kobe2019-qpm1/</link>
+      <link>/post/kobe2019-qpm1/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/kobe2019-qpm1/</guid>
+      <guid>/post/kobe2019-qpm1/</guid>
       <description>講師：宋財泫 http://www.jaysong.net 日時：2019年7月31日〜8月2日、8月5〜6日；2〜4時限 教室：第2学舎・120教室 (8月5日のみ163教室) シラバス: Dropbox</description>
     </item>
     
     <item>
       <title>政治学実験</title>
-      <link>https://www.jaysong.net/post/waseda2019exppolsci/</link>
+      <link>/post/waseda2019exppolsci/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/waseda2019exppolsci/</guid>
+      <guid>/post/waseda2019exppolsci/</guid>
       <description>シラバス: PDF 内容 スライド データ 参考資料 1 イントロダクション スライド RStudio 2 因果推論の考え方 スライド データ R Code 3 因果推論の諸方法 スライド Matching DID RDD R Code</description>
     </item>
     
     <item>
       <title>Qualtricsの順序尺度をランダムに逆転させる方法</title>
-      <link>https://www.jaysong.net/post/qualtrics-order-randomizer/</link>
+      <link>/post/qualtrics-order-randomizer/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/qualtrics-order-randomizer/</guid>
+      <guid>/post/qualtrics-order-randomizer/</guid>
       <description>Q. なんか知りませんが、賛成します？ 賛成 どちらかと言えば賛成 どちらとも言えない どちらかと言えば反対 反対 のような設問があるとします。別にこれだけ</description>
     </item>
     
     <item>
       <title>Conjoint SDTの用いる際、一部の属性のみを固定する方法</title>
-      <link>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</link>
+      <link>/post/2020-04-05-conjointsdt-fixattributes/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-05-conjointsdt-fixattributes/</guid>
+      <guid>/post/2020-04-05-conjointsdt-fixattributes/</guid>
       <description>以下のようなコンジョイント分析を行うとする。 候補者1 候補者2 性別 男性 女性 年齢 39歳 35歳 二郎の値段 ラーメンの値下げ ラーメンの値段の現状維持 二</description>
     </item>
     
     <item>
       <title>ランダムにイメージパスを取得するスクリプト</title>
-      <link>https://www.jaysong.net/post/2020-04-05-randomimagepath/</link>
+      <link>/post/2020-04-05-randomimagepath/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-05-randomimagepath/</guid>
+      <guid>/post/2020-04-05-randomimagepath/</guid>
       <description>概要 Qualtricsでランダムに画像を出す場合、2〜3枚の中から1枚を見せるならそれぞれの質問文を用意し、Randomizerを使うことで</description>
     </item>
     
     <item>
       <title>私の道具箱</title>
-      <link>https://www.jaysong.net/post/toolbox/</link>
+      <link>/post/toolbox/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/toolbox/</guid>
+      <guid>/post/toolbox/</guid>
       <description>文書・メモ作成 Evernote メモ用で使っています。メモを体系的に管理する時は便利です。検索機能もかなり強力です。 Sublime Text Sublime Textは無料でも、有料でもないシ</description>
     </item>
     
     <item>
       <title>リスト実験をする時に項目をランダマイズするスクリプト</title>
-      <link>https://www.jaysong.net/post/2020-04-03-/</link>
+      <link>/post/2020-04-03-/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/post/2020-04-03-/</guid>
+      <guid>/post/2020-04-03-/</guid>
       <description>以下のようなリスト実験を行うとする。 統制群 Q1. 以下のうち、経験したことのあるものはいくつありますか？ タバコ お酒 コーヒー 紅茶 1個 2. 2個 3. 3個 4. 4</description>
     </item>
     
