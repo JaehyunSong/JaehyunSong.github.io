@@ -106,5 +106,14 @@
       <description>ロジスティック回帰分析について ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」など</description>
     </item>
     
+    <item>
+      <title>purrr入門</title>
+      <link>/purrr-intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/purrr-intro/</guid>
+      <description>はじめに 修正履歴 2021/01/17: 公開 誤字・脱字は随時修正しております。 以下の内容は現在執筆中の内容の一部となります。 Song Jaehyun・矢内勇生『私たちのR</description>
+    </item>
+    
   </channel>
 </rss>
