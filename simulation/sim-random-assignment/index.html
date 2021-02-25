@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,13 +158,13 @@
         <h2><center>Rによる無作為配分のシミュレーション</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+<a href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
 
 </center>
     </div>
 
     <div align="start" class="content">
-<script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>このシミュレーションの目的は一つのグループに何人くらい配分したら全体の平均値に近づくのかを経験的に確認するためのものです。</p>
@@ -251,7 +251,7 @@ ggplot(data = result.df) +
                        labels = c(&quot;Group1&quot;, &quot;Group3&quot;, &quot;Group2&quot;)) +
   labs(x = &quot;Sample size&quot;, y = &quot;Sample size in each group&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../../simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>だいたいサンプルサイズが500~750くらいになると3つのグループは概ね3分の1ずつ割り当てられることが確認できる。</p>
 <p>次は、割り当てられたグループの性別の平均値が均一か否かをみる。紫を除く3つの線が集まっていると3つのグループの性別の平均値は概ね一緒ということを意味する。赤い実線は理論値である0.5を表すが、そもそもサンプルの平均が0.5になっているという保障はないので注意が必要。</p>
 <pre class="r"><code># 各グループのsex, age, trustの平均値。
@@ -268,7 +268,7 @@ ggplot(data = result.df) +
                        labels = c(&quot;Group1&quot;, &quot;Group3&quot;, &quot;Group2&quot;, &quot;Entire&quot;)) +
   labs(x = &quot;Sample size&quot;, y = &quot;Mean of Sex&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../../simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>サンプルサイズが大きくなると紫を除く3つの線は赤い実線に集まっていくことが確認できる。ただし、サンプルサイズが15(最小値)から600に変化したときと1000から3000に変化した時の差をみると明らかに前者の方の差が大きい。つまり、3つのグループで、0/1変数の場合はサンプルサイズがだいたい500、つまり一つのグループに170人くらいいるとグループ間の均質性は保証され、そこからは劇的にサンプルサイズを増やさないかぎり、大きな変化はないと考えられる。</p>
 <p>同じ手順で<code>age</code>と<code>trust</code>も見てみよう。</p>
 <pre class="r"><code>ggplot(data = result.df) +
@@ -282,7 +282,7 @@ ggplot(data = result.df) +
                        labels = c(&quot;Group1&quot;, &quot;Group3&quot;, &quot;Group2&quot;, &quot;Entire&quot;)) +
   labs(x = &quot;Sample size&quot;, y = &quot;Mean of Age&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../../simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = result.df) +
   geom_line(aes(x = n, y = trust.mean,  color = &quot;black&quot;), alpha = 0.4) +
   geom_line(aes(x = n, y = trust.mean1, color = &quot;red&quot;),   alpha = 0.4) +
@@ -294,7 +294,7 @@ ggplot(data = result.df) +
                        labels = c(&quot;Group1&quot;, &quot;Group3&quot;, &quot;Group2&quot;, &quot;Entire&quot;)) +
   labs(x = &quot;Sample size&quot;, y = &quot;Mean of Trust&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../../simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p><img src="/simulation/2015-05-21-Random_Assignment_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 <p>結果的にみると一つのグループに250人くらい割り当てられるサンプルサイズ(ここではグループは3つだから750人くらい)で、各グループのサンプルサイズと各変数の期待値がある程度安定することが確認できる。</p>
 <p>もしかしたら、測定質問の尺度(つまり、分散)と関係があるかも知れない。二項変数 (<code>sex</code>) やカテゴリ変数 (<code>trust</code>) は確かにN = 500、つまりグループごとに166人くらいで安定するように見えるが、連続変数 (<code>age</code>) は250人くらいだと思う。尺度の最小値の最大値の幅が広いと分散が大きくなるせいではないかとも思う。これに関しては尺度の分散をいじりながらシミュレーションしてみる価値があるかも。</p>
 </div>

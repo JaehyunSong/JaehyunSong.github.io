@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,19 +158,19 @@
         <h2><center>ggplot2入門 [応用編]</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="../tags/%E5%8F%AF%E8%A6%96%E5%8C%96"><kbd class="item-tag">可視化</kbd></a>
+<a href="https://www.jaysong.net/tags/%E5%8F%AF%E8%A6%96%E5%8C%96"><kbd class="item-tag">可視化</kbd></a>
 
 </center>
     </div>
 
     <div align="start" class="content">
-<script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="../rmarkdown-libs/kePrint/kePrint.js"></script>
-<link href="../rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <div id="はじめに" class="section level2">
@@ -224,7 +224,7 @@ COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10
     labs(x = &quot;フリーダムハウススコア&quot;,y = &quot;一人あたりGDP (USD)&quot;, 
          color = &quot;大陸&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-3-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-3-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>　<code>geom_point()</code>は横軸と縦軸のみにマッピングをしているため、<code>labs()</code>に<code>color =</code>を指定しても何の変化もありません。そもそも凡例が存在しないからです。それでは大陸ごとに色分けした散布図に修正してみましょう。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
     ggplot() +
@@ -232,7 +232,7 @@ COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10
     labs(x = &quot;フリーダムハウススコア&quot;,y = &quot;一人あたりGDP (USD)&quot;, 
          color = &quot;大陸&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>color</code>に<code>Continent</code>変数をマッピングすることによって、各点の色は何らかの情報を持つようになりました。そして各色が<code>Continent</code>のどの値に対応しているかを示すために凡例が表示されます。凡例のラベルはデフォルトは変数名（この例の場合、「Continent」）ですが、ここでは「大陸」と修正されました。</p>
 <p>　ここまでが<a href="../ggplot_intro2/">基礎編</a>で使用しました<code>labs()</code>レイヤーの使い方です。他にも<code>labs()</code>は<strong>プロット</strong>のラベルを指定することもできます。ここでいう「プロットのラベル」とはプロットのタイトルとほぼ同じです。使用可能な引数は<code>title</code>、<code>subtitle</code>、<code>tag</code>です。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
@@ -242,7 +242,7 @@ COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10
          title = &quot;民主主義の度合いと所得の関係&quot;, subtitle = &quot;大陸別の傾向&quot;, 
          tag = &quot;(a)&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　<code>title</code>は図のメインタイトルとおり、プロットのタイトルを意味します。上の図だと「民主主義の度合いと所得の関係」です。また、<code>subtitle</code>引数を指定することでサブタイトルを付けることも可能です。上の図の「大陸別の傾向」がサブタイトルです。最後の<code>tag</code>は複数の図を並べる際に便利な引数です。図が横に2つ並んでいる場合、それぞれ(a)と(b)という識別子を付けると、文中において「図3(a)は…」のように、引用しやすくなります。この「(a)」が<code>tag</code>引数に対応します。複数の図を並べる方法は本章の後半にて説明します。</p>
 <p>最後にキャプションの付け方について説明します。たとえば、外部のデータを利用して作図を行った場合、図の右下に「データ出典：〜〜」や「Source: <a href="https://www.jaysong.net" class="uri">https://www.jaysong.net</a> 」などを付ける場合があります。このキャプションは<code>labs()</code>関数内に<code>caption</code>引数を指定するだけで付けることができます。たとえば、先程の図に「Source: Freedom House」を付けてみましょう。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
@@ -252,7 +252,7 @@ COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10
          title = &quot;民主主義の度合いと所得の関係&quot;, subtitle = &quot;大陸別の傾向&quot;, 
          tag = &quot;(a)&quot;, caption = &quot;Source: Freedom House&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <!--
 ## `guides()`: 
 -->
@@ -273,11 +273,11 @@ COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)
 
 print(Fig1)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　アメリカの感染者が圧倒的に多いこともあり、日韓がほぼ同じ線に見えます。これを是正するために対数変換などを行うわけですが、対数変換したグラフは直感的ではないというデメリットがあります。それでもう一つの方法として、アメリカに関する情報は一部失われますが、縦軸の上限を10万にすることが考えられます。直交座標系の上限・下限を調整する関数が<code>coord_cartesian()</code>です。横軸は<code>xlim</code>、縦軸は<code>ylim</code>引数を指定し、実引数としては長さ2のnumericベクトルを指定します。たとえば、縦軸の下限を0、上限を10万にするなら、<code>ylim = c(0, 100000)</code>となります。先ほどの図は既に<code>Fig1</code>という名のオブジェクトとして保存されているため、ここに<code>coord_cartesian()</code>レイヤーを追加してみましょう。</p>
 <pre class="r numberLines"><code>Fig1 +
   coord_cartesian(ylim = c(0, 100000))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-8-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-8-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>3月下旬以降、アメリカの情報は図から失われましたが、日中韓についてはよりトレンドの差が区別できるようになりました。{ggplot2}は座標系の上限と下限をデータの最小値と最大値に合わせて自動的に調整してくれます。たとえば、以下のような例を考えてみましょう。</p>
 <pre class="r numberLines"><code>Fig2 &lt;- tibble(Class = paste0(LETTERS[1:5], &quot;組&quot;),
        Score = c(78, 80, 85, 77, 70)) %&gt;%
@@ -287,11 +287,11 @@ print(Fig1)</code></pre>
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)
 
 print(Fig2)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>　数学成績平均値は最大100点までありえますが、手元のデータにおける最高得点が85店であるため、棒グラフの縦軸の上限が85点程度となります。この場合、上限は満点である100点に調整した方が良いでしょう。</p>
 <pre class="r numberLines"><code>Fig2 +
   coord_cartesian(ylim = c(0, 100))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>　このように上限を調整すると、成績の満点が何点かに関する情報が含まれ、グラフにより豊富な情報を持たせることが可能です。</p>
 </div>
 <div id="座標系の変換" class="section level3">
@@ -328,11 +328,11 @@ ggplotオブジェクト +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)
 
 print(Flip_Fig)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　この図を反時計方向回転する場合は以上のプロットに<code>coord_flip()</code>レイヤーを追加します。</p>
 <pre class="r numberLines"><code>Flip_Fig +
   coord_flip() # 座標系の回転</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　非常に簡単な方法で図を回転させることができました。しかし、実はこの<code>coord_flip()</code>関数、最近になって使う場面がどんどん減っています。たとえば、先ほどの<code>geom_bar()</code>幾何オブジェクトの場合、<code>x</code>をPolity IVスコアの平均値で、<code>y</code>を大陸名でマッピングすることが可能です。昔の{ggplot2}は横軸と縦軸にマッピングでいるデータ型が厳格に決まっていましたが、最近になってはますます柔軟となってきました<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>。<code>coord_flip()</code>を使用する前に、各幾何オブジェクトのヘルプを確認し、<code>coord_flip()</code>を用いた回転が必要か否かを予め調べておくのも良いでしょう。</p>
 </div>
 <div id="座標系の固定" class="section level3">
@@ -340,16 +340,16 @@ print(Flip_Fig)</code></pre>
 <p>　他にも地味に便利な機能として座標系比を固定する<code>coord_fixed()</code>を紹介します。これは出力される座標系の「横:縦」を調整するレイヤーです。たとえば、以下のような散布図を考えてみましょう。</p>
 <pre class="r numberLines"><code>ggplot() +
   geom_point(aes(x = 1:10, y = 1:10))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　こちらは横と縦が同じスケールでありますが、図の大きさに応じて、見た目が変わってきます。たとえば、上の図だと、横軸における1間隔は縦軸のそれの約2倍です。もし、図を上下に大きくし、左右を縮小したら同じ図でありながら随分と見た目が変わってきます。</p>
 <pre class="r numberLines"><code>ggplot() +
   geom_point(aes(x = 1:10, y = 1:10))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-16-1.png" width="240" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-16-1.png" width="240" style="display: block; margin: auto;" /></p>
 <p>　2つの図は本質的に同じですが、図の見せ方によって、傾きが緩やかに見せたり、急に見せたりすることができます。ここで活躍するレイヤーが<code>coord_fixed()</code>です。これを追加すると横を1とした場合の縦の比率を指定することができます。</p>
 <pre class="r numberLines"><code>ggplot() +
   geom_point(aes(x = 1:10, y = 1:10)) +
   coord_fixed(ratio = 1)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>　<code>ratio = 1</code>を指定すると縦横比は1:1となり、図の高さや幅を変更してもこの軸は変わりません。たとえば、RStudioのPlotsペインの大きさを変更すると図の大きさが変わりますが、<code>coord_fixed(ratio = 1)</code>を指定すると1:1の比率は維持されるまま図が拡大・縮小されます。直接やってみましょう。</p>
 <hr />
 </div>
@@ -372,7 +372,7 @@ print(Flip_Fig)</code></pre>
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)
 
 print(Scale_Fig1)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　<code>Scale_Fig1</code>の横軸の場合、最小値0、最大値100であり、目盛りは25間隔となっております。ここではこの横軸を調整したいと思います。まず、プロットにおける最小値と最大値はスケールではなく座標系の問題ですので、<code>coord_*()</code>を使用します。ここでは目盛りを修正してみましょう。たとえば、目盛りを10間隔にし、そのラベルも0、10、20、…、100にします。<code>FH_Total</code>は連続変数ですので、<code>scale_x_continuous()</code>を使います。使い方は以下の通りです。</p>
 <pre class="r numberLines"><code>Scale_Fig1 +
   scale_x_continuous(breaks = 目盛りの位置,
@@ -381,22 +381,22 @@ print(Scale_Fig1)</code></pre>
 <pre class="r numberLines"><code>Scale_Fig1 +
   scale_x_continuous(breaks = seq(0, 100, by = 10),
                      labels = seq(0, 100, by = 10))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　目盛りのラベルを文字型にすることも可能です。例えば、目盛りを0、50、100にし、それぞれ「最低」、「中間」、「最高」としたい場合は以下のようにします。</p>
 <pre class="r numberLines"><code>Scale_Fig1 +
   scale_x_continuous(breaks = c(0, 50, 100),
                      labels = c(&quot;最低&quot;, &quot;中間&quot;, &quot;最高&quot;))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　<code>scale_x_continuous()</code>は目盛りの調整が主な使い道ですが、他にも様々な機能を提供しています。たとえば、座標系の最小値と最大値の指定は<code>coord_*()</code>を使うと説明しましたが、実は<code>scale_*_continuous()</code>でも<code>limits</code>引数で指定することも可能です。たとえば、縦軸の範囲を0ドルから10万ドルにしたい場合は<code>scale_y_continuous()</code>の中に<code>limits = c(0, 100000)</code>を指定します。</p>
 <pre class="r numberLines"><code>Scale_Fig1 +
   scale_x_continuous(breaks = seq(0, 100, by = 10),
                      labels = seq(0, 100, by = 10)) +
   scale_y_continuous(limits = c(0, 100000))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-22-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-22-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　他にも目盛りと目盛りラベルの位置を変更することも可能です。これは<code>position</code>引数を使います。基本的に横軸の目盛りは下（<code>"bottom"</code>）、縦軸は左（<code>"left"</code>）ですが、<code>"top"</code>や<code>"right"</code>を使うことも可能です。もし、縦軸の目盛りとラベル、軸のラベルを右側にしたい場合は<code>scale_y_continuous()</code>の中に<code>position = "right"</code>を指定します。</p>
 <pre class="r numberLines"><code>Scale_Fig1 +
   scale_y_continuous(position = &quot;right&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="離散変数の場合" class="section level4">
 <h4>離散変数の場合</h4>
@@ -404,7 +404,7 @@ print(Scale_Fig1)</code></pre>
 <pre class="r numberLines"><code>Flip_Fig +
   scale_x_discrete(breaks = c(&quot;Africa&quot;, &quot;America&quot;, &quot;Asia&quot;, &quot;Europe&quot;, &quot;Oceania&quot;),
                    labels = c(&quot;アフリカ&quot;, &quot;アメリカ&quot;, &quot;アジア&quot;, &quot;ヨーロッパ&quot;, &quot;オセアニア&quot;))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　今回は大陸名が文字型の列でしたが、factor型の場合、いくつか便利な機能が使えます。たとえば、<code>Polity_Type</code>ごとに国数を計算し、棒グラフを作成するとします。</p>
 <pre class="r numberLines"><code>Scale_df1 &lt;- Country_df %&gt;%
   group_by(Polity_Type) %&gt;%
@@ -438,7 +438,7 @@ Scale_df1$Polity_Type</code></pre>
 <pre class="r numberLines"><code>Scale_df1 %&gt;% 
   ggplot() +
   geom_bar(aes(x = Polity_Type, y = N), stat = &quot;identity&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　Polityプロジェクトの対象外があり、この場合は欠損値（<code>NA</code>）になります。そして、問題はこの欠損値も表示されることです。むろん、欠損値のカテゴリも出力したいケースもありますが、もし欠損値カテゴリの棒を消すにはどうすれば良いでしょうか。1つ目の方法は<code>Scale_df1 %&gt;% drop_na()</code>で欠損値を含む行を除去してから作図する方法です。2つ目の方法は<code>scale_x_discrete()</code>で<code>na.translate = FALSE</code>を指定する方法です。ここでは横軸の目盛りラベルも日本語に変更し、欠損値のカテゴリを除外してみましょう。また、地味に便利な機能として、軸ラベルも<code>scale_*_*()</code>で指定可能です。第1引数として長さ1の文字ベクトルを指定すると、自動的に軸ラベルが修正され、<code>labs()</code>が不要となります。</p>
 <pre class="r numberLines"><code>Scale_df1 %&gt;% 
   ggplot() +
@@ -452,7 +452,7 @@ Scale_df1$Polity_Type</code></pre>
                    na.translate = FALSE) +
   scale_y_continuous(&quot;国数&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-28-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-28-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>これで欠損値を除外することができました。目盛りラベルが重なる箇所があり、多少気になりますが、この問題に関しては後半の<code>theme()</code>の説明で取り上げます。</p>
 </div>
 </div>
@@ -470,12 +470,12 @@ Scale_df1$Polity_Type</code></pre>
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)
 
 Scale_Fig2</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-29-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-29-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　これまでは<code>color</code>引数を離散変数でしかマッピングしませんでしたが、このように連続変数でマッピングすることも可能です。ただし、この場合は値に応じてはっきりした色分けがされるのではなく、グラデーションで色分けされます。この例だと、青に近いほどPolity IVスコアが高く、黒に近いほど低いことが分かります。この場合、<code>color</code>のスケール調整は最小値と最大値における色を指定するだけです。その間の色については{ggplot2}が自動的に計算してくれます。</p>
 <p>　今回使用する関数は<code>scale_x_gradient()</code>です。これまでの例だと<code>scale_color_continuous()</code>かと思う方も多いでしょう。実際、<code>scale_color_continuous()</code>関数も提供されており、使い方もほぼ同じです。ただし、<code>scale_color_continuous()</code>を使う際は引数として<code>type = "gradient"</code>を指定する必要があります。<code>scale_x_gradient()</code>の場合、最小値における色を<code>low</code>、最大値のそれを<code>high</code>で指定します。数値は<code>"red"</code>や<code>"blue"</code>なども可能であり、<code>"#132B43"</code>のような書き方も使えます。たとえば、先ほどの<code>Scale_Fig2</code>においてPolity IVスコアが高いほど<span style="color:#cd3333;font-weight:bold;">brown3</span>、低いほど<span style="color:#6495ED;font-weight:bold;">cornflowerblue</span>になるようにする場合は以下のように書きます。</p>
 <pre class="r numberLines"><code>Scale_Fig2 +
     scale_color_gradient(high = &quot;brown3&quot;, low = &quot;cornflowerblue&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　このような書き方だとどのような色名で使えるかを事前に知っておく必要があります。使える色名のリストは<code>colors()</code>から確認できます。全部で657種類がありますが、ここでは最初の50個のみを出力します。</p>
 <pre class="r numberLines"><code>head(colors(), 50)</code></pre>
 <pre><code>##  [1] &quot;white&quot;          &quot;aliceblue&quot;      &quot;antiquewhite&quot;   &quot;antiquewhite1&quot; 
@@ -494,13 +494,13 @@ Scale_Fig2</code></pre>
 <p><code>scale_x_gradient()</code>から派生した関数として<code>scale_x_gradient2()</code>というものもあります。これは最小値と最大値だけでなく、<code>mid</code>引数を使って中間における色も指定可能な関数です。例えば、先ほどの例で真ん中を<span style="color:#00AC97;font-weight:bold;">seagreen</span>にしてみましょう。</p>
 <pre class="r numberLines"><code>Scale_Fig2 +
     scale_color_gradient2(high = &quot;brown3&quot;, mid = &quot;seagreen&quot;, low = &quot;cornflowerblue&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　色は<code>"seagreen"</code>、<code>"red"</code>でなく、<code>"#00AC97"</code>、<code>"#FF0000"</code>のように具体的なRGB値で指定することもできます。これは色を赤（R）、緑（G）、青（B）の3つの原色を混ぜて様々な色を表現する方法です。<code>"#FF0000"</code>の場合、最初の<code>#</code>はRGB表記であることを意味し、<code>FF</code>は赤が255であることの16進法表記、次の<code>00</code>と最後の<code>00</code>は緑と青が0であることの16進法表記です。各原色は0から255までの値を取ります。{ggplot2}でよく見る色としては<span style="color:#F8766D;font-weight:bold;">#F8766D</span>、<span style="color:#00BFC4;font-weight:bold;">#00BFC4</span>、<span style="color:#C77CFF;font-weight:bold;">#C77CFF</span>、<span style="color:#7CAE00;font-weight:bold;">#7CAE00</span>があります。他にもGoogleなどで「RGB color list」などを検索すれば様々な色を見ることができます。</p>
 <p>他にも{ggplot2}は様々なユーザー指定のパレットが使用可能であり、実際、パッケージの形式として提供される場合もあります。たとえば、ジブリ風のカラーパレットが{<a href="https://github.com/ewenme/ghibli">ghibli</a>}パッケージとして提供されており、<code>install.packages("ghibli")</code>でインストール可能です。</p>
 <pre class="r numberLines"><code>Scale_Fig2 +
     # 連続変数（_c）用の「もののけ姫」パレット（medium）
     ghibli::scale_color_ghibli_c(&quot;MononokeMedium&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-33-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-33-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="color引数が順序付き離散変数でマッピングされている場合" class="section level4">
 <h4><code>color</code>引数が順序付き離散変数でマッピングされている場合</h4>
@@ -520,23 +520,23 @@ Scale_Fig2</code></pre>
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)
 
 Scale_Fig3</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　今回は紫（独裁）から黄色（完全な民主主義）の順で色分けがされ、その間のカテゴリーも紫と黄色の間の値をとります。実は順序付き離散変数の場合、色のスケールを調整することはあまりありませんし、これまでの方法に比べてやや複雑です。ここでは色相（Hue）の範囲と強度、明るさを調整する方法について紹介します。</p>
 <p>　まずは、色相について知る必要があります。{ggplot2}において色相の範囲は0から360です。そして、色には強度（intensity）、または彩度という概念があり、0に近いほどグレイへ近づき、色間の区別がしにくくなります。{ggplot2}では彩度のデフォルト値は100であり、我々が普段{ggplot2}で見る図の色です。最後に明るさ（luminance）があり、0から100までの値を取ります。値が大きいほど明るくなり、{ggplot2}のデフォルト値は65です。重要なのは色相のところであり、Hueの具体的な数値がどの色なのかを確認する必要があります。そのためには、{scales}パッケージの<code>hue_pal()</code>と<code>show_col()</code>関数を使用します。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　左上が0、右下が360の色を意味します。順序変数でマッピングされた色スケールを色相に基づいて調整する際は、<code>scale_color_hue()</code>レイヤーを追加し、色相の範囲、彩度、明るさを指定します。たとえば、0から300までの範囲の色を使用し<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>、再度と明るさはデフォルトにしたい場合、以下のように書きます。</p>
 <pre class="r numberLines"><code>Scale_Fig3 +
   scale_color_hue(h = c(0, 360), c = 100, l = 65)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　また、<code>direction = -1</code>を追加することで、色の順番を逆にすることも可能です。</p>
 <pre class="r numberLines"><code>Scale_Fig3 +
   scale_color_hue(h = c(0, 360), c = 100, l = 65, direction = -1)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　他にも<a href="https://bids.github.io/colormap/">mpl colormaps</a>というカラーマップを使うことも可能です。この場合は<code>scale_color_hue()</code>ではなく、<code>scale_color_viridis_d()</code>を使用します。具体的な色の情報は<a href="https://bids.github.io/colormap/">mpl colormaps</a>を参照してください。必要な引数は色のスタート地点（<code>begin</code>）と終了地点（<code>end</code>）です。そして、<code>option</code>の引数のデフォルト値は<code>"D"</code>であり、これはVIRIDIS colormapを意味します。実は<code>scale_color_*()</code>を付けなかった場合の色分けがこれです。たとえば、VIRIDIS colormapでなく、PLASMA colormapを使うなら<code>option = "C"</code>を付けます。</p>
 <pre class="r numberLines"><code>Scale_Fig3 +
   # PLASMA colormapを使用する（option = &quot;C&quot;）
   scale_color_viridis_d(begin = 0, end = 1, option = &quot;C&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="color引数が順序なし離散変数でマッピングされている場合" class="section level4">
 <h4><code>color</code>引数が順序なし離散変数でマッピングされている場合</h4>
@@ -554,7 +554,7 @@ Scale_Fig3</code></pre>
                                 &quot;Open Anocracy&quot;   = &quot;cornflowerblue&quot;,
                                 &quot;Democracy&quot;       = &quot;orchid&quot;,
                                 &quot;Full Democracy&quot;  = &quot;orange&quot;))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-40-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-40-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　色を決める際は色覚多様性に気をつけるべきです。誰にとっても見やすい図にはUniversal Designが必要です。特によくある例が「緑と赤」の組み合わせです。緑も赤も暖色系であり、P型およびD型色弱の場合、両者の区別が難しいと言われています。しかも、色弱の方は意外と多いです。日本の場合、男性の5%、女性の0.2%と言われております。これには人種差もありまして、フランスや北欧の男性の場合は約10%です。一通り図を作成しましたら、色覚シミュレーターなどを使用して、誰にとっても見やすい色であるかを確認することも良いでしょう。また、{ggplot2}がデフォルトで採用しているVIRIDISは色弱に優しいカラーパレットと言われています。一般的に二色の組み合わせの場合、最も区別しやすい色は青とオレンジと言われいます。</p>
 <p>　{ggplot2}における<code>color</code>スケールは非常に細かく調整可能であり、関連関数やパッケージも多く提供されています。本書では全てを紹介することはできませんが、ここまで紹介してきました例だけでも、自分好みに色を調整できるでしょう。</p>
 </div>
@@ -574,7 +574,7 @@ Scale_Fig3</code></pre>
   labs(x = &quot;一人あたりGDP (USD)&quot;,y = &quot;人間開発指数&quot;, alpha = &quot;大陸&quot;) +
   scale_x_log10() +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　<code>Asia</code>の値によって透明度が異なりますが、私たちの目的は<code>Asia</code>を不透明にし、その他の点を透明にすることです。ここで登場するのが<code>scale_alpha_manual()</code>です。使い方はこれまで見てきた<code>scale_*_manual()</code>と非常に似ています。<code>values</code>引数にそれぞれの値と透明度を指定するだけです。透明度は1が不透明、0が透明です。アジアの透明度を1.0、その他の透明度を0.15とするなら、以下のように書きます。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
   mutate(Asia = if_else(Continent == &quot;Asia&quot;, &quot;Asia&quot;, &quot;Other&quot;)) %&gt;%
@@ -584,7 +584,7 @@ Scale_Fig3</code></pre>
   scale_x_log10() +
   scale_alpha_manual(values = c(&quot;Asia&quot; = 1.0, &quot;Other&quot; = 0.15)) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　これでアジアの国々がプロット上で強調されました。透明度スケールは連続変数（<code>scale_alpha_continuous()</code>）や離散変数（<code>scale_alpha_discrete()</code>）に使うことも可能ですが、透明度を「区別」でなく「強調」の目的で使うならば、<code>scale_alpha_manual()</code>でも十分だと考えられます。</p>
 <p>　一つ注意して頂きたいのは、図をPDFで出力する際、半透明なオブジェクトが見えなかったり、逆に透明度が全く適用されない場合があります。PNGなどのビットマップ画像ならこのような問題は生じませんが、PDFの場合は注意が必要です<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>。この場合、画像をPNGなどの形式にするか、半透明でなく「グレーと黒」のような組み合わせで作図した方が良いかも知れません。</p>
 </div>
@@ -599,7 +599,7 @@ Scale_Fig3</code></pre>
          size = &quot;一人あたり購買力平価GDP（USD）&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) # 凡例の図の下段にする</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-43-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-43-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　フリーダム・ハウススコアと人間開発指数は全般的には正の相関を示しています。そして、両指標が高い国（図の右上）は所得水準も高いことが分かります。ただし、フリーダム・ハウススコアが低くても人間開発指数が高い国（図の左上）もかなり見られますが、これらの国の共通点は所得水準が高いことです。つまり、人間開発指数と所得水準には強い相関関係があると考えられます（人間開発指数には所得水準も含まれるため、当たり前です）。</p>
 <p>　大きさをマッピングすると、点が重なる箇所が広くなりますので、<code>alpha</code>引数で半透明にすることも有効でしょう。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
@@ -610,7 +610,7 @@ Scale_Fig3</code></pre>
          size = &quot;一人あたり購買力平価GDP（USD）&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) </code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-44-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-44-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　この大きさのスケール調整はマッピングされた変数の尺度によって、<code>scale_size_continuous()</code>、<code>sclae_size_discrete()</code>、<code>scale_size_ordinal()</code>などを使用し、すべてマニュアルで調整したい場合は<code>scale_size_manual()</code>を使います。使い方はこれまでのスケール調整とほぼ同様です。たとえば、上記の図だと、大きさの凡例が3万、6万、9万となっていますが、これを1000, 10000, 100000といった対数スケールに変更してみましょう。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
     ggplot() +
@@ -622,7 +622,7 @@ Scale_Fig3</code></pre>
                           labels = c(&quot;1000&quot;, &quot;10000&quot;, &quot;100000&quot;)) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) </code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-45-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-45-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　この場合、図内の点の大きさに変化はありません。変わるのは凡例のみであり、値に応じた点のサイズに調整されます。連続変数でマッピングされている場合、一つ一つの値に応じてサイズを指定するのは非現実的であります。この場合、点の大きさ調整は{ggplot2}に任せて、凡例のサイズを調整するのが無難でしょう。</p>
 <p>　ただし、点の最小サイズと最大サイズを調整したいケースもあるでしょう。最も小さい点のサイズを0.1に、最も大きい点のサイズを10にする場合、<code>range</code>引数を指定します。<code>range</code>引数の実引数は長さ2の数値型ベクトルです。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
@@ -636,7 +636,7 @@ Scale_Fig3</code></pre>
                           range = c(0.1, 10)) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) </code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-46-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-46-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　このように範囲が広がるほど、所得水準の差がより見やすくなります。他にもsizeは離散変数でマッピングさることも可能ですが、あまり相性は良くありません。離散変数でのマッピングはこれまで紹介しました<code>color</code>や<code>size</code>の方を参照してください。使い方は同じです。</p>
 </div>
 <div id="shapelinetypeスケールの調整" class="section level3">
@@ -651,7 +651,7 @@ Scale_Fig3</code></pre>
          shape = &quot;G20&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) </code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-47-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-47-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　加盟国を丸（16または19）、非加盟国をダイヤモンド型（18）にするには<code>scale_shape_manual()</code>を使います。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
     mutate(G20 = if_else(G20 == 1, &quot;加盟国&quot;, &quot;非加盟国&quot;)) %&gt;%
@@ -663,15 +663,15 @@ Scale_Fig3</code></pre>
          shape = &quot;G20&quot;) +
     theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
     theme(legend.position = &quot;bottom&quot;) </code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-48-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-48-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>　ただし、各数字がどの形に対応しているかを事前に知っておく必要があります。よく使うのは0から25までであり、それぞれ対応するshapeを示したのが以下の図です。必要に応じてこのページを参照しても良いですし、Rコンソール上で<code>?pch</code>を入力しても0から23までの例を見ることが出来ます。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　注意していただきたいのは、<code>shape</code>のマッピングが有効でない状況があるという点です。それが先ほどの例です。先ほどの散布図の場合、次元を増やすことは、新しい次元で条件づけた場合の変数の関係性を調べることとなります。しかし、新しい次元による条件付き関連性があまり見られない場合、あるいは二種類以上の点の形があまり分離されていない場合は、次元の追加がもたらす恩恵が感じにくくなるでしょう。例えば以下のような散布図を比較してみましょう。図(A)の場合、縦軸の変数が閾値を超えるともう一つの変数との関係が弱まるということが分かります。たとえば、三角の点において両変数は正の相関を持ち、丸の点においては無相関に近いことが分かります。この場合、点の形は非常に有用な情報を含んでいると判断できます。一方、図(B)の場合、点の形から読み取れる情報が少ないですね。あえて言えば、グループ間の違いがあまりないことくらいでしょう。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-50-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-50-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　白黒のグラフの場合、色分けが出来ないため、次元拡張には点の形を変えることになります。しかし、色に来れば形は読み手にとって認知の負荷がかかりやすいです。下の図を見てください。100個の点がありますが、三角の点はいくつでしょうか。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-51-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-51-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>　正解は5つです。あまり難しい問題ではないでしょう。一方、下の図はいかがでしょうか。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-52-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-52-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>　どれも正解は5つです。本質的には同じ問題ですが、どの図の方が読みやすかったでしょうか。個人差はあるかも知れませんが、多くの方にとって後者の方が読みやすかったでしょう。最近、海外のジャーナルはカラーの図を使うことも可能ですので、色分けを優先的に考えましょう。白黒のみ受け付けられる場合でも、グループ数やサンプルサイズによっては点の形より、彩度や明るさの方が効果的な場合もあります。</p>
 <p>　続きまして、<code>linetype</code>について解説します。線の形も色分けができない場合、よく使われる次元の増やし方です。ここでは日中韓台における人口1万人あたりCOVID-19新規感染者数の折れ線グラフを作成します。<code>COVID19_df</code>には人口のデータがないため、<code>left_join()</code>を使って<code>Country_df</code>と結合します。<code>left_join()</code>の使い方に関しては<a href="../dplyr_intro/">dplyr入門 (新版)</a>を参照してください。続いて、Character型である<code>Date</code>変数を<code>as.Date()</code>関数を使ってDate型へ変換します。1万人あたり新規感染者数は新規感染者数（<code>Confirmed_Day</code>）を人口（<code>Population</code>）で割り、1万をかけます。最後に<code>Country</code>列を基準に<code>filter()</code>を使用し、日中韓台のデータのみ残します。後は折れ線グラフを作成しますが、<code>geom_line()</code>内の<code>aes()</code>内に<code>linetype</code>引数を<code>Country</code>変数でマッピングします。</p>
 <pre class="r numberLines"><code>left_join(COVID19_df, Country_df, by = &quot;Country&quot;) %&gt;% 
@@ -683,7 +683,7 @@ Scale_Fig3</code></pre>
   labs(x = &quot;月&quot;, y = &quot;1万人当たり新規感染者数&quot;,linetype = &quot;国&quot;) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-53-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-53-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　いかがでしょうか。<code>linetype</code>は<code>color</code>よりも識別性が非常に低いことが分かるでしょう。個人差もあるかも知れませんが、<code>shape</code>よりも低いのではないでしょうか。実線の中国を除けば、日本、韓国、台湾の線はなかなか区別できません。したがって、<code>linetype</code>は2つ、3つまでが限界だと考えられます。3つまででしたら、実線、破線、点線に分けることができるでしょう。ここでは、日本のみを実線とし、他の3カ国は「その他」として破線にしてみましょう。そのためには、日本か否かを示す<code>Japan</code>変数を作成します。また、<code>geom_line()</code>の<code>aes()</code>内には<code>groups</code>引数を追加し、<code>linetype</code>は<code>Japan</code>変数でマッピングします。</p>
 <pre class="r numberLines"><code>left_join(COVID19_df, Country_df, by = &quot;Country&quot;) %&gt;% 
   mutate(Date                 = as.Date(Date),
@@ -696,7 +696,7 @@ Scale_Fig3</code></pre>
   labs(x = &quot;月&quot;, y = &quot;1万人当たり新規感染者数&quot;, linetype = &quot;国&quot;) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-54-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-54-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　その他の国が実線となっているので、<code>scale_linetype_manual()</code>で<code>Japan</code>の値ごとに線のタイプを指定します。</p>
 <pre class="r numberLines"><code>left_join(COVID19_df, Country_df, by = &quot;Country&quot;) %&gt;% 
   mutate(Date                 = as.Date(Date),
@@ -710,7 +710,7 @@ Scale_Fig3</code></pre>
   labs(x = &quot;月&quot;, y = &quot;1万人当たり新規感染者数&quot;, linetype = &quot;国&quot;) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-55-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-55-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　できれば、日本とその他の順番も逆にしたいですね。こちらは<code>Japan</code>変数をfactor化することで対応可能です。</p>
 <pre class="r numberLines"><code>left_join(COVID19_df, Country_df, by = &quot;Country&quot;) %&gt;% 
   mutate(Date                 = as.Date(Date),
@@ -725,7 +725,7 @@ Scale_Fig3</code></pre>
   labs(x = &quot;月&quot;, y = &quot;1万人当たり新規感染者数&quot;, linetype = &quot;国&quot;) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-56-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-56-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>これで完成ですがいかがでしょうか。複数の線を識別するという意味では色分け（<code>color</code>）が優れていますし、ハイライトなら透明度（<code>alpha</code>）か線の太さ（<code>size</code>）の方が良いでしょう。筆者（SONG）としましては<code>linetype</code>による次元の追加はあまりオススメしませんが、知っといて損はないでしょう。</p>
 <hr />
 </div>
@@ -733,7 +733,7 @@ Scale_Fig3</code></pre>
 <div id="visual3-theme" class="section level2">
 <h2><code>theme_*()</code>と<code>theme()</code>: テーマの指定</h2>
 <p>　続いて図全体の雰囲気を決める<code>theme_*()</code>レイヤーについて解説します。これらの使い方は非常に簡単であり、<code>ggplot</code>オブジェクトに<code>theme_*()</code>レイヤーを<code>+</code>で繋ぐだけです。もし、こちらのレイヤーを追加しない場合、デフォルトテーマとして<code>theme_gray()</code>が適用されます。{ggplot2}はいくつかのテーマを提供しており、以下がその例です。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-57-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-57-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　他にも{ggplot2}用のテーマをパッケージとしてまとめたものもあります。興味のある方は<a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/">ggtheme</a>や<a href="https://github.com/Mikata-Project/ggthemr">ggthemr</a>ページを確認してみてください。</p>
 <p>　<code>theme_*()</code>内部ではいくつかの引数を指定することができます。最もよく使われるのが<code>base_family</code>引数であり、図で使用するフォントを指定する引数です。macOSユーザーだとヒラギノ角ゴジックW3が良く使われており、<code>base_family = "HiraKakuProN-W3"</code>で設定可能です。他にも全体の文字サイズを指定する<code>base_size</code>などがあります。</p>
 <p>　テーマの微調整は主に<code>theme()</code>レイヤーで行います。こちらでは図の見た目に関する細かい調整ができます。実は<code>theme_*()</code>関数群は調整済み<code>theme()</code>レイヤーとして捉えることも出来ます。<code>theme_*()</code>と<code>theme()</code>を同時に使うことも可能であり、「全般的にはminimalテーマ（<code>theme_minimal()</code>）が好きだけど、ここだけはちょっと修正したい」場合に使用します。<code>theme()</code>では図の見た目に関する全ての部分が設定可能であるため、引数も膨大です。詳しくはコンソール上で<code>?theme</code>を入力し、ヘルプを確認してください。ここではいくつかの例のみを紹介します。</p>
@@ -758,12 +758,12 @@ Scale_Fig3</code></pre>
   labs(x = &quot;Polity IV Score&quot;, y = &quot;PPP per capita (USD)&quot;)
 
 Theme_Fig</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><strong>文字の大きさ</strong></p>
 <p>　図全体における文字の大きさは<code>theme_*()</code>レイヤーの<code>base_size</code>から調整することもできますが、<code>theme()</code>からも可能です。文字に関する調整は<code>text</code>引数に対して<code>element_text()</code>実引数を指定します。大きさの場合、<code>element_text()</code>内に<code>size</code>引数を指定します。</p>
 <pre class="r numberLines"><code>Theme_Fig +
   theme(text = element_text(size = 16))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　<code>element_text()</code>では文字の大きさ以外にも色（<code>color</code>）、回転の度合い（<code>angle</code>）などを指定することもできます。詳しくはRコンソール上で<code>?element_text</code>を入力し、ヘルプを確認してください。</p>
 <p><strong>背景のグリッド</strong></p>
 <p>　背景のグリッドを調整する際は<code>panel.gird.*</code>引数を使います。主に使用する場面はグリッドの除去する場合ですが、この場合は実引数として<code>element_blank()</code>を使います。もし、グリッドの色や太さなどを変更したい場合は<code>element_line()</code>を使用します。ここではグリッドを除去する方法について紹介します。</p>
@@ -771,51 +771,51 @@ Theme_Fig</code></pre>
 <pre class="r numberLines"><code># すべてのグリッドを除去
 Theme_Fig +
   theme(panel.grid = element_blank())</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="r numberLines"><code># x軸のメジャーグリッドを除去
 Theme_Fig +
   theme(panel.grid.major.x = element_blank())</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-60-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-60-2.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="r numberLines"><code># y軸のマイナーグリッドのみ除去
 Theme_Fig +
   theme(panel.grid.minor.y = element_blank())</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-60-3.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-60-3.png" width="480" style="display: block; margin: auto;" /></p>
 <p><strong>目盛りラベルの回転</strong></p>
 <p>　横軸の目盛りラベルが長すぎるか大きすぎると、ラベルが重なる場合があります。この場合の対処方法としてはラベルの長さを短くしたり、改行（<code>\n</code>）を入れることが考えられますが、ラベルを若干回転することでも対処可能です。たとえば、横軸の目盛りラベルを調整する場合は<code>axis.text.x = element_text()</code>を指定し、<code>element_text()</code>内に<code>angle</code>引数を指定します。例えば、 <strong>反</strong>時計回りで25度回転させる場合は<code>angle = 25</code>と指定します。</p>
 <pre class="r numberLines"><code>Theme_Fig +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 25))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　この場合、ラベルは目盛りのすぐ下を基準に回転することになります。もし、ラベルの最後の文字を目盛りの下に移動させる場合は<code>hjust = 1</code>を追加します。</p>
 <pre class="r numberLines"><code>Theme_Fig +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 25, hjust = 1))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-62-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-62-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　ちなみに、<code>angle = 90</code>などで指定するとラベルが重なる問題はほぼ完全に解決されますが、かなり読みづらくなるので、できれば<code>angle</code>の値は小さめにした方が読みやすくなります。</p>
 <p><strong>凡例の位置</strong></p>
 <p>　凡例を図の下段に移動させる場合は<code>legend.position</code>引数に<code>"bottom"</code>を指定するだけです。他にも<code>"top"</code>や<code>"left"</code>も可能ですが、凡例は一般的に図の右か下段に位置しますので、デフォルトのままに置くか、<code>"bottom"</code>くらいしか使わないでしょう。</p>
 <pre class="r numberLines"><code># 凡例を図の下段へ移動
 Theme_Fig +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-63-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-63-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　もし、凡例を図の内部に置く場合は、長さ2のnumeric型ベクトルを指定します。図の左下なら<code>c(0, 0)</code>、左上なら<code>c(0, 1)</code>、右上は<code>c(1, 1)</code>、右下は<code>c(1, 0)</code>となります。これは図の大きさを横縦それぞれ1とした場合の位置を意味します。ここでは凡例を右上へ置いてみましょう。</p>
 <pre class="r numberLines"><code># 凡例をプロットの右上へ
 Theme_Fig +
   theme(legend.position = c(1, 1))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-64-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-64-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　これは凡例の中央が右上に来るようになります。これを是正するためには<code>legend.justification</code>引数を更に指定する必要があります。これにも長さ2のnumeric型ベクトルを指定しますが、これは凡例の中心をどこにするかを意味します。今回の例だと、<strong>凡例の</strong>右上を<code>c(1, 1)</code>に位置させたいので、ここも<code>c(1, 1)</code>と指定します。基本的に<code>legend.position</code>と<code>legend.justification</code>は同じ値にすれば問題ないでしょう。</p>
 <pre class="r numberLines"><code># 凡例の中心を凡例の右上と指定
 Theme_Fig +
   theme(legend.position = c(1, 1),
         legend.justification = c(1, 1))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　また、凡例の背景を透明にしたい場合は<code>legend.background = element_blank()</code>を指定します。</p>
 <pre class="r numberLines"><code># 凡例を背景を透明に
 Theme_Fig +
   theme(legend.position = c(1, 1),
         legend.justification = c(1, 1),
         legend.background = element_blank())</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-66-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-66-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>　<code>theme()</code>関数が提供している昨日は非常に多く、それぞれの実引数として用いられる<code>element_text()</code>や<code>element_line()</code>、<code>element_rect()</code>にも様々な引数が提供されております。図を自分好みに微調整したい方はそれぞれの関数のヘルプを参照してください。</p>
 <hr />
 </div>
@@ -861,15 +861,15 @@ Grid_Fig4 &lt;- Country_df %&gt;%
   labs(x = &quot;国数&quot;, y = &quot;一人あたり購買力平価GDP（対数）&quot;) +
   theme_bw(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
 <p>　それぞれの図は以下の通りです。左上、右上、左下、右下の順でそれぞれ<code>Grid_Fig1</code>、<code>Grid_Fig2</code>、<code>Grid_Fig3</code>、<code>Grid_Fig4</code>です。</p>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-68-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-68-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>　まずは<code>Grid_Fig1</code>と<code>Grid_Fig2</code>を横に並べてみましょう。まずは{ggpubr}を読み込みます。</p>
 <pre class="r numberLines"><code>library(ggpubr)</code></pre>
 <p>　図を並べる際は<code>ggarrange()</code>関数を使用し、まず、結合したい図のオブジェクトを入力します。また、2つの図を横に並べることは1行2列のレイアウトであることを意味するため、<code>nrow</code>と<code>ncol</code>引数の実引数としてそれぞれ1と2を指定します。</p>
 <pre class="r numberLines"><code>ggarrange(Grid_Fig1, Grid_Fig2, nrow = 1, ncol = 2)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　右側にある<code>Grid_Fig2</code>の幅が若干広いような気がします。この場合、<code>aling = "hv"</code>を入れると綺麗に揃えられます。</p>
 <pre class="r numberLines"><code>ggarrange(Grid_Fig1, Grid_Fig2, nrow = 1, ncol = 2, align = &quot;hv&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　続きまして、3つの図を以下のように並べるとします。</p>
 <table class=" lightable-classic table table-bordered" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <tbody>
@@ -916,7 +916,7 @@ Grid_Fig4 &lt;- Country_df %&gt;%
           Grid_Fig1, # 2行1列目
           Grid_Fig4, # 2行2列目
           nrow = 2, ncol = 2, align = &quot;hv&quot;)</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-74-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-74-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　次はヒストグラムを小さく調整します。左上の<code>Grid_Fig3</code>の上下の幅を、右下の<code>Grid_Fig4</code>は左右の幅を狭くします。このためには<code>widths</code>と<code>heights</code>引数が必要です。たとえば、<code>heights = c(0.3, 0.7)</code>だと1行目は全体の30%、2行目は全体の70%になります。今回は1行目と2行目の比率は3:7に、1列目と2列目の比は7:3とします。また、それぞれの図に(a)、(b)、(c)を付けます。空欄となるグリッドのラベルは<code>NA</code>か<code>""</code>にします。<code>NULL</code>ではないことに注意してください。</p>
 <pre class="r numberLines"><code>ggarrange(Grid_Fig3, 
           NULL, 
@@ -927,7 +927,7 @@ Grid_Fig4 &lt;- Country_df %&gt;%
           widths = c(0.7, 0.3), heights = c(0.3, 0.7),
           # 各図にラベルを付ける
           labels = c(&quot;(a)&quot;, NA, &quot;(b)&quot;, &quot;(c)&quot;))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-75-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-75-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　左上の<code>Grid_Fig3</code>と左下の<code>Grid_Fig1</code>は横軸のラベルを共有しており、左下の<code>Grid_Fig1</code>と右下の<code>Grid_Fig4</code>は縦軸のラベルを共有しています。以下では<code>Grid_Fig3</code>の横軸ラベル、<code>Grid_Fig4</code>の縦軸ラベルを消します。ggplotオブジェクトに<code>theme(axis.title.x = element_blank())</code>を<code>+</code>で繋ぐと横軸のラベルが表示されなくなります。<code>ggarrange()</code>に入れるオブジェクトに直接アクセスし、それぞれの軸ラベルを消してみましょう<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。</p>
 <pre class="r numberLines"><code>ggarrange(Grid_Fig3 + theme(axis.title.x = element_blank()), 
           NULL, 
@@ -936,7 +936,7 @@ Grid_Fig4 &lt;- Country_df %&gt;%
           nrow = 2, ncol = 2, align = &quot;hv&quot;,
           widths = c(0.7, 0.3), heights = c(0.3, 0.7),
           labels = c(&quot;(a)&quot;, NA, &quot;(b)&quot;, &quot;(c)&quot;))</code></pre>
-<p><img src="../ggplot_intro3_files/figure-html/unnamed-chunk-76-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/ggplot_intro3_files/figure-html/unnamed-chunk-76-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>　これで完成です。<code>ggarrange()</code>には他にもカスタマイズ可能な部分がいっぱいあります。詳細はコンソール上で<code>?ggarrange</code>を入力し、ヘルプを参照してください。</p>
 <p>　他にも{egg}パッケージの<code>ggarrange()</code>、{cowplot}の<code>plot_grid()</code>、{patchwork}の<code>+</code>、<code>|</code>、<code>/</code>演算子などがあります。それぞれ強みがあり、便利なパッケージです。興味のある読者は以下のページで使い方を確認してみてください。</p>
 <ul>

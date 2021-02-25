@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,13 +158,13 @@
         <h2><center>R Markdown入門</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
 </center>
     </div>
 
     <div align="start" class="content">
-<script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="はじめに" class="section level2">
@@ -571,7 +571,7 @@ iris %&gt;%
   geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species2)) +
   labs(x = &quot;萼片の長さ (cm)&quot;, y = &quot;萼片の幅 (cm)&quot;, color = &quot;品種&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../rmarkdown_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/rmarkdown_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>　他にも文中にRコードを埋め込むことも可能です。例えば、ベクトル<code>X &lt;- c(2, 3, 5, 7, 12)</code>があり、この平均値を文中で示したいとします。むろん、文中に「5.8」と書いても問題はありません。しかし、実は<code>X</code>の入力ミスが見つかり、実は<code>c(2, 3, 5, 7, 11)</code>になったらどうなるでしょうか。この「5.8」と書いた箇所を見つけて5.6と修正したいといけません。これは非常に面倒な作業であり、ミスも起こりやすいです。文中でRコードを入れるためには<code>`rコード`</code>のように入力します。</p>
 <pre class="markdown"><code>```{r}
 X &lt;- c(2, 3, 5, 7, 11)
@@ -651,7 +651,7 @@ iris %&gt;%
   labs(x = &quot;萼片の長さ (cm)&quot;, y = &quot;萼片の幅 (cm)&quot;, color = &quot;品種&quot;) +
   theme_minimal(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
-<img src="../rmarkdown_files/figure-html/unnamed-chunk-4-1.png" alt="`iris`データセットの可視化" width="504" />
+<img src="/rmarkdown_files/figure-html/unnamed-chunk-4-1.png" alt="`iris`データセットの可視化" width="504" />
 <p class="caption">
 Figure 1: <code>iris</code>データセットの可視化
 </p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,17 +158,17 @@
         <h2><center>Logistic Regressionによる分類と可視化・評価</center></h2>
         <h5><center>April 20, 2020</center></h5>
         <center>
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../../tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="../../tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92"><kbd class="item-tag">機械学習</kbd></a>
+<a href="https://www.jaysong.net/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92"><kbd class="item-tag">機械学習</kbd></a>
 
 </center>
     </div>
 
-    <div align="start" class="content"><script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="../../rmarkdown-libs/kePrint/kePrint.js"></script>
+    <div align="start" class="content"><script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 <div id="ロジスティック回帰分析について" class="section level2">
 <h2>ロジスティック回帰分析について</h2>
@@ -223,7 +223,7 @@ plot(x = df$theta, y = df$y + rnorm(300, 0, 0.01),
      pch = 16, col = rgb(0, 0, 0, 0.5),
      ylim = c(0, 1),
      xlab = expression(theta), ylab = &quot;y&quot;)</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>問題ないようですね。次に進みましょう。</p>
 <p>つぎは、説明変数と応答変数間の関係をみます。しかし、x軸を<code>x1</code>、y軸を<code>x2</code>にすると、応答変数をどう表現するか悩みますね。ここでは色に分けてみましょう。ピンクは<span class="math inline">\(y = 0\)</span>、青は<span class="math inline">\(y = 1\)</span>にしてみます。</p>
 <pre class="r"><code>plot(x = df$x1, y = df$x2, pch = 21, cex = 1.25,
@@ -234,7 +234,7 @@ plot(x = df$theta, y = df$y + rnorm(300, 0, 0.01),
 legend(&quot;topright&quot;, pch = 21, 
        pt.bg = c(rgb(1, 0, 0, 0.5), rgb(0, 0, 1, 0.5)),
        col = &quot;black&quot;, legend = c(&quot;y = 0&quot;, &quot;y = 1&quot;))</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="ロジスティック回帰分析の実行" class="section level2">
 <h2>ロジスティック回帰分析の実行</h2>
@@ -276,7 +276,7 @@ plot(x = x1.u, y = pred.x1, type = &quot;l&quot;,
      ylim = c(-0.05, 1.05), xlab = &quot;x1&quot;, ylab = expression(theta))
 points(x = df$x1, y = df$y + rnorm(300, 0, 0.01), 
        pch = 21, bg = rgb(0, 0, 0, 0.5), col = &quot;black&quot;)</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>同じことを<code>x2</code>に対してもやってみます。</p>
 <pre class="r"><code>x2.u &lt;- seq(min(df$x2), max(df$x2), length.out = 100)
 pred.x2 &lt;- predict(fit1, newdata = data.frame(x1 = mean(df$x1), 
@@ -288,7 +288,7 @@ plot(x = x2.u, y = pred.x2, type = &quot;l&quot;,
      ylim = c(-0.05, 1.05), xlab = &quot;x2&quot;, ylab = expression(theta))
 points(x = df$x2, y = df$y + rnorm(300, 0, 0.01), 
        pch = 21, bg = rgb(0, 0, 0, 0.5), col = &quot;black&quot;)</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>しかし、可能なら一つのプロットに表現したいですね。三次元プロットを作成する方法もありますが、逆に分かりづらい可能性があります。ここでは、等高線図 (contour plot)を作成してみましょう。そのためには以下のようなデータフレームが必要です。</p>
 <p>ここで使える関数が<code>outer()</code>関数です。基本的に<code>outer()</code>関数は2つの引数が必要です。動き方を直接見た方が良いかも知れませんね。</p>
 <pre class="r"><code>outer(X = 2:4, Y = 1:5)</code></pre>
@@ -436,7 +436,7 @@ head(Pred.mat)</code></pre>
 ## [6,] 7.623740e-05 6.762089e-05 5.997818e-05</code></pre>
 <p>これで100$<span class="math inline">\(100の行列が作られ、各セルには予測確率 (\)</span>$)が格納されることになります。これを使って等高線図を作る方法は<code>contour()</code>関数を使います。</p>
 <pre class="r"><code>plot(x = x1.u, y = x2.u, type = &quot;n&quot;, xlab = &quot;x1&quot;, ylab = &quot;x2&quot;)</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>先ほどの散布図に等高線を追加したものです。なんか、寂しい気もしますね。予測確率に応じて背景の色がグラデーションで変わるにようにしてみましょう。ここで使うのは<code>image()</code>関数です。予測確率 (<span class="math inline">\(\theta\)</span>)が高いほど黒、低いほど白になるようにします。</p>
 <pre class="r"><code>image(x = x1.u, y = x2.u, z = Pred.mat,
       col = rgb(seq(1, 0, length.out = 10), 
@@ -452,7 +452,7 @@ contour(x = x1.u, y = x2.u, z = Pred.mat, lwd = 2, col = &quot;white&quot;,
 legend(&quot;topright&quot;, pch = 21, 
        pt.bg = c(rgb(1, 0, 0, 0.5), rgb(0, 0, 1, 0.5)),
        col = &quot;black&quot;, bty = &quot;n&quot;, legend = c(&quot;y = 0&quot;, &quot;y = 1&quot;))</code></pre>
-<p><img src="../../post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/post/2020-04-20-logit-classification_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>これで完成です。色がちょっと気に入らないんですが、これは<code>colorspace</code>パッケージなどを使えば、より見やすいプロットが作れると思います。ちなみに、<code>image()</code>関数内の<code>col = ...</code>引数を<code>col = cm.colors(10)</code>とかにしてみても良いかも知れませんね（やってみて下さい）。</p>
 <hr />
 </div>
@@ -735,12 +735,12 @@ print(mean(kFold.Error))</code></pre>
     
     
 
-    <h4><center><a href="../../post/free_r_book/">無料で読めるR教材</a></center></h4>
+    <h4><center><a href="/post/free_r_book/">無料で読めるR教材</a></center></h4>
     <h5><center>February 24, 2021</center></h5>
     <center>
-<a href="../../tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
 </center>
 
@@ -754,12 +754,12 @@ print(mean(kFold.Error))</code></pre>
     
     
 
-    <h4><center><a href="../../post/causal_inference/">因果推論の道具箱</a></center></h4>
+    <h4><center><a href="/post/causal_inference/">因果推論の道具箱</a></center></h4>
     <h5><center>January 13, 2021</center></h5>
     <center>
-<a href="../../tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96"><kbd class="item-tag">因果推論</kbd></a>
+<a href="https://www.jaysong.net/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96"><kbd class="item-tag">因果推論</kbd></a>
 
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
 </center>
 
@@ -773,14 +773,14 @@ print(mean(kFold.Error))</code></pre>
     
     
 
-    <h4><center><a href="../../post/ut2020-ci/">特殊講義「ヨーロッパ国際政治経済」・国際関係論演習III</a></center></h4>
+    <h4><center><a href="/post/ut2020-ci/">特殊講義「ヨーロッパ国際政治経済」・国際関係論演習III</a></center></h4>
     <h5><center>November 27, 2020</center></h5>
     <center>
-<a href="../../tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96"><kbd class="item-tag">因果推論</kbd></a>
+<a href="https://www.jaysong.net/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E8%AB%96"><kbd class="item-tag">因果推論</kbd></a>
 
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../../tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE"><kbd class="item-tag">担当科目</kbd></a>
+<a href="https://www.jaysong.net/tags/%E6%8B%85%E5%BD%93%E7%A7%91%E7%9B%AE"><kbd class="item-tag">担当科目</kbd></a>
 
 </center>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,17 +158,17 @@
         <h2><center>大数の法則</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../../tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+<a href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
 
-<a href="../../tags/%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A"><kbd class="item-tag">仮説検定</kbd></a>
+<a href="https://www.jaysong.net/tags/%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A"><kbd class="item-tag">仮説検定</kbd></a>
 
 </center>
     </div>
 
     <div align="start" class="content">
-<script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="大数の法則" class="section level2">
@@ -221,7 +221,7 @@ library(tidyverse)</code></pre>
     labs(x = &quot;Income&quot;, y = &quot;Density&quot;)
 
 print(plot1)</code></pre>
-<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>きれいな正規分布の形をしている。 次は、この1万210人の国民からランダムに抽出し、抽出された人の所得の平均値を見てみる。抽出される人数は最初は一人とし、徐々に増やしていく。</p>
 <pre class="r"><code>#まずは空のデータフレイムを作っとく
 result.df &lt;- data.frame(n = NA, mean = NA) 
@@ -243,7 +243,7 @@ for(i in 1:1000){
   geom_line(aes(x = n, y = mean)) +
   labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
 print(plot2)</code></pre>
-<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>抽出される人が多くなるほど、その平均値はナウル国民の平均値に近づいていくことが確認できる。</p>
 <blockquote>
 <p>「でも、こんなの偶然かも知れないじゃん！」</p>
@@ -274,7 +274,7 @@ plot3 &lt;- ggplot(data = result.df) +
   labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
 
 print(plot3)</code></pre>
-<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>だいたいこんなもんだ。むしろ、偶然とろろかよりきれいなグラフが出来上がったと思う。もうちょっと拡大してみると</p>
 <pre class="r"><code>plot4 &lt;- result.df %&gt;%
     filter(n &lt;= 100) %&gt;%
@@ -293,7 +293,7 @@ print(plot3)</code></pre>
   labs(x = &quot;Sample Size&quot;, y = &quot;Mean&quot;)
 
 print(plot4)</code></pre>
-<p><img src="../../simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/simulation/2020-04-21-llm_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>こんなもんだ。抽出される人が多くなると彼(女)らの所得の平均値は全体国民の平均値に近づく。 これが大数の法則である。 直観的に考えれば当然のことでもあるが、この法則といつかはシミュレーションする中心極限定理などによって(伝統的)統計学による「仮説検定」が成り立っているとも言える。</p>
 <p>PS. 伝統的統計学と表現したのはベイズ統計学の仮説検定とは異なるためである。</p>
 </div>

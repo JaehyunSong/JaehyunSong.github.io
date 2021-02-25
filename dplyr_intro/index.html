@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
     <head>
-        <script defer src="../fa/fontawesome-all.js"></script>
+        <script defer src="/fa/fontawesome-all.js"></script>
         
 
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
 </style>
 
 
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
 
 
 
@@ -116,19 +116,19 @@
                     
                         <ul class="nav navbar-nav">
                             
-                                <li><a href="../">Home</a></li>
+                                <li><a href="/">Home</a></li>
                             
-                                <li><a href="../about/">CV</a></li>
+                                <li><a href="/about/">CV</a></li>
                             
-                                <li><a href="../research/">Research</a></li>
+                                <li><a href="/research/">Research</a></li>
                             
-                                <li><a href="../teaching/">Teaching</a></li>
+                                <li><a href="/teaching/">Teaching</a></li>
                             
-                                <li><a href="../software/">Software</a></li>
+                                <li><a href="/software/">Software</a></li>
                             
-                                <li><a href="../notes/">Notes</a></li>
+                                <li><a href="/notes/">Notes</a></li>
                             
-                                <li><a href="../tutorial/">Tutorial</a></li>
+                                <li><a href="/tutorial/">Tutorial</a></li>
                             
                         </ul>
                     
@@ -158,18 +158,18 @@
         <h2><center>dplyr入門 (新版)</center></h2>
         <h5><center></center></h5>
         <center>
-<a href="../tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
 
-<a href="../tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="../tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
+<a href="https://www.jaysong.net/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0"><kbd class="item-tag">データハンドリング</kbd></a>
 
 </center>
     </div>
 
     <div align="start" class="content">
-<script src="../rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="../rmarkdown-libs/kePrint/kePrint.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <div id="はじめに" class="section level2">
@@ -2112,7 +2112,7 @@ df3$EastJapan</code></pre>
 <h3>factor型の必要性</h3>
 <p>話がずれますが、可視化における名目変数の扱いについて考えたいと思います。横軸、または縦軸が気温、成績、身長のような連続変数ではなく、都道府県や国、企業のような名目変数になる場合があります。たとえば、棒グラフの横軸は図<a href="#fig:factor1">3</a>のように、一般的に名目変数になる場合が多いです。</p>
 <div class="figure" style="text-align: center"><span id="fig:factor1"></span>
-<img src="../dplyr_intro_files/figure-html/factor1-1.png" alt="横軸が名目変数の棒グラフ" width="576" />
+<img src="/dplyr_intro_files/figure-html/factor1-1.png" alt="横軸が名目変数の棒グラフ" width="576" />
 <p class="caption">
 Figure 3: 横軸が名目変数の棒グラフ
 </p>
@@ -2147,7 +2147,7 @@ Score_df</code></pre>
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(text = element_text(size = 12))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:factor2"></span>
-<img src="../dplyr_intro_files/figure-html/factor2-1.png" alt="Prefがcharacter型の場合 (1)" width="576" />
+<img src="/dplyr_intro_files/figure-html/factor2-1.png" alt="Prefがcharacter型の場合 (1)" width="576" />
 <p class="caption">
 Figure 4: Prefがcharacter型の場合 (1)
 </p>
@@ -2177,7 +2177,7 @@ Score_df2</code></pre>
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;) +
   theme(text = element_text(size = 12))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:factor3"></span>
-<img src="../dplyr_intro_files/figure-html/factor3-1.png" alt="Prefがcharacter型の場合 (2)" width="576" />
+<img src="/dplyr_intro_files/figure-html/factor3-1.png" alt="Prefがcharacter型の場合 (2)" width="576" />
 <p class="caption">
 Figure 5: Prefがcharacter型の場合 (2)
 </p>
@@ -2208,7 +2208,7 @@ Score_df_f1</code></pre>
 ## 9 Levels: 和歌山県 奈良県 大阪府 千葉県 京都府 東京都 埼玉県 ... 神奈川県</code></pre>
 <p>この<code>Score_df_f1</code>データを使って、図<a href="#fig:factor2">4</a>と全く同じコードを実行した結果が図<a href="#fig:factor4">6</a>です。</p>
 <div class="figure" style="text-align: center"><span id="fig:factor4"></span>
-<img src="../dplyr_intro_files/figure-html/factor4-1.png" alt="Prefがfactor型の場合 (1)" width="576" />
+<img src="/dplyr_intro_files/figure-html/factor4-1.png" alt="Prefがfactor型の場合 (1)" width="576" />
 <p class="caption">
 Figure 6: Prefがfactor型の場合 (1)
 </p>
@@ -2238,7 +2238,7 @@ Score_df_f1</code></pre>
 ## 9 和歌山県  3.97     0</code></pre>
 <p><code>Kanto</code>変数のデータ型は、<code>&lt;dbl&gt;</code>、つまりnumeric型です。しかし、これは明らかに名目変数ですね。これをこのまま<code>Kanto</code>を横軸にした図を出すと図<a href="#fig:factor5">7</a>のようになります。</p>
 <div class="figure" style="text-align: center"><span id="fig:factor5"></span>
-<img src="../dplyr_intro_files/figure-html/factor5-1.png" alt="Kantoがnumeric型の場合" width="288" />
+<img src="/dplyr_intro_files/figure-html/factor5-1.png" alt="Kantoがnumeric型の場合" width="288" />
 <p class="caption">
 Figure 7: Kantoがnumeric型の場合
 </p>
@@ -2266,7 +2266,7 @@ Score_df_f1</code></pre>
 ## Levels: 関東 その他</code></pre>
 <p>また、<code>"関東"</code>、<code>"その他"</code>の順になっていますね。これを図として出力した結果が図<a href="#fig:factor6">8</a>です。</p>
 <div class="figure" style="text-align: center"><span id="fig:factor6"></span>
-<img src="../dplyr_intro_files/figure-html/factor6-1.png" alt="Kantoがfactor型の場合" width="288" />
+<img src="/dplyr_intro_files/figure-html/factor6-1.png" alt="Kantoがfactor型の場合" width="288" />
 <p class="caption">
 Figure 8: Kantoがfactor型の場合
 </p>
@@ -2747,7 +2747,7 @@ Reorder2_df</code></pre>
   scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
   labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<p><img src="/dplyr_intro_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
 <p>このグラフに違和感はあまりありませんが、「読みやすさ」の麺では改善の余地があります。たとえば、7月1日の時点で、新規感染者数が多いのは日本、韓国、香港、中国 (本土)、台湾の順です。しかし、右側の凡例の順番はそうではありません。この順番が一致すれば、更に図は読みやすくなるでしょう。</p>
 <pre class="r"><code>factor(Reorder2_df$Country)</code></pre>
 <pre><code>##  [1] 日本        日本        日本        日本        日本        韓国       
@@ -2787,7 +2787,7 @@ Reorder2_df</code></pre>
   scale_x_date(date_labels = &quot;%Y年%m月%d日&quot;) +
   labs(x = &quot;年月日&quot;, y = &quot;新規感染者数 (人)&quot;, color = &quot;&quot;) +
   theme_gray(base_family = &quot;HiraKakuProN-W3&quot;)</code></pre>
-<p><img src="../dplyr_intro_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
+<p><img src="/dplyr_intro_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>これで図がさらに読みやすくなりました。ちなみに、<code>forcats</code>パッケージは<code>last2()</code>以外にも<code>first2()</code>という関数も提供しております。これを使うと、7月1日でなく、6月27日の新規感染者数の降順で水準の順番が調整されます。他にも引数を2つ使用する自作関数も使えますが、<code>fct_reorder2()</code>の主な使いみちは<code>last2()</code>で十分でしょう。</p>
 <p><strong><code>fct_collapse()</code>: 水準を統合する</strong></p>
 <p>水準数をより水準数に減らすためには、<code>fct_recode()</code>を使います。先ほど、<code>fct_shift()</code>で使った<code>df4</code>の例を考えてみましょう。<code>df4</code>の<code>Q1</code>の水準数は6つです。</p>
