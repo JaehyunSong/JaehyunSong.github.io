@@ -171,7 +171,7 @@
 
 <p>最終修正日: 2021-05-21</p>
 <div id="まずは例から" class="section level1">
-<h1>1. まずは例から</h1>
+<h1>まずは例から</h1>
 <pre class="r"><code>Vector1 &lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1)
 Vector2 &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;D&quot;, &quot;B&quot;, &quot;E&quot;, &quot;A&quot;, &quot;A&quot;, &quot;D&quot;, &quot;C&quot;, &quot;C&quot;)</code></pre>
 <pre class="r"><code>summary(Vector1)</code></pre>
@@ -203,11 +203,11 @@ summary(Vector1)</code></pre>
 <hr />
 </div>
 <div id="oopとは" class="section level1">
-<h1>2. OOPとは</h1>
+<h1>OOPとは</h1>
 <hr />
 </div>
 <div id="rにおけるoop" class="section level1">
-<h1>3. RにおけるOOP</h1>
+<h1>RにおけるOOP</h1>
 <div id="オブジェクトに任意のクラスを付ける" class="section level2">
 <h2>オブジェクトに任意のクラスを付ける</h2>
 <pre class="r"><code>関数名 &lt;- function(...) {
@@ -224,6 +224,8 @@ summary(Vector1)</code></pre>
 <div id="とりあえず作ってみる" class="section level1">
 <h1>とりあえず作ってみる</h1>
 <p>ここでは2つのnumeric型ベクトルとそのベクトル名入力し、相関係数を求める<code>My_Cor()</code>関数を作ってみます。単に相関係数を求めるだけなら<code>cor()</code>や<code>cor.test()</code>があるので、いくつかの機能も追加してみましょう。</p>
+<p>たとえば、「1日当たりゲーム時間」と「身長」といった2つのnumeric型ベクトルをそれぞれ<code>x</code>と<code>y</code>で入力し、<code>x.name</code>と<code>y.name</code>で各ベクトルの名前も指定します。また、入力されたデータを用いて相関係数とその信頼区間を求めます。これらのデータはリスト型として格納されますが、クラスを<code>"My_Cor_Object"</code>とします。以下はその例です。</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
 ## ✓ tibble  3.1.2     ✓ dplyr   1.0.6
@@ -232,10 +234,7 @@ summary(Vector1)</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<p>たとえば、「1日当たりゲーム時間」と「身長」といった2つのnumeric型ベクトルをそれぞれ<code>x</code>と<code>y</code>で入力し、<code>x.name</code>と<code>y.name</code>で各ベクトルの名前も指定します。また、入力されたデータを用いて相関係数とその信頼区間を求めます。これらのデータはリスト型として格納されますが、クラスを<code>"My_Cor_Object"</code>とします。以下はその例です。</p>
-<pre class="r"><code>library(tidyverse)
-
-Cor_Obj &lt;- My_Cor(x      = rnorm(20, 2, 0.5), 
+<pre class="r"><code>Cor_Obj &lt;- My_Cor(x      = rnorm(20, 2, 0.5), 
                   y      = rnorm(20, 165, 6), 
                   x.name = &quot;1日当たりゲーム時間&quot;, 
                   y.name = &quot;身長&quot;)
@@ -246,24 +245,24 @@ class(Cor_Obj)</code></pre>
 <pre class="r"><code>str(Cor_Obj)</code></pre>
 <pre><code>## List of 4
 ##  $ data    :&#39;data.frame&#39;:    20 obs. of  2 variables:
-##   ..$ x: num [1:20] 2.33 1.89 2.6 1.75 1.89 ...
-##   ..$ y: num [1:20] 158 173 155 164 178 ...
+##   ..$ x: num [1:20] 1.59 1.73 1.61 2.08 1.18 ...
+##   ..$ y: num [1:20] 158 165 170 177 152 ...
 ##  $ var_name: chr [1:2] &quot;1日当たりゲーム時間&quot; &quot;身長&quot;
-##  $ cor     : Named num 0.015
+##  $ cor     : Named num 0.28
 ##   ..- attr(*, &quot;names&quot;)= chr &quot;cor&quot;
-##  $ cor_ci  : num [1:2] -0.43 0.455
+##  $ cor_ci  : num [1:2] -0.186 0.643
 ##   ..- attr(*, &quot;conf.level&quot;)= num 0.95
 ##  - attr(*, &quot;class&quot;)= chr &quot;My_Cor_Object&quot;</code></pre>
 <p><code>Cor_Obj</code>には元のデータがデータフレームとして格納され（<code>$data</code>）、それぞれの変数名（<code>$var_name</code>）、相関係数（<code>$cor</code>）、相関係数の95%信頼区間（<code>$cor_ci</code>）が<code>Cor_Obj</code>の中に入っています。本質的にはリスト型のデータ構造ですが、クラス名が<code>My_Cor_Object</code>になっているだけです。</p>
 <p>この<code>My_Cor_Object</code>クラスには3つのメソッド（専用関数）が用意されており、<code>print()</code>、<code>summary()</code>、<code>plot()</code>です。<code>print()</code>と<code>summary()</code>は同じ関数で、<code>x</code>と<code>y</code>の平均値、そして相関係数と信頼区間を出力します。<code>plot()</code>は散布図と相関係数を出力します。実際の例を見てみましょう。</p>
 <pre class="r"><code>print(Cor_Obj)</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.035
-## 身長の平均値: 163.746
-## 相関係数: 0.015 [-0.430, 0.455]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.771
+## 身長の平均値: 163.867
+## 相関係数: 0.280 [-0.186, 0.643]</code></pre>
 <pre class="r"><code>summary(Cor_Obj) # summary()はprint()と同じ</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.035
-## 身長の平均値: 163.746
-## 相関係数: 0.015 [-0.430, 0.455]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.771
+## 身長の平均値: 163.867
+## 相関係数: 0.280 [-0.186, 0.643]</code></pre>
 <pre class="r"><code>plot(Cor_Obj)</code></pre>
 <p><img src="/oop_intro_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>既存の<code>cor.test()</code>で作成される<code>"htest"</code>クラスに比べ、<code>"My_Cor_Object"</code>クラスは各変数の平均値が名前と一緒に表示され、<code>plot()</code>で簡単に散布図が作成できる大変便利なクラスです。それでは一つずつ作っていきましょう。まずは、<code>"My_Cor_Object"</code>クラスのオブジェクトを作成する<code>My_Cor()</code>関数からです。</p>
