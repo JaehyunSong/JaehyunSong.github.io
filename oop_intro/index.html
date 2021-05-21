@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Rによるオブジェクト指向プログラミング入門</title>
+        <title>Rによるオブジェクト指向プログラミング入門（作成中）</title>
         
         <style>
 
@@ -105,7 +105,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">Rによるオブジェクト指向プログラミング入門</a>
+                    <a class="navbar-brand visible-xs" href="#">Rによるオブジェクト指向プログラミング入門（作成中）</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -155,7 +155,7 @@
 <main>
 
     <div>
-        <h2><center>Rによるオブジェクト指向プログラミング入門</center></h2>
+        <h2><center>Rによるオブジェクト指向プログラミング入門（作成中）</center></h2>
         <h5><center></center></h5>
         <center>
 <a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
@@ -169,6 +169,7 @@
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>最終修正日: 2021-05-21</p>
 <div id="まずは例から" class="section level1">
 <h1>1. まずは例から</h1>
 <pre class="r"><code>Vector1 &lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1)
@@ -232,24 +233,24 @@ class(Cor_Obj)</code></pre>
 <pre class="r"><code>str(Cor_Obj)</code></pre>
 <pre><code>## List of 4
 ##  $ data    :&#39;data.frame&#39;:    20 obs. of  2 variables:
-##   ..$ x: num [1:20] 2.15 2.06 1.82 2.03 1.4 ...
-##   ..$ y: num [1:20] 172 162 157 171 167 ...
+##   ..$ x: num [1:20] 2.59 1.97 2.16 2.32 1.67 ...
+##   ..$ y: num [1:20] 165 162 173 172 166 ...
 ##  $ var_name: chr [1:2] &quot;1日当たりゲーム時間&quot; &quot;身長&quot;
-##  $ cor     : Named num 0.0118
+##  $ cor     : Named num 0.315
 ##   ..- attr(*, &quot;names&quot;)= chr &quot;cor&quot;
-##  $ cor_ci  : num [1:2] -0.433 0.452
+##  $ cor_ci  : num [1:2] -0.148 0.665
 ##   ..- attr(*, &quot;conf.level&quot;)= num 0.95
 ##  - attr(*, &quot;class&quot;)= chr &quot;My_Cor_Object&quot;</code></pre>
 <p><code>Cor_Obj</code>には元のデータがデータフレームとして格納され（<code>$data</code>）、それぞれの変数名（<code>$var_name</code>）、相関係数（<code>$cor</code>）、相関係数の95%信頼区間（<code>$cor_ci</code>）が<code>Cor_Obj</code>の中に入っています。本質的にはリスト型のデータ構造ですが、クラス名が<code>My_Cor_Object</code>になっているだけです。</p>
 <p>この<code>My_Cor_Object</code>クラスには3つのメソッド（専用関数）が用意されており、<code>print()</code>、<code>summary()</code>、<code>plot()</code>です。<code>print()</code>と<code>summary()</code>は同じ関数で、<code>x</code>と<code>y</code>の平均値、そして相関係数と信頼区間を出力します。<code>plot()</code>は散布図と相関係数を出力します。実際の例を見てみましょう。</p>
 <pre class="r"><code>print(Cor_Obj)</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.125
-## 身長の平均値: 161.645
-## 相関係数: 0.012 [-0.433, 0.452]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.809
+## 身長の平均値: 164.995
+## 相関係数: 0.315 [-0.148, 0.665]</code></pre>
 <pre class="r"><code>summary(Cor_Obj) # summary()はprint()と同じ</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.125
-## 身長の平均値: 161.645
-## 相関係数: 0.012 [-0.433, 0.452]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.809
+## 身長の平均値: 164.995
+## 相関係数: 0.315 [-0.148, 0.665]</code></pre>
 <pre class="r"><code>plot(Cor_Obj)</code></pre>
 <p><img src="/oop_intro_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>既存の<code>cor.test()</code>で作成される<code>"htest"</code>クラスに比べ、<code>"My_Cor_Object"</code>クラスは各変数の平均値が名前と一緒に表示され、<code>plot()</code>で簡単に散布図が作成できる大変便利なクラスです。それでは一つずつ作っていきましょう。まずは、<code>"My_Cor_Object"</code>クラスのオブジェクトを作成する<code>My_Cor()</code>関数からです。</p>
