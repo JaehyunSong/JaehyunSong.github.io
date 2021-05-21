@@ -18,10 +18,10 @@
     
     <item>
       <title>Rによるオブジェクト指向プログラミング入門</title>
-      <link>https://www.jaysong.net/r/oop_intro/</link>
+      <link>https://www.jaysong.net/oop_intro/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.jaysong.net/r/oop_intro/</guid>
+      <guid>https://www.jaysong.net/oop_intro/</guid>
       <description>1. まずは例から Vector1 &amp;lt;- c(1, 5, 3, 7, 9, 12, 5, 4, 10, 1) Vector2 &amp;lt;- c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;C&amp;quot;) summary(Vector1) ## Min. 1st Qu. Median Mean 3rd Qu. Max. ## 1.00 3.25 5.00 5.70 8.50 12.00 summary(Vector2) ## Length Class Mode ## 10 character character 同じsummary()関数</description>
     </item>
     
