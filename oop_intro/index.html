@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Rによるオブジェクト指向プログラミング入門（作成中）</title>
+        <title>Rによるオブジェクト指向プログラミング入門</title>
         
         <style>
 
@@ -105,7 +105,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand visible-xs" href="#">Rによるオブジェクト指向プログラミング入門（作成中）</a>
+                    <a class="navbar-brand visible-xs" href="#">Rによるオブジェクト指向プログラミング入門</a>
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -155,7 +155,7 @@
 <main>
 
     <div>
-        <h2><center>Rによるオブジェクト指向プログラミング入門（作成中）</center></h2>
+        <h2><center>Rによるオブジェクト指向プログラミング入門</center></h2>
         <h5><center></center></h5>
         <center>
 <a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
@@ -300,7 +300,7 @@ class(X)</code></pre>
 <pre class="r"><code>summary</code></pre>
 <pre><code>## function (object, ...) 
 ## UseMethod(&quot;summary&quot;)
-## &lt;bytecode: 0x7fafa19f4970&gt;
+## &lt;bytecode: 0x7f953987a570&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>しかし、多態性を持つ関数の内部を見ることはできません。そもそも<code>summary()</code>関数はクラスごとに異なるコードを持っているため、<code>summary</code>だけでは「どのクラスの<code>summary()</code>か」が分かりません。それでもRには<code>summary()</code>関数が存在し、それをジェネリック関数（generic function）と呼びます。内部には<code>UseMethod("summary")</code>のみが書かれており、これは「この<code>summary()</code>関数は様々なクラスのメソッドとして機能するぞ」と宣言しているだけです。各クラスに対応したメソッドの内部を見るには<code>getS3method("メソッド名", "クラス名")</code>を使います。<code>summary()</code>メソッドは<code>numeric</code>型が別途指定されていないため、<code>"defualt"</code>となります。</p>
 <pre class="r"><code>getS3method(&quot;summary&quot;, &quot;default&quot;)</code></pre>
@@ -355,7 +355,7 @@ class(X)</code></pre>
 ##     class(value) &lt;- c(&quot;summaryDefault&quot;, &quot;table&quot;)
 ##     value
 ## }
-## &lt;bytecode: 0x7fafa19f5770&gt;
+## &lt;bytecode: 0x7f953987b370&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Rにはメソッドがクラス内部で定義されず、別途の<code>メソッド名.クラス名()</code>といった関数として作成されています。そしてジェネリック関数によって一つの関数の「ように」まとまっています。このように、ジェネリック関数経由でメソッドを呼び出すことをメソッド・ディスパッチ（method dispatch）と呼びます。</p>
 </div>
@@ -401,12 +401,12 @@ My_Score1 &lt;- Make_Score1(x = rnorm(10, 50, 10),
 
 My_Score1 # My_Score1の内部を見る</code></pre>
 <pre><code>## $Score1
-##  [1] 65.11747 60.40615 57.31302 41.64439 58.23178 52.41552 50.05545 57.46426
-##  [9] 43.18861 50.82948
+##  [1] 61.28391 49.16355 51.72504 41.71192 48.09779 60.65923 41.41648 47.84035
+##  [9] 47.12542 74.27878
 ## 
 ## $Score2
-##  [1] 43.42421 61.10854 53.54532 69.88326 67.57307 62.24335 44.75093 38.15250
-##  [9] 54.71748 42.09962
+##  [1] 52.33566 44.51321 62.51594 46.09150 45.06853 45.56544 41.14395 43.26956
+##  [9] 36.42861 50.42532
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;Score&quot;</code></pre>
@@ -426,12 +426,12 @@ My_Score2 &lt;- Make_Score2(x = rnorm(10, 50, 10),
 
 My_Score2 # My_Score2の内部を見る</code></pre>
 <pre><code>## $Score1
-##  [1]  6.86066 60.34945 41.07746 47.54525 62.91181 48.89343 60.80297 56.80982
-##  [9] 58.24640 36.73937
+##  [1] 49.95150 39.72748 42.76709 52.59472 48.26455 47.73404 53.69135 45.51753
+##  [9] 60.91629 60.85190
 ## 
 ## $Score2
-##  [1] 64.16054 65.86071 41.21118 41.98999 59.68751 38.14422 34.99237 53.32318
-##  [9] 64.77759 45.65853
+##  [1] 46.12460 60.64478 41.61907 51.60271 56.16143 41.63420 41.57449 41.02641
+##  [9] 50.24459 55.43438
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;Score&quot;</code></pre>
@@ -454,8 +454,8 @@ My_Score2 # My_Score2の内部を見る</code></pre>
 mean(c(1, 3, 5, 7, 9, 11)) # R内蔵関数のmean()を使う</code></pre>
 <pre><code>## [1] 6</code></pre>
 <pre class="r"><code>mean(My_Score1) # Scoreクラスのメソッドであるmean()を使う</code></pre>
-<pre><code>## [1] 53.66661
-## [1] 53.74983</code></pre>
+<pre><code>## [1] 52.33025
+## [1] 46.73577</code></pre>
 <p><code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
 <pre class="r"><code>methods(mean)</code></pre>
 <pre><code>## [1] mean.Date        mean.default     mean.difftime    mean.POSIXct    
@@ -507,8 +507,8 @@ my_func.Cat &lt;- function(cat) {
 ## see &#39;?methods&#39; for accessing help and source code</code></pre>
 <p><code>my_func()</code>関数はScoreとCatといった2種類のクラスで使われることが確認できます。それでは問題なく作動するかを確認してみましょう。<code>My_Score1</code>と<code>My_Cat</code>を、それぞれ<code>my_func()</code>に渡します。</p>
 <pre class="r"><code>my_func(My_Score1)</code></pre>
-<pre><code>## [1] 53.66661
-## [1] 53.74983</code></pre>
+<pre><code>## [1] 52.33025
+## [1] 46.73577</code></pre>
 <pre class="r"><code>my_func(My_Cat)</code></pre>
 <pre><code>## [1] &quot;矢内: にゃーにゃー&quot;</code></pre>
 <p>同じ関数名でも、オブジェクトのクラスによって異なる処理が行われることが分かります。</p>
@@ -577,24 +577,24 @@ class(Cor_Obj)</code></pre>
 <pre class="r"><code>str(Cor_Obj)</code></pre>
 <pre><code>## List of 4
 ##  $ data    :&#39;data.frame&#39;:    20 obs. of  2 variables:
-##   ..$ x: num [1:20] 2.21 2.17 2.69 1.87 1.47 ...
-##   ..$ y: num [1:20] 168 161 168 159 182 ...
+##   ..$ x: num [1:20] 2.36 2.08 1.89 2.98 2.32 ...
+##   ..$ y: num [1:20] 173 168 169 169 174 ...
 ##  $ var_name: chr [1:2] &quot;1日当たりゲーム時間&quot; &quot;身長&quot;
-##  $ cor     : Named num -0.144
+##  $ cor     : Named num 0.356
 ##   ..- attr(*, &quot;names&quot;)= chr &quot;cor&quot;
-##  $ cor_ci  : num [1:2] -0.551 0.319
+##  $ cor_ci  : num [1:2] -0.103 0.69
 ##   ..- attr(*, &quot;conf.level&quot;)= num 0.95
 ##  - attr(*, &quot;class&quot;)= chr &quot;My_Cor_Object&quot;</code></pre>
 <p><code>Cor_Obj</code>には元のデータがデータフレームとして格納され（<code>$data</code>）、それぞれの変数名（<code>$var_name</code>）、相関係数（<code>$cor</code>）、相関係数の95%信頼区間（<code>$cor_ci</code>）が<code>Cor_Obj</code>の中に入っています。本質的にはリスト型のデータ構造ですが、クラス名が<code>My_Cor_Object</code>になっているだけです。</p>
 <p>この<code>My_Cor_Object</code>クラスには3つのメソッド（専用関数）が用意されており、<code>print()</code>、<code>summary()</code>、<code>plot()</code>です。<code>print()</code>と<code>summary()</code>は同じ関数で、<code>x</code>と<code>y</code>の平均値、そして相関係数と信頼区間を出力します。<code>plot()</code>は散布図と相関係数を出力します。実際の例を見てみましょう。</p>
 <pre class="r"><code>print(Cor_Obj)</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.102
-## 身長の平均値: 165.578
-## 相関係数: -0.144 [-0.551, 0.319]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.997
+## 身長の平均値: 165.907
+## 相関係数: 0.356 [-0.103, 0.690]</code></pre>
 <pre class="r"><code>summary(Cor_Obj) # summary()はprint()と同じ</code></pre>
-<pre><code>## 1日当たりゲーム時間の平均値: 2.102
-## 身長の平均値: 165.578
-## 相関係数: -0.144 [-0.551, 0.319]</code></pre>
+<pre><code>## 1日当たりゲーム時間の平均値: 1.997
+## 身長の平均値: 165.907
+## 相関係数: 0.356 [-0.103, 0.690]</code></pre>
 <pre class="r"><code>plot(Cor_Obj)</code></pre>
 <p><img src="/oop_intro_files/figure-html/My_Cor_Object_Exam1-1.png" width="672" /></p>
 <p>既存の<code>cor.test()</code>で作成される<code>"htest"</code>クラスに比べ、<code>"My_Cor_Object"</code>クラスは各変数の平均値が名前と一緒に表示され、<code>plot()</code>で簡単に散布図が作成できる大変便利なクラスです。このMy_Cor_Objectクラスとそのメソッドの構造を図示したものが以下の図です。</p>
