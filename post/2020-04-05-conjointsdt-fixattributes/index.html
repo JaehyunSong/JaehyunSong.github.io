@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.84.2" />
+ <meta name="generator" content="Hugo 0.86.1" />
         
 
         
@@ -283,10 +283,10 @@ $featureArrayKeys = array_merge($temp_obj1, $temp_obj2);</code></li>
 <p>結果的に見るとPHPファイルの93行目は</p>
 
 <p><strong>Before</strong></p>
-<pre><code>// Re-randomize the $featurearray keys
+<pre tabindex="0"><code>// Re-randomize the $featurearray keys
 shuffle($featureArrayKeys);</code></pre>
 <p><strong>After</strong></p>
-<pre><code>// Re-randomize the $featurearray keys
+<pre tabindex="0"><code>// Re-randomize the $featurearray keys
 // shuffle($featureArrayKeys); &lt;- 元の部分はコメントアウト
 $temp_obj1 = array_slice($featureArrayKeys, 0, 4);
 $temp_obj2 = array_slice($featureArrayKeys, 4);
