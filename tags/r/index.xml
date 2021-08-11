@@ -6,7 +6,16 @@
     <description>Recent content in R on Jaehyun Song, Ph.D.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaysong.net/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>情報処理応用演習</title>
+      <link>https://www.jaysong.net/post/kpu-r/</link>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jaysong.net/post/kpu-r/</guid>
+      <description>講師: Song Jaehyun (宋 財泫)（関西大学総合情報学部） 日時 2021年 8月 20日 (金) 2〜4限目 2021年 8月 23日 (月) 2〜4限目 2021年 8月 24日</description>
+    </item>
+    
     <item>
       <title>無料で読めるR教材</title>
       <link>https://www.jaysong.net/post/free_r_book/</link>
