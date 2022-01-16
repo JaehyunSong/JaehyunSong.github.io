@@ -189,7 +189,7 @@
 <ul>
 <li>修正履歴
 <ul>
-<li>2020/12/30: 公開</li>
+<li>2022/01/16: 公開</li>
 <li>誤字・脱字は随時修正しております。</li>
 </ul></li>
 <li>以下の内容は現在執筆中の内容の一部となります。
@@ -224,6 +224,11 @@
 <li><a href="#visual4-mosaic">モザイクプロット</a></li>
 </ul>
 <hr />
+<p>　本章で使用するデータは<a href="../ggplot_intro2/">基礎編</a>で使用したものと同じデータを使います。データの詳細については<a href="../ggplot_intro2/">基礎編</a>を参照してください。</p>
+<ul>
+<li><a href="../Data/Countries.csv">データ1: 国家別民主主義および政治的自由データ</a></li>
+<li><a href="../Data/COVID19_Worldwide.csv">データ2: COVID-19データ</a></li>
+</ul>
 <pre class="r numberLines"><code>pacman::p_load(tidyverse)</code></pre>
 <pre class="r numberLines"><code>Country_df &lt;- read_csv(&quot;Data/Countries.csv&quot;)
 COVID19_df &lt;- read_csv(&quot;Data/COVID19_Worldwide.csv&quot;, guess_max = 10000)</code></pre>
@@ -1009,7 +1014,7 @@ Japan_Map %&gt;%
   geom_sf() +
   theme_void()</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-map13-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　今回は各都道府県を人口密度ごとに色塗りをしてみましょう。<code>ne_states()</code>で読み込んだデータに人口密度のデータはないため、別途のデータと結合する必要があります。筆者が予め作成しておいた<a href="Data/Japan_Density.csv">データ</a>を読み込み、中身を確認してみます。</p>
+<p>　今回は各都道府県を人口密度ごとに色塗りをしてみましょう。<code>ne_states()</code>で読み込んだデータに人口密度のデータはないため、別途のデータと結合する必要があります。筆者が予め作成しておいた<a href="../Data/Japan_Density.csv">データ</a>を読み込み、中身を確認してみます。</p>
 <pre class="r numberLines"><code>Japan_Density &lt;- read_csv(&quot;Data/Japan_Density.csv&quot;)
 
 Japan_Density</code></pre>
@@ -1242,8 +1247,8 @@ class(Osaka_map)</code></pre>
   geom_sf() +
   theme_minimal()</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-map22-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　ここでもデータの結合&amp;マッピングが可能です。大阪府内自治体の人口と学生数が格納された<a href="data/Osaka_Student.csv">データ</a>を読み込んでみましょう。こちらは2015年国勢調査の結果から取得したデータです。</p>
-<pre class="r numberLines"><code>Osaka_Student &lt;- read_csv(&quot;data/Osaka_Student.csv&quot;)
+<p>　ここでもデータの結合&amp;マッピングが可能です。大阪府内自治体の人口と学生数が格納された<a href="../Data/Osaka_Student.csv">データ</a>を読み込んでみましょう。こちらは2015年国勢調査の結果から取得したデータです。</p>
+<pre class="r numberLines"><code>Osaka_Student &lt;- read_csv(&quot;Data/Osaka_Student.csv&quot;)
 
 Osaka_Student</code></pre>
 <pre><code>## # A tibble: 75 × 4
@@ -1382,7 +1387,7 @@ DAG_data3 %&gt;%
 <p>　バンプチャート (bump chart)は順位の変化などを示す時に有効なグラフです。たとえば、G7構成国の新型コロナ感染者数の順位の変化を示すにはどうすれば良いでしょうか。そもそもどのような形式のデータが必要でしょうか。まずは必要なデータ形式を紹介したいと思います。</p>
 <p>　まず、{ggplot2}によるバンプチャートの作成を支援する{ggbump}パッケージをインストールし、読み込みましょう<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。</p>
 <pre class="r numberLines"><code>pacman::p_load(ggbump)</code></pre>
-<p>　ここではG7構成国の100万人当り新型コロナ感染者数の順位がどのように変化したのかを2020年4月から7月まで1ヶ月単位で表したデータが必要です。データは以下のようなコードで作成しますが、<a href="https://github.com/JaehyunSong/RBook">本書のサポートページ</a>からもダウンロード可能です。</p>
+<p>　ここではG7構成国の100万人当り新型コロナ感染者数の順位がどのように変化したのかを2020年4月から7月まで1ヶ月単位で表したデータが必要です。データは以下のようなコードで作成しますが、<a href="../Data/Bumpchart.csv">加工済みデータ</a>もダウンロード可能です。</p>
 <pre class="r numberLines"><code>Bump_df &lt;- left_join(COVID19_df, Country_df, by = &quot;Country&quot;) %&gt;%
   select(Country, Date, Population, Confirmed_Total, G7) %&gt;%
   separate(Date, into = c(&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;), sep = &quot;/&quot;) %&gt;%
@@ -1466,7 +1471,7 @@ Bump_df</code></pre>
 <p>　沖積図 (alluvial plot)は同じ対象を複数回観察したデータ（パネル・データなど）から変化を示すことに適したグラフです。たとえば、同じ回答者を対象に2回世論調査を実施し、1回目調査時の支持政党と2回目調査時の支持政党を変化を見ることも可能です。もし、変化が大きい場合は政党支持態度は弱いこととなりますし、変化が小さい場合は安定していると解釈できるでしょう。</p>
 <p>　ここでは2009年の衆院選と2010年の参院選における投票先の変化を沖積図で確認してみたいと思います。まずは、沖積図の作成に特化した{ggalluvial}パッケージをインストールし、読み込みます。</p>
 <pre class="r numberLines"><code>pacman::p_load(ggalluvial)</code></pre>
-<p>　続きまして、実習用データを読み込みます。データは <span class="citation">@Nakazawa:2014</span> の表3を元に筆者 (宋)が作成したものです。</p>
+<p>　続きまして、<a href="../Data/Vote_09_10.csv">実習用データ</a>を読み込みます。データは中澤 (2014)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>の表3を元に筆者 (宋)が作成したものです。</p>
 <pre class="r numberLines"><code>Vote_0910 &lt;- read_csv(&quot;Data/Vote_09_10.csv&quot;)</code></pre>
 <pre class="r"><code>Vote_0910</code></pre>
 <div data-pagedtable="false">
@@ -1524,7 +1529,7 @@ Vote_0910</code></pre>
                                             &quot;その他&quot;, &quot;棄権&quot;, &quot;DK&quot;)),
          Vote10 = factor(Vote10, levels = c(&quot;自民&quot;, &quot;民主&quot;, &quot;公明&quot;, &quot;共産・社民&quot;, 
                                             &quot;その他&quot;, &quot;棄権&quot;, &quot;DK&quot;)))</code></pre>
-<p>　それでは沖積図を描いてみましょう。使用する幾何オブジェクトは<code>geom_alluvium()</code>と<code>geom_stratum()</code>です。必ずこの順番でレイヤーを重ねてください。マッピングは<code>y</code>、<code>axis1</code>、<code>axis2</code>に対し、<code>y</code>には当該パターン内のケース数 (<code>Freq</code>)、<code>axis1</code>は2009年の投票先 (<code>Vote09</code>)、<code>axis2</code>は2010年の投票先 (<code>Vote10</code>)を指定します<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>。これらのマッピングは<code>geom_stratum()</code>と<code>geom_alluvim()</code>共通であるため、<code>ggplot()</code>内でマッピングした方が効率的です。</p>
+<p>　それでは沖積図を描いてみましょう。使用する幾何オブジェクトは<code>geom_alluvium()</code>と<code>geom_stratum()</code>です。必ずこの順番でレイヤーを重ねてください。マッピングは<code>y</code>、<code>axis1</code>、<code>axis2</code>に対し、<code>y</code>には当該パターン内のケース数 (<code>Freq</code>)、<code>axis1</code>は2009年の投票先 (<code>Vote09</code>)、<code>axis2</code>は2010年の投票先 (<code>Vote10</code>)を指定します<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>。これらのマッピングは<code>geom_stratum()</code>と<code>geom_alluvim()</code>共通であるため、<code>ggplot()</code>内でマッピングした方が効率的です。</p>
 <pre class="r numberLines"><code>Vote_0910 %&gt;%
     ggplot(aes(y = Freq, axis1 = Vote09, axis2 = Vote10)) +
     geom_alluvium() +
@@ -1582,7 +1587,7 @@ Alluvial_Plot</code></pre>
   ggplot() +
   geom_treemap(aes(area = Population))</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-tree2-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　これだけだと各長方形がどの国を指しているのかが分かりませんね。長方形の上に国名（<code>Country</code>）を追加するためには<code>geom_treemap_text()</code>幾何オブジェクトを使用します。マッピングは<code>area</code>と<code>label</code>に対し、それぞれ面積を表す<code>Population</code>と国名を表す<code>Country</code>を指定します。<code>area</code>は<code>geom_treemap()</code>と<code>geom_treemap_text()</code>両方で使われるので<code>ggplot()</code>の内部でマッピングしても問題ありません<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>。また、<code>aes()</code>の外側に<code>color = "white"</code>で文字を白に指定し、<code>place = "center"</code>で長方形の真ん中にラベルが付くようにします。</p>
+<p>　これだけだと各長方形がどの国を指しているのかが分かりませんね。長方形の上に国名（<code>Country</code>）を追加するためには<code>geom_treemap_text()</code>幾何オブジェクトを使用します。マッピングは<code>area</code>と<code>label</code>に対し、それぞれ面積を表す<code>Population</code>と国名を表す<code>Country</code>を指定します。<code>area</code>は<code>geom_treemap()</code>と<code>geom_treemap_text()</code>両方で使われるので<code>ggplot()</code>の内部でマッピングしても問題ありません<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。また、<code>aes()</code>の外側に<code>color = "white"</code>で文字を白に指定し、<code>place = "center"</code>で長方形の真ん中にラベルが付くようにします。</p>
 <pre class="r numberLines"><code>Country_df %&gt;%
   filter(Continent == &quot;Asia&quot;) %&gt;%
   ggplot(aes(area = Population)) +
@@ -1652,12 +1657,12 @@ Alluvial_Plot</code></pre>
         axis.title = element_blank(),
         axis.text  = element_blank())</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-tree7-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　ただし、ツリーマップが必ずしも円グラフより優れているとは言えません。たとえば、 <span class="citation">@Heer_Bostock:2010</span> の研究では円グラフとツリーマップを含む9種類のグラフを用い、被験者に大小関係を判断してもらう実験を行いましたが、ツリーマップ（四角形の面積）は円グラフ（角度）よりも判断までの所要時間が長いことが述べています。</p>
+<p>　ただし、ツリーマップが必ずしも円グラフより優れているとは言えません。たとえば、Heer and Bostock (2010)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>の研究では円グラフとツリーマップを含む9種類のグラフを用い、被験者に大小関係を判断してもらう実験を行いましたが、ツリーマップ（四角形の面積）は円グラフ（角度）よりも判断までの所要時間が長いことが述べています。</p>
 <hr />
 </div>
 <div id="visual4-mosaic" class="section level2">
 <h2>モザイクプロット</h2>
-<p>モザイクプロットは2つの離散変数（おもに名目変数）の関係を可視化するために <span class="citation">@Hargian_Kleiner:1984</span> が考案した図です。2つの名目変数間の関係を見る際によく使われるものはクロス表（クロス集計表）でしょう。</p>
+<p>　モザイクプロットは2つの離散変数（おもに名目変数）の関係を可視化するためにHargian and Kleiner (1984)<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>が考案した図です。2つの名目変数間の関係を見る際によく使われるものはクロス表（クロス集計表）でしょう。</p>
 <pre class="r numberLines"><code>pacman::p_load(ggmosaic)</code></pre>
 <pre class="r numberLines"><code>Mosaic_df &lt;- Country_df %&gt;%
     select(Country, Continent, Polity = Polity_Type, PPP = PPP_per_capita) %&gt;%
@@ -1726,7 +1731,7 @@ Mosaic_Tab</code></pre>
           panel.grid      = element_blank(),
           axis.text.x     = element_text(angle = 90, vjust = 0.5, hjust = 1))</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-mosaic9-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>　ただし、一つ問題があります。それは目盛りラベルの位置です。例えば、右側の横軸目盛りラベルの場合、セルの位置とラベルの位置がずれています。これは2つのファセットが同じ目盛りを共有し、左側の方に合わせられたため生じるものです。よく見ると横軸も縦軸も目盛りラベルに位置が同じであることが分かります。これを解消するためには、<code>facet_wrap()</code>の内部に<code>scale = "free"</code>を指定します<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。これは各ファセットが独自のスケールを有することを意味します。</p>
+<p>　ただし、一つ問題があります。それは目盛りラベルの位置です。例えば、右側の横軸目盛りラベルの場合、セルの位置とラベルの位置がずれています。これは2つのファセットが同じ目盛りを共有し、左側の方に合わせられたため生じるものです。よく見ると横軸も縦軸も目盛りラベルに位置が同じであることが分かります。これを解消するためには、<code>facet_wrap()</code>の内部に<code>scale = "free"</code>を指定します<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>。これは各ファセットが独自のスケールを有することを意味します。</p>
 <pre class="r numberLines"><code>Mosaic_df %&gt;%
     ggplot() +
     geom_mosaic(aes(x = product(Polity, Continent), fill = Polity), 
@@ -1761,9 +1766,12 @@ Mosaic_Tab</code></pre>
 <ol>
 <li id="fn1"><p>最後の<code>_c</code>はマッピングする変数（ここでは<code>HDI_2018</code>）が連続変数（<strong>c</strong>ontinuous）であることを意味します。<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>これから登場する<code>geom_bump()</code>幾何オブジェクトが使えるようになります。{ggbump}を使用せず、{ggplot2}が提供する<code>geom_line()</code>でも代替可能です。<code>geom_line()</code>の場合、直線で順位の変化が表示され、<code>geom_bump()</code>の場合は曲線で表示されます。丸い感じの図を好まない方なら、{ggbump}を読み込まず、<code>geom_bump()</code>を<code>geom_line()</code>に書き換えてください。<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>今回は2期間の変化を示していますが、3期以上の場合、<code>axis3</code>、<code>axis4</code>、…と追加してください。<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>今回の例だと、<code>label</code>も<code>ggplot()</code>内部でマッピング可能です。<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>他にも<strong>縦</strong>軸のみ共有する<code>"free_x"</code>、横軸のみ共有する<code>"free_y"</code>があり、既定値は<code>"fixed"</code>です。<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>中澤渉. 2014. 『政党支持と政治意識の変動―個人間の差異と個人内変動の関係』 「東京大学社会科学研究所パネル調査プロジェクトディスカッションペーパーシリーズ」 81.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>今回は2期間の変化を示していますが、3期以上の場合、<code>axis3</code>、<code>axis4</code>、…と追加してください。<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>今回の例だと、<code>label</code>も<code>ggplot()</code>内部でマッピング可能です。<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Heer, Jeffrey, and Michael Bostock. 2010. “Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design.” <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems.</em><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Hartigan, J. A., and Beat Kleiner. 1984. “A Mosaic of Television Ratings.” <em>The American Statistician,</em> 38: 32–35.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>他にも<strong>縦</strong>軸のみ共有する<code>"free_x"</code>、横軸のみ共有する<code>"free_y"</code>があり、既定値は<code>"fixed"</code>です。<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 </div>
