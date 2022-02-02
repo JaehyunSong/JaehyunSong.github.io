@@ -1003,7 +1003,7 @@ asia_map %&gt;%
     geom_sf() +
     theme_void() # 空っぽのテーマ</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-map11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんがん、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。</p>
+<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんが、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。</p>
 <pre class="r numberLines"><code># remotes::install_github(&quot;ropensci/rnaturalearthhires&quot;)
 library(rnaturalearthhires)</code></pre>
 <p>　地図データの抽出には<code>ne_states()</code>関数を使用します。第一引数として国家名を指定し、地図データのクラスはsfとします。抽出したデータの使い方は世界地図の時と同じです。</p>
@@ -1226,9 +1226,9 @@ Japan_Map</code></pre>
     ggplot() +
     geom_sf(aes(fill = Density2)) +
     labs(fill = &quot;人口密度 (km^2)&quot;) +
-    theme_void()</code></pre>
+    theme_void(base_family = &quot;HiraginoSans-W3&quot;)</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-map18-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>　世界地図でも同じやり方でデータの結合が可能です。この場合はISO3コードかISO2コードがキー変数となりますとなる。ISO3コードは<code>iso_a3</code>、ISO2コードは<code>iso_a2</code>列に格納されています。他に使用可能なキー変数は<code>iso_n3</code>であり、こちらは各国を識別する3桁の数字となります。</p>
+<p>　世界地図でも同じやり方でデータの結合が可能です。この場合はISO3コードかISO2コードがキー変数となります。ISO3コードは<code>iso_a3</code>、ISO2コードは<code>iso_a2</code>列に格納されています。他に使用可能なキー変数は<code>iso_n3</code>であり、こちらは各国を識別する3桁の数字となります。</p>
 </div>
 <div id="日本地図特定の都道府県" class="section level3">
 <h3>日本地図（特定の都道府県）</h3>
@@ -1276,7 +1276,9 @@ Osaka_map &lt;- left_join(Osaka_map, Osaka_Student, by = &quot;Code&quot;)</code
   ggplot() +
   geom_sf(aes(fill = Student_Ratio)) +
   scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;) +
-  theme_minimal()</code></pre>
+  labs(fill = &quot;1万人当たり学生数 (人)&quot;) +
+  theme_minimal(base_family = &quot;HiraginoSans-W3&quot;) +
+  theme(legend.position = &quot;bottom&quot;)</code></pre>
 <p><img src="/ggplot_intro4_files/figure-html/visual4-map25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
