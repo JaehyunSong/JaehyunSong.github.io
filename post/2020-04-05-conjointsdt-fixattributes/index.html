@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.0" />
+ <meta name="generator" content="Hugo 0.86.1" />
         
 
         
@@ -168,8 +168,8 @@
     </div>
 
     <div align="start" class="content"><p>以下のようなコンジョイント分析を行うとする。</p>
-<p>{.table .pure-table .pure-table-horizontal .table-striped .table-responsive}</p>
-<table>
+
+<table class="pure-table pure-table-horizontal table table-responsive table-striped">
 <thead>
 <tr>
 <th></th>
@@ -177,22 +177,26 @@
 <th>候補者2</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>性別</td>
 <td>男性</td>
 <td>女性</td>
 </tr>
+
 <tr>
 <td>年齢</td>
 <td>39歳</td>
 <td>35歳</td>
 </tr>
+
 <tr>
 <td>二郎の値段</td>
 <td>ラーメンの値下げ</td>
 <td>ラーメンの値段の現状維持</td>
 </tr>
+
 <tr>
 <td>二郎のトッピング</td>
 <td>やさい増々の義務化</td>
@@ -200,29 +204,40 @@
 </tr>
 </tbody>
 </table>
+
 <p>Q1. あなたはどっちの候補者を支持しますか。</p>
+
 <ul>
 <li>候補者1</li>
 <li>候補者2</li>
 </ul>
+
 <hr>
+
 <p>この場合、Conjoint SDT(以下、SDTと略す)で属性の順番ををランダマイズすると、場合によっては「二郎のトッピング、性別、年齢、二郎の値段」などの順番で表示されうる。しかし、直感的に考えると年齢や性別などの候補者の個人情報は政策の前に来るのが自然である。</p>
+
 <p>SDTはこのように一部の属性のみを固定する機能を提供しないため、生成されたPHPファイルを直接修正する必要がある。</p>
+
 <p>ここから提示する方法はこのポスト[<a href="/post/2020-04-05-conjointsdt-qualtrics/">Link</a>]にしたがってPHPファイルまで生成されたと仮定したうえでの方法である。ただし、<strong>1.1の画像でRandomize order of attributes for each respondentsにチェックを入れておく必要がある</strong>。</p>
+
 <hr>
+
 <ol>
 <li>PHPファイルを読み込む</li>
 <li>93行目を見ると以下のような項目が見える。
+
 <ul>
 <li><code>shuffle($featureArrayKeys);</code></li>
-<li>修正するのはこの箇所である。</li>
-</ul>
-</li>
+<li>修正するのはこの箇所である。
+<br></li>
+</ul></li>
 </ol>
+
 <hr>
+
 <h3 id="基本的な考え方">基本的な考え方</h3>
-<p>{.table .pure-table .pure-table-horizontal .table-striped .table-responsive}</p>
-<table>
+
+<table class="pure-table pure-table-horizontal table table-responsive table-striped">
 <thead>
 <tr>
 <th>アドレス</th>
@@ -232,6 +247,7 @@
 <th>3</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>項目名</td>
@@ -242,39 +258,41 @@
 </tr>
 </tbody>
 </table>
+
 <ul>
 <li>PHPの配列のアドレスはRとは違って、一般的なプログラミング言語と同様、0から始まる。</li>
 <li><code>shuffle()</code>関数は配列の順番をランダマイズする機能を持つが、ここでは0から1を切り取って臨時のオブジェクトに格納し(オブジェクト1)、続いて2から3を切り取って他のオブジェクトに格納する(オブジェクト2)。</li>
 <li>次に、オブジェクト2の中身だけ<code>shuffle()</code>関数を使って順番をランダマイズし、オブジェクト1とオブジェクト2を統合する。</li>
-<li>具体的な方法は以下のようである。</li>
-</ul>
-<pre tabindex="0"><code>$temp_obj1 = array_slice($featureArrayKeys, 0, 2);
+<li>具体的な方法は以下のようである。
+<code>$temp_obj1 = array_slice($featureArrayKeys, 0, 2);
 $temp_obj2 = array_slice($featureArrayKeys, 2, 2);
 shuffle($temp_obj2);
-$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);
-</code></pre><ul>
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);</code></li>
 <li>説明すると
+
 <ol>
 <li><code>$featureArrayKeys</code>配列で0から2個の要素（性別、年齢）を切り取り、<code>$temp_obj1</code>に格納する。</li>
 <li><code>$featureArrayKeys</code>配列で2から2個の要素（二郎の値段、二郎のトッピング）を切り取り、<code>$temp_obj2</code>に格納する。</li>
 <li><code>$temp_obj2</code>内の要素をランダマイズする。</li>
 <li><code>$temp_obj1</code>と<code>$temp_obj2</code>を統合し、元の<code>$featureArrayKeys</code>に格納する。</li>
-</ol>
-</li>
+</ol></li>
 </ul>
+
 <hr>
+
 <p>結果的に見るとPHPファイルの93行目は</p>
+
 <p><strong>Before</strong></p>
 <pre tabindex="0"><code>// Re-randomize the $featurearray keys
-shuffle($featureArrayKeys);
-</code></pre><p><strong>After</strong></p>
+shuffle($featureArrayKeys);</code></pre>
+<p><strong>After</strong></p>
 <pre tabindex="0"><code>// Re-randomize the $featurearray keys
 // shuffle($featureArrayKeys); &lt;- 元の部分はコメントアウト
 $temp_obj1 = array_slice($featureArrayKeys, 0, 4);
 $temp_obj2 = array_slice($featureArrayKeys, 4);
 shuffle($temp_obj2);
-$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);
-</code></pre><p>のようになる。これだけで、年齢と性別のみ固定し、残りの部分はランダマイズすることが可能である。以降は普通のやり方でQualtricsに埋め込めばいい。</p>
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);</code></pre>
+<p>のようになる。これだけで、年齢と性別のみ固定し、残りの部分はランダマイズすることが可能である。以降は普通のやり方でQualtricsに埋め込めばいい。</p>
 </div>
 
     

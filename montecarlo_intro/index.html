@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    <head>
+        <script defer src="/fa/fontawesome-all.js"></script>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>モンテカルロ・シミュレーション入門</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: darkred;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://www.jaysong.net/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20JP">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/R.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/html.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.86.1" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96999602-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-96999602-1');
+              gtag('set', {'user_id': 'USER_ID'});
+            </script>
+
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-96999602-1', 'auto');
+                ga('send', 'pageview');
+            </script>
+        
+
+        <meta name="google-site-verification" content="QJouPRaPKBPU1jDp6VaBuFbVV5imTI-Aazl_ScJwVgU" />
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">モンテカルロ・シミュレーション入門</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/about/">CV</a></li>
+                            
+                                <li><a href="/research/">Research</a></li>
+                            
+                                <li><a href="/teaching/">Teaching</a></li>
+                            
+                                <li><a href="/seminar/">Seminar</a></li>
+                            
+                                <li><a href="/software/">Software</a></li>
+                            
+                                <li><a href="/notes/">Notes</a></li>
+                            
+                                <li><a href="/tutorial/">Tutorial</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:song@kansai-u.ac.jp"><i class="far fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Tintstyle/"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.facebook.com/tintstyle"><i class="fab fa-facebook"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.instagram.com/tintstyle/"><i class="fab fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/JaehyunSong/"><i class="fab fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2><center>モンテカルロ・シミュレーション入門</center></h2>
+        <h5><center></center></h5>
+        <center>
+<a href="https://www.jaysong.net/tags/%E7%B5%B1%E8%A8%88%E5%AD%A6"><kbd class="item-tag">統計学</kbd></a>
+
+<a href="https://www.jaysong.net/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="https://www.jaysong.net/tags/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"><kbd class="item-tag">シミュレーション</kbd></a>
+
+</center>
+    </div>
+
+    <div align="start" class="content">
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="はじめに" class="section level2">
+<h2>はじめに</h2>
+<ul>
+<li>執筆中です。2022年2月中には完成したいと思います。</li>
+</ul>
+<hr />
+</div>
+<div id="monte-intro" class="section level2">
+<h2>モンテカルロシミュレーションとは</h2>
+<p>　モンテカルロ法 (Monte Carlo method)とは無作為に抽出された乱数を用い、数値計算やシミュレーションを行う手法を意味します。モンテカルロはヨーロッパのモナコ公国内の一つの地区であり、カジノで有名なところです。カジノではサイコロやルーレット、無作為に配られたカードなど、乱数が頻繁に使われることからこのように名付けられました。</p>
+<p>　モンテカルロ法を用いたシミュレーションがモンテカルロ・シミュレーションです。計算があまりにも複雑だったり、実質的に代数で解が得られない解析学上の問題などに強みを持つ手法です。一部、明快な例（共役事前分布が存在するなど）を除き、事後分布の計算が非常に複雑（実質、不可能）だと知られていたベイズ統計学もモンテカルロ法（マルコフ連鎖モンテカルロ法; MCMC）によって、ようやく使えるものになったなど、今になってモンテカルロ法は非常に広く用いられています。</p>
+<p>　モンテカルロ法から得られた結果には常に誤差が存在します。とりわけ、生成された乱数が少ない（= 試行回数が少ない）場合、この誤差は大きくなります。しかし、近年はパソコンの性能が飛躍的に発達しているため、かなり小さな誤差で、つまりより正確な結果が得られるようになりました。</p>
+<p>　以下ではまず、モンテカルロ法を理解するために必須知識である乱数生成について解説します。具体的には乱数生成のアルゴリズムでなく、Rで乱数を生成する方法について紹介します。続いて、モンテカルロ法を用いたシミュレーションの例として誕生日問題、モンティ・ホール問題、円周率の計算、ブートストラップ法を紹介します。</p>
+<hr />
+</div>
+<div id="monte-rng" class="section level2">
+<h2>乱数生成</h2>
+<p>まずは、これから使うパッケージを読み込みます。我々の盟友、{tidyverse}を読み込み、後ほど{ggplot2}を利用して円を描くことになるので{ggforce}も読み込んでおきます。</p>
+<pre class="r numberLines"><code># library(tidyverse); library(ggforce) でも可
+pacman::p_load(tidyverse, ggforce)</code></pre>
+<div id="sampleによるサンプリング" class="section level3">
+<h3><code>sample()</code>によるサンプリング</h3>
+<p>　無作為に値を抽出する方法には2つが考えられます。一つは<strong>値の集合から</strong>無作為に値を抽出する方法、もう一つは正規分布などの<strong>確率分布から</strong>値を抽出する方法です。ここではまず<code>sample()</code>関数を用い、値の集合から無作為に値を抽出する方法について説明します。</p>
+<pre class="r"><code>sample(x = 値の集合ベクトル, size = 抽出の回数, 
+       replace = 復元抽出の有無, prob = 各要素が抽出される確率)</code></pre>
+<p>　<code>replace</code>は復元抽出の有無を指定する引数であり、既定値は<code>FALSE</code>、つまり非復元抽出がデフォルトとなっています。これは一度抽出された要素は、二度と抽出されないことを意味します。値の集合が{0, 1}で、5個の値を抽出する（=<code>size</code>が<code>x</code>の長さより大きい）ならば、<code>replace</code>は必ず<code>TRUE</code>に設定する必要があります。抽選などは非復元抽出であるため、<code>replace</code>引数は省略可能です。しかし、対数の法則やブートストラップなどは復元抽出を仮定している場合が多く、意識的に<code>replace</code>関数は指定することを推奨します。<code>prob</code>は各要素が抽出される確率を意味し、<code>x</code>の実引数と同じ長さのnumeric型ベクトルを指定します。<code>prob</code>の実引数の総和は1であることが望ましいですが、総和が1でない場合、自動的に総和が1になるよう正則化を行います。つまり、<code>c(1, 3)</code>は<code>c(0.25, 0.75)</code>と同じことを意味します。</p>
+<p>　サイコロを3回振るコードを書くなら、値の集合（<code>x</code>）は<code>c(1, 2, 3, 4, 5, 6)</code>、または<code>1:6</code>で、抽出の回数（<code>size</code>）は3となります。また、一回出た目も抽出される可能性があるため、復元抽出を行う必要があります（<code>replace = TRUE</code>）。そして各目が出る確率は1/6ですが、各値が抽出される確率が等しい場合、省略可能です。</p>
+<pre class="r numberLines"><code># この場合、prob引数は省略可能
+sample(1:6, 3, replace = TRUE, prob = rep(1/6, 6))</code></pre>
+<pre><code>## [1] 2 1 2</code></pre>
+<p>　今回はサイコロを1万回振り、それぞれの目が出た回数を棒グラフとして示してみます。無作為に抽出された値であれば、各目が出る回数は等しいはずです。ベクトルに対して<code>table()</code>関数を使うと、各要素が出現した回数が出力され、このオブジェクトを<code>barplot()</code>関数に渡すと棒グラフを作成することができます。</p>
+<pre class="r numberLines"><code>Dice_vec &lt;- sample(1:6, 10^4, replace = TRUE)
+table(Dice_vec) %&gt;% barplot()</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　1から6までの目が出た回数がほぼ同じであることが確認できます。この6つの棒の高さがすべて同じになることはありえませんが（そもそも1万を6で割ったら余りが出ますね）、ほぼ同じ割合であることから、疑似乱数とは言え、シミュレーション用としては十分でしょう。</p>
+</div>
+<div id="確率分布からの乱数制制" class="section level3">
+<h3>確率分布からの乱数制制</h3>
+<table>
+<thead>
+<tr class="header">
+<th>関数名</th>
+<th>確率分布</th>
+<th>パラメーター</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rbeta()</code></td>
+<td>ベータ分布</td>
+<td><code>n</code>, <code>shape1</code>, <code>shape2</code></td>
+</tr>
+<tr class="even">
+<td><code>rbinom()</code></td>
+<td>二項分布</td>
+<td><code>n</code>, <code>size</code>, <code>prob</code></td>
+</tr>
+<tr class="odd">
+<td><code>rcauchy()</code></td>
+<td>コーシー分布</td>
+<td><code>n</code>, <code>location</code>, <code>scale</code></td>
+</tr>
+<tr class="even">
+<td><code>rchisq()</code></td>
+<td><span class="math inline">\(\chi^2\)</span>分布</td>
+<td><code>n</code>, <code>df</code></td>
+</tr>
+<tr class="odd">
+<td><code>rexp()</code></td>
+<td>指数分布</td>
+<td><code>n</code>, <code>rate</code></td>
+</tr>
+<tr class="even">
+<td><code>rf()</code></td>
+<td><span class="math inline">\(F\)</span>分布</td>
+<td><code>n</code>, <code>df1</code>, <code>df2</code></td>
+</tr>
+<tr class="odd">
+<td><code>rgamma()</code></td>
+<td>ガンマ分布</td>
+<td><code>n</code>, <code>shape</code>, <code>scale</code></td>
+</tr>
+<tr class="even">
+<td><code>rgeom()</code></td>
+<td>幾何分布</td>
+<td><code>n</code>, <code>prob</code></td>
+</tr>
+<tr class="odd">
+<td><code>rhyper()</code></td>
+<td>超幾何分布</td>
+<td><code>nn</code>, <code>m</code>, <code>n</code>, <code>k</code></td>
+</tr>
+<tr class="even">
+<td><code>rlnorm()</code></td>
+<td>対数正規分布</td>
+<td><code>n</code>, <code>meanlog</code>, <code>sdlog</code></td>
+</tr>
+<tr class="odd">
+<td><code>rmultinom()</code></td>
+<td>多項分布</td>
+<td><code>n</code>, <code>size</code>, <code>prob</code></td>
+</tr>
+<tr class="even">
+<td><code>rnbinom()</code></td>
+<td>負の二項分布</td>
+<td><code>n</code>, <code>size</code>, <code>prob</code></td>
+</tr>
+<tr class="odd">
+<td><code>rnorm()</code></td>
+<td>正規分布</td>
+<td><code>n</code>, <code>mean</code>, <code>sd</code></td>
+</tr>
+<tr class="even">
+<td><code>rpois()</code></td>
+<td>ポアソン分布</td>
+<td><code>n</code>, <code>lambda</code></td>
+</tr>
+<tr class="odd">
+<td><code>rt()</code></td>
+<td>t分布</td>
+<td><code>n</code>, <code>df</code></td>
+</tr>
+<tr class="even">
+<td><code>runif()</code></td>
+<td>一様分布</td>
+<td><code>n</code>, <code>min</code>, <code>max</code></td>
+</tr>
+<tr class="odd">
+<td><code>rweibull()</code></td>
+<td>ワイブル分布</td>
+<td><code>n</code>, <code>shape</code>, <code>scale</code></td>
+</tr>
+<tr class="even">
+<td><code>mvtnorm::rmvnorm()</code></td>
+<td>多変量正規分布</td>
+<td><code>n</code>, <code>mean</code>, <code>sigma</code></td>
+</tr>
+</tbody>
+</table>
+<p>　以上の表に掲載されているパラメーター以外にも指定可能なパラメーターがあるため、詳細は各関数のヘルプを参照してください。たとえば、ガンマ分布の場合、<code>rate</code>で、負の二項分布の場合、<code>mu</code>で分布の形状を指定することができます。また、多変量正規分布の乱数を抽出するには{mvtnorm}パッケージの<code>rmvnorm()</code>を使いますが、ここでの<code>mean</code>は数値型ベクトル、<code>sigma</code>は行列構造の分散共分散行列を使います<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>。</p>
+</div>
+<div id="シードについて" class="section level3">
+<h3>シードについて</h3>
+<p>　特定の分布から乱数を抽出する場合、当たり前ですが、抽出の度に値が変わります。たとえば、平均0、標準偏差1の正規分布（標準正規分布）から5つの値を抽出し、小数点3桁に丸める作業を3回繰り返しみましょう。</p>
+<pre class="r numberLines"><code>rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1]  0.474  0.796  1.712 -1.110  0.707</code></pre>
+<pre class="r numberLines"><code>rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1] -0.875  0.642  0.762 -2.249  0.004</code></pre>
+<pre class="r numberLines"><code>rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1]  0.383  0.092 -0.491 -0.258 -0.647</code></pre>
+<p>　このように、抽出の度に結果が変わります。1回きりのシミュレーションではこれで問題ないでしょうが、同じシミュレーションから同じ結果を得るためには、乱数を固定する必要があります。そこで使うのがシード（seed）です。シードが同じなら抽出される乱数は同じ値を取ります。シードの指定は<code>set.seed(numeric型スカラー)</code>です。たとえば、シードを19861009にし、同じ作業をやってみましょう。</p>
+<pre class="r numberLines"><code>set.seed(19861008)
+rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1] -0.086  0.396 -1.330  0.574  0.152</code></pre>
+<pre class="r numberLines"><code>rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1]  0.555  0.620 -1.133  0.572  0.900</code></pre>
+<p>　シードを指定しても2つのベクトルは異なる値を取りますが、もう一度シードを指定してから乱数抽出をしてみましょう。</p>
+<pre class="r numberLines"><code>set.seed(19861008)
+rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1] -0.086  0.396 -1.330  0.574  0.152</code></pre>
+<p>　先ほどのコードでシードを指定した直後に抽出した乱数と同じ乱数が得られました。モンテカルロ・シミュレーションにおいて乱数は非常に重要ですが、これはシミュレーションの度に異なる結果が得られることを意味します。つまり、自分が書いたコードから100%同じ結果が得られないだけでなく、自分も同じ結果を再現できないことを意味します。この場合、シードを指定すると乱数が固定され、シミュレーション結果の再現ができるようになります。</p>
+<p>　一つ注意すべき点は乱数を固定した後、複数回抽出を繰り返す場合、その順番も固定されるという点です。たとえば、シードを固定せずにもう一回5つの値を抽出してみましょう。</p>
+<pre class="r numberLines"><code>rnorm(5) %&gt;% round(3)</code></pre>
+<pre><code>## [1]  0.555  0.620 -1.133  0.572  0.900</code></pre>
+<p>　この結果は先ほどシード指定後、2回目の抽出結果と同じ結果となります。結果を再現するという点では大きな問題はないはずですが、仕様を理解しておくことは重要でしょう。</p>
+<hr />
+</div>
+</div>
+<div id="例1-誕生日問題" class="section level2">
+<h2>例1: 誕生日問題</h2>
+<p>　まず簡単な例として誕生日問題 (birthday problem)をシミュレーションで確認してみましょう。誕生日問題とは「何人いれば、その中に誕生日が同じ2人以上がいる確率が50%を超えるか。」といった問題です。1年を365日で考えると（2月29日生まれの皆さん、すみません…）、366人がいれば確実に (= 100%)同じ誕生日の人が2人以上いることになりますね。100%でなく、50%まで基準を下げるならその半分である183人は必要じゃないかと思うかも知れません。しかし、実はたった23人が集まれば、その中で同じ誕生日の人が2人以上いる確率が50%になります。誕生日のパラドックスとも呼ばれるものですが、これをシミュレーションで確認してたいと思います。</p>
+<p>　学生の数を<code>n_student</code>とし、1から365までの公差1の等差数列から、<code>n_student</code>個の値を<strong>復元</strong>抽出します。</p>
+<pre class="r numberLines"><code>n_student &lt;- 30 # 学生数
+# 「1から365までの公差1の等差数列」からn_student個の値を復元抽出
+Birth_vec &lt;- sample(1:365, n_student, replace = TRUE)
+
+Birth_vec</code></pre>
+<pre><code>##  [1] 340 122 230 148  12 136  87  46  16 310 104 351 137  53 361  65 106 361 108
+## [20] 281 299  67 342   4 338  88 156 254 192  37</code></pre>
+<p>　このベクトルの中で重複する要素があるかどうかを確認するには<code>duplicated()</code>関数を使います。ある要素が他の要素と重複するなら<code>TRUE</code>が、なければ<code>FALSE</code>が表示されます。</p>
+<pre class="r numberLines"><code>duplicated(Birth_vec)</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [25] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>　ただし、一つでも<code>TRUE</code>が含まれていれば、同じ誕生日の人が二人以上はいるということとなるので、更に<code>any()</code>関数を使います。<code>any()</code>内の条件文において、一つでも<code>TRUE</code>があれば返り値は<code>TRUE</code>となり、全て<code>FALSE</code>なら<code>FALSE</code>を返す関数です。</p>
+<pre class="r numberLines"><code>any(duplicated(Birth_vec))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>　以上の作業を100回繰り返す場合、試行回数が100回となります。この場合、<code>TRUE</code>の結果が出る試行は何回でしょうか。</p>
+<pre class="r numberLines"><code>n_student &lt;- 10   # 学生数
+n_trials  &lt;- 100  # 試行回数
+
+# 結果を格納する空ベクトルを用意する
+Result_vec &lt;- rep(NA, n_trials)
+
+# 反復処理
+for (i in 1:n_trials) {
+    Birth_vec     &lt;- sample(1:365, n_student, replace = TRUE)
+    Result_vec[i] &lt;- any(duplicated(Birth_vec))
+}
+
+Result_vec</code></pre>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+##  [13] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+##  [25] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [37] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##  [49] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [61] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+##  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [85] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [97] FALSE FALSE FALSE FALSE</code></pre>
+<p>　100回の試行の中で<code>TRUE</code>が出たのは10回ですね。割合で考えると10%です。この試行回数を無限にすると確率として解釈できますが、無限回繰り返しは世の中が終わるまでやっても終わりませんね。ただし、十分に多い試行回数、たとえば1万回程度繰り返すと確率に近似できるでしょう。</p>
+<pre class="r numberLines"><code>n_student &lt;- 10    # 学生数
+n_trials  &lt;- 10000 # 試行回数
+
+# 結果を格納する空ベクトルを用意する
+Result_vec &lt;- rep(NA, n_trials)
+
+# 反復処理
+for (i in 1:n_trials) {
+    Birth_vec     &lt;- sample(1:365, n_student, replace = TRUE)
+    Result_vec[i] &lt;- any(duplicated(Birth_vec))
+}
+
+sum(Result_vec)</code></pre>
+<pre><code>## [1] 1147</code></pre>
+<p>　1万回の試行から<code>TRUE</code>が出た回数は1147回であり、11.5%ですね。つまり、人が10人集まれば誕生日が同じ人が2人以上いる確率は約11.5%ということになります。実はこの確率は厳密に計算可能であり、理論的な確率は約11.7%です。シミュレーションから得られた結果が理論値にかなり近似していることが分かります。</p>
+<p>　今回は試行回数は100に固定し、学生数を2から100まで調整しながら同じ誕生日の人が2人以上いる割合を計算してみましょう。以下では割合を計算する関数<code>Birthday_Func()</code>を作成し、{purrr}の<code>map_dbl()</code>関数を使用して反復処理を行います。関数の作成は第<a href="#functions"><strong>??</strong></a>章を、{purrr}の使い方については第<a href="#iteration"><strong>??</strong></a>章を参照してください。</p>
+<pre class="r numberLines"><code># 割合を計算する関数を作成する
+Birthday_Func &lt;- function (n, n_trials) {
+    
+    # 各試行の結果を格納する空ベクトルを用意する。
+    Result_vec &lt;- rep(NA, n_trials)
+    
+    # n_trials回だけ{}内コードを繰り返す。
+    for (i in 1:n_trials) {
+        # 1:365からn個の値を復元抽出
+        Birth_vec     &lt;- sample(1:365, n, replace = TRUE)
+        # 重複する要素があるかをチェックし、結果ベクトルのi番目に格納
+        Result_vec[i] &lt;- any(duplicated(Birth_vec))
+    }
+    
+    # 各試行結果が格納されたベクトルからTRUEの割合を返す
+    mean(Result_vec)
+}
+
+# 学生数をStudents列に格納したデータフレーム (tibble)を作成
+Prob_df &lt;- tibble(Students = 2:100)
+
+# Students列の値に応じてBirthday_Func()を実行
+Prob_df &lt;- Prob_df %&gt;%
+    mutate(Probs = map_dbl(Students, ~Birthday_Func(.x, 100)))</code></pre>
+<p>　{purrr}関数を使わずに、<code>for()</code>文を使用した例は以下のようになります。</p>
+<pre class="r numberLines"><code># {purrr}を使わない方法
+Prob_df &lt;- tibble(Students = 2:100,
+                  Probs    = NA)
+
+for (i in 1:nrow(Prob_df)) {
+    
+    Result_vec &lt;- rep(NA, n_trials)
+    
+    for (j in 1:n_trials) {
+        Birth_vec     &lt;- sample(1:365, Prob_df$Students[i], replace = TRUE)
+        Result_vec[j] &lt;- any(duplicated(Birth_vec))
+    }
+    
+    Prob_df$Probs[i] &lt;- mean(Result_vec)
+}</code></pre>
+<p>　結果を確認してみましょう。</p>
+<pre class="r numberLines"><code>Prob_df</code></pre>
+<pre><code>## # A tibble: 99 × 2
+##    Students Probs
+##       &lt;int&gt; &lt;dbl&gt;
+##  1        2  0.01
+##  2        3  0.02
+##  3        4  0.06
+##  4        5  0.01
+##  5        6  0.02
+##  6        7  0.08
+##  7        8  0.06
+##  8        9  0.09
+##  9       10  0.12
+## 10       11  0.18
+## # … with 89 more rows</code></pre>
+<p>　学生数が何人いれば、同じ誕生日の人が2人以上いる割合が50%になるのでしょうか。割合が0.4以上、0.6以下の行を抽出してみましょう。</p>
+<pre class="r numberLines"><code>Prob_df %&gt;%
+    filter(Probs &gt;= 0.4 &amp; Probs &lt;= 0.6)</code></pre>
+<pre><code>## # A tibble: 7 × 2
+##   Students Probs
+##      &lt;int&gt; &lt;dbl&gt;
+## 1       18  0.41
+## 2       21  0.46
+## 3       22  0.41
+## 4       23  0.45
+## 5       24  0.52
+## 6       25  0.58
+## 7       27  0.56</code></pre>
+<p>　大体23人前後ですかね。試行回数を増やせばもう少し厳密に検証出来るかも知れませんが、とりあえず以上の結果を可視化してみましょう。</p>
+<pre class="r numberLines"><code>Prob_df %&gt;%
+    ggplot() +
+    geom_line(aes(x = Students, y = Probs * 100), size = 1) +
+    geom_hline(yintercept = 50, color = &quot;red&quot;, linetype = 2) +
+    labs(x = &quot;学生数&quot;,
+         y = &quot;同じ誕生日の人が2人以上いる割合 (%)\n(試行回数 = 100)&quot;) +
+    theme_bw(base_family = &quot;HiraginoSans-W3&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-birthday10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　非常に直感に反する結果かも知れませんが、50人程度いれば、<strong>ほぼ</strong>確実に同じ誕生日の人が2人以上いることが分かります。この誕生日問題は以下のように解くことができます。人が<span class="math inline">\(n\)</span>人いる場合、同じ誕生日の人が2人以上いる確率<span class="math inline">\(p(n)\)</span>は、</p>
+<p><span class="math display">\[
+p(n) = 1 - \frac{365!}{365^n (365-n)!}
+\]</span></p>
+<p>　!は階乗を意味し、5!は<span class="math inline">\(5 \times 4 \times 3 \times 2 \times 1\)</span>を意味します。Rでは<code>factorial()</code>関数を使います。それでは<span class="math inline">\(p(50)\)</span>はいくらでしょうか。</p>
+<pre class="r numberLines"><code>1 - factorial(365) / (365^50 * factorial(365 - 50))</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<p>　あらら、<code>NaN</code>がでましたね。つまり、計算不可です。実際、<code>factorial(365)</code>だけでも計算結果は<code>Inf</code>が出ます。むろん、実際に無限ではありませんが、非常に大きい数値ということです。以上の式を計算可能な式に変形すると以下のようになります。</p>
+<p><span class="math display">\[
+p(n) = 1 - \frac{n! \times _{365}C_n}{365^n}
+\]</span></p>
+<p>　<span class="math inline">\(C\)</span>は二項係数を意味し<span class="math inline">\(_nC_k\)</span>は<span class="math inline">\(\frac{n!}{k!(n-k)!}\)</span>です。Rでは<code>choose(n, k)</code>で計算可能です。</p>
+<pre class="r numberLines"><code>1 - ((factorial(50) * choose(365, 50)) / 365^50)</code></pre>
+<pre><code>## [1] 0.9703736</code></pre>
+<p>　結果は0.9703736です。つまり、人が50人いれば同じ誕生日の人が2人以上いる確率は約97%ということです。それでは、以上の式を関数化し、<code>p(22)</code>と<code>p(23)</code>を計算してみましょう。</p>
+<pre class="r numberLines"><code>Birth_Expect &lt;- function (n) {
+    1 - ((factorial(n) * choose(365, n)) / 365^n)
+}
+
+Birth_Expect(22)</code></pre>
+<pre><code>## [1] 0.4756953</code></pre>
+<pre class="r numberLines"><code>Birth_Expect(23)</code></pre>
+<pre><code>## [1] 0.5072972</code></pre>
+<p>　確率が50%を超える人数は23人であることが分かります。先ほどのデータフレーム (<code>Prob_df</code>)にこの理論値を<code>Expect</code>という名の列として追加してみましょう。</p>
+<pre class="r numberLines"><code>Prob_df &lt;- Prob_df %&gt;%
+    mutate(Expect = map_dbl(Students, ~Birth_Expect(.x)))
+
+Prob_df</code></pre>
+<pre><code>## # A tibble: 99 × 3
+##    Students Probs  Expect
+##       &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1        2  0.01 0.00274
+##  2        3  0.02 0.00820
+##  3        4  0.06 0.0164 
+##  4        5  0.01 0.0271 
+##  5        6  0.02 0.0405 
+##  6        7  0.08 0.0562 
+##  7        8  0.06 0.0743 
+##  8        9  0.09 0.0946 
+##  9       10  0.12 0.117  
+## 10       11  0.18 0.141  
+## # … with 89 more rows</code></pre>
+<p>　これは人間にとっては読みやすい表ですが、可視化まで考えると、tidyなデータといは言えません。したがって、<code>pivot_longer()</code>関数を使用してtidyなデータに整形します。{tidyr}パッケージの使い方は第<a href="#tidydata"><strong>??</strong></a>章を参照してください。</p>
+<pre class="r numberLines"><code>Prob_df2 &lt;- Prob_df %&gt;%
+    pivot_longer(cols      = Probs:Expect,
+                 names_to  = &quot;Type&quot;,
+                 values_to = &quot;Prob&quot;) 
+
+Prob_df2</code></pre>
+<pre><code>## # A tibble: 198 × 3
+##    Students Type      Prob
+##       &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1        2 Probs  0.01   
+##  2        2 Expect 0.00274
+##  3        3 Probs  0.02   
+##  4        3 Expect 0.00820
+##  5        4 Probs  0.06   
+##  6        4 Expect 0.0164 
+##  7        5 Probs  0.01   
+##  8        5 Expect 0.0271 
+##  9        6 Probs  0.02   
+## 10        6 Expect 0.0405 
+## # … with 188 more rows</code></pre>
+<p>　こちらのデータを使用し、シミュレーションから得られた結果と理論値を折れ線グラフで出力してみましょう。</p>
+<pre class="r numberLines"><code>Prob_df2 %&gt;%
+    mutate(Type = ifelse(Type == &quot;Probs&quot;, &quot;シミュレーション&quot;, &quot;理論値&quot;)) %&gt;%
+    ggplot() +
+    geom_line(aes(x = Students, y = Prob * 100, color = Type), size = 1) +
+    labs(x     = &quot;学生数&quot;,
+         y     = &quot;同じ誕生日の人が2人以上いる割合 (%)\n(試行回数 = 100)&quot;,
+         color = &quot;&quot;) +
+    theme_bw(base_family = &quot;HiraginoSans-W3&quot;) +
+    theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-birthday16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　最後に以上の作業を試行回数10000としてもう一回やってみましょう。</p>
+<pre class="r numberLines"><code># 学生数をStudents列に格納したデータフレーム (tibble)を作成
+Prob_df &lt;- tibble(Students = 2:100)
+
+# Students列の値に応じてBirthday_Func()を実行
+Prob_df &lt;- Prob_df %&gt;%
+    mutate(Simul  = map_dbl(Students, ~Birthday_Func(.x, 10000)),
+           Expect = map_dbl(Students, ~Birth_Expect(.x)))
+
+Prob_df %&gt;%
+    pivot_longer(cols      = Simul:Expect,
+                 names_to  = &quot;Type&quot;,
+                 values_to = &quot;Prob&quot;) %&gt;%
+    mutate(Type = ifelse(Type == &quot;Simul&quot;, &quot;シミュレーション&quot;, &quot;理論値&quot;)) %&gt;%
+    ggplot() +
+    geom_line(aes(x = Students, y = Prob * 100, color = Type), size = 1) +
+    labs(x     = &quot;学生数&quot;,
+         y     = &quot;同じ誕生日の人が2人以上いる割合 (%)\n(試行回数 = 100)&quot;,
+         color = &quot;&quot;) +
+    theme_bw(base_family = &quot;HiraginoSans-W3&quot;) +
+    theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-birthday17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　モンテカルロ・シミュレーションから得られた割合と理論上の確率が非常に近似していることが分かります。</p>
+<hr />
+</div>
+<div id="例2-モンティホール問題" class="section level2">
+<h2>例2: モンティ・ホール問題</h2>
+<p>　抽出される乱数が必ずしも数値である必要はありません。たとえば、コイン投げの表と裏、ポーカーで配られたカードなど、数値以外の乱数もあり得ます。ここでは「AとB、C」から一つを選ぶ例として、モンティ・ホール問題をモンテカルロ法で解いてみましょう。</p>
+<p>　モンティ・ホール問題はアメリカのテレビ番組「Let’s make a deal」の中のゲームであり、この番組の司会者の名前がモンティ・ホール (Monty Hall)さんです。このゲームのルールは非常にシンプルです。</p>
+<ol style="list-style-type: decimal">
+<li>3つのドアがあり、1つのドアの裏に商品 (車)がある。残りの2つは外れ（ヤギ）である。</li>
+<li>参加者はドアを選択する。</li>
+<li>司会者が残りのドア2つの中で商品がないドアを開けて中身を見せる。</li>
+<li>ここで参加者はドアの選択を変える機会が与えられる。</li>
+</ol>
+<p>　直観的に考えて、司会者が外れのドアを1つ教えてくれたなら、自分が選んだドアを含め、残りの2つのドアの1つに絶対に商品があります。直感的に考えてみると、当たる確率は半々であって、変えても、変えなくても当たる確率は同じだと考えられます。詳細は<a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%AB%E5%95%8F%E9%A1%8C">Wikipedia</a>などを参照してください。この問題を巡る論争とかも紹介されていてなかなか面白いです。</p>
+<p>　結論から申しますと選択を変えた方が、変えなかった場合より当たる確率が2倍になります。これは条件付き確率とベイズの定理を用いることで数学的に説明できますが、ここではあえてモンテカルロ法で調べてみたいと思います。シミュレーションの具体的な手順は以下の通りです。</p>
+<ol style="list-style-type: decimal">
+<li>結果を格納する長さ1万の空ベクトルを2つ用意する。 (<code>Switch_Yes</code>と<code>Switch_No</code>)。</li>
+<li><code>i</code>の初期値を1とする。</li>
+<li>当たり (車)の位置をA, B, Cの中から無作為に1つ決め、<code>Car_Position</code>に格納する。</li>
+<li>最初の選択肢をA, B, Cの中から無作為に1つ決め、<code>Choice</code>に格納する。</li>
+<li>選択肢を変更した場合の結果を<code>Switch_Yes</code>の<code>i</code>番目の要素としてに格納する。
+<ol style="list-style-type: decimal">
+<li>当たりの位置と最初の選択肢が同じなら (<code>Switch_Yes == Choice</code>)、結果は外れ (ヤギ)</li>
+<li>当たりの位置と最初の選択肢が同じでないなら (<code>Switch_Yes != Choice</code>)、結果は当たり (車)</li>
+</ol></li>
+<li>選択肢を変更しなかった場合の結果を<code>Switch_No</code>の<code>i</code>番目の要素として格納する。
+<ol style="list-style-type: decimal">
+<li>当たりの位置と最初の選択肢が同じなら (<code>Switch_Yes == Choice</code>)、結果は当たり (車)</li>
+<li>当たりの位置と最初の選択肢が同じでないなら (<code>Switch_Yes != Choice</code>)、結果は外れ (ヤギ)</li>
+</ol></li>
+<li><code>i</code>の値を1増やし、3に戻る。</li>
+<li>3〜7の手順を1万回繰り返す。</li>
+</ol>
+<p>　以上の手順をコードで書くと以下のようになります。</p>
+<pre class="r numberLines"><code>Switch_Yes &lt;- rep(NA, 10000)
+Switch_No  &lt;- rep(NA, 10000)
+
+set.seed(19861009)
+for (i in 1:10000) {
+    Car_Position &lt;- sample(c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), 1)
+    Choice       &lt;- sample(c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), 1)
+    
+    Switch_Yes[i] &lt;- ifelse(Car_Position == Choice, &quot;Goat&quot;, &quot;Car&quot;)
+    Switch_No[i]  &lt;- ifelse(Car_Position == Choice, &quot;Car&quot;, &quot;Goat&quot;)
+}
+
+table(Switch_Yes)</code></pre>
+<pre><code>## Switch_Yes
+##  Car Goat 
+## 6737 3263</code></pre>
+<pre class="r numberLines"><code>table(Switch_No)</code></pre>
+<pre><code>## Switch_No
+##  Car Goat 
+## 3263 6737</code></pre>
+<p>　選択肢を変更し、車を獲得した回数は10000回中、6737であり、約67%です。つまり、選択肢を変えた方が、変えなかった場合に比べ、車が当たる確率が約2倍高いことを意味します。むろん、車よりもヤギが重宝される地域に住んでいるなら、あえて選択肢を変えず、ヤギを狙った方が良いかも知れません。</p>
+<hr />
+</div>
+<div id="応用1-円周率の計算" class="section level2">
+<h2>応用1: 円周率の計算</h2>
+<p>　今回はもう一つの例として、円周率 (<span class="math inline">\(\pi\)</span>)の計算を紹介したいと思います。<span class="math inline">\(\pi\)</span>は無理数であるため、厳密な計算は出来ませんが、モンテカルロ・シミュレーションである程度近似できます。たとえば、半径1 (<span class="math inline">\(r = 1\)</span>)の円を考えてみましょう。</p>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　円の面積は<span class="math inline">\(r^2\pi\)</span>であるため、この円の面積は<span class="math inline">\(\pi\)</span>です。また、四角形は辺の長さが2の正四角形ですから面積は4です。続いて、四角形の範囲内の点を付けます。無作為に20個を付けてみます。</p>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　20個点のうち、円の外側にあるのは5個、円の内側は15個です。つまり、75%の点が円内にあることを意味します。点の位置は無作為ですので、もし円の大きさが<span class="math inline">\(\pi\)</span>であれば、点が円内に入る確率は<span class="math inline">\(\frac{\pi}{4}\)</span>です。今回の例だと<span class="math inline">\(\frac{\pi}{4} = 0.75\)</span>であるため、<span class="math inline">\(\pi = 0.75 \times 4 = 3\)</span>となります。実際の円周率は3.141593…なので、そこそこ近似できていますね。</p>
+<p>　それではこれを実際にやってみましょう。今回は20個の点ではなく、100個にしてみましょう。まず、100個の点を無作為に抽出します。</p>
+<pre class="r numberLines"><code>set.seed(19861009)
+pi_df &lt;- tibble(x = runif(100, -1, 1),
+                y = runif(100, -1, 1))
+
+pi_df</code></pre>
+<pre><code>## # A tibble: 100 × 2
+##          x      y
+##      &lt;dbl&gt;  &lt;dbl&gt;
+##  1 -0.950  -0.344
+##  2  0.0724  0.150
+##  3  0.874   0.971
+##  4  0.938   0.267
+##  5  0.205   0.469
+##  6 -0.343  -0.590
+##  7 -0.0245 -0.635
+##  8 -0.273  -0.886
+##  9 -0.405   0.701
+## 10  0.528  -0.547
+## # … with 90 more rows</code></pre>
+<p>　まず、各辺の長さが2の正四角形と<code>pi_df</code>で生成した100個の点をプロットします。四角形を描くときには<code>geom_rect()</code>幾何オブジェクトを使用します。マッピングは四角形の左下の座標 (<code>xmin</code>と<code>ymin</code>)、右上の座標 (<code>xmax</code>と<code>ymax</code>)に行います。今回は原点が (0, 0)の半径1の円に接する四角形ですから、左下の座標は (-1, -1)、右上の座標は (1, 1)となります。</p>
+<pre class="r numberLines"><code>pi_df %&gt;%
+    ggplot() +
+    geom_rect(aes(xmin = -1, ymin = -1, xmax = 1, ymax = 1),
+              fill = &quot;white&quot;, color = &quot;black&quot;) +
+    geom_point(aes(x = x, y = y)) +
+    coord_fixed(ratio = 1) +
+    theme_minimal()</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　ここに円を追加してみましょう。円を描くときには{ggforce}パッケージの<code>geom_circle()</code>幾何オブジェクトを使用します。マッピングは円の原点 (<code>x0</code>と<code>y0</code>)、円の半径 (<code>r</code>)です。原点は (0, 0)で半径は1の円を重ねます。</p>
+<pre class="r numberLines"><code>pi_df %&gt;%
+    ggplot() +
+    geom_rect(aes(xmin = -1, ymin = -1, xmax = 1, ymax = 1),
+              fill = &quot;white&quot;, color = &quot;black&quot;) +
+    geom_circle(aes(x0 = 0, y0 = 0, r = 1)) +
+    geom_point(aes(x = x, y = y)) +
+    coord_fixed(ratio = 1) +
+    theme_minimal()</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　これだけだと読みづらいので、円の中か外かで点の色分けをしてみましょう。そのためには各点が円内に入っているかどうかを判定した変数<code>in_circle</code>を追加します。点(<span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>)が、原点が(<span class="math inline">\(x^\prime\)</span>, <span class="math inline">\(y^\prime\)</span>)、かつ半径<span class="math inline">\(r\)</span>の円内に入っている場合、<span class="math inline">\((x - x^\prime)^2 + (y - y^\prime)^2 &lt; r^2\)</span>が成立します。今回は原点が (0, 0)で、半径が1であるため、<span class="math inline">\(x^2 + y^2 &lt; 1\)</span>か否かを判定します。この条件を満たしているかどうかを示す<code>in_circle</code>という変数を追加します。</p>
+<pre class="r numberLines"><code>pi_df &lt;- pi_df %&gt;%
+    mutate(in_circle = if_else(x^2 + y^2 &lt; 1^2, &quot;円内&quot;, &quot;円外&quot;))</code></pre>
+<p>　散布図レイヤー (<code>geom_point()</code>)内に<code>color</code>を<code>in_circle</code>変数でマッピングします。</p>
+<pre class="r numberLines"><code>pi_df %&gt;%
+    ggplot() +
+    geom_rect(aes(xmin = -1, ymin = -1, xmax = 1, ymax = 1),
+              fill = &quot;white&quot;, color = &quot;black&quot;) +
+    # 円の内側か外側かで色分け
+    geom_point(aes(x = x, y = y, color = in_circle), size = 2) +
+    geom_circle(aes(x0 = 0, y0 = 0, r = 1)) +
+    labs(x = &quot;X&quot;, y = &quot;Y&quot;, color = &quot;&quot;) +
+    coord_fixed(ratio = 1) +
+    theme_void(base_family = &quot;HiraginoSans-W3&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>　実際に円内の点と円外の点の個数を数えてみましょう。</p>
+<pre class="r numberLines"><code>pi_df %&gt;%
+    group_by(in_circle) %&gt;%
+    summarise(N = n())</code></pre>
+<pre><code>## # A tibble: 2 × 2
+##   in_circle     N
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 円外         18
+## 2 円内         82</code></pre>
+<p>　円内の点は82個、円外の点は18ですね。つまり、<span class="math inline">\(\frac{\pi}{4} = 0.82\)</span>であり、<span class="math inline">\(\pi = 0.82 \times 4 = 3.28\)</span>です。</p>
+<pre class="r numberLines"><code>82 / 100 * 4</code></pre>
+<pre><code>## [1] 3.28</code></pre>
+<p>　今回は100個の点で円周率の近似値を計算しましたが、点の数を増やすとより正確な近似値が得られます。以下の例は10000個の点から得られた円周率の例です。</p>
+<pre class="r numberLines"><code>set.seed(19861009)
+pi_df2 &lt;- tibble(x = runif(5000, -1, 1),
+                 y = runif(5000, -1, 1))
+
+pi_df2 &lt;- pi_df2 %&gt;%
+    mutate(in_circle = if_else(x^2 + y^2 &lt; 1, &quot;円内&quot;, &quot;円外&quot;))
+
+pi_df2 %&gt;%
+    ggplot() +
+    geom_rect(aes(xmin = -1, ymin = -1, xmax = 1, ymax = 1),
+              fill = &quot;white&quot;, color = &quot;black&quot;) +
+    geom_point(aes(x = x, y = y, color = in_circle), size = 2) +
+    geom_circle(aes(x0 = 0, y0 = 0, r = 1)) +
+    labs(x = &quot;X&quot;, y = &quot;Y&quot;, color = &quot;&quot;) +
+    coord_fixed(ratio = 1) +
+    theme_void(base_family = &quot;HiraginoSans-W3&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-pi10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r numberLines"><code>pi_df2 %&gt;%
+    group_by(in_circle) %&gt;%
+    summarise(N = n())</code></pre>
+<pre><code>## # A tibble: 2 × 2
+##   in_circle     N
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 円外       1081
+## 2 円内       3919</code></pre>
+<p>　円内の点は3919個、円外の点は1081ですね。この結果から円周率を計算してみましょう。</p>
+<pre class="r numberLines"><code>3919 / 5000 * 4</code></pre>
+<pre><code>## [1] 3.1352</code></pre>
+<p>　より実際の円周率に近い値が得られました。</p>
+<hr />
+</div>
+<div id="応用2-ブートストラップ法" class="section level2">
+<h2>応用2: ブートストラップ法</h2>
+<p>　最後に、様々な分析から得られた統計量の不確実性を計算する方法の一つであるブートストラップ法 (bootstrapping)について説明します。たとえば、平均値の差分の検定 (<em>t</em>検定)差、回帰分析における標準誤差などはRの<code>t.test()</code>、<code>lm()</code>関数を使用すれば瞬時に計算できます。こちらの標準誤差はデータを与えられれば、常に同じ値が得られるもので、何らかの計算式があります。しかし、世の中にはモデルが複雑すぎて、統計量の標準誤差がうまく計算できないケースもあります。そこで登場するのがブートストラップ法を用いると、不確実性の近似値が得られます。ブートストラップ法は <span class="citation">@Efron:1979</span> が提案した以来、データ分析において広く使われています。ブートストラップ法については優れた教科書が多くあるので詳細な説明は割愛し、以下ではブートストラップ法の簡単な例を紹介します。</p>
+<p>ほいほい〜</p>
+<p>架空のデータを生成</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mbox{Data1} &amp; \sim \mbox{Normal}(\mu = 0.7, \sigma = 1) \\
+\mbox{Data2} &amp; \sim \mbox{Normal}(\mu = 0.9, \sigma = 1) 
+\end{aligned}
+\]</span></p>
+<p>2つの標本の平均値の差分は約0.2と考えられる。</p>
+<p>t検定をやってみる。今回は標準誤差が同じ2つの分布から得られたひょうほんであるため、等分散を仮定する<span class="math inline">\(t\)</span>検定 (<code>var.equal = TRUE</code>を追加)</p>
+<pre class="r numberLines"><code>set.seed(19861009)
+Data1 &lt;- rnorm(100, 0.7, 1)
+Data2 &lt;- rnorm(100, 0.9, 1)
+
+ttest_result &lt;- t.test(Data1, Data2, var.equal = TRUE)
+
+ttest_result</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  Data1 and Data2
+## t = -2.1707, df = 198, p-value = 0.03114
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.58521800 -0.02807095
+## sample estimates:
+## mean of x mean of y 
+## 0.6912143 0.9978588</code></pre>
+<p>検定統計量<span class="math inline">\(t\)</span>は平均値の差分を標準誤差で割ったもの</p>
+<p>標準誤差は<code>ttest_result$stderr</code>で抽出可能であり、今回は約0.141。平均値の差分は0.6912143 - 0.9978588 = -0.3066445であるため、<span class="math inline">\(t\)</span>統計量は-2.1707313</p>
+<p>ここではブートストラップ法で標準誤差の近似値を計算</p>
+<p>試行回数は1万</p>
+<ol style="list-style-type: decimal">
+<li>結果を格納する長さ1万の空ベクトル<code>Result_vec</code>を作成する。</li>
+<li><code>i</code>の初期値を1と設定する。</li>
+<li><code>Data1</code>から100個 (= <code>Data1</code>の大きさ)の値を無作為抽出 (<strong>復元抽出</strong>)し、<code>Sample1</code>に格納する。</li>
+<li><code>Data2</code>から100個 (= <code>Data2</code>の大きさ)の値を無作為抽出 (<strong>復元抽出</strong>)し、<code>Sample2</code>に格納する。</li>
+<li><code>Result_vec</code>の<code>i</code>番目の位置に<code>Sample1</code>の平均値と<code>Sample2</code>の平均値の差分を格納する。</li>
+<li><code>i</code>を1増加させる。</li>
+<li>3~6の手順を1万回繰り返す。</li>
+</ol>
+<pre class="r numberLines"><code>n_trials   &lt;- 10000
+Result_vec &lt;- rep(NA, n_trials)
+
+for (i in 1:n_trials) {
+    Sample1 &lt;- sample(Data1, 100, replace = TRUE)
+    Sample2 &lt;- sample(Data2, 100, replace = TRUE)
+    
+    Result_vec[i] &lt;- mean(Sample1) - mean(Sample2)
+}</code></pre>
+<pre class="r numberLines"><code>mean(Result_vec) # 平均値の差分の平均値</code></pre>
+<pre><code>## [1] -0.3045563</code></pre>
+<pre class="r numberLines"><code>sd(Result_vec) # 平均値の差分の標準偏差</code></pre>
+<pre><code>## [1] 0.1404988</code></pre>
+<pre class="r numberLines"><code># 平均値の差分の平均値 / 平均値の差分の標準偏差
+mean(Result_vec) / sd(Result_vec)</code></pre>
+<pre><code>## [1] -2.167679</code></pre>
+<pre class="r numberLines"><code># p値
+(1 - pt(abs(mean(Result_vec) / sd(Result_vec)), df = 198)) * 2</code></pre>
+<pre><code>## [1] 0.03137631</code></pre>
+<pre class="r numberLines"><code># 95%信頼区間
+quantile(Result_vec, c(0.025, 0.975))</code></pre>
+<pre><code>##        2.5%       97.5% 
+## -0.58084484 -0.02999534</code></pre>
+<p><code>Result_vec</code>のヒストグラムと<span class="math inline">\(\mu\)</span> = -0.307、<span class="math inline">\(\sigma\)</span> = 0.141の正規分布を重ねて見る（-0.307と0.141は<span class="math inline">\(t\)</span>検定から得られた数値）。</p>
+<pre class="r numberLines"><code>enframe(Result_vec) %&gt;%
+    ggplot() +
+    geom_histogram(aes(x = value, y = ..density..), color = &quot;white&quot;) +
+    stat_function(aes(color = &quot;Density&quot;),
+                  size = 2, fun = dnorm, n = 101, 
+                  args = list(mean = -0.307, sd = 0.141)) +
+    scale_color_discrete(labels = c(&quot;Density&quot; = expression(paste(mu ~ &quot;= -0.307, &quot; ~ sigma ~ &quot;= 0.141 の正規分布&quot;)))) +
+    labs(x = &quot;平均値の差分&quot;, y = &quot;密度&quot;, color = &quot;&quot;) +
+    theme_bw(base_family = &quot;HiraginoSans-W3&quot;) +
+    theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="/montecarlo_intro_files/figure-html/monte-boot8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><span class="math inline">\(t\)</span>検定とブートストラップ法の比較</p>
+<div id="nqkariscnw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nqkariscnw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nqkariscnw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nqkariscnw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nqkariscnw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nqkariscnw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nqkariscnw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nqkariscnw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nqkariscnw .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nqkariscnw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nqkariscnw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nqkariscnw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nqkariscnw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nqkariscnw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#nqkariscnw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nqkariscnw .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nqkariscnw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nqkariscnw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nqkariscnw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nqkariscnw .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nqkariscnw .gt_left {
+  text-align: left;
+}
+
+#nqkariscnw .gt_center {
+  text-align: center;
+}
+
+#nqkariscnw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nqkariscnw .gt_font_normal {
+  font-weight: normal;
+}
+
+#nqkariscnw .gt_font_bold {
+  font-weight: bold;
+}
+
+#nqkariscnw .gt_font_italic {
+  font-style: italic;
+}
+
+#nqkariscnw .gt_super {
+  font-size: 65%;
+}
+
+#nqkariscnw .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner"><strong>t検定</strong></span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner"><strong>ブートストラップ法</strong></span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">統計量</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">値</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">統計量</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">値</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">(1): 平均値の差分</td>
+<td class="gt_row gt_right">&minus;0.307</td>
+<td class="gt_row gt_left">(1): 平均値の差分の平均値</td>
+<td class="gt_row gt_right">&minus;0.305</td></tr>
+    <tr><td class="gt_row gt_left">(2): 標準誤差</td>
+<td class="gt_row gt_right">0.141</td>
+<td class="gt_row gt_left">(2): 平均値の差分の標準偏差</td>
+<td class="gt_row gt_right">0.140</td></tr>
+    <tr><td class="gt_row gt_left">(3): 検定統計量</td>
+<td class="gt_row gt_right">&minus;2.171</td>
+<td class="gt_row gt_left">(3): (1) / (2)</td>
+<td class="gt_row gt_right">&minus;2.168</td></tr>
+    <tr><td class="gt_row gt_left">(4): p値</td>
+<td class="gt_row gt_right">0.031</td>
+<td class="gt_row gt_left">(4): p値</td>
+<td class="gt_row gt_right">0.031</td></tr>
+    <tr><td class="gt_row gt_left">(5): 95%信頼区間の下限</td>
+<td class="gt_row gt_right">&minus;0.585</td>
+<td class="gt_row gt_left">(5): 95%信頼区間の下限</td>
+<td class="gt_row gt_right">&minus;0.581</td></tr>
+    <tr><td class="gt_row gt_left">(6): 95%信頼区間の上限</td>
+<td class="gt_row gt_right">&minus;0.028</td>
+<td class="gt_row gt_left">(6): 95%信頼区間の上限</td>
+<td class="gt_row gt_right">&minus;0.030</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><code>sigma</code>は数値型ベクトル（<code>mean</code>の実引数の長さと同じ長さ）で指定することも可能ですが、この場合、共分散は0になります。<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted" align = "center">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>. Customized by <a href="https://www.jaysong.net">Jaehyun Song</a></p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
