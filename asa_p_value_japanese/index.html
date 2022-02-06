@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.86.1" />
+ <meta name="generator" content="Hugo 0.92.0" />
         
 
         
@@ -166,21 +166,14 @@
     </div>
 
     <div align="start" class="content"><h3 id="原文のリンク">原文のリンク</h3>
-
 <p>ASA Statement on Statistical Significance and P-values <a href="http://amstat.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108" target = "_blank" class = "sb">PDF</a></p>
-
 <hr>
-
 <h3 id="最終更新">最終更新</h3>
-
 <ul>
 <li>2016年3月15日</li>
 </ul>
-
 <hr>
-
 <h3 id="注意事項">注意事項</h3>
-
 <ul>
 <li>このページはアメリカ統計学会の雑誌、『The American Statistician』に掲載された「ASA Statement on Statistical Significance and P-values」の内容をまとめたものです。(翻訳ではありません！←ほぼ翻訳に近いんですが…)</li>
 <li>上記のリンクは以下の2つのペーパーで構成されています。</li>
@@ -190,100 +183,92 @@
 <li>このページでは[2]のみをまとめたものです。[1]は必要だと判断されるときのみ引っ張ってきます。</li>
 <li>下線、太字などは私が勝手に付けたものです。</li>
 </ul>
-
 <hr>
-
 <h3 id="イントロダクション">イントロダクション</h3>
-
 <ul>
-<li><p>Q: Why do so many colleges and grad schools teach p = .05?</p></li>
-
-<li><p>A: Because that’s still what the scientific community and journal editors use.</p></li>
-
-<li><p>Q: Why do so many people still use p = 0.05?</p></li>
-
-<li><p>A: Because that’s what they were taught in college or grad school.</p></li>
-
-<li><p>Q: なぜ多くの大学や大学院では p = 0.05を教えていますか。</p></li>
-
-<li><p>A: なぜならこの基準が、この業界と雑誌の編集委員の間で使われているからです。</p></li>
-
-<li><p>Q: [ならば]、なぜ多くの人が未だp = 0.05を使っているのですか。</p></li>
-
-<li><p>A: それは彼(女)らが大学・大学院でそう習ったからです。</p></li>
+<li>
+<p>Q: Why do so many colleges and grad schools teach p = .05?</p>
+</li>
+<li>
+<p>A: Because that’s still what the scientific community and journal editors use.</p>
+</li>
+<li>
+<p>Q: Why do so many people still use p = 0.05?</p>
+</li>
+<li>
+<p>A: Because that’s what they were taught in college or grad school.</p>
+</li>
+<li>
+<p>Q: なぜ多くの大学や大学院では p = 0.05を教えていますか。</p>
+</li>
+<li>
+<p>A: なぜならこの基準が、この業界と雑誌の編集委員の間で使われているからです。</p>
+</li>
+<li>
+<p>Q: [ならば]、なぜ多くの人が未だp = 0.05を使っているのですか。</p>
+</li>
+<li>
+<p>A: それは彼(女)らが大学・大学院でそう習ったからです。</p>
+</li>
 </ul>
-
 <p>？！？！</p>
-
 <p>「統計的有意性」の概念は公刊されたほとんどの科学的結論を支えており、いわゆるp値と呼ばれる指標によって測定される。p値は有用な統計的尺度になりうるが、これは一般的に誤解され、誤用されている。これによって、ある科学ジャーナル(基礎および応用社会心理学; Basic and Applied Social Psychology)がp値の使用を禁止するようになり、ある科学者と統計学者たちからはp値を完全に放棄するに主張するようにまでいたった。</p>
-
 <p>このような文脈から、アメリカ統計学会(ASA)はp値の適切な使い方と解釈について広く合意されたいくつかの原則をめいかくすることによって、科学コミュニティへ寄与できると思う。ここで扱われる対象は研究のみならず、研究資金獲得、ジャーナルの慣行、キャリアアップ、科学教育、公共政策、ジャーナリズム、そして法律までへ影響を与える。</p>
-
 <p>この声明は健全な統計的慣行に関する全ての争点を解決しようともせず、根本的な論争の解決を試みることでもない。この声明は統計コミュニティへ広く共有される合意にしたがって、定量的科学の遂行と解釈を改善できるいくつかの選ばれた原則を、比較的に技術的なない形で説明することが目的である。</p>
-
 <hr>
-
-<h2 id="p値とは何かwhat-is-a-pvalue">p値とは何か(What is a p-value?)</h2>
-
+<h2 id="p値とは何かwhat-is-a-p-value">p値とは何か(What is a p-value?)</h2>
 <ul>
 <li>ちょっと適当な回答⇒ p値とは<strong>特定の統計モデル下で、「データの統計値が観測された値以上に極端的な値が得られる」確率</strong>である。
-
 <ul>
 <li>Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data (for example, the sample mean difference between two compared groups) would be equal to or more extreme than its observed value.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <hr>
-
 <h2 id="6つの原則">6つの原則</h2>
-
 <ol>
 <li><strong>p値はデータと特定の統計モデルがどれほど不一致するか示すことができる。</strong>
-
 <ul>
 <li>P-values can indicate how incompatible the data are with a specified statistical model.</li>
 <li>p値は特定のデータセットとそのデータについて提案された統計モデルがどれくらい不一致するかを要約できる一つのアプローチである。もっともよくあり得る場面はとく手の仮定から成り立った統計モデルと帰無仮説が存在するケースである。帰無仮説は「二群に差がない」あるいは「ある要因とある結果には関係がない」といった「効果の不在」を仮定する。p値を計算する時に用いられた仮定が真だという前提の下でp値が小さけいれば小さいほどデータと帰無仮説の間の統計的不一致性が大きくなる。このような不一致は「帰無仮説」あるいは「前提された仮定」が真ではないと疑える証拠として解釈できる。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>p値は仮説が真である確率、あるいはデータが偶然によって生成された確率ではない。</strong>
-
 <ul>
 <li>P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.</li>
 <li>研究者はp値を「帰無仮説か真か否か」あるいは「観察されたデータが偶然によって生成されたか」に関する確率として使いたがる。しかし、p値がどっちらも関係ない。これは特定の仮説的説明に関連するデータに関する内容であり、その説明自体に関する内容ではない。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>科学的な結論、ビジネス、政策的な決定はp値がある閾値を超えたか否かだけで判断してはいけない。</strong>
-
 <ul>
 <li>Scientific conclusions and business or policy decisions should not be based only on whether a p-value passes a specific threshold.</li>
 <li>科学的主張や結果を正当化するために、データ分析や科学的推論を機械的に、あるいは恣意的に縮小させる慣行(たとえばp&lt;0.05ルール)は誤った信念や意思決定へ繋がるおそれがある。ある結論がどこかでは自動的に「真」となる、一方では自動的に「偽」になるわけではない。研究者たちは研究の設計、測定手法の室、研究対象となる現象に対する外部の証拠、そしてデータ分析の前提と成る仮定の妥当性などの文脈的要素を科学的な結論でょう出に積極的に使うべきである。</li>
 <li>時には、現実の意思決定は「はいーいいえ」のような二分的意思決定を要求するが、これはp値が単独で「ある決定が正しい」とか「間違っている」ことを保障できることを意味しない。一般的に使われているような、科学的発見に関する主張を保証する手段として「統計的有意性(一般的にp&lt;=0.05)」を用いる慣習は科学的プロセスの深刻な歪曲をもたらしうる。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>適切な推論は完全な報告と透明性を必要とする。</strong>
-
 <ul>
 <li>Proper inference requires full reporting and transparency</li>
 <li>p値とこれに関連した分析は選択的に報告されてはいけない。データに対して複数の分析を行い、特定のp値(ある閾値を超えたもの)とそれに関係するものだけを報告するのは、報告されたp値を事実上解釈不可能にする。「データ浚渫(data dredging)」、「有意性志向(significance chasing)」、「有意性探索(significance questing)」、「選択的推論(selective inference)」、「p-hacking」という名で知られている、有望な発見を取捨選択する行為は公刊された文献から統計的に有意な結果が誤って氾濫する結果をもたらすため、積極的に止揚すべきである。</li>
 <li>ただし、複数の統計的検定を行うのがこのような問題をもたらすわけではない。研究者が統計的結果に基づき、何を報告するか選択すれば、読者はその決定と根拠を知らないかぎり、結果を正しく解釈することは著しく制限される。研究者たちは研究の間に存在した仮説の数、データ収集に関する全ての意思決定、行われた全ての統計的検定、そして得られた全てのp値を明かすべきである。どれだけ多くの、またどのような分析が用いられたか、そしてそのような分析がどのように選択され、報告されたか(p値を含めて)を知らないかぎり、p値とこれに関連した統計量に基づく正しい科学的決論を導出することは不可能である。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>p値(or 統計的有意性)は効果の大きさや結果の重要性を測定する尺度ではない。</strong>
-
 <ul>
 <li>A p-value, or statistical significance, does not measure the size of an effect or the importance of a result.</li>
 <li>統計的有意性と科学的、人間的、経済的重要性は一致しない。より小さいp値がより大きい、あるいはより重要な効果の存在を意味するのではなく、大きなp値が重要性や効果の不在を意味するわけでもない。どのような効果もサンプル(標本)サイズが大きかったり、測定手法が十分に精密したら大きいp値を出すことはできる。反対にどれだけ大きい効果でもサンプルサイズが小さかったり、測定手法が精密でなかったら小さくないp値が得られる。同様に、同じ推定値も測定の精密度が異なると、異なるp値が得られる。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>p値自体は特定のモデルや仮説に関する良い尺度を提供しない。</strong>
-
 <ul>
 <li>By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.</li>
 <li>研究者たちは文脈や他の証拠がない状況におけるp値は制限された情報のみを提供するという点を認識すべきである。たとえば、0.05に近いp値はこれ自体では帰無仮説を反証する弱い証拠のみを示すだけである。同様に、比較的に大きいp値が帰無仮説を支持する証拠を暗示するわけでもない。観察されたデータと同等に、より適合した他の仮説はあり得る。したがって、他のアプローチが可能であれば、データ分析をp値の計算で留めてはいけない。</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <hr>
-
 <h2 id="他のアプローチ">他のアプローチ</h2>
-
 <p>これまでのp値に対する誤解と誤用の実態を鑑み、ある統計学者たちはp値を他のアプローチから補完するか、代替することを好んでいる。このような代案は</p>
-
 <ul>
 <li>検証において推定を強調する方法：信頼・信用・予測区間の利用</li>
 <li>ベイズ統計学</li>
@@ -291,15 +276,10 @@
 <li>決定理論モデリング</li>
 <li>偽発見率(false discovery rate; FDR)</li>
 </ul>
-
 <p>などがある。このような尺度とアプローチはより多くの仮定に依存するが、これらは効果量の大きさ、あるいは仮説の真・偽のように概念により直接的にアプローチできる長所がある。</p>
-
 <hr>
-
 <h2 id="結論">結論</h2>
-
 <p>望ましい科学的実践(practice)における必須要素として、望ましい統計的実践は</p>
-
 <ul>
 <li>正しい研究設計と遂行</li>
 <li>多様な数値的、視覚的なデータ要約</li>
@@ -308,7 +288,6 @@
 <li>データ要約が何を意味するかに対する完全な報告</li>
 <li>適切かつ論理的な定量的理解</li>
 </ul>
-
 <p>などの原則を必要とする。いかなる単一指標も科学的論証を代替することはできない。</p>
 </div>
 
