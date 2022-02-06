@@ -65,7 +65,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.0" />
+ <meta name="generator" content="Hugo 0.86.1" />
         
 
         
@@ -170,50 +170,66 @@
     <div align="start" class="content"><ul>
 <li>前回のt検定では二つのグループ間、あるいは二つの変数の平均値に差があるか否かを検定しました。今回は3つ以上のグループ間に平均値の差があるかを検定してみましょう。</li>
 </ul>
-<p><img src="../Figs/JASP07_01.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_01.png" alt=""></figure></p>
+
 <ul>
 <li>分析メニューの「ANOVA」から「ANOVA」を選択します。</li>
 </ul>
-<p><img src="../Figs/JASP07_02.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_02.png" alt=""></figure></p>
+
 <ul>
 <li>まず、「どの変数の平均値の差をみるか」ですね。これを従属変数になります。今回は財政力指数の差を検証します。したがって、「<code>Zaisei</code>」変数を選択し、「Dependent Variable」の「▶」をクリックします。</li>
 <li>つづいて、グループを指定します。グループは「Fixed Factor」で指定します。今回は6地域間における財政力指数の平均値の差を検証するので「<code>Region6</code>」変数を選択し、「Fixed Factor」の「▶」をクリックします。</li>
 </ul>
-<p><img src="../Figs/JASP07_03.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_03.png" alt=""></figure></p>
+
 <ul>
 <li>ここまでだと、右の結果画面に分散分析の結果が表示されます。p値が有意水準 (一般的に0.05)より小さいので、「6地域間には財政力指数の平均値に差がある」と解釈します。</li>
 <li>しかし、これはどこかの組み合わせに差がある可能性を示しただけであり、必ずしも
+
 <ul>
 <li>「北海道・東北≠関東≠中部≠近畿≠中国・四国≠九州・沖縄」</li>
-</ul>
-</li>
+</ul></li>
 <li>を意味するものではありません。具体的にどの組み合わせ (対)に財政力指数の差があるかを確認してみましょう（これを多重検定・多重比較といいます）。</li>
 </ul>
-<p><img src="../Figs/JASP07_04.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_04.png" alt=""></figure></p>
+
 <ul>
 <li>左の分析画面にもどり、「Post Hoc Tests」をクリックします。</li>
 </ul>
-<p><img src="../Figs/JASP07_05.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_05.png" alt=""></figure></p>
+
 <ul>
 <li>まず、「<code>Region6</code>」変数を選択し、「▶」をクリックします。</li>
 <li>つづいて、「Correction」ですが、今回はデフォルトの「Tukey」で結構です。多重比較は基本的に全ての2群の組み合わせでt検定を行うものですが、検定後はp値を補正します。この「Correction」はp値の補正方法です。したがって、他の補正方法を選択することによって結果が若干変わる可能性があります。興味のある人は色々とやってみましょう。</li>
 </ul>
-<p><img src="../Figs/JASP07_06.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_06.png" alt=""></figure></p>
+
 <ul>
 <li>せっかくなので、グループごとの財政力指数の記述統計も出してみましょう。「Additional Options」をクリックします。</li>
 </ul>
-<p><img src="../Figs/JASP07_07.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_07.png" alt=""></figure></p>
+
 <ul>
 <li>「Display」の「Descriptive statistics」にチェックします。</li>
 </ul>
-<p><img src="../Figs/JASP07_08.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_08.png" alt=""></figure></p>
+
 <ul>
 <li>この表が多重比較の結果です。基本的な見方はt検定と同じです。</li>
 <li>たとえば、一行目は「北海道・東北」と「関東」間における財政力指数の平均値の差の検定結果です。「Mean Difference」が-0.355ということは、関東の方が北海道・東北より0.355高いことを意味しますね。p値(p<sub>tukey</sub>)は0.001未満なので、この二地域間には財政力指数に統計的有意な差があることを意味します。</li>
 <li>三行目は「北海道・東北」と「近畿」間の差であり、統計的有意な差はありませんね。</li>
 </ul>
-<p>{.table .pure-table .pure-table-horizontal .table-striped .table-responsive}</p>
-<table>
+
+<table class="pure-table pure-table-horizontal table table-responsive table-striped">
 <thead>
 <tr>
 <th></th>
@@ -225,52 +241,41 @@
 <th>九州・沖縄</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
-<td>北海道・東北</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td colspan="7">北海道・東北</td>
 </tr>
+
 <tr>
 <td>関東</td>
-<td>差O</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td colspan="6">差O</td>
 </tr>
+
 <tr>
 <td>中部</td>
 <td>差X</td>
 <td>差O</td>
-<td>-</td>
-<td></td>
-<td></td>
-<td></td>
+<td colspan="4">-</td>
 </tr>
+
 <tr>
 <td>近畿</td>
 <td>差X</td>
 <td>差X</td>
 <td>差X</td>
-<td>-</td>
-<td></td>
-<td></td>
+<td colspan="3">-</td>
 </tr>
+
 <tr>
 <td>中国・四国</td>
 <td>差X</td>
 <td>差O</td>
 <td>差X</td>
 <td>差X</td>
-<td>-</td>
-<td></td>
+<td colspan="2">-</td>
 </tr>
+
 <tr>
 <td>九州・沖縄</td>
 <td>差X</td>
@@ -282,10 +287,13 @@
 </tr>
 </tbody>
 </table>
+
 <ul>
 <li>表でまとめると大雑把にはこんか感じですかね。多重比較の結果を効果的に示す方法にはいくつかあります。ネットなどで調べてみましょう。</li>
 </ul>
-<p><img src="../Figs/JASP07_09.png" alt=""></p>
+
+<p><figure><img src="../Figs/JASP07_09.png" alt=""></figure></p>
+
 <ul>
 <li>最後に記述統計です。多重比較の「Mean Difference」を見れば、どっちの地域の財政力指数が高いかは分かりますが、レポートや論文には基本的に記述統計を示すことも大事なので確認しておきましょう。</li>
 </ul>
