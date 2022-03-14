@@ -67,7 +67,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.86.1" />
+ <meta name="generator" content="Hugo 0.92.0" />
         
 
         
@@ -170,29 +170,24 @@
     </div>
 
     <div align="start" class="content"><p>Qualtricsでコンジョイント(Conjoint)分析のための調査票を作成する手順を紹介します。QualtricsにもConjoint機能がありますが、ここで目指すのはHoriuchi, Smith, and Yamamoto(2015)のような調査[<a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2627907">SSRN Link</a>]を目指します。今後、</p>
-
 <ul>
 <li>時間があるときに画像を添付したいと思います。</li>
 <li>Conjoint SDTには他にもいろんな機能があるので、それもいつか紹介します。</li>
 <li>また、ここから得られたデータをRで分析可能な形にする方法もいつか。</li>
 <li>{<a href="https://github.com/JaehyunSong/SimpleConjoint">SimpleConjoint</a>}を使用する際、URL生成後、第3節の方からお読みください。
-
 <ul>
 <li>{<a href="https://github.com/JaehyunSong/SimpleConjoint">SimpleConjoint</a>}はサーバーがなくても簡単なコンジョイント実験を実装可能とする東洋の神秘みたいなものです。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <hr>
-
 <h2 id="目標">目標</h2>
-
 <ul>
 <li>このような調査をしたいと想定する。</li>
 </ul>
-
 <p>Q1. 最も好きな候補者を選択してください。</p>
-
-<table class="pure-table pure-table-horizontal table table-responsive table-striped">
+<p>{.table .pure-table .pure-table-horizontal .table-striped .table-responsive}</p>
+<table>
 <thead>
 <tr>
 <th></th>
@@ -201,22 +196,19 @@
 <th>候補者3</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>消費税</td>
 <td>10% (引き上げ)</td>
 <td>0% (廃止)</td>
-<td>8% (維持)</td>
+<td>8% (維持)\</td>
 </tr>
-
 <tr>
 <td>集団的自衛権</td>
 <td>容認</td>
 <td>容認</td>
 <td>否認</td>
 </tr>
-
 <tr>
 <td>福祉</td>
 <td>拡充</td>
@@ -225,129 +217,105 @@
 </tr>
 </tbody>
 </table>
-
 <ul>
-<li>候補者1</li>
-<li>候補者2</li>
-
-<li><p>候補者3</p></li>
-
-<li><p>赤い部分はランダムで表示される。</p></li>
-
-<li><p>用語を決めておくと</p>
-
+<li>
+<p>候補者1</p>
+</li>
+<li>
+<p>候補者2</p>
+</li>
+<li>
+<p>候補者3</p>
+</li>
+<li>
+<p>赤い部分はランダムで表示される。</p>
+</li>
+<li>
+<p>用語を決めておくと</p>
 <ul>
 <li><strong>タスク(task):</strong> 質問の数を意味し、この例では2である。</li>
 <li><strong>プロフィール(profile):</strong> 選択肢の数を意味し、ここでは3である。(候補者1~3 / A~C)</li>
 <li><strong>属性(attribute):</strong> 各プロフィールが有する特性であり、ここでは3である。(消費税、集団的自衛権、福祉)</li>
-<li><strong>水準(level):</strong> 各属性がとりうる値である。たとえば福祉の水準は3つである。(拡充、維持、縮小)
-<br></li>
-</ul></li>
+<li><strong>水準(level):</strong> 各属性がとりうる値である。たとえば福祉の水準は3つである。(拡充、維持、縮小)</li>
 </ul>
-
+</li>
+</ul>
 <hr>
-
 <h2 id="1-conjoint-survey-design-tool">1. Conjoint Survey Design Tool</h2>
-
 <ul>
 <li>著者のホームページ[<a href="http://scholar.harvard.edu/astrezhnev/conjoint-survey-design-tool">Link</a>]からファイルをダウンロードする。私の環境はMac OS XなのでPython Source (All Platforms)のファイルをダウンロードした。
-
 <ul>
 <li>2020年4月現在、上記のリンク先へのアクセスが出来ません。ただし、<a href="https://github.com/astrezhnev/conjointsdt">著者のGitHubレポジトリー</a>からダウンロード可能です。</li>
-</ul></li>
+</ul>
+</li>
 <li>ダウンロードしたファイルを解凍する。</li>
 </ul>
-
-<p><figure><img src="../Figures/001.png" alt=""></figure></p>
-
+<p><img src="../Figures/001.png" alt=""></p>
 <ul>
 <li>Conjoint Survey Design Tool(SDT)を起動する。
-
 <ul>
 <li>Mac OS XだとターミナルでSDTを回答したフォルダへ移動し<code>python conjointSDT.py</code>と入力する。(python3では起動不可)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="11-taskとprofileの設定">1.1. TaskとProfileの設定</h3>
-
-<p><figure><img src="../Figures/002.png" alt=""></figure></p>
-
+<p><img src="../Figures/002.png" alt=""></p>
 <ol>
 <li>メニューから[Edit] → [Settings]へ</li>
 </ol>
-
-<p><figure><img src="../Figures/003.png" alt=""></figure></p>
-
+<p><img src="../Figures/003.png" alt=""></p>
 <ol start="2">
 <li>Number of Tasks per Respondentを2と入力</li>
 <li>Number of Profiles per Taskを3と入力</li>
 <li>また、ここでは消費税、集団的自衛権、福祉といった固定された順番で表示されるのでRandomize order of attributes for each respondentsのチェックを外す。</li>
 <li>[Save Setting]をクリック</li>
 </ol>
-
 <h3 id="12-属性と水準を入力">1.2. 属性と水準を入力</h3>
-
-<p><figure><img src="../Figures/004.png" alt=""></figure></p>
-
+<p><img src="../Figures/004.png" alt=""></p>
 <ol>
 <li>[Attribute]下の[Add]をクリックし、taxと入力。すくなくともOS X環境では、<strong>Conjoint SDTから直接日本語入力はできない</strong>。テキストエディタで入力してコピペする方法は出来るが、phpで出力が出来ないため意味がない。まずは、全部英語で入力する。</li>
 <li>同じ手順でanpoとwelfareを追加する。</li>
 </ol>
-
-<p><figure><img src="../Figures/005.png" alt=""></figure></p>
-
+<p><img src="../Figures/005.png" alt=""></p>
 <ol start="3">
 <li>[Attribute]でtaxを選択し、[Levels]の下のAddをクリックし、10%と入力</li>
 <li>同じ手順で8%, 5%, 0%も入力する。</li>
 <li>3~4の手順をanpo, welfareにも適用する。anpoにはyonin, hininを、welfareにはkakujyu, iji, shukushoを追加する。</li>
 </ol>
-
 <h3 id="13-ファイルで出力">1.3. ファイルで出力</h3>
-
-<p><figure><img src="../Figures/006.png" alt=""></figure></p>
-
+<p><img src="../Figures/006.png" alt=""></p>
 <ol>
 <li>メニューの[Edit] → [Export to PHP]を選択し、適当に名前をつけて保存。</li>
 <li>同じく[Edit] → [Create Qualtrics Question Templates]を選択し、適当な名前を付ける。ただし、この手順は必須ではない。</li>
 </ol>
-
 <hr>
-
 <h2 id="2-phpファイルの修正とアップロード">2. phpファイルの修正とアップロード</h2>
-
 <h3 id="21-phpファイルの修正">2.1. phpファイルの修正</h3>
-
 <ul>
 <li>テキストエディタ(私の場合はSublime Text)で先ほど保存したphpファイルを開く。</li>
 <li>適当にtaxとかanpoで検索すれば、このような行が確認できる。</li>
 </ul>
-<pre tabindex="0"><code>$featurearray = array(&#34;tax&#34; =&gt; array(&#34;10%&#34;,&#34;8%&#34;,&#34;5%&#34;,&#34;0%&#34;),&#34;anpo&#34; =&gt; array(&#34;yonin&#34;,&#34;hinin&#34;),&#34;welfare&#34; =&gt; array(&#34;kakujyu&#34;,&#34;iji&#34;,&#34;shukusho&#34;));</code></pre>
-<ul>
+<pre tabindex="0"><code>$featurearray = array(&quot;tax&quot; =&gt; array(&quot;10%&quot;,&quot;8%&quot;,&quot;5%&quot;,&quot;0%&quot;),&quot;anpo&quot; =&gt; array(&quot;yonin&quot;,&quot;hinin&quot;),&quot;welfare&quot; =&gt; array(&quot;kakujyu&quot;,&quot;iji&quot;,&quot;shukusho&quot;));
+</code></pre><ul>
 <li>ここを以下のように修正する。</li>
 </ul>
-<pre tabindex="0"><code>$featurearray = array(&#34;消費税&#34; =&gt; array(&#34;10%(引き上げ)&#34;,&#34;8%(維持)&#34;,&#34;5%(引き下げ)&#34;,&#34;0%(廃止)&#34;),&#34;集団的自衛権&#34; =&gt; array(&#34;容認&#34;,&#34;否認&#34;),&#34;福祉&#34; =&gt; array(&#34;拡充&#34;,&#34;維持&#34;,&#34;縮小&#34;));</code></pre>
-<ul>
+<pre tabindex="0"><code>$featurearray = array(&quot;消費税&quot; =&gt; array(&quot;10%(引き上げ)&quot;,&quot;8%(維持)&quot;,&quot;5%(引き下げ)&quot;,&quot;0%(廃止)&quot;),&quot;集団的自衛権&quot; =&gt; array(&quot;容認&quot;,&quot;否認&quot;),&quot;福祉&quot; =&gt; array(&quot;拡充&quot;,&quot;維持&quot;,&quot;縮小&quot;));
+</code></pre><ul>
 <li>保存する。</li>
 </ul>
-
 <h3 id="22-phpファイルのアップロード">2.2. phpファイルのアップロード</h3>
-
 <ul>
 <li><a href="https://panic.com/transmit/">Transmit</a>や<a href="https://cyberduck.io/?l=en">Cyberduck</a>を利用してphpがインストールされているサーバーにアップロードする。
-
 <ul>
 <li>学生が利用できる大学のWeb空間はphpが利用できないところが多いので、多分出来ないと思います</li>
-</ul></li>
+</ul>
+</li>
 <li>自分のサーバーがない人はサーバーをレンタルするか、持っている人にご飯をおごる。</li>
 <li>ちなみに私の場合、<code>http://tintstyle.cafe24.com/untitled.php</code>でアップロードしておきました。</li>
 </ul>
-
 <hr>
-
 <h2 id="3-qualtricsで調査票作成">3. Qualtricsで調査票作成</h2>
-
 <h3 id="31-phpファイルを埋め込む">3.1. phpファイルを埋め込む</h3>
-
 <ol>
 <li><a href="http://www.qualtrics.com/">Qualtrics</a>へログインし、[Create Survey]を選択。</li>
 <li>[Quick Survey Builder]をクリックし、適当に名前を付ける。</li>
@@ -358,24 +326,19 @@
 <li>[Select fields to include as embedded data]ウィンドウが表示される。[Select]の隣の[All]をクリックし、下の[Add Embedded Data]をクリック</li>
 <li>そのまま[Save Flow]をクリックし、調査票作成画面へ戻る。</li>
 </ol>
-
 <h3 id="32-調査票作成">3.2. 調査票作成</h3>
-
 <ol>
 <li>[Create a New Question]でMultiple Choiceを選択する。</li>
 <li>オプションはChoiceは3と入力し、Single Answerを選択。</li>
 <li>選択肢の[Click to write Choice 1]を「候補者1」にし、残りの2つも同様に「候補者2, 3」とする。</li>
 <li>質問文を作成するが、ここでは2つの方法がある。
-
 <ul>
 <li>1.3で[Create Qualtrics Question Templates]を選択した場合は3.2.1へ</li>
-<li>選択しなかったら3.2.2へ
-<br></li>
-</ul></li>
+<li>選択しなかったら3.2.2へ</li>
+</ul>
+</li>
 </ol>
-
 <h4 id="321-qualtrics-question-templateを利用した方法">3.2.1. Qualtrics Question Templateを利用した方法</h4>
-
 <ol>
 <li>1.3で[Create Qualtrics Question Templates]を選択したらTaskの数だけhtmlファイルが生成される。</li>
 <li>テキストエディタでTask1のファイルを開き、全てのコピーする。</li>
@@ -385,21 +348,19 @@
 <li>その他の部分を修正すればいい。</li>
 <li>次の質問を同様に作成し、今回はTask 2のhtmlファイルの内容を貼り付ける。</li>
 </ol>
-
 <h4 id="322-直接打ち込む方法">3.2.2. 直接打ち込む方法</h4>
-
 <ol>
 <li>自分なりに質問文を作成するが、属性は以下のように書く。
-
 <ul>
 <li><code>${e://Field/F-[タスク]-[属性]}</code></li>
-</ul></li>
+</ul>
+</li>
 <li><code>${e://Field/F-1-3}</code>ならタスク1の3番めの属性であり、つまり「福祉」である。Conjoint SDTで属性のランダム化のチェックを外したため、すぐに分かる。</li>
 <li>水準は以下のように表記する。
-
 <ul>
 <li><code>${e://Field/F-[タスク]-[プロフィール]-[属性]}</code></li>
-</ul></li>
+</ul>
+</li>
 <li><code>${e://Field/F-1-3-1}</code>ならタスク1、候補者3、1番目の属性(福祉)の値である。これは0%, 5%, 8%, 10%からランダムに出る。</li>
 <li>同じ手順でタスク2の質問文を作成する。その時は<code>${e://Field/F-2-[プロフィール]-[属性]}</code>のように書く。</li>
 <li>以上の作業は[HTML View]でなく[Normal View]で行う。表を挿入するなら[Rich Content Editor]で作業すれば楽</li>
