@@ -67,7 +67,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.0" />
+ <meta name="generator" content="Hugo 0.95.0" />
         
 
         
@@ -295,11 +295,11 @@
 <li>テキストエディタ(私の場合はSublime Text)で先ほど保存したphpファイルを開く。</li>
 <li>適当にtaxとかanpoで検索すれば、このような行が確認できる。</li>
 </ul>
-<pre tabindex="0"><code>$featurearray = array(&quot;tax&quot; =&gt; array(&quot;10%&quot;,&quot;8%&quot;,&quot;5%&quot;,&quot;0%&quot;),&quot;anpo&quot; =&gt; array(&quot;yonin&quot;,&quot;hinin&quot;),&quot;welfare&quot; =&gt; array(&quot;kakujyu&quot;,&quot;iji&quot;,&quot;shukusho&quot;));
+<pre tabindex="0"><code>$featurearray = array(&#34;tax&#34; =&gt; array(&#34;10%&#34;,&#34;8%&#34;,&#34;5%&#34;,&#34;0%&#34;),&#34;anpo&#34; =&gt; array(&#34;yonin&#34;,&#34;hinin&#34;),&#34;welfare&#34; =&gt; array(&#34;kakujyu&#34;,&#34;iji&#34;,&#34;shukusho&#34;));
 </code></pre><ul>
 <li>ここを以下のように修正する。</li>
 </ul>
-<pre tabindex="0"><code>$featurearray = array(&quot;消費税&quot; =&gt; array(&quot;10%(引き上げ)&quot;,&quot;8%(維持)&quot;,&quot;5%(引き下げ)&quot;,&quot;0%(廃止)&quot;),&quot;集団的自衛権&quot; =&gt; array(&quot;容認&quot;,&quot;否認&quot;),&quot;福祉&quot; =&gt; array(&quot;拡充&quot;,&quot;維持&quot;,&quot;縮小&quot;));
+<pre tabindex="0"><code>$featurearray = array(&#34;消費税&#34; =&gt; array(&#34;10%(引き上げ)&#34;,&#34;8%(維持)&#34;,&#34;5%(引き下げ)&#34;,&#34;0%(廃止)&#34;),&#34;集団的自衛権&#34; =&gt; array(&#34;容認&#34;,&#34;否認&#34;),&#34;福祉&#34; =&gt; array(&#34;拡充&#34;,&#34;維持&#34;,&#34;縮小&#34;));
 </code></pre><ul>
 <li>保存する。</li>
 </ul>
