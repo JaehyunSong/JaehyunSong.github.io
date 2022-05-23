@@ -7,3 +7,25 @@ title: "Page Not Found"
 ホームページの改訂により、多くのページのURLが変更されました。右上の<i class="bi bi-search"></i>アイコンから検索してください。URLが変更されただけであり、既存の資料は全て掲載しております。
 
 The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching (<i class="bi bi-search"></i>) to find the page's new location.
+
+## 参考
+
+### R関連資料
+
+* [Rプログラミング入門の入門](tutorial/R/rprogramming.qmd)
+* [purrr入門](tutorial/R/purrr_intro.qmd)
+* [オブジェクト指向型プログラミング入門](tutorial/R/opp_intro.qmd)
+* [モンテカルロ・シミュレーション入門](tutorial/R/montecarlo_intro.qmd)
+* [dplyr入門](tutorial/R/dplyr_intro.qmd)
+* [tidyr入門](tutorial/R/tidyr_intro.qmd)
+* [ggplot2入門 [理論編]](tutorial/R/ggplot_intro1.qmd)
+* [ggplot2入門 [基礎編]](tutorial/R/ggplot_intro2.qmd)
+* [ggplot2入門 [応用編]](tutorial/R/ggplot_intro3.qmd)
+* [ggplot2入門 [発展編]](tutorial/R/ggplot_intro4.qmd)
+* [R Markdown入門](tutorial/R/rmarkdown_intro.qmd)
+
+### Qualtrics関連資料
+
+* [Qualtricsによるコンジョイント分析(Conjoint Analysis)の設問票作成方法](notes/qualtrics/cjoint_sdt.qmd)
+* [Conjoint SDTの用いる際、一部の属性のみを固定する方法](notes/qualtrics/cjoint_fix_attr.qmd)
+* [リスト実験をする時に項目をランダマイズするスクリプト](software/scripts/list_randomizer.qmd)
