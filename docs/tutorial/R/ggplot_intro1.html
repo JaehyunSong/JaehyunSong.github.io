@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#visual-packages" id="toc-visual-packages" class="nav-link active" data-scroll-target="#visual-packages">可視化のためのパッケージ</a>
+  <ul class="collapse">
+  <li><a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r">Base R</a></li>
+  <li><a href="#latticeパッケージ" id="toc-latticeパッケージ" class="nav-link" data-scroll-target="#latticeパッケージ">{lattice}パッケージ</a></li>
+  <li><a href="#ggplot2パッケージ" id="toc-ggplot2パッケージ" class="nav-link" data-scroll-target="#ggplot2パッケージ">{ggplot2}パッケージ</a></li>
+  </ul></li>
+  <li><a href="#visual-ggplot" id="toc-visual-ggplot" class="nav-link" data-scroll-target="#visual-ggplot">グラフィックの文法</a>
+  <ul class="collapse">
+  <li><a href="#グラフィックの文法" id="toc-グラフィックの文法" class="nav-link" data-scroll-target="#グラフィックの文法">グラフィックの文法</a></li>
+  <li><a href="#ggplot2のイメージ" id="toc-ggplot2のイメージ" class="nav-link" data-scroll-target="#ggplot2のイメージ">ggplot2のイメージ</a></li>
+  </ul></li>
+  <li><a href="#グラフィックの構成要素" id="toc-グラフィックの構成要素" class="nav-link" data-scroll-target="#グラフィックの構成要素">グラフィックの構成要素</a>
+  <ul class="collapse">
+  <li><a href="#データ" id="toc-データ" class="nav-link" data-scroll-target="#データ">データ</a></li>
+  <li><a href="#幾何オブジェクト" id="toc-幾何オブジェクト" class="nav-link" data-scroll-target="#幾何オブジェクト">幾何オブジェクト</a></li>
+  <li><a href="#マッピング" id="toc-マッピング" class="nav-link" data-scroll-target="#マッピング">マッピング</a></li>
+  <li><a href="#マッピング-その他" id="toc-マッピング-その他" class="nav-link" data-scroll-target="#マッピング-その他">マッピング: その他</a></li>
+  <li><a href="#座標系" id="toc-座標系" class="nav-link" data-scroll-target="#座標系">座標系</a></li>
+  <li><a href="#スケール" id="toc-スケール" class="nav-link" data-scroll-target="#スケール">スケール</a></li>
+  <li><a href="#ファセット" id="toc-ファセット" class="nav-link" data-scroll-target="#ファセット">ファセット</a></li>
+  </ul></li>
+  <li><a href="#visual-principal" id="toc-visual-principal" class="nav-link" data-scroll-target="#visual-principal">良いグラフとは</a>
+  <ul class="collapse">
+  <li><a href="#データインク比" id="toc-データインク比" class="nav-link" data-scroll-target="#データインク比">データ・インク比</a></li>
+  <li><a href="#次元プロット" id="toc-次元プロット" class="nav-link" data-scroll-target="#次元プロット">3次元プロット</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">可視化[理論]</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="visual-packages" class="level2">
+<h2 class="anchored" data-anchor-id="visual-packages">可視化のためのパッケージ</h2>
+<p>Rによる可視化は様々な方法がありますが、可視化のために使うパッケージとして代表的なものは (1) パッケージを使わない方法、(2) {lattice}パッケージ、(3) {ggplot2}パッケージがあります。ここでは、以下のデータ ( <a href="#tbl-visual1-sampledata">表&nbsp;1</a> )を可視化しながら、それぞれの特徴について簡単に解説します。</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="tbl-visual1-sampledata" class="anchored">
+
+<div id="alsxnqmnfo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#alsxnqmnfo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#alsxnqmnfo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#alsxnqmnfo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#alsxnqmnfo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#alsxnqmnfo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#alsxnqmnfo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#alsxnqmnfo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#alsxnqmnfo .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#alsxnqmnfo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#alsxnqmnfo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#alsxnqmnfo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#alsxnqmnfo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#alsxnqmnfo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#alsxnqmnfo .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#alsxnqmnfo .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#alsxnqmnfo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#alsxnqmnfo .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#alsxnqmnfo .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#alsxnqmnfo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#alsxnqmnfo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#alsxnqmnfo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#alsxnqmnfo .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#alsxnqmnfo .gt_left {
+  text-align: left;
+}
+
+#alsxnqmnfo .gt_center {
+  text-align: center;
+}
+
+#alsxnqmnfo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#alsxnqmnfo .gt_font_normal {
+  font-weight: normal;
+}
+
+#alsxnqmnfo .gt_font_bold {
+  font-weight: bold;
+}
+
+#alsxnqmnfo .gt_font_italic {
+  font-style: italic;
+}
+
+#alsxnqmnfo .gt_super {
+  font-size: 65%;
+}
+
+#alsxnqmnfo .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#alsxnqmnfo .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#alsxnqmnfo .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#alsxnqmnfo .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#alsxnqmnfo .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#alsxnqmnfo .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table"><caption>表 1:  サンプルデータの最初の10行 </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">PPP</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">HDI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">OECD</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Afghanistan</td>
+<td class="gt_row gt_right">2125</td>
+<td class="gt_row gt_right">0.496</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Albania</td>
+<td class="gt_row gt_right">13781</td>
+<td class="gt_row gt_right">0.791</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Algeria</td>
+<td class="gt_row gt_right">11324</td>
+<td class="gt_row gt_right">0.759</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Angola</td>
+<td class="gt_row gt_right">6649</td>
+<td class="gt_row gt_right">0.574</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Argentina</td>
+<td class="gt_row gt_right">22938</td>
+<td class="gt_row gt_right">0.830</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Armenia</td>
+<td class="gt_row gt_right">12974</td>
+<td class="gt_row gt_right">0.760</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">50001</td>
+<td class="gt_row gt_right">0.938</td>
+<td class="gt_row gt_center">加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Austria</td>
+<td class="gt_row gt_right">55824</td>
+<td class="gt_row gt_right">0.914</td>
+<td class="gt_row gt_center">加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Azerbaijan</td>
+<td class="gt_row gt_right">14257</td>
+<td class="gt_row gt_right">0.754</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td class="gt_row gt_left">Bahrain</td>
+<td class="gt_row gt_right">43624</td>
+<td class="gt_row gt_right">0.838</td>
+<td class="gt_row gt_center">非加盟国</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>このデータは各国 (<code>Country</code>) の一人当たり購買力平価基準GDP (<code>PPP</code>)、人間開発指数 (<code>HDI</code>)、OECD加盟有無 (<code>OECD</code>)の変数で構成されています。このデータを使って横軸は<code>PPP</code>、縦軸は<code>HDI</code>とし、<code>OECD</code>の値によって色分けしたグラフを作成します。</p>
+<section id="base-r" class="level3">
+<h3 class="anchored" data-anchor-id="base-r">Base R</h3>
+<p>Rは統計学、データ分析に特化したプログラミング言語であるため、別途のパッケージなしで作図が可能です。後ほど紹介する{lattice}や{ggplot2}を用いた作図とは違って、Base Rによる作図は、紙にペンでグラフを書くイメージに近いです。キャンバスを用意し、そこにペンで点や線を描く感じです。これはレイヤーという概念を導入した{ggplot2}に近いかも知れませんが、{ggplot2}はレイヤーを変更出来る一方、Base Rは図が気に入らない場合、一からやり直しです。つまり、キャンバスに引いた線や点は消すことができません。また、作成した図はオブジェクトとして保存することが出来ないため、もう一度図示するためには一から書く必要があります。Base Rによる作図は短所だけでなく、メリットもあります。まず、パッケージを必要としないため、Rインストール直後から使える点です。そして、{lattice}や{ggplot2}よりも速いです。他にも人によってはBase Rの方がシンプルでかっこいいという方もいますが、これは好みの問題でしょう。</p>
+<p>以下の <a href="#fig-visual1-baser">図&nbsp;1</a> はBase Rを使った散布図の例です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-baser_5c2c995bc30643d5e3cfb7f6500f9845">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Base Rを用いた作図の例</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">plot</span>(<span class="at">x =</span> Country_df<span class="sc">$</span>PPP, <span class="at">y =</span> Country_df<span class="sc">$</span>HDI, <span class="at">pch =</span> <span class="dv">19</span>, </span>
+<span id="cb1-3"><a href="#cb1-3"></a>     <span class="at">col =</span> <span class="fu">ifelse</span>(Country_df<span class="sc">$</span>OECD <span class="sc">==</span> <span class="st">"加盟国"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4"></a>     <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>), </span>
+<span id="cb1-7"><a href="#cb1-7"></a>       <span class="at">col    =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-baser" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid figure-img" width="1800"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: Base Rによるグラフ</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="latticeパッケージ" class="level3">
+<h3 class="anchored" data-anchor-id="latticeパッケージ">{lattice}パッケージ</h3>
+<p>{lattice}は<a href="https://www.isid.ac.in/~deepayan/">Deepayan Sarkar</a>によって開発された可視化パッケージです。このパッケージの最大特徴は「1つの関数で可視化が出来る」点です。作図に必要な様々な情報が1つの関数内に全て入ります。むろん、指定しない情報に関しては多くの場合、自動的に処理してくれます。</p>
+<p><a href="#fig-visual1-baser">図&nbsp;1</a> を{lattice}を使って作る場合は <a href="#fig-visual1-lattice">図&nbsp;2</a> のようなコードになります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-lattice_29376e3a4caff511fe66a8bddaa9f881">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># latticeを用いた作図の例</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">xyplot</span>(HDI <span class="sc">~</span> PPP, <span class="at">data =</span> Country_df,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>       <span class="at">group =</span> OECD, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">grid =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>       <span class="at">auto.key =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>       <span class="at">key =</span> <span class="fu">list</span>(<span class="at">title     =</span> <span class="st">"OECD加盟有無"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>                  <span class="at">cex.title =</span> <span class="dv">1</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>                  <span class="at">space     =</span> <span class="st">"right"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>                  <span class="at">points    =</span> <span class="fu">list</span>(<span class="at">col =</span> <span class="fu">c</span>(<span class="st">"magenta"</span>, <span class="st">"cyan"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9"></a>                                   <span class="at">pch =</span> <span class="dv">19</span>),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>                  <span class="at">text      =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"加盟国"</span>, <span class="st">"非加盟国"</span>))), </span>
+<span id="cb2-11"><a href="#cb2-11"></a>       <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid figure-img" width="1800"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 2: {lattice}によるグラフ</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>1つの関数で全てを処理するので、関数が非常に長くなり、人間にとって読みやすいコードにはなりにくいのが短所です。しかし、{lattice}はBase Rでは出来ない、プロットのオブジェクトとしての保存ができます。Base Rは出来上がったプロットをオブジェクトとして保存することが出来ず、同じ図をもう一回出力するためには、改めてコードを書く必要があります。しかし、{lattice}はオブジェクトとして保存ができるため、いつでもリサイクルが可能です。他にも、{lattice}は条件付きプロットの作成において非常に強力です。しかし、これらの特徴は今は{ggplot2}も共有しているため、{lattice}独自の長所とは言いにくいです。</p>
+</section>
+<section id="ggplot2パッケージ" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot2パッケージ">{ggplot2}パッケージ</h3>
+<p>{ggplot2}はHadely Wickhamが大学院生の時に開発した可視化パッケージであり<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>、 <span class="citation" data-cites="Wilkinson:2005">Wilkinson (<a href="#ref-Wilkinson:2005" role="doc-biblioref">2005</a>)</span> の「グラフィックの文法 (<strong>g</strong>rammer of <strong>g</strong>raphics)」の思想をR上で具現化したものです。グラフィックの文法という思想は今は{ggplot2}以外にも<a href="https://plotly.com">Plotly</a>や<a href="https://www.tableau.com/">Tableau</a>などでも採用されています。</p>
+<p>グラフィックの文法は後ほど詳細に解説しますが、{ggplot2}による作図の特徴は「レイヤーを重ねる」ことです。グラフの様々な要素をそれぞれ1つの層 (layer)と捉え、これを重ねられていくことでグラフが出来上がる仕組みです。これはBase Rの書き方に似ています。たとえば、{ggplot2}を使って <a href="#fig-visual1-baser">図&nbsp;1</a> を作る場合、以下のようなコードになります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot_489ee8b7c80664bbc49993528c2a656f">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># ggplot2を用いた作図の例</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Country_df) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP, <span class="at">y =</span> HDI, <span class="at">color =</span> OECD)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>       <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid figure-img" width="1800"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3: {ggplot2}によるグラフ</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>このように{ggplot2}による作図コードはBase Rや{lattice}に比べ、読みやすいのが特徴です。また、書く手間も大きく省かれる場合が多く、結果として出力されるグラフも綺麗です（これは好みによりますが）。しかし、{ggplot2}にも限界はあり、代表的なものとして (1) 3次元グラフが作成でないこと、(2) 処理速度が遅い点があります。後者は多くの場合においてあまり気にならない程度ですが、3次元プロットが必要な場合は{lattice}や別途のパッケージを使う必要があります。しかし、社会科学において3次元プロットが使われる機会は少なく、2次元平面であっても3次元以上のデータを表現することも可能です。本書では{ggplot2}を用いた可視化方法のみについて解説していきます。</p>
+</section>
+</section>
+<section id="visual-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="visual-ggplot">グラフィックの文法</h2>
+<section id="グラフィックの文法" class="level3">
+<h3 class="anchored" data-anchor-id="グラフィックの文法">グラフィックの文法</h3>
+<p>本書では特別な事情がない限り、{ggplot2}による可視化のみを扱います。既に{ggplot2}のggが「グラフィックの文法 (<strong>g</strong>rammar of <strong>g</strong>raphics)」だと説明しましたが、この概念は <span class="citation" data-cites="Wilkinson:2005">Wilkinson (<a href="#ref-Wilkinson:2005" role="doc-biblioref">2005</a>)</span> によって提唱された比較的新しいものであり、{ggplot2}はHadley先生がグラフィックの文法に則った作図のプロセスをRで具現化したものです。</p>
+<p>グラフィックスの文法とは、グラフを構造化された方法で記述し、レイヤーを積み重ねることによってグラフを構築するフレームワークです。グラフは様々な要素で構成されています。横軸と縦軸、点、線、グラフ、凡例、図のタイトルなどがあります。横軸や縦軸は線の太さ、目盛りの間隔、数字の大きさなどに分割することも可能です。このように1つのグラフは数十、数百以上の要素の集合です。これら一つ一つの要素をレイヤーとして捉え、それを積み重ねることでグラフを作成します。これが簡単な{ggplot2}による作図のイメージですが、以下でもうちょっと目に見える形でこれを解説していきます。</p>
+</section>
+<section id="ggplot2のイメージ" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot2のイメージ">ggplot2のイメージ</h3>
+<p>それでは{ggplot2}によるグラフが出来上がる過程を見ていきます。例えば、以下のようなデータセット<code>df</code>があるとします。変数は年度を表す<code>Year</code>、鉄道事業者のタイプを表す<code>Company_Type1</code>、一日利用者数の平均値を表す<code>P</code>があります。例えば、2行目は2011年度におけるJRが管理する駅の一日平均利用者数が約7399名であることを意味します。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 28 × 3
+    Year Company_Type1     P
+   &lt;dbl&gt; &lt;fct&gt;         &lt;dbl&gt;
+ 1  2011 その他         4769
+ 2  2011 JR             7399
+ 3  2011 大手私鉄      19421
+ 4  2011 準大手私鉄     7683
+ 5  2012 その他         5014
+ 6  2012 JR             7289
+ 7  2012 大手私鉄      21286
+ 8  2012 準大手私鉄    10471
+ 9  2013 その他         5154
+10  2013 JR             7383
+# … with 18 more rows</code></pre>
+</div>
+</div>
+<p>このデータ<code>df</code>を使って <a href="#fig-visual1-ggplot-image-2">図&nbsp;4</a> のようなグラフを作成します。以下では作図のコードも載っていますが、詳しく理解しなくても結構です。理解しなくてもいいですが、必ずコードには目を通し、説明文との対応を自分で考えてください。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-2_2bc3ef17e81fe749977edda75b5049b9">
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>まずは、グラフに使用するデータを指定し、空のキャンバスを用意します。
+<ul>
+<li><code>ggplot(data = df)</code>の代わりに<code>ggplot(df)</code>、<code>df %&gt;% ggplot()</code>も可能</li>
+</ul></li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-3_d1a3d3ec0a3e66ad4293803b5d0117ed">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 5: 第1層: データとキャンバスの用意</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>折れ線グラフを作成します。折れ線グラフは点の位置を指定すると、勝手に点と点の間を線で繋いでぐれます。したがって、必要な情報は点の情報ですが、横軸 (X軸)は<code>Year</code>、縦軸 (Y軸)は<code>P</code>にした点を出力します。この点を<code>Company_Type1</code>ごとに色分けします。これで折れ線グラフが出来上がります。線の太さは1にします。</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-4_b8bc3c3fc1f613fc94e17d4eeeff259f">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>続いて、折れ線グラフに散布図を載せます。これは線が引かれていない折れ線グラフと同じです。したがって、横軸、縦軸、色分けの情報は同じです。しかし、点と線が重なると点がよく見えないこともあるので、点の大きさを3にし、形は枠線付きの点にします。点の中身は白塗りをします。つまり、<code>Company_Type1</code>によって変わるのは、点の枠線です。</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-5_964f7d738e2733e97edf60e75757c0e9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1),  <span class="co">#&lt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>)         <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>横軸と縦軸、そして凡例のタイトルを日本語に直します。日本語のレポート、論文なら図表も日本語にすべきです。横軸のラベルは<code>"年度"</code>、縦軸のラベルは<code>"平均利用者数 (人/日)"</code>にします。色の凡例タイトルは<code>"事業者区分"</code>にします。</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-6_9298366bea787539f0dea1f01f9538a0">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb8-4"><a href="#cb8-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 8: ラベルの修</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>横軸のスケールを修正します。横軸は連続 (continuous)変数です。今の目盛りは2012、2014、2016になっていますが、これを1年刻みにし、それぞれの目盛りのラベルも2011、2012、2013、…にします。</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-7_da7f75d433b6b7a8b016bbc42871dc04">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb9-4"><a href="#cb9-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 9: スケールの修正</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>グラフのテーマを{ggplot2}が基本的に提供しているminimalに変更し、フォントサイズを12に変更します。</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-8_68c59fbe98a8604c2aa7f42fb7f7b4d4">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb10-4"><a href="#cb10-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 10: 見た目の調整</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>これで図が出来上がりました。このように{ggplot2}では図の要素をレイヤーと捉えます。このレイヤーを生成する関数が<code>ggplot()</code>、<code>geom_line()</code>、<code>lab()</code>などであり、これらを<code>+</code>演算子を用いて重ねていきます。このイメージを図にすると <a href="#fig-visual1-ggplot-layer">図&nbsp;11</a> のように表現できます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-layer_368243b11ca82ccc40e6750d87ea7ba5">
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/Layer_Example.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 11: {ggplot2}の図が出来上がるまで (全体像)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>それでは、グラフは具体的にどのような要素で構成されているかを以下で解説します。</p>
+</section>
+</section>
+<section id="グラフィックの構成要素" class="level2">
+<h2 class="anchored" data-anchor-id="グラフィックの構成要素">グラフィックの構成要素</h2>
+<p>{ggplot2}におけるプロット (plot)は「データ + 幾何オブジェクト + 座標系」で構成されます。</p>
+<p>ここでいう<strong>データ</strong>は主にデータフレームまたはtibbleです。これは主に<code>ggplot()</code>関数の第一引数と指定するか、パイプで渡すのが一般的です。ただし、{ggplot2}で作図するためには、データを予め整然データに整形する必要があります。</p>
+<p><strong>幾何オブジェクト (geometry object)</strong>とは簡単に言うと図の種類です。散布図、折れ線グラフ、棒グラフ、ヒストグラムなど、{ggplot2}は様々なタイプの幾何オブジェクトを提供しており、ユーザー自作の幾何オブジェクトもRパッケージとして多く公開されています。幾何オブジェクトは関数の形で提供されており、<code>geom_</code>で始まるといった共通点があります。散布図は<code>geom_point()</code>、折れ線グラフは<code>geom_line()</code>のような関数を使います。</p>
+<p>この幾何オブジェクトに線や点、棒などを表示する際には、どの変数が横軸で、どの変数が縦軸かを明記する必要があります。また、変数によって点や線の色が変わったりする場合も、どの変数によって変わるかを明記します。これを <strong>マッピング (mapping)</strong>と呼びます。また、必要に応じて位置 (<code>position</code>)と統計量 (<code>stat</code>)を明記する必要がありますが、これは指定しなくてもとりあえず何らかの図は出力されます。</p>
+<p>最後に<strong>座標系 (coordinate system)</strong>は幾何オブジェクトが表示される空間の特徴を定義します。最も重要な特徴は横軸と縦軸の下限と上限です。または、空間を回転することなどもできます。</p>
+<p>{ggplot2}の図は以上の3つ要素を重ねることで出来ます（ <a href="#fig-visual1-ggplot-structure-1">図&nbsp;12</a> ）。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-structure-1_c1406b8e7486148c2de1f241ef2aa5b6">
+<div class="cell-output-display">
+<div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 12: {ggplot2}の構造の例</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>ただし、この中で座標系は適切だと判断される座標系に設定してくれるため、ユーザーが必ず指定すべきものはデータと幾何オブジェクトのみです。また、幾何オブジェクトはマッピングを含んでおり、これも必ず指定する必要があります。したがって、{ggplot2}で作図するための最小限のコードは以下のようになります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># ggplot2におけるプロットの基本形</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co"># データはggplotの第一引数と使う場合が多いため、「data =」は省略可能</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># マッピングは主に幾何オブジェクトの第一引数として使うため、「mapping =」は省略可能</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> データ名) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># パイプを使う場合</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>データ名 <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>注意すべき点は{ggplot2}においてレイヤーを重ねる際は<code>%&gt;%</code>でなく、<code>+</code>を使う点です。パイプ演算子は左側の結果を右に渡す意味を持ちますが、{ggplot2}はデータを渡すよりも、<strong>レイヤーを足していく</strong>イメージですから、<code>+</code>を使います。</p>
+<p>以下は{ggplot2}の必須要素であるデータと幾何オブジェクト、マッピングなどについて解説し、続いて図は見栄を調整するための関数群を紹介します。</p>
+<section id="データ" class="level3">
+<h3 class="anchored" data-anchor-id="データ">データ</h3>
+<p>作図のためにはデータはなくてはなりません。データはdata.frmae型、またはtibble型であり、一般的には<code>ggplot()</code>関数の第一引数として指定します。例えば、<code>ggplot(data = データ名)</code>のように書いてもいいですし、<code>data =</code>は省略して、<code>ggplot(データ名)</code>でも構いません。</p>
+<p>データを指定するもう一つの方法はパイプ演算子を使うことです。この場合、<code>データ名 %&gt;% ggplot()</code>のように書きます。書く手間はほぼ同じですが、<code>dplyr</code>や<code>tidyr</code>などでデータを加工し、それをオブジェクトとして保存せずにすぐ作図に使う場合は便利です。</p>
+<p>実際、使う機会は少ないですが、1つのグラフに複数のデータを使う場合もあります。{ggplot2}は複数のデータにも対応していますが、とりあえずメインとなるデータを<code>ggplot()</code>に指定し、追加的に必要なデータは今度説明する幾何オブジェクト関数内で指定します。この方法については適宜必要に応じて説明します。</p>
+</section>
+<section id="幾何オブジェクト" class="level3">
+<h3 class="anchored" data-anchor-id="幾何オブジェクト">幾何オブジェクト</h3>
+<p>しかし、データを指定しただけで図が出来上がるわけではありません。指定したデータを使ってどのような図を作るかも指定する必要があります。この図のタイプが幾何オブジェクト (geometry object)であり、<code>geom_*()</code>関数で表記します。たとえば、散布図を作る場合、</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>データ名 <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>のように指定します。以上のコードは「あるデータを使って (<code>データ名 %&gt;%</code>)、キャンバスを用意し (<code>ggplot() +</code>)、散布図を作成する (<code>geom_point()</code>)。」と読むことが出来ます。</p>
+<p>また、この幾何オブジェクトは重ねることも可能です。よく見る例としては、散布図の上に回帰曲線 (<code>geom_smooth()</code>)や折れ線グラフ (<code>geom_line()</code>)を重ねたものであり、これらの幾何オブジェクトは<code>+</code>で繋ぐことが可能です。</p>
+<p>{ggplot2}が提供する幾何オブジェクト関数は散布図だけでなく、棒グラフ (<code>geom_bar()</code>)、ヒストグラム (<code>geom_histogram()</code>)、折れ線グラフ (<code>geom_line()</code>)、ヒートマップ (<code>geom_tile()</code>)など、データ分析の場面で使われるほとんどの種類が含まれています。他にもユーザーが作成した幾何オブジェクトもパッケージとして多く公開されています（たとえば、非巡回有向グラフ作成のための<a href="https://cran.r-project.org/web/packages/ggdag/index.html">{ggdag}</a>、ネットワークの可視化のための<a href="https://cran.r-project.org/web/packages/ggnetwork/index.html">{ggnetwork}</a>など）。</p>
+</section>
+<section id="マッピング" class="level3">
+<h3 class="anchored" data-anchor-id="マッピング">マッピング</h3>
+<p>どのようなデータを使って、どのような図を作るかを指定した後は、変数を指定します。たとえば、散布図の場合、各点の横軸と縦軸における位置情報が必要です。ヒストグラムならヒストグラムに必要な変数を指定する必要があります。このようにプロット上に出力されるデータの具体的な在り方を指定するのをマッピング (mapping)と呼びます。</p>
+<p>マッピングは幾何オブジェクト関数内で行います。具体的には<code>geom_*()</code>内に<code>mapping = aes(マッピング)</code>で指定します。<code>aes()</code>も関数の一種です。散布図なら<code>geom_point(mapping = aes(x = X軸の変数, y = Y軸の変数))</code>です。ヒストグラムなら横軸のみを指定すればいいので<code>geom_histogram(mapping = aes(x = 変数名))</code>で十分です。マッピングは一般的には<code>geom_*()</code>の第一引数として渡しますが、この場合、<code>mapping =</code>は省略可能です。</p>
+<p>マッピングに必要な変数、つまり<code>aes()</code>に必要な引数は幾何オブジェクトによって異なります。散布図や折れ線グラフならX軸とY軸の情報が必須であるため、2つ必要です (<code>x</code>と<code>y</code>)。ヒストグラムは連続変数の度数分布表を自動的に作成してからグラフが作られるから1つが必要です (<code>x</code>)。また、等高線図の場合、高さの情報も必要なので3つの変数が必要です (<code>x</code>と<code>y</code>、<code>z</code>)。これらの引数は必ず指定する必要があります。</p>
+<p>以上の引数に加え、追加のマッピング情報を入れることも可能です。たとえば、鉄道事業者ごとの平均利用者数を時系列で示した最初の例を考えてみましょう。これは折れ線グラフですので、<code>mapping = aes(x = 年度, y = 利用者数)</code>までは必須です。しかし、この図にはもう一つの情報がありますね。それは事業者のタイプです。事業者のタイプごとに線の色を変えたい場合は、<code>aes()</code>内に<code>color = 事業者のタイプ</code>を、線の種類を変えたい場合は、<code>linetype = 事業者のタイプ</code>のように引数を追加します。こうすると2次元のプロットに3次元の情報 (年度、利用者数、事業者タイプ)を乗せることが可能です。むろん、4次元以上にすることも可能です。たとえば、地域ごとに異なる色を、事業者タイプごとに異なる線のタイプを指定する場合は、<code>mapping = aes(x = 年度, y = 利用者数, color = 地域, linetype = 事業者のタイプ)</code>のように指定します。<code>color</code>や<code>linetype</code>以外にも大きさ (<code>size</code>)、透明度 (<code>alpha</code>)、点のタイプ (<code>shape</code>)、面の色 (<code>fill</code>)などを指定することができます。</p>
+<p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1">表&nbsp;2</a> です。</p>
+<div id="tbl-visual1-mapping-1" class="anchored">
+<table class="table">
+<caption>表 2: <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピング情報</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">幾何オブジェクト</th>
+<th style="text-align: left;">マッピング要素</th>
+<th style="text-align: left;">変数</th>
+<th style="text-align: left;">引数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>geom_line</code></td>
+<td style="text-align: left;">X軸</td>
+<td style="text-align: left;"><code>Year</code></td>
+<td style="text-align: left;"><code>x</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">同上</td>
+<td style="text-align: left;">Y軸</td>
+<td style="text-align: left;"><code>P</code></td>
+<td style="text-align: left;"><code>y</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">同上</td>
+<td style="text-align: left;">線の色</td>
+<td style="text-align: left;"><code>Company_Type1</code></td>
+<td style="text-align: left;"><code>color</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>geom_point</code></td>
+<td style="text-align: left;">X軸</td>
+<td style="text-align: left;"><code>Year</code></td>
+<td style="text-align: left;"><code>x</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">同上</td>
+<td style="text-align: left;">Y軸</td>
+<td style="text-align: left;"><code>P</code></td>
+<td style="text-align: left;"><code>y</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">同上</td>
+<td style="text-align: left;">枠線の色</td>
+<td style="text-align: left;"><code>Company_Type1</code></td>
+<td style="text-align: left;"><code>color</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>先ほどマッピング引数は幾何オブジェクト関数内で指定すると言いましたが、実は<code>ggplot()</code>内に入れ、<code>geom_*()</code>内では省略することも可能です。幾何オブジェクトが1つのみならどっちでも問題ありません。しかし、幾何オブジェクトが2つ以上の場合は注意が必要です。全ての幾何オブジェクトがマッピングを共有する場合は<code>ggplot()</code>の方が書く手間が省きます。たとえば、<a href="#tbl-visual1-mapping-1">表&nbsp;2</a> を見ると、<code>geom_line()</code>と<code>geom_point()</code>は<code>x</code>、<code>y</code>、<code>color</code>引数の値が同じですから、<code>ggplot()</code>内に<code>aes()</code>を入れることも可能です。しかし、幾何オブジェクトがマッピングを共有しない場合は幾何オブジェクト関数内に別途指定する必要があります。あるいは、共有するところだけ、<code>ggplot()</code>に書いて、共有しない部分だけ幾何オブジェクトで指定することも可能です。したがって、上の図は以下のコードでも作成することができます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-2_f55f144f6c0e8fdbe32c310f64cf5386">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># geom_line()とgeom_point()はマッピング情報を共有しているため、</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># ggplot()内に指定</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="マッピング-その他" class="level3">
+<h3 class="anchored" data-anchor-id="マッピング-その他">マッピング: その他</h3>
+<p>以上のことさえ覚えれば、とりあえず図は作れます。最後に、必須要素ではありませんが、幾何オブジェクトに使う引数について説明します。先ほど説明しました<code>color</code>や<code>linetype</code>、<code>size</code>などはマッピングの情報として使うことも可能ですが、<code>aes()</code>の外側に置くことも可能です。しかし、その挙動はかなり異なります。<code>color</code>が<code>aes()</code>の外側にある場合は、幾何オブジェクトの全要素に対して反映されます。</p>
+<p>たとえば、横軸が「ゲームのプレイ時間」、縦軸が「身長」の散布図を作成しるとします ( <a href="#fig-visual1-mapping-4">図&nbsp;13</a> )。ここで<code>color</code>引数を追加しますが、まずは<code>aes()</code>の外側に入れます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 例1: 全ての点の色が赤になる</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長),</span>
+<span id="cb14-5"><a href="#cb14-5"></a>             <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-4_4ea0044edac0ab11c29d02e17012e1c4">
+<div class="cell-output-display">
+<div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>ここで注目する点は</p>
+<ol type="1">
+<li>散布図におけるすべての点の色が<code>color</code>で指定した色 (<code>"red"</code> = 赤)に変更された点</li>
+<li><code>color</code>の引数は変数名でなく、具体的な色を指定する点</li>
+</ol>
+<p>以上の2点です。<code>aes()</code>の内側に<code>color</code>を指定する場合 ( <a href="#fig-visual1-mapping-6">図&nbsp;14</a> ) は、以下のように変数名を指定します。たとえば、性別ごとに異なる色を付けるとしたら、</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 例2: 性別ごとに点の色が変わる</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-6_a68391c64a17720a2d632bb2b1b254a0">
+<div class="cell-output-display">
+<div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>以上のように書きます。<code>aes()</code>の内部はマッピングの情報が含まれています。言い換えると、<strong><code>aes()</code>の中はある変数がグラフ上においてどのような役割を果たしているかを明記するところ</strong>です。2つ目の例では性別という変数が色分けをする役割を果たすため、<code>aes()</code>の内側に入ります。一方、1つ目の例では色分けが行われておりません。</p>
+</section>
+<section id="座標系" class="level3">
+<h3 class="anchored" data-anchor-id="座標系">座標系</h3>
+<p>座標系はデータが点や線、面などで出力される空間を意味し、<code>coord_*()</code>関数群を用いて操作します。</p>
+<p>座標系のズームイン (zoom-in) やズームアウト (zoom-out) を行う<code>coord_cartesian()</code>、横軸と縦軸を交換する<code>coord_flip()</code>、横軸と縦軸の比率を固定する<code>coord_fixed()</code>がよく使われます。座標系の説明は次章以降で詳しく解説しますが、ここでは座標系のズームインを見てみましょう。以下の <a href="#fig-visual1-coord-1">図&nbsp;15</a> は各国のCOVID19の感染者数を時系列で示したものです。これを見るとアメリカ、ブラジル、インドは大変だなーくらいしかわかりません。感染者数が比較的に少ない国のデータは線としては存在しますが、なかなか区別ができません。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-1_c0e90f17b6921241ac1ccbab328ad943">
+<div class="cell-output-display">
+<div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 15: ズームイン前</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>ここで座標系をズームインすると、一部の情報は失われますが、ズームインされた箇所はより詳細にグラフを観察できます。ズームインと言っても難しいものではありません。単に、軸の上限、下限を調整するだけです。たとえば、縦軸の上限を10万人に変更したのが <a href="#fig-visual1-coord-2">図&nbsp;16</a> です。アメリカなど感染者数が10万人を超える国家の時系列情報の一部は失われましたが、日中韓などのデータはより見やすくなったかと思います<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-2_a5eb2b303f30f4ebf144ba22deb62fdf">
+<div class="cell-output-display">
+<div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 16: ズームイン後</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>また、同じ棒グラフや散布図、折れ線グラフでも座標系を変えることによって図の見方が劇的に変わることもあります。我々にとって最も馴染みのある座標系はデカルト座標系 (直交座標系)です。このデカルト座標系に切片0、傾き1の直線を引きます。そして同じ図に対して座標系のみを極座標系 (polar coordinates system)に変更します。この2つを比較したのが <a href="#fig-visual1-coord-4">図&nbsp;17</a> です。この2つの図は同じデータ、同じ変数、同じ幾何オブジェクトで構成されています。異なるのは座標系ですが、見方が劇的に変わります。</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 17: 直交座標系と極座標系の比較 (1)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>こんな座標系を実際に使う機会は多くないかも知れませんが、極座標系は割と身近なところで見ることができます。それは積み上げ棒グラフと円グラフの関係です。<a href="#fig-visual1-coord-6">図&nbsp;18</a> はデカルト座標系上の積み上げ棒グラフを極座標系に変換したものです。</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 18: 直交座標系と極座標系の比較 (2)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>他にも軸を対数スケールなどに変換する <code>coord_trans()</code> 、地図の出力に使われる <code>coord_map()</code> や <code>coord_sf()</code> などがあり、適宜紹介していきます。</p>
+</section>
+<section id="スケール" class="level3">
+<h3 class="anchored" data-anchor-id="スケール">スケール</h3>
+<p>既に説明しました通り、{ggplot2}は様々な幾何オブジェクトがあり、これによってグラフ上におけるデータの示し方が変わります。例えば、散布図だとデータは点として表現され、折れ線グラフだと線、棒グラフやヒストグラムだと面で表現されます。これらの点、線、面などが持つ情報がスケール (scale)です。点だと縦軸上の位置、横軸上の位置が必ず含まれ、他にも点の形、点の大きさ、点の色、枠線の色、透明度などの情報を含むことが可能です。線も線が折れるポイントの横軸・縦軸上の位置、線の太さ、線の色などがあります。</p>
+<p>この形、色、大きさ、太さなどを調整するためには<code>scale_*_*()</code>関数群を使います。例えば、<a href="#fig-visual1-mapping-4">図&nbsp;13</a> の場合、点は横軸上の位置、縦軸上の位置、色の3つのスケールを持っています。横軸と縦軸は連続変数 (時間と身長)、色は名目変数 (性別)です。ここで横軸のスケールを調整するためには<code>scale_x_continuous()</code>レイヤーを追加します。縦軸も同様に<code>scale_y_continuous()</code>を使います。ここの<code>x</code>と<code>y</code>はスケール、<code>continuous</code>は連続変数であることを意味します。それでは、色を調整するためにはどうすれば良いでしょうか。それは<code>scale_color_manual()</code>です。<code>color</code>は色を、<code>manual</code>は手動調整を意味しますが、主に性別や都道府県のような名目変数のスケール調整に使います。</p>
+<p>これらの<code>scale_*_*()</code>関数群は点、線、面が持つ位置情報や性別を変更することではなく、その見せ方を変更するだけです。<a href="#fig-visual1-mapping-6">図&nbsp;14</a> の縦軸の目盛りは「150、160、170、180」となっていますが、<code>scale_y_continuous()</code>を使うとこの目盛りが変わります。点の位置が変わることはありません。たとえば、以下のコードは<code>scale_y_continuous()</code>を使って縦軸の目盛りを5cm刻みに変更するためのコードであり、<a href="#fig-visual1-scale-2">図&nbsp;19</a> はその結果です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># scale_y_continuous()の例</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
+<span id="cb16-6"><a href="#cb16-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-2_f4572449931facea5f4a7f54eaa3d895">
+<div class="cell-output-display">
+<div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>また、性別ごとの色を変更する際は<code>scale_color_manual()</code>を使います（ <a href="#fig-visual1-scale-4">図&nbsp;20</a> ）。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># scale_color_manual()の例</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
+<span id="cb17-6"><a href="#cb17-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>)) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"男性"</span> <span class="ot">=</span> <span class="st">"#ff9900"</span>, <span class="st">"女性"</span> <span class="ot">=</span> <span class="st">"#339900"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-4_29f84363b5d7d49af9728f91acae9a79">
+<div class="cell-output-display">
+<div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>scale_*_*()</code>関数群は以上のように、<code>scale_スケールのタイプ_変数のタイプ()</code>です。つまり、<code>scale_x_date()</code>、<code>scale_y_discrete()</code>や<code>scale_color_contiuous()</code>など様々な組み合わせが可能であり、{ggplot2}は様々なタイプのスケールと変数のための関数群を提供しています。むろん、<a href="https://ggplot2-book.org/extensions.html">ユーザーから独自のスケール関数を作る</a>ことも可能であり、パッケージとして公開することも可能です。</p>
+</section>
+<section id="ファセット" class="level3">
+<h3 class="anchored" data-anchor-id="ファセット">ファセット</h3>
+<p>ファセット (facet)は日本語では「面」、「切子面」などで訳されますが、誤解を招く可能性があるため、本書ではそのままファセットと訳します。ファセットとはデータの部分集合 (subset)を対象にしたグラフを意味します。</p>
+<p>たとえば、フリーダムハウスでは毎年、各国を「自由」、「部分的に自由」、「不自由」と格付けをし、結果を公表しています。世界に自由な国、部分的に自由な国、不自由な国が何カ国あるかを大陸ごとに示したいとします。カテゴリごとの個数を示すには棒グラフが効果的であり、 <a href="#fig-visual1-facet-1">図&nbsp;21</a> のように示すことができます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-1_465242e959f17cecce96798316f8e84d">
+<div class="cell-output-display">
+<div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 21: ファセットを分けないグラフの例</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>このグラフを見ると各大陸に自由な国がどれほどあるかが分かりますが、人によっては読みにくいかも知れません。できれば大陸ごとに分けたグラフの方が見やすいでしょう。そのためにはデータを特定の大陸に絞って、そのデータを用いた棒グラフを作り、最終的には出来上がったグラフたちを結合する必要があります。</p>
+<p>しかし、{ggplot2}のファセットを指定するとそのような手間が省けます。これはデータを大陸ごとの部分集合に分割し、1つのプロット上に小さい複数のプロットを出力します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-2_62e26ae8794a4274d09f9f5ab3280a18">
+<div class="cell-output-display">
+<div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 22: 大陸ごとにファセットを分けたグラフの例</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>ファセットを指定するには <code>facet_*()</code> 関数群を使います。具体的には <code>facet_wrap()</code> と <code>facet_grid()</code> がありますが、今回のように1つの変数 (ここでは「大陸」)でファセットを分割する場合は主に <code>facet_wrap()</code> を、2つの変数で分割する場合は <code>facet_grid()</code> を使います。</p>
+<p>ここまでが{ggplot2}の入門の入門の入門です。韓国旅行に例えると、やっと仁川国際空港の入国審査を通ったところです。<a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a>を見ると、主に{ggplot2}で作成された綺麗な図がいっぱいあります。しかし、ここまで勉強してきたものだけでは、このような図を作るのは難しいです。そもそもサンプルコードを見ても理解するのが難しいかも知れません。次章では本格的な{ggplot2}の使い方を解説します。到達目標は(1)「よく使う」グラフが作成できること、そして(2)<a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a>のサンプルコードを見て自分で真似できるようになることです。</p>
+</section>
+</section>
+<section id="visual-principal" class="level2">
+<h2 class="anchored" data-anchor-id="visual-principal">良いグラフとは</h2>
+<p>本格的な作図に入る前に、「優れたグラフとは何か」について考えてみましょう。しかし、優れたグラフの条件を数ページでまとめるのは難しいです。筆者らがいつか暇になったら、これに関しても詳細に1つの章として解説しますが、ここでは参考になる資料をいくつかリストアップします。</p>
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/0470944889">Yau, Nathan. 2011. <em>Visualize This: The FlowingData Guide to Design, Visualization, and Statistics.</em> Wiley</a></li>
+<li><a href="https://www.amazon.co.jp/dp/0321934075">Cairo, Alberto. 2016. <em>The Truthful Art: Data, Charts, and Maps for Communication.</em> New Riders.</a></li>
+<li><a href="https://www.amazon.co.jp/dp/0691181624">Healy, Kieran. 2018. <em>Data Visualization: A Practical Introduction.</em> New Riders. Princeton University Press.</a></li>
+<li><a href="https://www.amazon.co.jp/dp/0691181624">藤俊久仁・渡部良一. 2019. 『データビジュアライゼーションの教科書』秀和システム.</a> (第5章以降)</li>
+<li><a href="https://www.amazon.co.jp/dp/4815604053">永田ゆかり. 2020. 『データ視覚化のデザイン』SBクリエイティブ.</a></li>
+<li><a href="https://bbc.github.io/rcookbook/">BBC Visual and Data Journalism cookbook for R graphics</a></li>
+</ul>
+<section id="データインク比" class="level3">
+<h3 class="anchored" data-anchor-id="データインク比">データ・インク比</h3>
+<p>可視化が本格的に注目を浴びるようになったのはEdward R. Tufteの1983年著作、<em>The Visual Display of Quantitative Information</em>からですが、この本のメッセージは単純で、「<em>データ・インク比 (Data-ink ratio) を最大化せよ</em>」の一言に要約できます。データ・インク比は以下のように定義されます <span class="citation" data-cites="Tufte:2001">(<a href="#ref-Tufte:2001" role="doc-biblioref">Tufte 2001</a>)</span>。</p>
+<p><span class="math display">\[\begin{align}
+\text{Data-ink ratio} = &amp; \frac{\text{data-ink}}{\text{total ink used to print the graphic}} \\
+= &amp; \text{proportion of a graphic's ink devoted to the} \\
+  &amp; \text{non-redundant display of data-information} \\
+= &amp; \text{1.0 - proportion of a graphic that can be earase} \\
+  &amp; \text{without loss of data-information.}
+\end{align}\]</span></p>
+<p>データ・インク比は「データ・インク」を「グラフの出力に使用されたインクの総量」で割ったものです。<strong>データ・インク</strong>とはデータの情報を含むインクの量を意味します。これを言い換えると、グラフにおいて情報損失なしに除去できるグラフの要素が占める割合を1から引いたものです。</p>
+<p>ここで1つの例を紹介します。たとえば、G20加盟国におけるCOVID19の累積感染者数を時系列で示すとします。そこで最近、インドにおいて感染者数が急増していることを示したいとします。まず、 <a href="#fig-visual1-dataink-1">図&nbsp;23</a> から見ましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-1_41bfe07e40bb4cc33305f93fed7491ee">
+<div class="cell-output-display">
+<div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 23: データ・インク比の例 (改善前)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>そもそもどの線がインドを表しているのかが分かりにくいです。カテゴリが増えると使える色に制約が生じてしまうからです。実際、図からフランス、ドイツ、インド、インドネシアを区別するのは非常に難しいでしょう。現実に色分けが出来る天才的な色覚を持つ読者ならこちらの方が情報も豊富であり、いいかも知れません。しかし、インドにおける感染者数の急増を示すには無駄な情報が多すぎます。そこでインドを除く国の色をグレーにまとめたものが <a href="#fig-visual1-dataink-2">図&nbsp;24</a> です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-2_55b0e9de2bce6a733104364110b8c53d">
+<div class="cell-output-display">
+<div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid figure-img" width="2400"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 24: データ・インク比の例 (改善後)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>こちらの方は多くの情報が失われています。アメリカや日本、韓国がどの線に該当するかが分かりません。しかし、図で示したいメッセージとは無関係でしょう。ここからもう一歩踏み込んで、「ならばインド以外の線を消せばいいじゃん」と思う方もいるかも知れません。しかし、インドの線のみ残している場合、比較対象がなくなるため、急増していることを示しにくくなります。この場合、示したい情報の損失が生じるため、インド以外の国の線はデータ・インクに含まれます。</p>
+<p>しかし、このデータ・インク比に基づく可視化は常に正しいとは言えません。そこでもう一つの例を紹介します。 <a href="#fig-visual1-dataink-3">図&nbsp;25</a> の左は <span class="citation" data-cites="Kuznicki_McCutcheon:1979">Kuznicki and McCutcheon (<a href="#ref-Kuznicki_McCutcheon:1979" role="doc-biblioref">1979</a>)</span> の論文に掲載された図であり、右はTufteによる改善案です。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 25: データ・インク比改善の例</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>確かに棒グラフは面を使用しており、高さを示すには線のみで十分かも知れません。また、エラー・バーも線の位置を若干ずらすことによって表現できます。それでは、読者の皆さんから見て、どのグラフが見やすいと思いますか。これについて興味深い研究結果があります。<span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> は87人の学部生を対象に3つのグループに分けました。そして、学生たちは <a href="#fig-visual1-dataink-4">図&nbsp;26</a> を「美しさ」、「明瞭さ」、「簡潔さ」の3つの面で評価し、最後にどの図が最も好きかを尋ねました。</p>
+<ul>
+<li><strong>グループ1:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のAとDを評価</li>
+<li><strong>グループ2:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のAとDを評価。
+<ul>
+<li>ただし、事前にTufteスタイル (<a href="#fig-visual1-dataink-4">図&nbsp;26</a> のD)の読み方について学習させる。</li>
+</ul></li>
+<li><strong>グループ3:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のA、B、C、Dを評価</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>皆さんもある程度は結果が予想できたかと思いますが、いずれのグループにおいても、Tufteが推奨する <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のDが「美しさ」、「明瞭さ」、「簡潔さ」のすべての点において最下位でした。また、どの図が最も好きかに対しても <a href="#tbl-visual1-dataink-5">表&nbsp;3</a> のような結果が得られました。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="tbl-visual1-dataink-5" class="anchored">
+
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表 3:  Inbar, Tractinsky, and Meyer (2007)の実験結果 </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;text-align: center;"> Group </th>
+   <th style="text-align:right;text-align: center;"> Graph A </th>
+   <th style="text-align:right;text-align: center;"> Graph B </th>
+   <th style="text-align:right;text-align: center;"> Graph C </th>
+   <th style="text-align:right;text-align: center;"> Graph D </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Group 1 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Group 2 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Group 3 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><a href="#fig-visual1-dataink-4">図&nbsp;26</a> のDはデータ・インク比の観点から見れば最も優れた図ですが、それが分かりやすさを意味するわけではありません。今は、人々の認知の観点からも図を評価するようになり、近年の可視化の教科書ではこれらに関しても詳しく触れているものが多いです。<span class="citation" data-cites="Tufte:2001">Tufte (<a href="#ref-Tufte:2001" role="doc-biblioref">2001</a>)</span> の本は可視化を勉強する人にとって必読の書かも知れませんが、これだけでは十分ではなく、近年の教科書も合わせて読むことをおすすめします。</p>
+</section>
+<section id="次元プロット" class="level3">
+<h3 class="anchored" data-anchor-id="次元プロット">3次元プロット</h3>
+<p>これまで見てきた全ての図は縦軸と横軸しか持たない2次元プロットです。しかし、実際の生活において3次元プロットを見にすることは珍しくないでしょう。3次元プロットの場合、縦軸と横軸以外に、高さ (深さ)といったもう一つの軸が含まれます。しかし、多くの場合、このもう一つの軸はグラフにおいて不要な場合が多いです。たとえば、 <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> をを見てみましょう<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。これはCOVID19による定額給付金の給付済み金額を時系列で並べたものです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-1_206ed4e18ff2078e6109f7765ba30ede">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/garbage_graph.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 27: 3次元プロットの例 (1)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>この図の目的は筆者にとってはよく分かりませんが、少なくとも給付金が順調（？）に配られているということですかね。その傾向を見るにはこの図は大きな問題はありません。しかし、細かい数値を見ようとすると誤解が生じる可能性があります。たとえば、7月22日の給付済み額は12.12兆円です。しかし、 <a href="#fig-visual1-3dplot-2">図&nbsp;28</a> を見ると、7月22日の棒は12兆円に達しておりません。なぜでしょうか。</p>
+<p>これは棒と壁（？）との間隔が理由です。 <a href="#fig-visual1-3dplot-2">図&nbsp;28</a> の右下にある青い円を見ればお分かりかと思いますが、棒が浮いています。この棒を壁（？）側に密着すると12の線を超えると考えられますが、このままだと12兆円に達していないのに12兆円超えてると、何かの入力ミスじゃないかと考えさせるかも知れません。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-2_257cf7e921cdc9def7131b58b217577b">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 28: 3次元プロットの罠</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>この図において3D要素の必要性は0と言えます。2次元の棒グラフ ( <a href="#fig-visual1-3dplot-3">図&nbsp;29</a> )、または折れ線グラフ ( <a href="#fig-visual1-3dplot-4">図&nbsp;30</a> )の方がデータ・インク比の観点からも、分かりやすさからも優れていると言えるでしょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-3_ba056249d08fe97099d6080b4191dbbe">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 29: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-4_e82fec424114eba09919b12a42e183fe">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 30: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>ただ、総務省の図はまだマシかも知れません。世の中には誤解を招かすために作成された3次元プロットもあります。以下の図は早稲田アカデミーが作成した早慶高の合格者数を年度ごとに示した図です。2001年は754人で2012年は1494人です。比較対象がないので本当に12年連続全国No.1かどうかは判断できませんが、2倍近く増加したことは分かります。ただし、棒グラフの高さを見ると、2倍どころか3倍程度に見えます。他にも一時期、合格者が減少した時期 (2002、2003年)があるにもかかわらず、あまり目立ちません。これには2つの原因があります。それは(1)多分、ベースラインが0人ではない、(2) 遠近法により遠いものは小さく見えることです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-5_40f79b1baa48ba03b42d89e3a60b2862">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 31: 3次元プロットの例 (2)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>これを2次元棒グラフに直してものが <a href="#fig-visual1-3dplot-6">図&nbsp;32</a> です。こちらの方が合格者をより客観的に確認することができるでしょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-6_208af8a8dd78f14d54d531a2431d7dd1">
+<div class="cell-output-display">
+<div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 32: <a href="#fig-visual1-3dplot-5">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>むろん、3次元プロットそのものが悪いわけではありません。むしろ、3次元の方が解釈しやすい、見やすいケースもあるでしょう。それには共通点があり、深さというもう一つの軸も何らかの情報があるという点です。一方、ここでお見せしました2つの例の場合、深さは何の情報も持ちません。つまり、データ・インク比の観点から見れば望ましくない図です。</p>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Inbar_et_al:2007" class="csl-entry" role="doc-biblioentry">
+Inbar, Ohad, Noam Tractinsky, and Joachim Meyer. 2007. <span>“Minimalism in Information Visualization: Attitudes Towards Maximizing the Data-Ink Ratio.”</span> In <em>ECCE ’07: Proceedings of the 14th European Conference on Cognitive Ergonomics: Invent! Explore!</em>, 185–88.
+</div>
+<div id="ref-Kuznicki_McCutcheon:1979" class="csl-entry" role="doc-biblioentry">
+Kuznicki, James T., and N. Bruce McCutcheon. 1979. <span>“Cross-Enhancement of the Sour Taste on Single Human Taste Papillae.”</span> <em>Journal of Experimental Psychology: General</em> 108: 68–89.
+</div>
+<div id="ref-Tufte:2001" class="csl-entry" role="doc-biblioentry">
+Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information (2nd Ed.)</em>. Graphics Press.
+</div>
+<div id="ref-Wilkinson:2005" class="csl-entry" role="doc-biblioentry">
+Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. Springer.
+</div>
+</div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>厳密に言えば、大学院生の時代に開発したパッケージは{ggplot2}ではなく、{ggplot}です。このパッケージもグラフィックの文法の思想に基づいた可視化パッケージではありますが、今の{ggplot2}とは別物に近いパッケージです。このパッケージは2008年10月、バージョン0.4.2を以ってCRANから削除されました。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>実は <a href="#fig-visual1-coord-2">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://kyufukin.soumu.go.jp/ja-JP/transition/">総務省の定額給付金特設ホームページ</a>から取得（アクセス：2020年7月28日）<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

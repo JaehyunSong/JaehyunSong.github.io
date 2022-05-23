@@ -1,0 +1,29 @@
+---
+title: "Software / Packages / Scripts"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+## R Packages
+
+* BalanceR <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/BalanceR)</span>
+   * 実験データの共変量チェック; A balance check for experimental data using standaradized biases
+* SimpleConjoint <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint)</span>
+   * サーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）
+* PRcalc <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc)</span>
+   * 比例代表計算機; Proportional Representation Calculator
+* woRdle <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/woRdle)</span>
+   * Rパッケージ名で遊ぶ; WoRdle: Enjoying Wordle with R package names.
+
+## Web Application
+
+* PRclac for Web <span class="jay_btn">[ShinyApps](https://jaysong.shinyapps.io/prcalc4web/) [GitHub](https://github.com/JaehyunSong/PRcalc4Web)</span>
+
+## Scripts
+
+#### For Qualtrics
+
+* [リスト実験をする時に項目をランダマイズするスクリプト](scripts/list_randomizer.qmd)
+* 画像URLをランダムに取得するスクリプト<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/RIP)</span>
+* SimpleConjoint.js <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
+   * サーバーなしでコンジョイント実験を行う（要Qualtrics）

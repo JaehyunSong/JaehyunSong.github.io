@@ -1,0 +1,58 @@
+---
+title: "Notes"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+### 道具箱
+
+* [私の道具箱](toolbox/toolbox.qmd)
+* [因果推論の道具箱](toolbox/ci_materials.qmd)
+* [無料で読めるR教材](toolbox/free_r_book.qmd)
+
+### 社会調査
+
+* [Qualtricsによるコンジョイント分析(Conjoint Analysis)の設問票作成方法](qualtrics/cjoint_sdt.qmd)
+* [Conjoint SDTの用いる際、一部の属性のみを固定する方法](qualtrics/cjoint_fix_attr.qmd)
+
+### 統計学
+
+* [p値に関するアメリカ統計学会の声明](stats/asa_p_value.qmd)
+<!-- * 回帰分析 -->
+* 分類
+   * [ロジスティック回帰による分類と可視化・評価](stats/logit_classification.qmd)
+   * k近傍法による分類と可視化・評価 <span class="jay_btn">[RPubs](http://rpubs.com/tintstyle/classification2)</span>
+<!-- * テキスト分析 -->
+<!-- * AICとBIC -->
+
+### シミュレーション
+
+* [一致性・不偏性・効率性](simulation/consistency.qmd)
+* ハミルトニアン・モンテカルロ・シミュレーション(Hamiltonian Monte Carlo Simulation; HMC)のRコード <span class="jay_btn">[RPubs](http://rpubs.com/tintstyle/HMC)</span>
+* [中心極限定理](simulation/clt.qmd) (Central Limit Theorem)
+* [モンティ・ホール問題](simulation/mhp.qmd) (Monty Hall Problem)
+* [大数の法則](simulation/llm.qmd) (Law of Large Number)
+* [黒ひげ危機一発](simulation/kurohige.qmd) (Pop-up Pirate)
+
+<!--
+### 教科書・学習書など
+
+#### 論文作成術
+
+* 全般
+* LaTeX
+* LaTeXのすゝめ
+
+#### Methodology
+
+* 数学
+* 統計学
+* 計量経済学
+* Agent-Based Modeling
+
+#### Statistical Software / Programming
+
+* R
+* Stata
+* SPSS
+-->

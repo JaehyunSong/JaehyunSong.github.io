@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- JASP入門: 記述統計</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">JASP入門: 記述統計</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<ul>
+<li>ここでは記述統計の出し方を実習します。ここでは以下の項目について実習します。
+<ul>
+<li>名目変数・順序変数
+<ul>
+<li>度数分布表</li>
+</ul></li>
+<li>連続変数
+<ul>
+<li>平均値、中央値、分散、標準偏差、四分位数</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="Figs/JASP04_01.png" class="img-fluid"></p>
+<ul>
+<li>分析メニューの「Descriptives」をクリックし、「Descriptive Statistics」を選択します。</li>
+</ul>
+<p><img src="Figs/JASP04_02.png" class="img-fluid"></p>
+<ul>
+<li>記述統計を出すためにはまず、変数選択領域で記述統計を出す変数を選択します。つづいて、どのような統計量を出すかを指定し、必要によっては記述統計をグラフで表現します。また、名目変数や順序変数の場合は、度数分布表を作成することも可能です。</li>
+<li>ここでは可視化を除いて説明します。記述統計の可視化については今後の講義で説明します。</li>
+</ul>
+<hr>
+<section id="名目変数の記述統計" class="level2">
+<h2 class="anchored" data-anchor-id="名目変数の記述統計">名目変数の記述統計</h2>
+<ul>
+<li>名目変数の場合、主に「度数分布表」と「最頻値」を使います。これは、各値が何個あるかを表で表したものです。
+<ul>
+<li>名目変数の場合、ほとんどの場合において平均値、中央値、分散に意味がありません。</li>
+</ul></li>
+<li>今回の実習データに名目変数は「<code>ID</code>」、「<code>Region2</code>」、「<code>Region3</code>」があります。ここでは「Region3」の度数分布表を作成しましょう。</li>
+</ul>
+<p><img src="Figs/JASP04_03.png" class="img-fluid"></p>
+<ul>
+<li>変数選択領域の左側にはデータ内の変数名が並んでいます。ここから「<code>Region3</code>」を選択し、「▶」をクリックして右側のボックスに移動します。</li>
+<li>この時点で右側の分析結果画面に何か表が出てきますが、無視して先に進みましょう。</li>
+</ul>
+<p><img src="Figs/JASP04_04.png" class="img-fluid"></p>
+<ul>
+<li>「Display frequency tables (nominal and ordinal variables)」にチェックを入れます。
+<ul>
+<li>「度数分布表の表示 (名目・順序変数)」という意味です。つまり、連続変数を入れてからチェックをしても何も変わりません。</li>
+</ul></li>
+<li>ここまでしたら度数分布表が表示されます。</li>
+</ul>
+<p><img src="Figs/JASP04_05.png" class="img-fluid"></p>
+<ul>
+<li>分析結果画面の見方について説明します。
+<ul>
+<li>Descriptive Statics (記述統計)
+<ul>
+<li>Valid（有効ケースの数）：欠損値を除外した値の数です。今回は欠損値がないので47個です。</li>
+<li>Missing（欠損値の数）：欠損値、つまり空白になっているセルの数です。今回は欠損値がないので0です。</li>
+<li>以下の部分：平均値、標準偏差、最小値、最大値です。しかし、名目変数の場合、これらの統計量に意味がないので無視します。しかし、順序変数の場合は、ここも見ます。</li>
+</ul></li>
+<li>Frequencies (度数 / 頻度)
+<ul>
+<li>1列目: 各項目のラベルが表示されます。もし、ラベルを付けなかった場合は、元の数字が出ます。</li>
+<li>Frequency（2列目）：各項目がデータ内に何個あるかです。たとえば、データ内にKanto (関東)は7個、Chubu (中部)は9個含まれていることを意味します。
+<ul>
+<li>ここから最頻値 (mode)が算出できます。ここではChubu (中部)とChugoku_Shikoku (中国・四国)の度数が9個であり、最も多い値ですね。したがって、最頻値はChubuとChugoku_Shikokuです。</li>
+</ul></li>
+<li>Percent（3列目）：各項目がデータの何割を占めているかです。たとえば、Hokkaido_Tohoku (北海道・東北)は全体の14.9%を占めています。</li>
+<li>Valid Percent（4列目）：上のPercentと似ていますが、この場合は、ケースの数ではなく、上の表にあるValid (有効ケース数)で割った値です。今回は欠損値がないので「ケース数 = 有効ケース数」なのでPercentと一致します。</li>
+<li>Cumulative Percent（5列目）：累積割合です。北海道・東北の累積割合は14.9%、関東の累積割合は北海道・東北の累積割合 + 関東の割合 = 29.8のような感じです。最終的には100.0%になりますね。</li>
+</ul></li>
+</ul></li>
+<li>これで名目変数の記述統計の出し方は終わりです。順序変数の度数分布表も同様に出します。</li>
+</ul>
+<hr>
+</section>
+<section id="連続変数の記述統計" class="level2">
+<h2 class="anchored" data-anchor-id="連続変数の記述統計">連続変数の記述統計</h2>
+<ul>
+<li>これからは連続変数の記述統計を出してみましょう。ここでの連続変数は各政党の得票率です。先ほどと同様、「記述統計」画面を出します。</li>
+</ul>
+<p><img src="Figs/JASP04_06.png" class="img-fluid"></p>
+<ul>
+<li>各政党の得票率は「<code>LDP</code>」から「<code>SDP</code>」変数です。これを同時に選択し (<code>LDP</code>を選択→Shiftキーを押したまま<code>SDP</code>選択)、「▶」をクリックしてから、下段の「Statistics」(統計量)を選択します。</li>
+</ul>
+<p><img src="Figs/JASP04_07.png" class="img-fluid"></p>
+<ul>
+<li>どのような統計量を表示させるかが選択できます。ここでは私の担当講義で取り上げた統計量について説明します。
+<ul>
+<li>分位数
+<ul>
+<li>「Quartiles」：四分位数</li>
+</ul></li>
+<li>代表値
+<ul>
+<li>「Mean」：平均値</li>
+<li>「Median」：中央値</li>
+<li>「Mode」：最頻値</li>
+</ul></li>
+<li>散らばり具合
+<ul>
+<li>「Std. deviation」：標準偏差</li>
+<li>「Variance」：分散</li>
+<li>「Minimum」：最小値</li>
+<li>「Maximum」：最大値</li>
+</ul></li>
+<li>歪度・尖度：ここでは説明しません。</li>
+</ul></li>
+<li>この中から、「Quartiles」、「Mean」、「Median」、「Std. deviation」、「Variance」、「Minimum」、「Maximum」にチェックを入れます。</li>
+</ul>
+<p><img src="Figs/JASP04_08.png" class="img-fluid"></p>
+<ul>
+<li>分析結果画面に記述統計の表が表示されます。</li>
+<li>代表値と散らばり具合は先ほどの図と同様です。ここでは分位数についてのみ説明します。
+<ul>
+<li>「25th percentile」: 第1四分位点 (Q<sub>1/4</sub>)</li>
+<li>「50th percentile」: 第2四分位点 (Q<sub>2/4</sub>) =中央値</li>
+<li>「75th percentile」: 第3四分位点 (Q<sub>3/4</sub>)</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

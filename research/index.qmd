@@ -1,0 +1,187 @@
+---
+title: "Research"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+#link-external-icon: true
+toc: true
+---
+
+### 学位論文
+
+1. **宋財泫**. 2018.「争点空間の歪みと有権者の選択―伸縮近接性モデルによる争点投票理論の統合―」神戸大学法学研究科博士論文. <div class="jay_btn">[Kernel](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_D1007085)</div>
+1. **宋財泫**. 2015.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学法学研究科修士論文 (神戸大学社会科学系図書館で閲覧可)
+
+### 進行中のプロジェクト (投稿中)
+
+1. **[Revise and Resubmit]** Fake News and its Electoral Consequences: A Survey Experiment on Mexico. (w/ [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and José Luis Estrada)
+1. **[Submitted]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+
+### 進行中のプロジェクト (執筆中)
+
+1. Restructuring Issue Space: Unifying Proximity and Direction Models
+<div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
+1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
+1. Get Out the Voter or Go Away? Evidence from Online Field Experiments. (w/ [Masaki Hata](http://hatam.sakura.ne.jp/))
+1. Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
+1. 復活当選が投票率に与える影響
+1. Assessing Local Support for Thacker Pass Lithium Mining in Nevada (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
+1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
+1. 香港における国家安全法に対する支持態度とリスト実験の安定性 (w/ 小林哲郎)
+
+### 著書
+
+1. **宋財泫**・[矢内勇生](https://yukiyanai.github.io/). 2019.「え！そっちに入れるんですか？ー伸縮する政策空間における有権者の投票行動モデリングー」豊田秀樹 (編著) 『たのしいベイズモデリング２』北大路書房. pp. 105-117 <div class="jay_btn">[Data](https://www.kitaohji.com/news/n41068.html)</div>
+1. [Hata, Masaki](http://hatam.sakura.ne.jp/), **Jaehyun Song**, and Yutaka Shinada. 2017. "Has the 3.11 Disaster Brought About Conservatism in Japan?." in Kaoru Endo, Satoshi Kurihara, Takashi Kamihigashi, and Fujio Toriumi Ed. *Reconstruction of the Public Sphere in the Socially Mediated Age,* Springer, pp. 181-200 <div class="jay_btn">[Full-text](https://link.springer.com/chapter/10.1007%2F978-981-10-6138-7_10)</div>
+1. [韓国語] 중앙선거관리위원회 선거연수원 편찬. 2016『각국의 정당·정치자금제도 비교연구』중앙선거관리위원회 선거연수원. (각 장의 일본 파트 담당, 비매품) (= 中央選挙管理委員会選挙研修員編. 2016.『海外諸国の政党・政治資金制度の比較研究』中央選挙管理委員会選挙研修院．(各章の日本パート担当、非売品)) <div class="jay_btn">[Full-text](https://link.springer.com/chapter/10.1007%2F978-981-10-6138-7_10)</div>
+1. [韓国語] 중앙선거관리위원회 선거연수원 편찬. 2016『2016 해외연구관 보고서』중앙선거관리위원회 선거연수원. (각 장의 일본 파트 담당, 비매품) (= 中央選挙管理委員会選挙研修員編. 2016.『2016海外研究官報告書』中央選挙管理委員会選挙研修院．(各章の日本パート担当、非売品)) <div class="jay_btn">[Full-text](http://www.civicedu.go.kr/web/sysResearch/sysResearch_0102_view.jsp?pBoardSeq=332)</div>
+1. [韓国語] 중앙선거관리위원회 선거연수원 편찬. 2015『2015 해외연구관 보고서』중앙선거관리위원회 선거연수원. (각 장의 일본 파트 담당, 비매품) (= 中央選挙管理委員会選挙研修員編. 2015.『2015海外研究官報告書』中央選挙管理委員会選挙研修院．(各章の日本パート担当、非売品)) <div class="jay_btn">[Full-text](http://www.civicedu.go.kr/web/sysResearch/sysResearch_0102_view.jsp?pBoardSeq=268)</div>
+
+### 論文
+
+1. **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022 (*forthcoming*). "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.*
+<div class="jay_btn">[Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
+1. [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2022 (*forthcoming*). "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+1. **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか 」『自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
+1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
+1. Kobayashi, Tetsuro, **Jaehyun Song**, and Polly Chan. 2021. "Does repression undermine opposition demands? The case of the Hong Kong National Security Law." *Japanese Journal of Political Science,* 22(4): 268-286. <div class="jay_btn">[Full-text](https://doi.org/10.1017/S1468109921000256) [Replication Data](https://doi.org/10.7910/DVN/KJBRQG) [Featured in *Mingpao*, June 12, 2020](https://bit.ly/2YZw7sp)</div>
+1. [Beiser-McGrath, Liam F.](http://www.liambeisermcgrath.com/), Thomas Bernauer, **Jaehyun Song**, and [Azusa Uji](https://www.azusa-uji.com/). 2021. "Understanding Public Support for Domestic Contributions to Global Collective Goods: Results from a survey experiment on carbon taxation in Japan." *Climatic Change,* 166:51. <div class="jay_btn">[Full-text](https://doi.org/10.1007/s10584-021-03137-6)</div>
+1. **SONG Jaehyun**. 2021.「政治学における因果推論アプローチ」『文化情報学』15 (1・2): 36-43.
+1. [Uji, Azusa](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and **Jaehyun Song**. 2021. "Does the "NIMBY syndrome" Undermine Public Support for Nuclear Power in Japan?" *Energy Policy,* 148 (A): 111944 <div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2020.111944) [Featured in *The Regulatory Review*, June 29, 2021.](https://bit.ly/38R8V3U)</div>
+1. [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, and [Yuki Yanai](https://yukiyanai.github.io/). 2020.「Who Gets Close to Government Policies, and Who Steps Away?」『選挙研究』36 (2): 139-150. <div class="jay_btn">[Appendix](https://github.com/yukiyanai/jjes_persuasion)</div>
+1. **SONG Jaehyun**・日野愛郎. 2020.「マルチレベル選挙における動員と投票疲れ:亥年現象の解明に向けて」『選挙研究』36 (1): 23-34.
+1. [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020.「争点を束ねれば「イデオロギー」になる？：サーベイ実験とテキスト分析の融合を通じて」『年報政治学』2020 (I): 58-81. <div class="jay_btn">[Full-text](https://doi.org/10.7218/nenpouseijigaku.71.1_58) [Appendix](https://github.com/JaehyunSong/Nenpo-Hata-Song-2020)</div>
+1. **SONG Jaehyun**・[秦正樹](http://hatam.sakura.ne.jp/). 2020. 「オンライン・サーベイ実験の方法: 理論編」『理論と方法』35 (1): 92-108. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.92)</div>
+1. [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020. 「オンライン・サーベイ実験の方法: 実践編」『理論と方法』35 (1): 109-127. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.109)</div>
+1. [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani, [Yuki Yanai](https://yukiyanai.github.io/). 2018. "Playing is Believing: Teaching How Electoral Systems Change Political Outcomes Using a Role-Playing Simulation Game," *Japanese Political Science Review,* 4: 117-143. <div class="jay_btn">[Full-text](http://www.jpsa-web.org/eibun_zassi/political-science-journal4-en.html)</div>
+1. **宋財泫**. 2017.「イデオロギーが投票行動に与える影響の日韓比較研究」『ESTRELA』278: 10-17. <div class="jay_btn">[Appendix](http://tintstyle.cafe24.com/Data/Research/Appendix/Estrela2017.pdf)</div>
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (七・完)」『選挙時報』64(11): 31-39.
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (六)」『選挙時報』64(10): 40-50.
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (五)」『選挙時報』64(9): 27-37.
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (四)」『選挙時報』64(8): 20-31.
+1. **宋財泫**・[善教将大](http://zkun.sakura.ne.jp/). 2016. 「コンジョイント実験の方法論的検討」『法と政治』67(2): 67-108. <div class="jay_btn">[Full-text](http://hdl.handle.net/10236/14848) [Simulation](appendix/cjoint-n-sim.qmd)</div>
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (三)」『選挙時報』64(7): 28-37.
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (二)」『選挙時報』64(5): 24-32.
+1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (一)」『選挙時報』64(4): 14-24.
+1. **宋財[ヒョン]**. 2015. 「誰が選挙公約を見るのか―無党派性と政治的有効性感覚に着目した日韓比較―」『六甲台論集―法学政治学編』62(1): 1-22. <div class="jay_btn">[Full-text](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_81009140)</div>
+
+### 口頭発表
+
+(共同研究において下線報告者を表す)
+
+1. **宋財泫**. 2022年3月17日.「原因と結果の政治学」関西大学法学会政治学研究会. 於：オンライン
+1. [重村壮平](https://soheishigemura.com/)・品田裕・**<u>宋財泫</u>**. 2021年11月27日.「選挙ポスターは投票参加を促すか：2021年うるま市市長選の事例から」第5回東アジア日本研究者協議会国際学術大会. 於：オンライン.
+<div class="jay_btn">[Slide](https://drive.google.com/file/d/1EpwntOXtEd6njBjDW93Dlb2RL5pZPxr1/view?usp=sharing)</div>
+1. **宋財泫**. 2021年10月6日. 「国家間の「助け合い」はいかに実現されるか」関西大学経済・政治研究所第248回産業セミナー. 於: 吹田
+1. <u>Woo, Yujin</u> and **Jaehyun Song**. Oct. 3, 2021. "Public Perception of Migrants: Impact of Multicultural Policy in Japan and Korea," *American Political Science Association,* Online.
+1. <u>Takahashi, Yuriko</u>, [Takeshi Iida](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, and Jose Luis Estrada. Oct. 1, 2021. "Fake News and Its Electoral Consequence: A Survey Experiment on Mexico," *American Political Science Association,* Online.
+1. <u>Kobayashi, Tetsuro</u>, **Jaehyun Song**, and Polly Chan. Sep. 30, 2021. "Does Repression Undermine Opposition Demands? The Case of the Hong Kong National Security Law," *American Political Science Association,* Online.
+1. **Song Jaehyun**. 2021年9月26日「復活当選が投票率に与える影響」日本政治学会2021年度大会. 於：オンライン
+<div class="jay_btn">[Paper](https://drive.google.com/file/d/1AdAH0FD94iuFUuM5zX10SkxN1oWVRBQI/view?usp=sharing) [Slide](https://drive.google.com/file/d/1EL8fZ1Bx2dVy2yjfjV6zrXb74oRTdE47/view?usp=sharing)</div>
+1. <u>Kobayashi, Tetsuro</u>, **Jaehyun Song**, and Polly Chan. Jul. 2021. "Does Repression Undermine Opposition Demands? The Case of the Hong Kong National Security Law." *International Society of Political Psychology,* Online.
+1. [<u>Uji, Azusa</u>](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/), [Nives Dolšak](http://faculty.washington.edu/nives/), and **Jaehyun Song**. Jun. 2021. "Supporting Climate Adaptation Overseas by Providing Climate Aid or Accepting Climate Refugees: A Conjoint experiment in Japan." *Environmental Politics and Governance Conference,* Online.
+1. [Azusa, Uji](https://www.azusa-uji.com/), [<u>Lim, Sijeong</u>](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. Jun. 2021. "Cooperation Spillover from Environment to High Politics? Paired Experiments in Japan and South Korea." *Environmental Politics and Governance Conference,* Online.
+1. [<u>矢内勇生</u>](https://yukiyanai.github.io/)・**SONG Jaehyun**. 2021年5月8日「Integrating Research on Voting Behavior in Japan: A Meta-analysis」日本選挙学会2021年度大会. 於：金沢大学 (Online)
+<div class="jay_btn">[Paper](https://drive.google.com/file/d/1H2vQKbmW6ZfLpfEI3y_MFCFC_oYCu3hA/view?usp=sharing) [Slide](https://drive.google.com/file/d/1tjf4exDyNH17AHz7GCz5oQX9EkkNshV-/view?usp=sharing)</div>
+1. [<u>Uji, Azusa</u>](https://www.azusa-uji.com/) and **Jaehyun Song**. Apr. 2021. "Support for Climate Aid to and Accepting Climate Refugees from Asia and Africa? A survey experiment in Japan," *Western Political Science Association,* Online.
+1. <u>Kobayashi, Tetsuro</u>, **Jaehyun Song**, and Polly Chan. Nov. 2020. "Does Repression Undermine Opposition Demands? The Case of Hong Kong National Security Law." *V-Dem East Asia Regional Center Virtual Workshop: Workshop on Contentious Politics in Asia,* Online.
+1. [Online due to COVID-19] [Beiser-McGrath, Liam F.](http://www.liambeisermcgrath.com/), Thomas Bernauer, **Jaehyun Song**, and [<u>Azusa Uji</u>](https://www.azusa-uji.com/). Sep. 2020. "The Effect of Reciprocity on Support for Enacting More Stringent Carbon Taxes," *American Political Science Association,* San Francisco:CA, USA (Only first two authors are appeared on the program)
+1. [Online due to COVID-19] [<u>Uji, Azusa</u>](https://www.azusa-uji.com/), [Liam F. Beiser-McGrath](http://www.liambeisermcgrath.com/), Thomas Bernauer, and **Jaehyun Song**. Jun. 2020. "How to Design a Politically Feasible and Effective Carbon Tax? Results from a Choice Experiment in Japan." *Environmental Politics and Governance Conference,* Olso, Norway.
+1. [論文提出により報告成立] **SONG Jaehyun**・日野愛郎. 2020年5月「マルチレベル選挙における動員と投票疲れ：亥年現象の解明に向けて」日本選挙学会2020年度大会. 於：高知大学
+1. [ポスター提出により報告成立] [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020年5月「「清き一票」は重すぎる?—フィールド実験を通じた啓発効果の検証—」日本選挙学会2020年度大会. 於：高知大学
+<div class="jay_btn">[Poster](http://tintstyle.cafe24.com/Data/Research/Poster/JAES2020.pdf)</div>
+1. [Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Who Gets Close to the Government’s Policy Position and Who Steps Away? Evidence from Survey Experiments in Japan," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020
+1. [Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Fed up with Elections? A Natural Experiment Using Byelections Caused by Legislators’ Deaths," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020
+1. [Cancelled due to COVID-19] Woo, Yujin and **Jaehyun Song**. Apr. 2020, "Public Perception toward Migrants: Impact of Multicultural Policiesin Japan and South Korea," *Midwest Political Science Association,* Chicago:IL, USA.
+1. <u>Woo, Yujin</u> and **Jaehyun Song**. Jan. 11, 2020, "Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea," *Southern Political Science Association,* San Juan:PR, USA.
+1. [<u>秦正樹</u>](http://hatam.sakura.ne.jp/)・**<u>SONG Jaehyun</u>**. 2019年12月27日「Get Out the Voter or Go Away? Evidence from Online Field Experiments」公共システム論研究会. 於：石川四高記念文化交流館
+1. [<u>秦正樹</u>](http://hatam.sakura.ne.jp/)・**<u>SONG Jaehyun</u>**. 2019年10月6日「争点を束ねれば「イデオロギー」になる？：サーベイ実験とテキスト分析の融合を通じて」日本政治学会2019年度大会. 於：成蹊大学.
+1. [<u>Hakiai, Daisuke</u>](https://sites.google.com/site/daisukehakiai/home) and **Jaehyun Song**. Sep. 20, 2019. "Multi-Level Electoral Systems and Pork-barrel politics: The Case of Japan’s LDP Politicians." *Workshop on "Multifaceted Values in Multilevel Contexts",* Waseda University, Tokyo:JAPAN.
+1. [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, <u>Yuriko Takahashi</u>, and Jesus Tovar. Aug. 30, 2019. "Buying Votes across Borders? A Survey Experiment on Mexican Immigrants in the US," *American Political Science Association,* DC:USA
+1. [<u>矢内勇生</u>](https://yukiyanai.github.io/)・**SONG Jaehyun**. 2019年7月13日「定量的選挙研究における結果の解釈をめぐる問題」日本選挙学会2019年度大会. 於：東北大学.
+<div class="jay_btn">[Paper](http://tintstyle.cafe24.com/Data/Research/Conference/JAES2019.pdf) [Slide](http://tintstyle.cafe24.com/Data/Research/Slide/JAES2019.pdf)</div>
+1. **宋財泫**. 2019年4月23日「Review: VanderWeele, Tyler J., 2019, "Principles of Confounder Selection," European Journal of Epidemiology, 34(3): 211-219.」社会科学方法論研究会. 
+<div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/ss-141543274)</div>
+1. [<u>Hakiai, Daisuke</u>](https://sites.google.com/site/daisukehakiai/home) and **Jaehyun Song**. Mar. 9, 2019. "Multi-Level Electoral Systems and Pork-barrel politics: The Case of Japan’s LDP Politicians." *Conference for "Values in European and Japanese politics",* Institute for European Studies, Free University of Brussels, Brussels, Belgium.
+1. **宋財泫**・[<u>重村壮平</u>](https://soheishigemura.com/)・品田裕. 2018年10月28日「選挙制度改革による利益誘導政治の変容と継続」第3回 東アジア日本研究者協議会国際学術大会. 於：国際日本文化研究センター
+<div class="jay_btn">[Slide](http://tintstyle.cafe24.com/Data/Research/Slide/EACJS2018.pdf)</div>
+1. **<u>Song, Jaehyun</u>** and [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home). 2018年10月14日. 「最重要課題としての経済―経済争点のセイリアンスが経済投票に与える影響―」日本政治学会2018年度大会. 於: 関西大学.
+1. [<u>Tsutsumi, Hidenori</u>](http://www.jl.kagawa-u.ac.jp/~tsutsumi/), Takayoshi Uekami, [Kazunori Inamasu](http://k-inamasu.net/), Hiroko Ide, **Jaehyun Song**, and Yutaka Shinada. Jun. 13, 2018. "The Impact of Voting Advice Applications on Voters’ Behavior and Political Interest: A Field Experiment in the 2016 Upper House Election in Japan." *International Conference for e-Democracy and Open Government,* Asia 2018, Yokohama: Kanagawa, Japan
+1. **[優秀ポスター賞受賞]** SONG Jaehuyn. 2018年5月13日「伸縮争点空間と争点投票モデルの統合」日本選挙学会 2018年度大会. 於：拓殖大学
+<div class="jay_btn">[Paper](http://tintstyle.cafe24.com/Data/Research/Conference/JAES2018.pdf) [Poster](http://tintstyle.cafe24.com/Data/Research/Poster/JAES2018.pdf)</div>
+1. **宋財泫**. 2018年3月9日「Review: Cyrus, Samii, Laura Paler, and Sarah Zukerman Daly. 2016. "Retrospective Causal Inference with Machine Learning Ensembles: An Application to Anti-recidivism Policies in Colombia." Political Analysis. 22 (4) pp. 434-456」社会科学方法論研究会. 於：大阪大学.
+<div class="jay_btn">[Slide](https://bit.ly/3KMzRzc)</div>
+1. **宋財泫**. 2018年3月7日「争点空間の歪みと有権者の選択: 伸縮近接性モデルによる争点投票理論の統合」神戸大学政治学研究会. 於：神戸大学. <div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/ss-89985788)</div>
+1. **<u>SONG Jaehyun</u>**・品田裕. 2017年5月20日「制度変化とその帰結のシミュレーション－異なる投票方法の下での議席配分－」日本選挙学会 2017年度大会. 於：香川大学
+<div class="jay_btn">[Paper](https://drive.google.com/file/d/1_Cw6jQhZt1YiB-Od3g44YTglR-8IF8Dm/view?usp=sharing) [Slide](https://drive.google.com/file/d/1RHyw3A4BKk6ZHhYUXaaBQivL720Chhwk/view?usp=sharing) [Code](http://modelingcommons.org/browse/one_model/5033)</div>
+1. [<u>重村壮平</u>](https://soheishigemura.com/)・**<u>SONG Jaehyun</u>**. 2017年5月21日「政治的テキストの文法 ー機械学習のための政治的テキストデータの構造ー」日本選挙学会 2017年度大会. 於：香川大学.
+<div class="jay_btn">[Paper](https://drive.google.com/file/d/1FYj7bOYIHzgQnlT5zFEk_f61cCJxVTiM/view?usp=sharing) [Poster](https://drive.google.com/file/d/1BYJ63rA3VeQw-GV7SM8pIo9U_udOngn6/view?usp=sharing)</div>
+1. **宋財泫**. 2016年10月23日「Review: Imai, Kosuke, Luke Keele, Dustin Tingley, and Teppei Yamamoto. (2011). "Unpacking the Black Box of Causality: Learning about Causal Mechanisms from Experimental and Observational Studies." American Political Science Review, Vol. 105, No. 4, pp. 765-789.」社会科学方法論研究会. 於：大阪大学.
+1. [<u>善教将大</u>](http://zkun.sakura.ne.jp/)・**<u>SONG Jaehyun</u>**. 2016年5月14日「都構想の何が支持されたのか：コンジョイント分析による政策選好の推定」日本選挙学会 2016年度大会. 於：日本大学.
+<div class="jay_btn">[Paper](http://tintstyle.cafe24.com/Data/Research/Conference/JAES2016.pdf)</div>
+1. **宋財泫**・<u>秦正樹</u>. 2016年2月13日「社会的期待迎合バイアス低減とリスト実験の応用：日韓慰安婦問題の合意に対する国内世論」関西計量社会学研究会 第50回定例研究会，於：関西学院大学大阪梅田キャンパス
+1. Nishino, Shinsuke, **<u>Jaehyun Song</u>**, Keisuke Tani, and [Yuki Yanai](https://yukiyanai.github.io/). 2016. "Teaching How Electoral Systems Change Political Outcomes Using a Role-Playing Simulation Game." *American Political Science Association Teaching and Learning Conference,* Portland, OR: USA. <div class="jay_btn">[Paper](http://tintstyle.cafe24.com/Data/Research/Conference/APSATLC2016.pdf) [Slide](https://www.slideshare.net/tintstyle/ss-47557187) [Appendix](http://tintstyle.cafe24.com/Data/Research/Appendix/APSATLC2016.pdf)</div>
+1. **<u>宋財泫</u>**・[<u>善教将大</u>](http://zkun.sakura.ne.jp/). 2015年12月25日.「コンジョイント分析の方法論的検討」神戸大学政治学研究会． 於：神戸大学
+<div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/ss-56463556) [Simulation](appendix/cjoint-n-sim.qmd)</div>
+1. **宋財泫**. 2015年8月1日.「書評：Bendor, Jonathan et al., A Behavioral Theory of Elections」関西政治経済学研究会(Y&R) 於：神戸大学.
+1. **宋財泫**. 2015年5月28日.「誰が選挙公報を見るのか―無党派性と政治的有効性感覚に着目した日韓比較―」神戸大学政治学研究会 於：神戸大学.
+<div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/presentation-share)</div>
+1. **宋財泫**. 2015年3月5日.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学STP報告会 於：神戸大学.
+<div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/presentation-45894180)</div>
+1. **宋財泫**. 2015年2月16日.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学修士論文報告会 於：神戸大学.
+1. **宋財泫**. 2014年6月30日.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学修士論文中間報告会 於：神戸大学.
+
+### 討論
+
+1. **SONG Jaehyun**. 2022年5月7日「討論：方法論部会（多様な政治参加の形態と先端的方法）」日本選挙学会2022年度大会. 於：石川県文教会館・金沢商工会議所会館
+1. **SONG Jaehyun**. 2021年6月27日「討論：自由論題E（比較政治学における量的方法）」日本比較政治学会2021年度大会. 於：オンライン
+1. **SONG Jaehyun**. 2019年10月6日「討論：方法論部会（政党の政策ポジション推定と選挙制度）」日本政治学会2019年度大会. 於：成蹊大学
+
+### 講演
+
+1. 「Qualtrics入門講座」早稲田大学（2018年6月）
+1. 「Qualtrics+Rによるコンジョイント分析の実施と分析」関西学院大学（2019年2月）
+1. 「Qualtrics講習会」高知工科大学（2020年12月）<span class="jay_btn">[Slide (学外用)](../tutorial/Qualtrics/Introduction_to_Qualtrics.pdf)</span>
+
+### 報告書
+
+1. [韓国語] 송재현. 2016. 「일본」『공무원 정치적 중립 및 입후보제한에 관한 연구』중앙선거관리위원회 선거연수원. pp. 28-41 (= **宋財泫**. 2016.「日本」『公務員の政治的中立性および立候補制限に関する研究』中央選挙管理委員会・選挙研修院．28-41頁)
+1. [韓国語] 송재현. 2016. 「일본의 선거권 연령 18세 인하에 따른 참의원 선거 영향 분석」『브렉시트의 의의와 영향, 일본의 선거권 연령 18세 인하에 따른 참의원 선거 영향 분석』중앙선거관리위원회 선거연수원. pp. 7-14 (= **宋財泫**. 2016.「日本の18歳選挙権が参議院選挙に与えた影響の分析」『Brexitの意義の影響・日本の18歳選挙権が参議院選挙に与えた影響の分析』中央選挙管理委員会・選挙研修院．7-14頁)
+1. [韓国語] 송재현. 2016. 「일본」『외국의 선거방송토론 사례연구』중앙선거관리위원회 선거연수원. pp. 38-47 (= **宋財泫**. 2016.「日本」『諸外国の選挙討論番組の事例研究』中央選挙管理委員会・選挙研修院．38-47頁)
+1. [韓国語] 송재현. 2016. 「일본」『외국의 주민소환제도』중앙선거관리위원회 선거연수원. pp. 59-74 (= **宋財泫**. 2016.「日本」『諸外国のリコール制度』中央選挙管理委員会・選挙研修院．59-74頁)
+1. [韓国語] 송재현. 2016. 「일본」『지역구국회의원 선거구 획정 절차 및 비례대표국회의원 당선인 결정방법』중앙선거관리위원회 선거연수원. pp. 64-76 (= **宋財泫**. 2016.「日本」『選挙区選出国会議員選挙における選挙区画定手続きおよび比例代表選出国会議員の当選者決定方法』中央選挙管理委員会・選挙研修院．64-76頁)
+1. [韓国語] 송재현. 2015. 「일본」『정당의 구성 및 활동 등에 대한 제도 및 운영실태』중앙선거관리위원회 선거연수원. pp. 106-119 (= **宋財泫**. 2015.「日本」『政党の構成および活動に関する制度』中央選挙管理委員会・選挙研修院．106-119頁)
+1. [韓国語] 송재현. 2015. 「일본」『정책선거 추진실태 및 정책연구소 활동상황』중앙선거관리위원회 선거연수원. pp. 69-96 (= **宋財泫**. 2015.「日本」『政策選挙の推進実態および政策研究所の活動状況』中央選挙管理委員会・選挙研修院．69-96頁)
+1. [韓国語] 송재현. 2015. 「일본」『선거인 명부 작성방법 (재외선거, 거주불명등록자)』중앙선거관리위원회 선거연수원. pp. 60-77 (= **宋財泫**. 2015.「日本」『選挙人名簿作成方法(在外選挙、住所不定)』中央選挙管理委員会・選挙研修院．60-77頁)
+1. [韓国語] 송재현. 2015. 「일본」『장애인 유권자를 위한 선거정보 및 투표편의 제공 방안』중앙선거관리위원회 선거연수원. pp. 73-87 (= **宋財泫**. 2015.「日本」『障害を持つ有権者のための選挙情報および投票便宜の提供方案』中央選挙管理委員会・選挙研修院．73-87頁)
+
+### ソフトウェア
+
+1. [R Packages] BalanceR <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/BalanceR)</span>
+1. [R Packages] SimpleConjoint  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint)</span>
+1. [R Packages] woRdle <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/woRdle)</span>
+1. [R Packages] PRcalc  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc)</span>
+1. [Javascript] SimpleConjoint.js  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
+1. [Web Application] PRcalc for Web  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc4Web) [ShinyApps](https://jaysong.shinyapps.io/prcalc4web/)</span>
+
+### 受賞
+
+1. 優秀ポスター賞. 日本選挙学会2018年度大会. 日本選挙学会. 2019年.
+1. 銅賞. 情報オリンピアード大会. ソウル東部教育庁. 2001年.
+1. 銅賞. 情報オリンピアード大会. ソウル東部教育庁. 2000年.
+1. 金賞. 情報オリンピアード大会. ソウル東部教育庁. 1998年.
+1. 金賞. 情報オリンピアード大会. ソウル東部教育庁. 1997年.
+
+### 競争的資金獲得
+
+1. [分担] Apr.2022~Mar.2026: 科学研究費 基盤研究 (B)「ポピュリストの体制化というパラドックス：エリート概念の拡張とポピュリズムの新測定」代表：日野愛郎 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-22H00810/)</span>
+1. [分担] Apr.2021~Mar.2026: 科学研究費 基盤研究 (B)「不確実性の高い社会における地方政治への信頼の変動要因とその帰結の実証的解明」代表：善教将大 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00684/)</span>
+1. [分担] Apr.2021~Mar.2025: 科学研究費 基盤研究 (B)「在米メキシコ移民の政治意識・政治参加：混合手法を用いた実証分析」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00680/)</span>
+1. [単独] Apr.2019~Mar.2023: 科学研究費 若手研究「争点空間の認知における歪みがもたらす政治的帰結と歪みの是正に関する研究」  <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K13603/)</span>
+1. [分担] Apr.2019~Mar.2023: 科学研究費 基盤研究 (A)「選挙ガバナンスが正確な投票(Correct Voting)に与える影響に関する研究」代表：大西裕 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19H00582/)</span>
+1. [分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「日本における選挙研究の統合:メタ分析による研究成果の統一とデータベースの構築」代表：矢内勇生 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K21682/)</span>
+1. [分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「在外投票における票買収の実証的研究」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K21685/)</span>
+1. [単独] Dec.2018~Mar.2021: ヒロセ国際奨学財団「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結に関する研究」
+1. [単独] Apr.2018~Mar.2019: 早稲田大学 特定課題 (新任の教員等)「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結の研究」
+1. [単独] Apr.2017~Mar.2018: 科学研究費 特別研究員奨励費「政策中心型民主主義における選挙公約の役割:有権者の政治リテラシー向上に向けて」 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-17J04581/)</span>
+1. [単独] 2013: 神戸大学 学外研究活動経費「Inter-university Consortium for Political and Social Research Summer Programへの参加」

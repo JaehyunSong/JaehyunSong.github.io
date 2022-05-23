@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- The ASA’s statement on p-values [日本語まとめ]</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#原文のリンク" id="toc-原文のリンク" class="nav-link active" data-scroll-target="#原文のリンク">原文のリンク</a></li>
+  <li><a href="#注意事項" id="toc-注意事項" class="nav-link" data-scroll-target="#注意事項">注意事項</a></li>
+  <li><a href="#イントロダクション" id="toc-イントロダクション" class="nav-link" data-scroll-target="#イントロダクション">イントロダクション</a></li>
+  <li><a href="#p値とは何かwhat-is-a-p-value" id="toc-p値とは何かwhat-is-a-p-value" class="nav-link" data-scroll-target="#p値とは何かwhat-is-a-p-value">p値とは何か(What is a p-value?)</a></li>
+  <li><a href="#つの原則" id="toc-つの原則" class="nav-link" data-scroll-target="#つの原則">6つの原則</a></li>
+  <li><a href="#他のアプローチ" id="toc-他のアプローチ" class="nav-link" data-scroll-target="#他のアプローチ">他のアプローチ</a></li>
+  <li><a href="#結論" id="toc-結論" class="nav-link" data-scroll-target="#結論">結論</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The ASA’s statement on p-values [日本語まとめ]</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="原文のリンク" class="level3">
+<h3 class="anchored" data-anchor-id="原文のリンク">原文のリンク</h3>
+<p>ASA Statement on Statistical Significance and P-values <span class="jay_btn"><a href="http://amstat.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108%22">Full-text</a></span></p>
+</section>
+<section id="注意事項" class="level3">
+<h3 class="anchored" data-anchor-id="注意事項">注意事項</h3>
+<ul>
+<li>このページはアメリカ統計学会の雑誌、『The American Statistician』に掲載された「ASA Statement on Statistical Significance and P-values」の内容をまとめたものです。(翻訳ではありません！<span class="math inline">\(\leftarrow\)</span>ほぼ翻訳に近いんですが…)</li>
+<li>上記のリンクは以下の2つのペーパーで構成されています。
+<ol type="1">
+<li>The ASA’s statement on p-values: context, process, and purpose</li>
+<li>ASA Statement on Statistical Significance and P-values</li>
+</ol></li>
+<li>[2]が上記のペーパーの核心であり、[1]は[2]を発表するにいたった背景、目的、過程を述べたものです。</li>
+<li>このページでは[2]のみをまとめたものです。[1]は必要だと判断されるときのみ引っ張ってきます。</li>
+<li>下線、太字などは私が勝手に付けたものです。</li>
+</ul>
+</section>
+<section id="イントロダクション" class="level3">
+<h3 class="anchored" data-anchor-id="イントロダクション">イントロダクション</h3>
+<ul>
+<li><p>Q: Why do so many colleges and grad schools teach p = .05?</p></li>
+<li><p>A: Because that’s still what the scientific community and journal editors use.</p></li>
+<li><p>Q: Why do so many people still use p = 0.05?</p></li>
+<li><p>A: Because that’s what they were taught in college or grad school.</p></li>
+<li><p>Q: なぜ多くの大学や大学院では p = 0.05を教えていますか。</p></li>
+<li><p>A: なぜならこの基準が、この業界と雑誌の編集委員の間で使われているからです。</p></li>
+<li><p>Q: [ならば]、なぜ多くの人が未だp = 0.05を使っているのですか。</p></li>
+<li><p>A: それは彼(女)らが大学・大学院でそう習ったからです。</p></li>
+</ul>
+<p>？！？！</p>
+<p>「統計的有意性」の概念は公刊されたほとんどの科学的結論を支えており、いわゆるp値と呼ばれる指標によって測定される。p値は有用な統計的尺度になりうるが、これは一般的に誤解され、誤用されている。これによって、ある科学ジャーナル(基礎および応用社会心理学; Basic and Applied Social Psychology)がp値の使用を禁止するようになり、ある科学者と統計学者たちからはp値を完全に放棄するに主張するようにまでいたった。</p>
+<p>このような文脈から、アメリカ統計学会(ASA)はp値の適切な使い方と解釈について広く合意されたいくつかの原則をめいかくすることによって、科学コミュニティへ寄与できると思う。ここで扱われる対象は研究のみならず、研究資金獲得、ジャーナルの慣行、キャリアアップ、科学教育、公共政策、ジャーナリズム、そして法律までへ影響を与える。</p>
+<p>この声明は健全な統計的慣行に関する全ての争点を解決しようともせず、根本的な論争の解決を試みることでもない。この声明は統計コミュニティへ広く共有される合意にしたがって、定量的科学の遂行と解釈を改善できるいくつかの選ばれた原則を、比較的に技術的なない形で説明することが目的である。</p>
+</section>
+<section id="p値とは何かwhat-is-a-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="p値とは何かwhat-is-a-p-value">p値とは何か(What is a p-value?)</h2>
+<ul>
+<li>ちょっと適当な回答⇒ p値とは<strong>特定の統計モデル下で、「データの統計値が観測された値以上に極端的な値が得られる」確率</strong>である。
+<ul>
+<li>Informally, a p-value is the probability under a specified statistical model that a statistical summary of the data (for example, the sample mean difference between two compared groups) would be equal to or more extreme than its observed value.</li>
+</ul></li>
+</ul>
+</section>
+<section id="つの原則" class="level2">
+<h2 class="anchored" data-anchor-id="つの原則">6つの原則</h2>
+<ol type="1">
+<li><strong>p値はデータと特定の統計モデルがどれほど不一致するか示すことができる。</strong>
+<ul>
+<li>P-values can indicate how incompatible the data are with a specified statistical model.</li>
+<li>p値は特定のデータセットとそのデータについて提案された統計モデルがどれくらい不一致するかを要約できる一つのアプローチである。もっともよくあり得る場面はとく手の仮定から成り立った統計モデルと帰無仮説が存在するケースである。帰無仮説は「二群に差がない」あるいは「ある要因とある結果には関係がない」といった「効果の不在」を仮定する。p値を計算する時に用いられた仮定が真だという前提の下でp値が小さけいれば小さいほどデータと帰無仮説の間の統計的不一致性が大きくなる。このような不一致は「帰無仮説」あるいは「前提された仮定」が真ではないと疑える証拠として解釈できる。</li>
+</ul></li>
+<li><strong>p値は仮説が真である確率、あるいはデータが偶然によって生成された確率ではない。</strong>
+<ul>
+<li>P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.</li>
+<li>研究者はp値を「帰無仮説か真か否か」あるいは「観察されたデータが偶然によって生成されたか」に関する確率として使いたがる。しかし、p値がどっちらも関係ない。これは特定の仮説的説明に関連するデータに関する内容であり、その説明自体に関する内容ではない。</li>
+</ul></li>
+<li><strong>科学的な結論、ビジネス、政策的な決定はp値がある閾値を超えたか否かだけで判断してはいけない。</strong>
+<ul>
+<li>Scientific conclusions and business or policy decisions should not be based only on whether a p-value passes a specific threshold.</li>
+<li>科学的主張や結果を正当化するために、データ分析や科学的推論を機械的に、あるいは恣意的に縮小させる慣行(たとえばp&lt;0.05ルール)は誤った信念や意思決定へ繋がるおそれがある。ある結論がどこかでは自動的に「真」となる、一方では自動的に「偽」になるわけではない。研究者たちは研究の設計、測定手法の室、研究対象となる現象に対する外部の証拠、そしてデータ分析の前提と成る仮定の妥当性などの文脈的要素を科学的な結論でょう出に積極的に使うべきである。</li>
+<li>時には、現実の意思決定は「はいーいいえ」のような二分的意思決定を要求するが、これはp値が単独で「ある決定が正しい」とか「間違っている」ことを保障できることを意味しない。一般的に使われているような、科学的発見に関する主張を保証する手段として「統計的有意性(一般的にp&lt;=0.05)」を用いる慣習は科学的プロセスの深刻な歪曲をもたらしうる。</li>
+</ul></li>
+<li><strong>適切な推論は完全な報告と透明性を必要とする。</strong>
+<ul>
+<li>Proper inference requires full reporting and transparency</li>
+<li>p値とこれに関連した分析は選択的に報告されてはいけない。データに対して複数の分析を行い、特定のp値(ある閾値を超えたもの)とそれに関係するものだけを報告するのは、報告されたp値を事実上解釈不可能にする。「データ浚渫(data dredging)」、「有意性志向(significance chasing)」、「有意性探索(significance questing)」、「選択的推論(selective inference)」、「p-hacking」という名で知られている、有望な発見を取捨選択する行為は公刊された文献から統計的に有意な結果が誤って氾濫する結果をもたらすため、積極的に止揚すべきである。</li>
+<li>ただし、複数の統計的検定を行うのがこのような問題をもたらすわけではない。研究者が統計的結果に基づき、何を報告するか選択すれば、読者はその決定と根拠を知らないかぎり、結果を正しく解釈することは著しく制限される。研究者たちは研究の間に存在した仮説の数、データ収集に関する全ての意思決定、行われた全ての統計的検定、そして得られた全てのp値を明かすべきである。どれだけ多くの、またどのような分析が用いられたか、そしてそのような分析がどのように選択され、報告されたか(p値を含めて)を知らないかぎり、p値とこれに関連した統計量に基づく正しい科学的決論を導出することは不可能である。</li>
+</ul></li>
+<li><strong>p値(or 統計的有意性)は効果の大きさや結果の重要性を測定する尺度ではない。</strong>
+<ul>
+<li>A p-value, or statistical significance, does not measure the size of an effect or the importance of a result.</li>
+<li>統計的有意性と科学的、人間的、経済的重要性は一致しない。より小さいp値がより大きい、あるいはより重要な効果の存在を意味するのではなく、大きなp値が重要性や効果の不在を意味するわけでもない。どのような効果もサンプル(標本)サイズが大きかったり、測定手法が十分に精密したら大きいp値を出すことはできる。反対にどれだけ大きい効果でもサンプルサイズが小さかったり、測定手法が精密でなかったら小さくないp値が得られる。同様に、同じ推定値も測定の精密度が異なると、異なるp値が得られる。</li>
+</ul></li>
+<li><strong>p値自体は特定のモデルや仮説に関する良い尺度を提供しない。</strong>
+<ul>
+<li>By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.</li>
+<li>研究者たちは文脈や他の証拠がない状況におけるp値は制限された情報のみを提供するという点を認識すべきである。たとえば、0.05に近いp値はこれ自体では帰無仮説を反証する弱い証拠のみを示すだけである。同様に、比較的に大きいp値が帰無仮説を支持する証拠を暗示するわけでもない。観察されたデータと同等に、より適合した他の仮説はあり得る。したがって、他のアプローチが可能であれば、データ分析をp値の計算で留めてはいけない。</li>
+</ul></li>
+</ol>
+</section>
+<section id="他のアプローチ" class="level2">
+<h2 class="anchored" data-anchor-id="他のアプローチ">他のアプローチ</h2>
+<p>これまでのp値に対する誤解と誤用の実態を鑑み、ある統計学者たちはp値を他のアプローチから補完するか、代替することを好んでいる。このような代案は</p>
+<ul>
+<li>検証において推定を強調する方法：信頼・信用・予測区間の利用</li>
+<li>ベイズ統計学</li>
+<li>代替的な尺度：尤度比、ベイズファクター</li>
+<li>決定理論モデリング</li>
+<li>偽発見率(false discovery rate; FDR)</li>
+</ul>
+<p>などがある。このような尺度とアプローチはより多くの仮定に依存するが、これらは効果量の大きさ、あるいは仮説の真・偽のように概念により直接的にアプローチできる長所がある。</p>
+</section>
+<section id="結論" class="level2">
+<h2 class="anchored" data-anchor-id="結論">結論</h2>
+<p>望ましい科学的実践(practice)における必須要素として、望ましい統計的実践は</p>
+<ul>
+<li>正しい研究設計と遂行</li>
+<li>多様な数値的、視覚的なデータ要約</li>
+<li>研究対象となる現象に対する理解</li>
+<li>文脈に基いて結果解釈</li>
+<li>データ要約が何を意味するかに対する完全な報告</li>
+<li>適切かつ論理的な定量的理解</li>
+</ul>
+<p>などの原則を必要とする。いかなる単一指標も科学的論証を代替することはできない。</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

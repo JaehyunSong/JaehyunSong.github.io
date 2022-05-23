@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#まずは例から" id="toc-まずは例から" class="nav-link" data-scroll-target="#まずは例から">まずは例から</a></li>
+  <li><a href="#oopとは" id="toc-oopとは" class="nav-link" data-scroll-target="#oopとは">OOPとは</a>
+  <ul class="collapse">
+  <li><a href="#オブジェクト" id="toc-オブジェクト" class="nav-link" data-scroll-target="#オブジェクト">オブジェクト</a></li>
+  <li><a href="#クラス" id="toc-クラス" class="nav-link" data-scroll-target="#クラス">クラス</a></li>
+  <li><a href="#メソッドと多態性" id="toc-メソッドと多態性" class="nav-link" data-scroll-target="#メソッドと多態性">メソッドと多態性</a></li>
+  <li><a href="#継承" id="toc-継承" class="nav-link" data-scroll-target="#継承">継承</a></li>
+  </ul></li>
+  <li><a href="#rにおけるoop" id="toc-rにおけるoop" class="nav-link" data-scroll-target="#rにおけるoop">RにおけるOOP</a>
+  <ul class="collapse">
+  <li><a href="#オブジェクトに任意のクラスを付ける" id="toc-オブジェクトに任意のクラスを付ける" class="nav-link" data-scroll-target="#オブジェクトに任意のクラスを付ける">オブジェクトに任意のクラスを付ける</a></li>
+  <li><a href="#メソッドの作り方" id="toc-メソッドの作り方" class="nav-link" data-scroll-target="#メソッドの作り方">メソッドの作り方</a></li>
+  <li><a href="#検証用関数を作る" id="toc-検証用関数を作る" class="nav-link" data-scroll-target="#検証用関数を作る">検証用関数を作る</a></li>
+  </ul></li>
+  <li><a href="#例題" id="toc-例題" class="nav-link" data-scroll-target="#例題">例題</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">オブジェクト指向型プログラミング入門</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
+<ul>
+<li>修正履歴
+<ul>
+<li>2021/05/24: 公開</li>
+<li>2021/05/25: 一部修正</li>
+</ul></li>
+<li>以下の内容は現在執筆中の内容の一部となります。
+<ul>
+<li><a href="https://www.jaysong.net/RBook/">Song Jaehyun・矢内勇生『私たちのR: ベストプラクティスの探求』(E-book)</a></li>
+<li>いきなり<strong>オブジェクト</strong>、<strong>関数</strong>、<strong>引数</strong>といった馴染みのない概念が出てきます。これらの概念に馴染みのない方は、予め「<a href="../../tutorial/R/rprogramming.html">Rプログラミング入門の入門</a>」をご一読ください。</li>
+</ul></li>
+</ul>
+</section>
+<section id="まずは例から" class="level2">
+<h2 class="anchored" data-anchor-id="まずは例から">まずは例から</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Vector1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>Vector2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"D"</span>, <span class="st">"B"</span>, <span class="st">"E"</span>, <span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"D"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">summary</span>(Vector1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    3.25    5.00    5.70    8.50   12.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">summary</span>(Vector2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Length     Class      Mode 
+       10 character character </code></pre>
+</div>
+</div>
+<p>　同じ<code>summary()</code>関数ですが、中のデータのタイプによって動きが異なります。これがオブジェクト指向プログラミングにおいて「<strong>多態性</strong> (polymorphism)」と呼ばれる概念です。同じ関数でもデータ型、またはデータ構造に応じて異なる動きをすることです。ここでのデータ型やデータ構造を、OOPでは「<strong>クラス</strong> (class)」と呼びます。クラスは<code>class()</code>関数で確認することができます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">class</span>(Vector1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">class</span>(Vector2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>　<code>Vector1</code>はnumeric、<code>Vector2</code>はcharacterです。もし、無理矢理に<code>Vector1</code>のクラスをcharacterに変えればどうなるでしょうか。クラスの変更は<code>class(オブジェクト名) &lt;- "クラス名"</code>でできます。一つのオブジェクトは複数のクラスが持てますが、これはOOPの「<strong>継承</strong> (inheritance)」概念に関係するので後で解説します。ここではまず、<code>Vector1</code>のクラスをcharacterにし、もう一回<code>summary()</code>を使ってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">class</span>(Vector1) <span class="ot">&lt;-</span> <span class="st">"character"</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">summary</span>(Vector1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Length     Class      Mode 
+       10 character character </code></pre>
+</div>
+</div>
+<p>　データの中身は変わっていませんが、<code>summary()</code>関数の動き方が変わりました。このように、Rで頻繁に使う<code>summary()</code>、<code>print()</code>、<code>plot()</code>などの関数は様々なクラスの対応しております。<code>lm()</code>関数を使った回帰分析の結果オブジェクトのクラス名は<code>lm</code>であり、その結果を見るためにも<code>summary()</code>関数を使います。他にも<code>plot(lmオブジェクト名)</code>をすると回帰診断の図が表示されます。これができないと、各クラスに応じた関数を作成する必要がありますね。numeric型専用の<code>numeric_print()</code>、character型専用の<code>character_print()</code>、lm型専用の<code>lm_plot()</code>など…、覚えなきゃいけない関数が増えてきます。ユーザー側でも大変ですが、コードを作成する側も大変です。実際、<a href="#fig-HardestTasks">図&nbsp;1</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>を見ると、プログラマーにとって最も大変な仕事は「名付け」であることが分かります。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-HardestTasks" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: Programmers’ Hardest Tasks</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　OOPの多態性にはこのような煩わしい仕事を軽減する機能があります。OOPにはここで紹介した多態性以外にも、「<strong>継承</strong> (inheritance)」、「<strong>カプセル化</strong> (encapsulation)」のような特徴があります。他にも人によっては「メッセージパッシング (message passing)」、「動的バインディング (dynamic binding)」などの特徴を述べたりしますが、詳しい話は専門書に譲りたいと思います。また、ここではRのS3クラスについて解説しますが、S3はカプセル化に対応しておりません。したがって、ここでは以下の概念について例と一緒に解説していきたいと思います。</p>
+<ol type="1">
+<li>オブジェクト (object)</li>
+<li>クラス (class)</li>
+<li>メソッド (method)</li>
+<li>多態性 (polymorphism)　</li>
+<li>継承 (inheritance)</li>
+</ol>
+</section>
+<section id="oopとは" class="level2">
+<h2 class="anchored" data-anchor-id="oopとは">OOPとは</h2>
+<section id="オブジェクト" class="level3">
+<h3 class="anchored" data-anchor-id="オブジェクト">オブジェクト</h3>
+<p>　ここは『<a href="https://www.jaysong.net/RBook/">私たちのR</a>』の「<a href="https://www.jaysong.net/RBook/programming.html">Rプログラミングの基礎</a>」内容の繰り返しですが、<strong>オブジェクト (object)</strong> とはメモリに割り当てられた「何か」です。「何か」に該当するのは、ベクトル (vector)、行列 (matrix)、データフレーム (data frame)、リスト (list)、関数 (function) などがあります。一般的に、オブジェクトにはそれぞれ固有の（つまり、他のオブジェクトと重複しない）名前が付いています。</p>
+<p>　たとえば、1から5までの自然数の数列を</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>my_vec1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)  <span class="co"># my_vec1 &lt;- 1:5 でも同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　のように<code>my_vec1</code>という名前のオブジェクトに格納します。オブジェクトに名前をつけてメモリに割り当てると、その後 <code>my_vec1</code> と入力するだけでそのオブジェクトの中身を読み込むことができるようになります。</p>
+<p>　ここで、次のように <code>my_vec1</code>の要素を2倍にする操作を考えてみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>my_vec1 <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  4  6  8 10</code></pre>
+</div>
+</div>
+<p>　<code>my_vec1</code>は、先ほど定義したオブジェクトです。では<code>2</code>はどうでしょうか。<code>2</code>はメモリに割り当てられていないので、オブジェクトではないでしょうか。実は、この数字 <code>2</code> もオブジェクトです。計算する瞬間のみ<code>2</code>がメモリに割り当てられ、計算が終わったらメモリから消されると考えれば良いでしょう。むろん、<code>*</code> のような演算子でさえもオブジェクトです。</p>
+</section>
+<section id="クラス" class="level3">
+<h3 class="anchored" data-anchor-id="クラス">クラス</h3>
+<p>　<strong>クラス (class)</strong> とはオブジェクトを特徴づける属性のことです。既に何度か <code>class()</code> 関数を使ってデータ型やデータ構造を確認しましたが、<code>class()</code>関数でオブジェクトのクラスを確認することができます。先ほど、<code>my_vec1</code>も<code>*</code>も<code>2</code>もオブジェクトであると説明しました。これらがすべてオブジェクトであるということは、何らかのクラス属性を持っているというこです。また、<code>class()</code>関数そのものもオブジェクトなので、何らかのクラスを持ちます。確認してみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">class</span>(my_vec1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">class</span>(<span class="st">`</span><span class="at">*</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "function"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">class</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">class</span>(class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "function"</code></pre>
+</div>
+</div>
+<p>　統計分析をする際に、Rのクラスを意識することはあまりありません。しかし、Rでオブジェクト指向プログラミングを行う際は、オブジェクトのクラスを厳密に定義する必要があります。</p>
+<p>　Rにおける全てはオブジェクトであり、全てのオブジェクトは一つ以上クラスが付与されています。このクラスの考え方はプログラミング言語によって異なります。たとえば、Pythonの場合、一つのクラスの内部にはオブジェクトのデータ構造が定義され、そのクラスで使用可能な関数も含んでいます。また、データを含む場合もあります。このようにクラス内部にデータ、データ構造、専用関数などを格納することをカプセル化（encapsulation）と呼びます。</p>
+<p>　一方、Rの（S3）クラスにはクラス専用関数がクラス内で定義されておらず、データのみが格納されています。</p>
+</section>
+<section id="メソッドと多態性" class="level3">
+<h3 class="anchored" data-anchor-id="メソッドと多態性">メソッドと多態性</h3>
+<p>　各クラス専用の関数をメソッド（method）と呼びます。たとえば、<code>summary()</code>関数を考えてみましょう。<code>lm()</code>関数を用いた回帰分析から得られたオブジェクトのクラスは<code>lm</code>であり、<code>c()</code>で作られた数値型ベクトルのクラスは<code>numeric</code>です。しかし、同じ<code>summary()</code>関数ですが、引数のクラスが<code>lm</code>か<code>numeric</code>かによって異なる動きを見せます。その例を見ましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>Y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>lm_class <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> X)</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="fu">class</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">class</span>(lm_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "lm"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">summary</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0     3.5     6.0     6.0     8.5    11.0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">summary</span>(lm_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Y ~ X)
+
+Residuals:
+      1       2       3       4       5       6 
+ 1.3333 -0.2667 -1.8667 -0.4667  0.9333  0.3333 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  -1.6333     1.0546  -1.549  0.19637   
+X             1.3000     0.1528   8.510  0.00105 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.278 on 4 degrees of freedom
+Multiple R-squared:  0.9477,    Adjusted R-squared:  0.9346 
+F-statistic: 72.43 on 1 and 4 DF,  p-value: 0.001046</code></pre>
+</div>
+</div>
+<p>　このように同じ関数でもクラスによって異なる動作をすることを多態性 (polymorphism)と呼びます。しかし、実はRにおいてこれらの関数は別途作られた関数です。つまり、<code>summary()</code>という関数がクラスごとに定義されていることを意味します。<code>summary()</code>関数がどのクラスで使用可能かを確認するためには<code>methods()</code>関数を使います。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">methods</span>(<span class="st">"summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] summary,ANY-method                  summary,DBIObject-method           
+ [3] summary.aov                         summary.aovlist*                   
+ [5] summary.aspell*                     summary.check_packages_in_dir*     
+ [7] summary.connection                  summary.data.frame                 
+ [9] summary.Date                        summary.default                    
+[11] summary.Duration*                   summary.ecdf*                      
+[13] summary.factor                      summary.ggplot*                    
+[15] summary.glm                         summary.haven_labelled*            
+[17] summary.hcl_palettes*               summary.infl*                      
+[19] summary.Interval*                   summary.lm                         
+[21] summary.loess*                      summary.manova                     
+[23] summary.matrix                      summary.mlm*                       
+[25] summary.nls*                        summary.packageStatus*             
+[27] summary.Period*                     summary.POSIXct                    
+[29] summary.POSIXlt                     summary.ppr*                       
+[31] summary.prcomp*                     summary.princomp*                  
+[33] summary.proc_time                   summary.rlang_error*               
+[35] summary.rlang_message*              summary.rlang_trace*               
+[37] summary.rlang_warning*              summary.rlang:::list_of_conditions*
+[39] summary.srcfile                     summary.srcref                     
+[41] summary.stepfun                     summary.stl*                       
+[43] summary.table                       summary.tukeysmooth*               
+[45] summary.vctrs_sclr*                 summary.vctrs_vctr*                
+[47] summary.warnings                   
+see '?methods' for accessing help and source code</code></pre>
+</div>
+</div>
+<p>　このように47種類のクラスに対して<code>summary()</code>関数が定義されています<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。この関数の内部を確認するにはどうすれば良いでしょうか。関数のコードを見るときにはコンソール上に<code>関数名</code>を入力するだけです（<code>()</code>は不要）。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (object, ...) 
+UseMethod("summary")
+&lt;bytecode: 0x7feeb9aa6e60&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<p>　しかし、多態性を持つ関数の内部を見ることはできません。そもそも<code>summary()</code>関数はクラスごとに異なるコードを持っているため、<code>summary</code>だけでは「どのクラスの<code>summary()</code>か」が分かりません。それでもRには<code>summary()</code>関数が存在し、それをジェネリック関数（generic function）と呼びます。内部には<code>UseMethod("summary")</code>のみが書かれており、これは「この<code>summary()</code>関数は様々なクラスのメソッドとして機能するぞ」と宣言しているだけです。各クラスに対応したメソッドの内部を見るには<code>getS3method("メソッド名", "クラス名")</code>を使います。<code>summary()</code>メソッドは<code>numeric</code>型が別途指定されていないため、<code>"defualt"</code>となります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">getS3method</span>(<span class="st">"summary"</span>, <span class="st">"default"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (object, ..., digits, quantile.type = 7) 
+{
+    if (is.factor(object)) 
+        return(summary.factor(object, ...))
+    else if (is.matrix(object)) {
+        if (missing(digits)) 
+            return(summary.matrix(object, quantile.type = quantile.type, 
+                ...))
+        else return(summary.matrix(object, digits = digits, quantile.type = quantile.type, 
+            ...))
+    }
+    value &lt;- if (is.logical(object)) 
+        c(Mode = "logical", {
+            tb &lt;- table(object, exclude = NULL, useNA = "ifany")
+            if (!is.null(n &lt;- dimnames(tb)[[1L]]) &amp;&amp; any(iN &lt;- is.na(n))) dimnames(tb)[[1L]][iN] &lt;- "NA's"
+            tb
+        })
+    else if (is.numeric(object)) {
+        nas &lt;- is.na(object)
+        object &lt;- object[!nas]
+        qq &lt;- stats::quantile(object, names = FALSE, type = quantile.type)
+        qq &lt;- c(qq[1L:3L], mean(object), qq[4L:5L])
+        if (!missing(digits)) 
+            qq &lt;- signif(qq, digits)
+        names(qq) &lt;- c("Min.", "1st Qu.", "Median", "Mean", "3rd Qu.", 
+            "Max.")
+        if (any(nas)) 
+            c(qq, `NA's` = sum(nas))
+        else qq
+    }
+    else if (is.recursive(object) &amp;&amp; !is.language(object) &amp;&amp; 
+        (n &lt;- length(object))) {
+        sumry &lt;- array("", c(n, 3L), list(names(object), c("Length", 
+            "Class", "Mode")))
+        ll &lt;- numeric(n)
+        for (i in 1L:n) {
+            ii &lt;- object[[i]]
+            ll[i] &lt;- length(ii)
+            cls &lt;- oldClass(ii)
+            sumry[i, 2L] &lt;- if (length(cls)) 
+                cls[1L]
+            else "-none-"
+            sumry[i, 3L] &lt;- mode(ii)
+        }
+        sumry[, 1L] &lt;- format(as.integer(ll))
+        sumry
+    }
+    else c(Length = length(object), Class = class(object), Mode = mode(object))
+    class(value) &lt;- c("summaryDefault", "table")
+    value
+}
+&lt;bytecode: 0x7fee9aecd8a0&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<p>　Rにはメソッドがクラス内部で定義されず、別途の<code>メソッド名.クラス名()</code>といった関数として作成されています。そしてジェネリック関数によって一つの関数の「ように」まとまっています。このように、ジェネリック関数経由でメソッドを呼び出すことをメソッド・ディスパッチ（method dispatch）と呼びます。</p>
+</section>
+<section id="継承" class="level3">
+<h3 class="anchored" data-anchor-id="継承">継承</h3>
+<p>　クラスの継承 (inheritance)は一つのオブジェクトが2つ以上のクラスを持つ場合、子クラスが親クラスの特徴を継承することを意味します。たとえば、データフレームの拡張版とも言えるtibbleの場合、複数のクラスを持っています。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>my_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">X =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">Y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="fu">class</span>(my_tibble)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+</div>
+</div>
+<p>　この<code>my_tibble</code>は<code>tlb_df</code>と<code>tbl</code>、<code>data.frame</code>といった3つのクラスを持っており、先に出てきたものが子クラス、後に出てくるものが親クラスです。<code>tbl</code>クラスと<code>data.frame</code>クラス両方に同じメソッドが定義されている場合、まず子クラスである<code>メソッド.tbl()</code>が実行されます。もし、子クラスにメソッドが定義されていない場合は<code>tbl</code>の親クラスである<code>data.frame</code>のメソッドが実行されます。tibbleはデータフレームとは異なるクラスのオブジェクトですが、データフレームと（ほぼ）同じ操作ができるのは、クラスが継承されるからです。クラスの継承ができないと、tibbleで使える全ての関数（列や行の抽出に使う<code>[</code>や<code>$</code>なども！）を全て一から定義する必要がありますが<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>、継承を使うことによってこのような手間を省くことが出来ます。</p>
+</section>
+</section>
+<section id="rにおけるoop" class="level2">
+<h2 class="anchored" data-anchor-id="rにおけるoop">RにおけるOOP</h2>
+<section id="オブジェクトに任意のクラスを付ける" class="level3">
+<h3 class="anchored" data-anchor-id="オブジェクトに任意のクラスを付ける">オブジェクトに任意のクラスを付ける</h3>
+<p>　クラスを変えるのは簡単です。<code>class(オブジェクト) &lt;- "新しいクラス名"</code>だけです。つまり、関数から何かの結果を返す直前にクラスを変更すれば良いです。</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法1</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>関数名 <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(返すオブジェクト名) <span class="ot">&lt;-</span> <span class="st">"任意のクラス名"</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  返すオブジェクト名 <span class="co"># return(オブジェクト名) でもOK</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>　たとえば、入力された2つのベクトル（<code>x</code>と<code>y</code>）をリスト構造とし、クラス名をScoreにするにはどうすれば良いでしょうか。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>Make_Score1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb40-2"><a href="#cb40-2"></a>  </span>
+<span id="cb40-3"><a href="#cb40-3"></a>  <span class="co"># resultリストにxとyを格納</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Score1 =</span> x, <span class="at">Score2 =</span> y)</span>
+<span id="cb40-5"><a href="#cb40-5"></a>  </span>
+<span id="cb40-6"><a href="#cb40-6"></a>  <span class="co"># 以下は attr(result, "class") &lt;- "Score" も可</span></span>
+<span id="cb40-7"><a href="#cb40-7"></a>  <span class="fu">class</span>(result) <span class="ot">&lt;-</span> <span class="st">"Score"</span> <span class="co"># resultのクラスを"Score"とする</span></span>
+<span id="cb40-8"><a href="#cb40-8"></a>  </span>
+<span id="cb40-9"><a href="#cb40-9"></a>  result                   <span class="co"># resultを返す</span></span>
+<span id="cb40-10"><a href="#cb40-10"></a>}</span>
+<span id="cb40-11"><a href="#cb40-11"></a></span>
+<span id="cb40-12"><a href="#cb40-12"></a>My_Score1 <span class="ot">&lt;-</span> <span class="fu">Make_Score1</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">10</span>),</span>
+<span id="cb40-13"><a href="#cb40-13"></a>                         <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">10</span>))</span>
+<span id="cb40-14"><a href="#cb40-14"></a></span>
+<span id="cb40-15"><a href="#cb40-15"></a>My_Score1 <span class="co"># My_Score1の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Score1
+ [1] 45.81117 61.01301 45.56179 51.36342 44.57179 50.29139 44.68719 30.19658
+ [9] 55.15393 39.72618
+
+$Score2
+ [1] 45.91369 38.24700 31.20725 49.90860 49.20487 56.99150 33.64000 52.34071
+ [9] 60.93731 51.05731
+
+attr(,"class")
+[1] "Score"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">class</span>(My_Score1) <span class="co"># My_Score1のクラスを表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Score"</code></pre>
+</div>
+</div>
+<p>　もう一つの方法は<code>structure()</code>関数を使う方法です。<code>sturcture()</code>の第1引数に返すオブジェクト名を指定し、<code>class = "クラス名"</code>引数でクラスを指定します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>Make_Score2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb44-2"><a href="#cb44-2"></a>  </span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="co"># resultリストにxとyを格納</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Score1 =</span> x, <span class="at">Score2 =</span> y)</span>
+<span id="cb44-5"><a href="#cb44-5"></a>  </span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">structure</span>(result, <span class="at">class =</span> <span class="st">"Score"</span>) <span class="co"># resultを返す</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>}</span>
+<span id="cb44-8"><a href="#cb44-8"></a></span>
+<span id="cb44-9"><a href="#cb44-9"></a>My_Score2 <span class="ot">&lt;-</span> <span class="fu">Make_Score2</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">10</span>),</span>
+<span id="cb44-10"><a href="#cb44-10"></a>                         <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">10</span>))</span>
+<span id="cb44-11"><a href="#cb44-11"></a></span>
+<span id="cb44-12"><a href="#cb44-12"></a>My_Score2 <span class="co"># My_Score2の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Score1
+ [1] 52.83495 46.57467 25.78555 68.51724 66.03242 62.97295 40.75039 60.44864
+ [9] 53.61273 60.99472
+
+$Score2
+ [1] 36.33933 24.15357 52.14382 47.04183 46.23756 54.79466 49.52237 46.98390
+ [9] 42.97402 31.94506
+
+attr(,"class")
+[1] "Score"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">class</span>(My_Score2) <span class="co"># My_Score2のクラスを表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Score"</code></pre>
+</div>
+</div>
+<p>　どれも同じ結果が得られます。</p>
+</section>
+<section id="メソッドの作り方" class="level3">
+<h3 class="anchored" data-anchor-id="メソッドの作り方">メソッドの作り方</h3>
+<section id="既に存在する関数名を使う" class="level4">
+<h4 class="anchored" data-anchor-id="既に存在する関数名を使う">既に存在する関数名を使う</h4>
+<p>　先ほど作成しましたScoreクラスのオブジェクトは長さ2のリスト構造をしています。これらの要素それぞれの平均値を求める場合は、<code>mean(My_Score1[[1]])</code>と<code>mean(My_Score1[[2]])</code>を実行する必要があります。なぜなら、<code>mean()</code>はベクトルしか計算できないからです。ここではScoreクラスのオブジェクト要素それぞれの平均値を求める関数<code>mean()</code>を作成します。</p>
+<p>　しかし、問題があります。それはRに<code>mean()</code>関数が既に存在することです。ここで勝手に上書きするのは良くないでしょう。ここで出てくるのがメソッドです。Scoreクラスのメソッドは「Scoreクラス専用の関数」であり、通常のベクトルならR内蔵の<code>mean()</code>関数を、ScoreクラスのオブジェクトならScoreのメソッドである<code>mean()</code>を実行します。</p>
+<p>　メソッドの作り方は<a href="https://www.jaysong.net/RBook/functions.html">自作関数</a>と同じです。相違点としては関数名を<code>関数名.クラス名</code>にすることです。Scoreクラスのメソッドしての<code>mean()</code>関数を定義する場合、関数名を<code>mean.Score</code>とします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>mean.Score <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">print</span>(<span class="fu">mean</span>(x<span class="sc">$</span>Score1))</span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">print</span>(<span class="fu">mean</span>(x<span class="sc">$</span>Score2))</span>
+<span id="cb48-4"><a href="#cb48-4"></a>}</span>
+<span id="cb48-5"><a href="#cb48-5"></a></span>
+<span id="cb48-6"><a href="#cb48-6"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)) <span class="co"># R内蔵関数のmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">mean</span>(My_Score1) <span class="co"># Scoreクラスのメソッドであるmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 46.83764
+[1] 46.94482</code></pre>
+</div>
+</div>
+<p>　<code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] mean.Date        mean.default     mean.difftime    mean.POSIXct    
+[5] mean.POSIXlt     mean.quosure*    mean.Score       mean.vctrs_vctr*
+see '?methods' for accessing help and source code</code></pre>
+</div>
+</div>
+</section>
+<section id="新しい関数を作る" class="level4">
+<h4 class="anchored" data-anchor-id="新しい関数を作る">新しい関数を作る</h4>
+<p>　もし、新しい関数名を使用し、その関数が様々なクラスに対応するとしましょう。今回はCatというクラスを作ってみましょう。Catクラスの内部は長さ1のリストで、要素の名前は<code>Name</code>とし、ここには長さ1のcharacter型ベクトルが入ります。このCatクラスを作成する関数を<code>Make_Cat()</code>とします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>Make_Cat <span class="ot">&lt;-</span> <span class="cf">function</span>(name) {</span>
+<span id="cb54-2"><a href="#cb54-2"></a>  </span>
+<span id="cb54-3"><a href="#cb54-3"></a>  <span class="co"># resultリストにxを格納</span></span>
+<span id="cb54-4"><a href="#cb54-4"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Name =</span> name)</span>
+<span id="cb54-5"><a href="#cb54-5"></a>  </span>
+<span id="cb54-6"><a href="#cb54-6"></a>  <span class="fu">structure</span>(result, <span class="at">class =</span> <span class="st">"Cat"</span>) <span class="co"># resultを返す</span></span>
+<span id="cb54-7"><a href="#cb54-7"></a>}</span>
+<span id="cb54-8"><a href="#cb54-8"></a></span>
+<span id="cb54-9"><a href="#cb54-9"></a>My_Cat <span class="ot">&lt;-</span> <span class="fu">Make_Cat</span>(<span class="at">name =</span> <span class="st">"矢内"</span>)</span>
+<span id="cb54-10"><a href="#cb54-10"></a>My_Cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Name
+[1] "矢内"
+
+attr(,"class")
+[1] "Cat"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">class</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Cat"</code></pre>
+</div>
+</div>
+<p>　続いて、Catクラスに使う<code>my_func()</code>を作成します。<code>my_func()</code>はそもそも存在しない関数ですので、普通に<code>my_func &lt;- function()</code>で作成可能です。この関数はCatの<code>Name</code>の後ろに<code>": にゃーにゃー"</code>を付けて出力する関数です。実際にやってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>my_func <span class="ot">&lt;-</span> <span class="cf">function</span>(name) {</span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(name<span class="sc">$</span>Name, <span class="st">": にゃーにゃー"</span>))</span>
+<span id="cb58-3"><a href="#cb58-3"></a>}</span>
+<span id="cb58-4"><a href="#cb58-4"></a></span>
+<span id="cb58-5"><a href="#cb58-5"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "矢内: にゃーにゃー"</code></pre>
+</div>
+</div>
+<p>　しかし、<code>my_func()</code>をCatクラス以外にも使いたい場合はどうすればいいでしょうか。普通に<code>my_func.クラス名()</code>で良いでしょうか。確かにそうですが、その前に一つの手順が必要です。それは、<code>my_func()</code>をジェネリック関数として定義することです。この関数そのものは関数として機能はしませんが、「これから<code>my_func()</code>がいろんなクラスのメソッドとして使われるぞ」と予め決めてくれます。ジェネリック関数を作成しないと<code>関数名.クラス名</code>は定義できません。そこで使うのが<code>UseMethod()</code>です。第一引数はメソッド名、第二引数は任意の引数ですが、通常、<code>x</code>が使われます。また、第二の引数は省略可能で、<code>UseMethod("メソッド名")</code>でも動きます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>my_func <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">UseMethod</span>(<span class="st">"my_func"</span>, x)</span>
+<span id="cb60-3"><a href="#cb60-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　これからは<code>my_func.クラス名()</code>の関数を作るだけです。まず、Score型オブジェクトに対してはそれぞれの要素の平均値を出力するとします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>my_func.Score <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb61-2"><a href="#cb61-2"></a>  <span class="fu">print</span>(<span class="fu">mean</span>(x<span class="sc">$</span>Score1))</span>
+<span id="cb61-3"><a href="#cb61-3"></a>  <span class="fu">print</span>(<span class="fu">mean</span>(x<span class="sc">$</span>Score2))</span>
+<span id="cb61-4"><a href="#cb61-4"></a>}</span>
+<span id="cb61-5"><a href="#cb61-5"></a></span>
+<span id="cb61-6"><a href="#cb61-6"></a>my_func.Cat <span class="ot">&lt;-</span> <span class="cf">function</span>(cat) {</span>
+<span id="cb61-7"><a href="#cb61-7"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(cat<span class="sc">$</span>Name, <span class="st">": にゃーにゃー"</span>))</span>
+<span id="cb61-8"><a href="#cb61-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">methods</span>(my_func)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] my_func.Cat   my_func.Score
+see '?methods' for accessing help and source code</code></pre>
+</div>
+</div>
+<p>　<code>my_func()</code>関数はScoreとCatといった2種類のクラスで使われることが確認できます。それでは問題なく作動するかを確認してみましょう。<code>My_Score1</code>と<code>My_Cat</code>を、それぞれ<code>my_func()</code>に渡します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">my_func</span>(My_Score1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 46.83764
+[1] 46.94482</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "矢内: にゃーにゃー"</code></pre>
+</div>
+</div>
+<p>　同じ関数名でも、オブジェクトのクラスによって異なる処理が行われることが分かります。</p>
+</section>
+</section>
+<section id="検証用関数を作る" class="level3">
+<h3 class="anchored" data-anchor-id="検証用関数を作る">検証用関数を作る</h3>
+<p>　この作業は必須ではありませんが、今後、自分でパッケージ等を作ることになったら重要になるかも知れません。</p>
+<p>　最初の例でもお見せしましたが、Rでは事後的にクラスを変更することができます。強制的にクラスを変更した場合、そのクラスに属するメソッドを使うことができますが、エラーが生じてしまうでしょう。例えば、任意のcharacter型ベクトル<code>My_Cat2</code>を作成し、Catクラスを付与してみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>My_Cat2 <span class="ot">&lt;-</span> <span class="st">"宋"</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="fu">class</span>(My_Cat2) <span class="ot">&lt;-</span> <span class="st">"Cat"</span></span>
+<span id="cb68-3"><a href="#cb68-3"></a><span class="fu">class</span>(My_Cat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Cat"</code></pre>
+</div>
+</div>
+<p>　<code>My_Cat2</code>のクラスはCatであるため、<code>my_func.Cat()</code>メソッドが使えます。しかし、<code>my_func.Cat()</code>仕組みを見る限り、うまく作動しないでしょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">my_func</span>(My_Cat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: $ operator is invalid for atomic vectors</code></pre>
+</div>
+</div>
+<p>　間違った動作をするよりは、エラーが出て中断される方が良いですし、これで問題ないかも知れません。しかし、可能であれば、引数として使われたオブジェクトが、Catクラスか否かを厳密にチェックする機能があれば良いでしょう。カプセル化されている場合、クラスの定義時にデータの構造が厳密に定義されているため、このような手続きの必要性はあまりありませんが、カプセル化ができないRのS3クラスでは検証用関数（Validator）が必要です。</p>
+<p>　それではCatクラスの特徴をいくつか考えてみましょう。</p>
+<ul>
+<li>オブジェクトの中には<code>Name</code>という要素のみがある。</li>
+<li><code>Name</code>は長さ1のCharacter型ベクトルである。</li>
+</ul>
+<p>　以上の条件を全て満たしていればメソッドを実行し、一つでも満たさない場合はメソッドの実行を中止します。それでは検証用関数<code>Validation_Cat()</code>を作ってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>Validation_Cat <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb72-2"><a href="#cb72-2"></a>  Message <span class="ot">&lt;-</span> <span class="st">"正しいCatクラスではありません。"</span></span>
+<span id="cb72-3"><a href="#cb72-3"></a>  </span>
+<span id="cb72-4"><a href="#cb72-4"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="dv">1</span>) {</span>
+<span id="cb72-5"><a href="#cb72-5"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb72-6"><a href="#cb72-6"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.null</span>(<span class="fu">names</span>(x))) {</span>
+<span id="cb72-7"><a href="#cb72-7"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb72-8"><a href="#cb72-8"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">names</span>(x) <span class="sc">!=</span> <span class="st">"Name"</span>){</span>
+<span id="cb72-9"><a href="#cb72-9"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb72-10"><a href="#cb72-10"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">length</span>(x<span class="sc">$</span>Name) <span class="sc">!=</span> <span class="dv">1</span> <span class="sc">|</span> <span class="fu">class</span>(x<span class="sc">$</span>Name) <span class="sc">!=</span> <span class="st">"character"</span>) {</span>
+<span id="cb72-11"><a href="#cb72-11"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb72-12"><a href="#cb72-12"></a>  }</span>
+<span id="cb72-13"><a href="#cb72-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　この検証用関数を<code>my_func.Cat()</code>の最初に入れておきましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>my_func.Cat <span class="ot">&lt;-</span> <span class="cf">function</span>(cat) {</span>
+<span id="cb73-2"><a href="#cb73-2"></a>  <span class="fu">Validation_Cat</span>(cat)</span>
+<span id="cb73-3"><a href="#cb73-3"></a>  </span>
+<span id="cb73-4"><a href="#cb73-4"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(cat<span class="sc">$</span>Name, <span class="st">": にゃーにゃー"</span>))</span>
+<span id="cb73-5"><a href="#cb73-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　それでは<code>My_Cat</code>と<code>My_Cat2</code>に対して<code>my_func()</code>メソッドを実行してみます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "矢内: にゃーにゃー"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="fu">my_func</span>(My_Cat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in Validation_Cat(cat): 正しいCatクラスではありません。</code></pre>
+</div>
+</div>
+<p>　関数を実行する前に与えられたオブジェクトが正しいCatクラスか否かが判断され、パスされた場合のみ、メソッドが実行されることが分かります。もし、あるクラスで使用可能なメソッドが一つだけでしたら、検証用関数はメソッド内に直接書き込んでも良いですが、2つ以上のメソッドを持つ場合は別途の検証用関数を作成しておきましょう。</p>
+</section>
+</section>
+<section id="例題" class="level2">
+<h2 class="anchored" data-anchor-id="例題">例題</h2>
+<p>　ここでは2つのnumeric型ベクトルとそのベクトル名入力し、相関係数を求める<code>My_Cor()</code>関数を作ってみます。単に相関係数を求めるだけなら<code>cor()</code>や<code>cor.test()</code>があるので、いくつかの機能も追加してみましょう。</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>　たとえば、「1日当たりゲーム時間」と「身長」といった2つのnumeric型ベクトルをそれぞれ<code>x</code>と<code>y</code>で入力し、<code>x.name</code>と<code>y.name</code>で各ベクトルの名前も指定します。また、入力されたデータを用いて相関係数とその信頼区間を求めます。これらのデータはリスト型として格納されますが、クラスを<code>"My_Cor_Object"</code>とします。以下はその例です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb78-2"><a href="#cb78-2"></a></span>
+<span id="cb78-3"><a href="#cb78-3"></a>Cor_Obj <span class="ot">&lt;-</span> <span class="fu">My_Cor</span>(<span class="at">x      =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">2</span>, <span class="fl">0.5</span>), </span>
+<span id="cb78-4"><a href="#cb78-4"></a>                  <span class="at">y      =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">165</span>, <span class="dv">6</span>), </span>
+<span id="cb78-5"><a href="#cb78-5"></a>                  <span class="at">x.name =</span> <span class="st">"1日当たりゲーム時間"</span>, </span>
+<span id="cb78-6"><a href="#cb78-6"></a>                  <span class="at">y.name =</span> <span class="st">"身長"</span>)</span>
+<span id="cb78-7"><a href="#cb78-7"></a></span>
+<span id="cb78-8"><a href="#cb78-8"></a><span class="fu">class</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "My_Cor_Object"</code></pre>
+</div>
+</div>
+<p>　この<code>Cor_Obj</code>の構造を<code>str()</code>で確認してみます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="fu">str</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 4
+ $ data    :'data.frame':   20 obs. of  2 variables:
+  ..$ x: num [1:20] 2.05 1.33 1.08 1.03 1.8 ...
+  ..$ y: num [1:20] 158 164 165 172 174 ...
+ $ var_name: chr [1:2] "1日当たりゲーム時間" "身長"
+ $ cor     : Named num -0.306
+  ..- attr(*, "names")= chr "cor"
+ $ cor_ci  : num [1:2] -0.659 0.158
+  ..- attr(*, "conf.level")= num 0.95
+ - attr(*, "class")= chr "My_Cor_Object"</code></pre>
+</div>
+</div>
+<p>　<code>Cor_Obj</code>には元のデータがデータフレームとして格納され（<code>$data</code>）、それぞれの変数名（<code>$var_name</code>）、相関係数（<code>$cor</code>）、相関係数の95%信頼区間（<code>$cor_ci</code>）が<code>Cor_Obj</code>の中に入っています。本質的にはリスト型のデータ構造ですが、クラス名が<code>My_Cor_Object</code>になっているだけです。</p>
+<p>　この<code>My_Cor_Object</code>クラスには3つのメソッド（専用関数）が用意されており、<code>print()</code>、<code>summary()</code>、<code>plot()</code>です。<code>print()</code>と<code>summary()</code>は同じ関数で、<code>x</code>と<code>y</code>の平均値、そして相関係数と信頼区間を出力します。<code>plot()</code>は散布図と相関係数を出力します。実際の例を見てみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">print</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1日当たりゲーム時間の平均値: 1.913
+身長の平均値: 164.573
+相関係数: -0.306 [-0.659, 0.158]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">summary</span>(Cor_Obj) <span class="co"># summary()はprint()と同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1日当たりゲーム時間の平均値: 1.913
+身長の平均値: 164.573
+相関係数: -0.306 [-0.659, 0.158]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">plot</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="opp_intro_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　既存の<code>cor.test()</code>で作成される<code>"htest"</code>クラスに比べ、<code>"My_Cor_Object"</code>クラスは各変数の平均値が名前と一緒に表示され、<code>plot()</code>で簡単に散布図が作成できる大変便利なクラスです。このMy_Cor_Objectクラスとそのメソッドの構造を図示したものが以下の図です。</p>
+<p><img src="Figs/OOP/My_Cor_Object.png" class="img-fluid"></p>
+<p>　それでは一つずつ作っていきましょう。まずは、<code>"My_Cor_Object"</code>クラスのオブジェクトを作成する<code>My_Cor()</code>関数からです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a>My_Cor <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, x.name, y.name) {</span>
+<span id="cb87-2"><a href="#cb87-2"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(x) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.numeric</span>(y)) {</span>
+<span id="cb87-3"><a href="#cb87-3"></a>        <span class="fu">stop</span>(<span class="st">"xまたはyがnumeric型ではありません。"</span>)</span>
+<span id="cb87-4"><a href="#cb87-4"></a>    }</span>
+<span id="cb87-5"><a href="#cb87-5"></a>    <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="fu">length</span>(y)) {</span>
+<span id="cb87-6"><a href="#cb87-6"></a>        <span class="fu">stop</span>(<span class="st">"xとyは同じ長さでなかればなりません。"</span>)</span>
+<span id="cb87-7"><a href="#cb87-7"></a>    }</span>
+<span id="cb87-8"><a href="#cb87-8"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x.name) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.character</span>(y.name)) {</span>
+<span id="cb87-9"><a href="#cb87-9"></a>        <span class="fu">stop</span>(<span class="st">"x.nameまたはy.nameがcharacter型ではありません。"</span>)</span>
+<span id="cb87-10"><a href="#cb87-10"></a>    }</span>
+<span id="cb87-11"><a href="#cb87-11"></a>    </span>
+<span id="cb87-12"><a href="#cb87-12"></a>    data     <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb87-13"><a href="#cb87-13"></a>    var_name <span class="ot">&lt;-</span> <span class="fu">c</span>(x.name, y.name)</span>
+<span id="cb87-14"><a href="#cb87-14"></a>    cor      <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(x, y)<span class="sc">$</span>estimate</span>
+<span id="cb87-15"><a href="#cb87-15"></a>    cor_ci   <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(x, y)<span class="sc">$</span>conf.int</span>
+<span id="cb87-16"><a href="#cb87-16"></a>    </span>
+<span id="cb87-17"><a href="#cb87-17"></a>    result   <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">data     =</span> data, </span>
+<span id="cb87-18"><a href="#cb87-18"></a>                               <span class="at">var_name =</span> var_name, </span>
+<span id="cb87-19"><a href="#cb87-19"></a>                               <span class="at">cor      =</span> cor,</span>
+<span id="cb87-20"><a href="#cb87-20"></a>                               <span class="at">cor_ci   =</span> cor_ci),</span>
+<span id="cb87-21"><a href="#cb87-21"></a>                          <span class="at">class =</span> <span class="st">"My_Cor_Object"</span>)</span>
+<span id="cb87-22"><a href="#cb87-22"></a>    </span>
+<span id="cb87-23"><a href="#cb87-23"></a>    result</span>
+<span id="cb87-24"><a href="#cb87-24"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　最初の部分は入力されたデータがMy_Cor_Objectクラスに適した構造か否かを判断します。これは最初から想定外のMy_Cor_Objectクラスのオブジェクトが作成されることを防ぐことが目的です。むろん、R（S3）の性質上、事後的にクラスを変更することが可能ですから、検証用関数も作っておきます。ここでは以下の条件を検証します。</p>
+<ul>
+<li><code>data</code>という要素が存在し、2列である。</li>
+<li><code>var_name</code>という要素が存在し、長さ2のcharacter型ベクトルである。</li>
+<li><code>cor</code>という要素が存在し、長さ1のnumeric型ベクトルである。</li>
+<li><code>cor_ci</code>という要素が存在し、長さ2のnumeric型ベクトルである。</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>Validation <span class="ot">&lt;-</span> <span class="cf">function</span> (x) {</span>
+<span id="cb88-2"><a href="#cb88-2"></a>  <span class="fu">UseMethod</span>(<span class="st">"Validation"</span>, x)</span>
+<span id="cb88-3"><a href="#cb88-3"></a>}</span>
+<span id="cb88-4"><a href="#cb88-4"></a></span>
+<span id="cb88-5"><a href="#cb88-5"></a>Validation.My_Cor_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb88-6"><a href="#cb88-6"></a>  Message <span class="ot">&lt;-</span> <span class="st">"正しいMy_Cor_Objectクラスではございません。"</span></span>
+<span id="cb88-7"><a href="#cb88-7"></a>  </span>
+<span id="cb88-8"><a href="#cb88-8"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x<span class="sc">$</span>data) <span class="sc">|</span> <span class="fu">ncol</span>(x<span class="sc">$</span>data) <span class="sc">!=</span> <span class="dv">2</span>) {</span>
+<span id="cb88-9"><a href="#cb88-9"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb88-10"><a href="#cb88-10"></a>  }</span>
+<span id="cb88-11"><a href="#cb88-11"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x<span class="sc">$</span>var_name) <span class="sc">|</span> <span class="fu">length</span>(x<span class="sc">$</span>var_name) <span class="sc">!=</span> <span class="dv">2</span> <span class="sc">|</span> <span class="fu">class</span>(x<span class="sc">$</span>var_name) <span class="sc">!=</span> <span class="st">"character"</span>) {</span>
+<span id="cb88-12"><a href="#cb88-12"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb88-13"><a href="#cb88-13"></a>  }</span>
+<span id="cb88-14"><a href="#cb88-14"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x<span class="sc">$</span>cor) <span class="sc">|</span> <span class="fu">length</span>(x<span class="sc">$</span>cor) <span class="sc">!=</span> <span class="dv">1</span> <span class="sc">|</span> <span class="fu">class</span>(x<span class="sc">$</span>cor) <span class="sc">!=</span> <span class="st">"numeric"</span>) {</span>
+<span id="cb88-15"><a href="#cb88-15"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb88-16"><a href="#cb88-16"></a>  }</span>
+<span id="cb88-17"><a href="#cb88-17"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x<span class="sc">$</span>cor_ci) <span class="sc">|</span> <span class="fu">length</span>(x<span class="sc">$</span>cor_ci) <span class="sc">!=</span> <span class="dv">2</span> <span class="sc">|</span> <span class="fu">class</span>(x<span class="sc">$</span>cor_ci) <span class="sc">!=</span> <span class="st">"numeric"</span>) {</span>
+<span id="cb88-18"><a href="#cb88-18"></a>    <span class="fu">stop</span>(Message)</span>
+<span id="cb88-19"><a href="#cb88-19"></a>  }</span>
+<span id="cb88-20"><a href="#cb88-20"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　ここでは<code>Validation()</code>をジェネリック関数として使用しました。自分が開発するパッケージで複数のクラスを提供する予定でしたら、このようなやり方が良いでしょう。</p>
+<p>　検証用関数は細かく書いた方が良いです。以上の<code>Validation()</code>もより細かくことが出来ます。たとえば、<code>data</code>が2列か否かを判定するだけでなく、numeric型であるかなども判定した方が良いでしょう。</p>
+<p>　つづいて、My_Cor_Objectクラス用の<code>print()</code>関数（メソッド）を作成します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a>print.My_Cor_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb89-2"><a href="#cb89-2"></a>    <span class="fu">Valdation</span>(data)</span>
+<span id="cb89-3"><a href="#cb89-3"></a>    </span>
+<span id="cb89-4"><a href="#cb89-4"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"%sの平均値: %.3f</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb89-5"><a href="#cb89-5"></a>                data<span class="sc">$</span>var_name[<span class="dv">1</span>],</span>
+<span id="cb89-6"><a href="#cb89-6"></a>                <span class="fu">mean</span>(data<span class="sc">$</span>data<span class="sc">$</span>x)))</span>
+<span id="cb89-7"><a href="#cb89-7"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"%sの平均値: %.3f</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb89-8"><a href="#cb89-8"></a>                data<span class="sc">$</span>var_name[<span class="dv">2</span>],</span>
+<span id="cb89-9"><a href="#cb89-9"></a>                <span class="fu">mean</span>(data<span class="sc">$</span>data<span class="sc">$</span>y)))</span>
+<span id="cb89-10"><a href="#cb89-10"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"相関係数: %.3f [%.3f, %.3f]</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb89-11"><a href="#cb89-11"></a>                data<span class="sc">$</span>cor, </span>
+<span id="cb89-12"><a href="#cb89-12"></a>                data<span class="sc">$</span>cor_ci[<span class="dv">1</span>],</span>
+<span id="cb89-13"><a href="#cb89-13"></a>                data<span class="sc">$</span>cor_ci[<span class="dv">2</span>]))</span>
+<span id="cb89-14"><a href="#cb89-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　次は、<code>summary()</code>メソッドですが、これは<code>print()</code>と同じ機能をする関数です。この場合、<code>UseMethod("メソッド名")</code>を使うと、指定したメソッドを使うことになります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>summary.My_Cor_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb90-2"><a href="#cb90-2"></a>  <span class="fu">UseMethod</span>(<span class="st">"print"</span>)</span>
+<span id="cb90-3"><a href="#cb90-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　最後は<code>plot()</code>メソッドです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>plot.My_Cor_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb91-2"><a href="#cb91-2"></a>    <span class="fu">Valdation</span>(data)</span>
+<span id="cb91-3"><a href="#cb91-3"></a>    </span>
+<span id="cb91-4"><a href="#cb91-4"></a>    data<span class="sc">$</span>data <span class="sc">%&gt;%</span></span>
+<span id="cb91-5"><a href="#cb91-5"></a>      <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb91-6"><a href="#cb91-6"></a>      <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb91-7"><a href="#cb91-7"></a>      <span class="fu">labs</span>(<span class="at">x =</span> data<span class="sc">$</span>var_name[<span class="dv">1</span>], <span class="at">y =</span> data<span class="sc">$</span>var_name[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb91-8"><a href="#cb91-8"></a>      <span class="fu">ggtitle</span>(<span class="fu">sprintf</span>(<span class="st">"相関係数 = %.3f"</span>, data[[<span class="st">"cor"</span>]])) <span class="sc">+</span></span>
+<span id="cb91-9"><a href="#cb91-9"></a>      <span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)</span>
+<span id="cb91-10"><a href="#cb91-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　これで相関係数の計算および可視化が便利になる関数群が完成しました。Rパッケージの開発はこれよりも数倍も複雑ですが、本記事の内容はプログラミングをより効率的に行うための入り口となります。</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>図の出典は<a href="https://www.itworld.com/article/2833265/don-t-go-into-programming-if-you-don-t-have-a-good-thesaurus.html">IT WORLD</a>です (アクセス: 2020-05-21)。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>逆に特定のクラスで使用可能なメソッドを確認するときは<code>methods(class = "クラス名")</code>を入力します。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>ただし、実際の場合、<code>[</code>や<code>[&lt;-</code>などは<code>tbl</code>または<code>tbl_df</code>用のメソッドが別途用意されています。<code>data.frame</code>クラスから継承されているメソッドとしては<code>dim()</code>や<code>t()</code>などがあります。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

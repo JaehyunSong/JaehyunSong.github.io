@@ -1,0 +1,34 @@
+---
+title: "Jaehyun Song, Ph.D."
+subtitle: "Ph.D. in Political Science"
+about:
+  template: solana
+link-external-newwindow: true
+---
+
+I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.jp/Fc_inf/), [Kansai University](https://www.kansai-u.ac.jp/). I earned my Ph.D. and master degree in political science from [Kobe University](https://www.kobe-u.ac.jp/), and a bachelor degree in law from [Keio University](https://www.keio.ac.jp/ja/). My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available [here](cv/cv.pdf).
+
+:::{.callout-note}
+## メニュー案内
+
+* 宋のCVは[CV](cv/index.qmd)
+* これまでの研究内容は[Research](research/index.qmd)
+* 担当科目については[Teaching](teaching/index.qmd)
+* 宋ゼミについては[Seminar](seminar/index.qmd)
+* これまで作成したアプリ/パッケージ/スクリプトは[Software](software/index.qmd)
+* 備忘録は[Note](notes/index.qmd)
+* 分析/調査ツールのチュートリアルは[Tutorial](tutorial/index.qmd)
+:::
+
+:::{.callout-note}
+## Information
+
+* Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
+* Environment
+   * macOS 12.3.1 "Monterey"
+   * Firefox 100.0
+   * `r version$version.string`
+   * RStudio 2022.02.2+485 "Prairie Trillium"
+   * Quarto `r quarto::quarto_inspect()$quarto$version`
+   * R package {quarto} `r packageVersion("quarto")`
+:::

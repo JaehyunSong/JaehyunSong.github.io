@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+language: _language.yml
+
+website:
+  site-url: "https://www.jaysong.net/"
+  title: "Jaehyun Song, Ph.D."
+  page-footer: "Copyright 2022, Jaehyun Song. Powered by [Quarto](https://quarto.org/)"
+  google-analytics: "G-BCE61P2YP7"
+  navbar:
+    search: true
+    background: "#1955A6" # royal blue
+    left:
+      - text: "CV"
+        href: cv/index.qmd
+      - text: "Research"
+        href: research/index.qmd
+      - text: "Teaching"
+        href: teaching/index.qmd
+      - text: "Seminar"
+        href: seminar/index.qmd
+      - text: "Software"
+        href: software/index.qmd
+      - text: "Notes"
+        href: notes/index.qmd
+      - text: "Tutorials"
+        href: tutorial/index.qmd
+    right: 
+      - icon: twitter
+        href: https://twitter.com/Tintstyle
+      - icon: facebook
+        href: https://www.facebook.com/tintstyle
+      - icon: instagram
+        href: https://www.instagram.com/tintstyle/
+      - icon: github
+        href: https://github.com/JaehyunSong
+      - icon: mortarboard-fill
+        href: https://scholar.google.com/citations?user=8a-NxjkAAAAJ&hl=ja
+      - icon: map
+        href: https://researchmap.jp/jaysong
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css

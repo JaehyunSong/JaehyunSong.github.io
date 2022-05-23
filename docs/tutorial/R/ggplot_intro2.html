@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- 可視化[基礎]</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#visual2-data" id="toc-visual2-data" class="nav-link active" data-scroll-target="#visual2-data">実習用データ</a></li>
+  <li><a href="#visual2-barplot" id="toc-visual2-barplot" class="nav-link" data-scroll-target="#visual2-barplot">棒グラフ</a>
+  <ul class="collapse">
+  <li><a href="#ケース数のグラフ" id="toc-ケース数のグラフ" class="nav-link" data-scroll-target="#ケース数のグラフ">ケース数のグラフ</a></li>
+  <li><a href="#記述統計量のグラフ" id="toc-記述統計量のグラフ" class="nav-link" data-scroll-target="#記述統計量のグラフ">記述統計量のグラフ</a></li>
+  <li><a href="#次元を追加する" id="toc-次元を追加する" class="nav-link" data-scroll-target="#次元を追加する">次元を追加する</a></li>
+  </ul></li>
+  <li><a href="#visual2-histogram" id="toc-visual2-histogram" class="nav-link" data-scroll-target="#visual2-histogram">ヒストグラム</a>
+  <ul class="collapse">
+  <li><a href="#ヒストグラムの棒の大きさを調整する" id="toc-ヒストグラムの棒の大きさを調整する" class="nav-link" data-scroll-target="#ヒストグラムの棒の大きさを調整する">ヒストグラムの棒の大きさを調整する</a></li>
+  <li><a href="#密度を追加する" id="toc-密度を追加する" class="nav-link" data-scroll-target="#密度を追加する">密度を追加する</a></li>
+  <li><a href="#次元を追加する-1" id="toc-次元を追加する-1" class="nav-link" data-scroll-target="#次元を追加する-1">次元を追加する</a></li>
+  </ul></li>
+  <li><a href="#visual2-box" id="toc-visual2-box" class="nav-link" data-scroll-target="#visual2-box">箱ひげ図</a>
+  <ul class="collapse">
+  <li><a href="#個別のデータを表示する" id="toc-個別のデータを表示する" class="nav-link" data-scroll-target="#個別のデータを表示する">個別のデータを表示する</a></li>
+  <li><a href="#次元を追加する-2" id="toc-次元を追加する-2" class="nav-link" data-scroll-target="#次元を追加する-2">次元を追加する</a></li>
+  <li><a href="#複数の変数の場合" id="toc-複数の変数の場合" class="nav-link" data-scroll-target="#複数の変数の場合">複数の変数の場合</a></li>
+  </ul></li>
+  <li><a href="#visual2-scatter" id="toc-visual2-scatter" class="nav-link" data-scroll-target="#visual2-scatter">散布図</a>
+  <ul class="collapse">
+  <li><a href="#次元を追加する-3" id="toc-次元を追加する-3" class="nav-link" data-scroll-target="#次元を追加する-3">次元を追加する</a></li>
+  <li><a href="#一部の点をハイライトする" id="toc-一部の点をハイライトする" class="nav-link" data-scroll-target="#一部の点をハイライトする">一部の点をハイライトする</a></li>
+  </ul></li>
+  <li><a href="#visual2-line" id="toc-visual2-line" class="nav-link" data-scroll-target="#visual2-line">折れ線グラフ</a>
+  <ul class="collapse">
+  <li><a href="#一部の線をハイライトする" id="toc-一部の線をハイライトする" class="nav-link" data-scroll-target="#一部の線をハイライトする">一部の線をハイライトする</a></li>
+  </ul></li>
+  <li><a href="#visual2-japanese" id="toc-visual2-japanese" class="nav-link" data-scroll-target="#visual2-japanese">日本語が含まれた図について</a>
+  <ul class="collapse">
+  <li><a href="#macosの場合" id="toc-macosの場合" class="nav-link" data-scroll-target="#macosの場合">macOSの場合</a></li>
+  <li><a href="#windowsの場合" id="toc-windowsの場合" class="nav-link" data-scroll-target="#windowsの場合">Windowsの場合</a></li>
+  <li><a href="#raggの使用" id="toc-raggの使用" class="nav-link" data-scroll-target="#raggの使用">{ragg}の使用</a></li>
+  </ul></li>
+  <li><a href="#visual2-save" id="toc-visual2-save" class="nav-link" data-scroll-target="#visual2-save">図の保存</a>
+  <ul class="collapse">
+  <li><a href="#ggsaveを利用した図の保存" id="toc-ggsaveを利用した図の保存" class="nav-link" data-scroll-target="#ggsaveを利用した図の保存"><code>ggsave()</code>を利用した図の保存</a></li>
+  <li><a href="#quartzを利用した図の保存" id="toc-quartzを利用した図の保存" class="nav-link" data-scroll-target="#quartzを利用した図の保存"><code>quartz()</code>を利用した図の保存</a></li>
+  <li><a href="#raggが導入済みの場合" id="toc-raggが導入済みの場合" class="nav-link" data-scroll-target="#raggが導入済みの場合">{ragg}が導入済みの場合</a></li>
+  </ul></li>
+  <li><a href="#visual2-summary" id="toc-visual2-summary" class="nav-link" data-scroll-target="#visual2-summary">まとめ</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">可視化[基礎]</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>　前ページでは{ggplot2}の仕組みおよびグラフィックの文法と良いグラフについて説明しました。本章では実際に簡単なグラフを作りながら{ggplot2}に慣れて頂きたいと思います。{ggplot2}で作れる図の種類は非常に多いですが、本章では、データサイエンスで頻繁に利用される以下の5つのプロットの作り方を紹介します。</p>
+<ol type="1">
+<li><a href="#visual2-barplot">棒グラフ</a></li>
+<li><a href="#visual2-histogram">ヒストグラム</a></li>
+<li><a href="#visual2-box">箱ひげ図</a></li>
+<li><a href="#visual2-scatter">散布図</a></li>
+<li><a href="#visual2-line">折れ線グラフ</a></li>
+</ol>
+<p>　その他の図や、図の細かい修正については<a href="../../tutorial/R/ggplot_intro3.html">発展編</a>で解説します。また、使用するPCの環境によっては図の文字化けが生じる可能性があります。この場合は第@ref(visual2-japanese)章を参照してください。</p>
+<section id="visual2-data" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-data">実習用データ</h2>
+<p>　実習の前に本章で使用するデータと{ggplot2}パッケージが含まれている{tidyverse}を読み込みます。</p>
+<ul>
+<li><a href="Data/Countries.csv">データ1: 国家別民主主義および政治的自由データ</a></li>
+<li><a href="Data/COVID19_Worldwide.csv">データ2: COVID-19データ</a></li>
+</ul>
+<p>　<code>COVID19_Worldwide.csv</code>の場合、普通に読み込むと<code>Test_Day</code>と<code>Test_Total</code>が数値型であるにも関わらず、logical型変数として読み込まれます。<code>read_csv</code>はデフォルトだと最初の100行までのデータからデータ型を判断しますが、<code>COVID19_Worldwide.csv</code>の場合、<code>Test_Day</code>と<code>Test_Total</code>の最初の100要素は全て欠損しており、判断不可となるため、自動的にlogical型として判断します。これを避けるために、<code>guess_max = 10000</code>を追加します。これは「データ型を判断するなら10000行までは読んでから判断しろ」という意味です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>Country_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/Countries.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>COVID19_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/COVID19_Worldwide.csv"</span>, <span class="at">guess_max =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　これらの変数はSONGが適当にインターネットなどで集めたデータであり、あくまでも実習用データとしてのみお使い下さい。各変数の詳細は以下の通りです。</p>
+<div id="tbl-visual2-sampledata-1" class="anchored">
+<table class="table">
+<caption>表 1: 国家別民主主義および政治的自由データの詳細</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">変数名</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Country</code></td>
+<td style="text-align: left;">国名</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Polulation</code></td>
+<td style="text-align: left;">人口</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Area</code></td>
+<td style="text-align: left;">面積</td>
+<td style="text-align: left;">km<span class="math inline">\(^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>GDP</code></td>
+<td style="text-align: left;">国内総生産 (GDP)</td>
+<td style="text-align: left;">100万米ドル</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>PPP</code></td>
+<td style="text-align: left;">GDP (購買力平価)</td>
+<td style="text-align: left;">100万米ドル</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>GDP_per_capita</code></td>
+<td style="text-align: left;">一人あたりGDP</td>
+<td style="text-align: left;">米ドル</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>PPP_per_capita</code></td>
+<td style="text-align: left;">一人あたりGDP (購買力平価)</td>
+<td style="text-align: left;">米ドル</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>G7</code></td>
+<td style="text-align: left;">G7構成国</td>
+<td style="text-align: left;">1:構成国, 0:構成国以外</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>G20</code></td>
+<td style="text-align: left;">G20構成国</td>
+<td style="text-align: left;">1:構成国, 0:構成国以外</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>OECD</code></td>
+<td style="text-align: left;">OECD構成国</td>
+<td style="text-align: left;">1:構成国, 0:構成国以外</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>HDI_2018</code></td>
+<td style="text-align: left;">人間開発指数</td>
+<td style="text-align: left;">2018年基準</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Polity_Score</code></td>
+<td style="text-align: left;">民主主義の程度</td>
+<td style="text-align: left;">Polity IVから; -10:権威主義〜10:民主主義</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Polity_Type</code></td>
+<td style="text-align: left;">民主主義の程度 (カテゴリ)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>FH_PR</code></td>
+<td style="text-align: left;">政治的自由の指標</td>
+<td style="text-align: left;">2020年基準; Freedom Houseから</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FH_CL</code></td>
+<td style="text-align: left;">市民的自由の指標</td>
+<td style="text-align: left;">2020年基準; Freedom Houseから</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>FH_Total</code></td>
+<td style="text-align: left;">政治的自由と市民的自由の合計</td>
+<td style="text-align: left;">2020年基準; Freedom Houseから</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FH_Status</code></td>
+<td style="text-align: left;">総合評価</td>
+<td style="text-align: left;">F:完全な自由; PF:一部自由; NF:不自由</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Continent</code></td>
+<td style="text-align: left;">大陸</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-visual2-sampledata-2" class="anchored">
+<table class="table">
+<caption>表 2: COVID-19データの詳細</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">変数名</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ID</code></td>
+<td style="text-align: left;">ID</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Country</code></td>
+<td style="text-align: left;">国名</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Date</code></td>
+<td style="text-align: left;">年月日</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Confirmed_Day</code></td>
+<td style="text-align: left;">COVID-19 新規感染者数</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Confirmed_Total</code></td>
+<td style="text-align: left;">COVID-19 累積感染者数</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Death_Day</code></td>
+<td style="text-align: left;">COVID-19 新規死亡者数</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Death_Total</code></td>
+<td style="text-align: left;">COVID-19 累積死亡者数</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Test_Day</code></td>
+<td style="text-align: left;">COVID-19 新規検査数</td>
+<td style="text-align: left;">人</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Test_Total</code></td>
+<td style="text-align: left;">COVID-19 累積検査数</td>
+<td style="text-align: left;">人</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="visual2-barplot" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-barplot">棒グラフ</h2>
+<p>　棒グラフについては以下の2つのタイプについて説明します。</p>
+<ol type="1">
+<li>ある変数の数の表す棒グラフ</li>
+<li>各グループの統計量を表す棒グラフ</li>
+</ol>
+<p>　前者は「データ内にアフリカのケースはいくつあるか、アジアの行はいくつあるか」のようなものであり、後者は「大陸ごとの民主主義の度合いの平均値はいくつか」を出力するグラフです。</p>
+<section id="ケース数のグラフ" class="level3">
+<h3 class="anchored" data-anchor-id="ケース数のグラフ">ケース数のグラフ</h3>
+<p>　まず、<code>Country_df</code>の<code>Continent</code>変数における各値の頻度数を棒グラフとして出してみましょう。表としてまとめる簡単な方法は<code>table()</code>関数があります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">table</span>(Country_df<span class="sc">$</span>Continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Africa America    Asia  Europe Oceania 
+     54      36      42      50       4 </code></pre>
+</div>
+</div>
+<p>　ケース数の棒グラフは、大陸名を横軸に、ケース数を縦軸にしたグラフです。それではグラフを作ってみます。データは<code>Country_df</code>であり、使う幾何オブジェクトは<code>geom_bar()</code>です。ここで必要な情報は横軸、つまり大陸 (<code>Continent</code>)のみです。縦軸も「ケース数」という情報も必要ですが、{ggplot2}が勝手に計算してくれるので、指定しません。また、<code>labs()</code>レイヤーを追加します。<code>labs()</code>レイヤーはマッピング要素のラベルを指定するものです。これを指定しない場合、<code>aes()</code>内で指定した変数名がそのまま出力されます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-barplot-2_93c5499a961d44224433808ba34ef8d0">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-2-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで初めての{ggplot2}を用いたグラフが完成しましたね！</p>
+</section>
+<section id="記述統計量のグラフ" class="level3">
+<h3 class="anchored" data-anchor-id="記述統計量のグラフ">記述統計量のグラフ</h3>
+<p>　次は記述統計量のグラフを出してみます。たとえば、大陸ごとに民主主義の指標の1つであるPolity Scoreの平均値を図示するとします。まずは、<code>dplyr</code>を使って、大陸ごとにPolity Score (<code>Polity_Score</code>)の平均値を計算し、<code>Bar_df1</code>という名で保存します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>Bar_df1 <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">group_by</span>(Continent) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">summarise</span>(<span class="at">Democracy =</span> <span class="fu">mean</span>(Polity_Score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-4"><a href="#cb5-4"></a>            <span class="at">.groups   =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>Bar_df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  Continent Democracy
+  &lt;chr&gt;         &lt;dbl&gt;
+1 Africa        2.48 
+2 America       6.93 
+3 Asia          0.342
+4 Europe        7.93 
+5 Oceania       7.25 </code></pre>
+</div>
+</div>
+<p>　それでは、この<code>Bar_df1</code>を基にグラフを作りますが、今回は縦軸の情報も必要です。横軸は<code>Continent</code>、縦軸は<code>Democracy</code>変数に指定します。そして、重要なものとして<code>stat</code>引数を指定します。これはマッピングと関係なく、棒グラフの性質に関係するものなので、<code>aes()</code>の外側に位置します。これを指定しない場合、<code>geom_bar()</code>は基本的にはケース数を計算し、図示します。<code>Passenger</code>の値そのものを縦軸にしたい場合は<code>stat = "identity"</code>を指定します。後は、先ほどの棒グラフと同じです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-barplot-4_567045b3eb3b4639e14e98d230f4b78d">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>Bar_df1 <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Democracy), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"Polity IV スコアの平均値"</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-4-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　考えてみれば、大陸名が英語になっていますね。図内の言語は統一するのが原則であり、図の言語は論文やレポート、報告書の言語とも一致させるべきです。ここは<code>Bar_df1</code>の<code>Continent</code>列の値を日本語に置換するだけでいいので、<code>recode()</code>関数を使います。<code>recode()</code>の使い方は<a href="../../tutorial/R/dplyr_intro.html">dplyr入門</a>を参照してください。また、順番はローマ字順にしたいので、<code>fct_inorder()</code>を使って、<code>Bar_df1</code>における表示順でfactor化を行います。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-barplot-5_e4b8dba45c8b3000923636865b4a2c2a">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>Bar_df1 <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">mutate</span>(<span class="at">Continent =</span> <span class="fu">recode</span>(Continent,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>                            <span class="st">"Africa"</span>   <span class="ot">=</span> <span class="st">"アフリカ"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>                            <span class="st">"America"</span>  <span class="ot">=</span> <span class="st">"アメリカ"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>                            <span class="st">"Asia"</span>     <span class="ot">=</span> <span class="st">"アジア"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>                            <span class="st">"Europe"</span>   <span class="ot">=</span> <span class="st">"ヨーロッパ"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>                            <span class="at">.default   =</span> <span class="st">"オセアニア"</span>),</span>
+<span id="cb8-8"><a href="#cb8-8"></a>         <span class="at">Continent =</span> <span class="fu">fct_inorder</span>(Continent)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Democracy), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"Polity IV スコアの平均値"</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-5-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="次元を追加する" class="level3">
+<h3 class="anchored" data-anchor-id="次元を追加する">次元を追加する</h3>
+<p>　記述統計量のグラフを見るとマッピング要素は2つであり、これは図が2つの次元、つまり大陸とPolity IVスコアの平均値で構成されていることを意味します。記述統計量のグラフはマッピング要素は1つですが、ケース数という次元が自動的に計算されるため2次元です。ここにもう一つの次元を追加してみましょう。たとえば、大陸ごとのPolity IVスコアの平均値を出しますが、これを更にOECD加盟有無で分けてみましょう。そのためには、まず大陸とOECD加盟有無でグループを分けてPolity IVスコアの平均値を計算する必要があります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>Bar_df2 <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">group_by</span>(Continent, OECD) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">summarise</span>(<span class="at">Democracy =</span> <span class="fu">mean</span>(Polity_Score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>            <span class="at">.groups   =</span> <span class="st">"drop"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>Bar_df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  Continent  OECD Democracy
+  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 Africa        0     2.48 
+2 America       0     6.55 
+3 America       1     8.6  
+4 Asia          0    -0.314
+5 Asia          1     8    
+6 Europe        0     5.87 
+7 Europe        1     9.12 
+8 Oceania       0     4.5  
+9 Oceania       1    10    </code></pre>
+</div>
+</div>
+<p>　続いて、<code>Continent</code>と<code>OECD</code>列を日本語に直します。また、順番を指定するためにfactor化しましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>Bar_df2 <span class="ot">&lt;-</span> Bar_df2 <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">mutate</span>(<span class="at">Continent =</span> <span class="fu">recode</span>(Continent,</span>
+<span id="cb11-3"><a href="#cb11-3"></a>                            <span class="st">"Africa"</span>   <span class="ot">=</span> <span class="st">"アフリカ"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>                            <span class="st">"America"</span>  <span class="ot">=</span> <span class="st">"アメリカ"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>                            <span class="st">"Asia"</span>     <span class="ot">=</span> <span class="st">"アジア"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>                            <span class="st">"Europe"</span>   <span class="ot">=</span> <span class="st">"ヨーロッパ"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>                            <span class="at">.default   =</span> <span class="st">"オセアニア"</span>),</span>
+<span id="cb11-8"><a href="#cb11-8"></a>         <span class="at">Continent =</span> <span class="fu">fct_inorder</span>(Continent),</span>
+<span id="cb11-9"><a href="#cb11-9"></a>         <span class="at">OECD      =</span> <span class="fu">recode</span>(OECD,</span>
+<span id="cb11-10"><a href="#cb11-10"></a>                            <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"OECD非加盟国"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11"></a>                            <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"OECD加盟国"</span>),</span>
+<span id="cb11-12"><a href="#cb11-12"></a>         <span class="at">OECD      =</span> <span class="fu">fct_inorder</span>(OECD)) </span>
+<span id="cb11-13"><a href="#cb11-13"></a></span>
+<span id="cb11-14"><a href="#cb11-14"></a>Bar_df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  Continent  OECD         Democracy
+  &lt;fct&gt;      &lt;fct&gt;            &lt;dbl&gt;
+1 アフリカ   OECD非加盟国     2.48 
+2 アメリカ   OECD非加盟国     6.55 
+3 アメリカ   OECD加盟国       8.6  
+4 アジア     OECD非加盟国    -0.314
+5 アジア     OECD加盟国       8    
+6 ヨーロッパ OECD非加盟国     5.87 
+7 ヨーロッパ OECD加盟国       9.12 
+8 オセアニア OECD非加盟国     4.5  
+9 オセアニア OECD加盟国      10    </code></pre>
+</div>
+</div>
+<p>　これで作図の準備ができました。それではこの新しい次元である<code>OECD</code>をどのように表現すれば良いでしょうか。<code>Continent</code>は横軸の位置で表現され、<code>Democracy</code>は縦軸の位置として表現されているため、<code>x</code>と<code>y</code>以外の要素を考えてみましょう。棒グラフの場合、もう一つの軸が追加されるとしたらそれは、棒の色です。棒の色は<code>fill</code>で指定できます。<code>color</code>でないことに注意してください。<code>color</code>も指定可能ですが、これは棒の色ではなく、棒を囲む線の色であり、通常は「なし」となっています。それでは<code>fill</code>を<code>aes()</code>内に書き加えます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>Bar_df2 <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Democracy, <span class="at">fill =</span> OECD), </span>
+<span id="cb13-4"><a href="#cb13-4"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"Polity IV スコアの平均値"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-8-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　なんか思ったものと違うものが出てきました。たとえば、アメリカ大陸の場合、Polity IVスコアの平均値が約15ですが、明らかにおかしいです。なぜならPolity IVスコアの最大値は10だからです。これは2つの棒が積み上げられているからです。アメリカ大陸においてOECD加盟国の平均値は8.6、非加盟国のそれは6.55であり、足したら15.15になります。これをずらすためには<code>position</code>を設定する必要があります。しかし、<code>position</code>というのは<code>Bar_df2</code>の何かと変数の値を表すわけではないため、<code>aes()</code>の外側に入れます。そして、その値ですが、ここでは<code>"dodge"</code>を指定します。これは棒の位置が重ならないように調整することを意味します。この<code>position</code>のデフォルト値は<code>"stack"</code>であり、言葉通り「積み上げ」です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>Bar_df2 <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Democracy, <span class="at">fill =</span> OECD), </span>
+<span id="cb14-4"><a href="#cb14-4"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"Polity IV スコアの平均値"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-9-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで私たちが期待した図が出来上がりました。「<code>"dodge"</code>の方が普通なのになぜデフォルトが<code>"stack"</code>か」と思う方もいるかも知れませんが、実は<code>"stack"</code>も頻繁に使われます。それはケース数のグラフにおいてです。</p>
+<p>　たとえば、大陸ごとにOECD加盟/非加盟国を計算してみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>Bar_df3 <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">group_by</span>(Continent, OECD) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">summarise</span>(<span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb15-4"><a href="#cb15-4"></a>            <span class="at">.groups   =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">mutate</span>(<span class="at">Continent =</span> <span class="fu">recode</span>(Continent,</span>
+<span id="cb15-6"><a href="#cb15-6"></a>                            <span class="st">"Africa"</span>   <span class="ot">=</span> <span class="st">"アフリカ"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>                            <span class="st">"America"</span>  <span class="ot">=</span> <span class="st">"アメリカ"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>                            <span class="st">"Asia"</span>     <span class="ot">=</span> <span class="st">"アジア"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>                            <span class="st">"Europe"</span>   <span class="ot">=</span> <span class="st">"ヨーロッパ"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10"></a>                            <span class="at">.default   =</span> <span class="st">"オセアニア"</span>),</span>
+<span id="cb15-11"><a href="#cb15-11"></a>         <span class="at">Continent =</span> <span class="fu">fct_inorder</span>(Continent),</span>
+<span id="cb15-12"><a href="#cb15-12"></a>         <span class="at">OECD      =</span> <span class="fu">recode</span>(OECD,</span>
+<span id="cb15-13"><a href="#cb15-13"></a>                            <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"OECD非加盟国"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14"></a>                            <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"OECD加盟国"</span>),</span>
+<span id="cb15-15"><a href="#cb15-15"></a>         <span class="at">OECD      =</span> <span class="fu">fct_inorder</span>(OECD)) </span>
+<span id="cb15-16"><a href="#cb15-16"></a></span>
+<span id="cb15-17"><a href="#cb15-17"></a>Bar_df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  Continent  OECD             N
+  &lt;fct&gt;      &lt;fct&gt;        &lt;int&gt;
+1 アフリカ   OECD非加盟国    54
+2 アメリカ   OECD非加盟国    31
+3 アメリカ   OECD加盟国       5
+4 アジア     OECD非加盟国    39
+5 アジア     OECD加盟国       3
+6 ヨーロッパ OECD非加盟国    23
+7 ヨーロッパ OECD加盟国      27
+8 オセアニア OECD非加盟国     2
+9 オセアニア OECD加盟国       2</code></pre>
+</div>
+</div>
+<p>　これを可視化したのが以下の図です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>Bar_df3 <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> N, <span class="at">fill =</span> OECD), </span>
+<span id="cb17-4"><a href="#cb17-4"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"国家数"</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-barplot-11-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　この図は<code>position = "dodge"</code>でも良いと思いますが、大陸内の比率を考えるなら<code>position = "stack"</code>でも問題ないでしょう。また、積み上げグラフの特性上、大陸ごとの国数の合計も一瞬で判別できるといった長所もあります。<code>position = "dodoge"</code>だと、それが難しいですね。むろん、積み上げ棒グラフはベースラインが一致したいため、避けるべきという人も多いですし、著者 (SONG)も同意見です。どの図を作成するかは分析者の責任で判断しましょう。</p>
+</section>
+</section>
+<section id="visual2-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-histogram">ヒストグラム</h2>
+<p>　ヒストグラムは棒グラフと非常に形が似ていますが、横軸が大陸のような離散変数でなく、連続変数であるのが特徴です。連続変数をいくつの区間 (階級)に分け、その区間内に属するケース数 (度数)を示したのが度数分布表、そして度数分布表をかしかしたものがヒストグラムです。連続変数を扱っているため、棒間に隙間がありません。それでもケース数の棒グラフと非常に似通っているため、マッピングの仕方も同じです。異なるのは幾何オブジェクトが<code>geom_bar()</code>でなく、<code>geom_histogram()</code>に変わるくらいです。世界の富がどのように分布しているかを確認するために、<code>Country_df</code>の<code>GDP</code>のヒストグラムを作ってみます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-1_71d3106309e54486f6c360fc4a1fc14e">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (100万米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-1-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　ケース数の棒グラフのコードとほぼ同じです。横軸の数値が<code>2.0e+07</code>になっているのは<code>2 \times 10^7</code>、つまり2千万を意味します。普通に表記すると<code>20000000</code>になりますね。また、GDPの単位は100万ドルであるため、実際のGDPは20兆ドルになります。つまり、今のヒストグラムにおいて横軸の目盛りは5兆ドルになっています。この軸の数値を「0, 5e+06, 1e+07, 1.5e+07, 2e+07」から「0, 5, 10, 15, 20」 にし、X軸のラベルを「国内総生産 (100万米ドル)」から「国内総生産 (兆米ドル)」に替えてみましょう。ここで使うのは<code>scale_x_continuous()</code>関数です。これは横軸 (X軸)が連続変数 (continuous)の場合のスケール調整関数です。目盛りの再調整には<code>breaks</code>と<code>labels</code>引数が必要です。<code>breaks</code>は新しい目盛りの位置、<code>labels</code>は目盛りに表記する値です。それぞれベクトルが必要であり、<code>breaks</code>と<code>labels</code>の実引数の長さは必ず一致する必要があります。また、<code>breaks</code>は数値型ベクトルですが、<code>labels</code>は数値型でも文字型でも構いません。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-2_a7e1f2f465aac9f6474b55d2285a60d0">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (兆米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5000000</span>, <span class="dv">10000000</span>, <span class="dv">15000000</span>, <span class="dv">20000000</span>),</span>
+<span id="cb19-6"><a href="#cb19-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-2-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで一通りヒストグラムが完成しました。ほんの一部の国は非常に高いGDPを誇っていることが分かります。GDPが10兆ドル以上の国はアメリカと中国のみであり、5兆ドルを国まで拡大しても日本が加わるだけです。そもそも1兆ドルを超える国はデータには16カ国しかなく、90%以上の国が図の非常に狭い範囲内 (0~1兆ドル)に集まっていることが分かります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-3_467f3f2651ea87cd2ac9183239207a57">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-3-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　この場合、2つの方法が考えられます。1つ目は方法は情報の損失を覚悟した上で、GDPが1兆ドル未満の国でヒストグラムを書く方法です。これはデータを<code>ggplot()</code>関数を渡す前に<code>filter()</code>を使って、<code>GDP</code>が100万未満のケースに絞るだけで出来ます。ただし、横軸の最大値が2000万でなく、100万になるため、目盛りを調整した方が良いでしょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-4_04541eba1d2bb02b0896236e593569bf">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">filter</span>(GDP <span class="sc">&lt;</span> <span class="dv">1000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (兆米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000000</span>, <span class="dv">100000</span>),</span>
+<span id="cb20-7"><a href="#cb20-7"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-4-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　2つ目の方法は横軸を対数化することです。GDPを底10の対数化 (常用対数)をすると、10兆のような非常に大きい値があっても比較的に狭い範囲内にデータを収めることが出来ます。たとえば、10を常用対数化すると1, 1000は3, 10000000は7になります。自然対数 (底が<span class="math inline">\(e\)</span>)も可能ですが、「読む」ためのグラフとしては底が10の方が読みやすいでしょう。横軸の変数が対数化されるということは、横軸のスケールを対数化することと同じです。そのためには<code>scale_x_continuous()</code>内に<code>trans</code>引数を指定し、<code>"log10"</code>を渡します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-5_491ff55822ba2a9379015d3895a82d0f">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (兆米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000000</span>, <span class="at">by =</span> <span class="dv">5000000</span>),</span>
+<span id="cb21-6"><a href="#cb21-6"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">5</span>),</span>
+<span id="cb21-7"><a href="#cb21-7"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-5-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　対数化することによってGDPの分布が綺麗な形になりました。対数化すると横軸における目盛りの間隔が等間隔でないことに注意すべきです。0から5兆ドルの距離はかなり広めですが、5兆から10兆までの距離は短くなり、10兆から15兆までの距離は更に短くなります。したがって、この図から「世界のGDPは鐘型に分布している」と解釈することは出来ません。分布を可視化するには対数化する前の図が適します。</p>
+<p>　対数化のもう一つの方法は<code>scale_x_continuous()</code>の代わりに<code>scale_x_log10()</code>を使うことです。使い方は<code>scale_x_continuous()</code>と同じですが、<code>trans = "log10"</code>の指定は不要です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-6_ea4592eff04b94a27c1e3a0a31129734">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (兆米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-6-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　横軸を修正するには<code>scale_x_continuous()</code>と同様、<code>breaks</code>と<code>labels</code>引数を指定します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-7_898b48d9f47818871f640590c6e42fa6">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> GDP)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"国内総生産 (兆米ドル)"</span>, <span class="at">y =</span> <span class="st">"度数"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">scale_x_log10</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>, <span class="dv">10000000</span>),</span>
+<span id="cb23-6"><a href="#cb23-6"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-7-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　他にも<code>coord_*()</code>関数群、つまり座標系の操作を用いて軸を対数化することも可能です。他にも、データを<code>ggplot()</code>を渡す前に変数を対数化するのもありでしょう。プログラミングにおいてある結果にたどり着く方法は複数あるので、色々試してみるのも良いでしょう。</p>
+<section id="ヒストグラムの棒の大きさを調整する" class="level3">
+<h3 class="anchored" data-anchor-id="ヒストグラムの棒の大きさを調整する">ヒストグラムの棒の大きさを調整する</h3>
+<p>　棒グラフのようにもう一つの次元を追加してみましょう。まず、人間開発指数 (<code>HDI_2018</code>)の分布を示してみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-8_1531b45476cf89f9ce53055b35beb333">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb24-6"><a href="#cb24-6"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-8-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これでもヒストグラムとしては十分すぎるかも知れませんが、色々調整してみましょう。まずは、棒の枠線を白にしてみましょう。枠線はデータ内の変数に対応していないため、<code>aes()</code>の外側に入れます。枠線を指定する引数は<code>color</code>です。ちなみに棒の色を指定する引数は<code>fill</code>です。また、警告メッセージも気になるので、<code>HDI_2018</code>が欠損している行を除外します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-9_eeb64f072792ebc560582403375c6e4d">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb25-7"><a href="#cb25-7"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-9-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　人によってはこちらの方が見やすかも知れません。</p>
+<p>　これで一通りの作図は出来ましたが、これまで無視してきたメッセージについて考えてみましょう。</p>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p>　これは「連続変数<code>HDI_2018</code>を30区間 (=階級)に分けました」という意味です。この区間数を調整する方法は2つあり、(1) 区間数を指定する、(2) 区間の幅を指定する方法があります。</p>
+<p>　区間数を指定することはすなわちヒストグラムの棒の数を指定することであり、<code>bins</code>引数で調整可能です。たとえば、棒の数を10個にするためには<code>geom_histogram()</code>内に<code>bins = 10</code>を指定します。むろん、棒の数もデータとは無関係であるため、<code>aes()</code>の外側に位置します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-10_73c27efc403d8b543dd6a9ad0fba9df4">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb27-7"><a href="#cb27-7"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-10-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　数えてみると棒が10個だということが分かります。</p>
+<p>　他にも区間の幅を指定することも可能です。区間の幅は棒の幅と一致します。たとえば、棒の幅を0.1にしてみましょう。棒の幅は<code>binwidth</code>で調整可能です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-11_196bedaa2d06e61683c01e5ab0116c39">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb28-7"><a href="#cb28-7"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-11-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　ヒストグラムが出力されましたが、棒の幅が<code>binwidth</code>で指定した0.1と一致することが分かります。たとえば、一番左の棒は0.35から0.45まで、つまり幅が0.1です。そして、一番右の棒は0.95から1.05に渡って位置します。ただし、ここでに疑問を持つ読者もいるでしょう「。なぜ0.3から0.4、0.4から0.5、…ではなく、0.35から0.45、0.45から0.55なのか」です。これは{ggplot2}の基本仕様です。ヒストグラムは度数分布表を基に作成されますが、本グラフの度数分布表は以下のようになります。</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">から</th>
+<th style="text-align: center;">まで</th>
+<th style="text-align: right;">度数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0.35</td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.45</td>
+<td style="text-align: center;">0.55</td>
+<td style="text-align: right;">26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.55</td>
+<td style="text-align: center;">0.65</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.65</td>
+<td style="text-align: center;">0.75</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.75</td>
+<td style="text-align: center;">0.85</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0.85</td>
+<td style="text-align: center;">0.95</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.95</td>
+<td style="text-align: center;">1.05</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>　簡単に言うと、ヒストグラムの最初の棒は0を中央にした上で、棒の幅を0.1にしたとも言えます。これによってヒストグラムの境界線 (boundary)が、データより左右に0.05 (<code>binwidth</code>の半分)ずつ広くなります。もし、これを調整したい場合は、<code>boundary</code>引数を指定します。指定しない場合、<code>boundary</code>は「棒の広さ / 2」となります。棒がデータの範囲を超えないようにするためには、<code>geom_histogram()</code>内に<code>boundary = 0</code>を指定します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-13_9ac586decbcb8c3765b6dadbcdbef197">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), <span class="at">color =</span> <span class="st">"white"</span>, </span>
+<span id="cb29-5"><a href="#cb29-5"></a>                 <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb29-8"><a href="#cb29-8"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-13-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　ここまで抑えとけば、普段使われるヒストグラムは問題なく作れるでしょう。</p>
+</section>
+<section id="密度を追加する" class="level3">
+<h3 class="anchored" data-anchor-id="密度を追加する">密度を追加する</h3>
+<p>　ヒストグラムには以下のように密度の表す線を同時に載せるケースもあります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-14_3b571cc44ce087668f45483ecf5d9035">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-14-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　この密度の線を追加するには<code>geom_density()</code>という幾何オブジェクトを追加する必要があります。密度の線を示すには、横軸と縦軸両方の情報が必要です。横軸は<code>HDI_2018</code>で問題ないですが、縦軸はどうでしょう。縦軸には密度の情報が必要ですが、<code>Country_df</code>にそのような情報はありません。幸い、{ggplot2}は<code>y = ..density..</code>と指定するだけで、自動的に<code>HDI_2018</code>のある時点における密度を計算してくれます。したがって、マッピングは<code>aes(x = HDI_2018, y = ..density..)</code>のように書きます。こうなるとマッピング要素<code>x</code>は<code>geom_histogram()</code>と<code>geom_density()</code>に共通するため、<code>ggplot()</code>に入れても問題ありません。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-15_798ed579f6745ad541572b22b572e195">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="co"># 全幾何オブジェクトにおいてxを共有するため、ここでマッピング指定</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"密度"</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb30-9"><a href="#cb30-9"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-15-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　なんとも言えない微妙なグラフが出来ました。考えたものと全然違いますね。これはなぜでしょうか。それは<code>geom_density()</code>は<strong>密度</strong>を表す一方、<code>geom_histogram()</code>は<strong>度数</strong>を表すからです。2つは単位が全然違います。したがって、どちらかに単位を合わせる必要があり、この場合はヒストグラムの縦軸を度数でなく、密度に調整する必要があります。ヒストグラムの縦軸を密度にするためには、<code>y = ..density..</code>を指定するだけです。こうなると、<code>geom_histogram()</code>と<code>geom_density()</code>は<code>x</code>と<code>y</code>を共有するため、全部<code>ggplot()</code>内で指定しましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-16_3eb2e05b7a36fe02edb6827f1c041323">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="fu">geom_density</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"密度"</span>) <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb31-8"><a href="#cb31-8"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-16-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで密度を表す線が出来ました。</p>
+</section>
+<section id="次元を追加する-1" class="level3">
+<h3 class="anchored" data-anchor-id="次元を追加する-1">次元を追加する</h3>
+<p>　次元を追加するには棒グラフと同様、<code>aes()</code>内にマッピング要素を追加します。たとえば、OECD加盟有無によって人間開発指数の分布がどう異なるかを確認してみましょう。<code>OECD</code>変数は0/1であり、Rでは連続変数扱いになっているため、これを離散変数化するためには文字型かfactor型にする必要があります。<code>ifelse()</code>を使って、<code>OECD == 1</code>なら「OECD加盟国」、<code>OECD == 0</code>なら「OECD非加盟国」と置換したものを<code>OECD2</code>という列として追加します。そして、<code>OECD2</code>ごとに棒の色を変えるために、マッピング要素として<code>fill</code>を追加します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-17_74b31e9808c164cd3c8d968727af6a11">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">mutate</span>(<span class="at">OECD2 =</span> <span class="fu">ifelse</span>(OECD <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"加盟国"</span>, <span class="st">"非加盟国"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018, <span class="at">fill =</span> OECD2), </span>
+<span id="cb32-6"><a href="#cb32-6"></a>                 <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a>  <span class="co"># fill要素のラベルをOECDに変更</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>, <span class="at">fill =</span> <span class="st">"OECD"</span>) <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb32-10"><a href="#cb32-10"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-17-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　ヒストグラムが出来上がりました。OECD加盟国の場合、人間開発指数が相対的に高いことが分かります。しかし、積み上げヒストグラムになっています。これはある階級においてOECD加盟国と非加盟国の比率を比較する際に有効ですが、OECD加盟国と非加盟国の分布の違いを見るにはやや物足りません。したがって、棒グラフ同様、<code>position</code>引数で棒の位置を調整します。ただし、ヒストグラムの場合、<code>postion = "dodge"</code>は向いていないので、ここでは<code>position = "identity"</code>を指定します。しかし、この場合、棒が重なってしまうと、一方の棒が見えなくなる可能性もあるので、<code>alpha</code>引数で棒の透明度を調整します。<code>alpha</code>の値は0から1までであり、0になると、完全透明になります。ここでは0.5くらいにしてみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-18_802575838fd213d9eb12bd2b983235f4">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">mutate</span>(<span class="at">OECD2 =</span> <span class="fu">ifelse</span>(OECD <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018, <span class="at">fill =</span> OECD2), </span>
+<span id="cb33-6"><a href="#cb33-6"></a>                 <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">"identity"</span>,</span>
+<span id="cb33-7"><a href="#cb33-7"></a>                 <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>, <span class="at">fill =</span> <span class="st">"OECD"</span>) <span class="sc">+</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb33-10"><a href="#cb33-10"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-18-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで2つのヒストグラムを綺麗にオーバーラッピングできました。また、先ほど紹介しました<code>geom_density()</code>オブジェクトを重ねることも可能です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-19_2508141b4b132b8ee19e847dd57cf165">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">mutate</span>(<span class="at">OECD2 =</span> <span class="fu">ifelse</span>(OECD <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="co"># xはHDI_2018、yは密度 (..density..)とする</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018, <span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> OECD2), </span>
+<span id="cb34-7"><a href="#cb34-7"></a>                 <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">"identity"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8"></a>                 <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb34-9"><a href="#cb34-9"></a>  <span class="co"># OECD2ごとに異なる色を付ける。線の太さは1、凡例には表示させない</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">color =</span> OECD2), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb34-11"><a href="#cb34-11"></a>  <span class="co"># 縦軸のラベルを「密度」に変更</span></span>
+<span id="cb34-12"><a href="#cb34-12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"密度"</span>, <span class="at">fill =</span> <span class="st">"OECD"</span>) <span class="sc">+</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb34-14"><a href="#cb34-14"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb34-15"><a href="#cb34-15"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-19-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　この場合、OECD加盟国と非加盟国の密度をそれぞれ計算するため、ヒストグラムの見た目がこれまでのものと変わることに注意してください。</p>
+<p>　ここまで、次元拡張の方法としてヒストグラムのオーバーラッピングについて紹介しました。しかし、ヒストグラムを重なってしまうと、読みにくい人もいるかも知れません。オーバーラップ以外の方法はプロットを2つに分けることです。つまり、1つのプロットに小さいブロットを複数載せることであり、この小さいプロットをファセット (facet)と呼びます。これには<code>facet_*()</code>関数群の中の、<code>facet_wrap()</code>関数を使います。<code>facet_wrap(~ 分ける変数名)</code>を追加すると変数ごとにプロットを分割してくれます。<code>ncol</code>や<code>nrow</code>引数を指定すると、ファセットの列数や行数も指定可能です。</p>
+<p>　それではやってみましょう。<code>facet_wrap(~ OECD2)</code>を追加するだけです。2つのファセットを縦に並べるために、<code>ncol = 1</code>を追加します。2つのファセットを1列に並べるという意味です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-20_0c826e20974d417910b59fd06a000685">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">mutate</span>(<span class="at">OECD2 =</span> <span class="fu">ifelse</span>(OECD <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), </span>
+<span id="cb35-6"><a href="#cb35-6"></a>                 <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7"></a>                 <span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>, <span class="at">fill =</span> <span class="st">"OECD"</span>) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="#cb35-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb35-10"><a href="#cb35-10"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb35-11"><a href="#cb35-11"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> OECD2, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="#cb35-12"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-20-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　OECDは加盟/非加盟だけですから、オーバーラッピングされたヒストグラムで十分かも知れません。しかし、大陸のように、3つ以上のグループになると、オーバーラッピングよりもファセットで分けた方が効率的です。たとえば、大陸ごとの人間開発指数のヒストグラムを作ってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-histogram-21_097474f1032109bbffdc72785dea01bd">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> HDI_2018), </span>
+<span id="cb36-5"><a href="#cb36-5"></a>                 <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>                 <span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">boundary =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>, <span class="at">fill =</span> <span class="st">"OECD"</span>) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb36-9"><a href="#cb36-9"></a>                     <span class="at">labels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb36-10"><a href="#cb36-10"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Continent, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb36-11"><a href="#cb36-11"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-histogram-21-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visual2-box" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-box">箱ひげ図</h2>
+<p>　データの分布を示す際には、離散変数ならケース数 (度数)の棒グラフ、連続変数ならヒストグラムがよく使われますが、連続変数の場合、もう一つの方法があります。それが箱ひげ図です。箱ひげ図はヒストグラムより情報量がやや損なわれますが、データの中央値、四分位点（四分位範囲）、最小値と最大値の情報を素早く読み取れます。また、複数の変数、またはグループの分布を1つのプロットに示すにはヒストグラムより優れています。</p>
+<p>　まずは人間開発指数の箱ひげ図を出してみます。使用する幾何オブジェクトは<code>geom_boxplot()</code>です。そして、指定するマッピング要素は<code>y</code>のみです。箱ひげ図から読み取れる情報は最小値・最大値、中央値、第1四分位点、第3四分位点ですが、これらの情報は縦軸として表現されます。それでは、とりあえず実際に作ってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-1_5cec238388de05b61396c30f87982032">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-1-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　箱ひげ図の読み方は以下の通りです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-2_fa539c429ed71729b85aa06202a6c11c">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-2-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで箱ひげ図は完成ですが、人間開発指数は0から1の相対を取るので、座標系の縦軸を調整してみましょう。座標系の操作は<code>coord_*()</code>関数群を使いますが、現在使っているのは直交座標系（デカルト座標系）ですので<code>coord_cartesian()</code>を使います。ここで縦軸の上限と下限を指定する引数が<code>ylim</code>であり、長さ2の数値型ベクトルが必要です。下限0、上限1ですので、<code>ylim = c(0, 1)</code>とします。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-3_b714789327334ff3ba1881f42a5f19c5">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-3-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　まだまだ改善の余地はありますが、それなりの箱ひげ図の出来上がりです。しかし、一変数の箱ひげ図はあまり使われません。変数が1つだけならヒストグラムの方がより情報量は豊富でしょう。情報量が豊富ということはヒストグラムから（完璧には無理ですが）箱ひげ図を作ることは可能である一方、その逆は不可能か非常に難しいことを意味します。</p>
+<p>　ヒストグラムが力を発揮するのは複数の変数、または複数のグループごとの分布を比較する際です。先ほど、大陸ごとの人間開発指数の分布を確認するためにヒストグラムを5つのファセットで分割しました。箱ひげ図なら1つのグラフに5つの箱を並べるだけです。これは横軸を大陸 (<code>Continent</code>)にすることを意味します。先ほどのコードのマッピングに<code>x</code>引数を追加してみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-4_393e094bf6c946f7bcbaf452c5e85a07">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-4-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　いかがでしょうか。5大陸の分布を素早く確認することができました。ヨーロッパの場合、人間開発指数が高く、バラツキも小さいことが分かります。一方、アジアとアフリカはバラツキが非常に大きいですね。アメリカ大陸はバラツキは非常に小さいですが、極端に高い国や低い国が含まれています。このアメリカ大陸に3つの点がありますが、これは外れ値です。つまり、最小値より小さい、または最大値より大きいケースを表します。最小値より小さい、または最大値より大きいという表現に違和感を感じるかも知れません。実は一般的な箱ひげ図の最小値は「第1四分位点 - 1.5 <span class="math inline">\(\times\)</span> 四分位範囲」より大きい値の中での最小値です。同じく最大値は「第3四分位点 + 1.5 <span class="math inline">\(\times\)</span> 四分位範囲」より小さい値の中での最大値です。普通に分布している場合、ほとんどのケースは箱ひげ図の最小値と最大値の範囲内に収まりますが、極端に大きい値、小さい値が含まれる場合は箱ひげ図の最小値と最大値の範囲からはみ出る場合があります。</p>
+<p>　また、複数の箱を並べる際、それぞれの箱に異なる色を付ける場合があります。これはデータ・インク比の観点から見れば非効率的ですが、可読性を落とすこともないのでさほど問題はないでしょう。先ほどの箱ひげ図の場合、大陸ごとに異なる色を付けるにはマッピング要素として<code>fill = Continent</code>を追加するだけです。この場合、色に関する凡例が自動的に出力されますが、既に横軸で大陸の情報が分かるため、この判例は不要でしょう。したがって、<code>aes()</code>の外側に<code>show.legned = FALSE</code>を付けます。これは当該幾何オブジェクトに関する凡例を表示させないことを意味します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-5_a1a84edc08629219a7b79358934ec2eb">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> HDI_2018, <span class="at">fill =</span> Continent),</span>
+<span id="cb40-5"><a href="#cb40-5"></a>               <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb40-7"><a href="#cb40-7"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-5-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　彩りどりでちょっとテンションが上がる箱ひげ図ができました。</p>
+<section id="個別のデータを表示する" class="level3">
+<h3 class="anchored" data-anchor-id="個別のデータを表示する">個別のデータを表示する</h3>
+<p>　箱ひげ図は複数のグループや変数の分布を素早く比較できる長所がありますが、中央値、最小値、最大値、第1・3四分位点、外れ値の情報しか持ちません。人によってはもうちょっと情報量を増やすために個々の観測値を点として示す場合もあります。点を出力する幾何オブジェクトは次節で紹介する<code>geom_point()</code>です。以下の内容は散布図の節を一読してから読むのをおすすめします。</p>
+<p>　点の幾何オブジェクトにおける必須マッピング要素は点の横軸の位置と縦軸の位置、つまり<code>x</code>と<code>y</code>です。今回の場合、点の横軸が大陸（<code>Continent</code>）、縦軸は人間開発指数（<code>HDI_2018</code>）です。つまり、<code>geom_boxplot()</code>のマッピングと同じです。したがって、<code>x</code>と<code>y</code>は<code>ggplot()</code>に入れておきます。あとは大陸ごとに店の色分けをしたいので、<code>color</code>引数を<code>aes()</code>内に指定します。また、点が重なる場合、読みづらくなる可能性があるため、<code>alpha</code>引数を<code>aes()</code>外に指定して透明度を調整します。また、箱ひげ図もある程度は透明にしないと、裏にある点が見えないため、こちらも<code>alpha</code>を調整します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-6_3989667caa965b50111322b2e3798cfd">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="co"># 全幾何オブジェクトにおいてxとyは共有されるため、ここで指定</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Continent), <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb41-6"><a href="#cb41-6"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Continent),</span>
+<span id="cb41-8"><a href="#cb41-8"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="#cb41-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="#cb41-10"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-6-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　点が透明ではあるものの、それでも重なっている箇所は相変わらず読みにくいです。この場合有効な方法がジッター（jitter）です。これは点の位置に若干のノイズを付けることによって、点が重ならないようにすることです。ジッターの方法は2つありますが、ここではジッター専用の幾何オブジェクト<code>geom_jitter()</code>を使います<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。<code>geom_jitter()</code>はノイズが追加された散布図ですので、<code>geom_point()</code>と使い方はほぼ同じです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-7_2fac087577c97506368a4f995727dd56">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Continent),</span>
+<span id="cb42-5"><a href="#cb42-5"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Continent),</span>
+<span id="cb42-7"><a href="#cb42-7"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="#cb42-9"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-7-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで点が重ならなくなりましたが、ちょっと散らばりすぎるという印象もあります。この散らばり具合を調整する引数が<code>width</code>と<code>height</code>です。もちろん、これはデータの中身に対応する要素ではないため、<code>aes()</code>の外側にいれます。それぞれの実引数は0から1の間の数値になりますが、数字が大きいほど散らばり具合が大きくなり、0になるとジッター無しの散布図と同じものになります。ここでは横の散らばり具合を0.15（<code>width = 0.15</code>）、縦の散らばり具合は0（<code>height = 0</code>）にしてみましょう。そして、横軸が英語のままなので、これも日本語に直します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-8_cce15df4e54e714b580cc43956cce231">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">mutate</span>(<span class="at">Continent2 =</span> <span class="fu">factor</span>(Continent,</span>
+<span id="cb43-3"><a href="#cb43-3"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"America"</span>, <span class="st">"Asia"</span>,</span>
+<span id="cb43-4"><a href="#cb43-4"></a>                                        <span class="st">"Europe"</span>, <span class="st">"Oceania"</span>),</span>
+<span id="cb43-5"><a href="#cb43-5"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アフリカ"</span>, <span class="st">"アメリカ"</span>, <span class="st">"アジア"</span>,</span>
+<span id="cb43-6"><a href="#cb43-6"></a>                                        <span class="st">"ヨーロッパ"</span>, <span class="st">"オセアニア"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent2, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Continent2),</span>
+<span id="cb43-10"><a href="#cb43-10"></a>              <span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">height =</span> <span class="dv">0</span>,</span>
+<span id="cb43-11"><a href="#cb43-11"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb43-12"><a href="#cb43-12"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Continent2),</span>
+<span id="cb43-13"><a href="#cb43-13"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb43-14"><a href="#cb43-14"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>) <span class="sc">+</span></span>
+<span id="cb43-15"><a href="#cb43-15"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-8-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="次元を追加する-2" class="level3">
+<h3 class="anchored" data-anchor-id="次元を追加する-2">次元を追加する</h3>
+<p>　箱ひげ図に次元を追加する方法はこれまで見てきたように、1つのグラフに次元を追加するか、次元でファセットを分割するかの問題になります。まずは、簡単なファセット分割からやってみます。追加する次元は先進国か否かです。先進国の基準は不明瞭ですが、ここではG7、G20、OECDいずれかに加盟していれば先進国と定義しましょう。そのために<code>Country_df</code>に<code>Developed</code>変数を追加します。この変数は<code>G7</code>、<code>G20</code>、<code>OECD</code>の合計が1以上の場合は1、0の場合は0とします。そして、この<code>Developed</code>変数をfactor化します。具体的には<code>Developed</code>が1だと<code>"先進国"</code>、0だと<code>"その他"</code>にします。あとは<code>facet_wrap()</code>でファセットを分割します。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-9_3a9d38aba6e89c85c46ed6cea6623928">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">mutate</span>(<span class="at">Continent2 =</span> <span class="fu">factor</span>(Continent,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"America"</span>, <span class="st">"Asia"</span>,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>                                        <span class="st">"Europe"</span>, <span class="st">"Oceania"</span>),</span>
+<span id="cb44-5"><a href="#cb44-5"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アフリカ"</span>, <span class="st">"アメリカ"</span>, <span class="st">"アジア"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6"></a>                                        <span class="st">"ヨーロッパ"</span>, <span class="st">"オセアニア"</span>)),</span>
+<span id="cb44-7"><a href="#cb44-7"></a>         <span class="co"># G7 + G20 + OECDが1以上なら1、0なら0とするDeveloped変数作成</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>         <span class="at">Developed  =</span> <span class="fu">ifelse</span>(G7 <span class="sc">+</span> G20 <span class="sc">+</span> OECD <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb44-9"><a href="#cb44-9"></a>         <span class="co"># Developed変数のfactor化</span></span>
+<span id="cb44-10"><a href="#cb44-10"></a>         <span class="at">Developed  =</span> <span class="fu">factor</span>(Developed, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb44-11"><a href="#cb44-11"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"先進国"</span>, <span class="st">"その他"</span>),</span>
+<span id="cb44-12"><a href="#cb44-12"></a>                             <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb44-13"><a href="#cb44-13"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb44-14"><a href="#cb44-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent2, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb44-15"><a href="#cb44-15"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Continent2), <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb44-16"><a href="#cb44-16"></a>              <span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">height =</span> <span class="dv">0</span>,</span>
+<span id="cb44-17"><a href="#cb44-17"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb44-18"><a href="#cb44-18"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Continent2),</span>
+<span id="cb44-19"><a href="#cb44-19"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb44-20"><a href="#cb44-20"></a>  <span class="co"># caption引数で図の右下にテキストを入れる</span></span>
+<span id="cb44-21"><a href="#cb44-21"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>,</span>
+<span id="cb44-22"><a href="#cb44-22"></a>       <span class="at">caption =</span> <span class="st">"先進国: G7, G20, OECDのいずれかに加盟している国"</span>) <span class="sc">+</span></span>
+<span id="cb44-23"><a href="#cb44-23"></a>  <span class="co"># ファセット分割</span></span>
+<span id="cb44-24"><a href="#cb44-24"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Developed) <span class="sc">+</span></span>
+<span id="cb44-25"><a href="#cb44-25"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb44-26"><a href="#cb44-26"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-9-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　次の方法はファセットを分割せずに次元を追加する方法です。ファセットに分ける場合、「先進国における大陸別人間開発指数の分布」、「先進国外における大陸別人間開発指数の分布」は素早く読み取れますが、「ある大陸における先進国/その他の国の人間開発指数の分布」を比較するにはあまり向いておりません。なぜなら目の動線が長いからです。先進国とその他の国を大陸ごとに横に並べると視線の動線が短くなり比較しやすくなります。</p>
+<p>　やり方はあまり変わりませんが、今回は色分けを<code>Continent</code>でなく<code>Developed</code>でする必要があります。1つの画面に先進国とその他の国の情報が同時に出力されるため、この2つを見分けるためには色分けが有効です。したがって、<code>geom_jitter()</code>と<code>geom_boxplot()</code>の<code>color</code>と<code>fill</code>を<code>Continent</code>から<code>Developed</code>へ変更します。</p>
+<p>　そしてもう一つ重要なことがあります。それは<code>geom_jitter()</code>の位置です。次元ごとに横軸の位置をずらす場合、<code>geom_bar()</code>は<code>position = "dodge"</code>を使いました。しかし、<code>geom_jitter()</code>では<code>"dodge"</code>が使えません。その代わりに<code>positon</code>の実引数として<code>position_jitterdodge()</code>を指定します。この中には更に<code>jitter.width</code>と<code>jitter.height</code>引数があり、散らばりの具合をここで調整します。なぜ、<code>geom_jitter()</code>で<code>width</code>と<code>height</code>を指定するのではなく、<code>position_jitter()</code>内で指定するかですが、これは<code>geom_jitter()</code>関数の仕様です。<code>geom_jitter()</code>の場合、<code>position</code>と<code>width</code>または<code>height</code>を同時に指定することは出来ません。 |　 　それでは早速やってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-10_d47804500f9286113c4d5d8a2f996ca8">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">mutate</span>(<span class="at">Continent2 =</span> <span class="fu">factor</span>(Continent,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"America"</span>, <span class="st">"Asia"</span>,</span>
+<span id="cb45-4"><a href="#cb45-4"></a>                                        <span class="st">"Europe"</span>, <span class="st">"Oceania"</span>),</span>
+<span id="cb45-5"><a href="#cb45-5"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アフリカ"</span>, <span class="st">"アメリカ"</span>, <span class="st">"アジア"</span>,</span>
+<span id="cb45-6"><a href="#cb45-6"></a>                                        <span class="st">"ヨーロッパ"</span>, <span class="st">"オセアニア"</span>)),</span>
+<span id="cb45-7"><a href="#cb45-7"></a>         <span class="at">Developed  =</span> <span class="fu">ifelse</span>(G7 <span class="sc">+</span> G20 <span class="sc">+</span> OECD <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb45-8"><a href="#cb45-8"></a>         <span class="at">Developed  =</span> <span class="fu">factor</span>(Developed, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb45-9"><a href="#cb45-9"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"先進国"</span>, <span class="st">"その他"</span>),</span>
+<span id="cb45-10"><a href="#cb45-10"></a>                             <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb45-11"><a href="#cb45-11"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span></span>
+<span id="cb45-12"><a href="#cb45-12"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent2, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb45-13"><a href="#cb45-13"></a>  <span class="co"># jitterでdodgeを使うためにはposition_jitterdodgeを使う</span></span>
+<span id="cb45-14"><a href="#cb45-14"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Developed), <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb45-15"><a href="#cb45-15"></a>              <span class="at">position =</span> <span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.5</span>,</span>
+<span id="cb45-16"><a href="#cb45-16"></a>                                              <span class="at">jitter.height =</span> <span class="dv">0</span>),</span>
+<span id="cb45-17"><a href="#cb45-17"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb45-18"><a href="#cb45-18"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Developed),</span>
+<span id="cb45-19"><a href="#cb45-19"></a>               <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb45-20"><a href="#cb45-20"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"人間開発指数 (2018)"</span>, <span class="at">fill =</span> <span class="st">""</span>,</span>
+<span id="cb45-21"><a href="#cb45-21"></a>       <span class="at">caption =</span> <span class="st">"先進国: G7, G20, OECDのいずれかに加盟している国"</span>) <span class="sc">+</span></span>
+<span id="cb45-22"><a href="#cb45-22"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb45-23"><a href="#cb45-23"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-10-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　ファセット分割と色分け、どれが良いかという正解はありません。分析者の目的に依存するものです。もし、先進国の中での比較を強調したい場合はファセット分割が有効でしょう。しかし、同じ大陸内で先進国とその他の国の比較なら色分けの方が適切です。</p>
+</section>
+<section id="複数の変数の場合" class="level3">
+<h3 class="anchored" data-anchor-id="複数の変数の場合">複数の変数の場合</h3>
+<p>　箱ひげ図はグループごとにある変数の分布を比較することもできますが、複数の変数の比較も可能です。そのためにはデータの形を変形する必要があります。たとえば、Polity IVの民主主義指標（<code>Polity_Score</code>）とFreedom Houseの民主主義指標（<code>FH_Total</code>）の分布を、大陸ごとに示したいとします。<code>Country_df</code>の場合、<code>Polity_Score</code>と<code>FH_Total</code>は別々の変数になっていますが、<code>pivot_longer()</code>を使って、これらを1つの変数にまとめる必要があります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-11_73041b5e598722e70264a7a244c7162c">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>Democracy_df <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">select</span>(Country, Continent, Polity_Score, FH_Total) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Polity_Score), <span class="sc">!</span><span class="fu">is.na</span>(FH_Total)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="fu">contains</span>(<span class="st">"_"</span>),</span>
+<span id="cb46-5"><a href="#cb46-5"></a>               <span class="at">names_to  =</span> <span class="st">"Type"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6"></a>               <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">mutate</span>(<span class="at">Type =</span> <span class="fu">recode</span>(Type,</span>
+<span id="cb46-8"><a href="#cb46-8"></a>                       <span class="st">"FH_Total"</span>     <span class="ot">=</span> <span class="st">"Freedom House"</span>,</span>
+<span id="cb46-9"><a href="#cb46-9"></a>                       <span class="st">"Polity_Score"</span> <span class="ot">=</span> <span class="st">"Polity IV"</span>))</span>
+<span id="cb46-10"><a href="#cb46-10"></a></span>
+<span id="cb46-11"><a href="#cb46-11"></a>Democracy_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 316 × 4
+   Country     Continent Type          Value
+   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;
+ 1 Afghanistan Asia      Polity IV        -1
+ 2 Afghanistan Asia      Freedom House    27
+ 3 Albania     Europe    Polity IV         9
+ 4 Albania     Europe    Freedom House    67
+ 5 Algeria     Africa    Polity IV         2
+ 6 Algeria     Africa    Freedom House    34
+ 7 Angola      Africa    Polity IV        -2
+ 8 Angola      Africa    Freedom House    32
+ 9 Argentina   America   Polity IV         9
+10 Argentina   America   Freedom House    85
+# … with 306 more rows</code></pre>
+</div>
+</div>
+<p>　続いて、箱ひげ図の作成ですが、これは次元の追加と全く同じやり方になります。<code>fill</code>で色分けをするか、ファセット分割をするかですね。ここでは箱の色分けをします。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-12_2f0b789b544bd4cd8a0e760caf9c3f0d">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>Democracy_df <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Value, <span class="at">fill =</span> Type)) <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"民主主義の程度"</span>, <span class="at">fill =</span> <span class="st">"指標"</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"America"</span>, <span class="st">"Asia"</span>,<span class="st">"Europe"</span>, <span class="st">"Oceania"</span>), </span>
+<span id="cb48-6"><a href="#cb48-6"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アフリカ"</span>, <span class="st">"アメリカ"</span>, <span class="st">"アジア"</span>, <span class="st">"ヨーロッパ"</span>, <span class="st">"オセアニア"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-12-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　しかし、1つ問題があります。それはPolity IVは-10から10までの指標なのに対して、Freedom Houseは0から100までの指標になっている点です。この場合、正確な比較が出来ません。複数の変数を1つの箱ひげ図に出す際は、変数のスケールが一致させた方が良いでしょう。たとえば、複数の人、または団体に対する感情温度はスケールが0から100であるため、使えます。しかし、今回の場合はあまり良いケースではありません。</p>
+<p>　もし、スケールが異なるものを示すためにはスケールを調整する必要があります。よく使われるのはスケールを平均0、標準偏差1にする「標準化」ですが、変数の分布を似通ったものにするため、あまり良くないかも知れません。ここではFreedom House指標から50を引き、そこから5で割った値を使います。こうすることで、Freedom House指標が100なら10、0なら-10になり、最小値と最大値のスケールをPolity IVに合わせることが可能です。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-box-13_3b52ab4fc4316f9be9ce7707a07e6264">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>Democracy_df <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">select</span>(Country, Continent, Polity_Score, FH_Total) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="co"># FH_Totalのすケース調整</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">mutate</span>(<span class="at">FH_Total =</span> (FH_Total <span class="sc">-</span> <span class="dv">50</span>) <span class="sc">/</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Polity_Score), <span class="sc">!</span><span class="fu">is.na</span>(FH_Total)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols      =</span> <span class="fu">contains</span>(<span class="st">"_"</span>),</span>
+<span id="cb49-7"><a href="#cb49-7"></a>               <span class="at">names_to  =</span> <span class="st">"Type"</span>,</span>
+<span id="cb49-8"><a href="#cb49-8"></a>               <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-9"><a href="#cb49-9"></a>  <span class="fu">mutate</span>(<span class="at">Type2 =</span> <span class="fu">recode</span>(Type,</span>
+<span id="cb49-10"><a href="#cb49-10"></a>                        <span class="st">"FH_Total"</span>     <span class="ot">=</span> <span class="st">"Freedom House"</span>,</span>
+<span id="cb49-11"><a href="#cb49-11"></a>                        <span class="st">"Polity_Score"</span> <span class="ot">=</span> <span class="st">"Polity IV"</span>))</span>
+<span id="cb49-12"><a href="#cb49-12"></a></span>
+<span id="cb49-13"><a href="#cb49-13"></a>Democracy_df <span class="sc">%&gt;%</span></span>
+<span id="cb49-14"><a href="#cb49-14"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb49-15"><a href="#cb49-15"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent, <span class="at">y =</span> Value, <span class="at">fill =</span> Type2)) <span class="sc">+</span></span>
+<span id="cb49-16"><a href="#cb49-16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"民主主義の程度"</span>, <span class="at">fill =</span> <span class="st">"指標"</span>) <span class="sc">+</span></span>
+<span id="cb49-17"><a href="#cb49-17"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"America"</span>, <span class="st">"Asia"</span>,<span class="st">"Europe"</span>, <span class="st">"Oceania"</span>), </span>
+<span id="cb49-18"><a href="#cb49-18"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アフリカ"</span>, <span class="st">"アメリカ"</span>, <span class="st">"アジア"</span>, <span class="st">"ヨーロッパ"</span>, <span class="st">"オセアニア"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-box-13-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　先よりは比較可能な図のように見えますが、あくまでも最小値と最大値を一致させたものであるため、厳密な意味ではこれもよくありません。複数の変数を1つの箱ひげ図としてまとめる場合は、スケールが一致するもののみを使うことを推奨します。</p>
+</section>
+</section>
+<section id="visual2-scatter" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-scatter">散布図</h2>
+<p>　続いて、散布図の作成について解説します。散布図においてデータは点で表現され、点を表示するためには、少なくとも横軸と縦軸といった2つの情報が必要です。したがって、マッピングに使う変数は最低2つであり、横軸は<code>x</code>、縦軸は<code>y</code>で指定します。今回は<code>Country_df</code>を使って、一人当たりGDP (購買力平価基準)と人間開発指数の関係を調べてみましょう。散布図の幾何オブジェクト関数は<code>geom_point()</code>です。そして、それぞれの変数は<code>PPP_per_capita</code>、<code>HDI_2018</code>であるから、マッピングは<code>aes(x = PPP_per_capita, y = HDI_2018)</code>になります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-1_e7ea120f4de7ea9534ffb90eebadd965">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-1-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　以下のメッセージが表示されますが、これは一人当たりGDP (購買力平価基準)または人間開発指数が欠損しているケースが11カ国あることを意味します。たとえば、教皇聖座 (Holy See; いわゆるバチカン)や西サハラ、ソマリアなどの国があります。</p>
+<pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
+<p>　どのようなケースが除外されたかは<code>dplyr::filter()</code>関数を使えば簡単に調べられます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-2_891e752ad740df0c41bd428d919a7163">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>Country_df <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(PPP_per_capita) <span class="sc">|</span> <span class="fu">is.na</span>(HDI_2018)) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">select</span>(Country, PPP_per_capita, HDI_2018)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 3
+   Country        PPP_per_capita HDI_2018
+   &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Andorra                   NA     0.857
+ 2 Cuba                      NA     0.778
+ 3 Holy See                  NA    NA    
+ 4 Kosovo                 11078.   NA    
+ 5 Liechtenstein             NA     0.917
+ 6 Monaco                    NA    NA    
+ 7 San Marino             62554.   NA    
+ 8 Somalia                   NA     0.557
+ 9 Syria                     NA     0.549
+10 Taiwan                 46145.   NA    
+11 Western Sahara            NA    NA    </code></pre>
+</div>
+</div>
+<p>　このように何らかのケースが除外されたとメッセージが出力された場合、ちゃんとどのケースが除外されたかを確認することは重要です。この11カ国は未承認国や国内政治の不安定によりデータが正確に把握できないところがほとんどですね。</p>
+<p>　散布図を見ると経済力と人間開発指数の間には正の関係が確認できます。ただし、経済力が高くなるにつれ、人間開発指数の増加幅は減少していきます。どちらかと言えば対数関数のような関係でしょう。実際、<code>scale_x_log10()</code>や、<code>scale_x_continuous(trans = "log10")</code>などで横軸を対数化するとほぼ線形の関係が観察できます。今回は座標系を変換して横軸を対数化してみます。座標系の調整は<code>coord_*()</code>関数群を使いますが、対数化には<code>coord_trans()</code>を使います。ここで変換する軸と変換方法を指定します。今回は横軸を底10の対数化を行うから<code>x = "log10"</code>と指定します。これは<code>scale_x_log10()</code>と全く同じですが、縦軸も対数化するなどの場面においては<code>coord_trans()</code>の方が便利でしょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-3_28e99091426eda880eb826798d4c21c0">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018)) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">coord_trans</span>(<span class="at">x =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb55-6"><a href="#cb55-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-3-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　対数化してみたら、かなり綺麗な線形関係が確認できます。事実を言うと、そもそも人間開発指数は所得も評価項目であるため、線形関係があるのは当たり前です。</p>
+<section id="次元を追加する-3" class="level3">
+<h3 class="anchored" data-anchor-id="次元を追加する-3">次元を追加する</h3>
+<p>　散布図の点は横軸の数値と縦軸の数値を持っています。2次元平面で表現できる散布図は少なくとも2つの情報を持つことになります。しかし、2次元平面であっても、3つ以上の情報、つまり3次元以上の情報を示すことが可能です。たとえば、点ごとに色を変更することもできます。OECD加盟国と非加盟国に異なる色を与えると、2次元平面上であっても、3つの情報を含む散布図が作れます。他にも透明度（<code>alpha</code>）、点の形（<code>shape</code>）、大きさ（<code>size</code>）などで点に情報を持たせることが可能です。たとえば、国の面積に応じて点の大きさが変わる散布図を作成するなら<code>aes()</code>内に<code>size = Area</code>を追加するだけです。面積の単位は非常に大きいので、<code>Area</code>を100万で割った値を使います。また、点が大きくなると重なりやすくなるため、半透明（<code>alpha = 0.5</code>）にします。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-4_1f514d582392fe56ec123fbf4af5dfb9">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">mutate</span>(<span class="at">Area2 =</span> Area <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018, <span class="at">size =</span> Area2),</span>
+<span id="cb56-5"><a href="#cb56-5"></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb56-7"><a href="#cb56-7"></a>       <span class="at">size =</span> <span class="st">"面積 (100万km2)"</span>) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-4-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　一人当たりGDPが非常に高い国の多くは面積が小さい国が多いですね。</p>
+<p>　以上のコードでは、<code>aes()</code>だけでなく、<code>labs()</code>内にも<code>size</code>引数を指定しました。<code>labs()</code>内に<code>x</code>と<code>y</code>以外の引数を指定することはヒストグラムのところでもしましたが、説明はしませんでした。ここで詳しく説明します。<code>labs()</code>内の引数はマッピング要素と対応します。今回は<code>geom_point()</code>幾何オブジェクト内に<code>x</code>、<code>y</code>、<code>size</code>があり、それぞれにラベルを付けることになります。これを指定しない場合、変数名がデフォルト値として出力されます。<code>x</code>と<code>y</code>は縦軸と横軸のラベルですが、その他のマッピング要素は凡例として出力される場合が多いです。凡例のラベルを修正したい時にはとりあえず<code>labs()</code>から覗いてみましょう。</p>
+<p>　続きまして、もう一つ次元を追加してみましょう。散布図は他のグラフに比べ次元拡張が容易なグラフです。ここでは色分けをしてみましょう。たとえば、OECD加盟有無（<code>OECD</code>）で色分けする場合、これまでと同様、<code>color</code>を<code>aes()</code>内に加えるだけです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-5_b2ba75467475f349832293901282a53d">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">mutate</span>(<span class="at">Area2 =</span> Area <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018, </span>
+<span id="cb57-5"><a href="#cb57-5"></a>                 <span class="at">size =</span> Area, <span class="at">color =</span> OECD)) <span class="sc">+</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb57-7"><a href="#cb57-7"></a>       <span class="at">size =</span> <span class="st">"面積 (100万km2)"</span>, <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
+<span id="cb57-8"><a href="#cb57-8"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-5-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　色分けはされていますが、凡例を見ると想像したものとやや違いますね。なぜなら<code>OECD</code>変数が数値型になっているからです。実際のデータには<code>OECD = 0.5</code>や<code>OECD = 0.71</code>のような値は存在しませんが、数値型である以上、その値をとること自体は出来ます。したがって、0から1までの数値に対応できるように、色分けもグラデーションになっています。これを見やすく二分するためには、<code>OECD</code>変数をfactor型か文字型に変換する必要があります。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-6_788e7f28e0c9d0521a26311af8535b20">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">mutate</span>(<span class="at">Area2 =</span> Area <span class="sc">/</span> <span class="dv">1000000</span>,</span>
+<span id="cb58-3"><a href="#cb58-3"></a>         <span class="at">OECD2 =</span> <span class="fu">factor</span>(OECD, <span class="at">levels =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, </span>
+<span id="cb58-4"><a href="#cb58-4"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"非加盟国"</span>, <span class="st">"加盟国"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018, </span>
+<span id="cb58-7"><a href="#cb58-7"></a>                 <span class="at">size =</span> Area2, <span class="at">color =</span> OECD2)) <span class="sc">+</span></span>
+<span id="cb58-8"><a href="#cb58-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb58-9"><a href="#cb58-9"></a>       <span class="at">size =</span> <span class="st">"面積 (100万km2)"</span>, <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
+<span id="cb58-10"><a href="#cb58-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-6-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで散布図の出来上がりです。2次元座標系で表現された散布図ですが、この図から分かる情報は何があるでしょうか。</p>
+<ol type="1">
+<li>一人当たり購買力平価GDP</li>
+<li>人間開発指数</li>
+<li>面積</li>
+<li>OECD加盟有無</li>
+</ol>
+<p>　1つの図から4つの情報が読み取れます。つまり、4次元グラフと言えます。ここにファセット分割、透明度の調整、点の形の変更まですると7次元のグラフもできます。ただし、あまりにも次元数の多いグラフは読みにくくなるため、必要だと思う変数のみマッピングしましょう。</p>
+</section>
+<section id="一部の点をハイライトする" class="level3">
+<h3 class="anchored" data-anchor-id="一部の点をハイライトする">一部の点をハイライトする</h3>
+<p>　これまでの図と比べ、散布図は一般的に表示される情報が多いです。棒グラフ、箱ひげ図の場合、数個、あるいは十数個程度の項目ごとに棒や箱が出力されますが、散布図の場合、データのサイズだけ点が出力されます。むろん、散布図というのは個々の点の情報よりも二変数間の関係を確認するために使われるため、これは短所ではありません。</p>
+<p>　しかし、散布図の中で一部の点をハイライトしたい場合もあるでしょう。たとえば、先ほどの図において日中韓だけハイライトするためにはどうすれば良いでしょうか。まず、考えられるのは<code>color</code>によるマッピングでしょう。<code>Country</code>変数を日本、韓国、中国、その他の4つの水準にまとめ、この値によって色分けをすればいいでしょう。実際にやってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-7_cc22fae69793ddcbc92372a4a5b871ce">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">mutate</span>(<span class="at">Area2    =</span> Area <span class="sc">/</span> <span class="dv">1000000</span>,</span>
+<span id="cb59-3"><a href="#cb59-3"></a>         <span class="at">Country2 =</span> <span class="fu">case_when</span>(Country <span class="sc">==</span> <span class="st">"Japan"</span>       <span class="sc">~</span> <span class="st">"Japan"</span>,</span>
+<span id="cb59-4"><a href="#cb59-4"></a>                              Country <span class="sc">==</span> <span class="st">"South Korea"</span> <span class="sc">~</span> <span class="st">"South Korea"</span>,</span>
+<span id="cb59-5"><a href="#cb59-5"></a>                              Country <span class="sc">==</span> <span class="st">"China"</span>       <span class="sc">~</span> <span class="st">"China"</span>,</span>
+<span id="cb59-6"><a href="#cb59-6"></a>                              <span class="cn">TRUE</span>                     <span class="sc">~</span> <span class="st">"Other"</span>),</span>
+<span id="cb59-7"><a href="#cb59-7"></a>         <span class="at">Country2 =</span> <span class="fu">factor</span>(Country2, </span>
+<span id="cb59-8"><a href="#cb59-8"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"South Korea"</span>, <span class="st">"China"</span>,</span>
+<span id="cb59-9"><a href="#cb59-9"></a>                                      <span class="st">"Other"</span>),</span>
+<span id="cb59-10"><a href="#cb59-10"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"South Korea"</span>, <span class="st">"China"</span>,</span>
+<span id="cb59-11"><a href="#cb59-11"></a>                                      <span class="st">"Other"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb59-12"><a href="#cb59-12"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb59-13"><a href="#cb59-13"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018, </span>
+<span id="cb59-14"><a href="#cb59-14"></a>                 <span class="at">size =</span> Area2, <span class="at">color =</span> Country2)) <span class="sc">+</span></span>
+<span id="cb59-15"><a href="#cb59-15"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb59-16"><a href="#cb59-16"></a>       <span class="at">size =</span> <span class="st">"面積 (100万km2)"</span>, <span class="at">color =</span> <span class="st">"国家"</span>) <span class="sc">+</span></span>
+<span id="cb59-17"><a href="#cb59-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-7-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　日本と韓国を見つけるのは大変ですが、目的達成と言えるでしょう。ただ、もっと楽な方法があります。それが<a href="https://twitter.com/yutannihilation">湯谷啓明</a>さんが開発した{gghighlight}パッケージです。詳しい使い方は<a href="https://cran.r-project.org/web/packages/gghighlight/vignettes/gghighlight.html">湯谷さんによる解説ページ</a>を参照して頂きますが、ここでは簡単な使い方のみ紹介します。まずは、<code>install.packages("gghighlight")</code>でパッケージをインストールし、読み込みます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(gghighlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　続いてですが、国ごとに色分けする予定ですので、散布図の<code>color</code>は<code>Country</code>変数でマッピングします。そして、{gghighlight}幾何オブジェクトを追加します。まずは使い方からです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># gghighlight()の使い方</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="fu">gghighlight</span>(条件式, <span class="at">label_params =</span> <span class="fu">list</span>(引数1, 引数2, ...))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　第一引数は条件式であり、これは<code>dplyr::filter()</code>の条件式をそのまま使えます。そして、<code>label_parms</code>を指定しますが、実引数はリスト型です。中には<code>geom_labels()</code>幾何オブジェクトに使用する引数が使えます。たとえば、ハイライトされた点にはラベルが付きますが、<code>size</code>引数を入れてラベルの大きさを指定できます。それでは実際にやってみましょう。条件式は<code>Country %in% c("Japan", "South Korea", "China")</code>であり、ラベルの大きさは3にします。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-scatter-10_552c046d66ea2bdd9302dee923c3e7e6">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">mutate</span>(<span class="at">Area2 =</span> Area <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb62-4"><a href="#cb62-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP_per_capita, <span class="at">y =</span> HDI_2018, </span>
+<span id="cb62-5"><a href="#cb62-5"></a>                 <span class="at">size =</span> Area2, <span class="at">color =</span> Country)) <span class="sc">+</span></span>
+<span id="cb62-6"><a href="#cb62-6"></a>  <span class="fu">gghighlight</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"South Korea"</span>, <span class="st">"China"</span>),</span>
+<span id="cb62-7"><a href="#cb62-7"></a>              <span class="at">label_params =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb62-8"><a href="#cb62-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
+<span id="cb62-9"><a href="#cb62-9"></a>       <span class="at">size =</span> <span class="st">"面積 (100万km2)"</span>, <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
+<span id="cb62-10"><a href="#cb62-10"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-scatter-10-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　非常に簡単なやり方で点のハイライトが出来ました。これは後ほど紹介する折れ線グラフだけでなく、様々な幾何オブジェクトにも対応しています。湯谷さんの解説ページを参照して下さい。</p>
+</section>
+</section>
+<section id="visual2-line" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-line">折れ線グラフ</h2>
+<p>　続きまして、折れ線グラフについて解説します。折れ線グラフは横軸が順序付き変数、縦軸は連続変数になります。横軸は順序付きであれば、年月日のような離散変数でも、連続変数でも構いません。注意すべき点は横軸上の値はグループ内において1回のみ登場するという点です。たとえば、株価のデータなら「2020年8月8日」はデータは1回だけ登場します。世界各国の株価データなら、グループ（国）内において「2020年8月8日」は一回のみ登場することになります。</p>
+<p>　必要なマッピング要素は線の傾きが変化しうるポイントの横軸上の位置（<code>x</code>）と縦軸上の位置（<code>y</code>）です。ここではCOVID-19の新規感染者数データを使用します。まず、<code>Date</code>変数が文字型になっているため、これをDate型に変換します。文字型の場合、順序関係がないからです。基本的に折れ線グラフの横軸になり得るデータ型はnumeric、順序付きfactor、Date、complex型だと考えていただいても結構です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>COVID19_df <span class="ot">&lt;-</span> COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(Date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　それでは図を作成してみましょう。横軸は日付（<code>Date</code>）、縦軸は累積感染者数（<code>Confirmed_Total</code>）にしましょう。また、縦軸のスケールは底10の対数を取ります。感染者数が数百万人となるアメリカと、数万人の国が同じグラフになると、見にくくなるからです。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-2_39b453c1323180004fbf5967cea030db">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total)) <span class="sc">+</span></span>
+<span id="cb64-4"><a href="#cb64-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb64-5"><a href="#cb64-5"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb64-6"><a href="#cb64-6"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb64-7"><a href="#cb64-7"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb64-8"><a href="#cb64-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>) <span class="sc">+</span></span>
+<span id="cb64-9"><a href="#cb64-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-2-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　??????????????????</p>
+<p>　なんでしょう…。想像したものと違いますね。また、警告メッセージも出力されますが、これは0を対数化すると<code>-Inf</code>になるから出力されるものです。大きな問題はないので、ここでは無視しましょう。</p>
+<p>　先ほど申し上げた通り、横軸の値はデータ内に1回のみ登場すべきです。しかし、<code>COVID19_df</code>の場合、（たとえば）2020年5月1日の行が国の数だけあります。この場合は、ちゃんと国（<code>Country</code>）ごとに線を分けるように指定する必要があります。ここで使うマッピング要素が<code>group</code>です。<code>group</code>で指定した変数の値ごとに異なる折れ線グラフを出力してくれます。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-3_40b96690dbe4470e5d1c2d238730aed4">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb66-3"><a href="#cb66-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total, <span class="at">group =</span> Country)) <span class="sc">+</span></span>
+<span id="cb66-4"><a href="#cb66-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb66-5"><a href="#cb66-5"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb66-6"><a href="#cb66-6"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb66-7"><a href="#cb66-7"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb66-8"><a href="#cb66-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>) <span class="sc">+</span></span>
+<span id="cb66-9"><a href="#cb66-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-3-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これで折れ線グラフは出力されましたが、どの線がどの国かが分かりませんね。<code>group</code>の場合、凡例が表示されないので、<code>group</code>でなく、<code>color</code>で色分けしてみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-4_f2f11c5b886e85adc9e847d9cdcb8430">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb67-3"><a href="#cb67-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total, <span class="at">color =</span> Country)) <span class="sc">+</span></span>
+<span id="cb67-4"><a href="#cb67-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb67-5"><a href="#cb67-5"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb67-6"><a href="#cb67-6"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb67-7"><a href="#cb67-7"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb67-8"><a href="#cb67-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>) <span class="sc">+</span></span>
+<span id="cb67-9"><a href="#cb67-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-4-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　???????????????????</p>
+<p>　なんか出ましたが、国数が多すぎて凡例だけで図が埋め尽くされています。この場合、方法は3つあります。1つ目の方法は図のサイズを大きくする方法です。これは保存の際、サイズを再調整するだけですので、ここでは割愛します。また、それでも凡例内の項目が非常に多いグラフをグラフの種類と関係なく推奨されません。2つ目は国を絞る方法であり、3つ目は<code>gghighlight()</code>で一部の国のみハイライトする方法です。まずは、G7（カナダ、フランス、ドイツ、イタリア、日本、イギリス、アメリカ）のみデータを絞って折れ線グラフを作ってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-5_2b8e63f8024e119d6937cc59d935f7ad">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>G7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Cananda"</span>, <span class="st">"France"</span>, <span class="st">"Germany"</span>, <span class="st">"Italy"</span>, <span class="st">"Japan"</span>, </span>
+<span id="cb68-2"><a href="#cb68-2"></a>        <span class="st">"United Kingdom"</span>, <span class="st">"United States"</span>)</span>
+<span id="cb68-3"><a href="#cb68-3"></a></span>
+<span id="cb68-4"><a href="#cb68-4"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> G7) <span class="sc">%&gt;%</span></span>
+<span id="cb68-6"><a href="#cb68-6"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb68-7"><a href="#cb68-7"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total, <span class="at">color =</span> Country)) <span class="sc">+</span></span>
+<span id="cb68-8"><a href="#cb68-8"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb68-9"><a href="#cb68-9"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb68-10"><a href="#cb68-10"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb68-11"><a href="#cb68-11"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb68-12"><a href="#cb68-12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>, <span class="at">color =</span> <span class="st">"国"</span>) <span class="sc">+</span></span>
+<span id="cb68-13"><a href="#cb68-13"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-5-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これだけでもG7国のCOVID-19の状況が比較可能ですが、この図は改善の余地があります。それは凡例の順番です。できれば、一番最新の日付のデータを基準に凡例の順番を揃えることが出来たら、どの線がどの国かが分かりやすくなります。そこで登場するのは<a href="../../tutorial/R/dplyr_intro.html">dplyr入門</a>で紹介しました<code>fct_reorder2</code>関数です。実際にやってみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-6_6722c2de5ddff2cbff9f38a704435f06">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> G7) <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href="#cb69-3"></a>  <span class="fu">mutate</span>(<span class="at">Country =</span> <span class="fu">fct_reorder2</span>(Country, Date, Confirmed_Total, last2)) <span class="sc">%&gt;%</span></span>
+<span id="cb69-4"><a href="#cb69-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb69-5"><a href="#cb69-5"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total, <span class="at">color =</span> Country)) <span class="sc">+</span></span>
+<span id="cb69-6"><a href="#cb69-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb69-7"><a href="#cb69-7"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb69-8"><a href="#cb69-8"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb69-9"><a href="#cb69-9"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb69-10"><a href="#cb69-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>, <span class="at">color =</span> <span class="st">"国"</span>) <span class="sc">+</span></span>
+<span id="cb69-11"><a href="#cb69-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-6-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　これでより読みやすい図が出来上がりました。</p>
+<section id="一部の線をハイライトする" class="level3">
+<h3 class="anchored" data-anchor-id="一部の線をハイライトする">一部の線をハイライトする</h3>
+<p>　グループが多すぎる場合の対処法、その2つ目はデータを全て使い、一部の国のみハイライトする方法です。線のハイライトにも<code>gghighlight()</code>が使えます。同じく日米中韓の線のみハイライトしてみましょう。</p>
+<div class="cell" data-layout-align="center" data-hash="ggplot_intro2_cache/html/visual2-line-7_a0e00005f3fa4912f565a0a2403d8ebe">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>COVID19_df <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb70-3"><a href="#cb70-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Confirmed_Total, <span class="at">color =</span> Country)) <span class="sc">+</span></span>
+<span id="cb70-4"><a href="#cb70-4"></a>  <span class="fu">gghighlight</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Japan"</span>, <span class="st">"China"</span>, <span class="st">"South Korea"</span>,</span>
+<span id="cb70-5"><a href="#cb70-5"></a>                             <span class="st">"United States"</span>)) <span class="sc">+</span></span>
+<span id="cb70-6"><a href="#cb70-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb70-7"><a href="#cb70-7"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"100"</span>, <span class="st">"1000"</span>, <span class="st">"10000"</span>, </span>
+<span id="cb70-8"><a href="#cb70-8"></a>                                <span class="st">"100000"</span>, <span class="st">"1000000"</span>),</span>
+<span id="cb70-9"><a href="#cb70-9"></a>                     <span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb70-10"><a href="#cb70-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"月"</span>, <span class="at">y =</span> <span class="st">"累積感染者数 (人)"</span>) <span class="sc">+</span></span>
+<span id="cb70-11"><a href="#cb70-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ggplot_intro2_files/figure-html/visual2-line-7-1.png" class="img-fluid figure-img" width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　情報量の損失を最小化しながら、一部の国のみをハイライトすることによって世界における日米中韓のトレンドが確認出来ました。</p>
+</section>
+</section>
+<section id="visual2-japanese" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-japanese">日本語が含まれた図について</h2>
+<p>(以下は作成中の内容)</p>
+<p>　{ggplot2}で作成した図に日本語が含まれている場合、日本語が正しく表示されない場合があります。また、RStudioのPlotsペインには日本語が表示されていても、PDF/PNG/JPGなどのファイルとして出力した場合、表示されないケースもあります。{ggplot2}の使い方を解説する前に、ここでは日本語が正しく表示/出力されない場合の対処法について紹介します。</p>
+<section id="macosの場合" class="level3">
+<h3 class="anchored" data-anchor-id="macosの場合">macOSの場合</h3>
+<p>　今後紹介する{ggplot2}の図の最後に以下のようなレイヤーを追加すればヒラギノフォントを使用することができます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　または、<code>theme_bw()</code>や<code>theme_minimal()</code>など、特定のテーマを使用するのであればそのテーマのレイヤーにフォントを指定することもできます。たとえば、{ggplot2}のデフォルトテーマであるgrayテーマを使用するなら、{ggplot2}のオブジェクトに以下のようなレイヤーを追加する。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">theme_gray</span>(<span class="at">base_familiy =</span> <span class="st">"HiraginoSans-W3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　もう一つの方法としましては、コードの最初に以下のようなコードを追加します。このコードが実行された以降の図には全てヒラギノフォントが適用されます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">theme_update</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　ただし、いずれの方法でも、<code>geom_text()</code>、<code>geom_label()</code>、<code>annotate()</code>のような文字列を出力する幾何オブジェクトを使用する際は、各レイヤーごとにフォント族を指定する必要があります (幾何オブジェクト内に<code>family = "HiraginoSans-W3"</code>を追加)。</p>
+<p>　作成した図ファイル (PDF) として出力 (保存) する際は<code>quartz()</code>関数と<code>dev.off()</code>関数の間に{ggplot2}で作成したオブジェクト名を入れるだけです。図でフォントが正しく指定されていれば、問題なく日本語を含まれたPDF形式の図が保存できます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">quartz</span>(<span class="at">file =</span> <span class="st">"出力するファイル名"</span>, <span class="at">type =</span> <span class="st">"pdf"</span>, <span class="at">width =</span> 幅, <span class="at">height =</span> 高さ)</span>
+<span id="cb74-2"><a href="#cb74-2"></a>{ggplot2}で作成した図のオブジェクト名</span>
+<span id="cb74-3"><a href="#cb74-3"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　PNG形式の図を保存する場合は、後述する{ragg}パッケージの仕様をおすすめします。</p>
+</section>
+<section id="windowsの場合" class="level3">
+<h3 class="anchored" data-anchor-id="windowsの場合">Windowsの場合</h3>
+<p>???</p>
+</section>
+<section id="raggの使用" class="level3">
+<h3 class="anchored" data-anchor-id="raggの使用">{ragg}の使用</h3>
+<p>　{ragg}パッケージを使用すると、使用するOSと関係なくRStudioのPlotsペイン、R Markdown (HTML出力)の文字化けを回避することができます。{ragg}はインストールのみで十分であり、別途読み込む必要がないため、インストールだけします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>pacman<span class="sc">::</span><span class="fu">p_install</span>(ragg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　RStudio上の文字化けを回避するためには、RStudioの設定を以下のように変更します。</p>
+<ol type="1">
+<li>RStudioのTools&gt;Global Options…</li>
+<li>左のGeneral&gt;右側上段のGraphicsタブ</li>
+<li>Graphic DeviceのBackendでAGGを選択</li>
+</ol>
+<p>　R Markdown (HTML出力)の場合、YAMLヘッダーの直後に以下のようなチャンクを追加します。チャンクのオプションとして<code>include = FALSE</code>を指定しておけば、出力結果にコードが表示されなくなるため、指定するのを推奨します。<code>dpi</code>は任意の値で良いですが、PNG形式の場合、解像度が低いと見た目があまり良くないため、150以上に設定することをおすすめします。Web表示だけなら150でも良いですが、印刷を考えると300がおすすめです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">dev =</span> <span class="st">"ragg_png"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="visual2-save" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-save">図の保存</h2>
+<p>　綺麗な図も出来上がりましたので、みんなに自慢してみましょう。ただ、自慢のためにパソコンを持ち歩くのは大変なので、ファイルと保存してみんなに配りましょう。自慢する相手がいないなら<a href="mailto:jasong@mail.doshisha.ac.jp">SONG</a>に自慢しても結構です。図のフォーマットはPNGかPDFが一般的です。JPEGなど圧縮フォーマットは絶対にダメです。PNGとPDFは前者はピクセルベース、後者がベクトルベースで、PDFの方が拡大してもカクカクせず綺麗です。ただし、一部の文書作成ソフトウェアでPDFを図として扱えない点や、サイズの問題 (複雑な図になるほど、PDFの方がサイズが大きくなる)もあるので、PNGを使うケースも多いです。むろん、LaTeXで文章を作成するなら、PDF一択です。</p>
+<p>　保存方法として以下の3つを紹介します。</p>
+<section id="ggsaveを利用した図の保存" class="level3">
+<h3 class="anchored" data-anchor-id="ggsaveを利用した図の保存"><code>ggsave()</code>を利用した図の保存</h3>
+<p>　<code>ggsave()</code>が{ggplot2}が提供する図の保存関数です。まずは、使い方から紹介します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># ggsave()を利用した保存方法</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"ファイル名"</span>,</span>
+<span id="cb77-3"><a href="#cb77-3"></a>       <span class="at">plot     =</span> 図のオブジェクト名,</span>
+<span id="cb77-4"><a href="#cb77-4"></a>       <span class="at">device   =</span> <span class="st">"pdf"</span>や<span class="st">"png"</span>など,</span>
+<span id="cb77-5"><a href="#cb77-5"></a>       <span class="at">width    =</span> 図の幅,</span>
+<span id="cb77-6"><a href="#cb77-6"></a>       <span class="at">height   =</span> 図の高さ、</span>
+<span id="cb77-7"><a href="#cb77-7"></a>       <span class="at">units    =</span> <span class="st">"in"</span>や<span class="st">"cm"</span>など、幅<span class="sc">/</span>高さの単位,</span>
+<span id="cb77-8"><a href="#cb77-8"></a>       <span class="at">dpi      =</span> 図の解像度)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　<code>device</code>で指定可能なフォーマットとしては<code>"png"</code>、<code>"eps"</code>、<code>"ps"</code>、<code>"tex"</code>、<code>"pdf"</code>、<code>"jpeg"</code>、<code>"tiff"</code>、<code>"bmp"</code>、<code>"svg"</code>、<code>"wmf"</code>があります。また、<code>units</code>は<code>"in"</code> (インチ)、<code>"cm"</code>、<code>"mm"</code>が指定可能です。他にも<code>dpi</code>引数でdpi (dots per inch; 1平方インチにどれだけのドットの表現ができるか)の指定も可能ですが、デフォルトは300となっており、出版用としては一般的なdpiとなっています。それでは、本章の最初に作成した棒グラフを<code>BarPlot1</code>という名で保存し、<code>Figs</code>フォルダー内に<code>BarPlot1.png</code>として保存してみます。幅と高さは5インチにします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>BarPlot1 <span class="ot">&lt;-</span> Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb78-2"><a href="#cb78-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb78-3"><a href="#cb78-3"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent)) <span class="sc">+</span></span>
+<span id="cb78-4"><a href="#cb78-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb78-5"><a href="#cb78-5"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb78-6"><a href="#cb78-6"></a></span>
+<span id="cb78-7"><a href="#cb78-7"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"Figs/BarPlot.png"</span>,</span>
+<span id="cb78-8"><a href="#cb78-8"></a>       <span class="at">plot     =</span> BarPlot1,</span>
+<span id="cb78-9"><a href="#cb78-9"></a>       <span class="at">device   =</span> <span class="st">"png"</span>,</span>
+<span id="cb78-10"><a href="#cb78-10"></a>       <span class="at">width    =</span> <span class="dv">5</span>,</span>
+<span id="cb78-11"><a href="#cb78-11"></a>       <span class="at">height   =</span> <span class="dv">5</span>,</span>
+<span id="cb78-12"><a href="#cb78-12"></a>       <span class="at">units    =</span> <span class="st">"in"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quartzを利用した図の保存" class="level3">
+<h3 class="anchored" data-anchor-id="quartzを利用した図の保存"><code>quartz()</code>を利用した図の保存</h3>
+<p>　macOSを使用し、日本語などのマルチバイトの文字が含まれる図の場合、<code>ggsave()</code>が正しく作動しません。この場合は<code>quartz()</code>と<code>dev.off()</code>関数を利用して図を保存します。この関数の使い方は以下の通りです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># quartz()を利用した保存方法</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a><span class="fu">quartz</span>(<span class="at">type =</span> <span class="st">"pdf"</span>, <span class="at">file =</span> <span class="st">"ファイル名"</span>, <span class="at">width =</span> 図の幅, <span class="at">height =</span> 図の高さ)</span>
+<span id="cb79-3"><a href="#cb79-3"></a>作図のコード、または図オブジェクトの呼び出し</span>
+<span id="cb79-4"><a href="#cb79-4"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>quartz()</code>の<code>width</code>と<code>height</code>引数の場合、単位はインチ (=2.54cm)です。</p>
+<p>　たとえば、最初に作成した図を<code>Figs</code>フォルダーの<code>BarPlot1.pdf</code>という名で保存し、幅と高さを5インチにするなら以下のようなコードになります。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># 方法1</span></span>
+<span id="cb80-2"><a href="#cb80-2"></a><span class="fu">quartz</span>(<span class="at">type =</span> <span class="st">"pdf"</span>, <span class="at">file =</span> <span class="st">"Figs/BarPlot1.pdf"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb80-3"><a href="#cb80-3"></a>Country_df <span class="sc">%&gt;%</span></span>
+<span id="cb80-4"><a href="#cb80-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb80-5"><a href="#cb80-5"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Continent)) <span class="sc">+</span></span>
+<span id="cb80-6"><a href="#cb80-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"大陸"</span>, <span class="at">y =</span> <span class="st">"ケース数"</span>) <span class="sc">+</span></span>
+<span id="cb80-7"><a href="#cb80-7"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb80-8"><a href="#cb80-8"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　または、予め図をオブジェクトとして保存しておいたなら (先ほどの<code>BarPlot1</code>オブジェクトのように)、以下のようなコードも可能です。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># 方法2</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a><span class="fu">quartz</span>(<span class="at">type =</span> <span class="st">"pdf"</span>, <span class="at">file =</span> <span class="st">"Figs/BarPlot1.pdf"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb81-3"><a href="#cb81-3"></a>BarPlot1</span>
+<span id="cb81-4"><a href="#cb81-4"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>{ragg}が導入されている状態で、図をPNG形式のファイルとして保存 (出力) したい場合は、2つの方法があります。</p>
+</section>
+<section id="raggが導入済みの場合" class="level3">
+<h3 class="anchored" data-anchor-id="raggが導入済みの場合">{ragg}が導入済みの場合</h3>
+<p>PNG形式限定</p>
+<p><strong>方法1:</strong> <code>ragg::agg_png()</code>を使用する。</p>
+<p>　これは<code>ragg::agg_png()</code>関数と<code>dev.off()</code>関数の間に{ggplot2}で作成したオブジェクト名を入れる方法でmacOSの<code>quartz()</code>関数とほぼ同じ使い方です。ただし、仮引数名が異なるため、注意してください。また、<code>dpi</code>の仮引数は存在せず、代わりに<code>res</code>を使います。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>ragg<span class="sc">::</span><span class="fu">agg_png</span>(<span class="at">filename =</span> <span class="st">"出力するファイル名"</span>, <span class="at">res =</span> <span class="dv">300</span>, </span>
+<span id="cb82-2"><a href="#cb82-2"></a>              <span class="at">width =</span> 幅, <span class="at">height =</span> 高さ)</span>
+<span id="cb82-3"><a href="#cb82-3"></a>{ggplot2}で作成した図のオブジェクト名</span>
+<span id="cb82-4"><a href="#cb82-4"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>方法2:</strong> <code>ggsave()</code>に<code>device = ragg::agg_png</code>を指定する。</p>
+<p>　この方法は{ggplot2}が提供する<code>ggsave()</code>関数を使用する方法です。ここでは<code>device</code>に<code>ragg:agg_png</code>を指定すれば、日本語が文字化けせずPNG形式のファイルとして保存されます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"出力するファイル名"</span>, </span>
+<span id="cb83-2"><a href="#cb83-2"></a>       <span class="at">plot     =</span> 図のオブジェクト名,</span>
+<span id="cb83-3"><a href="#cb83-3"></a>       <span class="at">device   =</span> ragg<span class="sc">::</span>agg_png,</span>
+<span id="cb83-4"><a href="#cb83-4"></a>       <span class="at">dpi      =</span> <span class="dv">150</span>,</span>
+<span id="cb83-5"><a href="#cb83-5"></a>       <span class="at">width    =</span> 幅, </span>
+<span id="cb83-6"><a href="#cb83-6"></a>       <span class="at">height   =</span> 高さ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>　PDFファイルとして出力したい場合は各OSごとの説明を参照してください。</p>
+</section>
+</section>
+<section id="visual2-summary" class="level2">
+<h2 class="anchored" data-anchor-id="visual2-summary">まとめ</h2>
+<p>　以上の話をまとめると、データが与えられた場合、ある図を作成するためには少なくとも以下の情報が必要です。</p>
+<ol type="1">
+<li>どの幾何オブジェクトを使用するか</li>
+<li>その幾何オブジェクトに必要なマッピング要素は何か</li>
+</ol>
+<p>　座標系や、スケール、ラベルの設定なども最終的には必要ですが、これらは設定しなくても{ggplot2}自動的に生成してくれます。しかし、幾何オブジェクトとマッピングは必須です。幾何オブジェクトはグーグルで「ggplot 棒グラフ」や「ggplot 等高線図」などで検索すれば、どのような幾何オブジェクトが必要化が分かります。問題はマッピングです。この幾何オブジェクトに使える引数は何か、そしてどの引数を<code>aes()</code>の中に入れるべきかなどはコンソールで<code>?geom_barplot</code>などで検索すれば分かります。</p>
+<p>　筆者のオススメは以下のチートシートを印刷し、手元に置くことです。</p>
+<ul>
+<li><a href="https://rstudio.com/resources/cheatsheets/">ggplot2 cheatsheet</a></li>
+<li><a href="https://drive.google.com/file/d/1Dvul1p6TYH6gWJzZRwpE0YX1dO0hDF-b/view">ggplot2 aesthetics cheatsheet</a></li>
+</ul>
+<p>　2番目の資料は非常に分かりやすい資料ですが、Google Drive経由で公開されているため、いつリンクが切れかが不明です。念の為に本ページにも資料を転載します。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figs/Visualization2/ggplot_aesthetics_cheatsheet.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">ggplot2 aesthetics cheatsheet</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>　青い点は「ほとんど」のケースにおいて<code>aes()</code>の中に位置する引数です。ただし、<code>geom_bar()</code>と<code>geom_histogram()</code>は自動的に度数を計算してくれるため、<code>x</code>と<code>y</code>一方だけでも可能です。黄色い資格は<code>aes()</code>の中でも、外でも使うことが可能な引数です。<code>aes()</code>の中ならマッピング要素となるため、データの変数と対応させる必要があります。ピンク色のひし形四角形は必ず<code>aes()</code>の外に位置する引数です。</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>もう一つの方法は<code>geom_point()</code>に<code>position = position_jitter()</code>を付けることです。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

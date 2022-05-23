@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- JASP入門: t検定</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">JASP入門: t検定</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<ul>
+<li>今回は2群の平均値の差に統計的に有意な差があるか否かを検定する<span class="math inline">\(t\)</span>検定のやり方を紹介します。</li>
+</ul>
+<section id="独立したサンプルのt検定" class="level2">
+<h2 class="anchored" data-anchor-id="独立したサンプルのt検定">独立したサンプルの<span class="math inline">\(t\)</span>検定</h2>
+<ul>
+<li>ここでは東日本と西日本における維新の得票率の差を検定してみましょう。
+<ul>
+<li>ここでは「維新の得票率」変数 (<code>Ishin</code>)を東/西日本変数 (<code>Region2</code>)変数で分割して平均値の差を比較する分析なので「独立サンプルのt検定」となります。</li>
+<li>まだはっきり理解できていない場合は色々とクリックしてみながら試行錯誤してみましょう。そのうちに慣れてきます。</li>
+</ul></li>
+</ul>
+<p><img src="Figs/JASP06_01.png" class="img-fluid"></p>
+<ul>
+<li>分析メニューの「T-Test」から「Independent Samples T-Test」を選択します。</li>
+</ul>
+<p><img src="Figs/JASP06_02.png" class="img-fluid"></p>
+<ul>
+<li>まず、どの変数の差を見るかを決めるのが「Dependent Variables (従属変数)」になります。今回は維新の得票率の差を検定するので「<code>Ishin</code>」変数を選択し、「▶」をクリックして従属変数リストへ入れます。</li>
+<li>次は、維新の得票率変数をどのようにグループ分けするかを決めます。これが「Grouping Variable」です。今回は東日本/西日本に分けたいので、この二つの地域情報が格納されている「Region2」変数をクリックし、「▶」をクリックしてグループ化変数へ入れます。</li>
+</ul>
+<p><img src="Figs/JASP06_03.png" class="img-fluid"></p>
+<ul>
+<li>選択項目がかなり多いですが、今回はできるかぎりSPSSの結果に近い結果が得られるようにします。
+<ul>
+<li>「Tests」は「Students」のチェックを外し、「Welch」にチェツクします。「Student」は等分散を仮定したt検定であり、「Welch」は等分散を仮定しないt検定です。私の講義では基本的に等分散を仮定しない分析結果を採用すると申し上げましたね。したがって、「Welch」にチェックを入れます。むろん、他の項目にチェックを入れても結果が変わることはありませんので、試してみてください。</li>
+<li>「Additional Statistics」は分析結果をより楽に解釈できるような情報を提供してくれます。
+<ul>
+<li>「Mean Difference」: 二つのグループの平均値の差を表示します。この場合、東/西日本における維新の得票率の差ですね。</li>
+<li>「Confidential Interval」: 本講義では説明しませんでしたが、95%信頼区間です。教科書や講義によっては「この区間内に真の差分が含まれる確率は95%です！」と説明されますが、ウソです。注意してください。具体的な意味に関してはネットを調べてみましょう。</li>
+<li>「Descriptive Statistics」: 記述統計です。維新の得票率の記述統計を東日本/西日本に分けて表示してくれるので便利です。</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="Figs/JASP06_04.png" class="img-fluid"></p>
+<ul>
+<li>分析結果です。下段の「Descriptives」は記述統計なので説明は省きます。ここでは上段の「t」、「df」、「p」、「Mean Difference」について説明します。
+<ul>
+<li>t: t統計量です。具体的な説明は省きますが、レポート・論文なので結果を報告する際には必ず必要です。</li>
+<li>df: 自由度です。これも報告の際には必要になる項目です。</li>
+<li>p: 有意確率 (p値)です。今回は0.033ですね。一般的に有意水準 (α)は0.05であり、この結果はp値がαより小さいので帰無仮説は棄却されます。つまり、「東日本と西日本の維新の得票率には統計的に有意な差がある (95%水準で差がある)。」と解釈できます。</li>
+<li>Mean Difference: 平均値の差分です。この場合は「東日本における維新の得票率 – 西日本における維新の得票率」となります。つまり、西日本が3.370%ポイント高いという意味です。</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="対応サンプルのt検定" class="level2">
+<h2 class="anchored" data-anchor-id="対応サンプルのt検定">対応サンプルのt検定</h2>
+<ul>
+<li>今回は公明党と共産党の得票率に統計的に有意な差があるか否かを検定してみましょう。</li>
+</ul>
+<p><img src="Figs/JASP06_05.png" class="img-fluid"></p>
+<ul>
+<li>分析メニューの「T-Tests」の「Paired Samples T-Test」を選択します。</li>
+</ul>
+<p><img src="Figs/JASP06_06.png" class="img-fluid"></p>
+<ul>
+<li>比較する二つの変数を右のリストへ投入します。今回は公明党と共産党の得票率を比較するので、「<code>Komei</code>」変数と「<code>JCP</code>」変数を選択し、「▶」をクリックして右のリストへ移動させます。</li>
+</ul>
+<p><img src="Figs/JASP06_07.png" class="img-fluid"></p>
+<ul>
+<li>独立サンプルのt検定と似たような画面ですね。右の「Additional Statistics」は先ほどの画面と同一なので説明は省略します。ここで異なるのは「Tests」の方です（下段のAssumption Checksにも等分散検定の項目がなくなりました）。
+<ul>
+<li>ここでは「Student」一択です。「Wilcoxonの符号順位検定 (signed rank)」についてはネットで調べてみましょう。</li>
+</ul></li>
+</ul>
+<p><img src="Figs/JASP06_08.png" class="img-fluid"></p>
+<ul>
+<li>以上が分析結果です。結果の読み方は独立サンプルのt検定と同じです。
+<ul>
+<li>この場合、有意確率 (<span class="math inline">\(p\)</span>値)が0.001未満であり、一般的な有意水準 (α = 0.05)より小さいので帰無仮説は棄却されます。つまり、「公明党と共産党の得票率には統計的に有意な差がある (5%水準で差がある)。」と解釈できます。また、「Mean Difference」は4.150であり、公明党の方が高いので「公明党の得票率は共産党より統計的に有意に高い (5%水準で高い)。」とも言えるでしょうね。</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,61 @@
+<center>
+<span style="font-size:2em;">Jaehyun Song, Ph.D.</span>
+<br/>
+Associate Professor in [Faculty of Informatics](https://www.kansai-u.ac.jp/Fc_inf/), [Kansai University](https://www.kansai-u.ac.jp/).
+<br/><br/>
+Full CV is available [here](cv.pdf).
+</center>
+
+### Basic Information
+
+* Name(Eng): SONG Jaehyun
+* Name(Kor): 송 재현
+* Name(Jpn): 宋 財泫 (ソン ジェヒョン)
+* Nationality: Republic of Korea
+* Birth: Seoul, Korea
+* Living: Osaka, Japan
+
+### Academic Position
+
+* **Apr. 2021 ~: Associate Professor, Kansai University**
+* Apr. 2020 ~ Mar.2021: Assistant Professor, Doshisha University
+* Apr. 2018 ~ Mar.2020: Assistant Professor, Waseda University
+* Partime Lecturer
+   * Kansai University: 2018
+   * Keio University: 2019
+   * Kobe University: 2018, 2019, 2020, 2021
+   * Kyoto Prefectural University: 2020, 2021
+   * Kyoto Women’s University: 2016, 2017
+   * Osaka City University: 2017
+   * University of Tokyo: 2020
+   * Waseda University: 2021
+
+### Education
+
+* 2015~2018: Ph.D in Political Science (Kobe University)
+* 2012~2015: Master of Political Science (Kobe University)
+* 2006~2012: Bachelor of Law (Keio University)
+* 2002~2005: High School Diploma (High School Attached to College of Education, Dongguk University)
+
+### Skills
+
+* **Programming:** PHP and Python
+* **Statistical Computing:** R, Stata, SPSS, Stan, and Jags
+* **Agent-Based Modeling:** NetLogo
+* **Others:** $\LaTeX$, HTML + CSS, Markdown, Microsoft Office, LibreOffice, Apple iWork, Adobe Photoshop, and Final Cut Pro.
+
+### Contact
+
+* Mail: song [at] kansai-u.ac.jp
+* Address
+   * 〒569-1095 大阪府高槻市霊仙寺町2-1-1
+      * 個人研究室: TA227 (A棟2階)
+   * Ryozenji 2-1-1, Takatsuki, Osaka 569-1095, Japan
+      * Office: TA227, Bldg. A (2nd floor)
+* Access
+   * 高槻 (JR)、摂津富田 (JR)からバス
+   * タクシー
+      * 高槻 (JR)から約2200円、摂津富田 (JR)から約2000円
+      * 参考) taxisite調べ
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1174.0599316566281!2d135.57685907010801!3d34.87797702268856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000fdb89c6dd551%3A0xd3949eacf232a791!2z6Zai6KW_5aSn5a2m6auY5qe744Kt44Oj44Oz44OR44K5IOe3j-WQiOaDheWgseWtpumDqOODu-OCquODleOCo-OCuQ!5e0!3m2!1sja!2sjp!4v1634522963994!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.421">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-05-23">
+
+<title>Jaehyun Song, Ph.D.&nbsp;- ロジスティック回帰分析による分類と可視化・評価</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../seminar/index.html">Seminar</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/index.html">Software</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes/index.html">Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorial/index.html">Tutorials</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#ロジスティック回帰分析について" id="toc-ロジスティック回帰分析について" class="nav-link active" data-scroll-target="#ロジスティック回帰分析について">ロジスティック回帰分析について</a></li>
+  <li><a href="#仮想データの作成" id="toc-仮想データの作成" class="nav-link" data-scroll-target="#仮想データの作成">仮想データの作成</a></li>
+  <li><a href="#まずは変数間の関係から" id="toc-まずは変数間の関係から" class="nav-link" data-scroll-target="#まずは変数間の関係から">まずは変数間の関係から</a></li>
+  <li><a href="#ロジスティック回帰分析の実行" id="toc-ロジスティック回帰分析の実行" class="nav-link" data-scroll-target="#ロジスティック回帰分析の実行">ロジスティック回帰分析の実行</a></li>
+  <li><a href="#いろんな指標で分類性能を確認する" id="toc-いろんな指標で分類性能を確認する" class="nav-link" data-scroll-target="#いろんな指標で分類性能を確認する">いろんな指標で分類性能を確認する</a>
+  <ul class="collapse">
+  <li><a href="#的中率エラー率" id="toc-的中率エラー率" class="nav-link" data-scroll-target="#的中率エラー率">的中率/エラー率</a></li>
+  </ul></li>
+  <li><a href="#kappa統計量" id="toc-kappa統計量" class="nav-link" data-scroll-target="#kappa統計量"><span class="math inline">\(\kappa\)</span>統計量</a>
+  <ul class="collapse">
+  <li><a href="#aic-bic" id="toc-aic-bic" class="nav-link" data-scroll-target="#aic-bic">AIC / BIC</a></li>
+  <li><a href="#loo-cross-validation" id="toc-loo-cross-validation" class="nav-link" data-scroll-target="#loo-cross-validation">LOO Cross Validation</a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation">k-fold Cross Validation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ロジスティック回帰分析による分類と可視化・評価</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="ロジスティック回帰分析について" class="level2">
+<h2 class="anchored" data-anchor-id="ロジスティック回帰分析について">ロジスティック回帰分析について</h2>
+<p>ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」などの場合にも使えますが、「AかBか」のような分類の場面でも使える手法です。ここでは説明変数が2つ(<span class="math inline">\(x_1\)</span>と<span class="math inline">\(x_2\)</span>)の場合を考えてみましょう。</p>
+<p>最も単純なロジスティック回帰分析の場合、説明変数と応答変数の関係は以下のように表現できます。</p>
+<p><span class="math display">\[
+\begin{aligned}
+    Y_i \sim &amp; \text{Bernoulli}(\theta_i),\\
+    \theta = &amp; \frac{\exp(y_i^*)}{1 + \exp(y_i^*)},\\
+    y_i^* = &amp; \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2.
+\end{aligned}
+\]</span></p>
+<p>まず、3行目を見ると線形回帰分析のようにy_i^*がx1とx2の線形結合で表現できるとします。これを逆ロジット関数 (inverse logit function)の引数としたものを<span class="math inline">\(\theta_i\)</span>とします。これは必ず0から1の間の値をとり、これが<span class="math inline">\(Y_i\)</span>が1となる確率になります。最後に<span class="math inline">\(Y_i\)</span>は<span class="math inline">\(\theta_i\)</span>をパラメーターとするベルヌイ分布から生成されるとします。</p>
+<p>以下の例では<span class="math inline">\(\beta_0 = 1\)</span>、<span class="math inline">\(\beta_1 = 0.5\)</span>、<span class="math inline">\(\beta_2 = -0.8\)</span>にします。</p>
+</section>
+<section id="仮想データの作成" class="level2">
+<h2 class="anchored" data-anchor-id="仮想データの作成">仮想データの作成</h2>
+<p>まずは実習に使う仮想データを作ってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">19861008</span>)       <span class="co"># 再現性確保のためにseedを設定</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">300</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>)  <span class="co"># x1は(-5, 5)の一様分布から300個抽出</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">300</span>,  <span class="dv">2</span>, <span class="dv">2</span>)  <span class="co"># x2は平均2、標準偏差2の正規分布から300個</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 線形予測子 (linear predictor)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lin_pred <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> x1 <span class="sc">-</span> <span class="fl">0.8</span> <span class="sc">*</span> x2</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 線形予測子を逆ロジット関数に投入しthetaを計算</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>theta    <span class="ot">&lt;-</span> <span class="fu">exp</span>(lin_pred) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lin_pred))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 応答変数yはthetaをパラメーターとするベルヌイ分布です</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ただし、Rにはベルヌーイ分布の乱数生成関数がないため、二項分布で</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>y        <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">300</span>, <span class="dv">1</span>, theta)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレーム化しましょう</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y     =</span> y, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x1    =</span> x1, </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x2    =</span> x2,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">theta =</span> theta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="まずは変数間の関係から" class="level2">
+<h2 class="anchored" data-anchor-id="まずは変数間の関係から">まずは変数間の関係から</h2>
+<p>まず見るのは変数の記述統計ですね。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       y              x1                x2              theta          
+ Min.   :0.00   Min.   :-4.9151   Min.   :-4.4724   Min.   :0.0002794  
+ 1st Qu.:0.00   1st Qu.:-2.8506   1st Qu.: 0.6825   1st Qu.:0.1095960  
+ Median :0.00   Median :-0.4246   Median : 1.8988   Median :0.3289306  
+ Mean   :0.43   Mean   :-0.1772   Mean   : 1.9455   Mean   :0.4094721  
+ 3rd Qu.:1.00   3rd Qu.: 2.3687   3rd Qu.: 3.2758   3rd Qu.:0.6994029  
+ Max.   :1.00   Max.   : 4.9492   Max.   :10.6261   Max.   :0.9967745  </code></pre>
+</div>
+</div>
+<p>続いて、ちゃんと。プロットのx軸に、y軸にyをプロットします。、左下と右上に点が多く集まっているはずです。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 点が多いのでポイントを半透明にし、上下に若干のバラツキを与えます。</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># バラツキは平均0、標準偏差0.01の正規分布に従います。</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> df<span class="sc">$</span>theta, <span class="at">y =</span> df<span class="sc">$</span>y <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">300</span>, <span class="dv">0</span>, <span class="fl">0.01</span>), </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(theta), <span class="at">ylab =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>問題ないようですね。次に進みましょう。</p>
+<p>つぎは、説明変数と応答変数間の関係をみます。しかし、x軸を<code>x1</code>、y軸を<code>x2</code>にすると、応答変数をどう表現するか悩みますね。ここでは色に分けてみましょう。ピンクは<span class="math inline">\(y = 0\)</span>、青は<span class="math inline">\(y = 1\)</span>にしてみます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> df<span class="sc">$</span>x1, <span class="at">y =</span> df<span class="sc">$</span>x2, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.25</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">bg =</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>))[df<span class="sc">$</span>y <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="st">"x2"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">pch =</span> <span class="dv">21</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"y = 0"</span>, <span class="st">"y = 1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ロジスティック回帰分析の実行" class="level2">
+<h2 class="anchored" data-anchor-id="ロジスティック回帰分析の実行">ロジスティック回帰分析の実行</h2>
+<p>ロジスティックの回帰分析は<code>glm()</code>関数を使います。分析結果は<code>summary()</code>関数で確認してみましょう。Markdownなら<code>stargazer</code>パッケージを使ってもっと綺麗にできますが、可能な限り、パッケージは使わずにやってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = y ~ x1 + x2, family = binomial(link = "logit"), 
+    data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.3682  -0.6562  -0.2109   0.6228   2.6755  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  1.12245    0.24744   4.536 5.72e-06 ***
+x1           0.56304    0.07074   7.959 1.74e-15 ***
+x2          -0.78646    0.11116  -7.075 1.49e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 409.99  on 299  degrees of freedom
+Residual deviance: 247.00  on 297  degrees of freedom
+AIC: 253
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<p>結果を見ると、<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>はそれぞれ1.122、0.563、-0.786であり、最初に設定した1, 0.5, -0.8にかなり近い値が得られましたね。当たり前ですが、<span class="math inline">\(y\)</span>が確率過程で生成された値である以上、完全に一致することはないでしょう。ただし、サンプルサイズを増やせば増やすほど、真の値には近づきます。</p>
+<p>続いて、推定された結果を用いて、各説明変数と応答変数間の関係を見てみましょう。そのためにはx軸を説明変数、y軸を<span class="math inline">\(y = 1\)</span>の確率 (つまり、<span class="math inline">\(\theta\)</span>です)を線グラフで表現し、参考のために実測値 (<span class="math inline">\(y\)</span>)を表示させます。ちなみに、x軸に表示させない変数は平均値に固定します。</p>
+<p>まずは<span class="math inline">\(x_1\)</span>と<span class="math inline">\(\textrm{Pr}(y = 0)\)</span>の関係から確認しましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x1_u <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(df<span class="sc">$</span>x1), <span class="fu">max</span>(df<span class="sc">$</span>x1), <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pred_x1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit1, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> x1_u, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">x2 =</span> <span class="fu">mean</span>(df<span class="sc">$</span>x2)),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> x1_u, <span class="at">y =</span> pred_x1, <span class="at">type =</span> <span class="st">"l"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="fl">1.05</span>), <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(theta))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> df<span class="sc">$</span>x1, <span class="at">y =</span> df<span class="sc">$</span>y <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">300</span>, <span class="dv">0</span>, <span class="fl">0.01</span>), </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>同じことを<code>x2</code>に対してもやってみます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x2_u <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(df<span class="sc">$</span>x2), <span class="fu">max</span>(df<span class="sc">$</span>x2), <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pred_x2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit1, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">mean</span>(df<span class="sc">$</span>x1), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">x2 =</span> x2_u),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> x2_u, <span class="at">y =</span> pred_x2, <span class="at">type =</span> <span class="st">"l"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="fl">1.05</span>), <span class="at">xlab =</span> <span class="st">"x2"</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(theta))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> df<span class="sc">$</span>x2, <span class="at">y =</span> df<span class="sc">$</span>y <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">300</span>, <span class="dv">0</span>, <span class="fl">0.01</span>), </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>しかし、可能なら一つのプロットに表現したいですね。三次元プロットを作成する方法もありますが、逆に分かりづらい可能性があります。ここでは、等高線図 (contour plot)を作成してみましょう。そのためには以下のようなデータフレームが必要です。</p>
+<p>ここで使える関数が<code>outer()</code>関数です。基本的に<code>outer()</code>関数は2つの引数が必要です。動き方を直接見た方が良いかも知れませんね。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="at">X =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">Y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    2    4    6    8   10
+[2,]    3    6    9   12   15
+[3,]    4    8   12   16   20</code></pre>
+</div>
+</div>
+<p>このように3行$$5列のマトリックスが出来ました。1行目には1から5が、1列目には2から4が入ってますね。他はどうでしょう。それは、各行と列の掛け算した値が配置されます。3番目のXは4で、5番目のYは5ですよね。この場合、3行5列のマスには4 <span class="math inline">\(\times\)</span> 5 = 20が入ります。もし、掛け算ではなく足し算にしたいなら、<code>FUN = "+"</code>の引数を追加します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="at">X =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">Y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">FUN =</span> <span class="st">"+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    3    4    5    6    7
+[2,]    4    5    6    7    8
+[3,]    5    6    7    8    9</code></pre>
+</div>
+</div>
+<p>3行5列のマスには4 + 5 = 9が入ります。このFUN引数は関数を入れることも可能です。つまり、各行と列を<span class="math inline">\(x_1\)</span>、<span class="math inline">\(x_2\)</span>が取りうる値とし、この2つの数値を使って<span class="math inline">\(\theta\)</span>を計算することも可能ということです。もし、<span class="math inline">\(x_1 = 1, x_2 = -2\)</span>の場合の<span class="math inline">\(\theta\)</span>を計算するなら</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit1, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="sc">-</span><span class="dv">2</span>), <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1 
+0.9629743 </code></pre>
+</div>
+</div>
+<p>ここの<code>x1 = 1</code>, <code>x2 = -2</code>の部分を引数とする関数を作ってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pred_FUNC <span class="ot">&lt;-</span> <span class="cf">function</span>(x1, x2) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">predict</span>(fit1, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> x1, <span class="at">x2 =</span> x2), </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>これだけです。それでは、<code>outer()</code>関数を使ってみましょう。<span class="math inline">\(x_1\)</span>と<span class="math inline">\(x_2\)</span>は最小値から最大値までの100分割とします。そうですね、既に<code>x1_u</code>と<code>x2_u</code>として作成済みです。これを活用します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Pred_mat <span class="ot">&lt;-</span> <span class="fu">outer</span>(x1_u, x2_u, pred_FUNC)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Pred_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+[1,] 0.8667431 0.8522704 0.8365222 0.8194510 0.8010211 0.7812122 0.7600221
+[2,] 0.8730905 0.8591951 0.8440501 0.8276030 0.8098121 0.7906496 0.7701046
+[3,] 0.8791777 0.8658464 0.8512930 0.8354608 0.8183027 0.7997843 0.7798861
+[4,] 0.8850113 0.8722302 0.8582559 0.8430283 0.8264956 0.8086168 0.7893653
+[5,] 0.8905984 0.8783529 0.8649446 0.8503102 0.8343937 0.8171488 0.7985417
+[6,] 0.8959459 0.8842211 0.8713649 0.8573115 0.8420011 0.8253826 0.8074159
+          [,8]      [,9]     [,10]     [,11]     [,12]     [,13]     [,14]
+[1,] 0.7374694 0.7135959 0.6884686 0.6621803 0.6348503 0.6066227 0.5776647
+[2,] 0.7481855 0.7249230 0.7003721 0.6746136 0.6477543 0.6199271 0.5912886
+[3,] 0.7586073 0.7359678 0.7120111 0.6868057 0.6604463 0.6330537 0.6047738
+[4,] 0.7687311 0.7467241 0.7233765 0.6987449 0.6729119 0.6459859 0.6181013
+[5,] 0.7785542 0.7571867 0.7344606 0.7104210 0.6851380 0.6587080 0.6312535
+[6,] 0.7880752 0.7673518 0.7452571 0.7218246 0.6971128 0.6712056 0.6442134
+         [,15]     [,16]     [,17]     [,18]     [,19]     [,20]     [,21]
+[1,] 0.5481628 0.5183184 0.4883428 0.4584507 0.4288548 0.3997591 0.3713540
+[2,] 0.5620168 0.5323068 0.5023659 0.4724080 0.4426475 0.4132932 0.3845425
+[3,] 0.5757748 0.5462446 0.5163853 0.4864085 0.4565293 0.4269596 0.3979029
+[4,] 0.5894164 0.5601102 0.5303789 0.5004304 0.4704789 0.4407384 0.4114172
+[5,] 0.6029218 0.5738827 0.5443250 0.5144516 0.4844747 0.4546091 0.4250665
+[6,] 0.6162722 0.5875415 0.5582018 0.5284502 0.4984950 0.4685506 0.4388310
+         [,22]     [,23]     [,24]     [,25]     [,26]     [,27]     [,28]
+[1,] 0.3438111 0.3172800 0.2918855 0.2677265 0.2448757 0.2233802 0.2032637
+[2,] 0.3565762 0.3295548 0.3036148 0.2788673 0.2553972 0.2332635 0.2125005
+[3,] 0.3695484 0.3420666 0.3156054 0.2902879 0.2662115 0.2434469 0.2220400
+[4,] 0.3827119 0.3548020 0.3278465 0.3019804 0.2773131 0.2539277 0.2318817
+[5,] 0.3960496 0.3677465 0.3403264 0.3139355 0.2886955 0.2647019 0.2420239
+[6,] 0.4095438 0.3808846 0.3530317 0.3261428 0.3003510 0.2757642 0.2524639
+         [,29]     [,30]     [,31]     [,32]     [,33]     [,34]      [,35]
+[1,] 0.1845284 0.1671576 0.1511191 0.1363674 0.1228473 0.1104962 0.09924639
+[2,] 0.1931201 0.1751143 0.1584575 0.1431103 0.1290216 0.1161319 0.10437560
+[3,] 0.2020128 0.1833663 0.1660826 0.1501286 0.1354582 0.1220155 0.10973760
+[4,] 0.2112078 0.1919166 0.1739988 0.1574279 0.1421635 0.1281541 0.11533958
+[5,] 0.2207056 0.2007677 0.1822098 0.1650131 0.1491435 0.1345541 0.12118860
+[6,] 0.2305056 0.2099209 0.1907189 0.1728889 0.1564037 0.1412220 0.12729156
+          [,36]      [,37]      [,38]      [,39]      [,40]      [,41]
+[1,] 0.08902729 0.07976724 0.07139487 0.06384030 0.05703601 0.05091750
+[2,] 0.09368329 0.08398359 0.07520484 0.06727633 0.06012934 0.05369789
+[3,] 0.09855644 0.08840141 0.07920079 0.07088330 0.06337917 0.05662105
+[4,] 0.10365409 0.09302801 0.08338992 0.07466817 0.06679215 0.05969331
+[5,] 0.10898353 0.09787076 0.08777950 0.07863803 0.07037512 0.06292114
+[6,] 0.11455197 0.10293700 0.09237686 0.08280007 0.07413502 0.06631121
+          [,42]      [,43]      [,44]      [,45]      [,46]      [,47]
+[1,] 0.04542373 0.04049742 0.03608518 0.03213756 0.02860899 0.02545764
+[2,] 0.04791928 0.04273444 0.03808815 0.03392912 0.03020998 0.02688716
+[3,] 0.05054467 0.04508922 0.04019766 0.03581686 0.03189763 0.02839462
+[4,] 0.05330585 0.04756730 0.04241885 0.03780552 0.03367628 0.02998399
+[5,] 0.05620894 0.05017443 0.04475705 0.03990002 0.03555046 0.03165942
+[6,] 0.05926023 0.05291651 0.04721779 0.04210549 0.03752490 0.03342525
+          [,48]      [,49]      [,50]      [,51]      [,52]      [,53]
+[1,] 0.02264533 0.02013728 0.01790191 0.01591066 0.01413771 0.01255980
+[2,] 0.02392081 0.02127457 0.01891540 0.01681334 0.01494133 0.01327493
+[3,] 0.02526627 0.02247462 0.01998508 0.01776631 0.01578990 0.01403021
+[4,] 0.02668534 0.02374071 0.02111396 0.01877226 0.01668584 0.01482781
+[5,] 0.02818181 0.02507631 0.02230516 0.01983402 0.01763171 0.01567003
+[6,] 0.02975963 0.02648500 0.02356194 0.02095455 0.01863018 0.01655929
+          [,54]       [,55]       [,56]       [,57]       [,58]       [,59]
+[1,] 0.01115600 0.009907536 0.008797542 0.007810925 0.006934180 0.006155236
+[2,] 0.01179216 0.010473258 0.009300478 0.008257929 0.007331380 0.006508109
+[3,] 0.01246414 0.011070921 0.009831881 0.008730288 0.007751154 0.006881072
+[4,] 0.01317390 0.011702287 0.010393328 0.009229415 0.008194765 0.007275252
+[5,] 0.01392351 0.012369209 0.010986480 0.009756797 0.008663543 0.007691837
+[6,] 0.01471514 0.013073636 0.011613087 0.010314001 0.009158890 0.008132081
+           [,60]       [,61]       [,62]       [,63]       [,64]       [,65]
+[1,] 0.005463312 0.004848790 0.004303091 0.003818571 0.003388421 0.003006580
+[2,] 0.005776749 0.005127152 0.004550268 0.004038030 0.003583248 0.003179522
+[3,] 0.006108057 0.005421408 0.004811576 0.004270047 0.003789234 0.003362378
+[4,] 0.006458243 0.005732454 0.005087813 0.004515335 0.004007013 0.003555712
+[5,] 0.006828368 0.006061237 0.005379823 0.004774646 0.004237256 0.003760121
+[6,] 0.007219550 0.006408756 0.005688497 0.005048774 0.004480669 0.003976234
+           [,66]       [,67]       [,68]       [,69]       [,70]       [,71]
+[1,] 0.002667654 0.002366843 0.002099881 0.001862975 0.001652751 0.001466215
+[2,] 0.002821155 0.002503079 0.002220785 0.001970265 0.001747955 0.001550691
+[3,] 0.002983463 0.002647135 0.002348633 0.002083721 0.001848634 0.001640026
+[4,] 0.003155079 0.002799459 0.002483823 0.002203696 0.001955100 0.001734499
+[5,] 0.003336533 0.002960522 0.002626774 0.002330563 0.002067685 0.001834403
+[6,] 0.003528387 0.003130823 0.002777930 0.002464715 0.002186738 0.001940051
+           [,72]       [,73]       [,74]        [,75]        [,76]        [,77]
+[1,] 0.001300705 0.001153856 0.001023569 0.0009079807 0.0008054345 0.0007144615
+[2,] 0.001375658 0.001220357 0.001082570 0.0009603249 0.0008518721 0.0007556580
+[3,] 0.001454924 0.001290687 0.001144968 0.0010156837 0.0009009847 0.0007992280
+[4,] 0.001538750 0.001365063 0.001210957 0.0010742302 0.0009529260 0.0008453080
+[5,] 0.001627399 0.001443720 0.001280746 0.0011361477 0.0010078586 0.0008940425
+[6,] 0.001721145 0.001526902 0.001354550 0.0012016297 0.0010659546 0.0009455840
+            [,78]        [,79]        [,80]        [,81]        [,82]
+[1,] 0.0006337573 0.0005621641 0.0004986546 0.0004423167 0.0003923414
+[2,] 0.0006703034 0.0005945842 0.0005274140 0.0004678284 0.0004149718
+[3,] 0.0007089555 0.0006288728 0.0005578312 0.0004948109 0.0004389071
+[4,] 0.0007498347 0.0006651375 0.0005900015 0.0005233487 0.0004642222
+[5,] 0.0007930692 0.0007034919 0.0006240260 0.0005535316 0.0004909967
+[6,] 0.0008387945 0.0007440563 0.0006600113 0.0005854541 0.0005193147
+            [,83]        [,84]        [,85]        [,86]        [,87]
+[1,] 0.0003480106 0.0003086872 0.0002738059 0.0002428652 0.0002154201
+[2,] 0.0003680849 0.0003264940 0.0002896011 0.0002568760 0.0002278480
+[3,] 0.0003893168 0.0003453276 0.0003063073 0.0002716949 0.0002409927
+[4,] 0.0004117729 0.0003652473 0.0003239769 0.0002873684 0.0002548955
+[5,] 0.0004355237 0.0003863156 0.0003426654 0.0003039458 0.0002696001
+[6,] 0.0004606438 0.0004085986 0.0003624316 0.0003214792 0.0002851528
+            [,88]        [,89]        [,90]        [,91]        [,92]
+[1,] 0.0001910759 0.0001694823 0.0001503286 0.0001333393 0.0001182698
+[2,] 0.0002020996 0.0001792604 0.0001590019 0.0001410325 0.0001250936
+[3,] 0.0002137592 0.0001896026 0.0001681755 0.0001491695 0.0001323111
+[4,] 0.0002260912 0.0002005413 0.0001778782 0.0001577759 0.0001399450
+[5,] 0.0002391346 0.0002121110 0.0001881407 0.0001668787 0.0001480193
+[6,] 0.0002529302 0.0002243480 0.0001989951 0.0001765067 0.0001565593
+            [,93]        [,94]        [,95]        [,96]        [,97]
+[1,] 0.0001049032 9.304710e-05 8.253088e-05 7.320312e-05 6.492953e-05
+[2,] 0.0001109559 9.841581e-05 8.729286e-05 7.742694e-05 6.867599e-05
+[3,] 0.0001173578 1.040942e-04 9.232959e-05 8.189445e-05 7.263862e-05
+[4,] 0.0001241290 1.101003e-04 9.765690e-05 8.661972e-05 7.682987e-05
+[5,] 0.0001312909 1.164528e-04 1.032916e-04 9.161761e-05 8.126294e-05
+[6,] 0.0001388659 1.231719e-04 1.092513e-04 9.690384e-05 8.595177e-05
+            [,98]        [,99]       [,100]
+[1,] 5.759098e-05 5.108182e-05 4.530832e-05
+[2,] 6.091404e-05 5.402931e-05 4.792268e-05
+[3,] 6.442882e-05 5.714687e-05 5.068790e-05
+[4,] 6.814640e-05 6.044430e-05 5.361266e-05
+[5,] 7.207847e-05 6.393198e-05 5.670618e-05
+[6,] 7.623740e-05 6.762089e-05 5.997818e-05</code></pre>
+</div>
+</div>
+<p>これで100$<span class="math inline">\(100の行列が作られ、各セルには予測確率 (\)</span>$)が格納されることになります。これを使って等高線図を作る方法は<code>contour()</code>関数を使います。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> x1_u, <span class="at">y =</span> x2_u, <span class="at">type =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="st">"x2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>先ほどの散布図に等高線を追加したものです。なんか、寂しい気もしますね。予測確率に応じて背景の色がグラデーションで変わるにようにしてみましょう。ここで使うのは<code>image()</code>関数です。予測確率 (<span class="math inline">\(\theta\)</span>)が高いほど黒、低いほど白になるようにします。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="at">x =</span> x1_u, <span class="at">y =</span> x2_u, <span class="at">z =</span> Pred_mat,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="at">length.out =</span> <span class="dv">10</span>), </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="at">length.out =</span> <span class="dv">10</span>), </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="at">length.out =</span> <span class="dv">10</span>), <span class="fl">0.75</span>), </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>), <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="st">"x2"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> df<span class="sc">$</span>x1, <span class="at">y =</span> df<span class="sc">$</span>x2, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.25</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">bg =</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>))[df<span class="sc">$</span>y <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"black"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(<span class="at">x =</span> x1_u, <span class="at">y =</span> x2_u, <span class="at">z =</span> Pred_mat, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"white"</span>, </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>), <span class="at">labcex =</span> <span class="fl">1.5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">pch =</span> <span class="dv">21</span>, </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"y = 0"</span>, <span class="st">"y = 1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logit_classification_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>これで完成です。色がちょっと気に入らないんですが、これは<code>colorspace</code>パッケージなどを使えば、より見やすいプロットが作れると思います。ちなみに、<code>image()</code>関数内の<code>col = ...</code>引数を<code>col = cm.colors(10)</code>とかにしてみても良いかも知れませんね（やってみて下さい）。</p>
+</section>
+<section id="いろんな指標で分類性能を確認する" class="level2">
+<h2 class="anchored" data-anchor-id="いろんな指標で分類性能を確認する">いろんな指標で分類性能を確認する</h2>
+<p>これまでのように可視化を通じて分類器・モデルを評価することは可能ですが、複数のモデルを比較するときには、やはりなんらかの基準が必要です。モデルの評価・比較指標にはいくつかの種類がありますが、ここでは以下の指標を計算してみましょう。</p>
+<ul>
+<li>的中率/エラー率 (Accuracy / Error Rate)</li>
+<li><span class="math inline">\(\kappa\)</span>統計量</li>
+<li>Akaike/Bayesian Information Criteria (AIC/BIC)</li>
+<li>Leave-One-Out (LOO) Cross Validation</li>
+<li>k-fold Cross Validation</li>
+</ul>
+<p>他にもPseudo <span class="math inline">\(R^2\)</span>などがありますが、ここでは省略します。最近流行りのWAICはベイジアン推定後、事後分布のデータが必要なのでここでは難しいですね。</p>
+<section id="的中率エラー率" class="level3">
+<h3 class="anchored" data-anchor-id="的中率エラー率">的中率/エラー率</h3>
+<p>実際のデータ (<span class="math inline">\(y\)</span>)と分類の予測結果 (<span class="math inline">\(\hat{y}\)</span>)を2$$2のテーブルで表すと以下のようになります。ちなみに、以下のような表を混同行列 (confusion matrix)と呼びます。</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(\hat{y}=1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\hat{y}=0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(y=1\)</span></td>
+<td style="text-align: center;">True Positive</td>
+<td style="text-align: center;">False Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(y=0\)</span></td>
+<td style="text-align: center;">False Positive</td>
+<td style="text-align: center;">True Positive</td>
+</tr>
+</tbody>
+</table>
+<p>ここでTPとTNは正しく分類されているケースを意味します。全体の中、TP + TNの比率が的中率になります。この的中率を1から引いたらエラー率になります。実際に計算してみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まずは予測確率から</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Pred_fit1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit1, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 予測確率が0.5以上なら1、未満なら0にします</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Pred_fit1 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Pred_fit1 <span class="sc">&gt;=</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 混同行列の作成</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>Tab_Accuracy <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>y, Pred_fit1)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Tab_Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Pred_fit1
+      0   1
+  0 151  20
+  1  29 100</code></pre>
+</div>
+</div>
+<p>正しく分類されているケースの数は151 + 100 = 251であり、これは的中率で言うと0.837になります。同様に、エラー率は1から的中率を引いたものなので0.163になりますね。</p>
+</section>
+</section>
+<section id="kappa統計量" class="level2">
+<h2 class="anchored" data-anchor-id="kappa統計量"><span class="math inline">\(\kappa\)</span>統計量</h2>
+<p><span class="math inline">\(\kappa\)</span>はローマ字のKではなく、ギリシャ文字であり、「カッパ」と読みます。的中率は直感的でわかりやすい指標ですが、問題があります。それはデータ内のyの分布に大きく依存するという点です。たとえば、実際のデータに<span class="math inline">\(y = 0\)</span>のケースが90個、<span class="math inline">\(y = 1\)</span>のケースが10個あるとします。この場合、ロジットやKNN、判別分析のような分類機を使わず、すべて0に予測しても的中率は0.9になります。0/1分類の場合、分類機を使わなくても的中率は必ず0.5以上確保できることを意味します。この限界を克服するために考案された指標の一つが<span class="math inline">\(\kappa\)</span>統計量です。詳細はCohen (1960)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>を読んで下さい。ここでは計算方法だけ紹介します。</p>
+<p>先ほどの混同行列を基準に説明します。</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_0 = &amp; \frac{TP + TN}{N}, \\
+p_e = &amp; \left( \frac{TP + FP}{N} \cdot \frac{TP + FN}{N} \right) + \left( \frac{FN + TN}{N} \cdot \frac{FP + TN}{N} \right),\\
+\kappa = &amp; \frac{p_0 - p_e}{1 - p_e}
+\end{aligned}
+\]</span></p>
+<p>ここで<span class="math inline">\(N\)</span>はデータ内のケース数です。それじゃ混同行列から<span class="math inline">\(\kappa\)</span>統計量を計算する関数を作ってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Calc_Kappa <span class="ot">&lt;-</span> <span class="cf">function</span>(tab){</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    p0  <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(tab)) <span class="sc">/</span> <span class="fu">sum</span>(tab) <span class="co"># 的中率のことです</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    pe1 <span class="ot">&lt;-</span> (<span class="fu">sum</span>(tab[, <span class="dv">2</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)) <span class="sc">*</span> (<span class="fu">sum</span>(tab[<span class="dv">2</span>, ]) <span class="sc">/</span> <span class="fu">sum</span>(tab))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    pe2 <span class="ot">&lt;-</span> (<span class="fu">sum</span>(tab[, <span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">sum</span>(tab)) <span class="sc">*</span> (<span class="fu">sum</span>(tab[<span class="dv">1</span>, ]) <span class="sc">/</span> <span class="fu">sum</span>(tab))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    pe  <span class="ot">&lt;-</span> pe1 <span class="sc">+</span> pe2</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    k   <span class="ot">&lt;-</span> (p0 <span class="sc">-</span> pe) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> pe)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">round</span>(k, <span class="dv">3</span>))</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">Calc_Kappa</span>(Tab_Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.664</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\kappa\)</span>統計量は0.664ですね。相関係数と同様、どれくらいの<span class="math inline">\(\kappa\)</span>が高いかについては合意された基準がありません。ここではViera and Garrett (2005)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>の基準だけを紹介します。</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(\kappa\)</span>の範囲</th>
+<th style="text-align: left;">評価</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\kappa \leq 0\)</span></td>
+<td style="text-align: left;">Less than chance agreement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(0.01 \leq \kappa \leq 0.20\)</span></td>
+<td style="text-align: left;">Slight agreement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(0.21 \leq \kappa \leq 0.40\)</span></td>
+<td style="text-align: left;">Fair agreement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(0.41 \leq \kappa \leq 0.60\)</span></td>
+<td style="text-align: left;">Moderate agreement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(0.61 \leq \kappa \leq 0.80\)</span></td>
+<td style="text-align: left;">Substantial agreement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(0.81 \leq \kappa\)</span></td>
+<td style="text-align: left;">Almost perfect agreement</td>
+</tr>
+</tbody>
+</table>
+<p>この基準だと、ロジスティック回帰を用いた分類機は「かなり一致 (Substantial agreement)」していると評価できるでしょう。</p>
+<section id="aic-bic" class="level3">
+<h3 class="anchored" data-anchor-id="aic-bic">AIC / BIC</h3>
+<p>先ほどの、ここで紹介するAICとBICはそのぼんやりとした基準すらございません。しかし、モデルの選択という場面では今でもAICとBICのような情報量規準は広く使われる指標です。情報量規準については小西・北川 (2004)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>やMcElreath (2016)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>の第6章を参照して下さい。ここでは計算方法だけ紹介しましょう。</p>
+<p><span class="math display">\[
+\begin{aligned}
+AIC = &amp; -2 \log L + 2K, \\
+BIC = &amp; -2 \log L + K \log N.
+\end{aligned}
+\]</span></p>
+<p>式内のLは尤度<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>、<span class="math inline">\(K\)</span>はパラメーターの数、<span class="math inline">\(N\)</span>はサンプルサイズです。今回、パラメーターは切片と説明変数の係数なのでK = 3になります。対数尤度は<code>logLik()</code>関数から計算できます。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>AIC <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(fit1)) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>BIC <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(fit1)) <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="fu">nrow</span>(df))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(AIC); <span class="fu">print</span>(BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 252.9979</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 264.1093</code></pre>
+</div>
+</div>
+<p>AICとBICはそれぞれ252.998、264.109です。良いモデルほどAICとBICは小さくなります。複数のモデルをフィッティングし、どのモデルを採用するか悩む場合、情報量規準は便利な指標です。</p>
+</section>
+<section id="loo-cross-validation" class="level3">
+<h3 class="anchored" data-anchor-id="loo-cross-validation">LOO Cross Validation</h3>
+<p>今回はCross Validation (CV)について紹介します。これまで <span class="math inline">\(\kappa\)</span> 統計量、的中率、情報量規準はCVをするにパソコンのパワーが足りなかった時代に考案されたものです。しかし、機械学習が手軽に実装できるようになった今では、CVを用いたモデル/分類器の評価が広く使われつつあります。</p>
+<p>分類機の第一目標は予測の精度を最大化することです。つまり、<span class="math inline">\(X\)</span>というデータを用いて構築した分類器に、これから入手する新しいデータ (<span class="math inline">\(X^{\prime}\)</span>)を投入することで結果を予測することです。しかし、これまでの評価指標<span class="math inline">\(X\)</span>から生成された分類機に、<span class="math inline">\(X\)</span>を投入したものなので性能が過大評価されやすくなります。なぜなら、分類機は<span class="math inline">\(X\)</span>の予測に最適化されているだけで、<span class="math inline">\(X^{\prime}\)</span>の予測精度を最大化するものではないからです。</p>
+<p>しかし、<span class="math inline">\(X^{\prime}\)</span>を入手し、予測を行うとしても、まだ結果 (<span class="math inline">\(y^{\prime}\)</span>)が未知なので、評価のしようがないです。ここで使われるのがCVです。最も単純、かつ強力なCVがLeave-One-Out (LOO) CVです。LOO CVは以下のように計算できます。</p>
+<ol type="1">
+<li>既存のデータ (<span class="math inline">\(X\)</span>)から<span class="math inline">\(x_1\)</span>を除外し、分類機を生成 → <span class="math inline">\(x_1\)</span>を投入して予測し、結果を比較する。</li>
+<li><span class="math inline">\(x_1\)</span>を戻し、次は<span class="math inline">\(x_2\)</span>をデータから除外してから分類機を生成 → <span class="math inline">\(x_2\)</span>を投入して予測し、結果を比較する。</li>
+<li><span class="math inline">\(x_2\)</span>を戻し、次は<span class="math inline">\(x_3\)</span>をデータから除外してから分類機を生成 → <span class="math inline">\(x_3\)</span>を投入して予測し、結果を比較する。</li>
+<li>このような手順を<span class="math inline">\(x_N\)</span>まで繰り返し、エラー率を計算する。</li>
+</ol>
+<p>説明よりは、実際にやってみた方がいいでしょう。まずは<code>index</code>番目のケースを除外して分類機の生成、<code>index</code>番目データを用いて予測結果を比較する<code>LOO_Logit()</code>関数を作成します。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>LOO_Logit <span class="ot">&lt;-</span> <span class="cf">function</span>(index){</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># index番目のデータを除いてModel Fitting</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    new_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df[<span class="sc">-</span>index, ], </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="fu">binomial</span>(<span class="st">"logit"</span>))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># index番目のデータを投入して予測</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    new_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(new_fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> df<span class="sc">$</span>x1[index],</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>                                                      <span class="at">x2 =</span> df<span class="sc">$</span>x2[index]),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    new_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(new_pred <span class="sc">&gt;=</span> <span class="fl">0.5</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 実際のデータと比較。一致するなら1、不一致なら0</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">as.numeric</span>(new_pred <span class="sc">==</span> df<span class="sc">$</span>y[index]))</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>続いて、<code>index = 1</code>から<code>index = 200</code>まで実行してみます。<code>for()</code>文を使ってもいいですが、ベクトルで渡した方が早いでしょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>LOOCV <span class="ot">&lt;-</span> <span class="fu">LOO_Logit</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(LOOCV)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1
+ [38] 1 1 1 0 1 1 1 1 1 1 0 0 1 0 1 1 1 1 1 0 1 1 0 1 1 1 1 0 1 1 1 1 1 1 1 0 1
+ [75] 1 0 1 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+[112] 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1
+[149] 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1
+[186] 1 1 0 0 1 1 1 0 1 1 0 0 1 1 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">mean</span>(LOOCV)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.18</code></pre>
+</div>
+</div>
+<p>この0.18がエラー率です。この場合、200ケースの中、164個が正しく予測されましたよね。悪くない性能だと言えます。</p>
+<p>LOO CVは手元のデータをほとんど使う (<span class="math inline">\(N - 1\)</span>)という点で強力なCV手法ですが問題があります。それはケースの数だけ繰り返す必要があるという点です。今回の例は一瞬で出来ましたが、データのサイズが大きい場合やNeural network, Support vector machine (SVM)など処理時間が掛かる手法にはかなり無理があります。LOO CVの精度を若干犠牲にして効率性を重視したものが、次に紹介するk-fold CVです。</p>
+</section>
+<section id="k-fold-cross-validation" class="level3">
+<h3 class="anchored" data-anchor-id="k-fold-cross-validation">k-fold Cross Validation</h3>
+<p>k-fold Cross ValidationはLOO非常に近い概念です。ただし、今回は分析をN回行うのではなく、k回行います。kをどれくらいにするかは一般的な合意はないと思いますが、k = 5かk = 10が主流です。ここではk = 5の例で説明します。</p>
+<p>やり方は簡単です。データをランダムな順でk分割します。そうしたらk個のデータの塊で出来るわけです。ここでk-1個の塊 (train set) で分類機を生成し、残りの1個 (test set)で検証を行い、エラー率を算出します。つづいて、検証で用いたデータは分類規生成用のデータの方に戻し、他の1個の塊を検証用にします。最後に得られたk個のエラー率の平均値を計算します。これならk回でCVが済みますね。それではやってみましょう。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まずデータの順番をランダム化します</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>k_index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df), <span class="fu">nrow</span>(df), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 次は、40個ずつのデータに分割します。</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>k1_index <span class="ot">&lt;-</span> k_index[<span class="dv">1</span><span class="sc">:</span><span class="dv">40</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>k2_index <span class="ot">&lt;-</span> k_index[<span class="dv">41</span><span class="sc">:</span><span class="dv">80</span>]</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>k3_index <span class="ot">&lt;-</span> k_index[<span class="dv">81</span><span class="sc">:</span><span class="dv">120</span>]</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>k4_index <span class="ot">&lt;-</span> k_index[<span class="dv">121</span><span class="sc">:</span><span class="dv">160</span>]</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>k5_index <span class="ot">&lt;-</span> k_index[<span class="dv">161</span><span class="sc">:</span><span class="dv">200</span>]</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co"># k-fold CVの関数を作成</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co"># LOO CVとほぼ同じです。</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>kFold_Logit <span class="ot">&lt;-</span> <span class="cf">function</span>(index_vec){</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    new_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df[<span class="sc">-</span>index_vec, ], </span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="fu">binomial</span>(<span class="st">"logit"</span>))</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    new_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(new_fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> df<span class="sc">$</span>x1[index_vec],</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>                                                      <span class="at">x2 =</span> df<span class="sc">$</span>x2[index_vec]),</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    new_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(new_pred <span class="sc">&gt;=</span> <span class="fl">0.5</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    cv_tab   <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>y[index_vec], new_pred)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(cv_tab)) <span class="sc">/</span> <span class="fu">sum</span>(cv_tab))</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-fold CVの実行</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>kFold_Error <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>kFold_Error[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">kFold_Logit</span>(k1_index)</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>kFold_Error[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">kFold_Logit</span>(k1_index)</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>kFold_Error[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">kFold_Logit</span>(k1_index)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>kFold_Error[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">kFold_Logit</span>(k1_index)</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>kFold_Error[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fu">kFold_Logit</span>(k1_index)</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(kFold_Error))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.175</code></pre>
+</div>
+</div>
+<p>CVの結果、平均エラー率は0.175です。先ほどのLOO CVの結果と大きな差はありませんね。</p>
+<p>以上、紹介したモデル評価指標は複数モデル間の比較に有用です。複数のモデルというのは関数型が異なるモデル、あるいは異なる分析手法などを指します。今回はモデルが一つしかありませんでしたが、まだ機会があったら色んな可視化とモデル比較をしてみたいと思います。</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>Cohen, Jacob (1960). “A coefficient of agreement for nominal scales”. <em>Educational and Psychological Measurement.</em> 20 (1): 37–46<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Viera, Anthony J., and Joanne M. Garrett. 2005. “Understanding interobserver agreement: The kappa statistic.” <em>Family Medicine.</em> 37 (5): 360-363<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>小西貞則・北川源四郎, 2004, 『情報量規準』朝倉書店<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>McElreath, Richard, 2016, <em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan</em>. Chapman and Hall/CRC.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>もし最尤法ではなく、線形回帰のように最小二乗法 (Ordinary Least Squares; OLS)で推定した場合、尤度は計算できません。この場合は尤度の代わりに、残差自乗和 (Residual Sum of Squares; RSS)を使います。ただし、式内の<span class="math inline">\(L\)</span>を<span class="math inline">\(RSS\)</span>に置換するだけでは情報量規準は計算できません。詳細はネットとかで調べてみましょう。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

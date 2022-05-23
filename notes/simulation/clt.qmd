@@ -1,0 +1,215 @@
+---
+title: "中心極限定理"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(dpi       = 300,
+                      dev       = "ragg_png",
+                      fig.align = "center",
+                      message   = FALSE,
+                      cahce     = TRUE)
+```
+
+```{r}
+#| cache: false
+library(tidyverse)
+```
+
+```{r}
+#| cache: false
+set.seed(19861008)
+```
+
+### 正規分布の例
+
+* $\mu$と$\sigma$
+* 期待値は$\mu$
+* 分散は$\simga^2$であり、標準偏差は$\sigma$
+* $\mu = 10$、$\sigma = 5$の正規分布（ @fig-normal ）の場合、期待値は10、標準偏差は5
+
+```{r fig-normal}
+#| echo: false
+#| fig-cap: 正規分布の確率密度曲線（$\mu$ = 10、$\sigma$ = 5）
+ggplot(tibble(x = c(-5, 25)), aes(x = x)) +
+    stat_function(fun = dnorm, args = list(mean = 10, sd = 5),
+                  size = 1) +
+    labs(y = "密度") +
+    theme_bw()
+```
+
+```{r normal_1}
+vec1 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec1[i] <- mean(rnorm(1, mean = 10, sd = 5))
+}
+
+vec1 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    coord_cartesian(xlim = c(-5, 25)) +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r normal_1_stat}
+mean(vec1)
+sd(vec1)
+```
+
+```{r normal_10}
+vec2 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec2[i] <- mean(rnorm(10, mean = 10, sd = 5))
+}
+
+vec2 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    coord_cartesian(xlim = c(-5, 25)) +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r normal_10_stat}
+mean(vec2)
+sd(vec2)
+```
+
+```{r normal_100}
+vec3 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec3[i] <- mean(rnorm(100, mean = 10, sd = 5))
+}
+
+vec3 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    coord_cartesian(xlim = c(-5, 25)) +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r normal_100_stat}
+mean(vec3)
+sd(vec3)
+```
+
+### 一様分布の例
+
+* 最小値（$a$）と最大値（$b$）
+* 期待値は$\frac{a + b}{2}$
+* 分散は$\frac{(b - a)^2}{12}$であり、標準偏差は$\frac{b - a}{\sqrt{12}}$
+* $a = 5$、$b = 15$の一様分布（ @fig-unifrom ）の場合、期待値は10、標準偏差は約2.89
+
+```{r fig-unifrom}
+#| echo: false
+#| fig-cap: 一様分布の確率密度曲線（$a$ = 5、$b$ = 15）
+ggplot(tibble(x = 0:20), aes(x = x)) +
+    stat_function(fun = dunif, args = list(min = 5, max = 15),
+                  size = 1) +
+    labs(y = "密度") +
+    theme_bw()
+```
+
+```{r uniform}
+vec4 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec4[i] <- mean(runif(100, min = 5, max = 15))
+}
+
+vec4 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r uniform_stat}
+mean(vec4)
+sd(vec4)
+```
+
+### ポアソン分布の例
+
+* $\lambda$のみ
+* 期待値は$\lambda$
+* 分散は$\lambda$であり、標準偏差は$\sqrt{\lambda}$
+* $\lambda = 10$のポアソン分布（ @fig-poisson ）の場合、期待値は10、標準偏差は約3.16
+
+```{r fig-poisson}
+#| echo: false
+#| fig-cap: ポアソン分布の確率密度曲線（$\lambda$ = 10）
+ggplot(tibble(x = c(0, 20)), aes(x = x)) +
+    stat_function(fun = dpois, args = list(lambda = 10),
+                  size = 1, n = 21) +
+    labs(y = "密度") +
+    theme_bw()
+```
+
+```{r poisson}
+vec5 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec5[i] <- mean(rpois(100, lambda = 10))
+}
+
+vec5 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r poisson_stat}
+mean(vec5)
+sd(vec5)
+```
+
+### ガンマ分布の例
+
+* 形状パラメーター（$k$）と尺度パラメーター（$\theta$）
+* 期待値は$k\theta$
+* 分散は$k\theta^2$であり、標準偏差は$\sqrt{k}\theta$
+* $k = 2$、$\theta = 5$のガンマ分布（ @fig-gamma ）の場合、期待値は10、標準偏差は約7.07
+
+```{r fig-gamma}
+#| echo: false
+#| fig-cap: ガンマ分布の確率密度曲線（$k$ = 2、$\theta$ = 5）
+ggplot(tibble(x = c(0, 50)), aes(x = x)) +
+    stat_function(fun = dgamma, args = list(shape = 2, scale = 5),
+                  size = 1) +
+    labs(y = "密度") +
+    theme_bw()
+```
+
+```{r gamma}
+vec6 <- rep(NA, 10000)
+for (i in 1:10000) {
+    vec6[i] <- mean(rgamma(100, shape = 2, scale = 5))
+}
+
+vec6 %>%
+    enframe(name = "trial", value = "mean") %>%
+    ggplot() +
+    geom_histogram(aes(x = mean), color = "white") +
+    geom_vline(xintercept = 10, color = "red") +
+    labs(x = "標本平均", y = "度数") +
+    theme_bw()
+```
+
+```{r gamma_stat}
+mean(vec6)
+sd(vec6)
+```

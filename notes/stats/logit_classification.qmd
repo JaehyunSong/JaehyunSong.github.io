@@ -1,0 +1,400 @@
+---
+title: "ロジスティック回帰分析による分類と可視化・評価"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+toc: true
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(dev = "ragg_png",
+                      dpi = 300,
+                      fig.align = "center")
+```
+
+## ロジスティック回帰分析について
+
+ロジスティック回帰分析は応答変数が0か1のように二値変数の場合に使う分析手法です。「投票に参加するか否か」などの場合にも使えますが、「AかBか」のような分類の場面でも使える手法です。ここでは説明変数が2つ($x_1$と$x_2$)の場合を考えてみましょう。
+
+最も単純なロジスティック回帰分析の場合、説明変数と応答変数の関係は以下のように表現できます。
+
+$$
+\begin{aligned}
+    Y_i \sim & \text{Bernoulli}(\theta_i),\\
+    \theta = & \frac{\exp(y_i^*)}{1 + \exp(y_i^*)},\\
+    y_i^* = & \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2.
+\end{aligned}
+$$
+
+まず、3行目を見ると線形回帰分析のようにy_i^*がx1とx2の線形結合で表現できるとします。これを逆ロジット関数 (inverse logit function)の引数としたものを$\theta_i$とします。これは必ず0から1の間の値をとり、これが$Y_i$が1となる確率になります。最後に$Y_i$は$\theta_i$をパラメーターとするベルヌイ分布から生成されるとします。
+
+以下の例では$\beta_0 = 1$、$\beta_1 = 0.5$、$\beta_2 = -0.8$にします。
+
+## 仮想データの作成
+
+まずは実習に使う仮想データを作ってみましょう。
+
+```{r}
+set.seed(19861008)       # 再現性確保のためにseedを設定
+x1 <- runif(300, -5, 5)  # x1は(-5, 5)の一様分布から300個抽出
+x2 <- rnorm(300,  2, 2)  # x2は平均2、標準偏差2の正規分布から300個
+
+# 線形予測子 (linear predictor)
+lin_pred <- 1 + 0.5 * x1 - 0.8 * x2
+# 線形予測子を逆ロジット関数に投入しthetaを計算
+theta    <- exp(lin_pred) / (1 + exp(lin_pred))
+# 応答変数yはthetaをパラメーターとするベルヌイ分布です
+# ただし、Rにはベルヌーイ分布の乱数生成関数がないため、二項分布で
+y        <- rbinom(300, 1, theta)
+
+# データフレーム化しましょう
+df <- data.frame(y     = y, 
+                 x1    = x1, 
+                 x2    = x2,
+                 theta = theta)
+```
+
+## まずは変数間の関係から
+
+まず見るのは変数の記述統計ですね。
+
+```{r}
+summary(df)
+```
+
+続いて、ちゃんと\thetaとyがベルヌーイ分布に従っているか確認してみます。プロットのx軸に\thetaを、y軸にyをプロットします。\thetaとyがベルヌーイ分布に従っているなら、左下と右上に点が多く集まっているはずです。
+
+```{r}
+# 点が多いのでポイントを半透明にし、上下に若干のバラツキを与えます。
+# バラツキは平均0、標準偏差0.01の正規分布に従います。
+plot(x = df$theta, y = df$y + rnorm(300, 0, 0.01), 
+     pch = 16, col = rgb(0, 0, 0, 0.5),
+     ylim = c(0, 1),
+     xlab = expression(theta), ylab = "y")
+```
+
+問題ないようですね。次に進みましょう。
+
+つぎは、説明変数と応答変数間の関係をみます。しかし、x軸を`x1`、y軸を`x2`にすると、応答変数をどう表現するか悩みますね。ここでは色に分けてみましょう。ピンクは$y = 0$、青は$y = 1$にしてみます。
+
+```{r}
+plot(x = df$x1, y = df$x2, pch = 21, cex = 1.25,
+     bg = c(rgb(1, 0, 0, 0.5), 
+            rgb(0, 0, 1, 0.5))[df$y + 1],
+     col = "black",
+     xlab = "x1", ylab = "x2")
+legend("topright", pch = 21, 
+       pt.bg = c(rgb(1, 0, 0, 0.5), rgb(0, 0, 1, 0.5)),
+       col = "black", legend = c("y = 0", "y = 1"))
+```
+
+## ロジスティック回帰分析の実行
+
+ロジスティックの回帰分析は`glm()`関数を使います。分析結果は`summary()`関数で確認してみましょう。Markdownなら`stargazer`パッケージを使ってもっと綺麗にできますが、可能な限り、パッケージは使わずにやってみましょう。
+
+```{r}
+fit1 <- glm(y ~ x1 + x2, data = df, family = binomial(link = "logit"))
+summary(fit1)
+```
+
+結果を見ると、$\beta_0, \beta_1, \beta_2$はそれぞれ1.122、0.563、-0.786であり、最初に設定した1, 0.5, -0.8にかなり近い値が得られましたね。当たり前ですが、$y$が確率過程で生成された値である以上、完全に一致することはないでしょう。ただし、サンプルサイズを増やせば増やすほど、真の値には近づきます。
+
+続いて、推定された結果を用いて、各説明変数と応答変数間の関係を見てみましょう。そのためにはx軸を説明変数、y軸を$y = 1$の確率 (つまり、$\theta$です)を線グラフで表現し、参考のために実測値 ($y$)を表示させます。ちなみに、x軸に表示させない変数は平均値に固定します。
+
+まずは$x_1$と$\textrm{Pr}(y = 0)$の関係から確認しましょう。
+
+```{r}
+x1_u <- seq(min(df$x1), max(df$x1), length.out = 100)
+pred_x1 <- predict(fit1, newdata = data.frame(x1 = x1_u, 
+                                              x2 = mean(df$x2)),
+                   type = "response")
+
+plot(x = x1_u, y = pred_x1, type = "l",
+     col = "red", lwd = 2, lty = 1,
+     ylim = c(-0.05, 1.05), xlab = "x1", ylab = expression(theta))
+points(x = df$x1, y = df$y + rnorm(300, 0, 0.01), 
+       pch = 21, bg = rgb(0, 0, 0, 0.5), col = "black")
+```
+
+同じことを`x2`に対してもやってみます。
+
+```{r}
+x2_u <- seq(min(df$x2), max(df$x2), length.out = 100)
+pred_x2 <- predict(fit1, newdata = data.frame(x1 = mean(df$x1), 
+                                              x2 = x2_u),
+                   type = "response")
+
+plot(x = x2_u, y = pred_x2, type = "l",
+     col = "red", lwd = 2, lty = 1,
+     ylim = c(-0.05, 1.05), xlab = "x2", ylab = expression(theta))
+points(x = df$x2, y = df$y + rnorm(300, 0, 0.01), 
+       pch = 21, bg = rgb(0, 0, 0, 0.5), col = "black")
+```
+
+しかし、可能なら一つのプロットに表現したいですね。三次元プロットを作成する方法もありますが、逆に分かりづらい可能性があります。ここでは、等高線図 (contour plot)を作成してみましょう。そのためには以下のようなデータフレームが必要です。
+
+ここで使える関数が`outer()`関数です。基本的に`outer()`関数は2つの引数が必要です。動き方を直接見た方が良いかも知れませんね。
+
+```{r}
+outer(X = 2:4, Y = 1:5)
+```
+
+このように3行$\times$5列のマトリックスが出来ました。1行目には1から5が、1列目には2から4が入ってますね。他はどうでしょう。それは、各行と列の掛け算した値が配置されます。3番目のXは4で、5番目のYは5ですよね。この場合、3行5列のマスには4 $\times$ 5 = 20が入ります。もし、掛け算ではなく足し算にしたいなら、`FUN = "+"`の引数を追加します。
+
+```{r}
+outer(X = 2:4, Y = 1:5, FUN = "+")
+```
+
+3行5列のマスには4 + 5 = 9が入ります。このFUN引数は関数を入れることも可能です。つまり、各行と列を$x_1$、$x_2$が取りうる値とし、この2つの数値を使って$\theta$を計算することも可能ということです。もし、$x_1 = 1, x_2 = -2$の場合の$\theta$を計算するなら
+
+```{r}
+predict(fit1, newdata = data.frame(x1 = 1, x2 = -2), type = "response")
+```
+
+ここの`x1 = 1`, `x2 = -2`の部分を引数とする関数を作ってみましょう。
+
+```{r}
+pred_FUNC <- function(x1, x2) {
+    predict(fit1, newdata = data.frame(x1 = x1, x2 = x2), 
+            type = "response")
+}
+```
+
+これだけです。それでは、`outer()`関数を使ってみましょう。$x_1$と$x_2$は最小値から最大値までの100分割とします。そうですね、既に`x1_u`と`x2_u`として作成済みです。これを活用します。
+
+```{r}
+Pred_mat <- outer(x1_u, x2_u, pred_FUNC)
+
+head(Pred_mat)
+```
+
+これで100$\times$100の行列が作られ、各セルには予測確率 ($\theta$)が格納されることになります。これを使って等高線図を作る方法は`contour()`関数を使います。
+
+```{r}
+plot(x = x1_u, y = x2_u, type = "n", xlab = "x1", ylab = "x2")
+```
+
+先ほどの散布図に等高線を追加したものです。なんか、寂しい気もしますね。予測確率に応じて背景の色がグラデーションで変わるにようにしてみましょう。ここで使うのは`image()`関数です。予測確率 ($\theta$)が高いほど黒、低いほど白になるようにします。
+
+```{r}
+image(x = x1_u, y = x2_u, z = Pred_mat,
+      col = rgb(seq(1, 0, length.out = 10), 
+                seq(1, 0, length.out = 10), 
+                seq(1, 0, length.out = 10), 0.75), 
+      breaks = seq(0, 1, 0.1), xlab = "x1", ylab = "x2")
+points(x = df$x1, y = df$x2, pch = 21, cex = 1.25,
+     bg = c(rgb(1, 0, 0, 0.5), 
+            rgb(0, 0, 1, 0.5))[df$y + 1],
+     col = "black")
+contour(x = x1_u, y = x2_u, z = Pred_mat, lwd = 2, col = "white", 
+        levels = c(0.25, 0.5, 0.75), labcex = 1.5, add = TRUE)
+legend("topright", pch = 21, 
+       pt.bg = c(rgb(1, 0, 0, 0.5), rgb(0, 0, 1, 0.5)),
+       col = "black", bty = "n", legend = c("y = 0", "y = 1"))
+```
+
+これで完成です。色がちょっと気に入らないんですが、これは`colorspace`パッケージなどを使えば、より見やすいプロットが作れると思います。ちなみに、`image()`関数内の`col = ...`引数を`col = cm.colors(10)`とかにしてみても良いかも知れませんね（やってみて下さい）。
+
+## いろんな指標で分類性能を確認する
+
+これまでのように可視化を通じて分類器・モデルを評価することは可能ですが、複数のモデルを比較するときには、やはりなんらかの基準が必要です。モデルの評価・比較指標にはいくつかの種類がありますが、ここでは以下の指標を計算してみましょう。
+
+* 的中率/エラー率 (Accuracy / Error Rate)
+* $\kappa$統計量
+* Akaike/Bayesian Information Criteria (AIC/BIC)
+* Leave-One-Out (LOO) Cross Validation
+* k-fold Cross Validation
+
+他にもPseudo $R^2$などがありますが、ここでは省略します。最近流行りのWAICはベイジアン推定後、事後分布のデータが必要なのでここでは難しいですね。
+
+### 的中率/エラー率
+
+実際のデータ ($y$)と分類の予測結果 ($\hat{y}$)を2$\times$2のテーブルで表すと以下のようになります。ちなみに、以下のような表を混同行列 (confusion matrix)と呼びます。
+
+||$\hat{y}=1$|$\hat{y}=0$|
+|:---:|:---:|:---:|
+|$y=1$|True Positive|False Positive|
+|$y=0$|False Positive|True Positive|
+
+ここでTPとTNは正しく分類されているケースを意味します。全体の中、TP + TNの比率が的中率になります。この的中率を1から引いたらエラー率になります。実際に計算してみましょう。
+
+```{r}
+# まずは予測確率から
+Pred_fit1 <- predict(fit1, type = "response")
+# 予測確率が0.5以上なら1、未満なら0にします
+Pred_fit1 <- ifelse(Pred_fit1 >= 0.5, 1, 0)
+
+# 混同行列の作成
+Tab_Accuracy <- table(df$y, Pred_fit1)
+
+print(Tab_Accuracy)
+```
+
+正しく分類されているケースの数は151 + 100 = 251であり、これは的中率で言うと0.837になります。同様に、エラー率は1から的中率を引いたものなので0.163になりますね。
+
+## $\kappa$統計量
+
+$\kappa$はローマ字のKではなく、ギリシャ文字であり、「カッパ」と読みます。的中率は直感的でわかりやすい指標ですが、問題があります。それはデータ内のyの分布に大きく依存するという点です。たとえば、実際のデータに$y = 0$のケースが90個、$y = 1$のケースが10個あるとします。この場合、ロジットやKNN、判別分析のような分類機を使わず、すべて0に予測しても的中率は0.9になります。0/1分類の場合、分類機を使わなくても的中率は必ず0.5以上確保できることを意味します。この限界を克服するために考案された指標の一つが$\kappa$統計量です。詳細はCohen (1960)[^1]を読んで下さい。ここでは計算方法だけ紹介します。
+
+[^1]: Cohen, Jacob (1960). "A coefficient of agreement for nominal scales". *Educational and Psychological Measurement.* 20 (1): 37–46
+
+先ほどの混同行列を基準に説明します。
+
+$$
+\begin{aligned}
+p_0 = & \frac{TP + TN}{N}, \\
+p_e = & \left( \frac{TP + FP}{N} \cdot \frac{TP + FN}{N} \right) + \left( \frac{FN + TN}{N} \cdot \frac{FP + TN}{N} \right),\\
+\kappa = & \frac{p_0 - p_e}{1 - p_e}
+\end{aligned}
+$$
+
+ここで$N$はデータ内のケース数です。それじゃ混同行列から$\kappa$統計量を計算する関数を作ってみましょう。
+
+```{r}
+Calc_Kappa <- function(tab){
+    p0  <- sum(diag(tab)) / sum(tab) # 的中率のことです
+    pe1 <- (sum(tab[, 2]) / sum(tab)) * (sum(tab[2, ]) / sum(tab))
+    pe2 <- (sum(tab[, 1]) / sum(tab)) * (sum(tab[1, ]) / sum(tab))
+    pe  <- pe1 + pe2
+    k   <- (p0 - pe) / (1 - pe)
+
+    return(round(k, 3))
+}
+
+Calc_Kappa(Tab_Accuracy)
+```
+
+$\kappa$統計量は`r round(Calc_Kappa(Tab_Accuracy), 3)`ですね。相関係数と同様、どれくらいの$\kappa$が高いかについては合意された基準がありません。ここではViera and Garrett (2005)[^2]の基準だけを紹介します。
+
+[^2]:Viera, Anthony J., and Joanne M. Garrett. 2005. "Understanding interobserver agreement: The kappa statistic." *Family Medicine.* 37 (5): 360-363
+
+|$\kappa$の範囲|評価|
+|:---|:---|
+|$\kappa \leq 0$|Less than chance agreement|
+|$0.01 \leq \kappa \leq 0.20$|Slight agreement|
+|$0.21 \leq \kappa \leq 0.40$|Fair agreement|
+|$0.41 \leq \kappa \leq 0.60$|Moderate agreement|
+|$0.61 \leq \kappa \leq 0.80$|Substantial agreement|
+|$0.81 \leq \kappa$|Almost perfect agreement|
+
+この基準だと、ロジスティック回帰を用いた分類機は「かなり一致 (Substantial agreement)」していると評価できるでしょう。
+
+### AIC / BIC
+
+先ほどの\kappa統計量にはそれでも何らかの基準はありますが、ここで紹介するAICとBICはそのぼんやりとした基準すらございません。しかし、モデルの選択という場面では今でもAICとBICのような情報量規準は広く使われる指標です。情報量規準については小西・北川 (2004)[^3]やMcElreath (2016)[^4]の第6章を参照して下さい。ここでは計算方法だけ紹介しましょう。
+
+[^3]: 小西貞則・北川源四郎, 2004, 『情報量規準』朝倉書店
+
+[^4]: McElreath, Richard, 2016, *Statistical Rethinking: A Bayesian Course with Examples in R and Stan*. Chapman and Hall/CRC.
+
+$$
+\begin{aligned}
+AIC = & -2 \log L + 2K, \\
+BIC = & -2 \log L + K \log N.
+\end{aligned}
+$$
+
+式内のLは尤度[^5]、$K$はパラメーターの数、$N$はサンプルサイズです。今回、パラメーターは切片と説明変数の係数なのでK = 3になります。対数尤度は`logLik()`関数から計算できます。
+
+[^5]: もし最尤法ではなく、線形回帰のように最小二乗法 (Ordinary Least Squares; OLS)で推定した場合、尤度は計算できません。この場合は尤度の代わりに、残差自乗和 (Residual Sum of Squares; RSS)を使います。ただし、式内の$L$を$RSS$に置換するだけでは情報量規準は計算できません。詳細はネットとかで調べてみましょう。
+
+```{r}
+AIC <- -2 * as.numeric(logLik(fit1)) + 2 * 3
+BIC <- -2 * as.numeric(logLik(fit1)) + 3 * log(nrow(df))
+
+print(AIC); print(BIC)
+```
+
+AICとBICはそれぞれ`r round(AIC, 3)`、`r round(BIC, 3)`です。良いモデルほどAICとBICは小さくなります。複数のモデルをフィッティングし、どのモデルを採用するか悩む場合、情報量規準は便利な指標です。
+
+### LOO Cross Validation
+
+今回はCross Validation (CV)について紹介します。これまで $\kappa$ 統計量、的中率、情報量規準はCVをするにパソコンのパワーが足りなかった時代に考案されたものです。しかし、機械学習が手軽に実装できるようになった今では、CVを用いたモデル/分類器の評価が広く使われつつあります。
+
+分類機の第一目標は予測の精度を最大化することです。つまり、$X$というデータを用いて構築した分類器に、これから入手する新しいデータ ($X^{\prime}$)を投入することで結果を予測することです。しかし、これまでの評価指標$X$から生成された分類機に、$X$を投入したものなので性能が過大評価されやすくなります。なぜなら、分類機は$X$の予測に最適化されているだけで、$X^{\prime}$の予測精度を最大化するものではないからです。
+
+しかし、$X^{\prime}$を入手し、予測を行うとしても、まだ結果 ($y^{\prime}$)が未知なので、評価のしようがないです。ここで使われるのがCVです。最も単純、かつ強力なCVがLeave-One-Out (LOO) CVです。LOO CVは以下のように計算できます。
+
+1. 既存のデータ ($X$)から$x_1$を除外し、分類機を生成 → $x_1$を投入して予測し、結果を比較する。
+2. $x_1$を戻し、次は$x_2$をデータから除外してから分類機を生成 → $x_2$を投入して予測し、結果を比較する。
+3. $x_2$を戻し、次は$x_3$をデータから除外してから分類機を生成 → $x_3$を投入して予測し、結果を比較する。
+4. このような手順を$x_N$まで繰り返し、エラー率を計算する。
+
+説明よりは、実際にやってみた方がいいでしょう。まずは`index`番目のケースを除外して分類機の生成、`index`番目データを用いて予測結果を比較する`LOO_Logit()`関数を作成します。
+
+```{r}
+LOO_Logit <- function(index){
+    # index番目のデータを除いてModel Fitting
+    new_fit <- glm(y ~ x1 + x2, data = df[-index, ], 
+                   family = binomial("logit"))
+
+    # index番目のデータを投入して予測
+    new_pred <- predict(new_fit, newdata = data.frame(x1 = df$x1[index],
+                                                      x2 = df$x2[index]),
+                        type = "response")
+    new_pred <- as.numeric(new_pred >= 0.5)
+
+    # 実際のデータと比較。一致するなら1、不一致なら0
+    return(as.numeric(new_pred == df$y[index]))
+}
+```
+
+続いて、`index = 1`から`index = 200`まで実行してみます。`for()`文を使ってもいいですが、ベクトルで渡した方が早いでしょう。
+
+```{r}
+LOOCV <- LOO_Logit(1:200)
+
+print(LOOCV)
+
+1 - mean(LOOCV)
+```
+
+この`r round(1 - mean(LOOCV), 3)`がエラー率です。この場合、200ケースの中、`r sum(LOOCV)`個が正しく予測されましたよね。悪くない性能だと言えます。
+
+LOO CVは手元のデータをほとんど使う ($N - 1$)という点で強力なCV手法ですが問題があります。それはケースの数だけ繰り返す必要があるという点です。今回の例は一瞬で出来ましたが、データのサイズが大きい場合やNeural network, Support vector machine (SVM)など処理時間が掛かる手法にはかなり無理があります。LOO CVの精度を若干犠牲にして効率性を重視したものが、次に紹介するk-fold CVです。
+
+### k-fold Cross Validation
+
+k-fold Cross ValidationはLOO非常に近い概念です。ただし、今回は分析をN回行うのではなく、k回行います。kをどれくらいにするかは一般的な合意はないと思いますが、k = 5かk = 10が主流です。ここではk = 5の例で説明します。
+
+やり方は簡単です。データをランダムな順でk分割します。そうしたらk個のデータの塊で出来るわけです。ここでk-1個の塊 (train set) で分類機を生成し、残りの1個 (test set)で検証を行い、エラー率を算出します。つづいて、検証で用いたデータは分類規生成用のデータの方に戻し、他の1個の塊を検証用にします。最後に得られたk個のエラー率の平均値を計算します。これならk回でCVが済みますね。それではやってみましょう。
+
+```{r}
+# まずデータの順番をランダム化します
+k_index <- sample(1:nrow(df), nrow(df), replace = FALSE)
+
+# 次は、40個ずつのデータに分割します。
+k1_index <- k_index[1:40]
+k2_index <- k_index[41:80]
+k3_index <- k_index[81:120]
+k4_index <- k_index[121:160]
+k5_index <- k_index[161:200]
+
+# k-fold CVの関数を作成
+# LOO CVとほぼ同じです。
+kFold_Logit <- function(index_vec){
+    new_fit <- glm(y ~ x1 + x2, data = df[-index_vec, ], 
+                   family = binomial("logit"))
+    new_pred <- predict(new_fit, newdata = data.frame(x1 = df$x1[index_vec],
+                                                      x2 = df$x2[index_vec]),
+                        type = "response")
+    new_pred <- as.numeric(new_pred >= 0.5)
+    cv_tab   <- table(df$y[index_vec], new_pred)
+
+    return(1 - sum(diag(cv_tab)) / sum(cv_tab))
+}
+
+# 5-fold CVの実行
+kFold_Error <- rep(NA, 5)
+kFold_Error[1] <- kFold_Logit(k1_index)
+kFold_Error[2] <- kFold_Logit(k1_index)
+kFold_Error[3] <- kFold_Logit(k1_index)
+kFold_Error[4] <- kFold_Logit(k1_index)
+kFold_Error[5] <- kFold_Logit(k1_index)
+
+print(mean(kFold_Error))
+```
+
+CVの結果、平均エラー率は`r round(mean(kFold_Error), 3)`です。先ほどのLOO CVの結果と大きな差はありませんね。
+
+以上、紹介したモデル評価指標は複数モデル間の比較に有用です。複数のモデルというのは関数型が異なるモデル、あるいは異なる分析手法などを指します。今回はモデルが一つしかありませんでしたが、まだ機会があったら色んな可視化とモデル比較をしてみたいと思います。

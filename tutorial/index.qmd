@@ -1,0 +1,40 @@
+---
+title: "Tutorials"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+## R
+
+* 宋財泫・[矢内勇生](https://yukiyanai.github.io/)『[私たちのR:ベストプラクティスの探求](https://www.jaysong.net/RBook/)』
+   * R Not for Everyone: An Esoteric Guide
+   * Rプログラミングの入門教材
+   * 現在、執筆中です
+* プログラミング
+   * [Rプログラミング入門の入門](R/rprogramming.qmd)
+   * [purrr入門](R/purrr_intro.qmd)
+   * [オブジェクト指向型プログラミング入門](R/opp_intro.qmd)
+   * [モンテカルロ・シミュレーション入門](R/montecarlo_intro.qmd)
+* データハンドリング
+   * [dplyr入門](R/dplyr_intro.qmd)
+   * [tidyr入門](R/tidyr_intro.qmd)
+* 可視化
+   * [ggplot2入門 [理論編]](R/ggplot_intro1.qmd)
+   * [ggplot2入門 [基礎編]](R/ggplot_intro2.qmd)
+   * [ggplot2入門 [応用編]](R/ggplot_intro3.qmd)
+   * [ggplot2入門 [発展編]](R/ggplot_intro4.qmd)
+* R Markdown
+   * [R Markdown入門](R/rmarkdown_intro.qmd)
+
+## Qualtrics
+
+* Qualtrics入門 <span class="jay_btn">[PDF](Qualtrics/Introduction_to_Qualtrics.pdf)</span>
+   * 2020年12月8日に高知工科大学で行った『Qualtrics講習会』資料です。
+   * 現在（2022年5月）、QualtricsのUIは大幅に変更され、当資料のUIと一致しない箇所が多々あります。
+
+## JASP
+
+* [JASP入門講座](JASP/index.qmd)
+   * 本内容は私が担当しました2016/2017年に担当しました京都女子大学の「データ処理論 I / II」の補助教材です。SPSSの授業でしたが、家でもデータ分析ができるように無料ツールであるJASPの使用を推奨しました。現在はSPSSを用いた講義を担当しておりませんので、今後のアップデートの予定はございません。
+   * JASP 0.8.8.1に対応しています。2022年5月現在、最新バージョンは0.16.2です。
+

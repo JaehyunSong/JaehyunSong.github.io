@@ -1,0 +1,74 @@
+---
+title: "私の道具箱"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+## 文書・メモ作成
+
+* [Notion](https://www.notion.so/)
+   * メモ用で使っています。メモを体系的に管理する時は便利です。検索機能もかなり強力です。Markdown文法が使えます。
+* [Sublime Text](https://www.sublimetext.com/)
+   * Sublime Textは無料でも、有料でもないシェアウェアです。無料でも問題なく使えますが、たまに「買ってください！」というメッセージが出ます。Sublime Textはそのままメモ帳の代わりとしても使いますが、私が　Sublime Textを使うのは下で紹介するLaTeXで文書&スライドを作成する時です。プログラミングに最適化されたエディターって感じです。LaTeXToolsパッケージをインストールすればコンパイルはむろん、Snippetまで使えます。
+* [Vim](https://www.vim.org/)
+   * 最近はほぼ使いませんが、一時期(20年程度前です)はVi(Vim)を使っていました。ショートカットを覚えるのがちょっと面倒くさいですが、慣れたらコード作成のスピードが数倍はアップします。(折衷案はSublime Textに`vintage`パッケージですかね)
+* Microsoft Word & PowerPoint
+   * 私が主に使うのは下のLaTeXですが、日本の政治学ではLaTeXの文書を受けてくれるところが少ないので、その場合はMicrosoft WordやPowerPointを使っています。
+* [LaTeX](https://www.latex-project.org/)
+   * 多くの場合、文書やスライドはLaTeXで作成します。LaTeXの良さはここ[[Link]()]を見てください。レポート、論文、本だけでなくBeamerというテンプレートを使えば簡単にスライドも作成できます。
+   * 文書の見栄は気にせず内容だけに集中できます。
+   * 最近は[Overleaf](https://www.overleaf.com/)、[Cloud LaTex](https://cloudlatex.io/)のようなクラウド型LaTeXエディターもあり、ネットさえ繋がっていればどこでも執筆が可能です。また、複数人で同時編集も可能です。
+* [R Markdown](https://rmarkdown.rstudio.com/) / [Quarto](https://quarto.org/)
+   * 最近はR Markdownで文書作成、Web-book執筆、ホームページ作成、スライド作成をしています。
+   * 開発途上のQuartoはR Markdownと非常に似た文法を持っています。いずれかは標準、または標準に近いものになるかも知れません。
+
+## 統計
+
+* Microsoft Excel
+   * 使っていません。`*.xls`, `*.xlsx`ファイル全て後で紹介するLibreOffice Calcで閲覧・編集します。Microsoft Excelを使うのは「高度」なマクロが含まれているファイルの場合のみです。
+   * 基本的にMicrosoft Officeは商用ソフトです。企業間ならともかく、個人間でxlsやxlsxなどでやり取りするのは、購買の強要でしょうね。csvがいいと思いますが、普通のxlsやxlsxファイルならLibreOffice Calcで十分です。
+* [LibreOffice Calc](https://www.libreoffice.org/)
+   * 統計用ソフトではありませんが、Microsoft Excelの代わりに使っています。無料です。Windows環境でMicrosoft Officeは重く感じないかも知れませんが、macOS(OS X)環境でMicrosoft Officeはかなり重いです。それに比べてLibreOfficeは*NIX系で最適化されており、Microsoft Excelよりも軽いと感じられます。なによりLibreOffice Clacのいいところは「文字化けしない」という点です。ほとんどのエンコーディングに対応しているため、どのファイルを開けても文字化けしません。
+* [SPSS](http://www-01.ibm.com/software/jp/analytics/spss/)
+   * 学部3年生の時に使った私の初めての統計分析ソフトウェアです。
+   * 長所: SYNTAXを使って分析することも出来ますが、マウス操作だけで分析できるので、学部生向けの授業ではよく使われますね。
+   * 短所: JAVA仮想マシン上で動くので、かなり重いです。また、商用ソフトなので個人的に使うためにはかなり高額を払う必要があります。
+* [Stata](http://www.lightstone.co.jp/stata/)
+   * 修士時代に使ったソフトで今もよく使っています。
+   * 長所
+      1. SPSSに比べたら早い
+      2. 値段も買えなくはない程度です。
+      3. marginsなどの事後推定のコマンドが充実していて、予測値や限界効果を手軽に出せます(私が未だStataを時々使う理由です)。
+      4. 基本的にはコマンド基盤ですが、マウスだけでも操作できます。
+      5. 無料のアドオンも充実しています。(SPost13はオススメです)
+   * 短所
+      1. SPSSと同じ短所ですが、一つのデータセットしか扱えない
+      2. 相対的に安いが、数万円はする
+* [R](https://cran.r-project.org/)
+   * 統計分析ソフトとは言ってますが、ほぼプログラミング言語(OOP)です。
+   * 博士課程に進学してから使い始めました。入門はSPSSでいいと思いますが、次のステップはStataよりRの方がおすすめです。
+   * 長所
+      1. 完全に無料です
+      2. SPSS, Stataよりも早いです。(C, FORTRAN, Python, Juliaなどに比べたら遅いですが…)
+      3. Rstudio, JupyterなどのIDEを使えば、かなり快適に作業できます。
+      4. パッケージが豊富で、存在する分析手法はほとんどRでパッケージ化されています。
+      5. 同時に複数のデータを扱えますし、データの操作も強力です。(dplyr, tidyr, data.tableパッケージなど)
+      6. 綺麗な図を自由自在に描けます。
+   * 短所
+      1. 慣れるまで時間がかかります。
+   * [Rstan](http://mc-stan.org/)
+      * ベイズ統計学が必ずしもMCMCを必要とするわけではありませんが、やはりほとんどの場合、事後分布はMCMCサンプリングする時が多いです。Rstanは最近流行りのMCMCサンプラーであるstanのRパッケージです。他にはJAGSなどがあるようですが、使ったことがありません。離散変数の扱いが難しいという点を除けば、良いです。最近はstanの良書も出ています。
+* その他
+   * [Python](https://www.python.org/)
+      * 勉強中です。統計用の言語でなく、汎用言語ですが、データサイエンス業界ではRと共にメージャーな言語です。
+   * [Julia](http://julialang.org/)
+      * Rのような統計用の言語ですが、高速です
+   * [HAD](http://norimune.net/had)
+      * Excelで作られた統計パッケージです
+   * [NetLogo](https://ccl.northwestern.edu/netlogo/)
+      * Multi-Agent Simulationに特化したLogo言語基盤のソフトです。
+   * [Mplus](https://www.statmodel.com/)
+      * 構造方程式モデリングでは最強のソフトです。むろん、最近、Rの`lavaan`パッケージが相当良くなりましたが…ちなみに、macOSだとパス図は出力されません。
+      * RからMplusを利用してモデルを推定してくれる[`MplusAutomation`](https://cran.r-project.org/web/packages/MplusAutomation/)というパッケージもあります。
+   * SAS, Matlab, Mathematica, [Maple](https://www.maplesoft.com/products/maple/) (こんなもんもあるようです)
+   

@@ -1,0 +1,21 @@
+---
+title: "JASP入門: JASPの入手・インストール"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+1. JASPのホームページへアクセスします。アドレスは[https://jasp-stats.org](https://jasp-stats.org)です。
+
+![](Figs/JASP01_01.png)
+
+2. DOWNLOADをクリックします。
+
+![](Figs/JASP01_02.png)
+
+3. 自分のパソコン環境に合わせてインストーラをダウンロードします。
+    * Windowsの場合：「Windows XP and above」
+    * macOSの場合：「Sierra (10.12) and above」あるいは「El Capitan (10.11) and below」
+        * ※macOSの場合は[XQuartz](https://www.xquartz.org)を事前にインストールしておいてください。
+    * Linuxの場合：下段のInstallation Guideを参照してください。
+
+4. ダウンロードしたファイルを開き、指示に従ってインストールしてください。

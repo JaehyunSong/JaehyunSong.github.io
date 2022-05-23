@@ -1,0 +1,76 @@
+---
+title: "Conjoint SDTの用いる際、一部の属性のみを固定する方法"
+date: "`r Sys.Date()`"
+link-external-newwindow: true
+---
+
+以下のようなコンジョイント分析を行うとする。
+
+||候補者1|候補者2|
+|---|---|---|
+|性別|男性|女性|
+|年齢|39歳|35歳|
+|二郎の値段|ラーメンの値下げ|ラーメンの値段の現状維持|
+|二郎のトッピング|やさい増々の義務化|にんにくの義務化|
+
+Q1. あなたはどっちの候補者を支持しますか。
+
+* 候補者1
+* 候補者2
+
+この場合、Conjoint SDT(以下、SDTと略す)で属性の順番ををランダマイズすると、場合によっては「二郎のトッピング、性別、年齢、二郎の値段」などの順番で表示されうる。しかし、直感的に考えると年齢や性別などの候補者の個人情報は政策の前に来るのが自然である。
+
+SDTはこのように一部の属性のみを固定する機能を提供しないため、生成されたPHPファイルを直接修正する必要がある。
+
+ここから提示する方法は[このポスト](cjoint_sdt.qmd)に従ってPHPファイルまで生成されたと仮定したうえでの方法である。ただし、**1.1の画像でRandomize order of attributes for each respondentsにチェックを入れておく必要がある**。
+
+1. PHPファイルを読み込む
+2. 93行目を見ると以下のような項目が見える。
+    * `shuffle($featureArrayKeys);`
+    * 修正するのはこの箇所である。
+    
+### 基本的な考え方
+
+|アドレス|0|1|2|3|
+|---|---|---|---|---|
+|項目名|性別|年齢|二郎の値段|二郎のトッピング|
+
+* PHPの配列のアドレスはRとは違って、一般的なプログラミング言語と同様、0から始まる。
+* `shuffle()`関数は配列の順番をランダマイズする機能を持つが、ここでは0から1を切り取って臨時のオブジェクトに格納し(オブジェクト1)、続いて2から3を切り取って他のオブジェクトに格納する(オブジェクト2)。
+* 次に、オブジェクト2の中身だけ`shuffle()`関数を使って順番をランダマイズし、オブジェクト1とオブジェクト2を統合する。
+* 具体的な方法は以下のようである。
+
+```php
+$temp_obj1 = array_slice($featureArrayKeys, 0, 2);
+$temp_obj2 = array_slice($featureArrayKeys, 2, 2);
+shuffle($temp_obj2);
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);
+```
+
+* 説明すると
+  1. `$featureArrayKeys`配列で0から2個の要素（性別、年齢）を切り取り、`$temp_obj1`に格納する。
+  2. `$featureArrayKeys`配列で2から2個の要素（二郎の値段、二郎のトッピング）を切り取り、`$temp_obj2`に格納する。
+  3. `$temp_obj2`内の要素をランダマイズする。
+  4. `$temp_obj1`と`$temp_obj2`を統合し、元の`$featureArrayKeys`に格納する。
+
+結果的に見るとPHPファイルの93行目は
+
+**Before**
+
+```php
+// Re-randomize the $featurearray keys
+shuffle($featureArrayKeys);
+```
+
+**After**
+
+```php
+// Re-randomize the $featurearray keys
+// shuffle($featureArrayKeys); <- 元の部分はコメントアウト
+$temp_obj1 = array_slice($featureArrayKeys, 0, 4);
+$temp_obj2 = array_slice($featureArrayKeys, 4);
+shuffle($temp_obj2);
+$featureArrayKeys = array_merge($temp_obj1, $temp_obj2);
+```
+
+のようになる。これだけで、年齢と性別のみ固定し、残りの部分はランダマイズすることが可能である。以降は普通のやり方でQualtricsに埋め込めばいい。
