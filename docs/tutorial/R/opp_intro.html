@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.421">
+<meta name="generator" content="quarto-0.9.442">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-05-23">
+<meta name="dcterms.date" content="2022-05-24">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門</title>
 <style>
@@ -88,6 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<link href="../../imgs/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -128,6 +129,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門">
+<meta property="og:description" content="Jaehyun Song's personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:site-name" content="Jaehyun Song, Ph.D.">
+<meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門">
+<meta name="twitter:description" content="Jaehyun Song's personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta name="twitter:creator" content="@Tintstyle">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -241,15 +251,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 
 
-
-
 <div class="quarto-title-meta">
 
     
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 23, 2022</p>
+      <p class="date">May 24, 2022</p>
     </div>
   </div>
     
@@ -454,7 +462,7 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (object, ...) 
 UseMethod("summary")
-&lt;bytecode: 0x7feeb9aa6e60&gt;
+&lt;bytecode: 0x7fdd078a7b18&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -513,7 +521,7 @@ UseMethod("summary")
     class(value) &lt;- c("summaryDefault", "table")
     value
 }
-&lt;bytecode: 0x7fee9aecd8a0&gt;
+&lt;bytecode: 0x7fdce054bbf0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -566,12 +574,12 @@ UseMethod("summary")
 <span id="cb40-15"><a href="#cb40-15"></a>My_Score1 <span class="co"># My_Score1の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 45.81117 61.01301 45.56179 51.36342 44.57179 50.29139 44.68719 30.19658
- [9] 55.15393 39.72618
+ [1] 37.65280 61.71402 41.30054 67.26568 46.59107 56.36045 24.54460 37.55896
+ [9] 43.04130 59.96573
 
 $Score2
- [1] 45.91369 38.24700 31.20725 49.90860 49.20487 56.99150 33.64000 52.34071
- [9] 60.93731 51.05731
+ [1] 64.68670 49.55589 42.14277 32.28419 40.49149 43.52429 62.04897 43.51939
+ [9] 50.02470 47.26061
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -597,12 +605,12 @@ attr(,"class")
 <span id="cb44-12"><a href="#cb44-12"></a>My_Score2 <span class="co"># My_Score2の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 52.83495 46.57467 25.78555 68.51724 66.03242 62.97295 40.75039 60.44864
- [9] 53.61273 60.99472
+ [1] 51.47559 59.99135 55.23748 43.27109 66.35841 62.81545 50.34092 54.24289
+ [9] 80.90077 40.03283
 
 $Score2
- [1] 36.33933 24.15357 52.14382 47.04183 46.23756 54.79466 49.52237 46.98390
- [9] 42.97402 31.94506
+ [1] 50.37982 53.47619 38.18201 52.75919 35.73576 68.90245 43.20254 49.43825
+ [9] 58.51078 44.97637
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -633,8 +641,8 @@ attr(,"class")
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">mean</span>(My_Score1) <span class="co"># Scoreクラスのメソッドであるmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46.83764
-[1] 46.94482</code></pre>
+<pre><code>[1] 47.59951
+[1] 47.5539</code></pre>
 </div>
 </div>
 <p>　<code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
@@ -712,8 +720,8 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">my_func</span>(My_Score1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46.83764
-[1] 46.94482</code></pre>
+<pre><code>[1] 47.59951
+[1] 47.5539</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -812,12 +820,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ data    :'data.frame':   20 obs. of  2 variables:
-  ..$ x: num [1:20] 2.05 1.33 1.08 1.03 1.8 ...
-  ..$ y: num [1:20] 158 164 165 172 174 ...
+  ..$ x: num [1:20] 2.6 2.43 2.53 1.97 1.65 ...
+  ..$ y: num [1:20] 170 151 161 169 165 ...
  $ var_name: chr [1:2] "1日当たりゲーム時間" "身長"
- $ cor     : Named num -0.306
+ $ cor     : Named num 0.0253
   ..- attr(*, "names")= chr "cor"
- $ cor_ci  : num [1:2] -0.659 0.158
+ $ cor_ci  : num [1:2] -0.422 0.463
   ..- attr(*, "conf.level")= num 0.95
  - attr(*, "class")= chr "My_Cor_Object"</code></pre>
 </div>
@@ -827,15 +835,15 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">print</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.913
-身長の平均値: 164.573
-相関係数: -0.306 [-0.659, 0.158]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 2.077
+身長の平均値: 163.420
+相関係数: 0.025 [-0.422, 0.463]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">summary</span>(Cor_Obj) <span class="co"># summary()はprint()と同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.913
-身長の平均値: 164.573
-相関係数: -0.306 [-0.659, 0.158]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 2.077
+身長の平均値: 163.420
+相関係数: 0.025 [-0.422, 0.463]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">plot</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

@@ -9,6 +9,7 @@ website:
   title: "Jaehyun Song, Ph.D."
   page-footer: "Copyright 2022, Jaehyun Song. Powered by [Quarto](https://quarto.org/)"
   google-analytics: "G-BCE61P2YP7"
+  favicon: "imgs/favicon.png"
   navbar:
     search: true
     background: "#1955A6" # royal blue
@@ -40,6 +41,17 @@ website:
         href: https://scholar.google.com/citations?user=8a-NxjkAAAAJ&hl=ja
       - icon: map
         href: https://researchmap.jp/jaysong
+  twitter-card:
+    title: Jaehyun Song, Ph.D.
+    description: Jaehyun Song's personal homepage
+    card-style: summary
+    creator: "@Tintstyle"
+    site: "@Tintstyle"
+    image: "imgs/favicon.png"
+  open-graph:
+    title: Jaehyun Song, Ph.D.
+    description: Jaehyun Song's personal homepage
+    image: "imgs/favicon.png"
 
 format:
   html:
