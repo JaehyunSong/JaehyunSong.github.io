@@ -739,7 +739,7 @@
     "href": "tutorial/index.html",
     "title": "Tutorials",
     "section": "",
-    "text": "宋財泫・矢内勇生『私たちのR:ベストプラクティスの探求』\n\nR Not for Everyone: An Esoteric Guide\nRプログラミングの入門教材\n現在、執筆中です\n\nプログラミング\n\nRプログラミング入門の入門\npurrr入門\nオブジェクト指向型プログラミング入門\nモンテカルロ・シミュレーション入門\n\nデータハンドリング\n\ndplyr入門\ntidyr入門\n\n可視化\n\nggplot2入門 [理論編]\nggplot2入門 [基礎編]\nggplot2入門 [応用編]\nggplot2入門 [発展編]\n\nR Markdown\n\nR Markdown入門"
+    "text": "宋財泫・矢内勇生『私たちのR:ベストプラクティスの探求』\n\nR Not for Everyone: An Esoteric Guide\nRプログラミングの入門教材\n現在、執筆中です\n\n\n以下の記事のほとんどは『私たちのR』用の原稿です。執筆後のアップデートは『私たちのR』で行います。最新版をご覧になる場合はRN4Eをクリックしてください。\n\nプログラミング\n\nRプログラミング入門の入門 RN4E (1) RN4E (2)\npurrr入門 RN4E\nオブジェクト指向型プログラミング入門 RN4E \nモンテカルロ・シミュレーション入門 RN4E\n\nデータハンドリング\n\ndplyr入門 RN4E (1) RN4E (2) RN4E (3)\ntidyr入門 RN4E\n\n可視化\n\nggplot2入門 [理論編] RN4E\nggplot2入門 [基礎編] RN4E\nggplot2入門 [応用編] RN4E\nggplot2入門 [発展編] RN4E\n\nR Markdown\n\nR Markdown入門 RN4E"
   },
   {
     "objectID": "tutorial/index.html#qualtrics",

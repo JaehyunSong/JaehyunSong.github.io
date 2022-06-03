@@ -10,21 +10,24 @@ link-external-newwindow: true
    * R Not for Everyone: An Esoteric Guide
    * Rプログラミングの入門教材
    * 現在、執筆中です
+
+以下の記事のほとんどは『私たちのR』用の原稿です。執筆後のアップデートは『私たちのR』で行います。最新版をご覧になる場合は<span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/)</span>をクリックしてください。
+
 * プログラミング
-   * [Rプログラミング入門の入門](R/rprogramming.qmd)
-   * [purrr入門](R/purrr_intro.qmd)
-   * [オブジェクト指向型プログラミング入門](R/opp_intro.qmd)
-   * [モンテカルロ・シミュレーション入門](R/montecarlo_intro.qmd)
+   * [Rプログラミング入門の入門](R/rprogramming.qmd) <span class="jay_btn">[RN4E (1)](https://www.jaysong.net/RBook/programming.html) [RN4E (2)](https://www.jaysong.net/RBook/functions.html)</span>
+   * [purrr入門](R/purrr_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/iteration.html)</span>
+   * [オブジェクト指向型プログラミング入門](R/opp_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/oop.html) </span>
+   * [モンテカルロ・シミュレーション入門](R/montecarlo_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/monte.html)</span>
 * データハンドリング
-   * [dplyr入門](R/dplyr_intro.qmd)
-   * [tidyr入門](R/tidyr_intro.qmd)
+   * [dplyr入門](R/dplyr_intro.qmd) <span class="jay_btn">[RN4E (1)](https://www.jaysong.net/RBook/datahandling1.html) [RN4E (2)](https://www.jaysong.net/RBook/datahandling2.html) [RN4E (3)](https://www.jaysong.net/RBook/datahandling3.html)</span>
+   * [tidyr入門](R/tidyr_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/tidydata.html)</span>
 * 可視化
-   * [ggplot2入門 [理論編]](R/ggplot_intro1.qmd)
-   * [ggplot2入門 [基礎編]](R/ggplot_intro2.qmd)
-   * [ggplot2入門 [応用編]](R/ggplot_intro3.qmd)
-   * [ggplot2入門 [発展編]](R/ggplot_intro4.qmd)
+   * [ggplot2入門 [理論編]](R/ggplot_intro1.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization1.html)</span>
+   * [ggplot2入門 [基礎編]](R/ggplot_intro2.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization2.html)</span>
+   * [ggplot2入門 [応用編]](R/ggplot_intro3.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization3.html)</span>
+   * [ggplot2入門 [発展編]](R/ggplot_intro4.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization4.html)</span>
 * R Markdown
-   * [R Markdown入門](R/rmarkdown_intro.qmd)
+   * [R Markdown入門](R/rmarkdown_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/rmarkdown.html)</span>
 
 ## Qualtrics
 
