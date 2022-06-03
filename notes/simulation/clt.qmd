@@ -27,7 +27,7 @@ set.seed(19861008)
 
 * $\mu$と$\sigma$
 * 期待値は$\mu$
-* 分散は$\simga^2$であり、標準偏差は$\sigma$
+* 分散は$\sigma^2$であり、標準偏差は$\sigma$
 * $\mu = 10$、$\sigma = 5$の正規分布（ @fig-normal ）の場合、期待値は10、標準偏差は5
 
 ```{r fig-normal}

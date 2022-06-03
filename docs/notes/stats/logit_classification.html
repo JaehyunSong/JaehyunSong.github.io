@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-05-24">
+<meta name="dcterms.date" content="2022-06-03">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- ロジスティック回帰分析による分類と可視化・評価</title>
 <style>
@@ -256,7 +256,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 24, 2022</p>
+      <p class="date">June 3, 2022</p>
     </div>
   </div>
     
@@ -641,7 +641,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <p>他にもPseudo <span class="math inline">\(R^2\)</span>などがありますが、ここでは省略します。最近流行りのWAICはベイジアン推定後、事後分布のデータが必要なのでここでは難しいですね。</p>
 <section id="的中率エラー率" class="level3">
 <h3 class="anchored" data-anchor-id="的中率エラー率">的中率/エラー率</h3>
-<p>実際のデータ (<span class="math inline">\(y\)</span>)と分類の予測結果 (<span class="math inline">\(\hat{y}\)</span>)を2$$2のテーブルで表すと以下のようになります。ちなみに、以下のような表を混同行列 (confusion matrix)と呼びます。</p>
+<p>実際のデータ (<span class="math inline">\(y\)</span>)と分類の予測結果 (<span class="math inline">\(\hat{y}\)</span>)を2 <span class="math inline">\(\times\)</span> 2のテーブルで表すと以下のようになります。ちなみに、以下のような表を混同行列 (confusion matrix)と呼びます。</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -750,7 +750,7 @@ p_e = &amp; \left( \frac{TP + FP}{N} \cdot \frac{TP + FN}{N} \right) + \left( \f
 <p>この基準だと、ロジスティック回帰を用いた分類機は「かなり一致 (Substantial agreement)」していると評価できるでしょう。</p>
 <section id="aic-bic" class="level3">
 <h3 class="anchored" data-anchor-id="aic-bic">AIC / BIC</h3>
-<p>先ほどの、ここで紹介するAICとBICはそのぼんやりとした基準すらございません。しかし、モデルの選択という場面では今でもAICとBICのような情報量規準は広く使われる指標です。情報量規準については小西・北川 (2004)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>やMcElreath (2016)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>の第6章を参照して下さい。ここでは計算方法だけ紹介しましょう。</p>
+<p>先ほどの<span class="math inline">\(\kappa\)</span>統計量にはそれでも何らかの基準はありますが、ここで紹介するAICとBICはそのぼんやりとした基準すらございません。しかし、モデルの選択という場面では今でもAICとBICのような情報量規準は広く使われる指標です。情報量規準については小西・北川 (2004)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>やMcElreath (2016)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>の第6章を参照して下さい。ここでは計算方法だけ紹介しましょう。</p>
 <p><span class="math display">\[
 \begin{aligned}
 AIC = &amp; -2 \log L + 2K, \\
