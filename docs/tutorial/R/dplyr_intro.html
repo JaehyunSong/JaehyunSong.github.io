@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.442">
+<meta name="generator" content="quarto-0.9.587">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-05-24">
+<meta name="dcterms.date" content="2022-06-17">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- dplyr入門</title>
 <style>
@@ -81,20 +81,21 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
 <link href="../../imgs/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -131,11 +132,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- dplyr入門">
-<meta property="og:description" content="Jaehyun Song's personal homepage">
+<meta property="og:description" content="Jaehyun Song's personal…">
 <meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- dplyr入門">
-<meta name="twitter:description" content="Jaehyun Song's personal homepage">
+<meta name="twitter:description" content="Jaehyun Song's personal…">
 <meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
@@ -285,7 +286,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 24, 2022</p>
+      <p class="date">June 17, 2022</p>
     </div>
   </div>
     
@@ -347,12 +348,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="zcqzexrrdw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cbdkkmywpf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zcqzexrrdw .gt_table {
+#cbdkkmywpf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -377,7 +378,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_heading {
+#cbdkkmywpf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -389,7 +390,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_title {
+#cbdkkmywpf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -401,7 +402,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-#zcqzexrrdw .gt_subtitle {
+#cbdkkmywpf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -413,13 +414,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-width: 0;
 }
 
-#zcqzexrrdw .gt_bottom_border {
+#cbdkkmywpf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_col_headings {
+#cbdkkmywpf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -434,7 +435,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_col_heading {
+#cbdkkmywpf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,7 +455,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#zcqzexrrdw .gt_column_spanner_outer {
+#cbdkkmywpf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -466,15 +467,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-#zcqzexrrdw .gt_column_spanner_outer:first-child {
+#cbdkkmywpf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zcqzexrrdw .gt_column_spanner_outer:last-child {
+#cbdkkmywpf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zcqzexrrdw .gt_column_spanner {
+#cbdkkmywpf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -486,7 +487,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-#zcqzexrrdw .gt_group_heading {
+#cbdkkmywpf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +512,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#zcqzexrrdw .gt_empty_group_heading {
+#cbdkkmywpf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -526,15 +527,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#zcqzexrrdw .gt_from_md > :first-child {
+#cbdkkmywpf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zcqzexrrdw .gt_from_md > :last-child {
+#cbdkkmywpf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zcqzexrrdw .gt_row {
+#cbdkkmywpf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -553,7 +554,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#zcqzexrrdw .gt_stub {
+#cbdkkmywpf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -566,7 +567,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#zcqzexrrdw .gt_stub_row_group {
+#cbdkkmywpf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -580,11 +581,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-#zcqzexrrdw .gt_row_group_first td {
+#cbdkkmywpf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zcqzexrrdw .gt_summary_row {
+#cbdkkmywpf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -594,16 +595,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#zcqzexrrdw .gt_first_summary_row {
+#cbdkkmywpf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_first_summary_row.thick {
+#cbdkkmywpf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zcqzexrrdw .gt_last_summary_row {
+#cbdkkmywpf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -613,7 +614,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_grand_summary_row {
+#cbdkkmywpf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -623,7 +624,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#zcqzexrrdw .gt_first_grand_summary_row {
+#cbdkkmywpf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -633,11 +634,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_striped {
+#cbdkkmywpf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zcqzexrrdw .gt_table_body {
+#cbdkkmywpf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -646,7 +647,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_footnotes {
+#cbdkkmywpf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -660,7 +661,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_footnote {
+#cbdkkmywpf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -669,7 +670,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#zcqzexrrdw .gt_sourcenotes {
+#cbdkkmywpf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -683,7 +684,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#zcqzexrrdw .gt_sourcenote {
+#cbdkkmywpf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -691,36 +692,36 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#zcqzexrrdw .gt_left {
+#cbdkkmywpf .gt_left {
   text-align: left;
 }
 
-#zcqzexrrdw .gt_center {
+#cbdkkmywpf .gt_center {
   text-align: center;
 }
 
-#zcqzexrrdw .gt_right {
+#cbdkkmywpf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zcqzexrrdw .gt_font_normal {
+#cbdkkmywpf .gt_font_normal {
   font-weight: normal;
 }
 
-#zcqzexrrdw .gt_font_bold {
+#cbdkkmywpf .gt_font_bold {
   font-weight: bold;
 }
 
-#zcqzexrrdw .gt_font_italic {
+#cbdkkmywpf .gt_font_italic {
   font-style: italic;
 }
 
-#zcqzexrrdw .gt_super {
+#cbdkkmywpf .gt_super {
   font-size: 65%;
 }
 
-#zcqzexrrdw .gt_two_val_uncert {
+#cbdkkmywpf .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -729,31 +730,31 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   margin-left: 0.1em;
 }
 
-#zcqzexrrdw .gt_footnote_marks {
+#cbdkkmywpf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#zcqzexrrdw .gt_asterisk {
+#cbdkkmywpf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zcqzexrrdw .gt_slash_mark {
+#cbdkkmywpf .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#zcqzexrrdw .gt_fraction_numerator {
+#cbdkkmywpf .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#zcqzexrrdw .gt_fraction_denominator {
+#cbdkkmywpf .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1649,18 +1650,18 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb95-3"><a href="#cb95-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   ID      Name                         Pref     Budget Score
-   &lt;chr&gt;   &lt;chr&gt;                        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
- 1 7324486 らーめん 極                  京都府     1000    NA
- 2 7467855 麺屋 清                      東京都       NA    NA
- 3 5494967 東京とんこつ とんとら 新座店 埼玉県       NA    NA
- 4 5494087 幸楽苑 指扇店                埼玉県       NA    NA
- 5 6394890 今里わっしょい               大阪府       NA    NA
- 6 5714368 ラーメン白光                 兵庫県       NA    NA
- 7 7436697 麺場 絆1048                  神奈川県     NA    NA
- 8 7134057 カインズキッチン 旭飯岡店    千葉県       NA    NA
- 9 7198660 ○宿 めんてんてん             東京都     1000    NA
-10 7370551 麺屋こころ 金沢八景店        神奈川県     NA    NA</code></pre>
+   ID      Name                             Pref     Budget Score
+   &lt;chr&gt;   &lt;chr&gt;                            &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+ 1 7327304 なかむら家                       埼玉県       NA NA   
+ 2 5713280 蝦夷らーめん 太志                東京都       NA NA   
+ 3 6284736 炙り鯛だしらーめん つけ麺 サクラ 奈良県       NA NA   
+ 4 6715292 保盛軒                           埼玉県       NA NA   
+ 5 7640541 in EZO 絆                        埼玉県       NA NA   
+ 6 7691208 喜喜ラーメン 本店                千葉県       NA NA   
+ 7 6332389 横濱家 高尾店                    東京都       NA NA   
+ 8 7459805 MENYA BIBIRI                     奈良県       NA NA   
+ 9 5508054 山神山人 大倉山店                兵庫県       NA  3.75
+10 7084598 らぁめん元住家                   神奈川県     NA NA   </code></pre>
 </div>
 </div>
 <p>　のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
@@ -3427,12 +3428,12 @@ Levels: 関東 その他</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="dkctlrlssv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aiuwqsjxyn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#dkctlrlssv .gt_table {
+#aiuwqsjxyn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3457,7 +3458,7 @@ Levels: 関東 その他</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_heading {
+#aiuwqsjxyn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3469,7 +3470,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_title {
+#aiuwqsjxyn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3481,7 +3482,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-width: 0;
 }
 
-#dkctlrlssv .gt_subtitle {
+#aiuwqsjxyn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3493,13 +3494,13 @@ Levels: 関東 その他</code></pre>
   border-top-width: 0;
 }
 
-#dkctlrlssv .gt_bottom_border {
+#aiuwqsjxyn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_col_headings {
+#aiuwqsjxyn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3514,7 +3515,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_col_heading {
+#aiuwqsjxyn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3534,7 +3535,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#dkctlrlssv .gt_column_spanner_outer {
+#aiuwqsjxyn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3546,15 +3547,15 @@ Levels: 関東 その他</code></pre>
   padding-right: 4px;
 }
 
-#dkctlrlssv .gt_column_spanner_outer:first-child {
+#aiuwqsjxyn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dkctlrlssv .gt_column_spanner_outer:last-child {
+#aiuwqsjxyn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dkctlrlssv .gt_column_spanner {
+#aiuwqsjxyn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3566,7 +3567,7 @@ Levels: 関東 その他</code></pre>
   width: 100%;
 }
 
-#dkctlrlssv .gt_group_heading {
+#aiuwqsjxyn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3591,7 +3592,7 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#dkctlrlssv .gt_empty_group_heading {
+#aiuwqsjxyn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3606,15 +3607,15 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#dkctlrlssv .gt_from_md > :first-child {
+#aiuwqsjxyn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dkctlrlssv .gt_from_md > :last-child {
+#aiuwqsjxyn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dkctlrlssv .gt_row {
+#aiuwqsjxyn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3633,7 +3634,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#dkctlrlssv .gt_stub {
+#aiuwqsjxyn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3646,7 +3647,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#dkctlrlssv .gt_stub_row_group {
+#aiuwqsjxyn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3660,11 +3661,11 @@ Levels: 関東 その他</code></pre>
   vertical-align: top;
 }
 
-#dkctlrlssv .gt_row_group_first td {
+#aiuwqsjxyn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dkctlrlssv .gt_summary_row {
+#aiuwqsjxyn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3674,16 +3675,16 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#dkctlrlssv .gt_first_summary_row {
+#aiuwqsjxyn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_first_summary_row.thick {
+#aiuwqsjxyn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dkctlrlssv .gt_last_summary_row {
+#aiuwqsjxyn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3693,7 +3694,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_grand_summary_row {
+#aiuwqsjxyn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3703,7 +3704,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#dkctlrlssv .gt_first_grand_summary_row {
+#aiuwqsjxyn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3713,11 +3714,11 @@ Levels: 関東 その他</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_striped {
+#aiuwqsjxyn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dkctlrlssv .gt_table_body {
+#aiuwqsjxyn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3726,7 +3727,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_footnotes {
+#aiuwqsjxyn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3740,7 +3741,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_footnote {
+#aiuwqsjxyn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3749,7 +3750,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#dkctlrlssv .gt_sourcenotes {
+#aiuwqsjxyn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3763,7 +3764,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#dkctlrlssv .gt_sourcenote {
+#aiuwqsjxyn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3771,36 +3772,36 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#dkctlrlssv .gt_left {
+#aiuwqsjxyn .gt_left {
   text-align: left;
 }
 
-#dkctlrlssv .gt_center {
+#aiuwqsjxyn .gt_center {
   text-align: center;
 }
 
-#dkctlrlssv .gt_right {
+#aiuwqsjxyn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dkctlrlssv .gt_font_normal {
+#aiuwqsjxyn .gt_font_normal {
   font-weight: normal;
 }
 
-#dkctlrlssv .gt_font_bold {
+#aiuwqsjxyn .gt_font_bold {
   font-weight: bold;
 }
 
-#dkctlrlssv .gt_font_italic {
+#aiuwqsjxyn .gt_font_italic {
   font-style: italic;
 }
 
-#dkctlrlssv .gt_super {
+#aiuwqsjxyn .gt_super {
   font-size: 65%;
 }
 
-#dkctlrlssv .gt_two_val_uncert {
+#aiuwqsjxyn .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -3809,31 +3810,31 @@ Levels: 関東 その他</code></pre>
   margin-left: 0.1em;
 }
 
-#dkctlrlssv .gt_footnote_marks {
+#aiuwqsjxyn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#dkctlrlssv .gt_asterisk {
+#aiuwqsjxyn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dkctlrlssv .gt_slash_mark {
+#aiuwqsjxyn .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#dkctlrlssv .gt_fraction_numerator {
+#aiuwqsjxyn .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#dkctlrlssv .gt_fraction_denominator {
+#aiuwqsjxyn .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -3934,18 +3935,18 @@ Levels: 関東 その他</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "奈良県"   "東京都"   "神奈川県" "京都府"   "大阪府"   "千葉県"   "和歌山県"
-[8] "兵庫県"   "埼玉県"  </code></pre>
+<pre><code>[1] "埼玉県"   "兵庫県"   "東京都"   "奈良県"   "京都府"   "和歌山県" "千葉県"  
+[8] "神奈川県" "大阪府"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "埼玉県"   "大阪府"   "千葉県"   "神奈川県" "和歌山県" "兵庫県"   "東京都"  
-[8] "京都府"   "奈良県"  </code></pre>
+<pre><code>[1] "和歌山県" "兵庫県"   "京都府"   "神奈川県" "大阪府"   "東京都"   "埼玉県"  
+[8] "千葉県"   "奈良県"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "和歌山県" "兵庫県"   "埼玉県"   "奈良県"   "東京都"   "京都府"   "神奈川県"
-[8] "千葉県"   "大阪府"  </code></pre>
+<pre><code>[1] "大阪府"   "奈良県"   "埼玉県"   "兵庫県"   "東京都"   "京都府"   "神奈川県"
+[8] "和歌山県" "千葉県"  </code></pre>
 </div>
 </div>
 <p>　<code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
@@ -4748,12 +4749,12 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="fzwflbxrpf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="msrydjmmtn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fzwflbxrpf .gt_table {
+#msrydjmmtn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4778,7 +4779,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_heading {
+#msrydjmmtn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4790,7 +4791,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_title {
+#msrydjmmtn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4802,7 +4803,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-width: 0;
 }
 
-#fzwflbxrpf .gt_subtitle {
+#msrydjmmtn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4814,13 +4815,13 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-width: 0;
 }
 
-#fzwflbxrpf .gt_bottom_border {
+#msrydjmmtn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_col_headings {
+#msrydjmmtn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4835,7 +4836,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_col_heading {
+#msrydjmmtn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4855,7 +4856,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#fzwflbxrpf .gt_column_spanner_outer {
+#msrydjmmtn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4867,15 +4868,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 4px;
 }
 
-#fzwflbxrpf .gt_column_spanner_outer:first-child {
+#msrydjmmtn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fzwflbxrpf .gt_column_spanner_outer:last-child {
+#msrydjmmtn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fzwflbxrpf .gt_column_spanner {
+#msrydjmmtn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4887,7 +4888,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   width: 100%;
 }
 
-#fzwflbxrpf .gt_group_heading {
+#msrydjmmtn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4912,7 +4913,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#fzwflbxrpf .gt_empty_group_heading {
+#msrydjmmtn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4927,15 +4928,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#fzwflbxrpf .gt_from_md > :first-child {
+#msrydjmmtn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fzwflbxrpf .gt_from_md > :last-child {
+#msrydjmmtn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fzwflbxrpf .gt_row {
+#msrydjmmtn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4954,7 +4955,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#fzwflbxrpf .gt_stub {
+#msrydjmmtn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4967,7 +4968,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#fzwflbxrpf .gt_stub_row_group {
+#msrydjmmtn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4981,11 +4982,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: top;
 }
 
-#fzwflbxrpf .gt_row_group_first td {
+#msrydjmmtn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fzwflbxrpf .gt_summary_row {
+#msrydjmmtn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4995,16 +4996,16 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#fzwflbxrpf .gt_first_summary_row {
+#msrydjmmtn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_first_summary_row.thick {
+#msrydjmmtn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fzwflbxrpf .gt_last_summary_row {
+#msrydjmmtn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5014,7 +5015,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_grand_summary_row {
+#msrydjmmtn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5024,7 +5025,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#fzwflbxrpf .gt_first_grand_summary_row {
+#msrydjmmtn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5034,11 +5035,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_striped {
+#msrydjmmtn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fzwflbxrpf .gt_table_body {
+#msrydjmmtn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5047,7 +5048,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_footnotes {
+#msrydjmmtn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5061,7 +5062,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_footnote {
+#msrydjmmtn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5070,7 +5071,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#fzwflbxrpf .gt_sourcenotes {
+#msrydjmmtn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5084,7 +5085,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#fzwflbxrpf .gt_sourcenote {
+#msrydjmmtn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5092,36 +5093,36 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#fzwflbxrpf .gt_left {
+#msrydjmmtn .gt_left {
   text-align: left;
 }
 
-#fzwflbxrpf .gt_center {
+#msrydjmmtn .gt_center {
   text-align: center;
 }
 
-#fzwflbxrpf .gt_right {
+#msrydjmmtn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fzwflbxrpf .gt_font_normal {
+#msrydjmmtn .gt_font_normal {
   font-weight: normal;
 }
 
-#fzwflbxrpf .gt_font_bold {
+#msrydjmmtn .gt_font_bold {
   font-weight: bold;
 }
 
-#fzwflbxrpf .gt_font_italic {
+#msrydjmmtn .gt_font_italic {
   font-style: italic;
 }
 
-#fzwflbxrpf .gt_super {
+#msrydjmmtn .gt_super {
   font-size: 65%;
 }
 
-#fzwflbxrpf .gt_two_val_uncert {
+#msrydjmmtn .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -5130,31 +5131,31 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   margin-left: 0.1em;
 }
 
-#fzwflbxrpf .gt_footnote_marks {
+#msrydjmmtn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#fzwflbxrpf .gt_asterisk {
+#msrydjmmtn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fzwflbxrpf .gt_slash_mark {
+#msrydjmmtn .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#fzwflbxrpf .gt_fraction_numerator {
+#msrydjmmtn .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#fzwflbxrpf .gt_fraction_denominator {
+#msrydjmmtn .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;

@@ -3,8 +3,16 @@
 <br/>
 Associate Professor in [Faculty of Informatics](https://www.kansai-u.ac.jp/Fc_inf/), [Kansai University](https://www.kansai-u.ac.jp/).
 <br/><br/>
-Full CV is available [here](cv.pdf).
+<!---Full CV is available [here](cv.pdf).--->
 </center>
+
+### CV
+
+<a href="cv.pdf" class="btn btn-primary btn-sm" target="_blank" role="button"><i class="bi bi-window"></i> Open in new window</a>
+
+<embed src="cv.pdf" type="application/pdf" width="100%" height="1024">
+
+<!---
 
 ### Basic Information
 
@@ -43,6 +51,9 @@ Full CV is available [here](cv.pdf).
 * **Statistical Computing:** R, Stata, SPSS, Stan, and Jags
 * **Agent-Based Modeling:** NetLogo
 * **Others:** $\LaTeX$, HTML + CSS, Markdown, Microsoft Office, LibreOffice, Apple iWork, Adobe Photoshop, and Final Cut Pro.
+
+--->
+
 
 ### Contact
 

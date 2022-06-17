@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.442">
+<meta name="generator" content="quarto-0.9.587">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-05-24">
+<meta name="dcterms.date" content="2022-06-17">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- 可視化[発展]</title>
 <style>
@@ -100,20 +100,21 @@ div.csl-indent {
 }
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
 <link href="../../imgs/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -150,11 +151,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- 可視化[発展]">
-<meta property="og:description" content="Jaehyun Song's personal homepage">
+<meta property="og:description" content="Jaehyun Song's personal…">
 <meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- 可視化[発展]">
-<meta name="twitter:description" content="Jaehyun Song's personal homepage">
+<meta name="twitter:description" content="Jaehyun Song's personal…">
 <meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
@@ -290,7 +291,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 24, 2022</p>
+      <p class="date">June 17, 2022</p>
     </div>
   </div>
     
@@ -1606,7 +1607,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんが、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。2022年May月24日現在、{rnaturalearthhires}はCRANに登録されておらず、GitHubの<a href="https://github.com/ropensci">ropensciレポジトリー</a>のみで公開されているため、今回は{pacman}の<code>p_load()</code>でなく、<code>p_load_gh()</code>を使用します。</p>
+<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんが、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。2022年Jun月17日現在、{rnaturalearthhires}はCRANに登録されておらず、GitHubの<a href="https://github.com/ropensci">ropensciレポジトリー</a>のみで公開されているため、今回は{pacman}の<code>p_load()</code>でなく、<code>p_load_gh()</code>を使用します。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>pacman<span class="sc">::</span><span class="fu">p_load_gh</span>(<span class="st">"ropensci/rnaturalearthhires"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

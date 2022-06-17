@@ -1,5 +1,5 @@
 ---
-title: "Software / Packages / Scripts"
+title: "Software / Packages / Scripts / Datasets"
 date: "`r Sys.Date()`"
 link-external-newwindow: true
 ---
@@ -13,7 +13,7 @@ link-external-newwindow: true
 * PRcalc <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc)</span>
    * 比例代表計算機; Proportional Representation Calculator
 * woRdle <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/woRdle)</span>
-   * Rパッケージ名で遊ぶ; WoRdle: Enjoying Wordle with R package names.
+   * Rパッケージ名で遊ぶWordle; WoRdle: Enjoying Wordle with R package names.
 
 ## Web Application
 
@@ -27,3 +27,8 @@ link-external-newwindow: true
 * 画像URLをランダムに取得するスクリプト<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/RIP)</span>
 * SimpleConjoint.js <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
    * サーバーなしでコンジョイント実験を行う（要Qualtrics）
+
+## Datasets
+
+* M-1 グランプリ決勝データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/M-1_Grand_Pix)</span>
+* インスタントラーメンの栄養成分データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/InstantNoodle)</span>
