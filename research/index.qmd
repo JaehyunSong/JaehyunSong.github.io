@@ -13,15 +13,15 @@ toc: true
 
 ### 進行中のプロジェクト
 
-1. **[Revise and Resubmit]** Fake News and its Electoral Consequences: A Survey Experiment on Mexico. (w/ [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and José Luis Estrada)
-1. **[Submitted]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[R&R]** Fake News and its Electoral Consequences: A Survey Experiment on Mexico. (w/ [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and José Luis Estrada)
+1. **[Under Review]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
 1. Get Out the Voter or Go Away? Evidence from Online Field Experiments. (w/ [Masaki Hata](http://hatam.sakura.ne.jp/))
 1. Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
 1. 復活当選が投票率に与える影響
-1. Assessing Local Support for Thacker Pass Lithium Mining in Nevada (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
 1. 香港における国家安全法に対する支持態度とリスト実験の安定性 (w/ 小林哲郎)
@@ -36,9 +36,9 @@ toc: true
 
 ### 論文
 
-1. **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022 (*forthcoming*). "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.*
+1. **[Accepted]** **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022 (*forthcoming*). "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.*
 <div class="jay_btn">[Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
-1. [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2022 (*forthcoming*). "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+1. **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2022 (*forthcoming*). "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
 1. **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか 」『自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
 1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
 1. Kobayashi, Tetsuro, **Jaehyun Song**, and Polly Chan. 2021. "Does repression undermine opposition demands? The case of the Hong Kong National Security Law." *Japanese Journal of Political Science,* 22(4): 268-286. <div class="jay_btn">[Full-text](https://doi.org/10.1017/S1468109921000256) [Replication Data](https://doi.org/10.7910/DVN/KJBRQG) [Featured in *Mingpao*, June 12, 2020](https://bit.ly/2YZw7sp)</div>
