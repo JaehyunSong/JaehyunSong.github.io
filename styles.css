@@ -18,4 +18,9 @@ figcaption {
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
+    color: #800000;
+}
+
+.jay_btn > a:hover {
+    background-color: #FCC9C5;
 }
