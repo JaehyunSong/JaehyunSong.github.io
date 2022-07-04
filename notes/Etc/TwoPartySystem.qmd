@@ -20,18 +20,17 @@ knitr::opts_chunk$set(dev       = "ragg_png",
    * ${SS}_2$: 第二政党の議席率（${SS}_2 > 0$）
 
 $$
-({SS}_1 + {SS}_2)\frac{{SS}_1}{{SS}_2}, \quad \text{where} \quad {SS}_1 \geq {SS}_2
+({SS}_1 + {SS}_2)\frac{{SS}_2}{{SS}_1}, \quad \text{where} \quad {SS}_1 \geq {SS}_2
 $$
 
 ## 何を重視するか
 
 * （A）全議席における二大政党議席数の割合（$({SS}_1 + {SS}_2)$）
    * 1に近いほど二大政党制
-* （B）二大政党の勢力均衡（$\frac{{SS}_1}{{SS}_2}$）
-   * 0に近いほど一党優位制
+* （B）二大政党の勢力均衡（$\frac{{SS}_2}{{SS}_1}$）
    * 1に近いほど二大政党制
-* (A)と(B)は0以上、1以下
-   * （A）と（B）の比が1なら完全なる二大政党制（2つの政党がちょうど50%、50%）
+   * 0に近いほど一党優位制か多党制
+* （A）と（B）の比が1なら完全なる二大政党制（2つの政党がちょうど50%、50%）
    * 0に近いほど多党制か、一党優位制
 
 ## 有効政党数（Lakkso）との比較
@@ -49,7 +48,7 @@ enp <- function(x) {
 tsi <- function(x) {
     ss1 <- rev(sort(x))[1]
     ss2 <- rev(sort(x))[2]
-    return((ss1 + ss2) / (ss1 / ss2))
+    return((ss1 + ss2) * (ss2 / ss1))
 }
 
 compare <- function(x) {

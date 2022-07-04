@@ -255,7 +255,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </ul></li>
 </ul>
 <p><span class="math display">\[
-({SS}_1 + {SS}_2)\frac{{SS}_1}{{SS}_2}, \quad \text{where} \quad {SS}_1 \geq {SS}_2
+({SS}_1 + {SS}_2)\frac{{SS}_2}{{SS}_1}, \quad \text{where} \quad {SS}_1 \geq {SS}_2
 \]</span></p>
 </section>
 <section id="何を重視するか" class="level2">
@@ -265,14 +265,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <ul>
 <li>1に近いほど二大政党制</li>
 </ul></li>
-<li>（B）二大政党の勢力均衡（<span class="math inline">\(\frac{{SS}_1}{{SS}_2}\)</span>）
+<li>（B）二大政党の勢力均衡（<span class="math inline">\(\frac{{SS}_2}{{SS}_1}\)</span>）
 <ul>
-<li>0に近いほど一党優位制</li>
 <li>1に近いほど二大政党制</li>
+<li>0に近いほど一党優位制か多党制</li>
 </ul></li>
-<li>(A)と(B)は0以上、1以下
+<li>（A）と（B）の比が1なら完全なる二大政党制（2つの政党がちょうど50%、50%）
 <ul>
-<li>（A）と（B）の比が1なら完全なる二大政党制（2つの政党がちょうど50%、50%）</li>
 <li>0に近いほど多党制か、一党優位制</li>
 </ul></li>
 </ul>
@@ -292,7 +291,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tsi <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ss1 <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">sort</span>(x))[<span class="dv">1</span>]</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ss2 <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">sort</span>(x))[<span class="dv">2</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>((ss1 <span class="sc">+</span> ss2) <span class="sc">/</span> (ss1 <span class="sc">/</span> ss2))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>((ss1 <span class="sc">+</span> ss2) <span class="sc">*</span> (ss2 <span class="sc">/</span> ss1))</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>compare <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
