@@ -34,6 +34,10 @@ link-external-newwindow: true
 * [大数の法則](simulation/llm.qmd) (Law of Large Number)
 * [黒ひげ危機一発](simulation/kurohige.qmd) (Pop-up Pirate)
 
+### その他
+
+* [二大政党制の指標に関する私案](Etc/TwoPartySystem.qmd)
+
 <!--
 ### 教科書・学習書など
 
