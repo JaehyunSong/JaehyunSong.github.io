@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.587">
+<meta name="generator" content="quarto-0.9.649">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-06-17">
+<meta name="dcterms.date" content="2022-07-07">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- dplyr入門</title>
 <style>
@@ -132,14 +132,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- dplyr入門">
-<meta property="og:description" content="Jaehyun Song's personal…">
-<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:description" content="Jaehyun Song's personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
+<meta property="og:image:height" content="260">
+<meta property="og:image:width" content="260">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- dplyr入門">
-<meta name="twitter:description" content="Jaehyun Song's personal…">
-<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta name="twitter:description" content="Jaehyun Song's personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="260">
+<meta name="twitter:image-width" content="260">
 </head>
 
 <body class="nav-fixed">
@@ -286,7 +290,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 17, 2022</p>
+      <p class="date">July 7, 2022</p>
     </div>
   </div>
     
@@ -348,12 +352,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="cbdkkmywpf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cuxcdmcxbk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#cbdkkmywpf .gt_table {
+#cuxcdmcxbk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -378,7 +382,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_heading {
+#cuxcdmcxbk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -390,7 +394,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_title {
+#cuxcdmcxbk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -402,7 +406,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-#cbdkkmywpf .gt_subtitle {
+#cuxcdmcxbk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -414,13 +418,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-width: 0;
 }
 
-#cbdkkmywpf .gt_bottom_border {
+#cuxcdmcxbk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_col_headings {
+#cuxcdmcxbk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -435,7 +439,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_col_heading {
+#cuxcdmcxbk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -455,7 +459,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#cbdkkmywpf .gt_column_spanner_outer {
+#cuxcdmcxbk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -467,15 +471,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-#cbdkkmywpf .gt_column_spanner_outer:first-child {
+#cuxcdmcxbk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cbdkkmywpf .gt_column_spanner_outer:last-child {
+#cuxcdmcxbk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cbdkkmywpf .gt_column_spanner {
+#cuxcdmcxbk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -487,7 +491,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-#cbdkkmywpf .gt_group_heading {
+#cuxcdmcxbk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -512,7 +516,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#cbdkkmywpf .gt_empty_group_heading {
+#cuxcdmcxbk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -527,15 +531,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#cbdkkmywpf .gt_from_md > :first-child {
+#cuxcdmcxbk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cbdkkmywpf .gt_from_md > :last-child {
+#cuxcdmcxbk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cbdkkmywpf .gt_row {
+#cuxcdmcxbk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -554,7 +558,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#cbdkkmywpf .gt_stub {
+#cuxcdmcxbk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -567,7 +571,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#cbdkkmywpf .gt_stub_row_group {
+#cuxcdmcxbk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -581,11 +585,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-#cbdkkmywpf .gt_row_group_first td {
+#cuxcdmcxbk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cbdkkmywpf .gt_summary_row {
+#cuxcdmcxbk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -595,16 +599,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#cbdkkmywpf .gt_first_summary_row {
+#cuxcdmcxbk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_first_summary_row.thick {
+#cuxcdmcxbk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cbdkkmywpf .gt_last_summary_row {
+#cuxcdmcxbk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -614,7 +618,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_grand_summary_row {
+#cuxcdmcxbk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -624,7 +628,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#cbdkkmywpf .gt_first_grand_summary_row {
+#cuxcdmcxbk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -634,11 +638,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_striped {
+#cuxcdmcxbk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cbdkkmywpf .gt_table_body {
+#cuxcdmcxbk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -647,7 +651,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_footnotes {
+#cuxcdmcxbk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -661,7 +665,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_footnote {
+#cuxcdmcxbk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -670,7 +674,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#cbdkkmywpf .gt_sourcenotes {
+#cuxcdmcxbk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -684,7 +688,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#cbdkkmywpf .gt_sourcenote {
+#cuxcdmcxbk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -692,36 +696,36 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#cbdkkmywpf .gt_left {
+#cuxcdmcxbk .gt_left {
   text-align: left;
 }
 
-#cbdkkmywpf .gt_center {
+#cuxcdmcxbk .gt_center {
   text-align: center;
 }
 
-#cbdkkmywpf .gt_right {
+#cuxcdmcxbk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cbdkkmywpf .gt_font_normal {
+#cuxcdmcxbk .gt_font_normal {
   font-weight: normal;
 }
 
-#cbdkkmywpf .gt_font_bold {
+#cuxcdmcxbk .gt_font_bold {
   font-weight: bold;
 }
 
-#cbdkkmywpf .gt_font_italic {
+#cuxcdmcxbk .gt_font_italic {
   font-style: italic;
 }
 
-#cbdkkmywpf .gt_super {
+#cuxcdmcxbk .gt_super {
   font-size: 65%;
 }
 
-#cbdkkmywpf .gt_two_val_uncert {
+#cuxcdmcxbk .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -730,31 +734,31 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   margin-left: 0.1em;
 }
 
-#cbdkkmywpf .gt_footnote_marks {
+#cuxcdmcxbk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#cbdkkmywpf .gt_asterisk {
+#cuxcdmcxbk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cbdkkmywpf .gt_slash_mark {
+#cuxcdmcxbk .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#cbdkkmywpf .gt_fraction_numerator {
+#cuxcdmcxbk .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#cbdkkmywpf .gt_fraction_denominator {
+#cuxcdmcxbk .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1650,18 +1654,18 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb95-3"><a href="#cb95-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   ID      Name                             Pref     Budget Score
-   &lt;chr&gt;   &lt;chr&gt;                            &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
- 1 7327304 なかむら家                       埼玉県       NA NA   
- 2 5713280 蝦夷らーめん 太志                東京都       NA NA   
- 3 6284736 炙り鯛だしらーめん つけ麺 サクラ 奈良県       NA NA   
- 4 6715292 保盛軒                           埼玉県       NA NA   
- 5 7640541 in EZO 絆                        埼玉県       NA NA   
- 6 7691208 喜喜ラーメン 本店                千葉県       NA NA   
- 7 6332389 横濱家 高尾店                    東京都       NA NA   
- 8 7459805 MENYA BIBIRI                     奈良県       NA NA   
- 9 5508054 山神山人 大倉山店                兵庫県       NA  3.75
-10 7084598 らぁめん元住家                   神奈川県     NA NA   </code></pre>
+   ID      Name                                 Pref   Budget Score
+   &lt;chr&gt;   &lt;chr&gt;                                &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 6514273 てらッちょ柏店                       千葉県     NA  NA  
+ 2 7648761 中華そば あおい                      埼玉県     NA  NA  
+ 3 5495849 台方ラーメン甚兵衛渡し               千葉県     NA  NA  
+ 4 7685211 らーめん工房 えびそば屋 東大阪吉田店 大阪府     NA  NA  
+ 5 5553355 ラーメンまこと屋 イオンタウン佐用店  兵庫県     NA  NA  
+ 6 7698760 極厚焼豚らーめん天翔                 大阪府    850  NA  
+ 7 7055835 AFURI 六本木交差点                   東京都     NA  NA  
+ 8 7207113 麺屋Ryoma 石橋本店                   大阪府     NA  NA  
+ 9 7104601 大治飯店                             東京都     NA  NA  
+10 7356411 らーめんZoot                         東京都   1000   3.5</code></pre>
 </div>
 </div>
 <p>　のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
@@ -3428,12 +3432,12 @@ Levels: 関東 その他</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="aiuwqsjxyn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cmegatzcox" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#aiuwqsjxyn .gt_table {
+#cmegatzcox .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3458,7 +3462,7 @@ Levels: 関東 その他</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_heading {
+#cmegatzcox .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3470,7 +3474,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_title {
+#cmegatzcox .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3482,7 +3486,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-width: 0;
 }
 
-#aiuwqsjxyn .gt_subtitle {
+#cmegatzcox .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3494,13 +3498,13 @@ Levels: 関東 その他</code></pre>
   border-top-width: 0;
 }
 
-#aiuwqsjxyn .gt_bottom_border {
+#cmegatzcox .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_col_headings {
+#cmegatzcox .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3515,7 +3519,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_col_heading {
+#cmegatzcox .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3535,7 +3539,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#aiuwqsjxyn .gt_column_spanner_outer {
+#cmegatzcox .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3547,15 +3551,15 @@ Levels: 関東 その他</code></pre>
   padding-right: 4px;
 }
 
-#aiuwqsjxyn .gt_column_spanner_outer:first-child {
+#cmegatzcox .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aiuwqsjxyn .gt_column_spanner_outer:last-child {
+#cmegatzcox .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aiuwqsjxyn .gt_column_spanner {
+#cmegatzcox .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3567,7 +3571,7 @@ Levels: 関東 その他</code></pre>
   width: 100%;
 }
 
-#aiuwqsjxyn .gt_group_heading {
+#cmegatzcox .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3592,7 +3596,7 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#aiuwqsjxyn .gt_empty_group_heading {
+#cmegatzcox .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3607,15 +3611,15 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#aiuwqsjxyn .gt_from_md > :first-child {
+#cmegatzcox .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aiuwqsjxyn .gt_from_md > :last-child {
+#cmegatzcox .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aiuwqsjxyn .gt_row {
+#cmegatzcox .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3634,7 +3638,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#aiuwqsjxyn .gt_stub {
+#cmegatzcox .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3647,7 +3651,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#aiuwqsjxyn .gt_stub_row_group {
+#cmegatzcox .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3661,11 +3665,11 @@ Levels: 関東 その他</code></pre>
   vertical-align: top;
 }
 
-#aiuwqsjxyn .gt_row_group_first td {
+#cmegatzcox .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aiuwqsjxyn .gt_summary_row {
+#cmegatzcox .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3675,16 +3679,16 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#aiuwqsjxyn .gt_first_summary_row {
+#cmegatzcox .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_first_summary_row.thick {
+#cmegatzcox .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aiuwqsjxyn .gt_last_summary_row {
+#cmegatzcox .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3694,7 +3698,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_grand_summary_row {
+#cmegatzcox .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3704,7 +3708,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#aiuwqsjxyn .gt_first_grand_summary_row {
+#cmegatzcox .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3714,11 +3718,11 @@ Levels: 関東 その他</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_striped {
+#cmegatzcox .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aiuwqsjxyn .gt_table_body {
+#cmegatzcox .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3727,7 +3731,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_footnotes {
+#cmegatzcox .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3741,7 +3745,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_footnote {
+#cmegatzcox .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3750,7 +3754,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#aiuwqsjxyn .gt_sourcenotes {
+#cmegatzcox .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3764,7 +3768,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#aiuwqsjxyn .gt_sourcenote {
+#cmegatzcox .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3772,36 +3776,36 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#aiuwqsjxyn .gt_left {
+#cmegatzcox .gt_left {
   text-align: left;
 }
 
-#aiuwqsjxyn .gt_center {
+#cmegatzcox .gt_center {
   text-align: center;
 }
 
-#aiuwqsjxyn .gt_right {
+#cmegatzcox .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aiuwqsjxyn .gt_font_normal {
+#cmegatzcox .gt_font_normal {
   font-weight: normal;
 }
 
-#aiuwqsjxyn .gt_font_bold {
+#cmegatzcox .gt_font_bold {
   font-weight: bold;
 }
 
-#aiuwqsjxyn .gt_font_italic {
+#cmegatzcox .gt_font_italic {
   font-style: italic;
 }
 
-#aiuwqsjxyn .gt_super {
+#cmegatzcox .gt_super {
   font-size: 65%;
 }
 
-#aiuwqsjxyn .gt_two_val_uncert {
+#cmegatzcox .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -3810,31 +3814,31 @@ Levels: 関東 その他</code></pre>
   margin-left: 0.1em;
 }
 
-#aiuwqsjxyn .gt_footnote_marks {
+#cmegatzcox .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#aiuwqsjxyn .gt_asterisk {
+#cmegatzcox .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aiuwqsjxyn .gt_slash_mark {
+#cmegatzcox .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#aiuwqsjxyn .gt_fraction_numerator {
+#cmegatzcox .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#aiuwqsjxyn .gt_fraction_denominator {
+#cmegatzcox .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -3935,17 +3939,17 @@ Levels: 関東 その他</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "埼玉県"   "兵庫県"   "東京都"   "奈良県"   "京都府"   "和歌山県" "千葉県"  
-[8] "神奈川県" "大阪府"  </code></pre>
+<pre><code>[1] "埼玉県"   "京都府"   "千葉県"   "奈良県"   "東京都"   "大阪府"   "兵庫県"  
+[8] "和歌山県" "神奈川県"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "和歌山県" "兵庫県"   "京都府"   "神奈川県" "大阪府"   "東京都"   "埼玉県"  
-[8] "千葉県"   "奈良県"  </code></pre>
+<pre><code>[1] "東京都"   "千葉県"   "埼玉県"   "兵庫県"   "大阪府"   "奈良県"   "和歌山県"
+[8] "京都府"   "神奈川県"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "大阪府"   "奈良県"   "埼玉県"   "兵庫県"   "東京都"   "京都府"   "神奈川県"
+<pre><code>[1] "京都府"   "奈良県"   "埼玉県"   "大阪府"   "兵庫県"   "東京都"   "神奈川県"
 [8] "和歌山県" "千葉県"  </code></pre>
 </div>
 </div>
@@ -4749,12 +4753,12 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="msrydjmmtn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cjtjzdsgvz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#msrydjmmtn .gt_table {
+#cjtjzdsgvz .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4779,7 +4783,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_heading {
+#cjtjzdsgvz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4791,7 +4795,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_title {
+#cjtjzdsgvz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4803,7 +4807,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-width: 0;
 }
 
-#msrydjmmtn .gt_subtitle {
+#cjtjzdsgvz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4815,13 +4819,13 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-width: 0;
 }
 
-#msrydjmmtn .gt_bottom_border {
+#cjtjzdsgvz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_col_headings {
+#cjtjzdsgvz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4836,7 +4840,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_col_heading {
+#cjtjzdsgvz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4856,7 +4860,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#msrydjmmtn .gt_column_spanner_outer {
+#cjtjzdsgvz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4868,15 +4872,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 4px;
 }
 
-#msrydjmmtn .gt_column_spanner_outer:first-child {
+#cjtjzdsgvz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#msrydjmmtn .gt_column_spanner_outer:last-child {
+#cjtjzdsgvz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#msrydjmmtn .gt_column_spanner {
+#cjtjzdsgvz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4888,7 +4892,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   width: 100%;
 }
 
-#msrydjmmtn .gt_group_heading {
+#cjtjzdsgvz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4913,7 +4917,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#msrydjmmtn .gt_empty_group_heading {
+#cjtjzdsgvz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4928,15 +4932,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#msrydjmmtn .gt_from_md > :first-child {
+#cjtjzdsgvz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#msrydjmmtn .gt_from_md > :last-child {
+#cjtjzdsgvz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#msrydjmmtn .gt_row {
+#cjtjzdsgvz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4955,7 +4959,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#msrydjmmtn .gt_stub {
+#cjtjzdsgvz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4968,7 +4972,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#msrydjmmtn .gt_stub_row_group {
+#cjtjzdsgvz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4982,11 +4986,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: top;
 }
 
-#msrydjmmtn .gt_row_group_first td {
+#cjtjzdsgvz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#msrydjmmtn .gt_summary_row {
+#cjtjzdsgvz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4996,16 +5000,16 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#msrydjmmtn .gt_first_summary_row {
+#cjtjzdsgvz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_first_summary_row.thick {
+#cjtjzdsgvz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#msrydjmmtn .gt_last_summary_row {
+#cjtjzdsgvz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5015,7 +5019,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_grand_summary_row {
+#cjtjzdsgvz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5025,7 +5029,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#msrydjmmtn .gt_first_grand_summary_row {
+#cjtjzdsgvz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5035,11 +5039,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_striped {
+#cjtjzdsgvz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#msrydjmmtn .gt_table_body {
+#cjtjzdsgvz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5048,7 +5052,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_footnotes {
+#cjtjzdsgvz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5062,7 +5066,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_footnote {
+#cjtjzdsgvz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5071,7 +5075,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#msrydjmmtn .gt_sourcenotes {
+#cjtjzdsgvz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5085,7 +5089,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#msrydjmmtn .gt_sourcenote {
+#cjtjzdsgvz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5093,36 +5097,36 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#msrydjmmtn .gt_left {
+#cjtjzdsgvz .gt_left {
   text-align: left;
 }
 
-#msrydjmmtn .gt_center {
+#cjtjzdsgvz .gt_center {
   text-align: center;
 }
 
-#msrydjmmtn .gt_right {
+#cjtjzdsgvz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#msrydjmmtn .gt_font_normal {
+#cjtjzdsgvz .gt_font_normal {
   font-weight: normal;
 }
 
-#msrydjmmtn .gt_font_bold {
+#cjtjzdsgvz .gt_font_bold {
   font-weight: bold;
 }
 
-#msrydjmmtn .gt_font_italic {
+#cjtjzdsgvz .gt_font_italic {
   font-style: italic;
 }
 
-#msrydjmmtn .gt_super {
+#cjtjzdsgvz .gt_super {
   font-size: 65%;
 }
 
-#msrydjmmtn .gt_two_val_uncert {
+#cjtjzdsgvz .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -5131,31 +5135,31 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   margin-left: 0.1em;
 }
 
-#msrydjmmtn .gt_footnote_marks {
+#cjtjzdsgvz .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#msrydjmmtn .gt_asterisk {
+#cjtjzdsgvz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#msrydjmmtn .gt_slash_mark {
+#cjtjzdsgvz .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#msrydjmmtn .gt_fraction_numerator {
+#cjtjzdsgvz .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#msrydjmmtn .gt_fraction_denominator {
+#cjtjzdsgvz .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;

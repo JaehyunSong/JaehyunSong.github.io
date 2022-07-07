@@ -28,7 +28,7 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
    * macOS 12.4 "Monterey"
    * Firefox 102.0.0
    * `r version$version.string`
-   * RStudio 2022.02.3+492 "Prairie Trillium"
+   * RStudio 2022.07.0+545 "Spotted Wakerobin"
    * Quarto `r quarto::quarto_inspect()$quarto$version`
    * R package {quarto} `r packageVersion("quarto")`
 :::

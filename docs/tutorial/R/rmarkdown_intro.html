@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.587">
+<meta name="generator" content="quarto-0.9.649">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-06-17">
+<meta name="dcterms.date" content="2022-07-07">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- R Markdown入門</title>
 <style>
@@ -132,14 +132,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- R Markdown入門">
-<meta property="og:description" content="Jaehyun Song's personal…">
-<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:description" content="Jaehyun Song's personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
+<meta property="og:image:height" content="260">
+<meta property="og:image:width" content="260">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- R Markdown入門">
-<meta name="twitter:description" content="Jaehyun Song's personal…">
-<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta name="twitter:description" content="Jaehyun Song's personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="260">
+<meta name="twitter:image-width" content="260">
 </head>
 
 <body class="nav-fixed">
@@ -275,7 +279,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 17, 2022</p>
+      <p class="date">July 7, 2022</p>
     </div>
   </div>
     
@@ -822,7 +826,7 @@ X = \begin{bmatrix}
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">fig.align =</span> <span class="st">"center"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>　こう書いておくと、そのRMarkdownファイルの全てのチャンクに<code>fig.align = "center"</code>と<code>dpi = 300</code>オプションが付くようになります。一部のチャンクに<code>fig.align</code>や<code>dpi</code>のオプションを付ける場合、当該チャンクのオプションが優先されます。</p>
-<p>　このようにチャンクオプションが見やすくなるメリットがありますが、現在 (2022年06月17日)のRStudioは、チャンク内部のオプション指定の入力補助に対応していないことに注意してください。通常の書き方だと<code>if()</code>文のような条件分岐がチャンクのオプションとして使えますが、<code>#|</code>の書き方だと正しく作動しません。ただし、<code>#| eval: ...</code>を<code>#| eval = ...</code>にすると作動します。</p>
+<p>　このようにチャンクオプションが見やすくなるメリットがありますが、現在 (2022年07月07日)のRStudioは、チャンク内部のオプション指定の入力補助に対応していないことに注意してください。通常の書き方だと<code>if()</code>文のような条件分岐がチャンクのオプションとして使えますが、<code>#|</code>の書き方だと正しく作動しません。ただし、<code>#| eval: ...</code>を<code>#| eval = ...</code>にすると作動します。</p>
 </section>
 </section>
 <section id="rmarkdown-header" class="level2">
