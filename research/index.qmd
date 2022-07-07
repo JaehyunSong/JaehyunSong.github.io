@@ -15,17 +15,17 @@ toc-depth: 5
 ### 進行中のプロジェクト
 
 1. **[Under Review]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Submitted]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
 1. Get Out the Voter or Go Away? Evidence from Online Field Experiments. (w/ [Masaki Hata](http://hatam.sakura.ne.jp/))
 1. Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
 1. 復活当選が投票率に与える影響
-1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
 1. 香港における国家安全法に対する支持態度とリスト実験の安定性 (w/ 小林哲郎)
-1. Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 
 ### 著書
 
