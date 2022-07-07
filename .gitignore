@@ -23,3 +23,5 @@
 *.Rproj
 /.quarto/
 /.Rproj.user/
+
+/docs/CNAME
