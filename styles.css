@@ -26,3 +26,7 @@ figcaption {
     padding-left: 4px;
     border-width: 2px;
 }
+
+p {
+    line-height: 1.6em;
+}
