@@ -39,10 +39,10 @@ toc-depth: 5
 
 ##### 2022
 
-1. **[Accepted]** [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022 (*forthcoming*). "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*.
 1. **[Accepted]** **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022 (*forthcoming*). "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.*
 <div class="jay_btn">[Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
 1. **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2022 (*forthcoming*). "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+1. [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Online first. <div class="jay_btn">[Full-text](https://doi.org/10.1007/s00146-022-01541-9)</div>
 1. **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか 」『自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
 
 ##### 2021
