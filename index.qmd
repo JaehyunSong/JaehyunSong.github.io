@@ -26,7 +26,7 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 * Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
 * Environment
    * macOS 12.4 "Monterey"
-   * Firefox 102.0.0
+   * Firefox 102.0.1
    * `r version$version.string`
    * RStudio 2022.07.0+545 "Spotted Wakerobin"
    * Quarto `r quarto::quarto_inspect()$quarto$version`

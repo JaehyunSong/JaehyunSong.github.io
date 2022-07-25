@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -447,7 +447,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-punchedcard" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Blue-punch-card-front-horiz.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: パンチカードの例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 1: パンチカードの例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1106,15 +1106,15 @@ Team: New Caledonia
 <span id="cb80-16"><a href="#cb80-16"></a>  Trial <span class="ot">&lt;-</span> Trial <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb80-17"><a href="#cb80-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 5(これまでの総和: 5)"
-[1] "2回目のサイコロ投げの結果: 2(これまでの総和: 7)"
-[1] "3回目のサイコロ投げの結果: 1(これまでの総和: 8)"
-[1] "4回目のサイコロ投げの結果: 4(これまでの総和: 12)"
-[1] "5回目のサイコロ投げの結果: 6(これまでの総和: 18)"
-[1] "6回目のサイコロ投げの結果: 1(これまでの総和: 19)"
-[1] "7回目のサイコロ投げの結果: 6(これまでの総和: 25)"
-[1] "8回目のサイコロ投げの結果: 4(これまでの総和: 29)"
-[1] "9回目のサイコロ投げの結果: 4(これまでの総和: 33)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 2(これまでの総和: 2)"
+[1] "2回目のサイコロ投げの結果: 2(これまでの総和: 4)"
+[1] "3回目のサイコロ投げの結果: 5(これまでの総和: 9)"
+[1] "4回目のサイコロ投げの結果: 6(これまでの総和: 15)"
+[1] "5回目のサイコロ投げの結果: 1(これまでの総和: 16)"
+[1] "6回目のサイコロ投げの結果: 4(これまでの総和: 20)"
+[1] "7回目のサイコロ投げの結果: 4(これまでの総和: 24)"
+[1] "8回目のサイコロ投げの結果: 2(これまでの総和: 26)"
+[1] "9回目のサイコロ投げの結果: 4(これまでの総和: 30)"</code></pre>
 </div>
 </div>
 <p>それでは、コードの説明をします。まず、これまで出た目の和を記録する変数<code>Total</code>を用意し、初期値として0を格納します。また、何回目の投げかを記録するための<code>Trial</code>変数を記録し、初期値として1を格納しておきます (コードの1、2行目)。</p>
@@ -1139,13 +1139,14 @@ Team: New Caledonia
 <span id="cb82-14"><a href="#cb82-14"></a>  }</span>
 <span id="cb82-15"><a href="#cb82-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 2 (これまでの総和: 2)"
-[1] "2回目のサイコロ投げの結果: 3 (これまでの総和: 5)"
-[1] "3回目のサイコロ投げの結果: 6 (これまでの総和: 11)"
-[1] "4回目のサイコロ投げの結果: 6 (これまでの総和: 17)"
-[1] "5回目のサイコロ投げの結果: 5 (これまでの総和: 22)"
-[1] "6回目のサイコロ投げの結果: 5 (これまでの総和: 27)"
-[1] "7回目のサイコロ投げの結果: 3 (これまでの総和: 30)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 6 (これまでの総和: 6)"
+[1] "2回目のサイコロ投げの結果: 1 (これまでの総和: 7)"
+[1] "3回目のサイコロ投げの結果: 4 (これまでの総和: 11)"
+[1] "4回目のサイコロ投げの結果: 3 (これまでの総和: 14)"
+[1] "5回目のサイコロ投げの結果: 3 (これまでの総和: 17)"
+[1] "6回目のサイコロ投げの結果: 4 (これまでの総和: 21)"
+[1] "7回目のサイコロ投げの結果: 6 (これまでの総和: 27)"
+[1] "8回目のサイコロ投げの結果: 3 (これまでの総和: 30)"</code></pre>
 </div>
 </div>
 <p>まず、サイコロを何回投げれば良いかは分かりませんが6面サイコロの場合、30回以内には必ず合計30になるので、まず<code>Trial in 1:30</code>とします。あとは<code>while()</code>文の書き方とほぼ同じですが、今回は<code>i</code>が自動的に更新されるので<code>i &lt;- i + 1</code>は不要です。ただし、一定の条件が満たされる場合、<code>for()</code>文を停止する必要があります。そこで登場するのが条件分岐と<code>break()</code>です。条件分岐は次節で説明しますが、これは「<code>Total</code>が30以上になった場合、ループから脱出せよ」を意味します。このループからの脱出を指示する関数が<code>break()</code>です。ちなみに、<code>break()</code>関数は<code>()</code>を抜いて<code>break</code>と書いても問題ありません。また、<code>if(){}</code>内の処理内容は一行ですので、<code>if (Total &gt;= 30) break</code>のような書き方でも問題ありません。</p>
@@ -1766,7 +1767,7 @@ Team: New Caledonia
 <div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a><span class="fu">DQ_Attack</span>(<span class="dv">13</span>, <span class="at">defence =</span> <span class="dv">7</span>, <span class="at">hp =</span> <span class="dv">7</span>, <span class="st">"スライム"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "スライムに4のダメージ!!"
-[1] "スライムに5のダメージ!!"</code></pre>
+[1] "スライムに4のダメージ!!"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "スライムをやっつけた！"</code></pre>
@@ -1776,24 +1777,12 @@ Team: New Caledonia
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="fu">DQ_Attack</span>(<span class="dv">13</span>, <span class="at">defence =</span> <span class="dv">44</span>, <span class="at">hp =</span> <span class="dv">40</span>, <span class="st">"スライムナイト"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "スライムナイトに0のダメージ!!"
+<pre><code>[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
@@ -1801,22 +1790,6 @@ Team: New Caledonia
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
@@ -1827,6 +1800,46 @@ Team: New Caledonia
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
@@ -1834,19 +1847,16 @@ Team: New Caledonia
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -1964,6 +1974,24 @@ X_{n+1} = (aX_n + c) \text{ mod } m
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

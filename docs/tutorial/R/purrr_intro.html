@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -516,7 +516,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-map-inside" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Iteration/map_inside.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: <code>map_*()</code>関数群のイメージ</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 1: <code>map_*()</code>関数群のイメージ</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -868,87 +868,97 @@ dbl (14): Population, Area, GDP, PPP, GDP_per_capita, PPP_per_capita, G7, G2...
 <div class="cell-output cell-output-stdout">
 <pre><code>$Africa
 # A tibble: 54 × 18
-   Country   Population   Area    GDP    PPP GDP_per_capita PPP_per_capita    G7
-   &lt;chr&gt;          &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
- 1 Algeria     43851044 2.38e6 1.70e5 4.97e5          3876.         11324.     0
- 2 Angola      32866272 1.25e6 9.46e4 2.19e5          2879.          6649.     0
- 3 Benin       12123200 1.13e5 1.44e4 3.72e4          1187.          3067.     0
- 4 Botswana     2351627 5.67e5 1.83e4 4.07e4          7799.         17311.     0
- 5 Burkina …   20903273 2.74e5 1.57e4 3.76e4           753.          1800.     0
- 6 Burundi     11890784 2.57e4 3.01e3 8.72e3           253.           733.     0
- 7 Cabo Ver…     555987 4.03e3 1.98e3 3.84e3          3565.          6913.     0
- 8 Cameroon    26545863 4.73e5 3.88e4 9.31e4          1460.          3506.     0
- 9 Central …    4829767 6.23e5 2.22e3 4.46e3           460.           924.     0
-10 Chad        16425864 1.26e6 1.13e4 2.51e4           689.          1525.     0
-# … with 44 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
-#   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
-#   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+   Country        Popul…¹   Area    GDP    PPP GDP_p…² PPP_p…³    G7   G20  OECD
+   &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Algeria         4.39e7 2.38e6 1.70e5 4.97e5   3876.  11324.     0     0     0
+ 2 Angola          3.29e7 1.25e6 9.46e4 2.19e5   2879.   6649.     0     0     0
+ 3 Benin           1.21e7 1.13e5 1.44e4 3.72e4   1187.   3067.     0     0     0
+ 4 Botswana        2.35e6 5.67e5 1.83e4 4.07e4   7799.  17311.     0     0     0
+ 5 Burkina Faso    2.09e7 2.74e5 1.57e4 3.76e4    753.   1800.     0     0     0
+ 6 Burundi         1.19e7 2.57e4 3.01e3 8.72e3    253.    733.     0     0     0
+ 7 Cabo Verde      5.56e5 4.03e3 1.98e3 3.84e3   3565.   6913.     0     0     0
+ 8 Cameroon        2.65e7 4.73e5 3.88e4 9.31e4   1460.   3506.     0     0     0
+ 9 Central Afric…  4.83e6 6.23e5 2.22e3 4.46e3    460.    924.     0     0     0
+10 Chad            1.64e7 1.26e6 1.13e4 2.51e4    689.   1525.     0     0     0
+# … with 44 more rows, 8 more variables: HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;,
+#   Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;,
+#   FH_Status &lt;chr&gt;, Continent &lt;chr&gt;, and abbreviated variable names
+#   ¹​Population, ²​GDP_per_capita, ³​PPP_per_capita
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
 
 $America
 # A tibble: 36 × 18
-   Country   Population   Area    GDP    PPP GDP_per_capita PPP_per_capita    G7
-   &lt;chr&gt;          &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
- 1 Antigua …      97929 4.4 e2 1.73e3 2.08e3         17643.         21267.     0
- 2 Argentina   45195774 2.74e6 4.50e5 1.04e6          9949.         22938.     0
- 3 Bahamas       393244 1.00e4 1.28e4 1.40e4         32618.         35662.     0
- 4 Barbados      287375 4.3 e2 5.21e3 4.62e3         18126.         16066.     0
- 5 Belize        397628 2.28e4 1.88e3 2.82e3          4727.          7091.     0
- 6 Bolivia     11673021 1.08e6 4.09e4 1.01e5          3503.          8623.     0
- 7 Brazil     212559417 8.36e6 1.84e6 3.13e6          8655.         14734.     0
- 8 Canada      37742154 9.09e6 1.74e6 1.85e6         46008.         49088.     1
- 9 Chile       19116201 7.44e5 2.82e5 4.64e5         14769.         24262.     0
-10 Colombia    50882891 1.11e6 3.24e5 7.37e5          6364.         14475.     0
-# … with 26 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
-#   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
-#   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+   Country        Popul…¹   Area    GDP    PPP GDP_p…² PPP_p…³    G7   G20  OECD
+   &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Antigua and B…  9.79e4 4.4 e2 1.73e3 2.08e3  17643.  21267.     0     0     0
+ 2 Argentina       4.52e7 2.74e6 4.50e5 1.04e6   9949.  22938.     0     1     0
+ 3 Bahamas         3.93e5 1.00e4 1.28e4 1.40e4  32618.  35662.     0     0     0
+ 4 Barbados        2.87e5 4.3 e2 5.21e3 4.62e3  18126.  16066.     0     0     0
+ 5 Belize          3.98e5 2.28e4 1.88e3 2.82e3   4727.   7091.     0     0     0
+ 6 Bolivia         1.17e7 1.08e6 4.09e4 1.01e5   3503.   8623.     0     0     0
+ 7 Brazil          2.13e8 8.36e6 1.84e6 3.13e6   8655.  14734.     0     1     0
+ 8 Canada          3.77e7 9.09e6 1.74e6 1.85e6  46008.  49088.     1     1     1
+ 9 Chile           1.91e7 7.44e5 2.82e5 4.64e5  14769.  24262.     0     0     1
+10 Colombia        5.09e7 1.11e6 3.24e5 7.37e5   6364.  14475.     0     0     1
+# … with 26 more rows, 8 more variables: HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;,
+#   Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;,
+#   FH_Status &lt;chr&gt;, Continent &lt;chr&gt;, and abbreviated variable names
+#   ¹​Population, ²​GDP_per_capita, ³​PPP_per_capita
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
 
 $Asia
 # A tibble: 42 × 18
-   Country   Population   Area    GDP    PPP GDP_per_capita PPP_per_capita    G7
-   &lt;chr&gt;          &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
- 1 Afghanis…   38928346 6.53e5 1.91e4 8.27e4           491.          2125.     0
- 2 Bahrain      1701575 7.6 e2 3.86e4 7.42e4         22670.         43624.     0
- 3 Banglade…  164689383 1.30e5 3.03e5 7.34e5          1837.          4458.     0
- 4 Bhutan        771608 3.81e4 2.45e3 8.77e3          3171.         11363.     0
- 5 Brunei        437479 5.27e3 1.35e4 2.65e4         30789.         60656.     0
- 6 Burma       54409800 6.53e5 7.61e4 2.68e5          1398.          4932.     0
- 7 Cambodia    16718965 1.77e5 2.71e4 6.93e4          1620.          4142.     0
- 8 China     1447470092 9.39e6 1.48e7 2.20e7         10199.         15177.     0
- 9 India     1380004385 2.97e6 2.88e6 9.06e6          2083.          6564.     0
-10 Indonesia  273523615 1.81e6 1.12e6 3.12e6          4092.         11397.     0
-# … with 32 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
-#   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
-#   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+   Country     Population   Area    GDP    PPP GDP_p…¹ PPP_p…²    G7   G20  OECD
+   &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Afghanistan   38928346 6.53e5 1.91e4 8.27e4    491.   2125.     0     0     0
+ 2 Bahrain        1701575 7.6 e2 3.86e4 7.42e4  22670.  43624.     0     0     0
+ 3 Bangladesh   164689383 1.30e5 3.03e5 7.34e5   1837.   4458.     0     0     0
+ 4 Bhutan          771608 3.81e4 2.45e3 8.77e3   3171.  11363.     0     0     0
+ 5 Brunei          437479 5.27e3 1.35e4 2.65e4  30789.  60656.     0     0     0
+ 6 Burma         54409800 6.53e5 7.61e4 2.68e5   1398.   4932.     0     0     0
+ 7 Cambodia      16718965 1.77e5 2.71e4 6.93e4   1620.   4142.     0     0     0
+ 8 China       1447470092 9.39e6 1.48e7 2.20e7  10199.  15177.     0     1     0
+ 9 India       1380004385 2.97e6 2.88e6 9.06e6   2083.   6564.     0     1     0
+10 Indonesia    273523615 1.81e6 1.12e6 3.12e6   4092.  11397.     0     1     0
+# … with 32 more rows, 8 more variables: HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;,
+#   Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;,
+#   FH_Status &lt;chr&gt;, Continent &lt;chr&gt;, and abbreviated variable names
+#   ¹​GDP_per_capita, ²​PPP_per_capita
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
 
 $Europe
 # A tibble: 50 × 18
-   Country  Population   Area    GDP     PPP GDP_per_capita PPP_per_capita    G7
-   &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
- 1 Albania     2877797  27400 1.53e4  39658.          5309.         13781.     0
- 2 Andorra       77265    470 3.15e3     NA          40821.            NA      0
- 3 Armenia     2963243  28470 1.37e4  38446.          4614.         12974.     0
- 4 Austria     9006398  82409 4.46e5 502771.         49555.         55824.     0
- 5 Azerbai…   10139177  82658 4.80e4 144556.          4739.         14257.     0
- 6 Belarus     9449323 202910 6.31e4 183461.          6676.         19415.     0
- 7 Belgium    11589623  30280 5.30e5 597433.         45697.         51549.     0
- 8 Bosnia …    3280819  51000 2.00e4  49733.          6111.         15159.     0
- 9 Bulgaria    6948445 108560 6.79e4 156693.          9776.         22551.     0
-10 Croatia     4105267  55960 6.04e4 114932.         14717.         27996.     0
-# … with 40 more rows, and 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;,
-#   HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
-#   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;
+   Country       Popul…¹   Area    GDP     PPP GDP_p…² PPP_p…³    G7   G20  OECD
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Albania        2.88e6  27400 1.53e4  39658.   5309.  13781.     0     0     0
+ 2 Andorra        7.73e4    470 3.15e3     NA   40821.     NA      0     0     0
+ 3 Armenia        2.96e6  28470 1.37e4  38446.   4614.  12974.     0     0     0
+ 4 Austria        9.01e6  82409 4.46e5 502771.  49555.  55824.     0     0     1
+ 5 Azerbaijan     1.01e7  82658 4.80e4 144556.   4739.  14257.     0     0     0
+ 6 Belarus        9.45e6 202910 6.31e4 183461.   6676.  19415.     0     0     0
+ 7 Belgium        1.16e7  30280 5.30e5 597433.  45697.  51549.     0     0     1
+ 8 Bosnia and H…  3.28e6  51000 2.00e4  49733.   6111.  15159.     0     0     0
+ 9 Bulgaria       6.95e6 108560 6.79e4 156693.   9776.  22551.     0     0     0
+10 Croatia        4.11e6  55960 6.04e4 114932.  14717.  27996.     0     0     0
+# … with 40 more rows, 8 more variables: HDI_2018 &lt;dbl&gt;, Polity_Score &lt;dbl&gt;,
+#   Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;,
+#   FH_Status &lt;chr&gt;, Continent &lt;chr&gt;, and abbreviated variable names
+#   ¹​Population, ²​GDP_per_capita, ³​PPP_per_capita
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
 
 $Oceania
 # A tibble: 4 × 18
-  Country    Population   Area    GDP    PPP GDP_per_capita PPP_per_capita    G7
-  &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
-1 Australia    25499884 7.68e6 1.39e6 1.28e6         54615.         50001.     0
-2 Fiji           896445 1.83e4 5.54e3 1.25e4          6175.         13940.     0
-3 New Zeala…    4842780 2.64e5 2.07e5 2.04e5         42729.         42178.     0
-4 Papua New…    8947024 4.53e5 2.50e4 3.73e4          2791.          4171.     0
-# … with 10 more variables: G20 &lt;dbl&gt;, OECD &lt;dbl&gt;, HDI_2018 &lt;dbl&gt;,
-#   Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;, FH_CL &lt;dbl&gt;,
-#   FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;</code></pre>
+  Country Popul…¹   Area    GDP    PPP GDP_p…² PPP_p…³    G7   G20  OECD HDI_2…⁴
+  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 Austra…  2.55e7 7.68e6 1.39e6 1.28e6  54615.  50001.     0     1     1   0.938
+2 Fiji     8.96e5 1.83e4 5.54e3 1.25e4   6175.  13940.     0     0     0   0.724
+3 New Ze…  4.84e6 2.64e5 2.07e5 2.04e5  42729.  42178.     0     0     1   0.921
+4 Papua …  8.95e6 4.53e5 2.50e4 3.73e4   2791.   4171.     0     0     0   0.543
+# … with 7 more variables: Polity_Score &lt;dbl&gt;, Polity_Type &lt;chr&gt;, FH_PR &lt;dbl&gt;,
+#   FH_CL &lt;dbl&gt;, FH_Total &lt;dbl&gt;, FH_Status &lt;chr&gt;, Continent &lt;chr&gt;, and
+#   abbreviated variable names ¹​Population, ²​GDP_per_capita, ³​PPP_per_capita,
+#   ⁴​HDI_2018
+# ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>それでは分割された各サンプルに対して<code>Polity_Score</code>と<code>FH_Total</code>の相関係数を計算してみましょう。その前に相関分析の方法について調べてみましょう。Rには相関分析の関数が2つ用意されています。単純に相関係数のみを計算するなら<code>cor()</code>、係数の不確実性（標準誤差、信頼区間など）まで計算し、検定を行うなら<code>cor.test()</code>を使用します。ここではより汎用性の高い<code>cor.test()</code>の使い方について紹介します。</p>
@@ -1087,7 +1097,7 @@ sample estimates:
 <div id="fig-nested-data" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Iteration/nested_data.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 2: 入れ子型データの生成過程</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 2: 入れ子型データの生成過程</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -2080,6 +2090,24 @@ mean in group 0 mean in group 1
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

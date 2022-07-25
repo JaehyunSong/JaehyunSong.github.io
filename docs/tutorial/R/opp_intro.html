@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -331,7 +331,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-HardestTasks" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: Programmers’ Hardest Tasks</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 1: Programmers’ Hardest Tasks</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -468,7 +468,7 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (object, ...) 
 UseMethod("summary")
-&lt;bytecode: 0x7f9dc3860470&gt;
+&lt;bytecode: 0x7fc2489b84a8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -527,7 +527,7 @@ UseMethod("summary")
     class(value) &lt;- c("summaryDefault", "table")
     value
 }
-&lt;bytecode: 0x7f9da5b4bed8&gt;
+&lt;bytecode: 0x7fc23e0d69e8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -580,12 +580,12 @@ UseMethod("summary")
 <span id="cb40-15"><a href="#cb40-15"></a>My_Score1 <span class="co"># My_Score1の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 55.00116 67.00854 54.84584 57.46753 59.67802 56.34966 33.88326 54.76646
- [9] 42.10575 44.91802
+ [1] 59.07955 47.41955 64.00545 31.25520 45.77632 44.76527 37.04200 39.14584
+ [9] 45.92842 52.24650
 
 $Score2
- [1] 51.93176 54.16078 41.87114 42.61794 65.69507 43.86413 59.00358 58.39436
- [9] 53.21060 41.88996
+ [1] 28.07819 36.86325 64.90245 58.39915 56.46848 51.33587 53.35454 44.36360
+ [9] 45.87872 43.73616
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -611,12 +611,12 @@ attr(,"class")
 <span id="cb44-12"><a href="#cb44-12"></a>My_Score2 <span class="co"># My_Score2の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 49.77248 35.13964 41.11408 46.34194 53.61397 30.37033 48.91868 58.20378
- [9] 64.57588 33.01121
+ [1] 36.11180 47.48487 53.08988 53.53840 39.22200 48.26421 46.29607 62.66778
+ [9] 47.80108 48.30595
 
 $Score2
- [1] 36.90470 57.60559 56.32177 40.47331 43.33347 51.57371 47.90941 53.10946
- [9] 38.06447 65.60330
+ [1] 52.65935 59.16966 57.95688 50.61787 34.07387 50.25854 43.09844 45.85199
+ [9] 45.96548 44.35219
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -647,8 +647,8 @@ attr(,"class")
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">mean</span>(My_Score1) <span class="co"># Scoreクラスのメソッドであるmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 52.60242
-[1] 51.26393</code></pre>
+<pre><code>[1] 46.66641
+[1] 48.33804</code></pre>
 </div>
 </div>
 <p>　<code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
@@ -726,8 +726,8 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">my_func</span>(My_Score1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 52.60242
-[1] 51.26393</code></pre>
+<pre><code>[1] 46.66641
+[1] 48.33804</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -826,12 +826,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ data    :'data.frame':   20 obs. of  2 variables:
-  ..$ x: num [1:20] 2 2.47 1.78 2.02 2.69 ...
-  ..$ y: num [1:20] 165 161 166 163 165 ...
+  ..$ x: num [1:20] 2.84 2.07 2.36 2.63 2.88 ...
+  ..$ y: num [1:20] 182 157 164 169 168 ...
  $ var_name: chr [1:2] "1日当たりゲーム時間" "身長"
- $ cor     : Named num 0.184
+ $ cor     : Named num 0.256
   ..- attr(*, "names")= chr "cor"
- $ cor_ci  : num [1:2] -0.281 0.579
+ $ cor_ci  : num [1:2] -0.21 0.628
   ..- attr(*, "conf.level")= num 0.95
  - attr(*, "class")= chr "My_Cor_Object"</code></pre>
 </div>
@@ -841,15 +841,15 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">print</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.977
-身長の平均値: 163.210
-相関係数: 0.184 [-0.281, 0.579]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 1.991
+身長の平均値: 165.957
+相関係数: 0.256 [-0.210, 0.628]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">summary</span>(Cor_Obj) <span class="co"># summary()はprint()と同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.977
-身長の平均値: 163.210
-相関係数: 0.184 [-0.281, 0.579]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 1.991
+身長の平均値: 165.957
+相関係数: 0.256 [-0.210, 0.628]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">plot</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -972,6 +972,24 @@ see '?methods' for accessing help and source code</code></pre>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -333,32 +333,33 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   ID     Name  Pref  Zipcode Latitude Longitude Line  Station  Walk   Bus   Car
-   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 e5396… 居酒… 東京… 1040031     35.7      140. 地下… 銀座一…     3    NA    NA
- 2 gfeb6… 本格… 東京… 1100005     35.7      140. 地下… 仲御徒…     1    NA    NA
- 3 ggt59… 食べ… 東京… 1250041     35.8      140. ＪＲ… 金町駅      2    NA    NA
- 4 g1813… 博多… 東京… 1920904     35.7      139. ＪＲ  八王子…     1    NA    NA
- 5 ggww1… まさ… 東京… 1500042     35.7      140. 地下… 渋谷駅      7    NA    NA
- 6 gdzk5… 完全… 東京… 1000013     35.7      140. 地下… 虎ノ門…     3    NA    NA
- 7 ga2g2… 鶏そ… 東京… 1760006     35.7      140. 西武… 江古田…     2    NA    NA
- 8 gg9m1… 宴会… 東京… 1010021     35.7      140. ＪＲ  秋葉原…     4    NA    NA
- 9 gdvk2… 中国… 東京… 1000006     35.7      140. ＪＲ  有楽町…     1    NA    NA
-10 gggb2… 中国… 東京… 1140002     35.8      140. 地下… 王子駅      2    NA    NA
-# … with 6,282 more rows, and 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;</code></pre>
+   ID      Name    Pref  Zipcode Latit…¹ Longi…² Line  Station  Walk   Bus   Car
+   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 e539604 居酒屋… 東京… 1040031    35.7    140. 地下… 銀座一…     3    NA    NA
+ 2 gfeb600 本格上… 東京… 1100005    35.7    140. 地下… 仲御徒…     1    NA    NA
+ 3 ggt5900 食べ飲… 東京… 1250041    35.8    140. ＪＲ… 金町駅      2    NA    NA
+ 4 g181340 博多餃… 東京… 1920904    35.7    139. ＪＲ  八王子…     1    NA    NA
+ 5 ggww100 まさ屋… 東京… 1500042    35.7    140. 地下… 渋谷駅      7    NA    NA
+ 6 gdzk500 完全個… 東京… 1000013    35.7    140. 地下… 虎ノ門…     3    NA    NA
+ 7 ga2g202 鶏そば… 東京… 1760006    35.7    140. 西武… 江古田…     2    NA    NA
+ 8 gg9m100 宴会個… 東京… 1010021    35.7    140. ＪＲ  秋葉原…     4    NA    NA
+ 9 gdvk200 中国料… 東京… 1000006    35.7    140. ＪＲ  有楽町…     1    NA    NA
+10 gggb200 中国料… 東京… 1140002    35.8    140. 地下… 王子駅      2    NA    NA
+# … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　1行目の<code># A tibble: 6,292 x 14</code>から、ケース数 (店舗数)は6292、変数は14個あることが分かります。各変数の詳細は以下の通りです。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="yqyzrabrpk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="asuccjmqto" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#yqyzrabrpk .gt_table {
+#asuccjmqto .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -383,7 +384,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_heading {
+#asuccjmqto .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -395,7 +396,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_title {
+#asuccjmqto .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -407,7 +408,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-#yqyzrabrpk .gt_subtitle {
+#asuccjmqto .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -419,13 +420,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-width: 0;
 }
 
-#yqyzrabrpk .gt_bottom_border {
+#asuccjmqto .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_col_headings {
+#asuccjmqto .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -440,7 +441,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_col_heading {
+#asuccjmqto .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,7 +461,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#yqyzrabrpk .gt_column_spanner_outer {
+#asuccjmqto .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -472,15 +473,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-#yqyzrabrpk .gt_column_spanner_outer:first-child {
+#asuccjmqto .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yqyzrabrpk .gt_column_spanner_outer:last-child {
+#asuccjmqto .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yqyzrabrpk .gt_column_spanner {
+#asuccjmqto .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -492,7 +493,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-#yqyzrabrpk .gt_group_heading {
+#asuccjmqto .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -517,7 +518,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#yqyzrabrpk .gt_empty_group_heading {
+#asuccjmqto .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -532,15 +533,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#yqyzrabrpk .gt_from_md > :first-child {
+#asuccjmqto .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yqyzrabrpk .gt_from_md > :last-child {
+#asuccjmqto .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yqyzrabrpk .gt_row {
+#asuccjmqto .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -559,7 +560,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#yqyzrabrpk .gt_stub {
+#asuccjmqto .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -572,7 +573,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#yqyzrabrpk .gt_stub_row_group {
+#asuccjmqto .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -586,11 +587,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-#yqyzrabrpk .gt_row_group_first td {
+#asuccjmqto .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yqyzrabrpk .gt_summary_row {
+#asuccjmqto .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -600,16 +601,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#yqyzrabrpk .gt_first_summary_row {
+#asuccjmqto .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_first_summary_row.thick {
+#asuccjmqto .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yqyzrabrpk .gt_last_summary_row {
+#asuccjmqto .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -619,7 +620,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_grand_summary_row {
+#asuccjmqto .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -629,7 +630,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#yqyzrabrpk .gt_first_grand_summary_row {
+#asuccjmqto .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,11 +640,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_striped {
+#asuccjmqto .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yqyzrabrpk .gt_table_body {
+#asuccjmqto .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -652,7 +653,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_footnotes {
+#asuccjmqto .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -666,7 +667,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_footnote {
+#asuccjmqto .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -675,7 +676,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#yqyzrabrpk .gt_sourcenotes {
+#asuccjmqto .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -689,7 +690,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#yqyzrabrpk .gt_sourcenote {
+#asuccjmqto .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -697,36 +698,36 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#yqyzrabrpk .gt_left {
+#asuccjmqto .gt_left {
   text-align: left;
 }
 
-#yqyzrabrpk .gt_center {
+#asuccjmqto .gt_center {
   text-align: center;
 }
 
-#yqyzrabrpk .gt_right {
+#asuccjmqto .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yqyzrabrpk .gt_font_normal {
+#asuccjmqto .gt_font_normal {
   font-weight: normal;
 }
 
-#yqyzrabrpk .gt_font_bold {
+#asuccjmqto .gt_font_bold {
   font-weight: bold;
 }
 
-#yqyzrabrpk .gt_font_italic {
+#asuccjmqto .gt_font_italic {
   font-style: italic;
 }
 
-#yqyzrabrpk .gt_super {
+#asuccjmqto .gt_super {
   font-size: 65%;
 }
 
-#yqyzrabrpk .gt_two_val_uncert {
+#asuccjmqto .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -735,31 +736,31 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   margin-left: 0.1em;
 }
 
-#yqyzrabrpk .gt_footnote_marks {
+#asuccjmqto .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#yqyzrabrpk .gt_asterisk {
+#asuccjmqto .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yqyzrabrpk .gt_slash_mark {
+#asuccjmqto .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#yqyzrabrpk .gt_fraction_numerator {
+#asuccjmqto .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#yqyzrabrpk .gt_fraction_denominator {
+#asuccjmqto .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -865,7 +866,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-pipe1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Pipeline1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1: パイプ演算子を使わない場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 1: パイプ演算子を使わない場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -876,7 +877,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-pipe2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Pipeline2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 2: パイプ演算子を使う場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 2: パイプ演算子を使う場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -905,7 +906,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                    東京都  3.33
  9 gdvk200 中国料理 宝龍                                            東京都  2.5 
 10 gggb200 中国料理 天安門                                          東京都 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># dplyr::select()を使う方法</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="co"># select(df, ID, Name, Pref, Score)でもOK</span></span>
@@ -925,7 +927,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                    東京都  3.33
  9 gdvk200 中国料理 宝龍                                            東京都  2.5 
 10 gggb200 中国料理 天安門                                          東京都 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　どれも結果は同じですが、<code>select()</code>関数を使った方がより読みやすいコードになっているでしょう。むろん、<code>select()</code>関数を使わない方がスッキリする方も知るかも知れません。実際、自分でパッケージなどを作成する際は<code>select()</code>を使わない場合が多いです。ただし、一般的な分析の流れでは<code>select()</code>の方がコードも意味も明確となり、パイプ演算子でつなぐのも容易です。</p>
@@ -948,7 +951,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 東京都 宴会個室×餃子酒場 北京飯店 秋葉原本店                   
  9 gdvk200 東京都 中国料理 宝龍                                           
 10 gggb200 東京都 中国料理 天安門                                         
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 </section>
@@ -960,19 +964,20 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">select</span>(ID, Name, <span class="at">Prefecture =</span> Pref, Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 4
-   ID      Name                                                Prefecture Score
-   &lt;chr&gt;   &lt;chr&gt;                                               &lt;chr&gt;      &lt;dbl&gt;
- 1 e539604 居酒屋 龍記 京橋店                                  東京都     NA   
- 2 gfeb600 本格上海料理 新錦江 上野御徒町本店                  東京都      4.5 
- 3 ggt5900 食べ飲み放題×中華ビストロ NOZOMI（のぞみ）          東京都     NA   
- 4 g181340 博多餃子軒 八王子店 タピオカ店 Bull Pulu（ブルプル… 東京都     NA   
- 5 ggww100 まさ屋 渋谷店                                       東京都     NA   
- 6 gdzk500 完全個室 上海レストラン 檸檬 霞ヶ関ビル内店         東京都     NA   
- 7 ga2g202 鶏そば きらり                                       東京都     NA   
- 8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店               東京都      3.33
- 9 gdvk200 中国料理 宝龍                                       東京都      2.5 
-10 gggb200 中国料理 天安門                                     東京都     NA   
-# … with 6,282 more rows</code></pre>
+   ID      Name                                                    Prefe…¹ Score
+   &lt;chr&gt;   &lt;chr&gt;                                                   &lt;chr&gt;   &lt;dbl&gt;
+ 1 e539604 居酒屋 龍記 京橋店                                      東京都  NA   
+ 2 gfeb600 本格上海料理 新錦江 上野御徒町本店                      東京都   4.5 
+ 3 ggt5900 食べ飲み放題×中華ビストロ NOZOMI（のぞみ）              東京都  NA   
+ 4 g181340 博多餃子軒 八王子店 タピオカ店 Bull Pulu（ブルプル）併… 東京都  NA   
+ 5 ggww100 まさ屋 渋谷店                                           東京都  NA   
+ 6 gdzk500 完全個室 上海レストラン 檸檬 霞ヶ関ビル内店             東京都  NA   
+ 7 ga2g202 鶏そば きらり                                           東京都  NA   
+ 8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                   東京都   3.33
+ 9 gdvk200 中国料理 宝龍                                           東京都   2.5 
+10 gggb200 中国料理 天安門                                         東京都  NA   
+# … with 6,282 more rows, and abbreviated variable name ¹​Prefecture
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　抽出する際、変数を<code>新しい変数名 = 既存の変数名</code>にするだけで、変数名が簡単に変更できました。もし、特定の列は抽出しないものの、変数名を変えるにはどうすれば良いでしょうか。ここでは<code>df</code>の<code>Pref</code>を<code>Prefecture</code>に、<code>Walk</code>を<code>Distance</code>に変更してみます。{dplyr}を使わない場合と{dplyr}の<code>rename()</code>関数を使う場合を両方紹介します。</p>
@@ -994,20 +999,22 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb23-5"><a href="#cb23-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   ID      Name     Prefecture Zipcode Latitude Longitude Line  Station Distance
-   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
- 1 e539604 居酒屋 … 東京都     1040031     35.7      140. 地下… 銀座一…        3
- 2 gfeb600 本格上…  東京都     1100005     35.7      140. 地下… 仲御徒…        1
- 3 ggt5900 食べ飲…  東京都     1250041     35.8      140. ＪＲ… 金町駅         2
- 4 g181340 博多餃…  東京都     1920904     35.7      139. ＪＲ  八王子…        1
- 5 ggww100 まさ屋 … 東京都     1500042     35.7      140. 地下… 渋谷駅         7
- 6 gdzk500 完全個…  東京都     1000013     35.7      140. 地下… 虎ノ門…        3
- 7 ga2g202 鶏そば … 東京都     1760006     35.7      140. 西武… 江古田…        2
- 8 gg9m100 宴会個…  東京都     1010021     35.7      140. ＪＲ  秋葉原…        4
- 9 gdvk200 中国料…  東京都     1000006     35.7      140. ＪＲ  有楽町…        1
-10 gggb200 中国料…  東京都     1140002     35.8      140. 地下… 王子駅         2
-# … with 6,282 more rows, and 5 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;,
-#   Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;, Score &lt;dbl&gt;</code></pre>
+   ID    Name  Prefe…¹ Zipcode Latit…² Longi…³ Line  Station Dista…⁴   Bus   Car
+   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 e539… 居酒… 東京都  1040031    35.7    140. 地下… 銀座一…       3    NA    NA
+ 2 gfeb… 本格… 東京都  1100005    35.7    140. 地下… 仲御徒…       1    NA    NA
+ 3 ggt5… 食べ… 東京都  1250041    35.8    140. ＪＲ… 金町駅        2    NA    NA
+ 4 g181… 博多… 東京都  1920904    35.7    139. ＪＲ  八王子…       1    NA    NA
+ 5 ggww… まさ… 東京都  1500042    35.7    140. 地下… 渋谷駅        7    NA    NA
+ 6 gdzk… 完全… 東京都  1000013    35.7    140. 地下… 虎ノ門…       3    NA    NA
+ 7 ga2g… 鶏そ… 東京都  1760006    35.7    140. 西武… 江古田…       2    NA    NA
+ 8 gg9m… 宴会… 東京都  1010021    35.7    140. ＪＲ  秋葉原…       4    NA    NA
+ 9 gdvk… 中国… 東京都  1000006    35.7    140. ＪＲ  有楽町…       1    NA    NA
+10 gggb… 中国… 東京都  1140002    35.8    140. 地下… 王子駅        2    NA    NA
+# … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Prefecture, ²​Latitude,
+#   ³​Longitude, ⁴​Distance
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　簡単に変数名の変更ができました。続いて、{dplyr}の<code>rename()</code>関数を使った方法です。今回は、<code>Prefecture</code>を<code>Pref</code>に、<code>Distance</code>を<code>Walk</code>に戻して見ましょう。そして、出力するだけにとどまらず、<code>df</code>に上書きしましょう。</p>
@@ -1039,7 +1046,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m… 宴会… 東京… 1010021 ＪＲ  秋葉原…     4    NA    NA   2000      3  3.33
  9 gdvk… 中国… 東京… 1000006 ＪＲ  有楽町…     1    NA    NA   1000      2  2.5 
 10 gggb… 中国… 東京… 1140002 地下… 王子駅      2    NA    NA   2000      0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　かなり長いコードになりましたね。しかし、もっと簡単な方法があります。それは<code>-</code>を使う方法です。</p>
@@ -1060,7 +1068,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m… 宴会… 東京… 1010021 ＪＲ  秋葉原…     4    NA    NA   2000      3  3.33
  9 gdvk… 中国… 東京… 1000006 ＪＲ  有楽町…     1    NA    NA   1000      2  2.5 
 10 gggb… 中国… 東京… 1140002 地下… 王子駅      2    NA    NA   2000      0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　除外したい変数名の前に<code>-</code>を付けただけです。また、<code>-Latitude</code>と<code>-Longitude</code>をそれぞれ指定せず、<code>-c(Latitude, Longitude)</code>のように<code>c()</code>でまとめるのも可能です。</p>
@@ -1097,20 +1106,21 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">select</span>(Score, ScoreN, ID<span class="sc">:</span>Budget)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   Score ScoreN ID    Name  Pref  Zipcode Latitude Longitude Line  Station  Walk
-   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
- 1 NA         0 e539… 居酒… 東京… 1040031     35.7      140. 地下… 銀座一…     3
- 2  4.5       2 gfeb… 本格… 東京… 1100005     35.7      140. 地下… 仲御徒…     1
- 3 NA         0 ggt5… 食べ… 東京… 1250041     35.8      140. ＪＲ… 金町駅      2
- 4 NA         0 g181… 博多… 東京… 1920904     35.7      139. ＪＲ  八王子…     1
- 5 NA         0 ggww… まさ… 東京… 1500042     35.7      140. 地下… 渋谷駅      7
- 6 NA         0 gdzk… 完全… 東京… 1000013     35.7      140. 地下… 虎ノ門…     3
- 7 NA         0 ga2g… 鶏そ… 東京… 1760006     35.7      140. 西武… 江古田…     2
- 8  3.33      3 gg9m… 宴会… 東京… 1010021     35.7      140. ＪＲ  秋葉原…     4
- 9  2.5       2 gdvk… 中国… 東京… 1000006     35.7      140. ＪＲ  有楽町…     1
-10 NA         0 gggb… 中国… 東京… 1140002     35.8      140. 地下… 王子駅      2
-# … with 6,282 more rows, and 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;,
-#   Budget &lt;dbl&gt;</code></pre>
+   Score ScoreN ID      Name  Pref   Zipcode Latit…¹ Longi…² Line  Station  Walk
+   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+ 1 NA         0 e539604 居酒… 東京都 1040031    35.7    140. 地下… 銀座一…     3
+ 2  4.5       2 gfeb600 本格… 東京都 1100005    35.7    140. 地下… 仲御徒…     1
+ 3 NA         0 ggt5900 食べ… 東京都 1250041    35.8    140. ＪＲ… 金町駅      2
+ 4 NA         0 g181340 博多… 東京都 1920904    35.7    139. ＪＲ  八王子…     1
+ 5 NA         0 ggww100 まさ… 東京都 1500042    35.7    140. 地下… 渋谷駅      7
+ 6 NA         0 gdzk500 完全… 東京都 1000013    35.7    140. 地下… 虎ノ門…     3
+ 7 NA         0 ga2g202 鶏そ… 東京都 1760006    35.7    140. 西武… 江古田…     2
+ 8  3.33      3 gg9m100 宴会… 東京都 1010021    35.7    140. ＪＲ  秋葉原…     4
+ 9  2.5       2 gdvk200 中国… 東京都 1000006    35.7    140. ＪＲ  有楽町…     1
+10 NA         0 gggb200 中国… 東京都 1140002    35.8    140. 地下… 王子駅      2
+# … with 6,282 more rows, 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;, Budget &lt;dbl&gt;,
+#   and abbreviated variable names ¹​Latitude, ²​Longitude
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　しかし、{dplyr}には<code>relocate()</code>というより便利な専用関数を提供しています。<code>relocate()</code>には変数名を指定するだけですが、ここで指定した変数がデータフレーム (または、tibble)の最初列の方に移動します。</p>
@@ -1119,20 +1129,21 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">relocate</span>(Score, ScoreN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   Score ScoreN ID    Name  Pref  Zipcode Latitude Longitude Line  Station  Walk
-   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
- 1 NA         0 e539… 居酒… 東京… 1040031     35.7      140. 地下… 銀座一…     3
- 2  4.5       2 gfeb… 本格… 東京… 1100005     35.7      140. 地下… 仲御徒…     1
- 3 NA         0 ggt5… 食べ… 東京… 1250041     35.8      140. ＪＲ… 金町駅      2
- 4 NA         0 g181… 博多… 東京… 1920904     35.7      139. ＪＲ  八王子…     1
- 5 NA         0 ggww… まさ… 東京… 1500042     35.7      140. 地下… 渋谷駅      7
- 6 NA         0 gdzk… 完全… 東京… 1000013     35.7      140. 地下… 虎ノ門…     3
- 7 NA         0 ga2g… 鶏そ… 東京… 1760006     35.7      140. 西武… 江古田…     2
- 8  3.33      3 gg9m… 宴会… 東京… 1010021     35.7      140. ＪＲ  秋葉原…     4
- 9  2.5       2 gdvk… 中国… 東京… 1000006     35.7      140. ＪＲ  有楽町…     1
-10 NA         0 gggb… 中国… 東京… 1140002     35.8      140. 地下… 王子駅      2
-# … with 6,282 more rows, and 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;,
-#   Budget &lt;dbl&gt;</code></pre>
+   Score ScoreN ID      Name  Pref   Zipcode Latit…¹ Longi…² Line  Station  Walk
+   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+ 1 NA         0 e539604 居酒… 東京都 1040031    35.7    140. 地下… 銀座一…     3
+ 2  4.5       2 gfeb600 本格… 東京都 1100005    35.7    140. 地下… 仲御徒…     1
+ 3 NA         0 ggt5900 食べ… 東京都 1250041    35.8    140. ＪＲ… 金町駅      2
+ 4 NA         0 g181340 博多… 東京都 1920904    35.7    139. ＪＲ  八王子…     1
+ 5 NA         0 ggww100 まさ… 東京都 1500042    35.7    140. 地下… 渋谷駅      7
+ 6 NA         0 gdzk500 完全… 東京都 1000013    35.7    140. 地下… 虎ノ門…     3
+ 7 NA         0 ga2g202 鶏そ… 東京都 1760006    35.7    140. 西武… 江古田…     2
+ 8  3.33      3 gg9m100 宴会… 東京都 1010021    35.7    140. ＪＲ  秋葉原…     4
+ 9  2.5       2 gdvk200 中国… 東京都 1000006    35.7    140. ＪＲ  有楽町…     1
+10 NA         0 gggb200 中国… 東京都 1140002    35.8    140. 地下… 王子駅      2
+# … with 6,282 more rows, 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;, Budget &lt;dbl&gt;,
+#   and abbreviated variable names ¹​Latitude, ²​Longitude
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　<code>relocate()</code>を使うと<code>ID:Budget</code>が省略可能となり、より短いコードになります。もう一つの例は、最初に持ってくるのではなく、「ある変数の前」または「ある変数の後」に移動させるケースです。これも<code>relocate()</code>で可能ですが、もう一つの引数が必要です。<code>Pref</code>と<code>Zipcdoe</code>の順番を変えるなら、まずは以下のような方法が考えられます。</p>
@@ -1141,20 +1152,21 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">select</span>(ID<span class="sc">:</span>Name, Zipcode, Pref, Latitude<span class="sc">:</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   ID     Name  Zipcode Pref  Latitude Longitude Line  Station  Walk   Bus   Car
-   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 e5396… 居酒… 1040031 東京…     35.7      140. 地下… 銀座一…     3    NA    NA
- 2 gfeb6… 本格… 1100005 東京…     35.7      140. 地下… 仲御徒…     1    NA    NA
- 3 ggt59… 食べ… 1250041 東京…     35.8      140. ＪＲ… 金町駅      2    NA    NA
- 4 g1813… 博多… 1920904 東京…     35.7      139. ＪＲ  八王子…     1    NA    NA
- 5 ggww1… まさ… 1500042 東京…     35.7      140. 地下… 渋谷駅      7    NA    NA
- 6 gdzk5… 完全… 1000013 東京…     35.7      140. 地下… 虎ノ門…     3    NA    NA
- 7 ga2g2… 鶏そ… 1760006 東京…     35.7      140. 西武… 江古田…     2    NA    NA
- 8 gg9m1… 宴会… 1010021 東京…     35.7      140. ＪＲ  秋葉原…     4    NA    NA
- 9 gdvk2… 中国… 1000006 東京…     35.7      140. ＪＲ  有楽町…     1    NA    NA
-10 gggb2… 中国… 1140002 東京…     35.8      140. 地下… 王子駅      2    NA    NA
-# … with 6,282 more rows, and 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;</code></pre>
+   ID      Name    Zipcode Pref  Latit…¹ Longi…² Line  Station  Walk   Bus   Car
+   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 e539604 居酒屋… 1040031 東京…    35.7    140. 地下… 銀座一…     3    NA    NA
+ 2 gfeb600 本格上… 1100005 東京…    35.7    140. 地下… 仲御徒…     1    NA    NA
+ 3 ggt5900 食べ飲… 1250041 東京…    35.8    140. ＪＲ… 金町駅      2    NA    NA
+ 4 g181340 博多餃… 1920904 東京…    35.7    139. ＪＲ  八王子…     1    NA    NA
+ 5 ggww100 まさ屋… 1500042 東京…    35.7    140. 地下… 渋谷駅      7    NA    NA
+ 6 gdzk500 完全個… 1000013 東京…    35.7    140. 地下… 虎ノ門…     3    NA    NA
+ 7 ga2g202 鶏そば… 1760006 東京…    35.7    140. 西武… 江古田…     2    NA    NA
+ 8 gg9m100 宴会個… 1010021 東京…    35.7    140. ＪＲ  秋葉原…     4    NA    NA
+ 9 gdvk200 中国料… 1000006 東京…    35.7    140. ＪＲ  有楽町…     1    NA    NA
+10 gggb200 中国料… 1140002 東京…    35.8    140. 地下… 王子駅      2    NA    NA
+# … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　これを<code>relocate()</code>で書き換えるなら、<code>.after</code>または<code>.before</code>引数が必要になります。<code>relocate(変数名1, .after = 変数名2)</code>は「変数1を変数2の直後に移動させる」 ことを意味します。</p>
@@ -1163,20 +1175,21 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">relocate</span>(Pref, <span class="at">.after =</span> Zipcode)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,292 × 14
-   ID     Name  Zipcode Pref  Latitude Longitude Line  Station  Walk   Bus   Car
-   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 e5396… 居酒… 1040031 東京…     35.7      140. 地下… 銀座一…     3    NA    NA
- 2 gfeb6… 本格… 1100005 東京…     35.7      140. 地下… 仲御徒…     1    NA    NA
- 3 ggt59… 食べ… 1250041 東京…     35.8      140. ＪＲ… 金町駅      2    NA    NA
- 4 g1813… 博多… 1920904 東京…     35.7      139. ＪＲ  八王子…     1    NA    NA
- 5 ggww1… まさ… 1500042 東京…     35.7      140. 地下… 渋谷駅      7    NA    NA
- 6 gdzk5… 完全… 1000013 東京…     35.7      140. 地下… 虎ノ門…     3    NA    NA
- 7 ga2g2… 鶏そ… 1760006 東京…     35.7      140. 西武… 江古田…     2    NA    NA
- 8 gg9m1… 宴会… 1010021 東京…     35.7      140. ＪＲ  秋葉原…     4    NA    NA
- 9 gdvk2… 中国… 1000006 東京…     35.7      140. ＪＲ  有楽町…     1    NA    NA
-10 gggb2… 中国… 1140002 東京…     35.8      140. 地下… 王子駅      2    NA    NA
-# … with 6,282 more rows, and 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;</code></pre>
+   ID      Name    Zipcode Pref  Latit…¹ Longi…² Line  Station  Walk   Bus   Car
+   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 e539604 居酒屋… 1040031 東京…    35.7    140. 地下… 銀座一…     3    NA    NA
+ 2 gfeb600 本格上… 1100005 東京…    35.7    140. 地下… 仲御徒…     1    NA    NA
+ 3 ggt5900 食べ飲… 1250041 東京…    35.8    140. ＪＲ… 金町駅      2    NA    NA
+ 4 g181340 博多餃… 1920904 東京…    35.7    139. ＪＲ  八王子…     1    NA    NA
+ 5 ggww100 まさ屋… 1500042 東京…    35.7    140. 地下… 渋谷駅      7    NA    NA
+ 6 gdzk500 完全個… 1000013 東京…    35.7    140. 地下… 虎ノ門…     3    NA    NA
+ 7 ga2g202 鶏そば… 1760006 東京…    35.7    140. 西武… 江古田…     2    NA    NA
+ 8 gg9m100 宴会個… 1010021 東京…    35.7    140. ＪＲ  秋葉原…     4    NA    NA
+ 9 gdvk200 中国料… 1000006 東京…    35.7    140. ＪＲ  有楽町…     1    NA    NA
+10 gggb200 中国料… 1140002 東京…    35.8    140. 地下… 王子駅      2    NA    NA
+# … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　<code>.before</code>を使うことできます。この場合は「<code>Zipcode</code>を<code>Pref</code>の直前に移動させる」 ことを指定する必要があります。結果は省略しますが、自分でコードを走らせ、上と同じ結果が得られるかを確認してみてください。</p>
@@ -1208,7 +1221,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                         3  3.33
  9 gdvk200 中国料理 宝龍                                                 2  2.5 
 10 gggb200 中国料理 天安門                                               0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># eで終わる変数名を除去</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>df <span class="sc">%&gt;%</span></span>
@@ -1227,7 +1241,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 東京都 秋葉原駅         4    NA    NA   2000      3
  9 gdvk200 東京都 有楽町駅         1    NA    NA   1000      2
 10 gggb200 東京都 王子駅           2    NA    NA   2000      0
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># reを含む変数名を抽出するが、ScoreNは除去する</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>df <span class="sc">%&gt;%</span></span>
@@ -1246,7 +1261,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 東京都  3.33
  9 東京都  2.5 
 10 東京都 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　他の使い方としては<code>X1</code>、<code>X2</code>のような「文字+数字」の変数を選択する際、<code>starts_with()</code>が活躍します。たとえば、以下のような<code>myDF1</code>があるとします。</p>
@@ -1402,7 +1418,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100  3.33
  9 gdvk200  2.5 
 10 gggb200 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　最後の2行分を取り出すことも可能です。この場合は<code>last_col()</code>の引数を長さ1ベクトルでなく、長さ2以上のベクトルにします。最後の行が<code>0</code>、その手前の行が<code>1</code>ですから、中の引数は<code>1:0</code>となります。<code>0:1</code>でも可能ですが、結果が若干異なります。</p>
@@ -1431,7 +1448,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100      3  3.33
  9 gdvk200      2  2.5 
 10 gggb200      0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -1456,7 +1474,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100  3.33      3
  9 gdvk200  2.5       2
 10 gggb200 NA         0
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>last_col()</code>の引数を<code>1:0</code>にするか<code>0:1</code>にするかによって抽出される順番が異なります。<code>1:0</code>は<code>c(1, 0)</code>、<code>0:1</code>は<code>c(0, 1)</code>と同じであることを考えると理由は簡単です。<code>c(1, 0)</code>の場合、<code>last_col(1), last_col(0)</code>の順番で処理をし、<code>c(0, 1)</code>は<code>last_col(0)</code>、<code>last_col(1)</code>の順番で処理を行うからです。</p>
@@ -1481,7 +1500,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 1010021     35.7      140.     4    NA    NA   2000      3  3.33
  9 1000006     35.7      140.     1    NA    NA   1000      2  2.5 
 10 1140002     35.8      140.     2    NA    NA   2000      0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>!</code>を使って条件に合致する列を除外することも可能です。もし、character型の列を除外する場合は以下のように<code>!where(is.character)</code>を指定します。</p>
@@ -1503,7 +1523,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 1010021     35.7      140.     4    NA    NA   2000      3  3.33
  9 1000006     35.7      140.     1    NA    NA   1000      2  2.5 
 10 1140002     35.8      140.     2    NA    NA   2000      0 NA   
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>&amp;</code>を使って複数の条件を使うことも可能です。たとえば、<code>ID</code>変数に加えて「<code>"L"</code>で始まる変数の中でnumeric型の列を抽出」するコードは以下のようになります。</p>
@@ -1525,7 +1546,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100     35.7      140.
  9 gdvk200     35.7      140.
 10 gggb200     35.8      140.
-# … with 6,282 more rows</code></pre>
+# … with 6,282 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1655,18 +1677,18 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb95-3"><a href="#cb95-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   ID      Name                      Pref     Budget Score
-   &lt;chr&gt;   &lt;chr&gt;                     &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
- 1 5499043 元木屋                    東京都       NA NA   
- 2 7671992 朱うさぎ                  兵庫県       NA NA   
- 3 6956958 ラーメン 定食 晩酌 たまや 千葉県       NA NA   
- 4 5500969 らーめん花樂 大和店       神奈川県     NA NA   
- 5 7224180 麺毅家                    京都府       NA NA   
- 6 6388641 三歩一                    東京都      750  4.56
- 7 5508545 八番                      兵庫県       NA NA   
- 8 7181319 壱角家 越谷店             埼玉県       NA NA   
- 9 7280007 三豊麺 尼崎店             兵庫県       NA NA   
-10 6346551 幸楽苑 大宮本郷店         埼玉県       NA NA   </code></pre>
+   ID      Name                             Pref     Budget Score
+   &lt;chr&gt;   &lt;chr&gt;                            &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+ 1 7491990 よつ家                           東京都      800 NA   
+ 2 e592803 北京ダック専門店 王朝            神奈川県   1200  3.38
+ 3 kczs500 中国料理 鳳麟                    京都府     2999 NA   
+ 4 kcse100 つけ麺屋やすべえ 道頓堀店        大阪府     1000 NA   
+ 5 5825709 ちりめん亭 姫路市役所東店        兵庫県       NA NA   
+ 6 7681545 ラーメン まこと屋 八尾南太子堂店 大阪府       NA NA   
+ 7 7675425 油そば きりん寺 アマゴッタ店     兵庫県       NA NA   
+ 8 7400885 麺処 ガンテツ                    神奈川県     NA NA   
+ 9 7403185 ラーメンショップ マルクニ        千葉県       NA NA   
+10 6183245 横浜らーめん 酒々井家            千葉県       NA NA   </code></pre>
 </div>
 </div>
 <p>　のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
@@ -1703,7 +1725,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 DETAIL                                                  東山駅     NA   
  9 めんや龍神                                              北大路駅   NA   
 10 無尽蔵 京都八条家                                       京都駅      3.5 
-# … with 404 more rows</code></pre>
+# … with 404 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　これは<code>df</code>から<code>Pref == "京都府"</code>のケースのみ残したものを<code>df2</code>として格納し、それをまた<code>select()</code>関数を使って列を抽出するコードです。これでも問題ありませんが、これだとパイプ演算子の便利さが分かりません。パイプ演算子は複数使うことが可能です。</p>
@@ -1725,7 +1748,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 DETAIL                                                  東山駅     NA   
  9 めんや龍神                                              北大路駅   NA   
 10 無尽蔵 京都八条家                                       京都駅      3.5 
-# … with 404 more rows</code></pre>
+# … with 404 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　全く同じ結果ですが、無駄に<code>df2</code>というデータフレーム (または、tibble)を作らず済むので、メモリの観点からも嬉しいですし、何よりコードが短く、しかも可読性も上がりました。</p>
@@ -1748,7 +1772,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 よってこや お台場店                               お台場海浜公…      1  4   
  9 ラーメン武藤製麺所                                竹ノ塚駅           4  3.5 
 10 桂花ラーメン 新宿末広店                           新宿三丁目駅       8  3   
-# … with 1,334 more rows</code></pre>
+# … with 1,334 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　これで口コミ数が1以上の店舗のみに絞ることができました。ただし、店によっては口コミはあっても、評価 (<code>Score</code>)が付いていないところもあります。たとえば、「刀削麺・火鍋・西安料理 XI’AN（シーアン） 後楽園店」の場合、口コミはありますが、評価はありません。したがって、今回は評価が付いている店舗に絞ってみましょう。</p>
@@ -1758,7 +1783,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb105-3"><a href="#cb105-3"></a>  <span class="fu">select</span>(Name, Station, <span class="fu">starts_with</span>(<span class="st">"Score"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 4
-# … with 4 variables: Name &lt;chr&gt;, Station &lt;chr&gt;, ScoreN &lt;dbl&gt;, Score &lt;dbl&gt;</code></pre>
+# … with 4 variables: Name &lt;chr&gt;, Station &lt;chr&gt;, ScoreN &lt;dbl&gt;, Score &lt;dbl&gt;
+# ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>　あらら、何の結果も表示されませんでした。これは<code>filter()</code>内の条件に合致するケースが存在しないことを意味します。しかし、先ほどの結果を見ても、評価が付いている店はいっぱいありましたね。これはなぜでしょう。</p>
@@ -1781,7 +1807,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 ラーメン武藤製麺所                    竹ノ塚駅              4  3.5 
  9 桂花ラーメン 新宿末広店               新宿三丁目駅          8  3   
 10 北斗 新橋店                           新橋駅                4  2.5 
-# … with 1,124 more rows</code></pre>
+# … with 1,124 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　これで口コミ評価が登録された店舗に絞ることができました。</p>
@@ -1804,7 +1831,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 大中BAL横店        &lt;NA&gt;            7  4.1 
  9 こうちゃん         西舞鶴駅        1  5   
 10 大黒ラーメン       伏見桃山駅      4  4.25
-# … with 43 more rows</code></pre>
+# … with 43 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　条件を<code>filter()</code>内に追加するだけです。今回は<code>!is.na(Score)</code>は不要です。なぜなら、<code>Score &gt;= 3.5</code>という条件で既に欠損値は対象外になるからです。条件文が複数ある場合、ANDかORかを指定する必要があります。つまり、条件文AとBがある場合、「AとB両方満たすものを出力する」か「AとBどちらかを満たすものを出力するか」を指定する必要があります。今の結果ってANDでしたよね。<code>filter()</code>関数は、別途の指定がない場合、全てAND扱いになります。RのAND演算子は<code>&amp;</code>ですので、以上のコードは以下のコードと同じです。</p>
@@ -1826,7 +1854,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 大中BAL横店        &lt;NA&gt;            7  4.1 
  9 こうちゃん         西舞鶴駅        1  5   
 10 大黒ラーメン       伏見桃山駅      4  4.25
-# … with 43 more rows</code></pre>
+# … with 43 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　AND演算子 (<code>&amp;</code>)が使えるということはOR演算子 (<code>|</code>)も使えることを意味します。たとえば、<code>Station</code>が<code>"高田馬場駅"</code>か<code>"三田駅"</code>の条件を指定したい場合、</p>
@@ -2545,7 +2574,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 18 大阪府   京阪本線                   43         10       3.69
 19 千葉県   新京成電鉄                 43          6       3.6 
 20 京都府   阪急京都本線               43         27       3.5 
-# … with 503 more rows</code></pre>
+# … with 503 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　ぐるなびに登録されているラーメン屋が最も多い路線は埼玉県内の東武東上線で122店舗があります。東武東上線は東京都と埼玉県をまたがる路線ですので、東武東上線だけならもっと多いかも知れませんね。</p>
@@ -2577,7 +2607,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 3 神奈川県 小田急小田原線          96         31       3.59
 4 埼玉県   東武伊勢崎線            96         18       3.51
 5 神奈川県 横浜市営ブルーライン    82         77       3.66
-# … with 518 more rows</code></pre>
+# … with 518 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -2604,7 +2635,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 3 神奈川県 小田急小田原線          96         31       3.59
 4 埼玉県   東武伊勢崎線            96         18       3.51
 5 神奈川県 横浜市営ブルーライン    82         77       3.66
-# … with 518 more rows</code></pre>
+# … with 518 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>.groups</code>引数は<code>"drop"</code>と<code>"keep"</code>以外にも<code>"drop_last"</code>があります。実は<code>summarise()</code>に<code>.groups</code>引数を指定したい場合のデフォルト値は<code>.groups == "drop_last"</code>または<code>"keep"</code>ですが、ここがややこしいです。主なケースにおいてデフォルト値は<code>"drop"</code>となりますとなります。<code>.groups == "drop_last"</code>これは最後のグループ化変数のみ解除する意味です。今回の例だと、2番目のグループ化変数である<code>Line</code>がグループ化変数から外され、<code>Pref</code>のみがグループ化変数として残る仕組みです。</p>
@@ -2648,7 +2680,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 京都府 JR山陰本線（京都-米子）    8.67
  9 京都府 ＪＲ山陰本線（京都-米子）  9.23
 10 京都府 ＪＲ嵯峨野線               5   
-# … with 499 more rows</code></pre>
+# … with 499 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　最初は<code>Pref</code>と<code>Line</code>でグループ化しましたが、<code>summarise()</code>の後、<code>Line</code>がグループ化変数から外されました。つまり、引数が<code>"drop_last"</code>になっていることです。</p>
@@ -2678,7 +2711,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 京都府 ＪＲ奈良線  8        9   
  9 京都府 JR小浜線   16.5      9.75
 10 京都府 JR小浜線   16.5     23.2 
-# … with 1,008 more rows</code></pre>
+# … with 1,008 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　同じ<code>Pref</code>、<code>Line</code>のケースが2つずつ出来ています。最初に来る数値は第一四分位点、次に来るのが第三四分位点です。そして最初のグループ化変数であった<code>Pref</code>と<code>Line</code>が、<code>summarise()</code>後もグループ化変数として残っていることが分かります。</p>
@@ -2714,7 +2748,8 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 埼玉県   ラーメン山岡家 上尾店                35     0.583
  9 兵庫県   濃厚醤油 中華そば いせや 大蔵谷店    35     0.583
 10 大阪府   河童ラーメン本舗 松原店              31     0.517
-# … with 5,365 more rows</code></pre>
+# … with 5,365 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>mutate()</code>は3行目に登場しますが、これは<code>Walk</code>を60に割った結果を<code>Walk_Hour</code>としてデータフレーム (または、tibble)の最後の列として格納することを意味します。もし、最後の列でなく、ある変数の前、または後にしたい場合は、<code>.before</code>または<code>.after</code>引数を追加します。これは<code>select()</code>関数の<code>.before</code>と<code>.after</code>と同じ使い方です。たとえば、新しく出来た<code>Walk_Hour</code>を<code>ID</code>と<code>Name</code>の間に入れたい場合は</p>
@@ -2986,7 +3021,7 @@ Levels: 1 0</code></pre>
 <div id="fig-factor1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor1-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3: 横軸が名目変数の棒グラフ</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 3: 横軸が名目変数の棒グラフ</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3023,7 +3058,7 @@ Levels: 1 0</code></pre>
 <div id="fig-factor2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor2-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 4: Prefがcharacter型の場合 (1)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 4: Prefがcharacter型の場合 (1)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3055,7 +3090,7 @@ Levels: 1 0</code></pre>
 <div id="fig-factor3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor3-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 5: Prefがcharacter型の場合 (2)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 5: Prefがcharacter型の場合 (2)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3098,7 +3133,7 @@ Levels: 1 0</code></pre>
 <div id="fig-factor4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor4-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 6: Prefがfactor型の場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 6: Prefがfactor型の場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3136,7 +3171,7 @@ Levels: 1 0</code></pre>
 <div id="fig-factor5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor5-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 7: Kantoがnumeric型の場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 7: Kantoがnumeric型の場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3176,7 +3211,7 @@ Levels: 関東 その他</code></pre>
 <div id="fig-factor6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="dplyr_intro_files/figure-html/fig-factor6-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 8: Kantoがfactor型の場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 8: Kantoがfactor型の場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -3433,12 +3468,12 @@ Levels: 関東 その他</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="hroptzvfrt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="oisjrscycx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hroptzvfrt .gt_table {
+#oisjrscycx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3463,7 +3498,7 @@ Levels: 関東 その他</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_heading {
+#oisjrscycx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3475,7 +3510,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_title {
+#oisjrscycx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3487,7 +3522,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-width: 0;
 }
 
-#hroptzvfrt .gt_subtitle {
+#oisjrscycx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3499,13 +3534,13 @@ Levels: 関東 その他</code></pre>
   border-top-width: 0;
 }
 
-#hroptzvfrt .gt_bottom_border {
+#oisjrscycx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_col_headings {
+#oisjrscycx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3520,7 +3555,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_col_heading {
+#oisjrscycx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3540,7 +3575,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#hroptzvfrt .gt_column_spanner_outer {
+#oisjrscycx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3552,15 +3587,15 @@ Levels: 関東 その他</code></pre>
   padding-right: 4px;
 }
 
-#hroptzvfrt .gt_column_spanner_outer:first-child {
+#oisjrscycx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hroptzvfrt .gt_column_spanner_outer:last-child {
+#oisjrscycx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hroptzvfrt .gt_column_spanner {
+#oisjrscycx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3572,7 +3607,7 @@ Levels: 関東 その他</code></pre>
   width: 100%;
 }
 
-#hroptzvfrt .gt_group_heading {
+#oisjrscycx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3597,7 +3632,7 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#hroptzvfrt .gt_empty_group_heading {
+#oisjrscycx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3612,15 +3647,15 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-#hroptzvfrt .gt_from_md > :first-child {
+#oisjrscycx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hroptzvfrt .gt_from_md > :last-child {
+#oisjrscycx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hroptzvfrt .gt_row {
+#oisjrscycx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3639,7 +3674,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-#hroptzvfrt .gt_stub {
+#oisjrscycx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3652,7 +3687,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#hroptzvfrt .gt_stub_row_group {
+#oisjrscycx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3666,11 +3701,11 @@ Levels: 関東 その他</code></pre>
   vertical-align: top;
 }
 
-#hroptzvfrt .gt_row_group_first td {
+#oisjrscycx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hroptzvfrt .gt_summary_row {
+#oisjrscycx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3680,16 +3715,16 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#hroptzvfrt .gt_first_summary_row {
+#oisjrscycx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_first_summary_row.thick {
+#oisjrscycx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hroptzvfrt .gt_last_summary_row {
+#oisjrscycx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3699,7 +3734,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_grand_summary_row {
+#oisjrscycx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3709,7 +3744,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#hroptzvfrt .gt_first_grand_summary_row {
+#oisjrscycx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3719,11 +3754,11 @@ Levels: 関東 その他</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_striped {
+#oisjrscycx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hroptzvfrt .gt_table_body {
+#oisjrscycx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3732,7 +3767,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_footnotes {
+#oisjrscycx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3746,7 +3781,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_footnote {
+#oisjrscycx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3755,7 +3790,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#hroptzvfrt .gt_sourcenotes {
+#oisjrscycx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3769,7 +3804,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hroptzvfrt .gt_sourcenote {
+#oisjrscycx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3777,36 +3812,36 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-#hroptzvfrt .gt_left {
+#oisjrscycx .gt_left {
   text-align: left;
 }
 
-#hroptzvfrt .gt_center {
+#oisjrscycx .gt_center {
   text-align: center;
 }
 
-#hroptzvfrt .gt_right {
+#oisjrscycx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hroptzvfrt .gt_font_normal {
+#oisjrscycx .gt_font_normal {
   font-weight: normal;
 }
 
-#hroptzvfrt .gt_font_bold {
+#oisjrscycx .gt_font_bold {
   font-weight: bold;
 }
 
-#hroptzvfrt .gt_font_italic {
+#oisjrscycx .gt_font_italic {
   font-style: italic;
 }
 
-#hroptzvfrt .gt_super {
+#oisjrscycx .gt_super {
   font-size: 65%;
 }
 
-#hroptzvfrt .gt_two_val_uncert {
+#oisjrscycx .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -3815,31 +3850,31 @@ Levels: 関東 その他</code></pre>
   margin-left: 0.1em;
 }
 
-#hroptzvfrt .gt_footnote_marks {
+#oisjrscycx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hroptzvfrt .gt_asterisk {
+#oisjrscycx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hroptzvfrt .gt_slash_mark {
+#oisjrscycx .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#hroptzvfrt .gt_fraction_numerator {
+#oisjrscycx .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#hroptzvfrt .gt_fraction_denominator {
+#oisjrscycx .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -3940,18 +3975,18 @@ Levels: 関東 その他</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "埼玉県"   "東京都"   "京都府"   "奈良県"   "大阪府"   "兵庫県"   "神奈川県"
-[8] "和歌山県" "千葉県"  </code></pre>
+<pre><code>[1] "神奈川県" "東京都"   "兵庫県"   "和歌山県" "千葉県"   "埼玉県"   "大阪府"  
+[8] "京都府"   "奈良県"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "奈良県"   "大阪府"   "千葉県"   "東京都"   "神奈川県" "兵庫県"   "京都府"  
-[8] "和歌山県" "埼玉県"  </code></pre>
+<pre><code>[1] "埼玉県"   "和歌山県" "千葉県"   "東京都"   "兵庫県"   "奈良県"   "大阪府"  
+[8] "京都府"   "神奈川県"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "東京都"   "神奈川県" "埼玉県"   "千葉県"   "和歌山県" "兵庫県"   "大阪府"  
-[8] "京都府"   "奈良県"  </code></pre>
+<pre><code>[1] "兵庫県"   "埼玉県"   "京都府"   "奈良県"   "大阪府"   "神奈川県" "東京都"  
+[8] "千葉県"   "和歌山県"</code></pre>
 </div>
 </div>
 <p>　<code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
@@ -4063,7 +4098,8 @@ Levels: 関東 その他</code></pre>
  8 韓国    2020-06-29     43
  9 韓国    2020-06-30     50
 10 韓国    2020-07-01     54
-# … with 15 more rows</code></pre>
+# … with 15 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　可視化のコードはとりあえず無視し、グラフを出力してみましょう。</p>
@@ -4557,7 +4593,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-merge-row" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 9: 行の結合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 9: 行の結合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -4697,7 +4733,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-merge-col" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 10: 列の結合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 10: 列の結合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -4748,18 +4784,19 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 茨城県 2.92e6  6097.    663    45.0  39.3  15.2  7.15 15.1   6.73  7.73  1.46
  9 栃木県 1.97e6  6408.    595    44.1  40.3  18.9  9.94 12.8   4.9   5.04  1.03
 10 群馬県 1.97e6  6362.    488    48.2  40.6  16.4  9.76 12.4   4.67  7.58  1.87
-# … with 37 more rows, and 3 more variables: Reiwa &lt;dbl&gt;, NHK &lt;dbl&gt;, HRP &lt;dbl&gt;</code></pre>
+# … with 37 more rows, and 3 more variables: Reiwa &lt;dbl&gt;, NHK &lt;dbl&gt;, HRP &lt;dbl&gt;
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="vruifdxvfw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vfbrwesgoa" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#vruifdxvfw .gt_table {
+#vfbrwesgoa .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4784,7 +4821,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_heading {
+#vfbrwesgoa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4796,7 +4833,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_title {
+#vfbrwesgoa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4808,7 +4845,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-width: 0;
 }
 
-#vruifdxvfw .gt_subtitle {
+#vfbrwesgoa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4820,13 +4857,13 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-width: 0;
 }
 
-#vruifdxvfw .gt_bottom_border {
+#vfbrwesgoa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_col_headings {
+#vfbrwesgoa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4841,7 +4878,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_col_heading {
+#vfbrwesgoa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4861,7 +4898,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#vruifdxvfw .gt_column_spanner_outer {
+#vfbrwesgoa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4873,15 +4910,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 4px;
 }
 
-#vruifdxvfw .gt_column_spanner_outer:first-child {
+#vfbrwesgoa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vruifdxvfw .gt_column_spanner_outer:last-child {
+#vfbrwesgoa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vruifdxvfw .gt_column_spanner {
+#vfbrwesgoa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4893,7 +4930,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   width: 100%;
 }
 
-#vruifdxvfw .gt_group_heading {
+#vfbrwesgoa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4918,7 +4955,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#vruifdxvfw .gt_empty_group_heading {
+#vfbrwesgoa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4933,15 +4970,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-#vruifdxvfw .gt_from_md > :first-child {
+#vfbrwesgoa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vruifdxvfw .gt_from_md > :last-child {
+#vfbrwesgoa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vruifdxvfw .gt_row {
+#vfbrwesgoa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4960,7 +4997,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-#vruifdxvfw .gt_stub {
+#vfbrwesgoa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4973,7 +5010,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#vruifdxvfw .gt_stub_row_group {
+#vfbrwesgoa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4987,11 +5024,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: top;
 }
 
-#vruifdxvfw .gt_row_group_first td {
+#vfbrwesgoa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vruifdxvfw .gt_summary_row {
+#vfbrwesgoa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5001,16 +5038,16 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#vruifdxvfw .gt_first_summary_row {
+#vfbrwesgoa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_first_summary_row.thick {
+#vfbrwesgoa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vruifdxvfw .gt_last_summary_row {
+#vfbrwesgoa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5020,7 +5057,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_grand_summary_row {
+#vfbrwesgoa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5030,7 +5067,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#vruifdxvfw .gt_first_grand_summary_row {
+#vfbrwesgoa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5040,11 +5077,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_striped {
+#vfbrwesgoa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vruifdxvfw .gt_table_body {
+#vfbrwesgoa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5053,7 +5090,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_footnotes {
+#vfbrwesgoa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5067,7 +5104,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_footnote {
+#vfbrwesgoa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5076,7 +5113,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#vruifdxvfw .gt_sourcenotes {
+#vfbrwesgoa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5090,7 +5127,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vruifdxvfw .gt_sourcenote {
+#vfbrwesgoa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5098,36 +5135,36 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-#vruifdxvfw .gt_left {
+#vfbrwesgoa .gt_left {
   text-align: left;
 }
 
-#vruifdxvfw .gt_center {
+#vfbrwesgoa .gt_center {
   text-align: center;
 }
 
-#vruifdxvfw .gt_right {
+#vfbrwesgoa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vruifdxvfw .gt_font_normal {
+#vfbrwesgoa .gt_font_normal {
   font-weight: normal;
 }
 
-#vruifdxvfw .gt_font_bold {
+#vfbrwesgoa .gt_font_bold {
   font-weight: bold;
 }
 
-#vruifdxvfw .gt_font_italic {
+#vfbrwesgoa .gt_font_italic {
   font-style: italic;
 }
 
-#vruifdxvfw .gt_super {
+#vfbrwesgoa .gt_super {
   font-size: 65%;
 }
 
-#vruifdxvfw .gt_two_val_uncert {
+#vfbrwesgoa .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -5136,31 +5173,31 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   margin-left: 0.1em;
 }
 
-#vruifdxvfw .gt_footnote_marks {
+#vfbrwesgoa .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#vruifdxvfw .gt_asterisk {
+#vfbrwesgoa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vruifdxvfw .gt_slash_mark {
+#vfbrwesgoa .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#vruifdxvfw .gt_fraction_numerator {
+#vfbrwesgoa .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#vruifdxvfw .gt_fraction_denominator {
+#vfbrwesgoa .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -5272,7 +5309,8 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 茨城県    663
  9 栃木県    595
 10 群馬県    488
-# … with 37 more rows</code></pre>
+# … with 37 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　これから共通変数名の値をキー (key)と呼びます。今回の例だと<code>Pref</code>が<code>df2</code>と<code>df4</code>のキー変数であり、その値である<code>"東京都"</code>、<code>"北海道"</code>などがキーです。</p>
@@ -5282,7 +5320,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-inner-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge_Inner.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 11: <code>inner_join()</code>の仕組み</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 11: <code>inner_join()</code>の仕組み</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -5312,7 +5350,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-full-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge_Full.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 12: <code>full_join()</code>の仕組み</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 12: <code>full_join()</code>の仕組み</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -5335,7 +5373,8 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 福岡県           NA          NA      NA       NA    985
  9 新潟県           NA          NA      NA       NA    705
 10 静岡県           NA          NA      NA       NA    679
-# … with 37 more rows</code></pre>
+# … with 37 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　<code>df2</code>にはなかった北海道や愛知県などの行ができました。そして、<code>df2</code>にはない情報はすべて欠損値 (<code>NA</code>)となりました。</p>
@@ -5345,7 +5384,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-left-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge_Left.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 13: <code>left_join()</code>の仕組み</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 13: <code>left_join()</code>の仕組み</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -5356,7 +5395,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 <div id="fig-right-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Handling1/Merge_Right.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 14: <code>right_join()</code>の仕組み</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図 14: <code>right_join()</code>の仕組み</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -5427,6 +5466,24 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

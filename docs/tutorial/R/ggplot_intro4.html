@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -117,7 +117,7 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1215,7 +1215,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 Australia           オセアニア "3万ドル以上"                    97    0.938
  9 Austria             ヨーロッパ "3万ドル以上"                    93    0.914
 10 Azerbaijan          ヨーロッパ "1万ドル以上\n2万ドル未満"       10    0.754
-# … with 168 more rows</code></pre>
+# … with 168 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　次は<code>group_by()</code>と<code>summarise()</code>を使って、各カテゴリーに属するケース数を計算し、<code>N</code>という名の列として追加します。</p>
@@ -1437,7 +1438,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ggplot_intro4_files/figure-html/visual4-contour6-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">{RColorBrewer}が提供するパレート一覧</figcaption><p></p>
+<p></p><figcaption class="figure-caption">{RColorBrewer}が提供するパレート一覧</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1651,7 +1652,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8     8 茨城県   470. 
  9     9 栃木県   302. 
 10    10 群馬県   305. 
-# … with 37 more rows</code></pre>
+# … with 37 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　各都道府県の人口密度がついております、左側の<code>Code</code>は何でしょうか。これは各都道府県のISOコードであり、このコードをキー変数としてデータを結合することとなります。各都道府県のコードは<a href="https://nlftp.mlit.go.jp/ksj/gml/codelist/PrefCd.html">国土交通省のホームページ</a>から確認可能です。</p>
@@ -1921,7 +1923,8 @@ First 10 features:
  8 27108 大阪市 大正区     65141    2627
  9 27109 大阪市 天王寺区   75729    3480
 10 27111 大阪市 浪速区     69766    1409
-# … with 65 more rows</code></pre>
+# … with 65 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　各市区町村にもコードが指定されており、<code>Osaka_Student</code>では<code>Code</code>列、<code>Osaka_map</code>では<code>citi_code</code>列となります。<code>Osaka_map</code>の<code>city_code</code>は文字列であるため、こちらを数値型に変換し<code>Code</code>という名の列として追加しておきましょう。続いて、<code>Code</code>列をキー変数とし、2つのデータセットを結合します。</p>
@@ -2326,7 +2329,8 @@ Z -&gt; Y
  8 その他 DK        18
  9 その他 その他    73
 10 その他 政党A    121
-# … with 37 more rows</code></pre>
+# … with 37 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>　2020年の調査で「わからない」と回答し、2021年の調査でも「わからない」と回答した回答者数は111名、2020年の調査で「わからない」と回答し、2021年の調査では「その他」と回答した回答者数は8名、…といったことが分かりますね。</p>
@@ -2749,6 +2753,24 @@ Heer, Jeffrey, and Michael Bostock. 2010. <span>“Crowdsourcing Graphical Perce
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
