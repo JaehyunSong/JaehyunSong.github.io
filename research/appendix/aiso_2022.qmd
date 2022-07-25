@@ -28,7 +28,10 @@ link-external-newwindow: true
 #link-external-icon: true
 ---
 
-Full-text available [here](https://link.springer.com/article/10.1007/s00146-022-01541-9).
+## Text and Dataset
+
+* Full-text available [here](https://link.springer.com/article/10.1007/s00146-022-01541-9).
+* Replication data available [here](data/replication_data_aiso_2022.csv).
 
 ## Setup
 
