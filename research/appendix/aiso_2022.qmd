@@ -1,0 +1,404 @@
+---
+title: 'A Replication Code for "Fake News and its Electoral Consequences: A Survey Experiment on Mexico"'
+author: 
+  - name: Takeshi Iida
+    affiliation: Doshisha University
+    url: https://tiida.doshisha.ac.jp/
+  - name: Jaehyun Song
+    affiliation: Kansai University
+    url: https://www.jaysong.net
+  - name: José Luis Estrada
+    affiliation: Universidad Autónoma de Puebla
+  - name: Yuriko Takahashi
+    affiliation: Waseda University
+date: "`r Sys.Date()`"
+language: 
+  title-block-author-plural: "Authors"
+  title-block-affiliation-plural: "Affiliations"
+  title-block-published: "Updated"
+  toc-title-document: "Table of contents"
+  toc-title-website: "Table of contents"
+format: 
+   html:
+       toc: true
+       number-sections: true
+       self-contained: true
+       html-math-method: katex
+link-external-newwindow: true
+#link-external-icon: true
+---
+
+Full-text available [here](https://link.springer.com/article/10.1007/s00146-022-01541-9).
+
+## Setup
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(dpi       = 400,
+                      dev       = "ragg_png",
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+```{r}
+pacman::p_load(tidyverse, 
+               margins, 
+               prediction,
+               modelsummary,
+               summarytools, 
+               gt)
+pacman::p_load_gh("JaehyunSong/BalanceR")
+df <- read_csv("data/replication_data_aiso_2022.csv")
+```
+
+## Estimation
+
+```{r}
+# w/o covariates / no interaction
+Fit1 <- lm(Regret ~ Group, data = df, weights = W)
+
+# w/ covariates
+Fit2 <- lm(Regret ~ Group + Female + Age + Educ + Income + 
+               Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+               ExtEffi + IntEffi + Trust_Media, 
+           data = df, weights = W)
+
+# w/ covariates / interaction with knowledge
+Fit3 <- lm(Regret ~ Group * Knowledge + Female + Age + Educ + Income + 
+               Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+               Trust_Media + ExtEffi + IntEffi, 
+           data = df, weights = W)
+
+# w/ covariates / interaction with internal political efficacy
+Fit4 <- lm(Regret ~ Group * IntEffi + Female + Age + Educ + Income + 
+               Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+               ExtEffi + IntEffi + Trust_Media, 
+           data = df, weights = W)
+```
+
+```{r}
+#| column: page
+coef_vec <- c("GroupTreat1"           = "Treatment 1",
+              "GroupTreat2"           = "Treatment 2",
+              "Female"                = "Female", 
+              "Age"                   = "Age", 
+              "Educ"                  = "Education",
+              "Income"                = "Income", 
+              "Ideology"              = "Ideology",
+              "PID1"                  = "PID: Anaya Coalition",
+              "PID2"                  = "PID: Meade Coalition",
+              "PID3"                  = "PID: López Obrador Coalition",
+              "Knowledge"             = "Knowledge",
+              "Voted"                 = "Voted",
+              "ExtEffi"               = "External Efficacy",
+              "IntEffi"               = "Internal Efficacy",
+              "Trust_Media"           = "Trust in Media",
+              "GroupTreat1:Knowledge" = "Treatment 1 * Knowledge",
+              "GroupTreat2:Knowledge" = "Treatment 2 * Knowledge",
+              "GroupTreat1:IntEffi"   = "Treatment1 * Internal Efficacy",
+              "GroupTreat2:IntEffi"   = "Treatment2 * Internal Efficacy",
+              "(Intercept)"           = "Constant")
+
+modelsummary(list("Model 1<br/>No Covariates"                = Fit1, 
+                  "Model 2<br/>With Covariates"              = Fit2,
+                  "Model 3<br/>Knowledge"                    = Fit3,
+                  "Model 4<br/>Internal Political Efficacy"  = Fit4), 
+             escape   = FALSE,
+             coef_map = coef_vec)
+```
+
+## Figure 1
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3.5
+bind_rows(list("1" = prediction(Fit1, 
+                                at = list(Group = c("Control", 
+                                                    "Treat1", 
+                                                    "Treat2"))) |>
+                   summary(),
+               "2" = prediction(Fit2, 
+                                at = list(Group = c("Control", 
+                                                    "Treat1", 
+                                                    "Treat2"))) |>
+                   summary()),
+          .id = "Model") |>
+    rename("Group" = "at(Group)") |>
+    mutate(Model = if_else(Model == "1", 
+                           "w/o Covariates\n& w/ Weights", 
+                           "w/ Covariates\n& w/ Weights"),
+           Model = fct_inorder(Model)) |>
+    ggplot() +
+    geom_bar(aes(x = Group, y = Prediction), stat = "identity") +
+    geom_label(aes(x = Group, y = Prediction, 
+                   label = sprintf("%.3f", Prediction))) +
+    coord_cartesian(ylim = c(0, 0.25)) +
+    labs(x = "Groups", y = "Predicted Pr(Regret)") +
+    facet_wrap(~Model, ncol = 2) +
+    theme_bw(base_size = 12)
+```
+
+## Figure 2
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+Fit3 |>
+    prediction(at = list("Group"     = c("Control", "Treat1", "Treat2"),
+                         "Knowledge" = 0:3)) |>
+    summary() |>
+    rename("Group"     = "at(Group)",
+           "Knowledge" = "at(Knowledge)") |>
+    mutate(Group = fct_inorder(Group)) |>
+    ggplot(aes(x = Knowledge, y = Prediction)) +
+    geom_line() +
+    geom_pointrange(aes(ymin = lower, ymax = upper)) +
+    labs(x = "(Low) ← Political Knowledge → (High)", 
+         y = "Probability that respondents want \nto vote for another candidate (0:No ~ 1:Yes)") +
+    coord_cartesian(ylim = c(0, 0.4)) +
+    facet_wrap(~ Group) +
+    theme_bw()
+```
+
+## Figure 3
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+Fit3 |>
+    margins(variable = "Group",
+            at = list(Knowledge = 0:3)) |>
+    summary()  |>
+    mutate(Sig    = if_else(p < 0.05, "Significant", "Insignificant"),
+           factor = if_else(factor == "GroupTreat1",
+                            "Treatment 1", "Treatment 2")) |>
+    ggplot() +
+    geom_hline(yintercept = 0) +
+    geom_pointrange(aes(x = Knowledge, y = AME, ymin = lower, ymax = upper,
+                        color = Sig)) +
+    scale_y_continuous(breaks = c(-0.3, -0.2, -0.1, 0, 0.1, 0.2),
+                       labels = c(-0.3, -0.2, -0.1, 0, 0.1, 0.2)) +
+    scale_color_manual(values = c("Significant"   = "black", 
+                                  "Insignificant" = "gray70")) +
+    coord_cartesian(ylim = c(-0.3, 0.2)) +
+    labs(x = "(Low) ← Political Knowledge → (High)", 
+         y = "Average Marginal Effects",
+         color = "") +
+    facet_wrap(~factor, ncol = 2) +
+    theme_bw() +
+    theme(legend.position = "bottom")
+```
+
+## Figure 4
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+Fit4 |>
+    prediction(at = list("Group"   = c("Control", "Treat1", "Treat2"),
+                         "IntEffi" = 1:5)) |>
+    summary() |>
+    rename("Group"   = "at(Group)",
+           "IntEffi" = "at(IntEffi)") |>
+    mutate(Group = fct_inorder(Group)) |>
+    ggplot(aes(x = IntEffi, y = Prediction)) +
+    geom_line() +
+    geom_pointrange(aes(ymin = lower, ymax = upper)) +
+    labs(x = "(Low) ← Internal Political Efficacy → (High)", 
+         y = "Probability that respondents want \nto vote for another candidate (0:No ~ 1:Yes)") +
+    coord_cartesian(ylim = c(-0.1, 0.5)) +
+    facet_wrap(~ Group) +
+    theme_bw()
+```
+
+## Figure 5
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+Fit4 |>
+    margins(variable = "Group",
+            at = list(IntEffi = 1:5)) |>
+    summary()  |>
+    mutate(Sig    = if_else(p < 0.05, "Significant", "Insignificant"),
+           factor = if_else(factor == "GroupTreat1",
+                            "Treatment 1", "Treatment 2")) |>
+    ggplot() +
+    geom_hline(yintercept = 0) +
+    geom_pointrange(aes(x = IntEffi, y = AME, ymin = lower, ymax = upper,
+                        color = Sig)) +
+    scale_y_continuous(breaks = c(-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5),
+                       labels = c(-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5)) +
+    scale_color_manual(values = c("Significant"   = "black", 
+                                  "Insignificant" = "gray70")) +
+    coord_cartesian(ylim = c(-0.2, 0.5)) +
+    labs(x = "(Low) ← Internal Political Efficacy → (High)", 
+         y = "Average Marginal Effects",
+         color = "") +
+    facet_wrap(~factor, ncol = 2) +
+    theme_bw() +
+    theme(legend.position = "bottom")
+```
+
+## Appendix
+
+### Figure A.1
+
+```{r}
+BlcChk <- df |>
+  select(-PID) |>
+  BalanceR(group = Group, 
+           cov = c(Female:Voted, 
+                   `PID_PAN_PRD_MC`    = PID1,
+                   `PID_PRI_PVEM_PNA`  = PID2,
+                   `PID_MORENA_PT_PES` = PID3,
+                   `PID_Etc`           = PID0,
+                   `External_Efficacy` = ExtEffi,
+                   `Internal_Efficacy` = IntEffi,
+                   `Trust_in_Media`    = Trust_Media)) 
+```
+
+```{r}
+BlcChk |>
+  plot(vline = 25, simplify = TRUE, abs = TRUE)
+```
+
+### Table A.2
+
+```{r}
+tab_a2_1 <- df |>
+    select(Regret, Female, Age, Educ, Income, Ideology, PID0:PID3,
+           Knowledge, Voted, ExtEffi, IntEffi, Trust_Media) |>
+    summarise(across(Regret:Trust_Media,
+                     .fns = list("Mean" = mean,
+                                 "SD"   = sd),
+                     .names = "{.col}-{.fn}")) |>
+    pivot_longer(cols = everything(),
+                 names_to = "x",
+                 values_to = "y") |>
+    separate(col = x, into = c("Cov", "Stat"), sep = "-") |>
+    pivot_wider(names_from = Stat, values_from = y) |>
+    mutate(Stat = paste0(sprintf("%.3f", Mean), 
+                         "<br/>(", sprintf("%.3f", SD), ")")) |>
+    select(-Mean, -SD)
+
+tab_a2_2 <- df |>
+    select(Group, Regret, Female, Age, Educ, Income, Ideology, PID0:PID3,
+           Knowledge, Voted, ExtEffi, IntEffi, Trust_Media) |>
+    group_by(Group) |>
+    summarise(across(Regret:Trust_Media,
+                     .fns = list("Mean" = mean,
+                                 "SD"   = sd),
+                     .names = "{.col}-{.fn}"),
+              .groups = "drop") |>
+    pivot_longer(cols = -Group,
+                 names_to = "x",
+                 values_to = "y") |>
+    separate(col = x, into = c("Cov", "Stat"), sep = "-") |>
+    pivot_wider(names_from = Stat, values_from = y) |>
+    mutate(Stat = paste0(sprintf("%.3f", Mean), 
+                         "<br/>(", sprintf("%.3f", SD), ")")) |>
+    select(-Mean, -SD) |>
+    pivot_wider(names_from = Group, values_from = Stat)
+
+left_join(tab_a2_1, tab_a2_2, by = "Cov") |>
+    mutate(Cov = recode(Cov,
+                        "Regret"      = "Regret (Outcome)",
+                        "Educ"        = "Education",
+                        "PID0"        = "PID: Others",
+                        "PID1"        = "PID: Anaya Coalition",
+                        "PID2"        = "PID: Meade Coalition",
+                        "PID3"        = "PID: López Obrador Coalition",
+                        "ExtEffi"     = "External Efficacy",
+                        "IntEffi"     = "Internal Efficacy",
+                        "Trust_Media" = "Trust in Media")) |>
+    select("Variables"     = Cov, 
+           "Entire Sample" = Stat,
+           "Treatment 1"   = Treat1,
+           "Treatment 2"   = Treat2,
+           "Control"       = Control) |>
+    gt() |>
+    fmt_markdown(columns = -Variables) |>
+    cols_align(columns = -Variables, align = "center")
+```
+
+### Table A.4
+
+```{r}
+# w/ covariates / interaction with trust in media
+Fit5 <- lm(Regret ~ Group * Trust_Media + Female + Age + Educ + Income + 
+               Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+               Trust_Media + ExtEffi + IntEffi, 
+           data = df, weights = W)
+
+# w/ covariates / interaction with ideology
+Fit6 <- lm(Regret ~ Group * Ideology + Female + Age + Educ + Income + 
+               Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+               ExtEffi + IntEffi + Trust_Media, 
+           data = df, weights = W)
+
+# w/ covariates / interaction with strength of idelogy
+Fit7 <- df |>
+    mutate(Strength = abs(5 - Ideology)) |>
+    lm(Regret ~ Group * Strength + Female + Age + Educ + Income + 
+           Ideology + PID1 + PID2 + PID3 + Knowledge + Voted + 
+           ExtEffi + IntEffi + Trust_Media, 
+       data = _, weights = W)
+```
+
+```{r}
+#| column: page
+coef_vec <- c("GroupTreat1"             = "Treatment 1",
+              "GroupTreat2"             = "Treatment 2",
+              "Female"                  = "Female", 
+              "Age"                     = "Age", 
+              "Educ"                    = "Education",
+              "Income"                  = "Income", 
+              "Ideology"                = "Ideology",
+              "Strength"                = "Strength of Ideology",
+              "PID1"                    = "PID: Anaya Coalition",
+              "PID2"                    = "PID: Meade Coalition",
+              "PID3"                    = "PID: López Obrador Coalition",
+              "Knowledge"               = "Knowledge",
+              "Voted"                   = "Voted",
+              "ExtEffi"                 = "External Efficacy",
+              "IntEffi"                 = "Internal Efficacy",
+              "Trust_Media"             = "Trust in Media",
+              "GroupTreat1:Knowledge"   = 
+                  "Treatment 1 *<br/>Knowledge",
+              "GroupTreat2:Knowledge"   = 
+                  "Treatment 2 *<br/>Knowledge",
+              "GroupTreat1:IntEffi"     = 
+                  "Treatment1 *<br/>Internal Efficacy",
+              "GroupTreat2:IntEffi"     = 
+                  "Treatment2 *<br/>Internal Efficacy",
+              "GroupTreat1:Trust_Media" = 
+                  "Treatment1 *<br/>Trust in the Media",
+              "GroupTreat2:Trust_Media" = 
+                  "Treatment2 *<br/>Trust in the Media",
+              "GroupTreat1:Ideology"    = 
+                  "Treatment1 *<br/>Ideology",
+              "GroupTreat2:Ideology"    = 
+                  "Treatment2 *<br/>Ideology",
+              "GroupTreat1:Strength"    = 
+                  "Treatment1 *<br/>Strength of Ideology",
+              "GroupTreat2:Strength"    = 
+                  "Treatment2 *<br/>Strength of Ideology",
+              "(Intercept)"             = "Constant")
+
+modelsummary(list("Model 1<br/>No Covariates"                = Fit1, 
+                  "Model 2<br/>With Covariates"              = Fit2,
+                  "Model 3<br/>Knowledge"                    = Fit3,
+                  "Model 4<br/>Internal Political Efficacy"  = Fit4,
+                  "Model 5<br/>Trust in Media"               = Fit5,
+                  "Model 6<br/>Ideology"                     = Fit6,
+                  "Model 7<br/>Strength of Ideology"         = Fit7), 
+             escape   = FALSE,
+             coef_map = coef_vec)
+```
+
+## Session Infomation
+
+```{r}
+sessionInfo()
+```
