@@ -7,12 +7,12 @@ toc: true
 toc-depth: 5
 ---
 
-### 学位論文
+### Thesis & Dissertation
 
 1. **宋財泫**. 2018.「争点空間の歪みと有権者の選択―伸縮近接性モデルによる争点投票理論の統合―」神戸大学法学研究科博士論文. <div class="jay_btn">[Kernel](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_D1007085)</div>
 1. **宋財泫**. 2015.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学法学研究科修士論文 (神戸大学社会科学系図書館で閲覧可)
 
-### 進行中のプロジェクト
+### Work in Progress
 
 1. **[Under Review]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
@@ -27,7 +27,7 @@ toc-depth: 5
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
 1. 香港における国家安全法に対する支持態度とリスト実験の安定性 (w/ 小林哲郎)
 
-### 著書
+### Books
 
 1. **宋財泫**・[矢内勇生](https://yukiyanai.github.io/). 2019.「え！そっちに入れるんですか？ー伸縮する政策空間における有権者の投票行動モデリングー」豊田秀樹 (編著) 『たのしいベイズモデリング２』北大路書房. pp. 105-117 <div class="jay_btn">[Data](https://www.kitaohji.com/news/n41068.html)</div>
 1. [Hata, Masaki](http://hatam.sakura.ne.jp/), **Jaehyun Song**, and Yutaka Shinada. 2017. "Has the 3.11 Disaster Brought About Conservatism in Japan?." in Kaoru Endo, Satoshi Kurihara, Takashi Kamihigashi, and Fujio Toriumi Ed. *Reconstruction of the Public Sphere in the Socially Mediated Age,* Springer, pp. 181-200 <div class="jay_btn">[Full-text](https://link.springer.com/chapter/10.1007%2F978-981-10-6138-7_10)</div>
@@ -35,7 +35,7 @@ toc-depth: 5
 1. [韓国語] 중앙선거관리위원회 선거연수원 편찬. 2016『2016 해외연구관 보고서』중앙선거관리위원회 선거연수원. (각 장의 일본 파트 담당, 비매품) (= 中央選挙管理委員会選挙研修員編. 2016.『2016海外研究官報告書』中央選挙管理委員会選挙研修院．(各章の日本パート担当、非売品)) <div class="jay_btn">[Full-text](http://www.civicedu.go.kr/web/sysResearch/sysResearch_0102_view.jsp?pBoardSeq=332)</div>
 1. [韓国語] 중앙선거관리위원회 선거연수원 편찬. 2015『2015 해외연구관 보고서』중앙선거관리위원회 선거연수원. (각 장의 일본 파트 담당, 비매품) (= 中央選挙管理委員会選挙研修員編. 2015.『2015海外研究官報告書』中央選挙管理委員会選挙研修院．(各章の日本パート担当、非売品)) <div class="jay_btn">[Full-text](http://www.civicedu.go.kr/web/sysResearch/sysResearch_0102_view.jsp?pBoardSeq=268)</div>
 
-### 論文
+### Articles
 
 ##### 2022
 
@@ -84,7 +84,7 @@ toc-depth: 5
 
 1. **宋財[ヒョン]**. 2015. 「誰が選挙公約を見るのか―無党派性と政治的有効性感覚に着目した日韓比較―」『六甲台論集―法学政治学編』62(1): 1-22. <div class="jay_btn">[Full-text](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_81009140)</div>
 
-### 口頭発表
+### Presentation
 
 (共同研究において下線報告者を表す)
 
@@ -172,19 +172,19 @@ toc-depth: 5
 1. **宋財泫**. 2015年3月5日.「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」神戸大学STP報告会 於：神戸大学.
 <div class="jay_btn">[Slide](https://www.slideshare.net/tintstyle/presentation-45894180)</div>
 
-### 討論
+### Discussant
 
 1. **SONG Jaehyun**. 2022年5月7日「討論：方法論部会（多様な政治参加の形態と先端的方法）」日本選挙学会2022年度大会. 於：石川県文教会館・金沢商工会議所会館
 1. **SONG Jaehyun**. 2021年6月27日「討論：自由論題E（比較政治学における量的方法）」日本比較政治学会2021年度大会. 於：オンライン
 1. **SONG Jaehyun**. 2019年10月6日「討論：方法論部会（政党の政策ポジション推定と選挙制度）」日本政治学会2019年度大会. 於：成蹊大学
 
-### 講演
+### Invited Talks & Lectures
 
 1. 「Qualtrics入門講座」早稲田大学（2018年6月）
 1. 「Qualtrics+Rによるコンジョイント分析の実施と分析」関西学院大学（2019年2月）
 1. 「Qualtrics講習会」高知工科大学（2020年12月）<span class="jay_btn">[Slide (学外用)](../tutorial/Qualtrics/Introduction_to_Qualtrics.pdf)</span>
 
-### 報告書
+### Reports
 
 1. [韓国語] 송재현. 2016. 「일본」『공무원 정치적 중립 및 입후보제한에 관한 연구』중앙선거관리위원회 선거연수원. pp. 28-41 (= **宋財泫**. 2016.「日本」『公務員の政治的中立性および立候補制限に関する研究』中央選挙管理委員会・選挙研修院．28-41頁)
 1. [韓国語] 송재현. 2016. 「일본의 선거권 연령 18세 인하에 따른 참의원 선거 영향 분석」『브렉시트의 의의와 영향, 일본의 선거권 연령 18세 인하에 따른 참의원 선거 영향 분석』중앙선거관리위원회 선거연수원. pp. 7-14 (= **宋財泫**. 2016.「日本の18歳選挙権が参議院選挙に与えた影響の分析」『Brexitの意義の影響・日本の18歳選挙権が参議院選挙に与えた影響の分析』中央選挙管理委員会・選挙研修院．7-14頁)
@@ -196,7 +196,7 @@ toc-depth: 5
 1. [韓国語] 송재현. 2015. 「일본」『선거인 명부 작성방법 (재외선거, 거주불명등록자)』중앙선거관리위원회 선거연수원. pp. 60-77 (= **宋財泫**. 2015.「日本」『選挙人名簿作成方法(在外選挙、住所不定)』中央選挙管理委員会・選挙研修院．60-77頁)
 1. [韓国語] 송재현. 2015. 「일본」『장애인 유권자를 위한 선거정보 및 투표편의 제공 방안』중앙선거관리위원회 선거연수원. pp. 73-87 (= **宋財泫**. 2015.「日本」『障害を持つ有権者のための選挙情報および投票便宜の提供方案』中央選挙管理委員会・選挙研修院．73-87頁)
 
-### ソフトウェア
+### Software & Packages
 
 1. [R Packages] BalanceR <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/BalanceR)</span>
 1. [R Packages] SimpleConjoint  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint)</span>
@@ -205,7 +205,7 @@ toc-depth: 5
 1. [Javascript] SimpleConjoint.js  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
 1. [Web Application] PRcalc for Web  <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc4Web) [ShinyApps](https://jaysong.shinyapps.io/prcalc4web/)</span>
 
-### 受賞
+### Awards
 
 1. 優秀ポスター賞. 日本選挙学会2018年度大会. 日本選挙学会. 2019年.
 1. 銅賞. 情報オリンピアード大会. ソウル東部教育庁. 2001年.
@@ -213,7 +213,7 @@ toc-depth: 5
 1. 金賞. 情報オリンピアード大会. ソウル東部教育庁. 1998年.
 1. 金賞. 情報オリンピアード大会. ソウル東部教育庁. 1997年.
 
-### 競争的資金獲得
+### Funding
 
 1. [分担] Apr.2022~Mar.2026: 科学研究費 基盤研究 (B)「ポピュリストの体制化というパラドックス：エリート概念の拡張とポピュリズムの新測定」代表：日野愛郎 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-22H00810/)</span>
 1. [分担] Apr.2021~Mar.2026: 科学研究費 基盤研究 (B)「不確実性の高い社会における地方政治への信頼の変動要因とその帰結の実証的解明」代表：善教将大 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00684/)</span>
