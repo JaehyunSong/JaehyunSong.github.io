@@ -21,13 +21,11 @@ link-external-newwindow: true
 * マクロ政治分析 (学部; 木3)
 * [マクロ政治データ分析実習](https://www.jaysong.net/macro-book/) (学部; 木4)
 * 公共領域におけるデータベース (修士; 月7・木6)
-* 社会科学における因果推論 (修士; 月2)
+* [社会科学における因果推論](https://www.jaysong.net/kandai-ci/) (修士; 月2)
 
 #### 神戸大学 (夏期集中)
 
-* 方法論特殊講義III
-
----
+* [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)
 
 ## 過去の担当科目
 
