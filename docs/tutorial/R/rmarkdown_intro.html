@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-07">
+<meta name="dcterms.date" content="2022-07-25">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- R Markdown入門</title>
 <style>
@@ -153,6 +153,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../../index.html">
+    <img src="../../imgs/logo.png" alt="">
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -279,7 +280,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 7, 2022</p>
+      <p class="date">July 25, 2022</p>
     </div>
   </div>
     
@@ -826,7 +827,7 @@ X = \begin{bmatrix}
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">fig.align =</span> <span class="st">"center"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>　こう書いておくと、そのRMarkdownファイルの全てのチャンクに<code>fig.align = "center"</code>と<code>dpi = 300</code>オプションが付くようになります。一部のチャンクに<code>fig.align</code>や<code>dpi</code>のオプションを付ける場合、当該チャンクのオプションが優先されます。</p>
-<p>　このようにチャンクオプションが見やすくなるメリットがありますが、現在 (2022年07月07日)のRStudioは、チャンク内部のオプション指定の入力補助に対応していないことに注意してください。通常の書き方だと<code>if()</code>文のような条件分岐がチャンクのオプションとして使えますが、<code>#|</code>の書き方だと正しく作動しません。ただし、<code>#| eval: ...</code>を<code>#| eval = ...</code>にすると作動します。</p>
+<p>　このようにチャンクオプションが見やすくなるメリットがありますが、現在 (2022年07月25日)のRStudioは、チャンク内部のオプション指定の入力補助に対応していないことに注意してください。通常の書き方だと<code>if()</code>文のような条件分岐がチャンクのオプションとして使えますが、<code>#|</code>の書き方だと正しく作動しません。ただし、<code>#| eval: ...</code>を<code>#| eval = ...</code>にすると作動します。</p>
 </section>
 </section>
 <section id="rmarkdown-header" class="level2">

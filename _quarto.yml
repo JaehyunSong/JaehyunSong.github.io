@@ -12,6 +12,7 @@ website:
   favicon: "imgs/favicon.png"
   navbar:
     search: true
+    logo: "imgs/logo.png"
     background: "#1955A6" # royal blue
     left:
       - text: "CV"

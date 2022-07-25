@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-07">
+<meta name="dcterms.date" content="2022-07-25">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- Rプログラミング入門の入門</title>
 <style>
@@ -153,6 +153,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../../index.html">
+    <img src="../../imgs/logo.png" alt="">
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -272,7 +273,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 7, 2022</p>
+      <p class="date">July 25, 2022</p>
     </div>
   </div>
     
@@ -1105,16 +1106,15 @@ Team: New Caledonia
 <span id="cb80-16"><a href="#cb80-16"></a>  Trial <span class="ot">&lt;-</span> Trial <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb80-17"><a href="#cb80-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 3(これまでの総和: 3)"
-[1] "2回目のサイコロ投げの結果: 3(これまでの総和: 6)"
-[1] "3回目のサイコロ投げの結果: 1(これまでの総和: 7)"
-[1] "4回目のサイコロ投げの結果: 3(これまでの総和: 10)"
-[1] "5回目のサイコロ投げの結果: 6(これまでの総和: 16)"
-[1] "6回目のサイコロ投げの結果: 2(これまでの総和: 18)"
-[1] "7回目のサイコロ投げの結果: 1(これまでの総和: 19)"
-[1] "8回目のサイコロ投げの結果: 6(これまでの総和: 25)"
-[1] "9回目のサイコロ投げの結果: 4(これまでの総和: 29)"
-[1] "10回目のサイコロ投げの結果: 1(これまでの総和: 30)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 5(これまでの総和: 5)"
+[1] "2回目のサイコロ投げの結果: 2(これまでの総和: 7)"
+[1] "3回目のサイコロ投げの結果: 1(これまでの総和: 8)"
+[1] "4回目のサイコロ投げの結果: 4(これまでの総和: 12)"
+[1] "5回目のサイコロ投げの結果: 6(これまでの総和: 18)"
+[1] "6回目のサイコロ投げの結果: 1(これまでの総和: 19)"
+[1] "7回目のサイコロ投げの結果: 6(これまでの総和: 25)"
+[1] "8回目のサイコロ投げの結果: 4(これまでの総和: 29)"
+[1] "9回目のサイコロ投げの結果: 4(これまでの総和: 33)"</code></pre>
 </div>
 </div>
 <p>それでは、コードの説明をします。まず、これまで出た目の和を記録する変数<code>Total</code>を用意し、初期値として0を格納します。また、何回目の投げかを記録するための<code>Trial</code>変数を記録し、初期値として1を格納しておきます (コードの1、2行目)。</p>
@@ -1139,12 +1139,13 @@ Team: New Caledonia
 <span id="cb82-14"><a href="#cb82-14"></a>  }</span>
 <span id="cb82-15"><a href="#cb82-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 5 (これまでの総和: 5)"
-[1] "2回目のサイコロ投げの結果: 6 (これまでの総和: 11)"
-[1] "3回目のサイコロ投げの結果: 6 (これまでの総和: 17)"
-[1] "4回目のサイコロ投げの結果: 6 (これまでの総和: 23)"
-[1] "5回目のサイコロ投げの結果: 3 (これまでの総和: 26)"
-[1] "6回目のサイコロ投げの結果: 5 (これまでの総和: 31)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 2 (これまでの総和: 2)"
+[1] "2回目のサイコロ投げの結果: 3 (これまでの総和: 5)"
+[1] "3回目のサイコロ投げの結果: 6 (これまでの総和: 11)"
+[1] "4回目のサイコロ投げの結果: 6 (これまでの総和: 17)"
+[1] "5回目のサイコロ投げの結果: 5 (これまでの総和: 22)"
+[1] "6回目のサイコロ投げの結果: 5 (これまでの総和: 27)"
+[1] "7回目のサイコロ投げの結果: 3 (これまでの総和: 30)"</code></pre>
 </div>
 </div>
 <p>まず、サイコロを何回投げれば良いかは分かりませんが6面サイコロの場合、30回以内には必ず合計30になるので、まず<code>Trial in 1:30</code>とします。あとは<code>while()</code>文の書き方とほぼ同じですが、今回は<code>i</code>が自動的に更新されるので<code>i &lt;- i + 1</code>は不要です。ただし、一定の条件が満たされる場合、<code>for()</code>文を停止する必要があります。そこで登場するのが条件分岐と<code>break()</code>です。条件分岐は次節で説明しますが、これは「<code>Total</code>が30以上になった場合、ループから脱出せよ」を意味します。このループからの脱出を指示する関数が<code>break()</code>です。ちなみに、<code>break()</code>関数は<code>()</code>を抜いて<code>break</code>と書いても問題ありません。また、<code>if(){}</code>内の処理内容は一行ですので、<code>if (Total &gt;= 30) break</code>のような書き方でも問題ありません。</p>
@@ -1764,8 +1765,8 @@ Team: New Caledonia
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a><span class="fu">DQ_Attack</span>(<span class="dv">13</span>, <span class="at">defence =</span> <span class="dv">7</span>, <span class="at">hp =</span> <span class="dv">7</span>, <span class="st">"スライム"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "スライムに6のダメージ!!"
-[1] "スライムに6のダメージ!!"</code></pre>
+<pre><code>[1] "スライムに4のダメージ!!"
+[1] "スライムに5のダメージ!!"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "スライムをやっつけた！"</code></pre>
@@ -1775,26 +1776,9 @@ Team: New Caledonia
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="fu">DQ_Attack</span>(<span class="dv">13</span>, <span class="at">defence =</span> <span class="dv">44</span>, <span class="at">hp =</span> <span class="dv">40</span>, <span class="st">"スライムナイト"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
+<pre><code>[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
@@ -1805,25 +1789,27 @@ Team: New Caledonia
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
@@ -1833,7 +1819,34 @@ Team: New Caledonia
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
