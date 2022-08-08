@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-25">
+<meta name="dcterms.date" content="2022-08-08">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- 因果推論の道具箱</title>
 <style>
@@ -82,7 +82,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="260">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -160,7 +160,32 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#因果推論全般" id="toc-因果推論全般" class="nav-link active" data-scroll-target="#因果推論全般">因果推論全般</a></li>
+  <li><a href="#potential-outcome-framework" id="toc-potential-outcome-framework" class="nav-link" data-scroll-target="#potential-outcome-framework">Potential Outcome Framework</a></li>
+  <li><a href="#dag" id="toc-dag" class="nav-link" data-scroll-target="#dag">DAG</a></li>
+  <li><a href="#randomized-controlled-trials" id="toc-randomized-controlled-trials" class="nav-link" data-scroll-target="#randomized-controlled-trials">Randomized Controlled Trials</a>
+  <ul class="collapse">
+  <li><a href="#field-experiments" id="toc-field-experiments" class="nav-link" data-scroll-target="#field-experiments">Field Experiments</a></li>
+  <li><a href="#laboratory-experiments" id="toc-laboratory-experiments" class="nav-link" data-scroll-target="#laboratory-experiments">Laboratory Experiments</a></li>
+  <li><a href="#survey-experiments" id="toc-survey-experiments" class="nav-link" data-scroll-target="#survey-experiments">Survey Experiments</a></li>
+  </ul></li>
+  <li><a href="#matching" id="toc-matching" class="nav-link" data-scroll-target="#matching">Matching</a></li>
+  <li><a href="#propensity-score" id="toc-propensity-score" class="nav-link" data-scroll-target="#propensity-score">Propensity Score</a></li>
+  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference">Difference in Difference</a></li>
+  <li><a href="#synthetic-control-method" id="toc-synthetic-control-method" class="nav-link" data-scroll-target="#synthetic-control-method">Synthetic Control Method</a></li>
+  <li><a href="#regression-discontinuity-design" id="toc-regression-discontinuity-design" class="nav-link" data-scroll-target="#regression-discontinuity-design">Regression Discontinuity Design</a></li>
+  <li><a href="#instrumental-variable" id="toc-instrumental-variable" class="nav-link" data-scroll-target="#instrumental-variable">Instrumental Variable</a></li>
+  <li><a href="#balance-check" id="toc-balance-check" class="nav-link" data-scroll-target="#balance-check">Balance Check</a></li>
+  <li><a href="#econometrics-and-data-analysis" id="toc-econometrics-and-data-analysis" class="nav-link" data-scroll-target="#econometrics-and-data-analysis">Econometrics and Data Analysis</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -177,7 +202,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 25, 2022</p>
+      <p class="date">August 8, 2022</p>
     </div>
   </div>
     
@@ -210,7 +235,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><a href="https://tetokawata.github.io/R_JPN/">川田恵介. 『Rによる比較・予測・因果推論入門』</a></li>
 <li><a href="https://chishio318.github.io/statistics/index.html">古川知志雄.『統計推論再考 – 概念と技法 –』</a></li>
 </ul>
-<hr>
 </section>
 <section id="potential-outcome-framework" class="level2">
 <h2 class="anchored" data-anchor-id="potential-outcome-framework">Potential Outcome Framework</h2>
@@ -218,7 +242,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><a href="https://arxiv.org/abs/2012.06865">Francesca Dominici, Falco J. Bargagli-Stoffi, and Fabrizia Mealli. 2020. “From controlled to undisciplined data: estimating causal effects in the era of data science using a potential outcome framework.” <em>arXiv</em>:2012.06865</a></li>
 <li><a href="https://doi.org/10.1080/01621459.2020.1768100">Laura Forastiere, Edoardo M. Airoldi, and Fabrizia Mealli. 2020. “Identification and Estimation of Treatment and Interference Effects in Observational Studies on Networks.” <em>Journal of the American Statistical Association.</em></a></li>
 </ul>
-<hr>
 </section>
 <section id="dag" class="level2">
 <h2 class="anchored" data-anchor-id="dag">DAG</h2>
@@ -226,7 +249,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><a href="https://academic.oup.com/ije/advance-article/doi/10.1093/ije/dyaa213/6012812">Peter W G Tennant, Eleanor J Murray, Kellyn F Arnold, Laurie Berrie, Matthew P Fox, Sarah C Gadd, Wendy J Harrison, Claire Keeble, Lynsie R Ranker, Johannes Textor, Georgia D Tomova, Mark S Gilthorpe, and George T H Ellison. 2020. “Use of directed acyclic graphs (DAGs) to identify confounders in applied health research: review and recommendations,” <em>International Journal of Epidemiology</em>. dyaa213</a></li>
 <li><a href="https://causal-inference-korea.gitbook.io/the-book-of-why/">Causal Inference Korea. <em>The Book of Why</em></a></li>
 </ul>
-<hr>
 </section>
 <section id="randomized-controlled-trials" class="level2">
 <h2 class="anchored" data-anchor-id="randomized-controlled-trials">Randomized Controlled Trials</h2>
@@ -282,6 +304,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li>(教育水準の低い被験者における過大推定/統制群にプラセボ項目を挿入し、バイアスを抑制) <a href="https://doi.org/10.1017/psrm.2020.18">Guillem Riambau and Kai Ostwald. 2020. “Placebo statements in list experiments: Evidence from a face-to-face survey in Singapore.” <em>Political Science Research and Methods.</em> 9(1):172-179.</a></li>
 <li>(リスト実験から得られた推定値の不安定性について) <a href="https://link.springer.com/chapter/10.1007/978-3-658-16348-8_8">Stefanie Gosen, Peter Schmidt, Stefan Thörner and Jürgen Leibold. 2018. “Is the List Experiment Doing its Job?: Inconclusive Evidence!” <em>Einstellungen und Verhalten in der empirischen Sozialforschung.</em> pp.179-205.</a></li>
 <li><a href="https://doi.org/10.1017/S0003055420000374">Graeme Blair, Alexander Coppock, and Magaret Moor. 2020. “When to Worry about Sensitivity Bias: A Social Reference Theory and Evidence from 30 Years of List Experiments.” <em>American Political Science Review,</em> 114(4): 1297–1315.</a></li>
+<li><a href="https://doi.org/10.1017/pan.2021.10">Patrick M. Kuhn and Nick Vivyan. 2021. “The Misreporting Trade-Off Between List Experiments and Direct Questions in Practice: Partition Validation Evidence from Two Countries,” <em>Political Analysis,</em> 30(3): 381-402.</a></li>
+<li><a href="https://doi.org/10.1017/pan.2017.31">John S. Ahlquist. 2017. “List Experiment Design, Non-Strategic Respondent Error, and Item Count Technique Estimators,” <em>Political Analysis,</em> 26(1): 34-53.</a></li>
 </ul>
 </section>
 <section id="survey-experiments-conjoint" class="level4">
@@ -298,13 +322,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li>(外的妥当性について2) <a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/improving-the-external-validity-of-conjoint-analysis-the-essential-role-of-profile-distribution/B911EF14513292A24ECB4AC4BAA3FA6B">Brandon de la Cuesta, Naoki Egami, and Kosuke Imai. 2021. “Improving the External Validity of Conjoint Analysis: The Essential Role of Profile Distribution.” <em>Political Analysis.</em></a></li>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/10584609.2018.1493009">Erik Knudsen and Mikael Poul Johannesson. 2019. “Beyond the Limits of Survey Experiments: How Conjoint Designs Advance Causal Inference in Political Communication Research.” <em>Political Communication.</em> 36(2): 259-271</a></li>
 </ul>
-<hr>
 </section>
 </section>
 </section>
 <section id="matching" class="level2">
 <h2 class="anchored" data-anchor-id="matching">Matching</h2>
-<hr>
 </section>
 <section id="propensity-score" class="level2">
 <h2 class="anchored" data-anchor-id="propensity-score">Propensity Score</h2>
@@ -313,7 +335,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><p><a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1422737">Edward H. Kennedy. 2017. “Nonparametric Causal Effects Based on Incremental Propensity Score Interventions.” <em>Journal of the American Statistical Association.</em> 114 (526): 645-656.</a></p></li>
 <li><p><a href="https://www.krsk-phs.com/entry/propensity_score_comparison">芝孝一郎.「傾向（プロペンシティ）スコアの各使用法の仮定・解釈の違いを比較してみた」</a></p></li>
 </ul>
-<hr>
 </section>
 <section id="difference-in-difference" class="level2">
 <h2 class="anchored" data-anchor-id="difference-in-difference">Difference in Difference</h2>
@@ -324,14 +345,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><p><a href="https://doi.org/10.1016/j.jeconom.2021.03.014">Andrew Goodman-Bacon. 2021. “Difference-in-differences with variation in treatment timing,” <em>Journal of Econometrics</em></a></p></li>
 <li><p><a href="https://asjadnaqvi.github.io/DiD/">Asjad Naqvi. <em>DiD literature.</em></a></p></li>
 </ul>
-<hr>
 </section>
 <section id="synthetic-control-method" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-control-method">Synthetic Control Method</h2>
 <ul>
 <li><a href="https://www.jstage.jst.go.jp/article/ojjams/34/1/34_78/_article/-char/ja">前田豊・鎌田 拓馬. 2019.「Synthetic Control Methodを用いた個別事例の因果効果の識別」『理論と方法』34 (1): 78-96</a></li>
 </ul>
-<hr>
 </section>
 <section id="regression-discontinuity-design" class="level2">
 <h2 class="anchored" data-anchor-id="regression-discontinuity-design">Regression Discontinuity Design</h2>
@@ -349,24 +368,22 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="instrumental-variable" class="level2">
 <h2 class="anchored" data-anchor-id="instrumental-variable">Instrumental Variable</h2>
 <ul>
-<li><p><a href="https://www.aeaweb.org/articles?id=10.1257/jep.15.4.69">Joshua D. Angrist and Alan B. Krueger. 2001. “Instrumental Variables and the Search for Identification: From Supply and Demand to Natural Experiments,” <em>Journal of Economic Perspectives,</em> 15 (4): 69-85.</a></p></li>
-<li><p><a href="https://doi.org/10.1111/j.1540-5907.2010.00477.x">Allison J. Sovey and Donald P. Green. 2010. “Instrumental Variables Estimation in Political Science: A Readers’ Guide,” <em>American Journal of Political Science,</em> 55(1): 188-200.</a></p></li>
-<li><p><a href="https://doi.org/10.1146/annurev-soc-081309-150141">Kenneth A. Bollen. 2012. “Instrumental Variables in Sociology and the Social Sciences,” <em>Annual Review of Sociology,</em> 38:37–72.</a></p></li>
-<li><p><a href="https://www.cambridge.org/core/journals/political-analysis/article/beyond-late-estimation-of-the-average-treatment-effect-with-an-instrumental-variable/604E0803793175CF88329DB34DAA80B3">Peter M. Aronow and Allison Carnegie. 2013. “Beyond LATE: Estimation of the Average Treatment Effect with an Instrumental Variable,” <em>Political Analysis,</em> 21 (4): 492–506.</a></p></li>
+<li><a href="https://www.aeaweb.org/articles?id=10.1257/jep.15.4.69">Joshua D. Angrist and Alan B. Krueger. 2001. “Instrumental Variables and the Search for Identification: From Supply and Demand to Natural Experiments,” <em>Journal of Economic Perspectives,</em> 15 (4): 69-85.</a></li>
+<li><a href="https://doi.org/10.1111/j.1540-5907.2010.00477.x">Allison J. Sovey and Donald P. Green. 2010. “Instrumental Variables Estimation in Political Science: A Readers’ Guide,” <em>American Journal of Political Science,</em> 55(1): 188-200.</a></li>
+<li><a href="https://doi.org/10.1146/annurev-soc-081309-150141">Kenneth A. Bollen. 2012. “Instrumental Variables in Sociology and the Social Sciences,” <em>Annual Review of Sociology,</em> 38:37-72.</a></li>
+<li><a href="https://www.cambridge.org/core/journals/political-analysis/article/beyond-late-estimation-of-the-average-treatment-effect-with-an-instrumental-variable/604E0803793175CF88329DB34DAA80B3">Peter M. Aronow and Allison Carnegie. 2013. “Beyond LATE: Estimation of the Average Treatment Effect with an Instrumental Variable,” <em>Political Analysis,</em> 21 (4): 492-506.</a></li>
 </ul>
-<hr>
 </section>
 <section id="balance-check" class="level2">
 <h2 class="anchored" data-anchor-id="balance-check">Balance Check</h2>
 <ul>
-<li><p><a href="https://arxiv.org/abs/2001.06281">Stefan Tübbicke. “Entropy Balancing for Continuous Treatments.” <em>arXiv</em>:2001.06281</a></p></li>
-<li><p>(分散比について) <a href="https://doi.org/10.1080/03610910902859574">Peter C. Austin. 2009. “Using the Standardized Difference to Compare the Prevalence of a Binary Variable Between Two Groups in Observational Research.” <em>Communications in Statistics-Simulation and Computation.</em> 38 (6): 1228-1234.</a></p></li>
-<li><p>(標準化差分について) <a href="https://doi.org/10.1002/pds.2188">Svetlana V. Belitser, Edwin P. Martens, Wiebe R. Pestman, Rolf H.H. Groenwold, Anthonius de Boer, and Olaf H. Klungel. 2011. “Measuring Balance and Model Selection in Propensity Score Methods.” <em>Pharmacoepidemiology and Drug Safety,</em> 20(11): 1115–29.</a></p></li>
-<li><p>(標準化差分について) <a href="https://doi.org/10.1002/pds.3574">M. Sanni Ali, Rolf H. H. Groenwold, Wiebe R. Pestman, Svetlana V. Belitser, Kit C. B. Roes, Arno W. Hoes, Anthonius de Boer, and Olaf H. Klungel. 2014. “Propensity Score Balance Measures in Pharmacoepidemiology: A Simulation Study.” <em>Pharmacoepidemiology and Drug Safety,</em> 23(8): 802–11</a></p></li>
-<li><p>(標準化差分について) <a href="https://doi.org/10.1016/j.jclinepi.2013.01.013">Stuart, Elizabeth A., Brian K. Lee, and Finbarr P. Leacy. 2013. “Prognostic Score-Based Balance Measures Can Be a Useful Diagnostic for Propensity Score Methods in Comparative Effectiveness Research.” <em>Journal of Clinical Epidemiology,</em> 66(8):S84.</a></p></li>
-<li><p>(経験CDF統計量(eCDF)について) <a href="https://doi.org/10.1002/sim.6607">Peter C. Austin, and Elizabeth A. Stuart. 2015. “Moving Towards Best Practice When Using Inverse Probability of Treatment Weighting (IPTW) Using the Propensity Score to Estimate Causal Treatment Effects in Observational Studies.” <em>Statistics in Medicine,</em> 34(28):3661–3679.</a></p></li>
+<li><a href="https://arxiv.org/abs/2001.06281">Stefan Tübbicke. “Entropy Balancing for Continuous Treatments.” <em>arXiv</em>:2001.06281</a></li>
+<li>(分散比について) <a href="https://doi.org/10.1080/03610910902859574">Peter C. Austin. 2009. “Using the Standardized Difference to Compare the Prevalence of a Binary Variable Between Two Groups in Observational Research.” <em>Communications in Statistics-Simulation and Computation.</em> 38 (6): 1228-1234.</a></li>
+<li>(標準化差分について) <a href="https://doi.org/10.1002/pds.2188">Svetlana V. Belitser, Edwin P. Martens, Wiebe R. Pestman, Rolf H.H. Groenwold, Anthonius de Boer, and Olaf H. Klungel. 2011. “Measuring Balance and Model Selection in Propensity Score Methods.” <em>Pharmacoepidemiology and Drug Safety,</em> 20(11): 1115–29.</a></li>
+<li>(標準化差分について) <a href="https://doi.org/10.1002/pds.3574">M. Sanni Ali, Rolf H. H. Groenwold, Wiebe R. Pestman, Svetlana V. Belitser, Kit C. B. Roes, Arno W. Hoes, Anthonius de Boer, and Olaf H. Klungel. 2014. “Propensity Score Balance Measures in Pharmacoepidemiology: A Simulation Study.” <em>Pharmacoepidemiology and Drug Safety,</em> 23(8): 802–11</a></li>
+<li>(標準化差分について) <a href="https://doi.org/10.1016/j.jclinepi.2013.01.013">Stuart, Elizabeth A., Brian K. Lee, and Finbarr P. Leacy. 2013. “Prognostic Score-Based Balance Measures Can Be a Useful Diagnostic for Propensity Score Methods in Comparative Effectiveness Research.” <em>Journal of Clinical Epidemiology,</em> 66(8):S84.</a></li>
+<li>(経験CDF統計量(eCDF)について) <a href="https://doi.org/10.1002/sim.6607">Peter C. Austin, and Elizabeth A. Stuart. 2015. “Moving Towards Best Practice When Using Inverse Probability of Treatment Weighting (IPTW) Using the Propensity Score to Estimate Causal Treatment Effects in Observational Studies.” <em>Statistics in Medicine,</em> 34(28):3661–3679.</a></li>
 </ul>
-<hr>
 </section>
 <section id="econometrics-and-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="econometrics-and-data-analysis">Econometrics and Data Analysis</h2>
@@ -380,7 +397,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><a href="https://gsbdbi.github.io/ml_for_behavioral_science/">Rachel Rosenberg et al.. <em>Computational Applications to Behavioral Science</em></a></li>
 <li><a href="https://kohei-kawaguchi.github.io/AppliedEconometricsPublic/">Kohei Kawaguchi. Applied Econometrics Slides.</a></li>
 </ul>
-<hr>
 </section>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
