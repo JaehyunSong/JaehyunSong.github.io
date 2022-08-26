@@ -1053,3 +1053,12 @@ bind_rows(list("I_P"  = es1_w3,
                 label = "投票意向 (SD = 0.583)") |>
   cols_hide(columns = "Outcome")
 ```
+
+## セッション情報
+
+```{r}
+#| echo: true
+sessionInfo()
+version$version.string # R
+quarto::quarto_inspect()$quarto$version # Quarto
+```

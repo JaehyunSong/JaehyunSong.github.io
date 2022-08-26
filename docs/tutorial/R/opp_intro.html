@@ -2,20 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.132">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-25">
+<meta name="dcterms.date" content="2022-08-26">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -54,7 +59,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -67,7 +72,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -130,13 +135,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門">
+<meta property="og:title" content="Jaehyun Song, Ph.D.">
 <meta property="og:description" content="Jaehyun Song's personal homepage">
 <meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
 <meta property="og:image:height" content="260">
 <meta property="og:image:width" content="260">
-<meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門">
+<meta name="twitter:title" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:description" content="Jaehyun Song's personal homepage">
 <meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
@@ -151,10 +156,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <img src="../../imgs/logo.png" alt="">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../imgs/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -224,7 +233,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">目次</h2>
    
   <ul>
@@ -263,7 +272,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 25, 2022</p>
+      <p class="date">August 26, 2022</p>
     </div>
   </div>
     
@@ -331,7 +340,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-HardestTasks" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 1: Programmers’ Hardest Tasks</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;1: Programmers’ Hardest Tasks</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -468,7 +477,7 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (object, ...) 
 UseMethod("summary")
-&lt;bytecode: 0x7fc2489b84a8&gt;
+&lt;bytecode: 0x7f7f0d2824e0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -527,7 +536,7 @@ UseMethod("summary")
     class(value) &lt;- c("summaryDefault", "table")
     value
 }
-&lt;bytecode: 0x7fc23e0d69e8&gt;
+&lt;bytecode: 0x7f7f2bdb2450&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -580,12 +589,12 @@ UseMethod("summary")
 <span id="cb40-15"><a href="#cb40-15"></a>My_Score1 <span class="co"># My_Score1の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 59.07955 47.41955 64.00545 31.25520 45.77632 44.76527 37.04200 39.14584
- [9] 45.92842 52.24650
+ [1] 43.52720 64.78825 33.53135 31.84595 47.54521 44.17953 45.81070 40.53527
+ [9] 62.47934 44.39593
 
 $Score2
- [1] 28.07819 36.86325 64.90245 58.39915 56.46848 51.33587 53.35454 44.36360
- [9] 45.87872 43.73616
+ [1] 65.61752 55.96102 69.78356 47.59895 33.31317 50.37654 34.89402 50.85474
+ [9] 44.15459 56.63500
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -611,12 +620,12 @@ attr(,"class")
 <span id="cb44-12"><a href="#cb44-12"></a>My_Score2 <span class="co"># My_Score2の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 36.11180 47.48487 53.08988 53.53840 39.22200 48.26421 46.29607 62.66778
- [9] 47.80108 48.30595
+ [1] 55.89765 63.34914 60.85478 60.06858 63.49816 56.34320 64.57828 41.88404
+ [9] 62.25902 60.04209
 
 $Score2
- [1] 52.65935 59.16966 57.95688 50.61787 34.07387 50.25854 43.09844 45.85199
- [9] 45.96548 44.35219
+ [1] 58.55956 71.47387 52.18239 33.80907 37.27003 40.57391 62.35386 37.58773
+ [9] 64.49678 55.07582
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -647,8 +656,8 @@ attr(,"class")
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">mean</span>(My_Score1) <span class="co"># Scoreクラスのメソッドであるmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46.66641
-[1] 48.33804</code></pre>
+<pre><code>[1] 45.86387
+[1] 50.91891</code></pre>
 </div>
 </div>
 <p>　<code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
@@ -726,8 +735,8 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">my_func</span>(My_Score1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46.66641
-[1] 48.33804</code></pre>
+<pre><code>[1] 45.86387
+[1] 50.91891</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -826,12 +835,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ data    :'data.frame':   20 obs. of  2 variables:
-  ..$ x: num [1:20] 2.84 2.07 2.36 2.63 2.88 ...
-  ..$ y: num [1:20] 182 157 164 169 168 ...
+  ..$ x: num [1:20] 2.08 2.34 2.44 2.74 2.48 ...
+  ..$ y: num [1:20] 154 171 164 169 170 ...
  $ var_name: chr [1:2] "1日当たりゲーム時間" "身長"
- $ cor     : Named num 0.256
+ $ cor     : Named num -0.328
   ..- attr(*, "names")= chr "cor"
- $ cor_ci  : num [1:2] -0.21 0.628
+ $ cor_ci  : num [1:2] -0.673 0.134
   ..- attr(*, "conf.level")= num 0.95
  - attr(*, "class")= chr "My_Cor_Object"</code></pre>
 </div>
@@ -841,15 +850,15 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">print</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.991
-身長の平均値: 165.957
-相関係数: 0.256 [-0.210, 0.628]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 2.077
+身長の平均値: 166.423
+相関係数: -0.328 [-0.673, 0.134]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">summary</span>(Cor_Obj) <span class="co"># summary()はprint()と同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 1.991
-身長の平均値: 165.957
-相関係数: 0.256 [-0.210, 0.628]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 2.077
+身長の平均値: 166.423
+相関係数: -0.328 [-0.673, 0.134]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">plot</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -962,12 +971,12 @@ see '?methods' for accessing help and source code</code></pre>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>図の出典は<a href="https://www.itworld.com/article/2833265/don-t-go-into-programming-if-you-don-t-have-a-good-thesaurus.html">IT WORLD</a>です (アクセス: 2020-05-21)。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>逆に特定のクラスで使用可能なメソッドを確認するときは<code>methods(class = "クラス名")</code>を入力します。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>ただし、実際の場合、<code>[</code>や<code>[&lt;-</code>などは<code>tbl</code>または<code>tbl_df</code>用のメソッドが別途用意されています。<code>data.frame</code>クラスから継承されているメソッドとしては<code>dim()</code>や<code>t()</code>などがあります。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>図の出典は<a href="https://www.itworld.com/article/2833265/don-t-go-into-programming-if-you-don-t-have-a-good-thesaurus.html">IT WORLD</a>です (アクセス: 2020-05-21)。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>逆に特定のクラスで使用可能なメソッドを確認するときは<code>methods(class = "クラス名")</code>を入力します。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>ただし、実際の場合、<code>[</code>や<code>[&lt;-</code>などは<code>tbl</code>または<code>tbl_df</code>用のメソッドが別途用意されています。<code>data.frame</code>クラスから継承されているメソッドとしては<code>dim()</code>や<code>t()</code>などがあります。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1039,7 +1048,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

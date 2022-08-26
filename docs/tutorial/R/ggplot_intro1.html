@@ -2,20 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.132">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-25">
+<meta name="dcterms.date" content="2022-08-26">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -54,7 +59,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -67,7 +72,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -153,13 +158,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]">
+<meta property="og:title" content="Jaehyun Song, Ph.D.">
 <meta property="og:description" content="Jaehyun Song's personal homepage">
 <meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta property="og:site-name" content="Jaehyun Song, Ph.D.">
 <meta property="og:image:height" content="260">
 <meta property="og:image:width" content="260">
-<meta name="twitter:title" content="Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]">
+<meta name="twitter:title" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:description" content="Jaehyun Song's personal homepage">
 <meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
@@ -174,10 +179,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <img src="../../imgs/logo.png" alt="">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../imgs/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -247,7 +256,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">目次</h2>
    
   <ul>
@@ -296,7 +305,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 25, 2022</p>
+      <p class="date">August 26, 2022</p>
     </div>
   </div>
     
@@ -315,12 +324,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="tbl-visual1-sampledata" class="anchored">
 
-<div id="hajduphpad" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ykhcopodys" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hajduphpad .gt_table {
+:where(#ykhcopodys) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -345,7 +354,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-#hajduphpad .gt_heading {
+:where(#ykhcopodys) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -357,7 +366,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#hajduphpad .gt_title {
+:where(#ykhcopodys) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -369,7 +378,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-#hajduphpad .gt_subtitle {
+:where(#ykhcopodys) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -381,13 +390,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-width: 0;
 }
 
-#hajduphpad .gt_bottom_border {
+:where(#ykhcopodys) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hajduphpad .gt_col_headings {
+:where(#ykhcopodys) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -402,7 +411,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#hajduphpad .gt_col_heading {
+:where(#ykhcopodys) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -422,7 +431,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#hajduphpad .gt_column_spanner_outer {
+:where(#ykhcopodys) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -434,15 +443,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-#hajduphpad .gt_column_spanner_outer:first-child {
+:where(#ykhcopodys) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hajduphpad .gt_column_spanner_outer:last-child {
+:where(#ykhcopodys) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hajduphpad .gt_column_spanner {
+:where(#ykhcopodys) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -454,7 +463,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-#hajduphpad .gt_group_heading {
+:where(#ykhcopodys) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -479,7 +488,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#hajduphpad .gt_empty_group_heading {
+:where(#ykhcopodys) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -494,15 +503,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-#hajduphpad .gt_from_md > :first-child {
+:where(#ykhcopodys) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hajduphpad .gt_from_md > :last-child {
+:where(#ykhcopodys) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hajduphpad .gt_row {
+:where(#ykhcopodys) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -521,7 +530,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-#hajduphpad .gt_stub {
+:where(#ykhcopodys) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -534,7 +543,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#hajduphpad .gt_stub_row_group {
+:where(#ykhcopodys) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -548,11 +557,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-#hajduphpad .gt_row_group_first td {
+:where(#ykhcopodys) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hajduphpad .gt_summary_row {
+:where(#ykhcopodys) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -562,16 +571,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#hajduphpad .gt_first_summary_row {
+:where(#ykhcopodys) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hajduphpad .gt_first_summary_row.thick {
+:where(#ykhcopodys) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hajduphpad .gt_last_summary_row {
+:where(#ykhcopodys) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -581,7 +590,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#hajduphpad .gt_grand_summary_row {
+:where(#ykhcopodys) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -591,7 +600,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#hajduphpad .gt_first_grand_summary_row {
+:where(#ykhcopodys) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -601,11 +610,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-#hajduphpad .gt_striped {
+:where(#ykhcopodys) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hajduphpad .gt_table_body {
+:where(#ykhcopodys) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -614,7 +623,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-#hajduphpad .gt_footnotes {
+:where(#ykhcopodys) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -628,7 +637,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#hajduphpad .gt_footnote {
+:where(#ykhcopodys) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -637,7 +646,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#hajduphpad .gt_sourcenotes {
+:where(#ykhcopodys) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -651,7 +660,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-#hajduphpad .gt_sourcenote {
+:where(#ykhcopodys) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -659,36 +668,36 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-#hajduphpad .gt_left {
+:where(#ykhcopodys) .gt_left {
   text-align: left;
 }
 
-#hajduphpad .gt_center {
+:where(#ykhcopodys) .gt_center {
   text-align: center;
 }
 
-#hajduphpad .gt_right {
+:where(#ykhcopodys) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hajduphpad .gt_font_normal {
+:where(#ykhcopodys) .gt_font_normal {
   font-weight: normal;
 }
 
-#hajduphpad .gt_font_bold {
+:where(#ykhcopodys) .gt_font_bold {
   font-weight: bold;
 }
 
-#hajduphpad .gt_font_italic {
+:where(#ykhcopodys) .gt_font_italic {
   font-style: italic;
 }
 
-#hajduphpad .gt_super {
+:where(#ykhcopodys) .gt_super {
   font-size: 65%;
 }
 
-#hajduphpad .gt_two_val_uncert {
+:where(#ykhcopodys) .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -697,37 +706,37 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   margin-left: 0.1em;
 }
 
-#hajduphpad .gt_footnote_marks {
+:where(#ykhcopodys) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hajduphpad .gt_asterisk {
+:where(#ykhcopodys) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hajduphpad .gt_slash_mark {
+:where(#ykhcopodys) .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#hajduphpad .gt_fraction_numerator {
+:where(#ykhcopodys) .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#hajduphpad .gt_fraction_denominator {
+:where(#ykhcopodys) .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
 }
 </style>
-<table class="gt_table"><caption>表 1:  サンプルデータの最初の10行 </caption>
+<table class="gt_table"><caption>表&nbsp;1:  サンプルデータの最初の10行 </caption>
   
   <thead class="gt_col_headings">
     <tr>
@@ -803,7 +812,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-baser" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図 1: Base Rによるグラフ</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;1: Base Rによるグラフ</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -829,7 +838,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図 2: {lattice}によるグラフ</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;2: {lattice}によるグラフ</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -851,7 +860,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図 3: {ggplot2}によるグラフ</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;3: {ggplot2}によるグラフ</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -894,7 +903,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -911,7 +920,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 5: 第1層: データとキャンバスの用意</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;5: 第1層: データとキャンバスの用意</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -926,7 +935,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -943,7 +952,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -961,7 +970,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 8: ラベルの修</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;8: ラベルの修</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -980,7 +989,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 9: スケールの修正</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;9: スケールの修正</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1000,7 +1009,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 10: 見た目の調整</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;10: 見た目の調整</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1011,7 +1020,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Layer_Example.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">図 11: {ggplot2}の図が出来上がるまで (全体像)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;11: {ggplot2}の図が出来上がるまで (全体像)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1032,7 +1041,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図 12: {ggplot2}の構造の例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;12: {ggplot2}の構造の例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1079,7 +1088,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1">表&nbsp;2</a> です。</p>
 <div id="tbl-visual1-mapping-1" class="anchored">
 <table class="table">
-<caption>表 2: <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピング情報</caption>
+<caption>表&nbsp;2: <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピング情報</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">幾何オブジェクト</th>
@@ -1157,7 +1166,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1179,7 +1188,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1195,7 +1204,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 15: ズームイン前</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;15: ズームイン前</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1206,7 +1215,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 16: ズームイン後</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;16: ズームイン後</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1220,7 +1229,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 17: 直交座標系と極座標系の比較 (1)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;17: 直交座標系と極座標系の比較 (1)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1234,7 +1243,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 18: 直交座標系と極座標系の比較 (2)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;18: 直交座標系と極座標系の比較 (2)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1259,7 +1268,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1279,7 +1288,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1295,7 +1304,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 21: ファセットを分けないグラフの例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;21: ファセットを分けないグラフの例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1307,7 +1316,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 22: 大陸ごとにファセットを分けたグラフの例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;22: 大陸ごとにファセットを分けたグラフの例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1344,7 +1353,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 23: データ・インク比の例 (改善前)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;23: データ・インク比の例 (改善前)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1355,7 +1364,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図 24: データ・インク比の例 (改善後)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;24: データ・インク比の例 (改善後)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1367,7 +1376,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">図 25: データ・インク比改善の例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;25: データ・インク比改善の例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1386,7 +1395,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<p></p><figcaption class="figure-caption">図 26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1396,7 +1405,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="tbl-visual1-dataink-5" class="anchored">
 
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表 3:  Inbar, Tractinsky, and Meyer (2007)の実験結果 </caption>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;3:  Inbar, Tractinsky, and Meyer (2007)の実験結果 </caption>
  <thead>
   <tr>
    <th style="text-align:left;text-align: center;"> Group </th>
@@ -1444,7 +1453,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図 27: 3次元プロットの例 (1)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;27: 3次元プロットの例 (1)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1456,7 +1465,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図 28: 3次元プロットの罠</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;28: 3次元プロットの罠</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1467,7 +1476,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図 29: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;29: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1477,7 +1486,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図 30: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;30: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1488,7 +1497,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図 31: 3次元プロットの例 (2)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;31: 3次元プロットの例 (2)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1499,7 +1508,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図 32: <a href="#fig-visual1-3dplot-5">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;32: <a href="#fig-visual1-3dplot-5">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1525,12 +1534,12 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information (2nd E
 <div id="ref-Wilkinson:2005" class="csl-entry" role="doc-biblioentry">
 Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. Springer.
 </div>
-</div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>厳密に言えば、大学院生の時代に開発したパッケージは{ggplot2}ではなく、{ggplot}です。このパッケージもグラフィックの文法の思想に基づいた可視化パッケージではありますが、今の{ggplot2}とは別物に近いパッケージです。このパッケージは2008年10月、バージョン0.4.2を以ってCRANから削除されました。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>実は <a href="#fig-visual1-coord-2">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p><a href="https://kyufukin.soumu.go.jp/ja-JP/transition/">総務省の定額給付金特設ホームページ</a>から取得（アクセス：2020年7月28日）<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>厳密に言えば、大学院生の時代に開発したパッケージは{ggplot2}ではなく、{ggplot}です。このパッケージもグラフィックの文法の思想に基づいた可視化パッケージではありますが、今の{ggplot2}とは別物に近いパッケージです。このパッケージは2008年10月、バージョン0.4.2を以ってCRANから削除されました。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>実は <a href="#fig-visual1-coord-2">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://kyufukin.soumu.go.jp/ja-JP/transition/">総務省の定額給付金特設ホームページ</a>から取得（アクセス：2020年7月28日）<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1602,7 +1611,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
