@@ -1,0 +1,1055 @@
+---
+title: "付録: 韓国における感情的分極化と投票参加"
+author: 
+   - name: 磯崎典世
+     affiliation: 学習院大学法学部
+     affiliation_url: https://www.univ.gakushuin.ac.jp/
+   - name: SONG Jaehyun
+     url: https://www.jaysong.net
+     affiliation: 関西大学総合情報学部
+     affiliation_url: https://www.kansai-u.ac.jp/
+date: "`r Sys.Date()`"
+language:
+   crossref-fig-title: "図"
+   crossref-tbl-title: "表"
+   title-block-published: "改訂"
+   title-block-author-single: "作成者"
+   title-block-author-plural: "作成者"
+   toc-title-document: "目次"
+   title-block-affiliation-single: "所属"
+   title-block-affiliation-plural: "所属"
+   section-title-abstract: "概要"
+   section-title-appendices: "付録"
+   section-title-footnotes: "注釈"
+   section-title-references: "参考文献"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    self-contained: true
+    code-fold: true
+    html-math-method: katex
+number-sections: false
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(dpi       = 300,
+                      dev       = "ragg_png",
+                      message   = FALSE,
+                      fig.align = "center",
+                      warning   = FALSE,
+                      echo      = FALSE)
+
+pacman::p_load(tidyverse, gt, naniar, prediction, margins,
+               fastDummies, modelsummary, BalanceR, ggh4x)
+
+df <- read_csv("hidden/jpsa_2022.csv")
+df <- df %>%
+  select(ID, Panel, Intention = Vote2, Turnout = Vote3,
+         AP_P = AP4, AP_C = AP3, AP_PS = AP2, AP_CS = AP1,
+         Female:Income, Interest, Int_Efficacy, Ext_Efficacy, Ideology,
+         W:W3) %>%
+  mutate(Birth  = factor(Birth, levels = c("Seoul", "Metropolitan",
+                                           "Gangwon", "Hoseo", "Honam",
+                                           "Youngnam")),
+         Region = factor(Region, levels = c("Seoul", "Metropolitan",
+                                            "Gangwon", "Hoseo", "Honam",
+                                            "Youngnam")))
+
+df_p2 <- df %>%
+  filter(Panel == "Both")
+```
+
+## 重み付けなし
+
+### 推定結果
+
+```{r est-w0}
+fit1_w0 <- lm(Intention ~ AP_P + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df) 
+fit2_w0 <- lm(Intention ~ AP_C + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df) 
+fit3_w0 <- lm(Intention ~ AP_PS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df) 
+fit4_w0 <- lm(Intention ~ AP_CS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df) 
+
+fit5_w0 <- glm(Turnout ~ AP_P + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit")) 
+fit6_w0 <- glm(Turnout ~ AP_C + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit")) 
+fit7_w0 <- glm(Turnout ~ AP_PS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit")) 
+fit8_w0 <- glm(Turnout ~ AP_CS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit")) 
+```
+
+```{r}
+#| column: page
+modelsummary(list("Model 1" = fit1_w0,
+                  "Model 2" = fit2_w0,
+                  "Model 3" = fit3_w0,
+                  "Model 4" = fit4_w0,
+                  "Model 5" = fit5_w0,
+                  "Model 6" = fit6_w0,
+                  "Model 7" = fit7_w0,
+                  "Model 8" = fit8_w0),
+             coef_rename = c("(Intercept)" = "切片",
+                             "AP_P"  = "感情的分極化",
+                             "AP_C"  = "感情的分極化",
+                             "AP_PS" = "感情的分極化",
+                             "AP_CS" = "感情的分極化",
+                             "Female"             = "女性",
+                             "Age"                = "年齢",
+                             "Education"          = "学歴",
+                             "Income"             = "世帯収入",
+                             "RegionSeoul"        = "ソウル居住",
+                             "RegionMetropolitan" = "首都圏居住",
+                             "RegionGangwon"      = "江原居住",
+                             "RegionHoseo"        = "湖西居住",
+                             "RegionHonam"        = "湖南・済州居住",
+                             "RegionYoungnam"     = "嶺南居住",
+                             "BirthSeoul"         = "ソウル出身",
+                             "BirthMetropolitan"  = "首都圏出身",
+                             "BirthGangwon"       = "江原出身",
+                             "BirthHoseo"         = "湖西出身",
+                             "BirthHonam"         = "湖南・済州出身",
+                             "BirthYoungnam"      = "嶺南出身",
+                             "Interest"           = "政治関心",
+                             "Ideology"           = "保革自己認識",
+                             "Int_Efficacy"       = "内的政治的有効性感覚",
+                             "Ext_Efficacy"       = "外的政治的有効性感覚"),
+             gof_map = c("nobs", "adj.r.squared", "r2.tjur", "aic"),
+             add_rows = tibble(M0 = c("応答変数", 
+                                      "感情的分極化", "手法"),
+                               M1 = c("投票意向", 
+                                      "政党", "OLS"),
+                               M2 = c("投票意向", 
+                                      "候補者", "OLS"),
+                               M3 = c("投票意向", 
+                                      "政党の<br/>支持者", "OLS"),
+                               M4 = c("投票意向", 
+                                      "候補者の<br/>支持者", "OLS"),
+                               M5 = c("投票参加", 
+                                      "政党", "Logit"),
+                               M6 = c("投票参加", 
+                                      "候補者", "Logit"),
+                               M7 = c("投票参加", 
+                                      "政党の<br/>支持者", "Logit"),
+                               M8 = c("投票参加", 
+                                      "候補者の<br/>支持者", "Logit")))
+```
+
+### 感情的分極化のみ
+
+```{r coef-w0}
+#| cache: true
+#| fig-width: 7
+#| fig-height: 3.5
+list("I_P"  = fit1_w0,
+     "I_C"  = fit2_w0,
+     "I_PS" = fit3_w0,
+     "I_CS" = fit4_w0,
+     "T_P"  = fit5_w0,
+     "T_C"  = fit6_w0,
+     "T_PS" = fit7_w0,
+     "T_CS" = fit8_w0) |>
+  enframe(value = "Fit") |>
+  mutate(Est = map(Fit, broom::tidy, conf.int = TRUE)) |>
+  unnest(Est) |>
+  filter(grepl("AP", term)) |>
+  separate(col  = "name",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Sig     = if_else(p.value < 0.05, "Sig", "Insig"),
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_pointrange(aes(x = estimate, y = Type, 
+                      xmin = conf.low, xmax = conf.high,
+                      color = Sig)) +
+  guides(color = "none") +
+  scale_color_manual(values = c("Sig" = "black", "Insig" = "gray80")) +
+  scale_y_discrete(limits = rev) +
+  labs(x = "推定値 w/95% CI", y = "") +
+  facet_wrap(~Outcome, nrow = 1, scales = "free_x") +
+  theme_bw(base_size = 12)
+```
+
+### 予測値
+
+```{r pred-w0}
+#| cache: true
+pred1_w0 <- summary(prediction(fit1_w0, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred2_w0 <- summary(prediction(fit2_w0, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred3_w0 <- summary(prediction(fit3_w0, at = list(AP_PS = c(0:97)))) |>
+  rename("AP" = "at(AP_PS)")
+pred4_w0 <- summary(prediction(fit4_w0, at = list(AP_CS = c(0:98)))) |>
+  rename("AP" = "at(AP_CS)")
+
+pred5_w0 <- summary(prediction(fit5_w0, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred6_w0 <- summary(prediction(fit6_w0, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred7_w0 <- summary(prediction(fit7_w0, at = list(AP_PS = c(0:89)))) |>
+  rename("AP" = "at(AP_PS)")
+pred8_w0 <- summary(prediction(fit8_w0, at = list(AP_CS = c(0:80)))) |>
+  rename("AP" = "at(AP_CS)")
+
+bind_rows(list("I_P"  = pred1_w0,
+               "I_C"  = pred2_w0,
+               "I_PS" = pred3_w0,
+               "I_CS" = pred4_w0,
+               "T_P"  = pred5_w0,
+               "T_C"  = pred6_w0,
+               "T_PS" = pred7_w0,
+               "T_CS" = pred8_w0), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot(aes(x = AP, y = Prediction)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "gray80") +
+  geom_line() +
+  labs(x = "感情的分極化", y = "応答変数の予測値") +
+  facet_grid(Outcome ~ Type, scales = "free") +
+  theme_bw(base_size = 12)
+```
+
+### 効果量
+
+```{r es-w0}
+#| cache: true
+es1_w0 <- summary(prediction(fit1_w0, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es2_w0 <- summary(prediction(fit2_w0, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es3_w0 <- summary(prediction(fit3_w0, at = list(AP_PS = c(0, 97.2968)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es4_w0 <- summary(prediction(fit4_w0, at = list(AP_CS = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+es5_w0 <- summary(prediction(fit5_w0, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es6_w0 <- summary(prediction(fit6_w0, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es7_w0 <- summary(prediction(fit7_w0, at = list(AP_PS = c(0, 89.99259)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es8_w0 <- summary(prediction(fit8_w0, at = list(AP_CS = c(0, 80.5063)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+bind_rows(list("I_P"  = es1_w0,
+               "I_C"  = es2_w0,
+               "I_PS" = es3_w0,
+               "I_CS" = es4_w0,
+               "T_P"  = es5_w0,
+               "T_C"  = es6_w0,
+               "T_PS" = es7_w0,
+               "T_CS" = es8_w0), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  select(-c(SE:upper)) |>
+  pivot_wider(names_from  = AP,
+              values_from = Prediction) |>
+  mutate(Diff    = Max - Min,
+         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         Effect  = Diff / SD,
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  select(-SD) |>
+  gt(rowname_col = "Type") |>
+  cols_label("Min" = "最小値", "Max" = "最大値",
+             "Diff" = "差分", "Effect" = "効果量") |>
+  fmt_number(columns = 3:6, decimals = 3) |>
+  tab_row_group(rows = (Outcome == "投票参加"), 
+                label = "投票参加 (SD = 0.305)") |>
+  tab_row_group(rows = (Outcome == "投票意向"), 
+                label = "投票意向 (SD = 0.583)") |>
+  cols_hide(columns = "Outcome")
+```
+
+## デモグラで重み付け
+
+### 推定結果
+
+```{r est-w1}
+fit1_w1 <- lm(Intention ~ AP_P + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W) 
+fit2_w1 <- lm(Intention ~ AP_C + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W) 
+fit3_w1 <- lm(Intention ~ AP_PS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W) 
+fit4_w1 <- lm(Intention ~ AP_CS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W) 
+
+fit5_w1 <- glm(Turnout ~ AP_P + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W) 
+fit6_w1 <- glm(Turnout ~ AP_C + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W) 
+fit7_w1 <- glm(Turnout ~ AP_PS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W) 
+fit8_w1 <- glm(Turnout ~ AP_CS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W) 
+```
+
+```{r}
+#| column: page
+modelsummary(list("Model 1" = fit1_w1,
+                  "Model 2" = fit2_w1,
+                  "Model 3" = fit3_w1,
+                  "Model 4" = fit4_w1,
+                  "Model 5" = fit5_w1,
+                  "Model 6" = fit6_w1,
+                  "Model 7" = fit7_w1,
+                  "Model 8" = fit8_w1),
+             coef_rename = c("(Intercept)" = "切片",
+                             "AP_P"  = "感情的分極化",
+                             "AP_C"  = "感情的分極化",
+                             "AP_PS" = "感情的分極化",
+                             "AP_CS" = "感情的分極化",
+                             "Female"             = "女性",
+                             "Age"                = "年齢",
+                             "Education"          = "学歴",
+                             "Income"             = "世帯収入",
+                             "RegionSeoul"        = "ソウル居住",
+                             "RegionMetropolitan" = "首都圏居住",
+                             "RegionGangwon"      = "江原居住",
+                             "RegionHoseo"        = "湖西居住",
+                             "RegionHonam"        = "湖南・済州居住",
+                             "RegionYoungnam"     = "嶺南居住",
+                             "BirthSeoul"         = "ソウル出身",
+                             "BirthMetropolitan"  = "首都圏出身",
+                             "BirthGangwon"       = "江原出身",
+                             "BirthHoseo"         = "湖西出身",
+                             "BirthHonam"         = "湖南・済州出身",
+                             "BirthYoungnam"      = "嶺南出身",
+                             "Interest"           = "政治関心",
+                             "Ideology"           = "保革自己認識",
+                             "Int_Efficacy"       = "内的政治的有効性感覚",
+                             "Ext_Efficacy"       = "外的政治的有効性感覚"),
+             gof_map = c("nobs", "adj.r.squared", "r2.tjur", "aic"),
+             add_rows = tibble(M0 = c("応答変数", 
+                                      "感情的分極化", "手法"),
+                               M1 = c("投票意向", 
+                                      "政党", "OLS"),
+                               M2 = c("投票意向", 
+                                      "候補者", "OLS"),
+                               M3 = c("投票意向", 
+                                      "政党の<br/>支持者", "OLS"),
+                               M4 = c("投票意向", 
+                                      "候補者の<br/>支持者", "OLS"),
+                               M5 = c("投票参加", 
+                                      "政党", "Logit"),
+                               M6 = c("投票参加", 
+                                      "候補者", "Logit"),
+                               M7 = c("投票参加", 
+                                      "政党の<br/>支持者", "Logit"),
+                               M8 = c("投票参加", 
+                                      "候補者の<br/>支持者", "Logit")))
+```
+
+### 感情的分極化のみ
+
+```{r coef-w1}
+#| cache: true
+#| fig-width: 7
+#| fig-height: 3.5
+list("I_P"  = fit1_w1,
+     "I_C"  = fit2_w1,
+     "I_PS" = fit3_w1,
+     "I_CS" = fit4_w1,
+     "T_P"  = fit5_w1,
+     "T_C"  = fit6_w1,
+     "T_PS" = fit7_w1,
+     "T_CS" = fit8_w1) |>
+  enframe(value = "Fit") |>
+  mutate(Est = map(Fit, broom::tidy, conf.int = TRUE)) |>
+  unnest(Est) |>
+  filter(grepl("AP", term)) |>
+  separate(col  = "name",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Sig     = if_else(p.value < 0.05, "Sig", "Insig"),
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_pointrange(aes(x = estimate, y = Type, 
+                      xmin = conf.low, xmax = conf.high,
+                      color = Sig)) +
+  guides(color = "none") +
+  scale_color_manual(values = c("Sig" = "black", "Insig" = "gray80")) +
+  scale_y_discrete(limits = rev) +
+  labs(x = "推定値 w/95% CI", y = "") +
+  facet_wrap(~Outcome, nrow = 1, scales = "free_x") +
+  theme_bw(base_size = 12)
+```
+
+### 予測値
+
+```{r pred-w1}
+#| cache: true
+pred1_w1 <- summary(prediction(fit1_w1, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred2_w1 <- summary(prediction(fit2_w1, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred3_w1 <- summary(prediction(fit3_w1, at = list(AP_PS = c(0:97)))) |>
+  rename("AP" = "at(AP_PS)")
+pred4_w1 <- summary(prediction(fit4_w1, at = list(AP_CS = c(0:98)))) |>
+  rename("AP" = "at(AP_CS)")
+
+pred5_w1 <- summary(prediction(fit5_w1, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred6_w1 <- summary(prediction(fit6_w1, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred7_w1 <- summary(prediction(fit7_w1, at = list(AP_PS = c(0:89)))) |>
+  rename("AP" = "at(AP_PS)")
+pred8_w1 <- summary(prediction(fit8_w1, at = list(AP_CS = c(0:80)))) |>
+  rename("AP" = "at(AP_CS)")
+
+bind_rows(list("I_P"  = pred1_w1,
+               "I_C"  = pred2_w1,
+               "I_PS" = pred3_w1,
+               "I_CS" = pred4_w1,
+               "T_P"  = pred5_w1,
+               "T_C"  = pred6_w1,
+               "T_PS" = pred7_w1,
+               "T_CS" = pred8_w1), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot(aes(x = AP, y = Prediction)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "gray80") +
+  geom_line() +
+  labs(x = "感情的分極化", y = "応答変数の予測値") +
+  facet_grid(Outcome ~ Type, scales = "free") +
+  theme_bw(base_size = 12)
+```
+
+### 効果量
+
+```{r es-w1}
+#| cache: true
+es1_w1 <- summary(prediction(fit1_w1, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es2_w1 <- summary(prediction(fit2_w1, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es3_w1 <- summary(prediction(fit3_w1, at = list(AP_PS = c(0, 97.2968)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es4_w1 <- summary(prediction(fit4_w1, at = list(AP_CS = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+es5_w1 <- summary(prediction(fit5_w1, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es6_w1 <- summary(prediction(fit6_w1, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es7_w1 <- summary(prediction(fit7_w1, at = list(AP_PS = c(0, 89.99259)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es8_w1 <- summary(prediction(fit8_w1, at = list(AP_CS = c(0, 80.5063)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+bind_rows(list("I_P"  = es1_w1,
+               "I_C"  = es2_w1,
+               "I_PS" = es3_w1,
+               "I_CS" = es4_w1,
+               "T_P"  = es5_w1,
+               "T_C"  = es6_w1,
+               "T_PS" = es7_w1,
+               "T_CS" = es8_w1), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  select(-c(SE:upper)) |>
+  pivot_wider(names_from  = AP,
+              values_from = Prediction) |>
+  mutate(Diff    = Max - Min,
+         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         Effect  = Diff / SD,
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  select(-SD) |>
+  gt(rowname_col = "Type") |>
+  cols_label("Min" = "最小値", "Max" = "最大値",
+             "Diff" = "差分", "Effect" = "効果量") |>
+  fmt_number(columns = 3:6, decimals = 3) |>
+  tab_row_group(rows = (Outcome == "投票参加"), 
+                label = "投票参加 (SD = 0.305)") |>
+  tab_row_group(rows = (Outcome == "投票意向"), 
+                label = "投票意向 (SD = 0.583)") |>
+  cols_hide(columns = "Outcome")
+```
+
+## 投票参加で重み付け
+
+### 推定結果
+
+```{r est-w2}
+fit1_w2 <- lm(Intention ~ AP_P + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W2) 
+fit2_w2 <- lm(Intention ~ AP_C + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W2) 
+fit3_w2 <- lm(Intention ~ AP_PS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W2) 
+fit4_w2 <- lm(Intention ~ AP_CS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W2) 
+
+fit5_w2 <- glm(Turnout ~ AP_P + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W2) 
+fit6_w2 <- glm(Turnout ~ AP_C + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W2) 
+fit7_w2 <- glm(Turnout ~ AP_PS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W2) 
+fit8_w2 <- glm(Turnout ~ AP_CS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W2) 
+```
+
+```{r}
+#| column: page
+modelsummary(list("Model 1" = fit1_w2,
+                  "Model 2" = fit2_w2,
+                  "Model 3" = fit3_w2,
+                  "Model 4" = fit4_w2,
+                  "Model 5" = fit5_w2,
+                  "Model 6" = fit6_w2,
+                  "Model 7" = fit7_w2,
+                  "Model 8" = fit8_w2),
+             coef_rename = c("(Intercept)" = "切片",
+                             "AP_P"  = "感情的分極化",
+                             "AP_C"  = "感情的分極化",
+                             "AP_PS" = "感情的分極化",
+                             "AP_CS" = "感情的分極化",
+                             "Female"             = "女性",
+                             "Age"                = "年齢",
+                             "Education"          = "学歴",
+                             "Income"             = "世帯収入",
+                             "RegionSeoul"        = "ソウル居住",
+                             "RegionMetropolitan" = "首都圏居住",
+                             "RegionGangwon"      = "江原居住",
+                             "RegionHoseo"        = "湖西居住",
+                             "RegionHonam"        = "湖南・済州居住",
+                             "RegionYoungnam"     = "嶺南居住",
+                             "BirthSeoul"         = "ソウル出身",
+                             "BirthMetropolitan"  = "首都圏出身",
+                             "BirthGangwon"       = "江原出身",
+                             "BirthHoseo"         = "湖西出身",
+                             "BirthHonam"         = "湖南・済州出身",
+                             "BirthYoungnam"      = "嶺南出身",
+                             "Interest"           = "政治関心",
+                             "Ideology"           = "保革自己認識",
+                             "Int_Efficacy"       = "内的政治的有効性感覚",
+                             "Ext_Efficacy"       = "外的政治的有効性感覚"),
+             gof_map = c("nobs", "adj.r.squared", "r2.tjur", "aic"),
+             add_rows = tibble(M0 = c("応答変数", 
+                                      "感情的分極化", "手法"),
+                               M1 = c("投票意向", 
+                                      "政党", "OLS"),
+                               M2 = c("投票意向", 
+                                      "候補者", "OLS"),
+                               M3 = c("投票意向", 
+                                      "政党の<br/>支持者", "OLS"),
+                               M4 = c("投票意向", 
+                                      "候補者の<br/>支持者", "OLS"),
+                               M5 = c("投票参加", 
+                                      "政党", "Logit"),
+                               M6 = c("投票参加", 
+                                      "候補者", "Logit"),
+                               M7 = c("投票参加", 
+                                      "政党の<br/>支持者", "Logit"),
+                               M8 = c("投票参加", 
+                                      "候補者の<br/>支持者", "Logit")))
+```
+
+### 感情的分極化のみ
+
+```{r coef-w2}
+#| cache: true
+#| fig-width: 7
+#| fig-height: 3.5
+list("I_P"  = fit1_w2,
+     "I_C"  = fit2_w2,
+     "I_PS" = fit3_w2,
+     "I_CS" = fit4_w2,
+     "T_P"  = fit5_w2,
+     "T_C"  = fit6_w2,
+     "T_PS" = fit7_w2,
+     "T_CS" = fit8_w2) |>
+  enframe(value = "Fit") |>
+  mutate(Est = map(Fit, broom::tidy, conf.int = TRUE)) |>
+  unnest(Est) |>
+  filter(grepl("AP", term)) |>
+  separate(col  = "name",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Sig     = if_else(p.value < 0.05, "Sig", "Insig"),
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_pointrange(aes(x = estimate, y = Type, 
+                      xmin = conf.low, xmax = conf.high,
+                      color = Sig)) +
+  guides(color = "none") +
+  scale_color_manual(values = c("Sig" = "black", "Insig" = "gray80")) +
+  scale_y_discrete(limits = rev) +
+  labs(x = "推定値 w/95% CI", y = "") +
+  facet_wrap(~Outcome, nrow = 1, scales = "free_x") +
+  theme_bw(base_size = 12)
+```
+
+### 予測値
+
+```{r pred-w2}
+#| cache: true
+pred1_w2 <- summary(prediction(fit1_w2, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred2_w2 <- summary(prediction(fit2_w2, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred3_w2 <- summary(prediction(fit3_w2, at = list(AP_PS = c(0:97)))) |>
+  rename("AP" = "at(AP_PS)")
+pred4_w2 <- summary(prediction(fit4_w2, at = list(AP_CS = c(0:98)))) |>
+  rename("AP" = "at(AP_CS)")
+
+pred5_w2 <- summary(prediction(fit5_w2, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred6_w2 <- summary(prediction(fit6_w2, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred7_w2 <- summary(prediction(fit7_w2, at = list(AP_PS = c(0:89)))) |>
+  rename("AP" = "at(AP_PS)")
+pred8_w2 <- summary(prediction(fit8_w2, at = list(AP_CS = c(0:80)))) |>
+  rename("AP" = "at(AP_CS)")
+
+bind_rows(list("I_P"  = pred1_w2,
+               "I_C"  = pred2_w2,
+               "I_PS" = pred3_w2,
+               "I_CS" = pred4_w2,
+               "T_P"  = pred5_w2,
+               "T_C"  = pred6_w2,
+               "T_PS" = pred7_w2,
+               "T_CS" = pred8_w2), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot(aes(x = AP, y = Prediction)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "gray80") +
+  geom_line() +
+  labs(x = "感情的分極化", y = "応答変数の予測値") +
+  facet_grid(Outcome ~ Type, scales = "free") +
+  theme_bw(base_size = 12)
+```
+
+### 効果量
+
+```{r es-w2}
+#| cache: true
+es1_w2 <- summary(prediction(fit1_w2, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es2_w2 <- summary(prediction(fit2_w2, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es3_w2 <- summary(prediction(fit3_w2, at = list(AP_PS = c(0, 97.2968)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es4_w2 <- summary(prediction(fit4_w2, at = list(AP_CS = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+es5_w2 <- summary(prediction(fit5_w2, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es6_w2 <- summary(prediction(fit6_w2, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es7_w2 <- summary(prediction(fit7_w2, at = list(AP_PS = c(0, 89.99259)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es8_w2 <- summary(prediction(fit8_w2, at = list(AP_CS = c(0, 80.5063)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+bind_rows(list("I_P"  = es1_w2,
+               "I_C"  = es2_w2,
+               "I_PS" = es3_w2,
+               "I_CS" = es4_w2,
+               "T_P"  = es5_w2,
+               "T_C"  = es6_w2,
+               "T_PS" = es7_w2,
+               "T_CS" = es8_w2), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  select(-c(SE:upper)) |>
+  pivot_wider(names_from  = AP,
+              values_from = Prediction) |>
+  mutate(Diff    = Max - Min,
+         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         Effect  = Diff / SD,
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  select(-SD) |>
+  gt(rowname_col = "Type") |>
+  cols_label("Min" = "最小値", "Max" = "最大値",
+             "Diff" = "差分", "Effect" = "効果量") |>
+  fmt_number(columns = 3:6, decimals = 3) |>
+  tab_row_group(rows = (Outcome == "投票参加"), 
+                label = "投票参加 (SD = 0.305)") |>
+  tab_row_group(rows = (Outcome == "投票意向"), 
+                label = "投票意向 (SD = 0.583)") |>
+  cols_hide(columns = "Outcome")
+```
+
+## 党派性で重み付け
+
+### 推定結果
+
+```{r est-w3}
+fit1_w3 <- lm(Intention ~ AP_P + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W3) 
+fit2_w3 <- lm(Intention ~ AP_C + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W3) 
+fit3_w3 <- lm(Intention ~ AP_PS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W3) 
+fit4_w3 <- lm(Intention ~ AP_CS + 
+                Female + Age + Education + Income + Region + Birth +
+                Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+              data = df, weights = W3) 
+
+fit5_w3 <- glm(Turnout ~ AP_P + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W3) 
+fit6_w3 <- glm(Turnout ~ AP_C + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W3) 
+fit7_w3 <- glm(Turnout ~ AP_PS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W3) 
+fit8_w3 <- glm(Turnout ~ AP_CS + 
+              Female + Age + Education + Income + Region + Birth +
+              Interest + Ideology + Int_Efficacy + Ext_Efficacy, 
+            data = df_p2, family = binomial("logit"), weights = W3) 
+```
+
+```{r}
+#| column: page
+modelsummary(list("Model 1" = fit1_w3,
+                  "Model 2" = fit2_w3,
+                  "Model 3" = fit3_w3,
+                  "Model 4" = fit4_w3,
+                  "Model 5" = fit5_w3,
+                  "Model 6" = fit6_w3,
+                  "Model 7" = fit7_w3,
+                  "Model 8" = fit8_w3),
+             coef_rename = c("(Intercept)" = "切片",
+                             "AP_P"  = "感情的分極化",
+                             "AP_C"  = "感情的分極化",
+                             "AP_PS" = "感情的分極化",
+                             "AP_CS" = "感情的分極化",
+                             "Female"             = "女性",
+                             "Age"                = "年齢",
+                             "Education"          = "学歴",
+                             "Income"             = "世帯収入",
+                             "RegionSeoul"        = "ソウル居住",
+                             "RegionMetropolitan" = "首都圏居住",
+                             "RegionGangwon"      = "江原居住",
+                             "RegionHoseo"        = "湖西居住",
+                             "RegionHonam"        = "湖南・済州居住",
+                             "RegionYoungnam"     = "嶺南居住",
+                             "BirthSeoul"         = "ソウル出身",
+                             "BirthMetropolitan"  = "首都圏出身",
+                             "BirthGangwon"       = "江原出身",
+                             "BirthHoseo"         = "湖西出身",
+                             "BirthHonam"         = "湖南・済州出身",
+                             "BirthYoungnam"      = "嶺南出身",
+                             "Interest"           = "政治関心",
+                             "Ideology"           = "保革自己認識",
+                             "Int_Efficacy"       = "内的政治的有効性感覚",
+                             "Ext_Efficacy"       = "外的政治的有効性感覚"),
+             gof_map = c("nobs", "adj.r.squared", "r2.tjur", "aic"),
+             add_rows = tibble(M0 = c("応答変数", 
+                                      "感情的分極化", "手法"),
+                               M1 = c("投票意向", 
+                                      "政党", "OLS"),
+                               M2 = c("投票意向", 
+                                      "候補者", "OLS"),
+                               M3 = c("投票意向", 
+                                      "政党の<br/>支持者", "OLS"),
+                               M4 = c("投票意向", 
+                                      "候補者の<br/>支持者", "OLS"),
+                               M5 = c("投票参加", 
+                                      "政党", "Logit"),
+                               M6 = c("投票参加", 
+                                      "候補者", "Logit"),
+                               M7 = c("投票参加", 
+                                      "政党の<br/>支持者", "Logit"),
+                               M8 = c("投票参加", 
+                                      "候補者の<br/>支持者", "Logit")))
+```
+
+### 感情的分極化のみ
+
+```{r coef-w3}
+#| cache: true
+#| fig-width: 7
+#| fig-height: 3.5
+list("I_P"  = fit1_w3,
+     "I_C"  = fit2_w3,
+     "I_PS" = fit3_w3,
+     "I_CS" = fit4_w3,
+     "T_P"  = fit5_w3,
+     "T_C"  = fit6_w3,
+     "T_PS" = fit7_w3,
+     "T_CS" = fit8_w3) |>
+  enframe(value = "Fit") |>
+  mutate(Est = map(Fit, broom::tidy, conf.int = TRUE)) |>
+  unnest(Est) |>
+  filter(grepl("AP", term)) |>
+  separate(col  = "name",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Sig     = if_else(p.value < 0.05, "Sig", "Insig"),
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_pointrange(aes(x = estimate, y = Type, 
+                      xmin = conf.low, xmax = conf.high,
+                      color = Sig)) +
+  guides(color = "none") +
+  scale_color_manual(values = c("Sig" = "black", "Insig" = "gray80")) +
+  scale_y_discrete(limits = rev) +
+  labs(x = "推定値 w/95% CI", y = "") +
+  facet_wrap(~Outcome, nrow = 1, scales = "free_x") +
+  theme_bw(base_size = 12)
+```
+
+### 予測値
+
+```{r pred-w3}
+#| cache: true
+pred1_w3 <- summary(prediction(fit1_w3, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred2_w3 <- summary(prediction(fit2_w3, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred3_w3 <- summary(prediction(fit3_w3, at = list(AP_PS = c(0:97)))) |>
+  rename("AP" = "at(AP_PS)")
+pred4_w3 <- summary(prediction(fit4_w3, at = list(AP_CS = c(0:98)))) |>
+  rename("AP" = "at(AP_CS)")
+
+pred5_w3 <- summary(prediction(fit5_w3, at = list(AP_P  = c(0:76)))) |>
+  rename("AP" = "at(AP_P)")
+pred6_w3 <- summary(prediction(fit6_w3, at = list(AP_C  = c(0:98)))) |>
+  rename("AP" = "at(AP_C)")
+pred7_w3 <- summary(prediction(fit7_w3, at = list(AP_PS = c(0:89)))) |>
+  rename("AP" = "at(AP_PS)")
+pred8_w3 <- summary(prediction(fit8_w3, at = list(AP_CS = c(0:80)))) |>
+  rename("AP" = "at(AP_CS)")
+
+bind_rows(list("I_P"  = pred1_w3,
+               "I_C"  = pred2_w3,
+               "I_PS" = pred3_w3,
+               "I_CS" = pred4_w3,
+               "T_P"  = pred5_w3,
+               "T_C"  = pred6_w3,
+               "T_PS" = pred7_w3,
+               "T_CS" = pred8_w3), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  mutate(Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  ggplot(aes(x = AP, y = Prediction)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "gray80") +
+  geom_line() +
+  labs(x = "感情的分極化", y = "応答変数の予測値") +
+  facet_grid(Outcome ~ Type, scales = "free") +
+  theme_bw(base_size = 12)
+```
+
+### 効果量
+
+```{r es-w3}
+#| cache: true
+es1_w3 <- summary(prediction(fit1_w3, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es2_w3 <- summary(prediction(fit2_w3, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es3_w3 <- summary(prediction(fit3_w3, at = list(AP_PS = c(0, 97.2968)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es4_w3 <- summary(prediction(fit4_w3, at = list(AP_CS = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+es5_w3 <- summary(prediction(fit5_w3, at = list(AP_P  = c(0, 76.15773)))) |>
+  rename("AP" = "at(AP_P)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es6_w3 <- summary(prediction(fit6_w3, at = list(AP_C  = c(0, 98.17841)))) |>
+  rename("AP" = "at(AP_C)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es7_w3 <- summary(prediction(fit7_w3, at = list(AP_PS = c(0, 89.99259)))) |>
+  rename("AP" = "at(AP_PS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+es8_w3 <- summary(prediction(fit8_w3, at = list(AP_CS = c(0, 80.5063)))) |>
+  rename("AP" = "at(AP_CS)") |>
+  mutate(AP = if_else(AP == max(AP), "Max", "Min"))
+
+bind_rows(list("I_P"  = es1_w3,
+               "I_C"  = es2_w3,
+               "I_PS" = es3_w3,
+               "I_CS" = es4_w3,
+               "T_P"  = es5_w3,
+               "T_C"  = es6_w3,
+               "T_PS" = es7_w3,
+               "T_CS" = es8_w3), 
+          .id = "Model") |>
+  separate(col  = "Model",
+           into = c("Outcome", "Type"),
+           sep  = "_") |>
+  select(-c(SE:upper)) |>
+  pivot_wider(names_from  = AP,
+              values_from = Prediction) |>
+  mutate(Diff    = Max - Min,
+         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         Effect  = Diff / SD,
+         Outcome = factor(Outcome, levels = c("I", "T"),
+                          labels = c("投票意向", "投票参加")),
+         Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
+                          labels = c("政党", "候補者",
+                                     "政党の支持者", "候補者の支持者"))) |>
+  select(-SD) |>
+  gt(rowname_col = "Type") |>
+  cols_label("Min" = "最小値", "Max" = "最大値",
+             "Diff" = "差分", "Effect" = "効果量") |>
+  fmt_number(columns = 3:6, decimals = 3) |>
+  tab_row_group(rows = (Outcome == "投票参加"), 
+                label = "投票参加 (SD = 0.305)") |>
+  tab_row_group(rows = (Outcome == "投票意向"), 
+                label = "投票意向 (SD = 0.583)") |>
+  cols_hide(columns = "Outcome")
+```
