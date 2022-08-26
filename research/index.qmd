@@ -14,9 +14,9 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Under Review]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. **[Submitted]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
@@ -92,7 +92,7 @@ toc-depth: 5
 
 1. 磯崎典世・**宋財泫**. 2022年10月1日.「韓国における感情的分極化と投票参加」日本政治学会. 於：龍谷大学
 <div class="jay_btn">[Full-text](#) [Online Appendix](appendix/jpsa_2022.qmd)</div>
-1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [<u>Aseem Prakash</u>](http://aseemprakash.net/). Jun. 30, 2022. "Supply Chain Dimensions of Decarbonization: A Survey Experiment to Assess Local Support for Thacker Pass Lithium Mining," **Environmental Politics and Governance Conference,** University Park:PA, USA.
+1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [<u>Aseem Prakash</u>](http://aseemprakash.net/). Jun. 30, 2022. "Supply Chain Dimensions of Decarbonization: A Survey Experiment to Assess Local Support for Thacker Pass Lithium Mining," *Environmental Politics and Governance Conference,* University Park:PA, USA.
 1. **宋財泫**. 2022年3月17日.「原因と結果の政治学」関西大学法学会政治学研究会. 於：オンライン
 
 ##### 2021
