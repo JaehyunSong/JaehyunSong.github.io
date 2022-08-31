@@ -28,7 +28,6 @@ format:
     toc-depth: 3
     number-sections: true
     self-contained: true
-    code-fold: true
     html-math-method: katex
 number-sections: false
 ---
