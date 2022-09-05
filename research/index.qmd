@@ -14,9 +14,9 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Submitted]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Under Review]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
