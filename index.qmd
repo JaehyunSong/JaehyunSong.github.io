@@ -21,6 +21,15 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 :::
 
 :::{.callout-note}
+## 宋の授業を履修する方へ（2022年度）
+
+* [ミクロ政治データ分析実習](https://www.jaysong.net/micro-book/)（関西大学）
+* [マクロ政治データ分析実習](https://www.jaysong.net/macro-book/)（関西大学）
+* [社会科学における因果推論](https://www.jaysong.net/kandai-ci/)（関西大学）
+* [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)（神戸大学）
+:::
+
+:::{.callout-note}
 ## Information
 
 * Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
