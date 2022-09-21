@@ -295,8 +295,10 @@ bind_rows(list("I_P"  = es1_w0,
          Outcome = factor(Outcome, levels = c("I", "T"),
                           labels = c("投票意向", "投票参加")),
          Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
-                          labels = c("政党", "候補者",
-                                     "政党の支持者", "候補者の支持者"))) |>
+                          labels = c("　政党", 
+                                     "　候補者",
+                                     "　政党の支持者", 
+                                     "　候補者の支持者"))) |>
   select(-SD) |>
   gt(rowname_col = "Type") |>
   cols_label("Min" = "最小値", "Max" = "最大値",
@@ -538,23 +540,26 @@ bind_rows(list("I_P"  = es1_w1,
   pivot_wider(names_from  = AP,
               values_from = Prediction) |>
   mutate(Diff    = Max - Min,
-         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         SD      = c(rep(0.565, 4), rep(0.308, 4)),
          Effect  = Diff / SD,
          Outcome = factor(Outcome, levels = c("I", "T"),
                           labels = c("投票意向", "投票参加")),
          Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
-                          labels = c("政党", "候補者",
-                                     "政党の支持者", "候補者の支持者"))) |>
+                          labels = c("　政党", 
+                                     "　候補者",
+                                     "　政党の支持者", 
+                                     "　候補者の支持者"))) |>
   select(-SD) |>
   gt(rowname_col = "Type") |>
   cols_label("Min" = "最小値", "Max" = "最大値",
              "Diff" = "差分", "Effect" = "効果量") |>
   fmt_number(columns = 3:6, decimals = 3) |>
   tab_row_group(rows = (Outcome == "投票参加"), 
-                label = "投票参加 (SD = 0.305)") |>
+                label = "投票参加 (SD = 0.308)") |>
   tab_row_group(rows = (Outcome == "投票意向"), 
-                label = "投票意向 (SD = 0.583)") |>
-  cols_hide(columns = "Outcome")
+                label = "投票意向 (SD = 0.565)") |>
+  cols_hide(columns = "Outcome") |>
+  tab_footnote("注: 標準偏差は性別・年齢・地域で重み付け")
 ```
 
 ## 投票参加で重み付け
@@ -786,23 +791,26 @@ bind_rows(list("I_P"  = es1_w2,
   pivot_wider(names_from  = AP,
               values_from = Prediction) |>
   mutate(Diff    = Max - Min,
-         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         SD      = c(rep(0.644, 4), rep(0.499, 4)),
          Effect  = Diff / SD,
          Outcome = factor(Outcome, levels = c("I", "T"),
                           labels = c("投票意向", "投票参加")),
          Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
-                          labels = c("政党", "候補者",
-                                     "政党の支持者", "候補者の支持者"))) |>
+                          labels = c("　政党", 
+                                     "　候補者",
+                                     "　政党の支持者", 
+                                     "　候補者の支持者"))) |>
   select(-SD) |>
   gt(rowname_col = "Type") |>
   cols_label("Min" = "最小値", "Max" = "最大値",
              "Diff" = "差分", "Effect" = "効果量") |>
   fmt_number(columns = 3:6, decimals = 3) |>
   tab_row_group(rows = (Outcome == "投票参加"), 
-                label = "投票参加 (SD = 0.305)") |>
+                label = "投票参加 (SD = 0.499)") |>
   tab_row_group(rows = (Outcome == "投票意向"), 
-                label = "投票意向 (SD = 0.583)") |>
-  cols_hide(columns = "Outcome")
+                label = "投票意向 (SD = 0.644)") |>
+  cols_hide(columns = "Outcome") |>
+  tab_footnote("注: 標準偏差は2022年6月の統一地方選挙の投票有無で重み付け")
 ```
 
 ## 党派性で重み付け
@@ -1034,23 +1042,26 @@ bind_rows(list("I_P"  = es1_w3,
   pivot_wider(names_from  = AP,
               values_from = Prediction) |>
   mutate(Diff    = Max - Min,
-         SD      = c(rep(0.583, 4), rep(0.305, 4)),
+         SD      = c(rep(0.711, 4), rep(0.326, 4)),
          Effect  = Diff / SD,
          Outcome = factor(Outcome, levels = c("I", "T"),
                           labels = c("投票意向", "投票参加")),
          Type    = factor(Type, levels = c("P", "C", "PS", "CS"),
-                          labels = c("政党", "候補者",
-                                     "政党の支持者", "候補者の支持者"))) |>
+                          labels = c("　政党", 
+                                     "　候補者",
+                                     "　政党の支持者", 
+                                     "　候補者の支持者"))) |>
   select(-SD) |>
   gt(rowname_col = "Type") |>
   cols_label("Min" = "最小値", "Max" = "最大値",
              "Diff" = "差分", "Effect" = "効果量") |>
   fmt_number(columns = 3:6, decimals = 3) |>
   tab_row_group(rows = (Outcome == "投票参加"), 
-                label = "投票参加 (SD = 0.305)") |>
+                label = "投票参加 (SD = 0.326)") |>
   tab_row_group(rows = (Outcome == "投票意向"), 
-                label = "投票意向 (SD = 0.583)") |>
-  cols_hide(columns = "Outcome")
+                label = "投票意向 (SD = 0.711)") |>
+  cols_hide(columns = "Outcome") |>
+  tab_footnote("注: 標準偏差は2022年3月大統領選挙の投票先で重み付け")
 ```
 
 ## セッション情報
