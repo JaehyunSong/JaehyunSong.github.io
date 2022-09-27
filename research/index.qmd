@@ -14,7 +14,7 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Submitted]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Revise and Resubmit]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Under Review]** Decarbonization and Supply Chains: Public Support for the Thacker Pass Lithium Mine (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Under Review]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models

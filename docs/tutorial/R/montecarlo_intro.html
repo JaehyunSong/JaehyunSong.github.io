@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.132">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-26">
+<meta name="dcterms.date" content="2022-09-27">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- モンテカルロ・シミュレーション入門</title>
 <style>
@@ -100,10 +100,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -227,6 +229,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  </a>
   </li>  
 </ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -271,7 +276,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2022</p>
+      <p class="date">September 27, 2022</p>
     </div>
   </div>
     
@@ -305,7 +310,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># この場合、prob引数は省略可能</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4 5 4</code></pre>
+<pre><code>[1] 1 6 3</code></pre>
 </div>
 </div>
 <p>　今回はサイコロを1万回振り、それぞれの目が出た回数を棒グラフとして示してみます。無作為に抽出された値であれば、各目が出る回数は等しいはずです。ベクトルに対して<code>table()</code>関数を使うと、各要素が出現した回数が出力され、このオブジェクトを<code>barplot()</code>関数に渡すと棒グラフを作成することができます。</p>
@@ -615,8 +620,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8        9  0.09
  9       10  0.12
 10       11  0.18
-# … with 89 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 89 more rows</code></pre>
 </div>
 </div>
 <p>　学生数が何人いれば、同じ誕生日の人が2人以上いる割合が50%になるのでしょうか。割合が0.4以上、0.6以下の行を抽出してみましょう。</p>
@@ -710,8 +714,7 @@ p(n) = 1 - \frac{n! \times _{365}C_n}{365^n}
  8        9  0.09 0.0946 
  9       10  0.12 0.117  
 10       11  0.18 0.141  
-# … with 89 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 89 more rows</code></pre>
 </div>
 </div>
 <p>　これは人間にとっては読みやすい表ですが、可視化まで考えると、tidyなデータといは言えません。したがって、<code>pivot_longer()</code>関数を使用してtidyなデータに整形します。{tidyr}パッケージの使い方は第@ref(tidydata)章を参照してください。</p>
@@ -736,8 +739,7 @@ p(n) = 1 - \frac{n! \times _{365}C_n}{365^n}
  8        5 Expect 0.0271 
  9        6 Probs  0.02   
 10        6 Expect 0.0405 
-# … with 188 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 188 more rows</code></pre>
 </div>
 </div>
 <p>　こちらのデータを使用し、シミュレーションから得られた結果と理論値を折れ線グラフで出力してみましょう。</p>
@@ -894,8 +896,7 @@ p(n) = 1 - \frac{n! \times _{365}C_n}{365^n}
  8 -0.273  -0.886
  9 -0.405   0.701
 10  0.528  -0.547
-# … with 90 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 90 more rows</code></pre>
 </div>
 </div>
 <p>　まず、各辺の長さが2の正四角形と<code>pi_df</code>で生成した100個の点をプロットします。四角形を描くときには<code>geom_rect()</code>幾何オブジェクトを使用します。マッピングは四角形の左下の座標 (<code>xmin</code>と<code>ymin</code>)、右上の座標 (<code>xmax</code>と<code>ymax</code>)に行います。今回は原点が (0, 0)の半径1の円に接する四角形ですから、左下の座標は (-1, -1)、右上の座標は (1, 1)となります。</p>
@@ -1204,6 +1205,119 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

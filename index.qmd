@@ -34,10 +34,10 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 
 * Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
 * Environment
-   * macOS 12.5.1 "Monterey"
-   * Firefox 104.0.1
+   * macOS 12.6 "Monterey"
+   * Firefox 105.0.1
    * `r version$version.string`
-   * RStudio 2022.11.0-daily+157 "Elsbeth Geranium"
+   * RStudio 2022.7.2+576 "Spotted Wakerobin"
    * Quarto `r quarto::quarto_inspect()$quarto$version`
    * R package {quarto} `r packageVersion("quarto")`
 :::

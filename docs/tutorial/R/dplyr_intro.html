@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.132">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-26">
+<meta name="dcterms.date" content="2022-09-27">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- dplyr入門</title>
 <style>
@@ -100,10 +100,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -224,6 +226,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  </a>
   </li>  
 </ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -300,7 +305,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2022</p>
+      <p class="date">September 27, 2022</p>
     </div>
   </div>
     
@@ -355,20 +360,19 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  9 gdvk200 中国料… 東京… 1000006    35.7    140. ＪＲ  有楽町…     1    NA    NA
 10 gggb200 中国料… 東京… 1140002    35.8    140. 地下… 王子駅      2    NA    NA
 # … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 </div>
 <p>　1行目の<code># A tibble: 6,292 x 14</code>から、ケース数 (店舗数)は6292、変数は14個あることが分かります。各変数の詳細は以下の通りです。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="fleldhrder" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lcaluxqexv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#fleldhrder) .gt_table {
+:where(#lcaluxqexv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -393,7 +397,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_heading {
+:where(#lcaluxqexv) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -405,7 +409,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_title {
+:where(#lcaluxqexv) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -417,7 +421,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-:where(#fleldhrder) .gt_subtitle {
+:where(#lcaluxqexv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -429,13 +433,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-width: 0;
 }
 
-:where(#fleldhrder) .gt_bottom_border {
+:where(#lcaluxqexv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_col_headings {
+:where(#lcaluxqexv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -450,7 +454,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_col_heading {
+:where(#lcaluxqexv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -470,7 +474,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-:where(#fleldhrder) .gt_column_spanner_outer {
+:where(#lcaluxqexv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -482,15 +486,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-:where(#fleldhrder) .gt_column_spanner_outer:first-child {
+:where(#lcaluxqexv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#fleldhrder) .gt_column_spanner_outer:last-child {
+:where(#lcaluxqexv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#fleldhrder) .gt_column_spanner {
+:where(#lcaluxqexv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -502,7 +506,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-:where(#fleldhrder) .gt_group_heading {
+:where(#lcaluxqexv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -527,7 +531,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-:where(#fleldhrder) .gt_empty_group_heading {
+:where(#lcaluxqexv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -542,15 +546,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-:where(#fleldhrder) .gt_from_md > :first-child {
+:where(#lcaluxqexv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#fleldhrder) .gt_from_md > :last-child {
+:where(#lcaluxqexv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#fleldhrder) .gt_row {
+:where(#lcaluxqexv) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,7 +573,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-:where(#fleldhrder) .gt_stub {
+:where(#lcaluxqexv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -582,7 +586,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#fleldhrder) .gt_stub_row_group {
+:where(#lcaluxqexv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -596,11 +600,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-:where(#fleldhrder) .gt_row_group_first td {
+:where(#lcaluxqexv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#fleldhrder) .gt_summary_row {
+:where(#lcaluxqexv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -610,16 +614,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#fleldhrder) .gt_first_summary_row {
+:where(#lcaluxqexv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_first_summary_row.thick {
+:where(#lcaluxqexv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#fleldhrder) .gt_last_summary_row {
+:where(#lcaluxqexv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -629,7 +633,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_grand_summary_row {
+:where(#lcaluxqexv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -639,7 +643,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#fleldhrder) .gt_first_grand_summary_row {
+:where(#lcaluxqexv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -649,11 +653,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_striped {
+:where(#lcaluxqexv) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#fleldhrder) .gt_table_body {
+:where(#lcaluxqexv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -662,7 +666,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_footnotes {
+:where(#lcaluxqexv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -676,7 +680,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_footnote {
+:where(#lcaluxqexv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -685,7 +689,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#fleldhrder) .gt_sourcenotes {
+:where(#lcaluxqexv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -699,7 +703,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#fleldhrder) .gt_sourcenote {
+:where(#lcaluxqexv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -707,80 +711,73 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#fleldhrder) .gt_left {
+:where(#lcaluxqexv) .gt_left {
   text-align: left;
 }
 
-:where(#fleldhrder) .gt_center {
+:where(#lcaluxqexv) .gt_center {
   text-align: center;
 }
 
-:where(#fleldhrder) .gt_right {
+:where(#lcaluxqexv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#fleldhrder) .gt_font_normal {
+:where(#lcaluxqexv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#fleldhrder) .gt_font_bold {
+:where(#lcaluxqexv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#fleldhrder) .gt_font_italic {
+:where(#lcaluxqexv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#fleldhrder) .gt_super {
+:where(#lcaluxqexv) .gt_super {
   font-size: 65%;
 }
 
-:where(#fleldhrder) .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-:where(#fleldhrder) .gt_footnote_marks {
+:where(#lcaluxqexv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#fleldhrder) .gt_asterisk {
+:where(#lcaluxqexv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#fleldhrder) .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+:where(#lcaluxqexv) .gt_indent_1 {
+  text-indent: 5px;
 }
 
-:where(#fleldhrder) .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+:where(#lcaluxqexv) .gt_indent_2 {
+  text-indent: 10px;
 }
 
-:where(#fleldhrder) .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+:where(#lcaluxqexv) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#lcaluxqexv) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#lcaluxqexv) .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">変数名</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">説明</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">変数名</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">説明</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -915,8 +912,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                    東京都  3.33
  9 gdvk200 中国料理 宝龍                                            東京都  2.5 
 10 gggb200 中国料理 天安門                                          東京都 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># dplyr::select()を使う方法</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="co"># select(df, ID, Name, Pref, Score)でもOK</span></span>
@@ -936,8 +932,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                    東京都  3.33
  9 gdvk200 中国料理 宝龍                                            東京都  2.5 
 10 gggb200 中国料理 天安門                                          東京都 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　どれも結果は同じですが、<code>select()</code>関数を使った方がより読みやすいコードになっているでしょう。むろん、<code>select()</code>関数を使わない方がスッキリする方も知るかも知れません。実際、自分でパッケージなどを作成する際は<code>select()</code>を使わない場合が多いです。ただし、一般的な分析の流れでは<code>select()</code>の方がコードも意味も明確となり、パイプ演算子でつなぐのも容易です。</p>
@@ -960,8 +955,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 東京都 宴会個室×餃子酒場 北京飯店 秋葉原本店                   
  9 gdvk200 東京都 中国料理 宝龍                                           
 10 gggb200 東京都 中国料理 天安門                                         
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -985,8 +979,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                   東京都   3.33
  9 gdvk200 中国料理 宝龍                                           東京都   2.5 
 10 gggb200 中国料理 天安門                                         東京都  NA   
-# … with 6,282 more rows, and abbreviated variable name ¹​Prefecture
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows, and abbreviated variable name ¹​Prefecture</code></pre>
 </div>
 </div>
 <p>　抽出する際、変数を<code>新しい変数名 = 既存の変数名</code>にするだけで、変数名が簡単に変更できました。もし、特定の列は抽出しないものの、変数名を変えるにはどうすれば良いでしょうか。ここでは<code>df</code>の<code>Pref</code>を<code>Prefecture</code>に、<code>Walk</code>を<code>Distance</code>に変更してみます。{dplyr}を使わない場合と{dplyr}の<code>rename()</code>関数を使う場合を両方紹介します。</p>
@@ -1022,8 +1015,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 10 gggb… 中国… 東京都  1140002    35.8    140. 地下… 王子駅        2    NA    NA
 # … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
 #   Score &lt;dbl&gt;, and abbreviated variable names ¹​Prefecture, ²​Latitude,
-#   ³​Longitude, ⁴​Distance
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   ³​Longitude, ⁴​Distance</code></pre>
 </div>
 </div>
 <p>　簡単に変数名の変更ができました。続いて、{dplyr}の<code>rename()</code>関数を使った方法です。今回は、<code>Prefecture</code>を<code>Pref</code>に、<code>Distance</code>を<code>Walk</code>に戻して見ましょう。そして、出力するだけにとどまらず、<code>df</code>に上書きしましょう。</p>
@@ -1055,8 +1047,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m… 宴会… 東京… 1010021 ＪＲ  秋葉原…     4    NA    NA   2000      3  3.33
  9 gdvk… 中国… 東京… 1000006 ＪＲ  有楽町…     1    NA    NA   1000      2  2.5 
 10 gggb… 中国… 東京… 1140002 地下… 王子駅      2    NA    NA   2000      0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　かなり長いコードになりましたね。しかし、もっと簡単な方法があります。それは<code>-</code>を使う方法です。</p>
@@ -1077,8 +1068,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m… 宴会… 東京… 1010021 ＪＲ  秋葉原…     4    NA    NA   2000      3  3.33
  9 gdvk… 中国… 東京… 1000006 ＪＲ  有楽町…     1    NA    NA   1000      2  2.5 
 10 gggb… 中国… 東京… 1140002 地下… 王子駅      2    NA    NA   2000      0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　除外したい変数名の前に<code>-</code>を付けただけです。また、<code>-Latitude</code>と<code>-Longitude</code>をそれぞれ指定せず、<code>-c(Latitude, Longitude)</code>のように<code>c()</code>でまとめるのも可能です。</p>
@@ -1128,8 +1118,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  9  2.5       2 gdvk200 中国… 東京都 1000006    35.7    140. ＪＲ  有楽町…     1
 10 NA         0 gggb200 中国… 東京都 1140002    35.8    140. 地下… 王子駅      2
 # … with 6,282 more rows, 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;, Budget &lt;dbl&gt;,
-#   and abbreviated variable names ¹​Latitude, ²​Longitude
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   and abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 </div>
 <p>　しかし、{dplyr}には<code>relocate()</code>というより便利な専用関数を提供しています。<code>relocate()</code>には変数名を指定するだけですが、ここで指定した変数がデータフレーム (または、tibble)の最初列の方に移動します。</p>
@@ -1151,8 +1140,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  9  2.5       2 gdvk200 中国… 東京都 1000006    35.7    140. ＪＲ  有楽町…     1
 10 NA         0 gggb200 中国… 東京都 1140002    35.8    140. 地下… 王子駅      2
 # … with 6,282 more rows, 3 more variables: Bus &lt;dbl&gt;, Car &lt;dbl&gt;, Budget &lt;dbl&gt;,
-#   and abbreviated variable names ¹​Latitude, ²​Longitude
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   and abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 </div>
 <p>　<code>relocate()</code>を使うと<code>ID:Budget</code>が省略可能となり、より短いコードになります。もう一つの例は、最初に持ってくるのではなく、「ある変数の前」または「ある変数の後」に移動させるケースです。これも<code>relocate()</code>で可能ですが、もう一つの引数が必要です。<code>Pref</code>と<code>Zipcdoe</code>の順番を変えるなら、まずは以下のような方法が考えられます。</p>
@@ -1174,8 +1162,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  9 gdvk200 中国料… 1000006 東京…    35.7    140. ＪＲ  有楽町…     1    NA    NA
 10 gggb200 中国料… 1140002 東京…    35.8    140. 地下… 王子駅      2    NA    NA
 # … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 </div>
 <p>　これを<code>relocate()</code>で書き換えるなら、<code>.after</code>または<code>.before</code>引数が必要になります。<code>relocate(変数名1, .after = 変数名2)</code>は「変数1を変数2の直後に移動させる」 ことを意味します。</p>
@@ -1197,8 +1184,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  9 gdvk200 中国料… 1000006 東京…    35.7    140. ＪＲ  有楽町…     1    NA    NA
 10 gggb200 中国料… 1140002 東京…    35.8    140. 地下… 王子駅      2    NA    NA
 # … with 6,282 more rows, 3 more variables: Budget &lt;dbl&gt;, ScoreN &lt;dbl&gt;,
-#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   Score &lt;dbl&gt;, and abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 </div>
 <p>　<code>.before</code>を使うことできます。この場合は「<code>Zipcode</code>を<code>Pref</code>の直前に移動させる」 ことを指定する必要があります。結果は省略しますが、自分でコードを走らせ、上と同じ結果が得られるかを確認してみてください。</p>
@@ -1230,8 +1216,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 宴会個室×餃子酒場 北京飯店 秋葉原本店                         3  3.33
  9 gdvk200 中国料理 宝龍                                                 2  2.5 
 10 gggb200 中国料理 天安門                                               0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># eで終わる変数名を除去</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>df <span class="sc">%&gt;%</span></span>
@@ -1250,8 +1235,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100 東京都 秋葉原駅         4    NA    NA   2000      3
  9 gdvk200 東京都 有楽町駅         1    NA    NA   1000      2
 10 gggb200 東京都 王子駅           2    NA    NA   2000      0
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># reを含む変数名を抽出するが、ScoreNは除去する</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>df <span class="sc">%&gt;%</span></span>
@@ -1270,8 +1254,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 東京都  3.33
  9 東京都  2.5 
 10 東京都 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　他の使い方としては<code>X1</code>、<code>X2</code>のような「文字+数字」の変数を選択する際、<code>starts_with()</code>が活躍します。たとえば、以下のような<code>myDF1</code>があるとします。</p>
@@ -1427,8 +1410,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 gg9m100  3.33
  9 gdvk200  2.5 
 10 gggb200 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　最後の2行分を取り出すことも可能です。この場合は<code>last_col()</code>の引数を長さ1ベクトルでなく、長さ2以上のベクトルにします。最後の行が<code>0</code>、その手前の行が<code>1</code>ですから、中の引数は<code>1:0</code>となります。<code>0:1</code>でも可能ですが、結果が若干異なります。</p>
@@ -1457,8 +1439,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100      3  3.33
  9 gdvk200      2  2.5 
 10 gggb200      0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -1483,8 +1464,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100  3.33      3
  9 gdvk200  2.5       2
 10 gggb200 NA         0
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　<code>last_col()</code>の引数を<code>1:0</code>にするか<code>0:1</code>にするかによって抽出される順番が異なります。<code>1:0</code>は<code>c(1, 0)</code>、<code>0:1</code>は<code>c(0, 1)</code>と同じであることを考えると理由は簡単です。<code>c(1, 0)</code>の場合、<code>last_col(1), last_col(0)</code>の順番で処理をし、<code>c(0, 1)</code>は<code>last_col(0)</code>、<code>last_col(1)</code>の順番で処理を行うからです。</p>
@@ -1509,8 +1489,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 1010021     35.7      140.     4    NA    NA   2000      3  3.33
  9 1000006     35.7      140.     1    NA    NA   1000      2  2.5 
 10 1140002     35.8      140.     2    NA    NA   2000      0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　<code>!</code>を使って条件に合致する列を除外することも可能です。もし、character型の列を除外する場合は以下のように<code>!where(is.character)</code>を指定します。</p>
@@ -1532,8 +1511,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 1010021     35.7      140.     4    NA    NA   2000      3  3.33
  9 1000006     35.7      140.     1    NA    NA   1000      2  2.5 
 10 1140002     35.8      140.     2    NA    NA   2000      0 NA   
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 <p>　<code>&amp;</code>を使って複数の条件を使うことも可能です。たとえば、<code>ID</code>変数に加えて「<code>"L"</code>で始まる変数の中でnumeric型の列を抽出」するコードは以下のようになります。</p>
@@ -1555,8 +1533,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 gg9m100     35.7      140.
  9 gdvk200     35.7      140.
 10 gggb200     35.8      140.
-# … with 6,282 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 6,282 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1686,18 +1663,18 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb95-3"><a href="#cb95-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   ID      Name                                  Pref     Budget Score
-   &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
- 1 c865600 炭火焼鳥 Birds’Bar                    大阪府     3300  NA  
- 2 6171804 かっさんラーメン 高石本店             大阪府       NA  NA  
- 3 7632824 濃厚味噌ラーメン 味噌道場 戸田支部    埼玉県       NA  NA  
- 4 7536736 丸源ラーメン 春日部16号バイパス店     埼玉県       NA  NA  
- 5 5605944 吟醸らーめん 久保田 本店              京都府       NA   3.5
- 6 6896400 田所商店 WBG店                        千葉県       NA  NA  
- 7 7671736 熟成豚骨ラーメン専門 一番軒 三田店    兵庫県       NA  NA  
- 8 5496242 鈴屋                                  千葉県       NA   4.5
- 9 5676735 らあめん花月嵐 オーロラモール東戸塚店 神奈川県     NA  NA  
-10 7726914 麺屋むてき                            東京都       NA  NA  </code></pre>
+   ID      Name                                    Pref   Budget Score
+   &lt;chr&gt;   &lt;chr&gt;                                   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 6955249 三角　砂場                              東京都   1200  NA  
+ 2 7236403 げん家ラーメン 天六国分寺店             大阪府    900   2.5
+ 3 5508092 ラーメン小金太                          兵庫県     NA   1.5
+ 4 7322754 本場博多とんこつらーめん いっぽし丹波店 兵庫県     NA  NA  
+ 5 6371094 みつ星製麺所 福島本店                   大阪府     NA  NA  
+ 6 5911014 ラーメン 登嶋家                         東京都     NA  NA  
+ 7 7744455 博多・長浜らーめん 一途                 千葉県     NA  NA  
+ 8 7701790 天龍                                    千葉県     NA  NA  
+ 9 gg5f414 旭川味噌ラーメン ばんから 上野店        東京都   1000  NA  
+10 5026523 コロッケ屋                              千葉県     NA  NA  </code></pre>
 </div>
 </div>
 <p>　のように書きます。ブートストラップ法や機械学習における交差検証 (cross-validation)の際に有用な関数ですが、ブートストラップや機械学習のパッケージの多くはサンプル分割の関数を提供しているため、あまり使う機会はないでしょう。また、<code>slice_sample()</code>関数をブートストラップ法のために用いる場合は、ケースを反復抽出する必要があり、<code>replace = TRUE</code>を付けると反復抽出を行います。デフォルト値は<code>FALSE</code>です。</p>
@@ -1734,8 +1711,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 DETAIL                                                  東山駅     NA   
  9 めんや龍神                                              北大路駅   NA   
 10 無尽蔵 京都八条家                                       京都駅      3.5 
-# … with 404 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 404 more rows</code></pre>
 </div>
 </div>
 <p>　これは<code>df</code>から<code>Pref == "京都府"</code>のケースのみ残したものを<code>df2</code>として格納し、それをまた<code>select()</code>関数を使って列を抽出するコードです。これでも問題ありませんが、これだとパイプ演算子の便利さが分かりません。パイプ演算子は複数使うことが可能です。</p>
@@ -1757,8 +1733,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 DETAIL                                                  東山駅     NA   
  9 めんや龍神                                              北大路駅   NA   
 10 無尽蔵 京都八条家                                       京都駅      3.5 
-# … with 404 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 404 more rows</code></pre>
 </div>
 </div>
 <p>　全く同じ結果ですが、無駄に<code>df2</code>というデータフレーム (または、tibble)を作らず済むので、メモリの観点からも嬉しいですし、何よりコードが短く、しかも可読性も上がりました。</p>
@@ -1781,8 +1756,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 よってこや お台場店                               お台場海浜公…      1  4   
  9 ラーメン武藤製麺所                                竹ノ塚駅           4  3.5 
 10 桂花ラーメン 新宿末広店                           新宿三丁目駅       8  3   
-# … with 1,334 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 1,334 more rows</code></pre>
 </div>
 </div>
 <p>　これで口コミ数が1以上の店舗のみに絞ることができました。ただし、店によっては口コミはあっても、評価 (<code>Score</code>)が付いていないところもあります。たとえば、「刀削麺・火鍋・西安料理 XI’AN（シーアン） 後楽園店」の場合、口コミはありますが、評価はありません。したがって、今回は評価が付いている店舗に絞ってみましょう。</p>
@@ -1792,8 +1766,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 <span id="cb105-3"><a href="#cb105-3"></a>  <span class="fu">select</span>(Name, Station, <span class="fu">starts_with</span>(<span class="st">"Score"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 4
-# … with 4 variables: Name &lt;chr&gt;, Station &lt;chr&gt;, ScoreN &lt;dbl&gt;, Score &lt;dbl&gt;
-# ℹ Use `colnames()` to see all variable names</code></pre>
+# … with 4 variables: Name &lt;chr&gt;, Station &lt;chr&gt;, ScoreN &lt;dbl&gt;, Score &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>　あらら、何の結果も表示されませんでした。これは<code>filter()</code>内の条件に合致するケースが存在しないことを意味します。しかし、先ほどの結果を見ても、評価が付いている店はいっぱいありましたね。これはなぜでしょう。</p>
@@ -1816,8 +1789,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 ラーメン武藤製麺所                    竹ノ塚駅              4  3.5 
  9 桂花ラーメン 新宿末広店               新宿三丁目駅          8  3   
 10 北斗 新橋店                           新橋駅                4  2.5 
-# … with 1,124 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 1,124 more rows</code></pre>
 </div>
 </div>
 <p>　これで口コミ評価が登録された店舗に絞ることができました。</p>
@@ -1840,8 +1812,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 大中BAL横店        &lt;NA&gt;            7  4.1 
  9 こうちゃん         西舞鶴駅        1  5   
 10 大黒ラーメン       伏見桃山駅      4  4.25
-# … with 43 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 43 more rows</code></pre>
 </div>
 </div>
 <p>　条件を<code>filter()</code>内に追加するだけです。今回は<code>!is.na(Score)</code>は不要です。なぜなら、<code>Score &gt;= 3.5</code>という条件で既に欠損値は対象外になるからです。条件文が複数ある場合、ANDかORかを指定する必要があります。つまり、条件文AとBがある場合、「AとB両方満たすものを出力する」か「AとBどちらかを満たすものを出力するか」を指定する必要があります。今の結果ってANDでしたよね。<code>filter()</code>関数は、別途の指定がない場合、全てAND扱いになります。RのAND演算子は<code>&amp;</code>ですので、以上のコードは以下のコードと同じです。</p>
@@ -1863,8 +1834,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 大中BAL横店        &lt;NA&gt;            7  4.1 
  9 こうちゃん         西舞鶴駅        1  5   
 10 大黒ラーメン       伏見桃山駅      4  4.25
-# … with 43 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 43 more rows</code></pre>
 </div>
 </div>
 <p>　AND演算子 (<code>&amp;</code>)が使えるということはOR演算子 (<code>|</code>)も使えることを意味します。たとえば、<code>Station</code>が<code>"高田馬場駅"</code>か<code>"三田駅"</code>の条件を指定したい場合、</p>
@@ -2583,8 +2553,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 18 大阪府   京阪本線                   43         10       3.69
 19 千葉県   新京成電鉄                 43          6       3.6 
 20 京都府   阪急京都本線               43         27       3.5 
-# … with 503 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 503 more rows</code></pre>
 </div>
 </div>
 <p>　ぐるなびに登録されているラーメン屋が最も多い路線は埼玉県内の東武東上線で122店舗があります。東武東上線は東京都と埼玉県をまたがる路線ですので、東武東上線だけならもっと多いかも知れませんね。</p>
@@ -2616,8 +2585,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 3 神奈川県 小田急小田原線          96         31       3.59
 4 埼玉県   東武伊勢崎線            96         18       3.51
 5 神奈川県 横浜市営ブルーライン    82         77       3.66
-# … with 518 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 518 more rows</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -2644,8 +2612,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
 3 神奈川県 小田急小田原線          96         31       3.59
 4 埼玉県   東武伊勢崎線            96         18       3.51
 5 神奈川県 横浜市営ブルーライン    82         77       3.66
-# … with 518 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 518 more rows</code></pre>
 </div>
 </div>
 <p>　<code>.groups</code>引数は<code>"drop"</code>と<code>"keep"</code>以外にも<code>"drop_last"</code>があります。実は<code>summarise()</code>に<code>.groups</code>引数を指定したい場合のデフォルト値は<code>.groups == "drop_last"</code>または<code>"keep"</code>ですが、ここがややこしいです。主なケースにおいてデフォルト値は<code>"drop"</code>となりますとなります。<code>.groups == "drop_last"</code>これは最後のグループ化変数のみ解除する意味です。今回の例だと、2番目のグループ化変数である<code>Line</code>がグループ化変数から外され、<code>Pref</code>のみがグループ化変数として残る仕組みです。</p>
@@ -2689,8 +2656,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 京都府 JR山陰本線（京都-米子）    8.67
  9 京都府 ＪＲ山陰本線（京都-米子）  9.23
 10 京都府 ＪＲ嵯峨野線               5   
-# … with 499 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 499 more rows</code></pre>
 </div>
 </div>
 <p>　最初は<code>Pref</code>と<code>Line</code>でグループ化しましたが、<code>summarise()</code>の後、<code>Line</code>がグループ化変数から外されました。つまり、引数が<code>"drop_last"</code>になっていることです。</p>
@@ -2720,8 +2686,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 京都府 ＪＲ奈良線  8        9   
  9 京都府 JR小浜線   16.5      9.75
 10 京都府 JR小浜線   16.5     23.2 
-# … with 1,008 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 1,008 more rows</code></pre>
 </div>
 </div>
 <p>　同じ<code>Pref</code>、<code>Line</code>のケースが2つずつ出来ています。最初に来る数値は第一四分位点、次に来るのが第三四分位点です。そして最初のグループ化変数であった<code>Pref</code>と<code>Line</code>が、<code>summarise()</code>後もグループ化変数として残っていることが分かります。</p>
@@ -2757,8 +2722,7 @@ Warning in offset &amp;&amp; n &lt;= offset: 'length(x) = 2 &gt; 1' in coercion 
  8 埼玉県   ラーメン山岡家 上尾店                35     0.583
  9 兵庫県   濃厚醤油 中華そば いせや 大蔵谷店    35     0.583
 10 大阪府   河童ラーメン本舗 松原店              31     0.517
-# … with 5,365 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 5,365 more rows</code></pre>
 </div>
 </div>
 <p>　<code>mutate()</code>は3行目に登場しますが、これは<code>Walk</code>を60に割った結果を<code>Walk_Hour</code>としてデータフレーム (または、tibble)の最後の列として格納することを意味します。もし、最後の列でなく、ある変数の前、または後にしたい場合は、<code>.before</code>または<code>.after</code>引数を追加します。これは<code>select()</code>関数の<code>.before</code>と<code>.after</code>と同じ使い方です。たとえば、新しく出来た<code>Walk_Hour</code>を<code>ID</code>と<code>Name</code>の間に入れたい場合は</p>
@@ -3477,12 +3441,12 @@ Levels: 関東 その他</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="bflfukikpp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zswihicwwg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#bflfukikpp) .gt_table {
+:where(#zswihicwwg) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -3507,7 +3471,7 @@ Levels: 関東 その他</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_heading {
+:where(#zswihicwwg) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3519,7 +3483,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_title {
+:where(#zswihicwwg) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3531,7 +3495,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#bflfukikpp) .gt_subtitle {
+:where(#zswihicwwg) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3543,13 +3507,13 @@ Levels: 関東 その他</code></pre>
   border-top-width: 0;
 }
 
-:where(#bflfukikpp) .gt_bottom_border {
+:where(#zswihicwwg) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_col_headings {
+:where(#zswihicwwg) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3564,7 +3528,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_col_heading {
+:where(#zswihicwwg) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3584,7 +3548,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-:where(#bflfukikpp) .gt_column_spanner_outer {
+:where(#zswihicwwg) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3596,15 +3560,15 @@ Levels: 関東 その他</code></pre>
   padding-right: 4px;
 }
 
-:where(#bflfukikpp) .gt_column_spanner_outer:first-child {
+:where(#zswihicwwg) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#bflfukikpp) .gt_column_spanner_outer:last-child {
+:where(#zswihicwwg) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#bflfukikpp) .gt_column_spanner {
+:where(#zswihicwwg) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3616,7 +3580,7 @@ Levels: 関東 その他</code></pre>
   width: 100%;
 }
 
-:where(#bflfukikpp) .gt_group_heading {
+:where(#zswihicwwg) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3641,7 +3605,7 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-:where(#bflfukikpp) .gt_empty_group_heading {
+:where(#zswihicwwg) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3656,15 +3620,15 @@ Levels: 関東 その他</code></pre>
   vertical-align: middle;
 }
 
-:where(#bflfukikpp) .gt_from_md > :first-child {
+:where(#zswihicwwg) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#bflfukikpp) .gt_from_md > :last-child {
+:where(#zswihicwwg) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#bflfukikpp) .gt_row {
+:where(#zswihicwwg) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3683,7 +3647,7 @@ Levels: 関東 その他</code></pre>
   overflow-x: hidden;
 }
 
-:where(#bflfukikpp) .gt_stub {
+:where(#zswihicwwg) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3696,7 +3660,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-:where(#bflfukikpp) .gt_stub_row_group {
+:where(#zswihicwwg) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3710,11 +3674,11 @@ Levels: 関東 その他</code></pre>
   vertical-align: top;
 }
 
-:where(#bflfukikpp) .gt_row_group_first td {
+:where(#zswihicwwg) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#bflfukikpp) .gt_summary_row {
+:where(#zswihicwwg) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3724,16 +3688,16 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-:where(#bflfukikpp) .gt_first_summary_row {
+:where(#zswihicwwg) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_first_summary_row.thick {
+:where(#zswihicwwg) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#bflfukikpp) .gt_last_summary_row {
+:where(#zswihicwwg) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3743,7 +3707,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_grand_summary_row {
+:where(#zswihicwwg) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3753,7 +3717,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-:where(#bflfukikpp) .gt_first_grand_summary_row {
+:where(#zswihicwwg) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3763,11 +3727,11 @@ Levels: 関東 その他</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_striped {
+:where(#zswihicwwg) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#bflfukikpp) .gt_table_body {
+:where(#zswihicwwg) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3776,7 +3740,7 @@ Levels: 関東 その他</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_footnotes {
+:where(#zswihicwwg) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3790,7 +3754,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_footnote {
+:where(#zswihicwwg) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -3799,7 +3763,7 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-:where(#bflfukikpp) .gt_sourcenotes {
+:where(#zswihicwwg) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3813,7 +3777,7 @@ Levels: 関東 その他</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#bflfukikpp) .gt_sourcenote {
+:where(#zswihicwwg) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3821,85 +3785,78 @@ Levels: 関東 その他</code></pre>
   padding-right: 5px;
 }
 
-:where(#bflfukikpp) .gt_left {
+:where(#zswihicwwg) .gt_left {
   text-align: left;
 }
 
-:where(#bflfukikpp) .gt_center {
+:where(#zswihicwwg) .gt_center {
   text-align: center;
 }
 
-:where(#bflfukikpp) .gt_right {
+:where(#zswihicwwg) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#bflfukikpp) .gt_font_normal {
+:where(#zswihicwwg) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#bflfukikpp) .gt_font_bold {
+:where(#zswihicwwg) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#bflfukikpp) .gt_font_italic {
+:where(#zswihicwwg) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#bflfukikpp) .gt_super {
+:where(#zswihicwwg) .gt_super {
   font-size: 65%;
 }
 
-:where(#bflfukikpp) .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-:where(#bflfukikpp) .gt_footnote_marks {
+:where(#zswihicwwg) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#bflfukikpp) .gt_asterisk {
+:where(#zswihicwwg) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#bflfukikpp) .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+:where(#zswihicwwg) .gt_indent_1 {
+  text-indent: 5px;
 }
 
-:where(#bflfukikpp) .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+:where(#zswihicwwg) .gt_indent_2 {
+  text-indent: 10px;
 }
 
-:where(#bflfukikpp) .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+:where(#zswihicwwg) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#zswihicwwg) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#zswihicwwg) .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">1番目</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">2番目</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">3番目</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">4番目</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">5番目</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">6番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">1番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">2番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">3番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">4番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">5番目</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">6番目</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -3984,18 +3941,18 @@ Levels: 関東 その他</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "東京都"   "神奈川県" "千葉県"   "奈良県"   "和歌山県" "大阪府"   "京都府"  
-[8] "兵庫県"   "埼玉県"  </code></pre>
+<pre><code>[1] "京都府"   "和歌山県" "奈良県"   "神奈川県" "東京都"   "大阪府"   "埼玉県"  
+[8] "千葉県"   "兵庫県"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "千葉県"   "神奈川県" "京都府"   "大阪府"   "兵庫県"   "東京都"   "和歌山県"
-[8] "埼玉県"   "奈良県"  </code></pre>
+<pre><code>[1] "奈良県"   "兵庫県"   "千葉県"   "大阪府"   "神奈川県" "和歌山県" "京都府"  
+[8] "東京都"   "埼玉県"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">levels</span>(Score_df<span class="sc">$</span>Pref4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "和歌山県" "千葉県"   "神奈川県" "京都府"   "大阪府"   "兵庫県"   "埼玉県"  
-[8] "奈良県"   "東京都"  </code></pre>
+<pre><code>[1] "奈良県"   "埼玉県"   "京都府"   "千葉県"   "兵庫県"   "神奈川県" "大阪府"  
+[8] "和歌山県" "東京都"  </code></pre>
 </div>
 </div>
 <p>　<code>Pref</code>から<code>Pref4</code>まで同じように見えますが、水準の順番が異なります (<code>Pref</code>はcharacter型だから水準がありません)。</p>
@@ -4107,8 +4064,7 @@ Levels: 関東 その他</code></pre>
  8 韓国    2020-06-29     43
  9 韓国    2020-06-30     50
 10 韓国    2020-07-01     54
-# … with 15 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 15 more rows</code></pre>
 </div>
 </div>
 <p>　可視化のコードはとりあえず無視し、グラフを出力してみましょう。</p>
@@ -4793,19 +4749,18 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 茨城県 2.92e6  6097.    663    45.0  39.3  15.2  7.15 15.1   6.73  7.73  1.46
  9 栃木県 1.97e6  6408.    595    44.1  40.3  18.9  9.94 12.8   4.9   5.04  1.03
 10 群馬県 1.97e6  6362.    488    48.2  40.6  16.4  9.76 12.4   4.67  7.58  1.87
-# … with 37 more rows, and 3 more variables: Reiwa &lt;dbl&gt;, NHK &lt;dbl&gt;, HRP &lt;dbl&gt;
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+# … with 37 more rows, and 3 more variables: Reiwa &lt;dbl&gt;, NHK &lt;dbl&gt;, HRP &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="pqbtvllroo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mscynjyqwv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pqbtvllroo) .gt_table {
+:where(#mscynjyqwv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -4830,7 +4785,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-left-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_heading {
+:where(#mscynjyqwv) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4842,7 +4797,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_title {
+:where(#mscynjyqwv) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4854,7 +4809,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-width: 0;
 }
 
-:where(#pqbtvllroo) .gt_subtitle {
+:where(#mscynjyqwv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4866,13 +4821,13 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-width: 0;
 }
 
-:where(#pqbtvllroo) .gt_bottom_border {
+:where(#mscynjyqwv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_col_headings {
+:where(#mscynjyqwv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4887,7 +4842,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_col_heading {
+:where(#mscynjyqwv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4907,7 +4862,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pqbtvllroo) .gt_column_spanner_outer {
+:where(#mscynjyqwv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4919,15 +4874,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 4px;
 }
 
-:where(#pqbtvllroo) .gt_column_spanner_outer:first-child {
+:where(#mscynjyqwv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pqbtvllroo) .gt_column_spanner_outer:last-child {
+:where(#mscynjyqwv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pqbtvllroo) .gt_column_spanner {
+:where(#mscynjyqwv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4939,7 +4894,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   width: 100%;
 }
 
-:where(#pqbtvllroo) .gt_group_heading {
+:where(#mscynjyqwv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4964,7 +4919,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-:where(#pqbtvllroo) .gt_empty_group_heading {
+:where(#mscynjyqwv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4979,15 +4934,15 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: middle;
 }
 
-:where(#pqbtvllroo) .gt_from_md > :first-child {
+:where(#mscynjyqwv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pqbtvllroo) .gt_from_md > :last-child {
+:where(#mscynjyqwv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pqbtvllroo) .gt_row {
+:where(#mscynjyqwv) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5006,7 +4961,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   overflow-x: hidden;
 }
 
-:where(#pqbtvllroo) .gt_stub {
+:where(#mscynjyqwv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5019,7 +4974,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-:where(#pqbtvllroo) .gt_stub_row_group {
+:where(#mscynjyqwv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5033,11 +4988,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   vertical-align: top;
 }
 
-:where(#pqbtvllroo) .gt_row_group_first td {
+:where(#mscynjyqwv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pqbtvllroo) .gt_summary_row {
+:where(#mscynjyqwv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5047,16 +5002,16 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-:where(#pqbtvllroo) .gt_first_summary_row {
+:where(#mscynjyqwv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_first_summary_row.thick {
+:where(#mscynjyqwv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pqbtvllroo) .gt_last_summary_row {
+:where(#mscynjyqwv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5066,7 +5021,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_grand_summary_row {
+:where(#mscynjyqwv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5076,7 +5031,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-:where(#pqbtvllroo) .gt_first_grand_summary_row {
+:where(#mscynjyqwv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5086,11 +5041,11 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-top-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_striped {
+:where(#mscynjyqwv) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pqbtvllroo) .gt_table_body {
+:where(#mscynjyqwv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5099,7 +5054,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_footnotes {
+:where(#mscynjyqwv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5113,7 +5068,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_footnote {
+:where(#mscynjyqwv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -5122,7 +5077,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-:where(#pqbtvllroo) .gt_sourcenotes {
+:where(#mscynjyqwv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5136,7 +5091,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   border-right-color: #D3D3D3;
 }
 
-:where(#pqbtvllroo) .gt_sourcenote {
+:where(#mscynjyqwv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5144,80 +5099,73 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
   padding-right: 5px;
 }
 
-:where(#pqbtvllroo) .gt_left {
+:where(#mscynjyqwv) .gt_left {
   text-align: left;
 }
 
-:where(#pqbtvllroo) .gt_center {
+:where(#mscynjyqwv) .gt_center {
   text-align: center;
 }
 
-:where(#pqbtvllroo) .gt_right {
+:where(#mscynjyqwv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pqbtvllroo) .gt_font_normal {
+:where(#mscynjyqwv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pqbtvllroo) .gt_font_bold {
+:where(#mscynjyqwv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pqbtvllroo) .gt_font_italic {
+:where(#mscynjyqwv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pqbtvllroo) .gt_super {
+:where(#mscynjyqwv) .gt_super {
   font-size: 65%;
 }
 
-:where(#pqbtvllroo) .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-:where(#pqbtvllroo) .gt_footnote_marks {
+:where(#mscynjyqwv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pqbtvllroo) .gt_asterisk {
+:where(#mscynjyqwv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pqbtvllroo) .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+:where(#mscynjyqwv) .gt_indent_1 {
+  text-indent: 5px;
 }
 
-:where(#pqbtvllroo) .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+:where(#mscynjyqwv) .gt_indent_2 {
+  text-indent: 10px;
 }
 
-:where(#pqbtvllroo) .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+:where(#mscynjyqwv) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#mscynjyqwv) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#mscynjyqwv) .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">変数名</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">説明</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">変数名</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">説明</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -5318,8 +5266,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 茨城県    663
  9 栃木県    595
 10 群馬県    488
-# … with 37 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 37 more rows</code></pre>
 </div>
 </div>
 <p>　これから共通変数名の値をキー (key)と呼びます。今回の例だと<code>Pref</code>が<code>df2</code>と<code>df4</code>のキー変数であり、その値である<code>"東京都"</code>、<code>"北海道"</code>などがキーです。</p>
@@ -5382,8 +5329,7 @@ Levels: 中国 (本土) 台湾 日本 韓国 香港</code></pre>
  8 福岡県           NA          NA      NA       NA    985
  9 新潟県           NA          NA      NA       NA    705
 10 静岡県           NA          NA      NA       NA    679
-# … with 37 more rows
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 37 more rows</code></pre>
 </div>
 </div>
 <p>　<code>df2</code>にはなかった北海道や愛知県などの行ができました。そして、<code>df2</code>にはない情報はすべて欠損値 (<code>NA</code>)となりました。</p>
@@ -5493,6 +5439,119 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.132">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-26">
+<meta name="dcterms.date" content="2022-09-27">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- Rプログラミング入門の入門</title>
 <style>
@@ -100,10 +100,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -224,6 +226,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  </a>
   </li>  
 </ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -282,7 +287,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成・改訂</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2022</p>
+      <p class="date">September 27, 2022</p>
     </div>
   </div>
     
@@ -1115,13 +1120,14 @@ Team: New Caledonia
 <span id="cb80-16"><a href="#cb80-16"></a>  Trial <span class="ot">&lt;-</span> Trial <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb80-17"><a href="#cb80-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 5(これまでの総和: 5)"
-[1] "2回目のサイコロ投げの結果: 6(これまでの総和: 11)"
-[1] "3回目のサイコロ投げの結果: 5(これまでの総和: 16)"
-[1] "4回目のサイコロ投げの結果: 1(これまでの総和: 17)"
-[1] "5回目のサイコロ投げの結果: 4(これまでの総和: 21)"
-[1] "6回目のサイコロ投げの結果: 6(これまでの総和: 27)"
-[1] "7回目のサイコロ投げの結果: 3(これまでの総和: 30)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 3(これまでの総和: 3)"
+[1] "2回目のサイコロ投げの結果: 3(これまでの総和: 6)"
+[1] "3回目のサイコロ投げの結果: 1(これまでの総和: 7)"
+[1] "4回目のサイコロ投げの結果: 6(これまでの総和: 13)"
+[1] "5回目のサイコロ投げの結果: 4(これまでの総和: 17)"
+[1] "6回目のサイコロ投げの結果: 4(これまでの総和: 21)"
+[1] "7回目のサイコロ投げの結果: 4(これまでの総和: 25)"
+[1] "8回目のサイコロ投げの結果: 5(これまでの総和: 30)"</code></pre>
 </div>
 </div>
 <p>それでは、コードの説明をします。まず、これまで出た目の和を記録する変数<code>Total</code>を用意し、初期値として0を格納します。また、何回目の投げかを記録するための<code>Trial</code>変数を記録し、初期値として1を格納しておきます (コードの1、2行目)。</p>
@@ -1146,16 +1152,13 @@ Team: New Caledonia
 <span id="cb82-14"><a href="#cb82-14"></a>  }</span>
 <span id="cb82-15"><a href="#cb82-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1回目のサイコロ投げの結果: 2 (これまでの総和: 2)"
-[1] "2回目のサイコロ投げの結果: 4 (これまでの総和: 6)"
-[1] "3回目のサイコロ投げの結果: 5 (これまでの総和: 11)"
-[1] "4回目のサイコロ投げの結果: 2 (これまでの総和: 13)"
-[1] "5回目のサイコロ投げの結果: 4 (これまでの総和: 17)"
-[1] "6回目のサイコロ投げの結果: 2 (これまでの総和: 19)"
-[1] "7回目のサイコロ投げの結果: 5 (これまでの総和: 24)"
-[1] "8回目のサイコロ投げの結果: 1 (これまでの総和: 25)"
-[1] "9回目のサイコロ投げの結果: 3 (これまでの総和: 28)"
-[1] "10回目のサイコロ投げの結果: 6 (これまでの総和: 34)"</code></pre>
+<pre><code>[1] "1回目のサイコロ投げの結果: 3 (これまでの総和: 3)"
+[1] "2回目のサイコロ投げの結果: 6 (これまでの総和: 9)"
+[1] "3回目のサイコロ投げの結果: 4 (これまでの総和: 13)"
+[1] "4回目のサイコロ投げの結果: 6 (これまでの総和: 19)"
+[1] "5回目のサイコロ投げの結果: 5 (これまでの総和: 24)"
+[1] "6回目のサイコロ投げの結果: 2 (これまでの総和: 26)"
+[1] "7回目のサイコロ投げの結果: 4 (これまでの総和: 30)"</code></pre>
 </div>
 </div>
 <p>まず、サイコロを何回投げれば良いかは分かりませんが6面サイコロの場合、30回以内には必ず合計30になるので、まず<code>Trial in 1:30</code>とします。あとは<code>while()</code>文の書き方とほぼ同じですが、今回は<code>i</code>が自動的に更新されるので<code>i &lt;- i + 1</code>は不要です。ただし、一定の条件が満たされる場合、<code>for()</code>文を停止する必要があります。そこで登場するのが条件分岐と<code>break()</code>です。条件分岐は次節で説明しますが、これは「<code>Total</code>が30以上になった場合、ループから脱出せよ」を意味します。このループからの脱出を指示する関数が<code>break()</code>です。ちなみに、<code>break()</code>関数は<code>()</code>を抜いて<code>break</code>と書いても問題ありません。また、<code>if(){}</code>内の処理内容は一行ですので、<code>if (Total &gt;= 30) break</code>のような書き方でも問題ありません。</p>
@@ -1775,7 +1778,7 @@ Team: New Caledonia
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a><span class="fu">DQ_Attack</span>(<span class="dv">13</span>, <span class="at">defence =</span> <span class="dv">7</span>, <span class="at">hp =</span> <span class="dv">7</span>, <span class="st">"スライム"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "スライムに4のダメージ!!"
+<pre><code>[1] "スライムに5のダメージ!!"
 [1] "スライムに4のダメージ!!"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -1790,23 +1793,20 @@ Team: New Caledonia
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
@@ -1815,12 +1815,6 @@ Team: New Caledonia
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
@@ -1833,27 +1827,42 @@ Team: New Caledonia
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
-[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに1のダメージ!!"
+[1] "スライムナイトに0のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"
 [1] "スライムナイトに1のダメージ!!"</code></pre>
 </div>
@@ -1989,6 +1998,119 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
