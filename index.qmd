@@ -34,8 +34,8 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 
 * Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
 * Environment
-   * macOS 12.6 "Monterey"
-   * Firefox 105.0.1
+   * macOS 13.0 "Ventura"
+   * Firefox 106.0.2
    * `r version$version.string`
    * RStudio 2022.7.2+576 "Spotted Wakerobin"
    * Quarto `r quarto::quarto_inspect()$quarto$version`
