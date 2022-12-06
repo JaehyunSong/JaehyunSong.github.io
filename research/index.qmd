@@ -90,7 +90,7 @@ toc-depth: 5
 (共同研究において下線は報告者を表す)
 
 ##### 2022
-1. [秦正樹](http://hatam.sakura.ne.jp/)・[重村壮平](https://soheishigemura.com/)・**SONG Jaehyun**. 2022年12月4日.「中点（Mid-point）選択のメカニズム：サーベイ実験による検証」公共選択学会. 於：名古屋市立大学
+1. <u>[秦正樹](http://hatam.sakura.ne.jp/)</u>・<u>[重村壮平](https://soheishigemura.com/)</u>・<u>**SONG Jaehyun**</u>. 2022年12月4日.「中点（Mid-point）選択のメカニズム：サーベイ実験による検証」公共選択学会. 於：名古屋市立大学
 1. <u>磯崎典世</u>・<u>**宋財泫**</u>. 2022年10月1日.「韓国における感情的分極化と投票参加」日本政治学会. 於：龍谷大学
 <div class="jay_btn">[Paper](https://drive.google.com/file/d/1ieW1W5qMBM2IeanKgawqndgcxCzvkfTc/view?usp=sharing) [Slide](https://www.jaysong.net/garage/2022/09/slide_jpsa.html) [Online Appendix](appendix/jpsa_2022.qmd)</div>
 1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [<u>Aseem Prakash</u>](http://aseemprakash.net/). Jun. 30, 2022. "Supply Chain Dimensions of Decarbonization: A Survey Experiment to Assess Local Support for Thacker Pass Lithium Mining," *Environmental Politics and Governance Conference,* University Park:PA, USA.
