@@ -6,6 +6,7 @@ link-external-icon: true
 toc: true
 ---
 
+<!---
 ## 応募について
 
 ### オフィスアワー
@@ -55,6 +56,8 @@ toc: true
 3. **【課題2】**現時点における取り組みたい卒業研究のテーマ（300字以上）
    * **個人的に興味深いと思う社会現象の概要と着想に至った経緯、背景**などを述べてください。
    * 卒業研究の**テーマは配属後、いつでも変更可能**です。
+
+--->
 
 ## 何をするゼミか
 
@@ -149,13 +152,8 @@ df %>%
 
 　要するに私の仕事は**政治的現象をデータを用いて分析する**ことです。政治学 $\times$ データサイエンスについては以下の動画を参照してください。
 
-【ロシアの不正vs政治学者】ハーバード大学の天才教授【データで暴く真実】
-
-<div style="position:relative;padding-bottom:56.25%;"><iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;" width="100%" height="100%" src="https://www.youtube.com/embed/ECK2YvUw2lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-【選挙守る学者の戦い】ハーバード大学教授の挑戦【サンデルの同僚】
-
-<div style="position:relative;padding-bottom:56.25%;"><iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;" width="100%" height="100%" src="https://www.youtube.com/embed/2M6SGFEb7fo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+* [【ロシアの不正vs政治学者】ハーバード大学の天才教授【データで暴く真実】](https://www.youtube.com/embed/ECK2YvUw2lc)
+* [【選挙守る学者の戦い】ハーバード大学教授の挑戦【サンデルの同僚】](https://www.youtube.com/embed/2M6SGFEb7fo)
 
 　私の研究活動に興味のある方は[Researchページ](../research/index.qmd)、使用するツールに興味のある方は[Tutorialページ](../tutorial/index.qmd)を参照してください。とりわけ、ゼミの担当教員がどのような研究をする人かを知ることは重要であり、研究の履歴を見ることをおすすめします（本ゼミに限らず、全ゼミに共通します）。
 
@@ -169,9 +167,7 @@ df %>%
 
 　ネットワーク分析で有名な[バラバシ先生](https://barabasi.com/)は、成功（success）のためには何度もチャレンジしていくことが重要であることを強調しています。大変面白い動画ですのでぜひご覧になってください（日本語字幕もあります）。
 
-Albert-László Barabási: The real relationship between your age and your chance of success
-
-<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/albert_laszlo_barabasi_the_real_relationship_between_your_age_and_your_chance_of_success" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
+* [Albert-László Barabási: The real relationship between your age and your chance of success](https://embed.ted.com/talks/albert_laszlo_barabasi_the_real_relationship_between_your_age_and_your_chance_of_success)
 
 > [I]f you keep trying, you could still succeed and succeed over and over.
 
@@ -209,9 +205,7 @@ Albert-László Barabási: The real relationship between your age and your chanc
 
 　何かを継続していくには、そこから何かの意味を見出さなければなりません。以下の動画を御覧ください（日本語字幕もあります）。行動経済学者の[アリエリー先生](https://danariely.com/)のTED公演動画です。
 
-Dan Ariely: What makes us feel good about our work?
-
-<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/dan_ariely_what_makes_us_feel_good_about_our_work" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
+* [Dan Ariely: What makes us feel good about our work?](https://embed.ted.com/talks/dan_ariely_what_makes_us_feel_good_about_our_work)
 
 　<u>**データ分析手法を身につける過程は退屈な作業の連続です。継続していくためには、目標が必要です。**</u>単に「データ分析に慣れたい/上達したい」という曖昧な目標だけでは、途中で諦めやすいです。そもそも「慣れ」や「上達」は主観的なものだからです。やはり「XXを明らかにしたい」といった具体的な問いがあって、その問いに答えるためのスキルとしてデータ分析を習得していく必要があります。むろん、美しいコードを作成したり、綺麗なグラフを作ることが目的の方には、これ自体が目的ですので、良いでしょう（宋がこのタイプの人間です）。あるいは、データ分析に関する資格（統計検定など）の取得のような目標も良いかも知れません。「XXを達成したら絶対うれしい！」といった具体的な目標を持つ方を歓迎します。
 
@@ -326,6 +320,25 @@ Dan Ariely: What makes us feel good about our work?
 
 :::{.callout-tip collapse="true"}
 ## 2023年度入ゼミの第2期生 (50音順)
+
+<!---
+* 青谷佳奈（あおたに・かな）さん
+* 大土康介（おおつち・こうすけ）さん
+* 加藤涼太（かとう・りょうた）さん
+* 蔡雨晨（さい・うしん）さん
+* 齊藤伊吹（さいとう・いぶき）さん
+* 島津柚羽（しまづ・ゆずは）さん
+* 瀬崎暉梨（せざき・ひかり）さん
+* 瀧惇人（たき・あつと）さん
+* 谷口光央（たにぐち・みつお）さん
+* 月原陸斗（つきはら・りくと）さん
+* 橋本みなみ（はしもと・みなみ）さん
+* 渡部敦子（わたなべ・あつこ）さん
+--->
+:::
+
+:::{.callout-tip collapse="true"}
+## 2024年度入ゼミの第3期生 (50音順)
 
 ![](Figs/WeWantYou.png)
 :::
