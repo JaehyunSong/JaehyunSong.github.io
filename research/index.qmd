@@ -14,9 +14,9 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Revise and Resubmit]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Revise and Resubmit]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Submitted]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ Tetsuro Kobayashi and [Polly Chan](https://pollyjchan.github.io/))
+1. Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
@@ -38,56 +38,56 @@ toc-depth: 5
 
 ##### 2023
 
-1. **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.*
-1. [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+(@) **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.*
+(@) [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
 <div class="jay_btn">[Full-text](https://doi.org/10.1177/00223433221123369) [Replication](#)</div>
 
 ##### 2022
 
-1. **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022. "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.* Online first.
+(@) **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022. "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.* Online first.
 <div class="jay_btn">[Full-text](https://www.doi.org/10.1017/S0008423922000567) [Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
-1. [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Online first. 
+(@) [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Online first. 
 <div class="jay_btn">[Full-text](https://doi.org/10.1007/s00146-022-01541-9) [Replication Code](appendix/aiso_2022.qmd) [Replication Data](appendix/data/replication_data_aiso_2022.csv)</div>
-1. **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか 」『自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
+(@) **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか 」『自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
 
 ##### 2021
 
-1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
-1. Kobayashi, Tetsuro, **Jaehyun Song**, and [Polly Chan](https://pollyjchan.github.io/). 2021. "Does repression undermine opposition demands? The case of the Hong Kong National Security Law." *Japanese Journal of Political Science,* 22(4): 268-286. <div class="jay_btn">[Full-text](https://doi.org/10.1017/S1468109921000256) [Replication Data](https://doi.org/10.7910/DVN/KJBRQG) [Featured in *Mingpao* (June 12, 2020)](https://bit.ly/2YZw7sp)</div>
-1. [Beiser-McGrath, Liam F.](http://www.liambeisermcgrath.com/), Thomas Bernauer, **Jaehyun Song**, and [Azusa Uji](https://www.azusa-uji.com/). 2021. "Understanding Public Support for Domestic Contributions to Global Collective Goods: Results from a survey experiment on carbon taxation in Japan." *Climatic Change,* 166:51. <div class="jay_btn">[Full-text](https://doi.org/10.1007/s10584-021-03137-6)</div>
-1. **SONG Jaehyun**. 2021.「政治学における因果推論アプローチ」『文化情報学』15 (1・2): 36-43.
-1. [Uji, Azusa](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and **Jaehyun Song**. 2021. "Does the "NIMBY syndrome" Undermine Public Support for Nuclear Power in Japan?" *Energy Policy,* 148 (A): 111944 <div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2020.111944) [Featured in *The Regulatory Review* (June 29, 2021)](https://bit.ly/38R8V3U)</div>
+(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
+(@) Kobayashi, Tetsuro, **Jaehyun Song**, and [Polly Chan](https://pollyjchan.github.io/). 2021. "Does repression undermine opposition demands? The case of the Hong Kong National Security Law." *Japanese Journal of Political Science,* 22(4): 268-286. <div class="jay_btn">[Full-text](https://doi.org/10.1017/S1468109921000256) [Replication Data](https://doi.org/10.7910/DVN/KJBRQG) [Featured in *Mingpao* (June 12, 2020)](https://bit.ly/2YZw7sp)</div>
+(@) [Beiser-McGrath, Liam F.](http://www.liambeisermcgrath.com/), Thomas Bernauer, **Jaehyun Song**, and [Azusa Uji](https://www.azusa-uji.com/). 2021. "Understanding Public Support for Domestic Contributions to Global Collective Goods: Results from a survey experiment on carbon taxation in Japan." *Climatic Change,* 166:51. <div class="jay_btn">[Full-text](https://doi.org/10.1007/s10584-021-03137-6)</div>
+(@) **SONG Jaehyun**. 2021.「政治学における因果推論アプローチ」『文化情報学』15 (1・2): 36-43.
+(@) [Uji, Azusa](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and **Jaehyun Song**. 2021. "Does the "NIMBY syndrome" Undermine Public Support for Nuclear Power in Japan?" *Energy Policy,* 148 (A): 111944 <div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2020.111944) [Featured in *The Regulatory Review* (June 29, 2021)](https://bit.ly/38R8V3U)</div>
 
 ##### 2020
 
-1. [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, and [Yuki Yanai](https://yukiyanai.github.io/). 2020.「Who Gets Close to Government Policies, and Who Steps Away?」『選挙研究』36 (2): 139-150. <div class="jay_btn">[Appendix](https://github.com/yukiyanai/jjes_persuasion)</div>
-1. **SONG Jaehyun**・日野愛郎. 2020.「マルチレベル選挙における動員と投票疲れ:亥年現象の解明に向けて」『選挙研究』36 (1): 23-34.
-1. [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020.「争点を束ねれば「イデオロギー」になる？：サーベイ実験とテキスト分析の融合を通じて」『年報政治学』2020 (I): 58-81. <div class="jay_btn">[Full-text](https://doi.org/10.7218/nenpouseijigaku.71.1_58) [Appendix](https://github.com/JaehyunSong/Nenpo-Hata-Song-2020)</div>
-1. **SONG Jaehyun**・[秦正樹](http://hatam.sakura.ne.jp/). 2020. 「オンライン・サーベイ実験の方法: 理論編」『理論と方法』35 (1): 92-108. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.92)</div>
-1. [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020. 「オンライン・サーベイ実験の方法: 実践編」『理論と方法』35 (1): 109-127. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.109)</div>
+(@) [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, and [Yuki Yanai](https://yukiyanai.github.io/). 2020.「Who Gets Close to Government Policies, and Who Steps Away?」『選挙研究』36 (2): 139-150. <div class="jay_btn">[Appendix](https://github.com/yukiyanai/jjes_persuasion)</div>
+(@) **SONG Jaehyun**・日野愛郎. 2020.「マルチレベル選挙における動員と投票疲れ:亥年現象の解明に向けて」『選挙研究』36 (1): 23-34.
+(@) [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020.「争点を束ねれば「イデオロギー」になる？：サーベイ実験とテキスト分析の融合を通じて」『年報政治学』2020 (I): 58-81. <div class="jay_btn">[Full-text](https://doi.org/10.7218/nenpouseijigaku.71.1_58) [Appendix](https://github.com/JaehyunSong/Nenpo-Hata-Song-2020)</div>
+(@) **SONG Jaehyun**・[秦正樹](http://hatam.sakura.ne.jp/). 2020. 「オンライン・サーベイ実験の方法: 理論編」『理論と方法』35 (1): 92-108. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.92)</div>
+(@) [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020. 「オンライン・サーベイ実験の方法: 実践編」『理論と方法』35 (1): 109-127. <div class="jay_btn">[Full-text](https://doi.org/10.11218/ojjams.35.109)</div>
 
 ##### 2018
 
-1. [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani, [Yuki Yanai](https://yukiyanai.github.io/). 2018. "Playing is Believing: Teaching How Electoral Systems Change Political Outcomes Using a Role-Playing Simulation Game," *Japanese Political Science Review,* 4: 117-143. <div class="jay_btn">[Full-text](http://www.jpsa-web.org/eibun_zassi/political-science-journal4-en.html)</div>
+(@) [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani, [Yuki Yanai](https://yukiyanai.github.io/). 2018. "Playing is Believing: Teaching How Electoral Systems Change Political Outcomes Using a Role-Playing Simulation Game," *Japanese Political Science Review,* 4: 117-143. <div class="jay_btn">[Full-text](http://www.jpsa-web.org/eibun_zassi/political-science-journal4-en.html)</div>
 
 ##### 2017
 
-1. **宋財泫**. 2017.「イデオロギーが投票行動に与える影響の日韓比較研究」『ESTRELA』278: 10-17. <div class="jay_btn">[Appendix](http://tintstyle.cafe24.com/Data/Research/Appendix/Estrela2017.pdf)</div>
+(@) **宋財泫**. 2017.「イデオロギーが投票行動に与える影響の日韓比較研究」『ESTRELA』278: 10-17. <div class="jay_btn">[Appendix](http://tintstyle.cafe24.com/Data/Research/Appendix/Estrela2017.pdf)</div>
 
 ##### 2016
 
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (七・完)」『選挙時報』64(11): 31-39.
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (六)」『選挙時報』64(10): 40-50.
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (五)」『選挙時報』64(9): 27-37.
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (四)」『選挙時報』64(8): 20-31.
-1. **宋財泫**・[善教将大](http://zkun.sakura.ne.jp/). 2016. 「コンジョイント実験の方法論的検討」『法と政治』67(2): 67-108. <div class="jay_btn">[Full-text](http://hdl.handle.net/10236/14848) [Simulation](appendix/cjoint-n-sim.qmd)</div>
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (三)」『選挙時報』64(7): 28-37.
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (二)」『選挙時報』64(5): 24-32.
-1. **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (一)」『選挙時報』64(4): 14-24.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (七・完)」『選挙時報』64(11): 31-39.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (六)」『選挙時報』64(10): 40-50.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (五)」『選挙時報』64(9): 27-37.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (四)」『選挙時報』64(8): 20-31.
+(@) **宋財泫**・[善教将大](http://zkun.sakura.ne.jp/). 2016. 「コンジョイント実験の方法論的検討」『法と政治』67(2): 67-108. <div class="jay_btn">[Full-text](http://hdl.handle.net/10236/14848) [Simulation](appendix/cjoint-n-sim.qmd)</div>
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (三)」『選挙時報』64(7): 28-37.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (二)」『選挙時報』64(5): 24-32.
+(@) **宋財泫**・品田裕. 2016.「「投票行動、政治意識に関するアンケート」についての報告 (一)」『選挙時報』64(4): 14-24.
 
 ##### 2015
 
-1. **宋財[ヒョン]**. 2015. 「誰が選挙公約を見るのか―無党派性と政治的有効性感覚に着目した日韓比較―」『六甲台論集―法学政治学編』62(1): 1-22. <div class="jay_btn">[Full-text](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_81009140)</div>
+(@) **宋財[ヒョン]**. 2015. 「誰が選挙公約を見るのか―無党派性と政治的有効性感覚に着目した日韓比較―」『六甲台論集―法学政治学編』62(1): 1-22. <div class="jay_btn">[Full-text](http://www.lib.kobe-u.ac.jp/infolib/meta_pub/G0000003kernel_81009140)</div>
 
 ### Presentation
 
