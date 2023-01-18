@@ -6,6 +6,17 @@ about:
 link-external-newwindow: true
 ---
 
+```{r}
+#| include: false
+ff_ver <- system('plutil -extract "CFBundleShortVersionString" binary1 /Applications/Firefox.app/Contents/Info.plist -o -', intern = TRUE) |>
+   stringr::str_extract("[0-9]+\\.[0-9]+\\.[0-9]+")
+
+rs_ver1 <- system('plutil -extract "CFBundleShortVersionString" binary1 /Applications/RStudio.app/Contents/Info.plist -o -', intern = TRUE) |>
+   stringr::str_extract("[0-9]+\\.[0-9]+\\.[0-9]+\\+[0-9]+")
+
+macos_ver <- system('sw_vers -productVersion', intern = TRUE)
+```
+
 I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.jp/Fc_inf/), [Kansai University](https://www.kansai-u.ac.jp/). I earned my Ph.D. and master degree in political science from [Kobe University](https://www.kobe-u.ac.jp/), and a bachelor degree in law from [Keio University](https://www.keio.ac.jp/ja/). My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available [here](cv/cv.pdf).
 
 :::{.callout-note}
@@ -34,10 +45,10 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 
 * Last Update: `r format(Sys.Date(), "%Y/%m/%d")`
 * Environment
-   * macOS 13.1 “Ventura”
-   * Firefox 108.0.1
+   * macOS `r macos_ver` "Ventura"
+   * Firefox `r ff_ver`
    * `r version$version.string`
-   * RStudio 2022.12.0+353 “Elsbeth Geranium”
+   * RStudio `r rs_ver1`
    * Quarto `r quarto::quarto_inspect()$quarto$version`
    * R package {quarto} `r packageVersion("quarto")`
 :::

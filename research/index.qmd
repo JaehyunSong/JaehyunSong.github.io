@@ -39,7 +39,8 @@ toc-depth: 5
 ##### 2023
 
 1. **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.*
-1. **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. *forthcoming*. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+1. [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.*
+<div class="jay_btn">[Full-text](https://doi.org/10.1177/00223433221123369) [Replication](#)</div>
 
 ##### 2022
 
