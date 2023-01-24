@@ -25,6 +25,7 @@ toc-depth: 5
 1. 復活当選が投票率に与える影響
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
+1. Burying electrical transmission and distribution lines in California (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 
 ### Books
 
@@ -38,7 +39,7 @@ toc-depth: 5
 
 ##### 2023
 
-(@) **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.*
+(@) **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 
 (@) [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
 <div class="jay_btn">[Full-text](https://doi.org/10.1177/00223433221123369) [Replication](#)</div>
 
@@ -125,9 +126,9 @@ toc-depth: 5
 1. [論文提出により報告成立] **SONG Jaehyun**・日野愛郎. 2020年5月「マルチレベル選挙における動員と投票疲れ：亥年現象の解明に向けて」日本選挙学会2020年度大会. 於：高知大学
 1. [ポスター提出により報告成立] [秦正樹](http://hatam.sakura.ne.jp/)・**SONG Jaehyun**. 2020年5月「「清き一票」は重すぎる?—フィールド実験を通じた啓発効果の検証—」日本選挙学会2020年度大会. 於：高知大学
 <div class="jay_btn">[Poster](http://tintstyle.cafe24.com/Data/Research/Poster/JAES2020.pdf)</div>
-1. [Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Who Gets Close to the Government’s Policy Position and Who Steps Away? Evidence from Survey Experiments in Japan," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020
-1. [Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Fed up with Elections? A Natural Experiment Using Byelections Caused by Legislators’ Deaths," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020
-1. [Cancelled due to COVID-19] Woo, Yujin and **Jaehyun Song**. Apr. 2020, "Public Perception toward Migrants: Impact of Multicultural Policiesin Japan and South Korea," *Midwest Political Science Association,* Chicago:IL, USA.
+1. ~~[Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Who Gets Close to the Government’s Policy Position and Who Steps Away? Evidence from Survey Experiments in Japan," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020~~
+1. ~~[Cancelled due to COVID-19] [Shigemura, Sohei](https://soheishigemura.com/), **Jaehyun Song**, Keisuke Tani and [Yuki Yanai](https://yukiyanai.github.io/). "Fed up with Elections? A Natural Experiment Using Byelections Caused by Legislators’ Deaths," *Midwest Political Science Association,* Chicago:IL, USA, Apr. 2020~~
+1. ~~[Cancelled due to COVID-19] Woo, Yujin and **Jaehyun Song**. Apr. 2020, "Public Perception toward Migrants: Impact of Multicultural Policiesin Japan and South Korea," *Midwest Political Science Association,* Chicago:IL, USA.~~
 1. <u>Woo, Yujin</u> and **Jaehyun Song**. Jan. 11, 2020, "Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea," *Southern Political Science Association,* San Juan:PR, USA.
 
 ##### 2019
