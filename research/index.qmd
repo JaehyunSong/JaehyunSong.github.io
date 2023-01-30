@@ -46,7 +46,7 @@ toc-depth: 5
 
 ##### 2022
 
-(@) **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022. "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.* Online first.
+(@) **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022. "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.* 18 (4): 852-872.
 <div class="jay_btn">[Full-text](https://www.doi.org/10.1017/S0008423922000567) [Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
 (@) [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Online first. 
 <div class="jay_btn">[Full-text](https://doi.org/10.1007/s00146-022-01541-9) [Replication Code](appendix/aiso_2022.qmd) [Replication Data](appendix/data/replication_data_aiso_2022.csv)</div>
