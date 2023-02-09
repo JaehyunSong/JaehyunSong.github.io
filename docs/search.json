@@ -865,7 +865,7 @@
     "href": "index.html",
     "title": "Jaehyun Song, Ph.D.",
     "section": "",
-    "text": "I am an associate professor in Faculty of Informatics, Kansai University. I earned my Ph.D. and master degree in political science from Kobe University, and a bachelor degree in law from Keio University. My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available here.\n\n\n\n\n\n\nメニュー案内\n\n\n\n\n宋のCVはCV\nこれまでの研究内容はResearch\n担当科目についてはTeaching\n宋ゼミについてはSeminar\nこれまで作成したアプリ/パッケージ/スクリプトはSoftware\n備忘録はNote\n分析/調査ツールのチュートリアルはTutorial\n\n\n\n\n\n\n\n\n\n宋の授業を履修する方へ（2022年度）\n\n\n\n\nミクロ政治データ分析実習（関西大学）\nマクロ政治データ分析実習（関西大学）\n社会科学における因果推論（関西大学）\n方法論特殊講義III（神戸大学）\n\n\n\n\n\n\n\n\n\nInformation\n\n\n\n\nLast Update: 2023年01月26日\nEnvironment\n\nmacOS 13.1 “Ventura”\nFirefox 109.0\nR version 4.2.2 (2022-10-31)\nRStudio 2023.03.0+265\nQuarto 1.2.313\nR package {quarto} 1.2"
+    "text": "I am an associate professor in Faculty of Informatics, Kansai University. I earned my Ph.D. and master degree in political science from Kobe University, and a bachelor degree in law from Keio University. My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available here.\n\n\n\n\n\n\nメニュー案内\n\n\n\n\n宋のCVはCV\nこれまでの研究内容はResearch\n担当科目についてはTeaching\n宋ゼミについてはSeminar\nこれまで作成したアプリ/パッケージ/スクリプトはSoftware\n備忘録はNote\n分析/調査ツールのチュートリアルはTutorial\n\n\n\n\n\n\n\n\n\n\nInformation\n\n\n\n\nLast Update: 2023年02月09日\nEnvironment\n\nmacOS 13.1 “Ventura”\nFirefox 109.0\nR version 4.2.2 (2022-10-31)\nRStudio 2023.03.0+265\nQuarto 1.2.313\nR package {quarto} 1.2"
   },
   {
     "objectID": "software/index.html",
@@ -1348,14 +1348,14 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "専門演習 (学部; 月4)\nミクロ政治分析 (学部; 木3)\nミクロ政治データ分析実習 (学部; 木4)\n導入ゼミ (学部; 金5)\n公共領域におけるデータベース (修士; 月7・木6)\n\n\n\n\n\n専門演習 (学部; 月4)\n政治学 (学部; 木2)\nマクロ政治分析 (学部; 木3)\nマクロ政治データ分析実習 (学部; 木4)\n公共領域におけるデータベース (修士; 月7・木6)\n社会科学における因果推論 (修士; 月2)\n\n\n\n\n\n方法論特殊講義III"
+    "text": "専門演習 (学部; 月4)\n卒業研究 (学部; 火3)\n政治学 (学部; 木2)\nミクロ政治データ分析実習 (学部; 木4)\n導入ゼミ (学部; 金5)\n公共領域におけるデータベース (修士)\n\n\n\n\n\n専門演習 (学部; 月4)\n卒業研究 (学部; 火3)\n政治学 (学部; 木2)\nマクロ政治データ分析実習 (学部; 木4)\n社会科学における因果推論 (修士; 月2)\n公共領域におけるデータベース (修士)\n\n\n\n\n\n方法論特殊講義III\n\n\n\n\n\n情報処理応用演習"
   },
   {
     "objectID": "teaching/index.html#過去の担当科目",
     "href": "teaching/index.html#過去の担当科目",
     "title": "Teaching",
     "section": "過去の担当科目",
-    "text": "過去の担当科目\nこれまで担当してきた講義のシラバスおよび講義資料を公開します。学期が終了した講義については原則、シラバスのみの公開となります。過去の講義資料の閲覧を希望する方は宋までご連絡ください。\n\n大阪市立大学\n\n法学政治学方法論 (2017前)\n\n\n\n関西大学\n\n展開講義（政治学方法論）(2018)\n計量分析 (2018)\nミクロ政治分析 (2018-)\nミクロ政治データ分析実習 (2018-)\n導入ゼミ (2018-)\n公共領域におけるデータベース (2018-)\n政治学 (2018-)\nマクロ政治分析 (2018-)\nマクロ政治データ分析実習 (2018-)\n\n\n\n京都女子大学\n\nデータ処理論 I (2017前)\nデータ処理論 II (2016後, 2017後)\n\n\n\n京都府立大学\n\n情報処理応用演習 (2020夏集, 2021夏集)\n\n\n\n慶應義塾大学\n\n方法論探求 (2019後)\n\n\n\n神戸大学\n\n計量政治学方法論I (2018夏集, 2019夏集, 2020夏集, 2021夏集)\n\n\n\n東京大学\n\n特殊講義: ヨーロッパ国際政治経済 (2020冬集)\n\n\n\n同志社大学\n\n文化情報学入門 (2020前)\nデータサイエンス入門 (2020前)\nデータサイエンス入門演習 (2020前)\n文化情報学演習3 (2020前)\nデータサイエンス基礎 (2020後)\nデータサイエンス演習 (2020後)\nコロキアム (2020後)\nアドバンスト・コロキアム (2020後)\n文化情報学演習2 (2020後)\n\n\n\n早稲田大学\n\n政治学実験 (2019前)\n研究方法集中セミナー（因果推論） (2021夏集)"
+    "text": "過去の担当科目\n\n大阪市立大学\n\n法学政治学方法論 (2017前)\n\n\n\n関西大学\n\n展開講義（政治学方法論）(2018)\n計量分析 (2018)\n導入ゼミ (2021-)\n政治学 (2021-)\nミクロ政治分析 (2021-2022)\nミクロ政治データ分析実習 (2021-)\nマクロ政治分析 (2021-2022)\nマクロ政治データ分析実習 (2021-)\n専門演習（2022-）\n公共領域におけるデータベース (2021-)\n社会科学における因果推論（2022-）\n\n\n\n京都女子大学\n\nデータ処理論 I (2017前)\nデータ処理論 II (2016後、2017後)\n\n\n\n京都府立大学\n\n情報処理応用演習 (2020夏集、2021夏集)\n\n\n\n慶應義塾大学\n\n方法論探求 (2019後)\n\n\n\n神戸大学\n\n計量政治学方法論I (2018夏集、2019夏集、2020夏、2021夏集)\n\n\n\n東京大学\n\n特殊講義: ヨーロッパ国際政治経済 (2020冬集)\n\n\n\n同志社大学\n\n文化情報学入門 (2020前)\nデータサイエンス入門 (2020前)\nデータサイエンス入門演習 (2020前)\n文化情報学演習3 (2020前)\nデータサイエンス基礎 (2020後)\nデータサイエンス演習 (2020後)\nコロキアム (2020後)\nアドバンスト・コロキアム (2020後)\n文化情報学演習2 (2020後)\n\n\n\n早稲田大学\n\n政治学実験 (2019前)\n研究方法集中セミナー（因果推論） (2021夏集)"
   },
   {
     "objectID": "seminar/index.html",
