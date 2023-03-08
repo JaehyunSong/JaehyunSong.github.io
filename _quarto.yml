@@ -2,7 +2,8 @@ project:
   type: website
   output-dir: docs
 
-language: _language.yml
+#language: _language.yml
+lang: ja
 
 website:
   site-url: "https://www.jaysong.net/"

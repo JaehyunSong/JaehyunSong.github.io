@@ -15,7 +15,7 @@ title-block-author-single: "作成者"
 title-block-author-plural: "作成者"
 title-block-affiliation-single: "所属"
 title-block-affiliation-plural: "所属"
-title-block-published: "作成・改訂"
+title-block-published: "作成日"
 
 callout-tip-caption: "Tip"
 callout-note-caption: "Note"
