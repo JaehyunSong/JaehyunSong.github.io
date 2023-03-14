@@ -268,6 +268,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <li><a href="#図表について" id="toc-図表について" class="nav-link" data-scroll-target="#図表について">図表について</a></li>
   <li><a href="#ハイパーリンクのターゲット" id="toc-ハイパーリンクのターゲット" class="nav-link" data-scroll-target="#ハイパーリンクのターゲット">ハイパーリンクのターゲット</a></li>
   </ul></li>
+  <li><a href="#yamlヘッダー" id="toc-yamlヘッダー" class="nav-link" data-scroll-target="#yamlヘッダー">YAMLヘッダー</a></li>
   <li><a href="#quartoを知り尽くす" id="toc-quartoを知り尽くす" class="nav-link" data-scroll-target="#quartoを知り尽くす">Quartoを知り尽くす</a></li>
   </ul>
 </nav>
@@ -295,7 +296,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2023年3月8日</p>
+      <p class="date-modified">2023年3月14日</p>
     </div>
   </div>
     
@@ -387,7 +388,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 56.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="lightbox" title="RStudio" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="lightbox" data-gallery="ide" title="RStudio"><img src="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">RStudio</figcaption><p></p>
 </figure>
 </div>
@@ -396,7 +397,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 42.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/tools/images/vscode-render.png" class="lightbox" title="VS Code" data-gallery="ide"><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://quarto.org/docs/tools/images/vscode-render.png" class="lightbox" data-gallery="ide" title="VS Code"><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">VS Code</figcaption><p></p>
 </figure>
 </div>
@@ -404,7 +405,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 41.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="lightbox" title="Jupyter" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="lightbox" data-gallery="ide" title="Jupyter"><img src="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Jupyter</figcaption><p></p>
 </figure>
 </div>
@@ -413,7 +414,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 57.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="lightbox" title="NeoVim" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="lightbox" data-gallery="ide" title="NeoVim"><img src="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">NeoVim</figcaption><p></p>
 </figure>
 </div>
@@ -1153,6 +1154,11 @@ Rはみんなの友達!
 <div class="sourceCode" id="cb30"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ここ</span><span class="co">](https://www.jaysong.net)</span>{target="_blank"}をクリックすると宋のホームページへ移動します。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
+<section id="yamlヘッダー" class="level2">
+<h2 class="anchored" data-anchor-id="yamlヘッダー">YAMLヘッダー</h2>
+<p>　YAMLヘッダーの場合、R Markdownの書き方と大きく変わらないものの、論理値（TRUEとFALSE）の書き方が異なる点には注意されたい。R MarkdownはRに因んで<code>TRUE</code>と<code>FALSE</code>を使うが、QuartoはYAML本来の書き方である<code>true</code>と<code>false</code>を使用する。</p>
+<p>　また、Quarto独自のオプションも多数用意されているので、詳細は<a href="https://quarto.org/docs/reference/">Quarto公式ページ</a>を確認してみよう。</p>
+</section>
 <section id="quartoを知り尽くす" class="level2">
 <h2 class="anchored" data-anchor-id="quartoを知り尽くす">Quartoを知り尽くす</h2>
 <p>　Quartoは発展途中であり、以上の内容は1ヶ月後は古い資料になっているのかも知れない。本記事もなるべく最新情報をフォローしていく予定だが、Quartoの詳細を含め、最新情報は以下のページを参照されたい。</p>
@@ -1443,7 +1449,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":true,"descPosition":"bottom","closeEffect":"zoom"});</script>
 
 
 
