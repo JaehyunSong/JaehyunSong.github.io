@@ -106,7 +106,7 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/index.html</loc>
-    <lastmod>2023-03-14T03:03:44.657Z</lastmod>
+    <lastmod>2023-03-20T06:32:32.013Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/index.html</loc>
@@ -195,5 +195,9 @@
   <url>
     <loc>https://www.jaysong.net/tutorial/R/gt.html</loc>
     <lastmod>2023-03-14T06:30:11.328Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/tutorial/R/renv.html</loc>
+    <lastmod>2023-03-20T06:33:50.569Z</lastmod>
   </url>
 </urlset>

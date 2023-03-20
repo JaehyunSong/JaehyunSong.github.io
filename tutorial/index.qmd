@@ -27,9 +27,10 @@ link-external-newwindow: true
    * [ggplot2入門 [応用編]](R/ggplot_intro3.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization3.html)</span>
    * [ggplot2入門 [発展編]](R/ggplot_intro4.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/visualization4.html)</span>
    * [gt入門](R/gt.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/table.html)</span>
-* R Markdown / Quarto
+* 再現・再生可能な研究
    * [R Markdown入門](R/rmarkdown_intro.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/rmarkdown.html)</span>
    * [Quarto入門](R/quarto.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/quarto.html)</span>
+   * [{renv}と分析環境の管理](R/renv.qmd) <span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/renv.html)</span>
 
 ## Qualtrics
 
