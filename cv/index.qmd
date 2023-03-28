@@ -14,9 +14,9 @@ Associate Professor in [Faculty of Informatics](https://www.kansai-u.ac.jp/Fc_in
 
 ### Basic Information
 
-* Name(Eng): SONG Jaehyun
-* Name(Kor): 송 재현
-* Name(Jpn): 宋 財泫 (ソン ジェヒョン)
+* Name(ENG): SONG Jaehyun
+* Name(KOR): 송 재현
+* Name(JPN): 宋 財泫 (ソン ジェヒョン)
 * Nationality: Republic of Korea
 * Birth: Seoul, Korea
 * Living: Osaka, Japan

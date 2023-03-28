@@ -14,8 +14,7 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Revise and Resubmit]** Public Support for Suspending Federal Gas Tax: A Survey Experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. **[Revise and Resubmit]** Comparing Public Support for Nuclear and Wind Energy in Washington State (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Revise and Resubmit]** Does partisanship shape public support for suspending U.S. federal gas tax? A survey experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Submitted]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ Tetsuro Kobayashi and [Polly Chan](https://pollyjchan.github.io/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
@@ -39,6 +38,8 @@ toc-depth: 5
 
 ##### 2023
 
+(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.*
+<div class="jay_btn">[Full-text](#) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0280720) [Replication](https://doi.org/10.7910/DVN/ATNUCY)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
