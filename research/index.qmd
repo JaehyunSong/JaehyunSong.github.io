@@ -38,7 +38,7 @@ toc-depth: 5
 
 ##### 2023
 
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). *forthcoming*. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.*
+(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023 (*forthcoming*). "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.*
 <div class="jay_btn">[Full-text](#) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0280720) [Replication](https://doi.org/10.7910/DVN/ATNUCY)</div>
@@ -225,14 +225,15 @@ toc-depth: 5
 
 ### Funding
 
+1. **[単独]** Apr.2023~Mar.2028: 科学研究費 若手研究「政治的情報処理費用の測定と削減に関する研究 」 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-23K12419/)</span>
 1. [分担] Apr.2022~Mar.2026: 科学研究費 基盤研究 (B)「ポピュリストの体制化というパラドックス：エリート概念の拡張とポピュリズムの新測定」代表：日野愛郎 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-22H00810/)</span>
 1. [分担] Apr.2021~Mar.2026: 科学研究費 基盤研究 (B)「不確実性の高い社会における地方政治への信頼の変動要因とその帰結の実証的解明」代表：善教将大 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00684/)</span>
 1. [分担] Apr.2021~Mar.2025: 科学研究費 基盤研究 (B)「在米メキシコ移民の政治意識・政治参加：混合手法を用いた実証分析」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00680/)</span>
-1. [単独] Apr.2019~Mar.2023: 科学研究費 若手研究「争点空間の認知における歪みがもたらす政治的帰結と歪みの是正に関する研究」  <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K13603/)</span>
+1. **[単独]** Apr.2019~Mar.2023: 科学研究費 若手研究「争点空間の認知における歪みがもたらす政治的帰結と歪みの是正に関する研究」<span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K13603/)</span>
 1. [分担] Apr.2019~Mar.2023: 科学研究費 基盤研究 (A)「選挙ガバナンスが正確な投票(Correct Voting)に与える影響に関する研究」代表：大西裕 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19H00582/)</span>
 1. [分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「日本における選挙研究の統合:メタ分析による研究成果の統一とデータベースの構築」代表：矢内勇生 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K21682/)</span>
 1. [分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「在外投票における票買収の実証的研究」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-19K21685/)</span>
-1. [単独] Dec.2018~Mar.2021: ヒロセ国際奨学財団「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結に関する研究」
-1. [単独] Apr.2018~Mar.2019: 早稲田大学 特定課題 (新任の教員等)「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結の研究」
-1. [単独] Apr.2017~Mar.2018: 科学研究費 特別研究員奨励費「政策中心型民主主義における選挙公約の役割:有権者の政治リテラシー向上に向けて」 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-17J04581/)</span>
-1. [単独] 2013: 神戸大学 学外研究活動経費「Inter-university Consortium for Political and Social Research Summer Programへの参加」
+1. **[単独]** Dec.2018~Mar.2021: ヒロセ国際奨学財団「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結に関する研究」
+1. **[単独]** Apr.2018~Mar.2019: 早稲田大学 特定課題 (新任の教員等)「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結の研究」
+1. **[単独]** Apr.2017~Mar.2018: 科学研究費 特別研究員奨励費「政策中心型民主主義における選挙公約の役割:有権者の政治リテラシー向上に向けて」 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-17J04581/)</span>
+1. **[単独]** 2013: 神戸大学 学外研究活動経費「Inter-university Consortium for Political and Social Research Summer Programへの参加」
