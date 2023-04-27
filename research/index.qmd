@@ -38,8 +38,8 @@ toc-depth: 5
 
 ##### 2023
 
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023 (*forthcoming*). "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.*
-<div class="jay_btn">[Full-text](#) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
+(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.* 18(4): e0284208
+<div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0284208) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0280720) [Replication](https://doi.org/10.7910/DVN/ATNUCY)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
