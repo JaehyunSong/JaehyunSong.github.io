@@ -34,6 +34,7 @@ link-external-newwindow: true
 * Syunsuke Fukuda.『[Rビギナーズガイド](https://syunsuke.github.io/r_beginners_guide/)』
 * [R Bootcamp](https://r-bootcamp.netlify.app/)
 * [Data Science Course in a Box](https://datasciencebox.org/)
+* Roger D. Peng, Sean Kross, and Brooke Anderson. [*Mastering Software Development in R*](https://bookdown.org/rdpeng/RProgDA/)
 
 ## 可視化
 
