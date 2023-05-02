@@ -15,7 +15,7 @@ toc-depth: 5
 ### Work in Progress
 
 1. **[Revise and Resubmit]** Does partisanship shape public support for suspending U.S. federal gas tax? A survey experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. **[Submitted]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ Tetsuro Kobayashi and [Polly Chan](https://pollyjchan.github.io/))
+1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ Tetsuro Kobayashi and [Polly Chan](https://pollyjchan.github.io/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
