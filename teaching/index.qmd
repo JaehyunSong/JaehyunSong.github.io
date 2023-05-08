@@ -28,7 +28,7 @@ link-external-newwindow: true
 
 * [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)
 
-#### 京都府立大学（夏期集中）
+#### 京都府立大学（冬期集中）
 
 * 情報処理応用演習
 

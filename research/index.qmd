@@ -14,8 +14,10 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Revise and Resubmit]** Does partisanship shape public support for suspending U.S. federal gas tax? A survey experiment (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ Tetsuro Kobayashi and [Polly Chan](https://pollyjchan.github.io/))
+1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
+1. What explains gaps in national regulations on plastic bags across countries? (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
+1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
+1. Detecting the mechanism of "empathy" in human rights and environmental governance (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com), and Takahiro Yamada)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
@@ -38,6 +40,7 @@ toc-depth: 5
 
 ##### 2023
 
+(@) **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023 (*forthcoming*). "Does partisanship shape public support for suspending U.S federal gas tax? A survey experiment," *PLOS Climate.*
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.* 18(4): e0284208
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0284208) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
