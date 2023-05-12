@@ -872,7 +872,7 @@
     "href": "software/index.html",
     "title": "Software / Packages / Scripts / Datasets",
     "section": "",
-    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names."
+    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
   },
   {
     "objectID": "software/index.html#web-application",
@@ -1552,5 +1552,12 @@
     "title": "Teaching",
     "section": "",
     "text": "専門演習 (学部; 月4)\n卒業研究 (学部; 火3)\n政治学 (学部; 木2)\nミクロ政治データ分析実習 (学部; 木4)\n導入ゼミ (学部; 金5)\n公共領域におけるデータベース (修士)\n\n\n\n\n\n専門演習 (学部; 月4)\n卒業研究 (学部; 火3)\n政治学 (学部; 木2)\nマクロ政治データ分析実習 (学部; 木4)\n社会科学における因果推論 (修士; 月2)\n公共領域におけるデータベース (修士)\n\n\n\n\n\n方法論特殊講義III\n\n\n\n\n\n情報処理応用演習"
+  },
+  {
+    "objectID": "software/index.html#r-packages",
+    "href": "software/index.html#r-packages",
+    "title": "Software / Packages / Scripts / Datasets",
+    "section": "",
+    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
   }
 ]

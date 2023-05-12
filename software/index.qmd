@@ -14,6 +14,8 @@ link-external-newwindow: true
    * 比例代表計算機; Proportional Representation Calculator
 * woRdle <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/woRdle)</span>
    * Rパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.
+* q2c <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/q2c)</span> <span class="jay_btn">[Sample Dataset](Data/q2c_sample.csv)</span>
+   * Qualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工
 
 ## Web Application
 
