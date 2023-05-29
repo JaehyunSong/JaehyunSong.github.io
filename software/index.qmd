@@ -1,6 +1,6 @@
 ---
 title: "Software / Packages / Scripts / Datasets"
-date: "`r Sys.Date()`"
+date-modified: today
 link-external-newwindow: true
 ---
 
@@ -19,7 +19,8 @@ link-external-newwindow: true
 
 ## Web Application
 
-* PRclac for Web <span class="jay_btn">[ShinyApps](https://jaysong.shinyapps.io/prcalc4web/) [GitHub](https://github.com/JaehyunSong/PRcalc4Web)</span>
+* PRcalc for Web <span class="jay_btn">[ShinyApps](https://jaysong.shinyapps.io/prcalc4web/) [GitHub](https://github.com/JaehyunSong/PRcalc4Web)</span>
+* Web Conjoint <span class="jay_btn">[ShinyApps](https://jaysong.shinyapps.io/webconjoint/) [GitHub](https://github.com/JaehyunSong/web-conjoint)</span> <span class="jay_btn">[Sample Dataset](Data/webconjoint_sample.csv)</span>
 
 ## Scripts
 
