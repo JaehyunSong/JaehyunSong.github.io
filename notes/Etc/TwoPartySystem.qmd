@@ -12,6 +12,7 @@ knitr::opts_chunk$set(dev       = "ragg_png",
                       dpi       = 300,
                       warning   = FALSE,
                       message   = FALSE)
+pacman::p_load(tidyverse, countrycode, gt, gtExtras, rnaturalearth)
 ```
 
 ## 新しい指標の提案
@@ -65,7 +66,6 @@ compare <- function(x) {
 #| message: false
 #| fig-width: 6
 #| fig-height: 5
-library(tidyverse)
 tibble(PartyA = 50:99 / 100,
        PartyB = 50:1 / 100) %>%
     rowwise() %>%
@@ -127,6 +127,34 @@ example6 <-c(0.57, 0.07, 0.21, 0.09, 0.02, 0.02, 0.01, 0.01)
 compare(example6)
 ```
 
+* 7政党: 69%、8%、7%、6%、5%、3%、2%
+
+```{r}
+example7 <- c(0.69, 0.08, 0.07, 0.06, 0.05, 0.03, 0.02)
+compare(example7)
+```
+
+```{r}
+#| echo: false
+tibble(A = c(4, 4, 4, 7, 10, 8, 7),
+       B = c("[40, 40, 10, 10]",
+             "[25, 25, 25, 25]",
+             "[60, 30, 5, 5]",
+             "[25, 23, 20, 10, 10, 7, 5]",
+             "[10, 10, 10, 10, 10, 10, 10, 10, 10, 10]",
+             "[57, 21, 9, 7, 2, 2, 1, 1]",
+             "[69, 8, 7, 6, 5, 3, 2]"),
+       C = c(2.941176, 4, 2.197802, 5.47046,
+             10, 2.610966, 2.021019),
+       D = c(0.8, 0.5, 0.45, 0.4416, 0.2, 0.2873684, 0.08927536)) |> 
+  gt() |> 
+  cols_label("A" = "政党数", 
+             "B" = "議席の分布",
+             "C" = "ENP",
+             "D" = "TSI") |> 
+  fmt_number(columns = 3:4, decimals = 3)
+```
+
 二大政党制の指標としては
 
 * TSIを使ってみる。
@@ -137,20 +165,25 @@ compare(example6)
 ## 実際のデータを用いた比較
 
 * データは[V-Party](https://www.v-dem.net/data/v-party-dataset/)を使用
+* ハイライトされたENP列は2$\pm$0.25の国を表す。
+* ハイライトされたTSI列は0.75以上の国を表す。
+* 極端な例として、コンゴ民主共和国の場合、第1政党が議会定数151の内、112議席（74%）を占めているものの、ENPは2.208で極めて二大政党制に近いと判断されるが、TSIは0.064。
+* ENPを使うと一党優位制を二大政党制と間違って判断してしまう可能性がある。
 
 ```{r}
 #| include: false
-pacman::p_load(tidyverse, countrycode, gt, rnaturalearth)
 df <- read_csv("Data/ENP_TSI.csv")
 ```
 
 ```{r}
 #| echo: false
 df |> 
-    filter(Year > 2000) |> 
-    gt() |> 
-    fmt_number(columns = 4:5, decimals = 3) |> 
-    cols_hide(columns = COW)
+  filter(Year > 2000) |> 
+  gt() |> 
+  fmt_number(columns = 4:5, decimals = 3) |> 
+  cols_hide(columns = COW) |> 
+  gt_highlight_rows(rows = (ENP >= 1.75 & ENP <= 2.25), columns = 4) |> 
+  gt_highlight_rows(rows = (TSI >= 0.75), columns = 5)
 ```
 
 
