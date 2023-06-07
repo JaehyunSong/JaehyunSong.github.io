@@ -1,6 +1,7 @@
 ---
 title: "二大政党制の指標に関する私案"
-date: "`r Sys.Date()`"
+date: "2022-11-28"
+date-modified: "`r Sys.Date()`"
 link-external-newwindow: true
 ---
 
@@ -16,11 +17,11 @@ knitr::opts_chunk$set(dev       = "ragg_png",
 ## 新しい指標の提案
 
 * Two-party System Index (TSI)
-   * ${SS}_1$: 第一政党の議席率（${SS}_1 > 0$）
-   * ${SS}_2$: 第二政党の議席率（${SS}_2 > 0$）
+   * ${SS}_1$: 第一政党の議席率
+   * ${SS}_2$: 第二政党の議席率
 
 $$
-({SS}_1 + {SS}_2)\frac{{SS}_2}{{SS}_1}, \quad \text{where} \quad {SS}_1 \geq {SS}_2
+({SS}_1 + {SS}_2)\frac{{SS}_2}{{SS}_1}, \quad \text{where} \quad 1 > {SS}_1 \geq {SS}_2 > 0
 $$
 
 ## 何を重視するか
@@ -132,3 +133,56 @@ compare(example6)
 * 上位二政党に限定し、ENPを計算する。
 
 どっちでもいけそうな気はする。
+
+## 実際のデータを用いた比較
+
+* データは[V-Party](https://www.v-dem.net/data/v-party-dataset/)を使用
+
+```{r}
+#| include: false
+pacman::p_load(tidyverse, countrycode, gt, rnaturalearth)
+df <- read_csv("Data/ENP_TSI.csv")
+```
+
+```{r}
+#| echo: false
+df |> 
+    filter(Year > 2000) |> 
+    gt() |> 
+    fmt_number(columns = 4:5, decimals = 3) |> 
+    cols_hide(columns = COW)
+```
+
+
+```{r}
+#| echo: false
+#| fig-dpi: 300
+world_map <- ne_countries(scale = "small", returnclass = "sf") |> 
+  mutate(iso_a3 = if_else(iso_a3 == "GRL", "DNK", iso_a3))
+
+df$iso_a3 <- countrycode(df$COW, 
+                         origin = "cown", destination = "iso3c")
+
+left_join(world_map, select(df, iso_a3, TSI), by = "iso_a3") |> 
+  mutate(TSI = case_when(is.na(TSI) ~ NA_character_,
+                         TSI == 0 ~ "0",
+                         #TSI <= 10 ~ "0~10",
+                         TSI <= 0.2 ~ "0~0.2",
+                         #TSI <= 30 ~ "20~30",
+                         TSI <= 0.4 ~ "0.2~0.4",
+                         #TSI <= 50 ~ "40~50",
+                         TSI <= 0.6 ~ "0.4~0.6",
+                         #TSI <= 70 ~ "60~70",
+                         TSI <= 0.8 ~ "0.6~0.8",
+                         #TSI <= 90 ~ "80~90",
+                         TRUE       ~ "0.8~1.0"),
+         TSI = factor(TSI, levels = c("0", "0~0.2", "0.2~0.4",
+                                      "0.4~0.6", "0.6~0.8", "0.8~1.0"))) |> 
+  ggplot() +
+  geom_sf(aes(fill = TSI), color = "black") +
+  scale_fill_brewer(palette = "PuBu", na.value = "gray80") +
+  guides(fill = guide_legend(nrow = 1)) +
+  labs(fill = "TSI") +
+  theme_void() +
+  theme(legend.position = "bottom")
+```
