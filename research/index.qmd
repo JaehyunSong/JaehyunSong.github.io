@@ -1,6 +1,6 @@
 ---
 title: "Research"
-date: "`r Sys.Date()`"
+date-modified: today
 link-external-newwindow: true
 #link-external-icon: true
 toc: true
@@ -40,7 +40,8 @@ toc-depth: 5
 
 ##### 2023
 
-(@) **[Accepted]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023 (*forthcoming*). "Does partisanship shape public support for suspending U.S federal gas tax? A survey experiment," *PLOS Climate.*
+(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023 (*forthcoming*). "Does partisanship shape public support for suspending U.S federal gas tax? A survey experiment," *PLOS Climate,* 2(6): e0000163.
+<div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pclm.0000163) [Replication](https://doi.org/10.7910/DVN/7V6VVR)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.* 18(4): e0284208
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0284208) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.

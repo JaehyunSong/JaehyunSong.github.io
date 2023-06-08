@@ -1,6 +1,6 @@
 ---
 title: "Notes"
-date: "`r Sys.Date()`"
+date-modified: today
 link-external-newwindow: true
 ---
 
