@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.232">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-28">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]</title>
 <style>
@@ -18,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -102,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -132,6 +102,11 @@ div.csl-indent {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -141,7 +116,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "サーチ"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
@@ -153,27 +129,23 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </script>
-
 <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
-<meta property="og:description" content="Jaehyun Song's personal homepage">
-<meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
-<meta property="og:site-name" content="Jaehyun Song, Ph.D.">
-<meta property="og:image:height" content="260">
-<meta property="og:image:width" content="260">
+<meta property="og:description" content="Jaehyun Song’s personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:site_name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.">
-<meta name="twitter:description" content="Jaehyun Song's personal homepage">
-<meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
+<meta name="twitter:description" content="Jaehyun Song’s personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:site" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="260">
-<meta name="twitter:image-width" content="260">
 </head>
 
 <body class="nav-fixed">
@@ -182,7 +154,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../imgs/logo.png" alt="" class="navbar-logo">
     </a>
@@ -190,77 +162,77 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="サーチ"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv/index.html">
+    <a class="nav-link" href="../../cv/index.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/index.html">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../seminar/index.html">
+    <a class="nav-link" href="https://www.jaysong.net/seminar/" rel="" target="">
  <span class="menu-text">Seminar</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../software/index.html">
+    <a class="nav-link" href="../../software/index.html" rel="" target="">
  <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../notes/index.html">
+    <a class="nav-link" href="../../notes/index.html" rel="" target="">
  <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../tutorial/index.html">
+    <a class="nav-link" href="../../tutorial/index.html" rel="" target="">
  <span class="menu-text">Tutorials</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/Tintstyle" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle" rel="" target=""><i class="bi bi-facebook" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/" rel="" target=""><i class="bi bi-instagram" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/JaehyunSong" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja" rel="" target=""><i class="bi bi-mortarboard-fill" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+    <a class="nav-link" href="https://researchmap.jp/jaysong" rel="" target=""><i class="bi bi-map" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -316,9 +288,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
     
     <div>
-    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-heading">作成日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 28, 2022</p>
+      <p class="date">2023年7月19日</p>
     </div>
   </div>
   
@@ -330,22 +302,30 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <section id="visual-packages" class="level2">
 <h2 class="anchored" data-anchor-id="visual-packages">可視化のためのパッケージ</h2>
-<p>Rによる可視化は様々な方法がありますが、可視化のために使うパッケージとして代表的なものは (1) パッケージを使わない方法、(2) {lattice}パッケージ、(3) {ggplot2}パッケージがあります。ここでは、以下のデータ ( <a href="#tbl-visual1-sampledata">表&nbsp;1</a> )を可視化しながら、それぞれの特徴について簡単に解説します。</p>
-<div class="cell" data-layout-align="center">
-
-</div>
+<p>Rによる可視化は様々な方法がありますが、可視化のために使うパッケージとして代表的なものは (1) パッケージを使わない方法、(2) {lattice}パッケージ、(3) {ggplot2}パッケージがあります。ここでは、以下のデータ ( <a href="#tbl-visual1-sampledata" class="quarto-xref">表&nbsp;1</a> )を可視化しながら、それぞれの特徴について簡単に解説します。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="tbl-visual1-sampledata" class="anchored">
-
-<div id="gkyfytnivv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="mobdpkprvq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mobdpkprvq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#gkyfytnivv) .gt_table {
+#mobdpkprvq thead, #mobdpkprvq tbody, #mobdpkprvq tfoot, #mobdpkprvq tr, #mobdpkprvq td, #mobdpkprvq th {
+  border-style: none;
+}
+
+#mobdpkprvq p {
+  margin: 0;
+  padding: 0;
+}
+
+#mobdpkprvq .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -368,19 +348,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-left-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#mobdpkprvq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-:where(#gkyfytnivv) .gt_title {
+#mobdpkprvq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -392,25 +365,37 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-width: 0;
 }
 
-:where(#gkyfytnivv) .gt_subtitle {
+#mobdpkprvq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#gkyfytnivv) .gt_bottom_border {
+#mobdpkprvq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mobdpkprvq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_col_headings {
+#mobdpkprvq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -425,7 +410,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_col_heading {
+#mobdpkprvq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -445,7 +430,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-:where(#gkyfytnivv) .gt_column_spanner_outer {
+#mobdpkprvq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -457,15 +442,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 4px;
 }
 
-:where(#gkyfytnivv) .gt_column_spanner_outer:first-child {
+#mobdpkprvq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#gkyfytnivv) .gt_column_spanner_outer:last-child {
+#mobdpkprvq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#gkyfytnivv) .gt_column_spanner {
+#mobdpkprvq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -477,7 +462,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   width: 100%;
 }
 
-:where(#gkyfytnivv) .gt_group_heading {
+#mobdpkprvq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mobdpkprvq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -500,9 +489,10 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-:where(#gkyfytnivv) .gt_empty_group_heading {
+#mobdpkprvq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -517,15 +507,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: middle;
 }
 
-:where(#gkyfytnivv) .gt_from_md > :first-child {
+#mobdpkprvq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#gkyfytnivv) .gt_from_md > :last-child {
+#mobdpkprvq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#gkyfytnivv) .gt_row {
+#mobdpkprvq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -544,7 +534,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   overflow-x: hidden;
 }
 
-:where(#gkyfytnivv) .gt_stub {
+#mobdpkprvq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -557,7 +547,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#gkyfytnivv) .gt_stub_row_group {
+#mobdpkprvq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -571,11 +561,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   vertical-align: top;
 }
 
-:where(#gkyfytnivv) .gt_row_group_first td {
+#mobdpkprvq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#gkyfytnivv) .gt_summary_row {
+#mobdpkprvq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mobdpkprvq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -585,16 +579,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#gkyfytnivv) .gt_first_summary_row {
+#mobdpkprvq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_first_summary_row.thick {
+#mobdpkprvq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#gkyfytnivv) .gt_last_summary_row {
+#mobdpkprvq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -604,7 +598,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_grand_summary_row {
+#mobdpkprvq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -614,7 +608,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#gkyfytnivv) .gt_first_grand_summary_row {
+#mobdpkprvq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -624,11 +618,21 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-top-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_striped {
+#mobdpkprvq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mobdpkprvq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#gkyfytnivv) .gt_table_body {
+#mobdpkprvq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -637,7 +641,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-bottom-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_footnotes {
+#mobdpkprvq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -651,30 +655,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   border-right-color: #D3D3D3;
 }
 
-:where(#gkyfytnivv) .gt_footnote {
+#mobdpkprvq .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#gkyfytnivv) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#gkyfytnivv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -682,118 +664,139 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   padding-right: 5px;
 }
 
-:where(#gkyfytnivv) .gt_left {
+#mobdpkprvq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mobdpkprvq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mobdpkprvq .gt_left {
   text-align: left;
 }
 
-:where(#gkyfytnivv) .gt_center {
+#mobdpkprvq .gt_center {
   text-align: center;
 }
 
-:where(#gkyfytnivv) .gt_right {
+#mobdpkprvq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#gkyfytnivv) .gt_font_normal {
+#mobdpkprvq .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#gkyfytnivv) .gt_font_bold {
+#mobdpkprvq .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#gkyfytnivv) .gt_font_italic {
+#mobdpkprvq .gt_font_italic {
   font-style: italic;
 }
 
-:where(#gkyfytnivv) .gt_super {
+#mobdpkprvq .gt_super {
   font-size: 65%;
 }
 
-:where(#gkyfytnivv) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#mobdpkprvq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#gkyfytnivv) .gt_asterisk {
+#mobdpkprvq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#gkyfytnivv) .gt_indent_1 {
+#mobdpkprvq .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#gkyfytnivv) .gt_indent_2 {
+#mobdpkprvq .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#gkyfytnivv) .gt_indent_3 {
+#mobdpkprvq .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#gkyfytnivv) .gt_indent_4 {
+#mobdpkprvq .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#gkyfytnivv) .gt_indent_5 {
+#mobdpkprvq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>表&nbsp;1:  サンプルデータの最初の10行 </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">PPP</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">HDI</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">OECD</th>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>表&nbsp;1:  <p>サンプルデータの最初の10行</p> </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Country">Country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="PPP">PPP</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="HDI">HDI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OECD">OECD</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Afghanistan</td>
-<td class="gt_row gt_right">2125</td>
-<td class="gt_row gt_right">0.496</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Albania</td>
-<td class="gt_row gt_right">13781</td>
-<td class="gt_row gt_right">0.791</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Algeria</td>
-<td class="gt_row gt_right">11324</td>
-<td class="gt_row gt_right">0.759</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Angola</td>
-<td class="gt_row gt_right">6649</td>
-<td class="gt_row gt_right">0.574</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Argentina</td>
-<td class="gt_row gt_right">22938</td>
-<td class="gt_row gt_right">0.830</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Armenia</td>
-<td class="gt_row gt_right">12974</td>
-<td class="gt_row gt_right">0.760</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">50001</td>
-<td class="gt_row gt_right">0.938</td>
-<td class="gt_row gt_center">加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Austria</td>
-<td class="gt_row gt_right">55824</td>
-<td class="gt_row gt_right">0.914</td>
-<td class="gt_row gt_center">加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Azerbaijan</td>
-<td class="gt_row gt_right">14257</td>
-<td class="gt_row gt_right">0.754</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td class="gt_row gt_left">Bahrain</td>
-<td class="gt_row gt_right">43624</td>
-<td class="gt_row gt_right">0.838</td>
-<td class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Afghanistan</td>
+<td headers="PPP" class="gt_row gt_right">2125</td>
+<td headers="HDI" class="gt_row gt_right">0.496</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Albania</td>
+<td headers="PPP" class="gt_row gt_right">13781</td>
+<td headers="HDI" class="gt_row gt_right">0.791</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Algeria</td>
+<td headers="PPP" class="gt_row gt_right">11324</td>
+<td headers="HDI" class="gt_row gt_right">0.759</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Angola</td>
+<td headers="PPP" class="gt_row gt_right">6649</td>
+<td headers="HDI" class="gt_row gt_right">0.574</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Argentina</td>
+<td headers="PPP" class="gt_row gt_right">22938</td>
+<td headers="HDI" class="gt_row gt_right">0.830</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Armenia</td>
+<td headers="PPP" class="gt_row gt_right">12974</td>
+<td headers="HDI" class="gt_row gt_right">0.760</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Australia</td>
+<td headers="PPP" class="gt_row gt_right">50001</td>
+<td headers="HDI" class="gt_row gt_right">0.938</td>
+<td headers="OECD" class="gt_row gt_center">加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Austria</td>
+<td headers="PPP" class="gt_row gt_right">55824</td>
+<td headers="HDI" class="gt_row gt_right">0.914</td>
+<td headers="OECD" class="gt_row gt_center">加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Azerbaijan</td>
+<td headers="PPP" class="gt_row gt_right">14257</td>
+<td headers="HDI" class="gt_row gt_right">0.754</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
+    <tr><td headers="Country" class="gt_row gt_left">Bahrain</td>
+<td headers="PPP" class="gt_row gt_right">43624</td>
+<td headers="HDI" class="gt_row gt_right">0.838</td>
+<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
   </tbody>
   
   
@@ -806,7 +809,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="base-r" class="level3">
 <h3 class="anchored" data-anchor-id="base-r">Base R</h3>
 <p>Rは統計学、データ分析に特化したプログラミング言語であるため、別途のパッケージなしで作図が可能です。後ほど紹介する{lattice}や{ggplot2}を用いた作図とは違って、Base Rによる作図は、紙にペンでグラフを書くイメージに近いです。キャンバスを用意し、そこにペンで点や線を描く感じです。これはレイヤーという概念を導入した{ggplot2}に近いかも知れませんが、{ggplot2}はレイヤーを変更出来る一方、Base Rは図が気に入らない場合、一からやり直しです。つまり、キャンバスに引いた線や点は消すことができません。また、作成した図はオブジェクトとして保存することが出来ないため、もう一度図示するためには一から書く必要があります。Base Rによる作図は短所だけでなく、メリットもあります。まず、パッケージを必要としないため、Rインストール直後から使える点です。そして、{lattice}や{ggplot2}よりも速いです。他にも人によってはBase Rの方がシンプルでかっこいいという方もいますが、これは好みの問題でしょう。</p>
-<p>以下の <a href="#fig-visual1-baser">図&nbsp;1</a> はBase Rを使った散布図の例です。</p>
+<p>以下の <a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> はBase Rを使った散布図の例です。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-baser_5c2c995bc30643d5e3cfb7f6500f9845">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Base Rを用いた作図の例</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">plot</span>(<span class="at">x =</span> Country_df<span class="sc">$</span>PPP, <span class="at">y =</span> Country_df<span class="sc">$</span>HDI, <span class="at">pch =</span> <span class="dv">19</span>, </span>
@@ -819,7 +822,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-baser" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;1: Base Rによるグラフ</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;1: Base Rによるグラフ</figcaption>
 </figure>
 </div>
 </div>
@@ -828,7 +831,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="latticeパッケージ" class="level3">
 <h3 class="anchored" data-anchor-id="latticeパッケージ">{lattice}パッケージ</h3>
 <p>{lattice}は<a href="https://www.isid.ac.in/~deepayan/">Deepayan Sarkar</a>によって開発された可視化パッケージです。このパッケージの最大特徴は「1つの関数で可視化が出来る」点です。作図に必要な様々な情報が1つの関数内に全て入ります。むろん、指定しない情報に関しては多くの場合、自動的に処理してくれます。</p>
-<p><a href="#fig-visual1-baser">図&nbsp;1</a> を{lattice}を使って作る場合は <a href="#fig-visual1-lattice">図&nbsp;2</a> のようなコードになります。</p>
+<p><a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> を{lattice}を使って作る場合は <a href="#fig-visual1-lattice" class="quarto-xref">図&nbsp;2</a> のようなコードになります。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-lattice_29376e3a4caff511fe66a8bddaa9f881">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># latticeを用いた作図の例</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">xyplot</span>(HDI <span class="sc">~</span> PPP, <span class="at">data =</span> Country_df,</span>
@@ -845,7 +848,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;2: {lattice}によるグラフ</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;2: {lattice}によるグラフ</figcaption>
 </figure>
 </div>
 </div>
@@ -855,7 +858,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="ggplot2パッケージ" class="level3">
 <h3 class="anchored" data-anchor-id="ggplot2パッケージ">{ggplot2}パッケージ</h3>
 <p>{ggplot2}はHadely Wickhamが大学院生の時に開発した可視化パッケージであり<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>、 <span class="citation" data-cites="Wilkinson:2005">Wilkinson (<a href="#ref-Wilkinson:2005" role="doc-biblioref">2005</a>)</span> の「グラフィックの文法 (<strong>g</strong>rammer of <strong>g</strong>raphics)」の思想をR上で具現化したものです。グラフィックの文法という思想は今は{ggplot2}以外にも<a href="https://plotly.com">Plotly</a>や<a href="https://www.tableau.com/">Tableau</a>などでも採用されています。</p>
-<p>グラフィックの文法は後ほど詳細に解説しますが、{ggplot2}による作図の特徴は「レイヤーを重ねる」ことです。グラフの様々な要素をそれぞれ1つの層 (layer)と捉え、これを重ねられていくことでグラフが出来上がる仕組みです。これはBase Rの書き方に似ています。たとえば、{ggplot2}を使って <a href="#fig-visual1-baser">図&nbsp;1</a> を作る場合、以下のようなコードになります。</p>
+<p>グラフィックの文法は後ほど詳細に解説しますが、{ggplot2}による作図の特徴は「レイヤーを重ねる」ことです。グラフの様々な要素をそれぞれ1つの層 (layer)と捉え、これを重ねられていくことでグラフが出来上がる仕組みです。これはBase Rの書き方に似ています。たとえば、{ggplot2}を使って <a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> を作る場合、以下のようなコードになります。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot_489ee8b7c80664bbc49993528c2a656f">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># ggplot2を用いた作図の例</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Country_df) <span class="sc">+</span></span>
@@ -867,7 +870,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid figure-img" width="1800"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;3: {ggplot2}によるグラフ</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;3: {ggplot2}によるグラフ</figcaption>
 </figure>
 </div>
 </div>
@@ -900,16 +903,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8  2012 準大手私鉄    10471
  9  2013 その他         5154
 10  2013 JR             7383
-# … with 18 more rows</code></pre>
+# ℹ 18 more rows</code></pre>
 </div>
 </div>
-<p>このデータ<code>df</code>を使って <a href="#fig-visual1-ggplot-image-2">図&nbsp;4</a> のようなグラフを作成します。以下では作図のコードも載っていますが、詳しく理解しなくても結構です。理解しなくてもいいですが、必ずコードには目を通し、説明文との対応を自分で考えてください。</p>
+<p>このデータ<code>df</code>を使って <a href="#fig-visual1-ggplot-image-2" class="quarto-xref">図&nbsp;4</a> のようなグラフを作成します。以下では作図のコードも載っていますが、詳しく理解しなくても結構です。理解しなくてもいいですが、必ずコードには目を通し、説明文との対応を自分で考えてください。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-2_2bc3ef17e81fe749977edda75b5049b9">
 <div class="cell-output-display">
 <div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption>
 </figure>
 </div>
 </div>
@@ -926,7 +929,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;5: 第1層: データとキャンバスの用意</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;5: 第1層: データとキャンバスの用意</figcaption>
 </figure>
 </div>
 </div>
@@ -941,7 +944,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption>
 </figure>
 </div>
 </div>
@@ -958,7 +961,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption>
 </figure>
 </div>
 </div>
@@ -976,7 +979,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;8: ラベルの修</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;8: ラベルの修</figcaption>
 </figure>
 </div>
 </div>
@@ -995,7 +998,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;9: スケールの修正</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;9: スケールの修正</figcaption>
 </figure>
 </div>
 </div>
@@ -1015,18 +1018,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;10: 見た目の調整</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;10: 見た目の調整</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>これで図が出来上がりました。このように{ggplot2}では図の要素をレイヤーと捉えます。このレイヤーを生成する関数が<code>ggplot()</code>、<code>geom_line()</code>、<code>lab()</code>などであり、これらを<code>+</code>演算子を用いて重ねていきます。このイメージを図にすると <a href="#fig-visual1-ggplot-layer">図&nbsp;11</a> のように表現できます。</p>
+<p>これで図が出来上がりました。このように{ggplot2}では図の要素をレイヤーと捉えます。このレイヤーを生成する関数が<code>ggplot()</code>、<code>geom_line()</code>、<code>lab()</code>などであり、これらを<code>+</code>演算子を用いて重ねていきます。このイメージを図にすると <a href="#fig-visual1-ggplot-layer" class="quarto-xref">図&nbsp;11</a> のように表現できます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-layer_368243b11ca82ccc40e6750d87ea7ba5">
 <div class="cell-output-display">
 <div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Layer_Example.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;11: {ggplot2}の図が出来上がるまで (全体像)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;11: {ggplot2}の図が出来上がるまで (全体像)</figcaption>
 </figure>
 </div>
 </div>
@@ -1041,13 +1044,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p><strong>幾何オブジェクト (geometry object)</strong>とは簡単に言うと図の種類です。散布図、折れ線グラフ、棒グラフ、ヒストグラムなど、{ggplot2}は様々なタイプの幾何オブジェクトを提供しており、ユーザー自作の幾何オブジェクトもRパッケージとして多く公開されています。幾何オブジェクトは関数の形で提供されており、<code>geom_</code>で始まるといった共通点があります。散布図は<code>geom_point()</code>、折れ線グラフは<code>geom_line()</code>のような関数を使います。</p>
 <p>この幾何オブジェクトに線や点、棒などを表示する際には、どの変数が横軸で、どの変数が縦軸かを明記する必要があります。また、変数によって点や線の色が変わったりする場合も、どの変数によって変わるかを明記します。これを <strong>マッピング (mapping)</strong>と呼びます。また、必要に応じて位置 (<code>position</code>)と統計量 (<code>stat</code>)を明記する必要がありますが、これは指定しなくてもとりあえず何らかの図は出力されます。</p>
 <p>最後に<strong>座標系 (coordinate system)</strong>は幾何オブジェクトが表示される空間の特徴を定義します。最も重要な特徴は横軸と縦軸の下限と上限です。または、空間を回転することなどもできます。</p>
-<p>{ggplot2}の図は以上の3つ要素を重ねることで出来ます（ <a href="#fig-visual1-ggplot-structure-1">図&nbsp;12</a> ）。</p>
+<p>{ggplot2}の図は以上の3つ要素を重ねることで出来ます（ <a href="#fig-visual1-ggplot-structure-1" class="quarto-xref">図&nbsp;12</a> ）。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-structure-1_c1406b8e7486148c2de1f241ef2aa5b6">
 <div class="cell-output-display">
 <div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;12: {ggplot2}の構造の例</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;12: {ggplot2}の構造の例</figcaption>
 </figure>
 </div>
 </div>
@@ -1091,10 +1094,10 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>マッピングは幾何オブジェクト関数内で行います。具体的には<code>geom_*()</code>内に<code>mapping = aes(マッピング)</code>で指定します。<code>aes()</code>も関数の一種です。散布図なら<code>geom_point(mapping = aes(x = X軸の変数, y = Y軸の変数))</code>です。ヒストグラムなら横軸のみを指定すればいいので<code>geom_histogram(mapping = aes(x = 変数名))</code>で十分です。マッピングは一般的には<code>geom_*()</code>の第一引数として渡しますが、この場合、<code>mapping =</code>は省略可能です。</p>
 <p>マッピングに必要な変数、つまり<code>aes()</code>に必要な引数は幾何オブジェクトによって異なります。散布図や折れ線グラフならX軸とY軸の情報が必須であるため、2つ必要です (<code>x</code>と<code>y</code>)。ヒストグラムは連続変数の度数分布表を自動的に作成してからグラフが作られるから1つが必要です (<code>x</code>)。また、等高線図の場合、高さの情報も必要なので3つの変数が必要です (<code>x</code>と<code>y</code>、<code>z</code>)。これらの引数は必ず指定する必要があります。</p>
 <p>以上の引数に加え、追加のマッピング情報を入れることも可能です。たとえば、鉄道事業者ごとの平均利用者数を時系列で示した最初の例を考えてみましょう。これは折れ線グラフですので、<code>mapping = aes(x = 年度, y = 利用者数)</code>までは必須です。しかし、この図にはもう一つの情報がありますね。それは事業者のタイプです。事業者のタイプごとに線の色を変えたい場合は、<code>aes()</code>内に<code>color = 事業者のタイプ</code>を、線の種類を変えたい場合は、<code>linetype = 事業者のタイプ</code>のように引数を追加します。こうすると2次元のプロットに3次元の情報 (年度、利用者数、事業者タイプ)を乗せることが可能です。むろん、4次元以上にすることも可能です。たとえば、地域ごとに異なる色を、事業者タイプごとに異なる線のタイプを指定する場合は、<code>mapping = aes(x = 年度, y = 利用者数, color = 地域, linetype = 事業者のタイプ)</code>のように指定します。<code>color</code>や<code>linetype</code>以外にも大きさ (<code>size</code>)、透明度 (<code>alpha</code>)、点のタイプ (<code>shape</code>)、面の色 (<code>fill</code>)などを指定することができます。</p>
-<p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1">表&nbsp;2</a> です。</p>
+<p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> です。</p>
 <div id="tbl-visual1-mapping-1" class="anchored">
 <table class="table">
-<caption>表&nbsp;2: <a href="#fig-visual1-ggplot-image-8">図&nbsp;10</a> のマッピング情報</caption>
+<caption>表&nbsp;2: <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピング情報</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">幾何オブジェクト</th>
@@ -1143,7 +1146,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<p>先ほどマッピング引数は幾何オブジェクト関数内で指定すると言いましたが、実は<code>ggplot()</code>内に入れ、<code>geom_*()</code>内では省略することも可能です。幾何オブジェクトが1つのみならどっちでも問題ありません。しかし、幾何オブジェクトが2つ以上の場合は注意が必要です。全ての幾何オブジェクトがマッピングを共有する場合は<code>ggplot()</code>の方が書く手間が省きます。たとえば、<a href="#tbl-visual1-mapping-1">表&nbsp;2</a> を見ると、<code>geom_line()</code>と<code>geom_point()</code>は<code>x</code>、<code>y</code>、<code>color</code>引数の値が同じですから、<code>ggplot()</code>内に<code>aes()</code>を入れることも可能です。しかし、幾何オブジェクトがマッピングを共有しない場合は幾何オブジェクト関数内に別途指定する必要があります。あるいは、共有するところだけ、<code>ggplot()</code>に書いて、共有しない部分だけ幾何オブジェクトで指定することも可能です。したがって、上の図は以下のコードでも作成することができます。</p>
+<p>先ほどマッピング引数は幾何オブジェクト関数内で指定すると言いましたが、実は<code>ggplot()</code>内に入れ、<code>geom_*()</code>内では省略することも可能です。幾何オブジェクトが1つのみならどっちでも問題ありません。しかし、幾何オブジェクトが2つ以上の場合は注意が必要です。全ての幾何オブジェクトがマッピングを共有する場合は<code>ggplot()</code>の方が書く手間が省きます。たとえば、<a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> を見ると、<code>geom_line()</code>と<code>geom_point()</code>は<code>x</code>、<code>y</code>、<code>color</code>引数の値が同じですから、<code>ggplot()</code>内に<code>aes()</code>を入れることも可能です。しかし、幾何オブジェクトがマッピングを共有しない場合は幾何オブジェクト関数内に別途指定する必要があります。あるいは、共有するところだけ、<code>ggplot()</code>に書いて、共有しない部分だけ幾何オブジェクトで指定することも可能です。したがって、上の図は以下のコードでも作成することができます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-2_f55f144f6c0e8fdbe32c310f64cf5386">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># geom_line()とgeom_point()はマッピング情報を共有しているため、</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co"># ggplot()内に指定</span></span>
@@ -1159,7 +1162,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="マッピング-その他" class="level3">
 <h3 class="anchored" data-anchor-id="マッピング-その他">マッピング: その他</h3>
 <p>以上のことさえ覚えれば、とりあえず図は作れます。最後に、必須要素ではありませんが、幾何オブジェクトに使う引数について説明します。先ほど説明しました<code>color</code>や<code>linetype</code>、<code>size</code>などはマッピングの情報として使うことも可能ですが、<code>aes()</code>の外側に置くことも可能です。しかし、その挙動はかなり異なります。<code>color</code>が<code>aes()</code>の外側にある場合は、幾何オブジェクトの全要素に対して反映されます。</p>
-<p>たとえば、横軸が「ゲームのプレイ時間」、縦軸が「身長」の散布図を作成しるとします ( <a href="#fig-visual1-mapping-4">図&nbsp;13</a> )。ここで<code>color</code>引数を追加しますが、まずは<code>aes()</code>の外側に入れます。</p>
+<p>たとえば、横軸が「ゲームのプレイ時間」、縦軸が「身長」の散布図を作成しるとします ( <a href="#fig-visual1-mapping-4" class="quarto-xref">図&nbsp;13</a> )。ここで<code>color</code>引数を追加しますが、まずは<code>aes()</code>の外側に入れます。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 例1: 全ての点の色が赤になる</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>データ <span class="sc">%&gt;%</span></span>
@@ -1172,7 +1175,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption>
 </figure>
 </div>
 </div>
@@ -1182,7 +1185,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li>散布図におけるすべての点の色が<code>color</code>で指定した色 (<code>"red"</code> = 赤)に変更された点</li>
 <li><code>color</code>の引数は変数名でなく、具体的な色を指定する点</li>
 </ol>
-<p>以上の2点です。<code>aes()</code>の内側に<code>color</code>を指定する場合 ( <a href="#fig-visual1-mapping-6">図&nbsp;14</a> ) は、以下のように変数名を指定します。たとえば、性別ごとに異なる色を付けるとしたら、</p>
+<p>以上の2点です。<code>aes()</code>の内側に<code>color</code>を指定する場合 ( <a href="#fig-visual1-mapping-6" class="quarto-xref">図&nbsp;14</a> ) は、以下のように変数名を指定します。たとえば、性別ごとに異なる色を付けるとしたら、</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 例2: 性別ごとに点の色が変わる</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>データ <span class="sc">%&gt;%</span></span>
@@ -1194,7 +1197,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption>
 </figure>
 </div>
 </div>
@@ -1204,29 +1207,29 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="座標系" class="level3">
 <h3 class="anchored" data-anchor-id="座標系">座標系</h3>
 <p>座標系はデータが点や線、面などで出力される空間を意味し、<code>coord_*()</code>関数群を用いて操作します。</p>
-<p>座標系のズームイン (zoom-in) やズームアウト (zoom-out) を行う<code>coord_cartesian()</code>、横軸と縦軸を交換する<code>coord_flip()</code>、横軸と縦軸の比率を固定する<code>coord_fixed()</code>がよく使われます。座標系の説明は次章以降で詳しく解説しますが、ここでは座標系のズームインを見てみましょう。以下の <a href="#fig-visual1-coord-1">図&nbsp;15</a> は各国のCOVID19の感染者数を時系列で示したものです。これを見るとアメリカ、ブラジル、インドは大変だなーくらいしかわかりません。感染者数が比較的に少ない国のデータは線としては存在しますが、なかなか区別ができません。</p>
+<p>座標系のズームイン (zoom-in) やズームアウト (zoom-out) を行う<code>coord_cartesian()</code>、横軸と縦軸を交換する<code>coord_flip()</code>、横軸と縦軸の比率を固定する<code>coord_fixed()</code>がよく使われます。座標系の説明は次章以降で詳しく解説しますが、ここでは座標系のズームインを見てみましょう。以下の <a href="#fig-visual1-coord-1" class="quarto-xref">図&nbsp;15</a> は各国のCOVID19の感染者数を時系列で示したものです。これを見るとアメリカ、ブラジル、インドは大変だなーくらいしかわかりません。感染者数が比較的に少ない国のデータは線としては存在しますが、なかなか区別ができません。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-1_c0e90f17b6921241ac1ccbab328ad943">
 <div class="cell-output-display">
 <div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;15: ズームイン前</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;15: ズームイン前</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>ここで座標系をズームインすると、一部の情報は失われますが、ズームインされた箇所はより詳細にグラフを観察できます。ズームインと言っても難しいものではありません。単に、軸の上限、下限を調整するだけです。たとえば、縦軸の上限を10万人に変更したのが <a href="#fig-visual1-coord-2">図&nbsp;16</a> です。アメリカなど感染者数が10万人を超える国家の時系列情報の一部は失われましたが、日中韓などのデータはより見やすくなったかと思います<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p>ここで座標系をズームインすると、一部の情報は失われますが、ズームインされた箇所はより詳細にグラフを観察できます。ズームインと言っても難しいものではありません。単に、軸の上限、下限を調整するだけです。たとえば、縦軸の上限を10万人に変更したのが <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> です。アメリカなど感染者数が10万人を超える国家の時系列情報の一部は失われましたが、日中韓などのデータはより見やすくなったかと思います<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-2_a5eb2b303f30f4ebf144ba22deb62fdf">
 <div class="cell-output-display">
 <div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;16: ズームイン後</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;16: ズームイン後</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>また、同じ棒グラフや散布図、折れ線グラフでも座標系を変えることによって図の見方が劇的に変わることもあります。我々にとって最も馴染みのある座標系はデカルト座標系 (直交座標系)です。このデカルト座標系に切片0、傾き1の直線を引きます。そして同じ図に対して座標系のみを極座標系 (polar coordinates system)に変更します。この2つを比較したのが <a href="#fig-visual1-coord-4">図&nbsp;17</a> です。この2つの図は同じデータ、同じ変数、同じ幾何オブジェクトで構成されています。異なるのは座標系ですが、見方が劇的に変わります。</p>
+<p>また、同じ棒グラフや散布図、折れ線グラフでも座標系を変えることによって図の見方が劇的に変わることもあります。我々にとって最も馴染みのある座標系はデカルト座標系 (直交座標系)です。このデカルト座標系に切片0、傾き1の直線を引きます。そして同じ図に対して座標系のみを極座標系 (polar coordinates system)に変更します。この2つを比較したのが <a href="#fig-visual1-coord-4" class="quarto-xref">図&nbsp;17</a> です。この2つの図は同じデータ、同じ変数、同じ幾何オブジェクトで構成されています。異なるのは座標系ですが、見方が劇的に変わります。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
@@ -1238,21 +1241,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;17: 直交座標系と極座標系の比較 (1)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;17: 直交座標系と極座標系の比較 (1)</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>こんな座標系を実際に使う機会は多くないかも知れませんが、極座標系は割と身近なところで見ることができます。それは積み上げ棒グラフと円グラフの関係です。<a href="#fig-visual1-coord-6">図&nbsp;18</a> はデカルト座標系上の積み上げ棒グラフを極座標系に変換したものです。</p>
-<div class="cell" data-layout-align="center">
-
-</div>
+<p>こんな座標系を実際に使う機会は多くないかも知れませんが、極座標系は割と身近なところで見ることができます。それは積み上げ棒グラフと円グラフの関係です。<a href="#fig-visual1-coord-6" class="quarto-xref">図&nbsp;18</a> はデカルト座標系上の積み上げ棒グラフを極座標系に変換したものです。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;18: 直交座標系と極座標系の比較 (2)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;18: 直交座標系と極座標系の比較 (2)</figcaption>
 </figure>
 </div>
 </div>
@@ -1262,8 +1262,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="スケール" class="level3">
 <h3 class="anchored" data-anchor-id="スケール">スケール</h3>
 <p>既に説明しました通り、{ggplot2}は様々な幾何オブジェクトがあり、これによってグラフ上におけるデータの示し方が変わります。例えば、散布図だとデータは点として表現され、折れ線グラフだと線、棒グラフやヒストグラムだと面で表現されます。これらの点、線、面などが持つ情報がスケール (scale)です。点だと縦軸上の位置、横軸上の位置が必ず含まれ、他にも点の形、点の大きさ、点の色、枠線の色、透明度などの情報を含むことが可能です。線も線が折れるポイントの横軸・縦軸上の位置、線の太さ、線の色などがあります。</p>
-<p>この形、色、大きさ、太さなどを調整するためには<code>scale_*_*()</code>関数群を使います。例えば、<a href="#fig-visual1-mapping-4">図&nbsp;13</a> の場合、点は横軸上の位置、縦軸上の位置、色の3つのスケールを持っています。横軸と縦軸は連続変数 (時間と身長)、色は名目変数 (性別)です。ここで横軸のスケールを調整するためには<code>scale_x_continuous()</code>レイヤーを追加します。縦軸も同様に<code>scale_y_continuous()</code>を使います。ここの<code>x</code>と<code>y</code>はスケール、<code>continuous</code>は連続変数であることを意味します。それでは、色を調整するためにはどうすれば良いでしょうか。それは<code>scale_color_manual()</code>です。<code>color</code>は色を、<code>manual</code>は手動調整を意味しますが、主に性別や都道府県のような名目変数のスケール調整に使います。</p>
-<p>これらの<code>scale_*_*()</code>関数群は点、線、面が持つ位置情報や性別を変更することではなく、その見せ方を変更するだけです。<a href="#fig-visual1-mapping-6">図&nbsp;14</a> の縦軸の目盛りは「150、160、170、180」となっていますが、<code>scale_y_continuous()</code>を使うとこの目盛りが変わります。点の位置が変わることはありません。たとえば、以下のコードは<code>scale_y_continuous()</code>を使って縦軸の目盛りを5cm刻みに変更するためのコードであり、<a href="#fig-visual1-scale-2">図&nbsp;19</a> はその結果です。</p>
+<p>この形、色、大きさ、太さなどを調整するためには<code>scale_*_*()</code>関数群を使います。例えば、<a href="#fig-visual1-mapping-4" class="quarto-xref">図&nbsp;13</a> の場合、点は横軸上の位置、縦軸上の位置、色の3つのスケールを持っています。横軸と縦軸は連続変数 (時間と身長)、色は名目変数 (性別)です。ここで横軸のスケールを調整するためには<code>scale_x_continuous()</code>レイヤーを追加します。縦軸も同様に<code>scale_y_continuous()</code>を使います。ここの<code>x</code>と<code>y</code>はスケール、<code>continuous</code>は連続変数であることを意味します。それでは、色を調整するためにはどうすれば良いでしょうか。それは<code>scale_color_manual()</code>です。<code>color</code>は色を、<code>manual</code>は手動調整を意味しますが、主に性別や都道府県のような名目変数のスケール調整に使います。</p>
+<p>これらの<code>scale_*_*()</code>関数群は点、線、面が持つ位置情報や性別を変更することではなく、その見せ方を変更するだけです。<a href="#fig-visual1-mapping-6" class="quarto-xref">図&nbsp;14</a> の縦軸の目盛りは「150、160、170、180」となっていますが、<code>scale_y_continuous()</code>を使うとこの目盛りが変わります。点の位置が変わることはありません。たとえば、以下のコードは<code>scale_y_continuous()</code>を使って縦軸の目盛りを5cm刻みに変更するためのコードであり、<a href="#fig-visual1-scale-2" class="quarto-xref">図&nbsp;19</a> はその結果です。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># scale_y_continuous()の例</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>データ <span class="sc">%&gt;%</span></span>
@@ -1277,12 +1277,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>また、性別ごとの色を変更する際は<code>scale_color_manual()</code>を使います（ <a href="#fig-visual1-scale-4">図&nbsp;20</a> ）。</p>
+<p>また、性別ごとの色を変更する際は<code>scale_color_manual()</code>を使います（ <a href="#fig-visual1-scale-4" class="quarto-xref">図&nbsp;20</a> ）。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># scale_color_manual()の例</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>データ <span class="sc">%&gt;%</span></span>
@@ -1297,7 +1297,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption>
 </figure>
 </div>
 </div>
@@ -1307,13 +1307,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="ファセット" class="level3">
 <h3 class="anchored" data-anchor-id="ファセット">ファセット</h3>
 <p>ファセット (facet)は日本語では「面」、「切子面」などで訳されますが、誤解を招く可能性があるため、本書ではそのままファセットと訳します。ファセットとはデータの部分集合 (subset)を対象にしたグラフを意味します。</p>
-<p>たとえば、フリーダムハウスでは毎年、各国を「自由」、「部分的に自由」、「不自由」と格付けをし、結果を公表しています。世界に自由な国、部分的に自由な国、不自由な国が何カ国あるかを大陸ごとに示したいとします。カテゴリごとの個数を示すには棒グラフが効果的であり、 <a href="#fig-visual1-facet-1">図&nbsp;21</a> のように示すことができます。</p>
+<p>たとえば、フリーダムハウスでは毎年、各国を「自由」、「部分的に自由」、「不自由」と格付けをし、結果を公表しています。世界に自由な国、部分的に自由な国、不自由な国が何カ国あるかを大陸ごとに示したいとします。カテゴリごとの個数を示すには棒グラフが効果的であり、 <a href="#fig-visual1-facet-1" class="quarto-xref">図&nbsp;21</a> のように示すことができます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-1_465242e959f17cecce96798316f8e84d">
 <div class="cell-output-display">
 <div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;21: ファセットを分けないグラフの例</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;21: ファセットを分けないグラフの例</figcaption>
 </figure>
 </div>
 </div>
@@ -1325,7 +1325,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;22: 大陸ごとにファセットを分けたグラフの例</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;22: 大陸ごとにファセットを分けたグラフの例</figcaption>
 </figure>
 </div>
 </div>
@@ -1356,136 +1356,137 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   &amp; \text{without loss of data-information.}
 \end{align}\]</span></p>
 <p>データ・インク比は「データ・インク」を「グラフの出力に使用されたインクの総量」で割ったものです。<strong>データ・インク</strong>とはデータの情報を含むインクの量を意味します。これを言い換えると、グラフにおいて情報損失なしに除去できるグラフの要素が占める割合を1から引いたものです。</p>
-<p>ここで1つの例を紹介します。たとえば、G20加盟国におけるCOVID19の累積感染者数を時系列で示すとします。そこで最近、インドにおいて感染者数が急増していることを示したいとします。まず、 <a href="#fig-visual1-dataink-1">図&nbsp;23</a> から見ましょう。</p>
+<p>ここで1つの例を紹介します。たとえば、G20加盟国におけるCOVID19の累積感染者数を時系列で示すとします。そこで最近、インドにおいて感染者数が急増していることを示したいとします。まず、 <a href="#fig-visual1-dataink-1" class="quarto-xref">図&nbsp;23</a> から見ましょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-1_41bfe07e40bb4cc33305f93fed7491ee">
 <div class="cell-output-display">
 <div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;23: データ・インク比の例 (改善前)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;23: データ・インク比の例 (改善前)</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>そもそもどの線がインドを表しているのかが分かりにくいです。カテゴリが増えると使える色に制約が生じてしまうからです。実際、図からフランス、ドイツ、インド、インドネシアを区別するのは非常に難しいでしょう。現実に色分けが出来る天才的な色覚を持つ読者ならこちらの方が情報も豊富であり、いいかも知れません。しかし、インドにおける感染者数の急増を示すには無駄な情報が多すぎます。そこでインドを除く国の色をグレーにまとめたものが <a href="#fig-visual1-dataink-2">図&nbsp;24</a> です。</p>
+<p>そもそもどの線がインドを表しているのかが分かりにくいです。カテゴリが増えると使える色に制約が生じてしまうからです。実際、図からフランス、ドイツ、インド、インドネシアを区別するのは非常に難しいでしょう。現実に色分けが出来る天才的な色覚を持つ読者ならこちらの方が情報も豊富であり、いいかも知れません。しかし、インドにおける感染者数の急増を示すには無駄な情報が多すぎます。そこでインドを除く国の色をグレーにまとめたものが <a href="#fig-visual1-dataink-2" class="quarto-xref">図&nbsp;24</a> です。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-2_55b0e9de2bce6a733104364110b8c53d">
 <div class="cell-output-display">
 <div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;24: データ・インク比の例 (改善後)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;24: データ・インク比の例 (改善後)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>こちらの方は多くの情報が失われています。アメリカや日本、韓国がどの線に該当するかが分かりません。しかし、図で示したいメッセージとは無関係でしょう。ここからもう一歩踏み込んで、「ならばインド以外の線を消せばいいじゃん」と思う方もいるかも知れません。しかし、インドの線のみ残している場合、比較対象がなくなるため、急増していることを示しにくくなります。この場合、示したい情報の損失が生じるため、インド以外の国の線はデータ・インクに含まれます。</p>
-<p>しかし、このデータ・インク比に基づく可視化は常に正しいとは言えません。そこでもう一つの例を紹介します。 <a href="#fig-visual1-dataink-3">図&nbsp;25</a> の左は <span class="citation" data-cites="Kuznicki_McCutcheon:1979">Kuznicki and McCutcheon (<a href="#ref-Kuznicki_McCutcheon:1979" role="doc-biblioref">1979</a>)</span> の論文に掲載された図であり、右はTufteによる改善案です。</p>
+<p>しかし、このデータ・インク比に基づく可視化は常に正しいとは言えません。そこでもう一つの例を紹介します。 <a href="#fig-visual1-dataink-3" class="quarto-xref">図&nbsp;25</a> の左は <span class="citation" data-cites="Kuznicki_McCutcheon:1979">Kuznicki と McCutcheon (<a href="#ref-Kuznicki_McCutcheon:1979" role="doc-biblioref">1979</a>)</span> の論文に掲載された図であり、右はTufteによる改善案です。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;25: データ・インク比改善の例</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;25: データ・インク比改善の例</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>確かに棒グラフは面を使用しており、高さを示すには線のみで十分かも知れません。また、エラー・バーも線の位置を若干ずらすことによって表現できます。それでは、読者の皆さんから見て、どのグラフが見やすいと思いますか。これについて興味深い研究結果があります。<span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> は87人の学部生を対象に3つのグループに分けました。そして、学生たちは <a href="#fig-visual1-dataink-4">図&nbsp;26</a> を「美しさ」、「明瞭さ」、「簡潔さ」の3つの面で評価し、最後にどの図が最も好きかを尋ねました。</p>
+<p>確かに棒グラフは面を使用しており、高さを示すには線のみで十分かも知れません。また、エラー・バーも線の位置を若干ずらすことによって表現できます。それでは、読者の皆さんから見て、どのグラフが見やすいと思いますか。これについて興味深い研究結果があります。<span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, と Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> は87人の学部生を対象に3つのグループに分けました。そして、学生たちは <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> を「美しさ」、「明瞭さ」、「簡潔さ」の3つの面で評価し、最後にどの図が最も好きかを尋ねました。</p>
 <ul>
-<li><strong>グループ1:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のAとDを評価</li>
-<li><strong>グループ2:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のAとDを評価。
+<li><strong>グループ1:</strong> <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のAとDを評価</li>
+<li><strong>グループ2:</strong> <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のAとDを評価。
 <ul>
-<li>ただし、事前にTufteスタイル (<a href="#fig-visual1-dataink-4">図&nbsp;26</a> のD)の読み方について学習させる。</li>
+<li>ただし、事前にTufteスタイル (<a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のD)の読み方について学習させる。</li>
 </ul></li>
-<li><strong>グループ3:</strong> <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のA、B、C、Dを評価</li>
+<li><strong>グループ3:</strong> <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のA、B、C、Dを評価</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, and Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, と Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>皆さんもある程度は結果が予想できたかと思いますが、いずれのグループにおいても、Tufteが推奨する <a href="#fig-visual1-dataink-4">図&nbsp;26</a> のDが「美しさ」、「明瞭さ」、「簡潔さ」のすべての点において最下位でした。また、どの図が最も好きかに対しても <a href="#tbl-visual1-dataink-5">表&nbsp;3</a> のような結果が得られました。</p>
+<p>皆さんもある程度は結果が予想できたかと思いますが、いずれのグループにおいても、Tufteが推奨する <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のDが「美しさ」、「明瞭さ」、「簡潔さ」のすべての点において最下位でした。また、どの図が最も好きかに対しても <a href="#tbl-visual1-dataink-5" class="quarto-xref">表&nbsp;3</a> のような結果が得られました。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="tbl-visual1-dataink-5" class="anchored">
-
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"><caption>表&nbsp;3:  Inbar, Tractinsky, and Meyer (2007)の実験結果 </caption>
- <thead>
-  <tr>
-   <th style="text-align:left;text-align: center;"> Group </th>
-   <th style="text-align:right;text-align: center;"> Graph A </th>
-   <th style="text-align:right;text-align: center;"> Graph B </th>
-   <th style="text-align:right;text-align: center;"> Graph C </th>
-   <th style="text-align:right;text-align: center;"> Graph D </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<caption>表&nbsp;3: Inbar, Tractinsky, and Meyer (2007)の実験結果</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Graph A</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Graph B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Graph C</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Graph D</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Group 1 </td>
-   <td style="text-align:right;"> 24 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Group 2 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;">  </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Group 3 </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Group 1</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group 2</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group 3</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
 </tbody>
 </table>
+</div>
+
 
 </div>
 </div>
-</div>
-<p><a href="#fig-visual1-dataink-4">図&nbsp;26</a> のDはデータ・インク比の観点から見れば最も優れた図ですが、それが分かりやすさを意味するわけではありません。今は、人々の認知の観点からも図を評価するようになり、近年の可視化の教科書ではこれらに関しても詳しく触れているものが多いです。<span class="citation" data-cites="Tufte:2001">Tufte (<a href="#ref-Tufte:2001" role="doc-biblioref">2001</a>)</span> の本は可視化を勉強する人にとって必読の書かも知れませんが、これだけでは十分ではなく、近年の教科書も合わせて読むことをおすすめします。</p>
+<p><a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のDはデータ・インク比の観点から見れば最も優れた図ですが、それが分かりやすさを意味するわけではありません。今は、人々の認知の観点からも図を評価するようになり、近年の可視化の教科書ではこれらに関しても詳しく触れているものが多いです。<span class="citation" data-cites="Tufte:2001">Tufte (<a href="#ref-Tufte:2001" role="doc-biblioref">2001</a>)</span> の本は可視化を勉強する人にとって必読の書かも知れませんが、これだけでは十分ではなく、近年の教科書も合わせて読むことをおすすめします。</p>
 </section>
 <section id="次元プロット" class="level3">
 <h3 class="anchored" data-anchor-id="次元プロット">3次元プロット</h3>
-<p>これまで見てきた全ての図は縦軸と横軸しか持たない2次元プロットです。しかし、実際の生活において3次元プロットを見にすることは珍しくないでしょう。3次元プロットの場合、縦軸と横軸以外に、高さ (深さ)といったもう一つの軸が含まれます。しかし、多くの場合、このもう一つの軸はグラフにおいて不要な場合が多いです。たとえば、 <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> をを見てみましょう<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。これはCOVID19による定額給付金の給付済み金額を時系列で並べたものです。</p>
+<p>これまで見てきた全ての図は縦軸と横軸しか持たない2次元プロットです。しかし、実際の生活において3次元プロットを見にすることは珍しくないでしょう。3次元プロットの場合、縦軸と横軸以外に、高さ (深さ)といったもう一つの軸が含まれます。しかし、多くの場合、このもう一つの軸はグラフにおいて不要な場合が多いです。たとえば、 <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> をを見てみましょう<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。これはCOVID19による定額給付金の給付済み金額を時系列で並べたものです。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-1_206ed4e18ff2078e6109f7765ba30ede">
 <div class="cell-output-display">
 <div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;27: 3次元プロットの例 (1)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;27: 3次元プロットの例 (1)</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>この図の目的は筆者にとってはよく分かりませんが、少なくとも給付金が順調（？）に配られているということですかね。その傾向を見るにはこの図は大きな問題はありません。しかし、細かい数値を見ようとすると誤解が生じる可能性があります。たとえば、7月22日の給付済み額は12.12兆円です。しかし、 <a href="#fig-visual1-3dplot-2">図&nbsp;28</a> を見ると、7月22日の棒は12兆円に達しておりません。なぜでしょうか。</p>
-<p>これは棒と壁（？）との間隔が理由です。 <a href="#fig-visual1-3dplot-2">図&nbsp;28</a> の右下にある青い円を見ればお分かりかと思いますが、棒が浮いています。この棒を壁（？）側に密着すると12の線を超えると考えられますが、このままだと12兆円に達していないのに12兆円超えてると、何かの入力ミスじゃないかと考えさせるかも知れません。</p>
+<p>この図の目的は筆者にとってはよく分かりませんが、少なくとも給付金が順調（？）に配られているということですかね。その傾向を見るにはこの図は大きな問題はありません。しかし、細かい数値を見ようとすると誤解が生じる可能性があります。たとえば、7月22日の給付済み額は12.12兆円です。しかし、 <a href="#fig-visual1-3dplot-2" class="quarto-xref">図&nbsp;28</a> を見ると、7月22日の棒は12兆円に達しておりません。なぜでしょうか。</p>
+<p>これは棒と壁（？）との間隔が理由です。 <a href="#fig-visual1-3dplot-2" class="quarto-xref">図&nbsp;28</a> の右下にある青い円を見ればお分かりかと思いますが、棒が浮いています。この棒を壁（？）側に密着すると12の線を超えると考えられますが、このままだと12兆円に達していないのに12兆円超えてると、何かの入力ミスじゃないかと考えさせるかも知れません。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-2_257cf7e921cdc9def7131b58b217577b">
 <div class="cell-output-display">
 <div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;28: 3次元プロットの罠</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;28: 3次元プロットの罠</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>この図において3D要素の必要性は0と言えます。2次元の棒グラフ ( <a href="#fig-visual1-3dplot-3">図&nbsp;29</a> )、または折れ線グラフ ( <a href="#fig-visual1-3dplot-4">図&nbsp;30</a> )の方がデータ・インク比の観点からも、分かりやすさからも優れていると言えるでしょう。</p>
+<p>この図において3D要素の必要性は0と言えます。2次元の棒グラフ ( <a href="#fig-visual1-3dplot-3" class="quarto-xref">図&nbsp;29</a> )、または折れ線グラフ ( <a href="#fig-visual1-3dplot-4" class="quarto-xref">図&nbsp;30</a> )の方がデータ・インク比の観点からも、分かりやすさからも優れていると言えるでしょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-3_ba056249d08fe97099d6080b4191dbbe">
 <div class="cell-output-display">
 <div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;29: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;29: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption>
 </figure>
 </div>
 </div>
@@ -1495,7 +1496,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;30: <a href="#fig-visual1-3dplot-1">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;30: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption>
 </figure>
 </div>
 </div>
@@ -1506,18 +1507,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;31: 3次元プロットの例 (2)</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;31: 3次元プロットの例 (2)</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>これを2次元棒グラフに直してものが <a href="#fig-visual1-3dplot-6">図&nbsp;32</a> です。こちらの方が合格者をより客観的に確認することができるでしょう。</p>
+<p>これを2次元棒グラフに直してものが <a href="#fig-visual1-3dplot-6" class="quarto-xref">図&nbsp;32</a> です。こちらの方が合格者をより客観的に確認することができるでしょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-6_208af8a8dd78f14d54d531a2431d7dd1">
 <div class="cell-output-display">
 <div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;32: <a href="#fig-visual1-3dplot-5">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;32: <a href="#fig-visual1-3dplot-5" class="quarto-xref">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption>
 </figure>
 </div>
 </div>
@@ -1530,27 +1531,27 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-Inbar_et_al:2007" class="csl-entry" role="doc-biblioentry">
-Inbar, Ohad, Noam Tractinsky, and Joachim Meyer. 2007. <span>“Minimalism in Information Visualization: Attitudes Towards Maximizing the Data-Ink Ratio.”</span> In <em>ECCE ’07: Proceedings of the 14th European Conference on Cognitive Ergonomics: Invent! Explore!</em>, 185–88.
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Inbar_et_al:2007" class="csl-entry" role="listitem">
+Inbar, Ohad, Noam Tractinsky, と Joachim Meyer. 2007. <span>「Minimalism in Information Visualization: Attitudes Towards Maximizing the Data-ink Ratio」</span>. <em>ECCE ’07: Proceedings of the 14th European conference on Cognitive ergonomics: invent! explore!</em>, 185–88.
 </div>
-<div id="ref-Kuznicki_McCutcheon:1979" class="csl-entry" role="doc-biblioentry">
-Kuznicki, James T., and N. Bruce McCutcheon. 1979. <span>“Cross-Enhancement of the Sour Taste on Single Human Taste Papillae.”</span> <em>Journal of Experimental Psychology: General</em> 108: 68–89.
+<div id="ref-Kuznicki_McCutcheon:1979" class="csl-entry" role="listitem">
+Kuznicki, James T., と N. Bruce McCutcheon. 1979. <span>「Cross-enhancement of the Sour Taste on Single Human Taste Papillae」</span>. <em>Journal of Experimental Psychology: General</em> 108: 68–89.
 </div>
-<div id="ref-Tufte:2001" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Tufte:2001" class="csl-entry" role="listitem">
 Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information (2nd Ed.)</em>. Graphics Press.
 </div>
-<div id="ref-Wilkinson:2005" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Wilkinson:2005" class="csl-entry" role="listitem">
 Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. Springer.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>厳密に言えば、大学院生の時代に開発したパッケージは{ggplot2}ではなく、{ggplot}です。このパッケージもグラフィックの文法の思想に基づいた可視化パッケージではありますが、今の{ggplot2}とは別物に近いパッケージです。このパッケージは2008年10月、バージョン0.4.2を以ってCRANから削除されました。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>実は <a href="#fig-visual1-coord-2">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>実は <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p><a href="https://kyufukin.soumu.go.jp/ja-JP/transition/">総務省の定額給付金特設ホームページ</a>から取得（アクセス：2020年7月28日）<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</aside></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1592,6 +1593,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1660,13 +1688,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1693,9 +1723,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1731,10 +1775,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1744,8 +1787,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1760,6 +1812,153 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1798,12 +1997,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1816,9 +2015,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 

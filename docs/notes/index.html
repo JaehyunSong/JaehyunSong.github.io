@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.117">
+<meta name="generator" content="quarto-1.4.232">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -82,7 +82,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
 <meta property="og:description" content="Jaehyun Song’s personal homepage">
 <meta property="og:image" content="https://www.jaysong.net/notes/imgs/favicon.png">
-<meta property="og:site-name" content="Jaehyun Song, Ph.D.">
+<meta property="og:site_name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:description" content="Jaehyun Song’s personal homepage">
 <meta name="twitter:image" content="https://www.jaysong.net/notes/imgs/favicon.png">
@@ -124,7 +124,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../seminar/index.html" rel="" target="">
+    <a class="nav-link" href="https://www.jaysong.net/seminar/" rel="" target="">
  <span class="menu-text">Seminar</span></a>
   </li>  
   <li class="nav-item">
@@ -201,7 +201,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2023年6月8日</p>
+      <p class="date-modified">2023年7月19日</p>
     </div>
   </div>
     
@@ -562,34 +562,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       instance.disable();
       let url = xref.getAttribute('href');
       let hash = undefined; 
-      try { hash = new URL(url).hash; } catch {}
-      const id = hash.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note !== null) {
-        try {
-          const html = processXRef(id, note);
-          instance.setContent(html);
-        } finally {
-          instance.enable();
-          instance.show();
-        }
+      if (url.startsWith('#')) {
+        hash = url;
       } else {
-        // See if we can fetch this
-        fetch(url.split('#')[0])
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.getElementById(id);
-          console.log(htmlDoc.body.innerHTML);
-          if (note !== null) {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
             const html = processXRef(id, note);
             instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
       }
     }, function(instance) {
     });
@@ -748,6 +753,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

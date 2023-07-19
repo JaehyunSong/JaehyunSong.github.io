@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.232">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -115,6 +86,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -124,7 +100,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "サーチ"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
@@ -143,19 +120,15 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
-<meta property="og:description" content="Jaehyun Song's personal homepage">
-<meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
-<meta property="og:site-name" content="Jaehyun Song, Ph.D.">
-<meta property="og:image:height" content="260">
-<meta property="og:image:width" content="260">
+<meta property="og:description" content="Jaehyun Song’s personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:site_name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.">
-<meta name="twitter:description" content="Jaehyun Song's personal homepage">
-<meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
+<meta name="twitter:description" content="Jaehyun Song’s personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:site" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="260">
-<meta name="twitter:image-width" content="260">
 </head>
 
 <body class="nav-fixed">
@@ -164,7 +137,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../imgs/logo.png" alt="" class="navbar-logo">
     </a>
@@ -172,77 +145,77 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="サーチ"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv/index.html">
+    <a class="nav-link" href="../../cv/index.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/index.html">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../seminar/index.html">
+    <a class="nav-link" href="https://www.jaysong.net/seminar/" rel="" target="">
  <span class="menu-text">Seminar</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../software/index.html">
+    <a class="nav-link" href="../../software/index.html" rel="" target="">
  <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../notes/index.html">
+    <a class="nav-link" href="../../notes/index.html" rel="" target="">
  <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../tutorial/index.html">
+    <a class="nav-link" href="../../tutorial/index.html" rel="" target="">
  <span class="menu-text">Tutorials</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/Tintstyle" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle" rel="" target=""><i class="bi bi-facebook" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/" rel="" target=""><i class="bi bi-instagram" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/JaehyunSong" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja" rel="" target=""><i class="bi bi-mortarboard-fill" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+    <a class="nav-link" href="https://researchmap.jp/jaysong" rel="" target=""><i class="bi bi-map" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -296,7 +269,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2023年3月14日</p>
+      <p class="date-modified">2023年7月19日</p>
     </div>
   </div>
     
@@ -319,7 +292,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="sec-quarto-intro">Quartoとは</h2>
 <p>　Quartoは<a href="https://pandoc.org/">Pandoc</a>ベースのオープンソース科学/技術出版システムである。簡単にいうと、R MarkdownのようにRコードと結果、文章を一つの文書として（HTML/PDF/Microsoft Word等）まとめてくれるものだ。目的が同じである以上、R Markdownを問題なく使いこなしているのであれば、Quartoの学習はさほど難しくないし、そもそもQuartoに乗り換える必要もあまりない。ただし、筆者（宋）は今後、QuartoがR Markdownに代わる主流になると考えているため（そうでないと考えている方も大勢にいる）、本章ではQuartoを簡単に紹介したい。</p>
 <p>　むろん、別の名前が付いてある以上、Quarto = R Markdownではない。文法などの違いは本章の中盤以降に説明するとして、まず両者の技術的な面での違いを紹介する。</p>
-<p>　一点目は使用可能なエンジンだ。たとえば、R Markdownは<code>.Rmd</code>をknitrエンジンを経由し、コードとその結果物が含まれた<code>.md</code>ファイルを生成する。ここで生成された<code>.md</code>ファイルはPandocを経由して最終的にはHTML、PDF、Microsoft Wordファイルに変換される（ <a href="#fig-rmd">図&nbsp;1 (a)</a> ）。Quartoも基本的に同じである。ただし、knitrエンジン以外にもPython、Juliaで多用されるJupyterやJavaScripベースのObservableもエンジンとして使用可能という特徴がある（ <a href="#fig-qmd">図&nbsp;1 (b)</a> ）。使用可能なエンジンが多いということはRコード以外にもPyhton、Julia、Observable JSのコードも使えるといったメリットがある。また、使用可能なエンジンは今後のアップデートで追加される可能性もある。ちなみにQuartoには<a href="https://mermaid.js.org/">Mermaid</a>、<a href="https://graphviz.org/">GraphViz</a>が実装されており、以下のようなダイアグラム作成も別途の設定なしで簡単にできる。</p>
+<p>　一点目は使用可能なエンジンだ。たとえば、R Markdownは<code>.Rmd</code>をknitrエンジンを経由し、コードとその結果物が含まれた<code>.md</code>ファイルを生成する。ここで生成された<code>.md</code>ファイルはPandocを経由して最終的にはHTML、PDF、Microsoft Wordファイルに変換される（ <a href="#fig-rmd" class="quarto-xref">図&nbsp;1 (a)</a> ）。Quartoも基本的に同じである。ただし、knitrエンジン以外にもPython、Juliaで多用されるJupyterやJavaScripベースのObservableもエンジンとして使用可能という特徴がある（ <a href="#fig-qmd" class="quarto-xref">図&nbsp;1 (b)</a> ）。使用可能なエンジンが多いということはRコード以外にもPyhton、Julia、Observable JSのコードも使えるといったメリットがある。また、使用可能なエンジンは今後のアップデートで追加される可能性もある。ちなみにQuartoには<a href="https://mermaid.js.org/">Mermaid</a>、<a href="https://graphviz.org/">GraphViz</a>が実装されており、以下のようなダイアグラム作成も別途の設定なしで簡単にできる。</p>
 <div id="fig-rmd-qud" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -327,8 +300,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-rmd" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-rmd">flowchart LR
   A[.Rmd] --&gt; B[knitr]
   B --&gt; C[.md]
   C --&gt; D{Pandoc}
@@ -337,11 +310,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   D --&gt; G(Microsoft Word)
   D --&gt; H(Etc.)
 </pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
-
 </div>
-<p></p>
-<p></p><figcaption class="figure-caption">(a) R Markdownの場合</figcaption><p></p>
+<figcaption class="figure-caption">(a) R Markdownの場合</figcaption>
 </figure>
 </div>
 </div>
@@ -352,8 +322,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-qmd" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-qmd">flowchart LR
   A[.qmd] --&gt; B[knitr]
   A --&gt; C[Jupyter]
   A --&gt; D[Observable JS]
@@ -368,11 +338,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   G --&gt; J(Microsoft Word)
   G --&gt; K(Etc.)
 </pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
-
 </div>
-<p></p>
-<p></p><figcaption class="figure-caption">(b) Quartoの場合</figcaption><p></p>
+<figcaption class="figure-caption">(b) Quartoの場合</figcaption>
 </figure>
 </div>
 </div>
@@ -382,14 +349,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </figure>
 </div>
 <p>　二点目は様々なフォーマットが統合されている点だ。R Markdownだと文書を作成する場合は{rmarkdown}パッケージ、ホームページを作成するなら{blogdown}パッケージ、スライドを作成するなら{xaringan}等のパッケージを使うことになる。しかし、Quartoはプラスアルファのパッケージを使わず、Quarto単体で様々なフォーマットが作成できる。ここまで聞くとR Markdownの方がより拡張性に優れているように見えるが、QuartoもまたQuarto Extensionを通じて様々な拡張機能が導入できる<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。また、<a href="https://www.lua.org/">Lua</a>言語の知識があれば、自分で拡張機能を作成することができる。</p>
-<p>　三点目はIDEだ。R Markdownの場合、ほぼRStudio一度（他のIDEでももちろん出来る）であったが、QuartoだとVisual Studio CodeやJupyter、NeoVim、Emacs、SublimeTextも使用可能であり、RStudioとほぼ変わらない使用経験を提供する（ <a href="#fig-ides">図&nbsp;2</a> ）。</p>
+<p>　三点目はIDEだ。R Markdownの場合、ほぼRStudio一度（他のIDEでももちろん出来る）であったが、QuartoだとVisual Studio CodeやJupyter、NeoVim、Emacs、SublimeTextも使用可能であり、RStudioとほぼ変わらない使用経験を提供する（ <a href="#fig-ides" class="quarto-xref">図&nbsp;2</a> ）。</p>
 <div id="fig-ides" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 56.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="lightbox" data-gallery="ide" title="RStudio"><img src="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">RStudio</figcaption><p></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="lightbox" title="RStudio" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/rstudio-hello.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">RStudio</figcaption>
 </figure>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.0%;justify-content: center;">
@@ -397,16 +364,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 42.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/tools/images/vscode-render.png" class="lightbox" data-gallery="ide" title="VS Code"><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">VS Code</figcaption><p></p>
+<p><a href="https://quarto.org/docs/tools/images/vscode-render.png" class="lightbox" title="VS Code" data-gallery="ide"><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">VS Code</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 41.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="lightbox" data-gallery="ide" title="Jupyter"><img src="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Jupyter</figcaption><p></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="lightbox" title="Jupyter" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/jupyter-quarto-preview.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Jupyter</figcaption>
 </figure>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 2.0%;justify-content: center;">
@@ -414,8 +381,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 57.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="lightbox" data-gallery="ide" title="NeoVim"><img src="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">NeoVim</figcaption><p></p>
+<p><a href="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="lightbox" title="NeoVim" data-gallery="ide"><img src="https://quarto.org/docs/get-started/hello/images/neovim-overview.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">NeoVim</figcaption>
 </figure>
 </div>
 </div>
@@ -484,13 +451,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"萼片の長さ (cm)"</span>, <span class="at">y =</span> <span class="st">"萼片の幅 (cm)"</span>, <span class="at">color =</span> <span class="st">"品種"</span>)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output:</strong></p>
-<p>　以下の <a href="#fig-scatter1">図&nbsp;3</a> は萼片の長さと幅を品種ごとに分けて示した散布図である。</p>
+<p>　以下の <a href="#fig-scatter1" class="quarto-xref">図&nbsp;3</a> は萼片の長さと幅を品種ごとに分けて示した散布図である。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-scatter1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="quarto_files/figure-html/fig-scatter1-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;3: 萼片の長さと幅の関係（品種別）</figcaption><p></p>
+<figcaption class="figure-caption">図&nbsp;3: 萼片の長さと幅の関係（品種別）</figcaption>
 </figure>
 </div>
 </div>
@@ -502,7 +469,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="コールアウト" class="level3">
 <h3 class="anchored" data-anchor-id="コールアウト">コールアウト</h3>
 <p>　Quartoでは5種類のコールアウト（callout）が提供される。以下はコールアウト作成のコードとその結果である。<code>:::{.callout-*}</code>と<code>:::</code>間の内容が一つのブロック（コールアウト）となり、<code>##</code>でブロックのタイトルを指定する。また、<code>{}</code>内の<code>*</code>の箇所にはブロックの見た目を指定し、現在、<code>note</code>、<code>warning</code>、<code>important</code>、<code>tip</code>、<code>caution</code>の5種類がある。</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">note</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">warning</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">important</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">tip</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">caution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -518,12 +485,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -547,12 +514,12 @@ Rはみんなの友達!
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -576,12 +543,12 @@ Rはみんなの友達!
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -605,12 +572,12 @@ Rはみんなの友達!
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -634,12 +601,12 @@ Rはみんなの友達!
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -665,12 +632,12 @@ Rはみんなの友達!
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!（クリック）
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -696,12 +663,12 @@ Rはみんなの友達!（クリック）
 
 </div><div class="column" style="width:49%;">
 <p><strong>Output:</strong></p>
-<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Rはみんなの友達!
 </div>
 </div>
@@ -797,7 +764,7 @@ Rはみんなの友達!
 <span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output:</strong></p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">データ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">プロット</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
@@ -830,7 +797,6 @@ Rはみんなの友達!
 <div id="fig-barplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="quarto_files/figure-html/fig-barplot-1.png" class="img-fluid figure-img" width="2400"></p>
-<p></p><figcaption class="figure-caption">図&nbsp;4: <strong>?(caption)</strong></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -843,7 +809,7 @@ Rはみんなの友達!
 <h3 class="anchored" data-anchor-id="図表について">図表について</h3>
 <p>　R Markdown/Quarto関係なく多くの図は{ggplot2}、{lattice}、Base Rなどで作成され、表は{knitr} + {kableExtra}、{gt}などで作成される。しかし、通常のMarkdown文法で表を作ったり、図を挿入したりするケースも多いだろう。QuartoはMarkdown文法の作成/挿入された図表のカスタマイズもより柔軟だ。</p>
 <p>　たとえば、図の大きさは<code>![]()</code>の後ろに<code>{}</code>を付け、<code>width</code>や<code>height</code>引数を指定することで修正できる。たとえば、図の幅を100ピクセルにする場合は<code>width=100px</code>で良い。サイズの指定方法はピクセル（<code>px</code>; 省略可）以外にも画面の幅に対する割合（例：<code>50%</code>）、インチ（例：<code>4in</code>）もできる。</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">サイズ調整前</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">サイズ調整後</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
@@ -853,7 +819,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">『私たちのR』ロゴ</figcaption><p></p>
+<figcaption class="figure-caption">『私たちのR』ロゴ</figcaption>
 </figure>
 </div>
 </div>
@@ -864,14 +830,14 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img" width="100"></p>
-<p></p><figcaption class="figure-caption">『私たちのR』ロゴ</figcaption><p></p>
+<figcaption class="figure-caption">『私たちのR』ロゴ</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <p>　他にも、<code>![Alt Text](Image Path)</code>で挿入される図の場合、R Markdownでは大きさの調整や中央揃えが面倒だ。しかし、Quartoの場合、後ろに<code>{}</code>を入れることでいくつかの修正ができる。</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">左揃え</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">中央揃え</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">右揃え</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
@@ -881,7 +847,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">『私たちのR』ロゴ（左揃え）</figcaption><p></p>
+<figcaption class="figure-caption">『私たちのR』ロゴ（左揃え）</figcaption>
 </figure>
 </div>
 </div>
@@ -892,7 +858,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">『私たちのR』ロゴ（中央揃え）</figcaption><p></p>
+<figcaption class="figure-caption">『私たちのR』ロゴ（中央揃え）</figcaption>
 </figure>
 </div>
 </div>
@@ -903,7 +869,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-right">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">『私たちのR』ロゴ（右揃え）</figcaption><p></p>
+<figcaption class="figure-caption">『私たちのR』ロゴ（右揃え）</figcaption>
 </figure>
 </div>
 </div>
@@ -925,7 +891,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">左の猫</figcaption><p></p>
+<figcaption class="figure-caption">左の猫</figcaption>
 </figure>
 </div>
 </div>
@@ -933,7 +899,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">中央の猫</figcaption><p></p>
+<figcaption class="figure-caption">中央の猫</figcaption>
 </figure>
 </div>
 </div>
@@ -941,7 +907,7 @@ Rはみんなの友達!
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">右の猫</figcaption><p></p>
+<figcaption class="figure-caption">右の猫</figcaption>
 </figure>
 </div>
 </div>
@@ -963,8 +929,8 @@ Rはみんなの友達!
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output:</strong></p>
 <ul>
-<li>複数の図の相互参照: <a href="#fig-three-cats">図&nbsp;5</a></li>
-<li>個別の図の相互参照: <a href="#fig-cat1">図&nbsp;5 (a)</a></li>
+<li>複数の図の相互参照: <a href="#fig-three-cats" class="quarto-xref">図&nbsp;4</a></li>
+<li>個別の図の相互参照: <a href="#fig-cat1" class="quarto-xref">図&nbsp;4 (a)</a></li>
 </ul>
 <div id="fig-three-cats" class="quarto-layout-panel">
 <figure class="figure">
@@ -973,7 +939,7 @@ Rはみんなの友達!
 <div id="fig-cat1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img" data-ref-parent="fig-three-cats"></p>
-<p></p><figcaption class="figure-caption">(a) 左の猫</figcaption><p></p>
+<figcaption class="figure-caption">(a) 左の猫</figcaption>
 </figure>
 </div>
 </div>
@@ -981,7 +947,7 @@ Rはみんなの友達!
 <div id="fig-cat2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img" data-ref-parent="fig-three-cats"></p>
-<p></p><figcaption class="figure-caption">(b) 中央の猫</figcaption><p></p>
+<figcaption class="figure-caption">(b) 中央の猫</figcaption>
 </figure>
 </div>
 </div>
@@ -989,12 +955,12 @@ Rはみんなの友達!
 <div id="fig-cat3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="http://www.jaysong.net/RBook/Figs/favicon.png" class="img-fluid figure-img" data-ref-parent="fig-three-cats"></p>
-<p></p><figcaption class="figure-caption">(c) 右の猫</figcaption><p></p>
+<figcaption class="figure-caption">(c) 右の猫</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">図&nbsp;5: 3匹の猫</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;4: 3匹の猫</figcaption><p></p>
 </figure>
 </div>
 <p>　<code>:::{layout-ncol}</code>を使えば、複数の表を並べることもできる。相互参照についても同じだが、ラベル名は<code>#fig-</code>の代わりに<code>#tbl-</code>を使う必要がある。</p>
@@ -1021,7 +987,7 @@ Rはみんなの友達!
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>首都の人口（万人）、面積（km<span class="kw">&lt;sup&gt;</span>2<span class="kw">&lt;/sup&gt;</span>）、人口密度（人/km<span class="kw">&lt;sup&gt;</span>2<span class="kw">&lt;/sup&gt;</span>）</span>
 <span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output:</strong></p>
-<p>　<a href="#tbl-two-tables">表&nbsp;1</a> は、東アジアとヨーロッパ主要都市の人口、面積、人口密度の一覧である。ただし、 <a href="#tbl-east-asia">表&nbsp;1 (a)</a> の東京は23区でなく、東京都全域であることに注意されたい。</p>
+<p>　<a href="#tbl-two-tables" class="quarto-xref">表&nbsp;1</a> は、東アジアとヨーロッパ主要都市の人口、面積、人口密度の一覧である。ただし、 <a href="#tbl-east-asia" class="quarto-xref">表&nbsp;1 (a)</a> の東京は23区でなく、東京都全域であることに注意されたい。</p>
 <div id="tbl-two-tables" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>表&nbsp;1: 首都の人口（万人）、面積（km<sup>2</sup>）、人口密度（人/km<sup>2</sup>）</p>
@@ -1119,7 +1085,7 @@ Rはみんなの友達!
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsious)"</span>, <span class="at">y =</span> <span class="st">"Pressure (mm)"</span>)</span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output:</strong></p>
-<p>　<a href="#fig-two-plots">図&nbsp;6</a> は2つの散布図であり、 <a href="#fig-two-plots-1">図&nbsp;6 (a)</a> は速度と停止距離との関係、 <a href="#fig-two-plots-2">図&nbsp;6 (b)</a> は気温と気圧の関係を示す。</p>
+<p>　<a href="#fig-two-plots" class="quarto-xref">図&nbsp;5</a> は2つの散布図であり、 <a href="#fig-two-plots-1" class="quarto-xref">図&nbsp;5 (a)</a> は速度と停止距離との関係、 <a href="#fig-two-plots-2" class="quarto-xref">図&nbsp;5 (b)</a> は気温と気圧の関係を示す。</p>
 <div id="fig-two-plots" class="cell quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -1127,7 +1093,7 @@ Rはみんなの友達!
 <div id="fig-two-plots-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="quarto_files/figure-html/fig-two-plots-1.png" class="img-fluid figure-img" data-ref-parent="fig-two-plots" width="2100"></p>
-<p></p><figcaption class="figure-caption">(a) 速度と停止距離</figcaption><p></p>
+<figcaption class="figure-caption">(a) 速度と停止距離</figcaption>
 </figure>
 </div>
 </div>
@@ -1135,12 +1101,12 @@ Rはみんなの友達!
 <div id="fig-two-plots-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="quarto_files/figure-html/fig-two-plots-2.png" class="img-fluid figure-img" data-ref-parent="fig-two-plots" width="2100"></p>
-<p></p><figcaption class="figure-caption">(b) 気温と気圧</figcaption><p></p>
+<figcaption class="figure-caption">(b) 気温と気圧</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">図&nbsp;6: 散布図の例</figcaption><p></p>
+<p></p><figcaption class="figure-caption">図&nbsp;5: 散布図の例</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -1171,7 +1137,7 @@ Rはみんなの友達!
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>現時点（2023年2月27日）において拡張機能の追加はCLIを使ってQuartoプロジェクトフォルダーに追加する方法のみとなっているので、楽とまでは言えないが…<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -1180,7 +1146,7 @@ Rはみんなの友達!
 <li id="fn4"><p>一つややこしいのが見出しの相互参照である。英語のままだと「Section 1」のように出力されるが、<code>lang:ja</code>で日本語化すると「セクション 1」のように表示される。これを「第1章」にしたい場合は、<code>第[-@sec-aboutR]章</code>のように書く必要がある。<code>[-@ラベル名]</code>にすると「Section」、「セクション」、「Figure」、「図」などを出力せず番号のみが出力される。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>むろん、QuartoだとYAMLヘッダーに<code>link-external-newwindow: true</code>追加することで<strong>外部</strong>ページは新しいウィンドウ/タブで開くように設定できる。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</aside></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1222,6 +1188,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1290,13 +1283,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1323,9 +1318,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1361,10 +1370,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1374,8 +1382,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1390,6 +1407,153 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1428,12 +1592,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1446,10 +1610,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":true,"descPosition":"bottom","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":true,"openEffect":"zoom"});</script>
+
 
 
 

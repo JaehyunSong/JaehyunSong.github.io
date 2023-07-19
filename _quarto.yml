@@ -23,7 +23,8 @@ website:
       - text: "Teaching"
         href: teaching/index.qmd
       - text: "Seminar"
-        href: seminar/index.qmd
+        href: https://www.jaysong.net/seminar/
+        target: "_blank"
       - text: "Software"
         href: software/index.qmd
       - text: "Notes"

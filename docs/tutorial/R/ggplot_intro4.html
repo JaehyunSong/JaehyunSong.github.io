@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.232">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-28">
 
 <title>Jaehyun Song, Ph.D.&nbsp;- 可視化[発展]</title>
 <style>
@@ -18,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -102,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -132,6 +102,11 @@ div.csl-indent {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -141,7 +116,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "サーチ"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
@@ -154,23 +130,20 @@ gtag('js', new Date());
 gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
-<meta property="og:description" content="Jaehyun Song's personal homepage">
-<meta property="og:image" content="https://www.jaysong.net/imgs/favicon.png">
-<meta property="og:site-name" content="Jaehyun Song, Ph.D.">
-<meta property="og:image:height" content="260">
-<meta property="og:image:width" content="260">
+<meta property="og:description" content="Jaehyun Song’s personal homepage">
+<meta property="og:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
+<meta property="og:site_name" content="Jaehyun Song, Ph.D.">
 <meta name="twitter:title" content="Jaehyun Song, Ph.D.">
-<meta name="twitter:description" content="Jaehyun Song's personal homepage">
-<meta name="twitter:image" content="https://www.jaysong.net/imgs/favicon.png">
+<meta name="twitter:description" content="Jaehyun Song’s personal homepage">
+<meta name="twitter:image" content="https://www.jaysong.net/tutorial/R/imgs/favicon.png">
 <meta name="twitter:creator" content="@Tintstyle">
 <meta name="twitter:site" content="@Tintstyle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="260">
-<meta name="twitter:image-width" content="260">
 </head>
 
 <body class="nav-fixed">
@@ -179,7 +152,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../imgs/logo.png" alt="" class="navbar-logo">
     </a>
@@ -187,77 +160,77 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="サーチ"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv/index.html">
+    <a class="nav-link" href="../../cv/index.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/index.html">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../seminar/index.html">
+    <a class="nav-link" href="https://www.jaysong.net/seminar/" rel="" target="">
  <span class="menu-text">Seminar</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../software/index.html">
+    <a class="nav-link" href="../../software/index.html" rel="" target="">
  <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../notes/index.html">
+    <a class="nav-link" href="../../notes/index.html" rel="" target="">
  <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../tutorial/index.html">
+    <a class="nav-link" href="../../tutorial/index.html" rel="" target="">
  <span class="menu-text">Tutorials</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/Tintstyle"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/Tintstyle" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.facebook.com/tintstyle"><i class="bi bi-facebook" role="img">
+    <a class="nav-link" href="https://www.facebook.com/tintstyle" rel="" target=""><i class="bi bi-facebook" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/tintstyle/"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/tintstyle/" rel="" target=""><i class="bi bi-instagram" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JaehyunSong"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/JaehyunSong" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"><i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja" rel="" target=""><i class="bi bi-mortarboard-fill" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://researchmap.jp/jaysong"><i class="bi bi-map" role="img">
+    <a class="nav-link" href="https://researchmap.jp/jaysong" rel="" target=""><i class="bi bi-map" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -316,9 +289,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
     
     <div>
-    <div class="quarto-title-meta-heading">作成・改訂</div>
+    <div class="quarto-title-meta-heading">作成日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 28, 2022</p>
+      <p class="date">2023年7月19日</p>
     </div>
   </div>
   
@@ -685,9 +658,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p><span class="math display">\[
 \text{PPP per capita} = \beta_0 + \beta_1 \cdot \text{FH}\_\text{Total} + \varepsilon
 \]</span></p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro4_cache/html/visual4-pointrage1_a1d46639d52c1608674c2bdb256acbd1">
-
-</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>Pointrange_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb26-2"><a href="#cb26-2"></a>    <span class="at">Continent =</span> <span class="fu">c</span>(<span class="st">"Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"Africa"</span>, <span class="st">"America"</span>),</span>
@@ -741,9 +711,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 </div>
 <p>ここでもう一つの次元を追加することもあるでしょう。たとえば、複数のモデルを比較した場合がそうかもしれません。以下の<code>Pointrange_df2</code>について考えてみましょう。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro4_cache/html/visual4-pointrage6_ef4c411f0396c4d82882fd08ef0f797e">
-
-</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>Pointrange_df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb31-2"><a href="#cb31-2"></a>    <span class="at">Continent =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"Africa"</span>, <span class="st">"America"</span>), <span class="at">each =</span> <span class="dv">2</span>),</span>
@@ -1238,7 +1205,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8 Australia           オセアニア "3万ドル以上"                    97    0.938
  9 Austria             ヨーロッパ "3万ドル以上"                    93    0.914
 10 Azerbaijan          ヨーロッパ "1万ドル以上\n2万ドル未満"       10    0.754
-# … with 168 more rows</code></pre>
+# ℹ 168 more rows</code></pre>
 </div>
 </div>
 <p>　次は<code>group_by()</code>と<code>summarise()</code>を使って、各カテゴリーに属するケース数を計算し、<code>N</code>という名の列として追加します。</p>
@@ -1460,7 +1427,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ggplot_intro4_files/figure-html/visual4-contour6-1.png" class="img-fluid figure-img" width="2100"></p>
-<p></p><figcaption class="figure-caption">{RColorBrewer}が提供するパレート一覧</figcaption><p></p>
+<figcaption class="figure-caption">{RColorBrewer}が提供するパレート一覧</figcaption>
 </figure>
 </div>
 </div>
@@ -1635,7 +1602,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんが、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。2022年Nov月28日現在、{rnaturalearthhires}はCRANに登録されておらず、GitHubの<a href="https://github.com/ropensci">ropensciレポジトリー</a>のみで公開されているため、今回は{pacman}の<code>p_load()</code>でなく、<code>p_load_gh()</code>を使用します。</p>
+<p>　ただ、日本地図を出すという場合、多くは都道府県レベルでマッピングが目的でしょう。世界地図のマッピングならこれで問題ありませんが、一国だけなら、その下の自治体の境界線も必要です。したがって、先ほど使用しましたパッケージのより高解像度の地図が含まれている{rnaturalearthhires}をインストールし、読み込みましょう。2023年Jul月19日現在、{rnaturalearthhires}はCRANに登録されておらず、GitHubの<a href="https://github.com/ropensci">ropensciレポジトリー</a>のみで公開されているため、今回は{pacman}の<code>p_load()</code>でなく、<code>p_load_gh()</code>を使用します。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>pacman<span class="sc">::</span><span class="fu">p_load_gh</span>(<span class="st">"ropensci/rnaturalearthhires"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1674,7 +1641,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
  8     8 茨城県   470. 
  9     9 栃木県   302. 
 10    10 群馬県   305. 
-# … with 37 more rows</code></pre>
+# ℹ 37 more rows</code></pre>
 </div>
 </div>
 <p>　各都道府県の人口密度がついております、左側の<code>Code</code>は何でしょうか。これは各都道府県のISOコードであり、このコードをキー変数としてデータを結合することとなります。各都道府県のコードは<a href="https://nlftp.mlit.go.jp/ksj/gml/codelist/PrefCd.html">国土交通省のホームページ</a>から確認可能です。</p>
@@ -1712,7 +1679,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: 122.9382 ymin: 24.2121 xmax: 153.9856 ymax: 45.52041
-CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 First 10 features:
            featurecla scalerank adm1_code diss_me iso_3166_2 wikipedia iso_a2
 1  Admin-1 scale rank         2  JPN-3501    3501      JP-46      &lt;NA&gt;     JP
@@ -1944,7 +1911,7 @@ First 10 features:
  8 27108 大阪市 大正区     65141    2627
  9 27109 大阪市 天王寺区   75729    3480
 10 27111 大阪市 浪速区     69766    1409
-# … with 65 more rows</code></pre>
+# ℹ 65 more rows</code></pre>
 </div>
 </div>
 <p>　各市区町村にもコードが指定されており、<code>Osaka_Student</code>では<code>Code</code>列、<code>Osaka_map</code>では<code>citi_code</code>列となります。<code>Osaka_map</code>の<code>city_code</code>は文字列であるため、こちらを数値型に変換し<code>Code</code>という名の列として追加しておきましょう。続いて、<code>Code</code>列をキー変数とし、2つのデータセットを結合します。</p>
@@ -2349,7 +2316,7 @@ Z -&gt; Y
  8 その他 DK        18
  9 その他 その他    73
 10 その他 政党A    121
-# … with 37 more rows</code></pre>
+# ℹ 37 more rows</code></pre>
 </div>
 </div>
 <p>　2020年の調査で「わからない」と回答し、2021年の調査でも「わからない」と回答した回答者数は111名、2020年の調査で「わからない」と回答し、2021年の調査では「その他」と回答した回答者数は8名、…といったことが分かりますね。</p>
@@ -2577,11 +2544,11 @@ Z -&gt; Y
 </div>
 </div>
 </div>
-<p>　ただし、ツリーマップが必ずしも円グラフより優れているとは言えません。たとえば、 <span class="citation" data-cites="Heer_Bostock:2010">Heer and Bostock (<a href="#ref-Heer_Bostock:2010" role="doc-biblioref">2010</a>)</span> の研究では円グラフとツリーマップを含む9種類のグラフを用い、被験者に大小関係を判断してもらう実験を行いましたが、ツリーマップ（四角形の面積）は円グラフ（角度）よりも判断までの所要時間が長いことが述べています。</p>
+<p>　ただし、ツリーマップが必ずしも円グラフより優れているとは言えません。たとえば、 <span class="citation" data-cites="Heer_Bostock:2010">Heer と Bostock (<a href="#ref-Heer_Bostock:2010" role="doc-biblioref">2010</a>)</span> の研究では円グラフとツリーマップを含む9種類のグラフを用い、被験者に大小関係を判断してもらう実験を行いましたが、ツリーマップ（四角形の面積）は円グラフ（角度）よりも判断までの所要時間が長いことが述べています。</p>
 </section>
 <section id="visual4-mosaic" class="level2">
 <h2 class="anchored" data-anchor-id="visual4-mosaic">モザイクプロット</h2>
-<p>モザイクプロットは2つの離散変数（おもに名目変数）の関係を可視化するために <span class="citation" data-cites="Hargian_Kleiner:1984">Hartigan and Kleiner (<a href="#ref-Hargian_Kleiner:1984" role="doc-biblioref">1984</a>)</span> が考案した図です。2つの名目変数間の関係を見る際によく使われるものはクロス表（クロス集計表）でしょう。</p>
+<p>モザイクプロットは2つの離散変数（おもに名目変数）の関係を可視化するために <span class="citation" data-cites="Hargian_Kleiner:1984">Hartigan と Kleiner (<a href="#ref-Hargian_Kleiner:1984" role="doc-biblioref">1984</a>)</span> が考案した図です。2つの名目変数間の関係を見る際によく使われるものはクロス表（クロス集計表）でしょう。</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggmosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2628,9 +2595,6 @@ Z -&gt; Y
 </div>
 </div>
 <p>　この<code>Mosaic_Tab</code>のクラスは<code>"table"</code>ですが、<code>"table"</code>クラスのオブジェクトを<code>plot()</code>に渡すと別途のパッケージを使わずモザイクプロットを作成することができます。</p>
-<div class="cell" data-layout-align="center">
-
-</div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro4_cache/html/visual4-mosaic6_054fd5a54f7cfaecd96ef8a5fe825311">
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="fu">plot</span>(Mosaic_Tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2753,14 +2717,14 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-Hargian_Kleiner:1984" class="csl-entry" role="doc-biblioentry">
-Hartigan, J. A., and Beat Kleiner. 1984. <span>“A Mosaic of Television Ratings.”</span> <em>The American Statistician</em> 38: 32–35.
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Hargian_Kleiner:1984" class="csl-entry" role="listitem">
+Hartigan, J. A., と Beat Kleiner. 1984. <span>「A Mosaic of Television Ratings」</span>. <em>The American Statistician</em> 38: 32–35.
 </div>
-<div id="ref-Heer_Bostock:2010" class="csl-entry" role="doc-biblioentry">
-Heer, Jeffrey, and Michael Bostock. 2010. <span>“Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design.”</span> <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>.
+<div id="ref-Heer_Bostock:2010" class="csl-entry" role="listitem">
+Heer, Jeffrey, と Michael Bostock. 2010. <span>「Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design」</span>. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>最後の<code>_c</code>はマッピングする変数（ここでは<code>HDI_2018</code>）が連続変数（<strong>c</strong>ontinuous）であることを意味します。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -2769,7 +2733,7 @@ Heer, Jeffrey, and Michael Bostock. 2010. <span>“Crowdsourcing Graphical Perce
 <li id="fn4"><p>今回の例だと、<code>label</code>も<code>ggplot()</code>内部でマッピング可能です。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>他にも<strong>縦</strong>軸のみ共有する<code>"free_x"</code>、横軸のみ共有する<code>"free_y"</code>があり、既定値は<code>"fixed"</code>です。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</aside></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -2811,6 +2775,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2879,13 +2870,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2912,9 +2905,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2950,10 +2957,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2963,8 +2969,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2979,6 +2994,153 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3017,12 +3179,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/www\.jaysong\.net\//);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -3035,9 +3197,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 
