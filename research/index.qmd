@@ -14,8 +14,8 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
-1. **[Submitted]** Post-Materialism and Environmental Protection Revisited: Domes-
+1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
+1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domes-
 tic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
 1. Detecting the mechanism of "empathy" in human rights and environmental governance (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com), and Takahiro Yamada)
