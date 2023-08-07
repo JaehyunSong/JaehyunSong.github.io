@@ -14,7 +14,7 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
+1. **[Submitted]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domes-
 tic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
@@ -100,6 +100,11 @@ tic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washi
 ### Presentation
 
 (共同研究において下線は報告者を表す)
+
+##### 2023
+
+1. **[予定]** 高橋百合子・**Song Jaehyun**・[飯田健](https://tiida.doshisha.ac.jp/). 2023年9月16日. 「Political Participation of Undocumented Mexican Immigrants in the US」日本政治学会. 於：明治大学
+1. **[予定]** [Lim, Sijeong](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com/), and **Jaehyun Song**. Sep. 1, 2023. ""I Feel You": Empathic Concern and Responsible Investment in Germany and Japan, " *American Political Science Association,* Los Angeles, CA: USA.
 
 ##### 2022
 1. <u>[秦正樹](http://hatam.sakura.ne.jp/)</u>・<u>[重村壮平](https://soheishigemura.com/)</u>・<u>**SONG Jaehyun**</u>. 2022年12月4日.「中点（Mid-point）選択のメカニズム：サーベイ実験による検証」公共選択学会. 於：名古屋市立大学
@@ -189,6 +194,7 @@ tic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washi
 
 ### Discussant
 
+1. **[予定]** **SONG Jaehyun**. 2023年9月17日「討論：企画委員会企画（疎外の時代の市民社会に関する実証的検討）」日本政治学会2023年度大会. 於：明治大学
 1. **SONG Jaehyun**. 2022年5月7日「討論：方法論部会（多様な政治参加の形態と先端的方法）」日本選挙学会2022年度大会. 於：石川県文教会館・金沢商工会議所会館
 1. **SONG Jaehyun**. 2021年6月27日「討論：自由論題E（比較政治学における量的方法）」日本比較政治学会2021年度大会. 於：オンライン
 1. **SONG Jaehyun**. 2019年10月6日「討論：方法論部会（政党の政策ポジション推定と選挙制度）」日本政治学会2019年度大会. 於：成蹊大学
