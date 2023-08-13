@@ -11,7 +11,7 @@ link-external-newwindow: true
    * Rプログラミングの入門教材
    * 現在、執筆中です
 
-以下の記事のほとんどは『私たちのR』用の原稿です。執筆後のアップデートは『私たちのR』で行います。最新版をご覧になる場合は<span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/)</span>をクリックしてください。
+以下の記事はすべて『[私たちのR](https://www.jaysong.net/RBook/)』用の原稿です。<u><b>執筆後のアップデートは『私たちのR』に反映されます。</b></u>最新版をご覧になる場合は<span class="jay_btn">[RN4E](https://www.jaysong.net/RBook/)</span>をクリックしてください。
 
 * プログラミング
    * [Rプログラミング入門の入門](R/rprogramming.qmd) <span class="jay_btn">[RN4E (1)](https://www.jaysong.net/RBook/programming.html) [RN4E (2)](https://www.jaysong.net/RBook/functions.html)</span>
