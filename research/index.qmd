@@ -17,6 +17,7 @@ toc-depth: 5
 1. **[Under Review]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
 1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
+1. **[Submitted]** Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California. (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
 1. Detecting the mechanism of "empathy" in human rights and environmental governance (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com), and Takahiro Yamada)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
@@ -27,7 +28,6 @@ toc-depth: 5
 1. 復活当選が投票率に与える影響
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
-1. Burying electrical transmission and distribution lines in California (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 
 ### Books
 
