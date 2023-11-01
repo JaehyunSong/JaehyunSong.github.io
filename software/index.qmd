@@ -30,6 +30,8 @@ link-external-newwindow: true
 * 画像URLをランダムに取得するスクリプト<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/RIP)</span>
 * SimpleConjoint.js <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
    * サーバーなしでコンジョイント実験を行う（要Qualtrics）
+* [RPP: Rakuten p-Parameter Parser](scripts/rpp.qmd)
+   * Qualtricsで楽天インサイトのpパラメーターをパーシングする。
 
 ## Datasets
 

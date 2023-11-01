@@ -1,0 +1,69 @@
+---
+title: "楽天pパラメーターをパーシングする"
+date: "2023/11/01"
+date-modified: today
+link-external-newwindow: true
+#link-external-icon: true
+---
+
+## 概要
+
+楽天インサイトから提供されるサンプルの場合、`e`、`p`、`k`、`rrq`パラメーターが渡されますが、ここで`p`は回答者の性別、年齢、都道府県となります。Qualtricsを使った調査の場合、Web Service機能を使うことによって、この`p`パラメーターの解析（パーシング）が可能です。
+
+## 使い方
+
+1. QualtricsのSurvey flowを開く。
+2. 楽天のパラメーター（`e`, `p`, `k`, `rrq`）を受け取るブロックの下にWeb Serviceブロックを追加する。
+3. 本スクリプトのパスを入力する。
+   * `p`パラメーターは必須 / `lang`パラメーターは任意
+   * 例）`http://www.my_homepage.com/rpp.php?p=${e://Field/p}&lang=en`
+   * `www.my_homepage.com/rpp.php`の部分をスクリプト名のURLに置き換えてください。
+   * 「`&lang=`」が「`en`」なら都道府県名が英語、「`jp`」なら日本語、省略した場合は数字になります。
+   * つまり、都道府県を1〜47にしたい場合は「`http://www.my_homepage.com/rpp.php?p=${e://Field/p}`」だけで十分です。
+4. 「Test」をクリックする。
+5. 「All」をクリックし、下の「Add Embedded Data」をクリックする。
+6. テストしてみる。
+
+## スクリプト
+
+```php
+<?php
+$pref_en = array("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata", "Fukushima", 
+                 "Ibaraki", "Tochigi", "Gunma", "Saitama", "Chiba", "Tokyo", "Kanagawa",
+                 "Niigata", "Toyama", "Ishikawa", "Fukui", "Yamanashi", "Nagano", "Gifu", "Shizuoka", "Aichi", "Mie",
+                 "Shiga", "Kyoto", "Osaka", "Hyogo", "Nara", "Wakayama", 
+                 "Tottori", "Shimane", "Okayama", "Hiroshima", "Yamaguchi", 
+                 "Tokushima", "Kagawa", "Ehime", "Kochi", 
+                 "Fukuoka", "Saga", "Nagasaki", "Kumamoto", "Oita", "Miyazaki", "Kagoshima", "Okinawa");
+$pref_jp = array("北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", 
+                 "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", 
+                 "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県", "三重県", 
+                 "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", 
+                 "鳥取県", "島根県", "岡山県", "広島県", "山口県", 
+                 "徳島県", "香川県", "愛媛県", "高知県", 
+                 "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県");
+
+$p    = $_GET["p"];
+$lang = $_GET["lang"];
+
+$gender = substr($p, 0, 1);
+$age    = substr($p, 1, 3);
+$pref   = substr($p, 4, 2);
+
+$pref = intval($pref);
+
+if ($lang == "en") {
+    $pref = $pref_en[$pref-1];
+} elseif($lang == "jp") {
+    $pref = $pref_jp[$pref-1];
+} 
+
+$returnarray = array();
+
+$returnarray["gender"] = intval($gender);
+$returnarray["age"]    = intval($age);
+$returnarray["pref"]   = $pref;
+
+print  json_encode($returnarray);
+?>
+```
