@@ -1663,21 +1663,21 @@
     "href": "software/scripts/rpp.html",
     "title": "楽天pパラメーターをパーシングする",
     "section": "",
-    "text": "楽天インサイトから提供されるサンプルの場合、e、p、k、rrqパラメーターが渡されますが、ここでpは回答者の性別、年齢、都道府県となります。Qualtricsを使った調査の場合、Web Service機能を使うことによって、このpパラメーターの解析（パーシング）が可能です。"
+    "text": "楽天インサイトから提供されるサンプルの場合、e、p、k、rrqパラメーターが渡されますが、ここでpは回答者の性別、年齢、都道府県となります。\nQualtricsを使った調査の場合、Web Service機能を使うことによって、このpパラメーターの解析（パーシング）が可能です。\n調査段階で回答者の性別、年齢、都道府県の情報が取得できるため、Quotaとして使用することも可能です。"
   },
   {
     "objectID": "software/scripts/rpp.html#概要",
     "href": "software/scripts/rpp.html#概要",
     "title": "楽天pパラメーターをパーシングする",
     "section": "",
-    "text": "楽天インサイトから提供されるサンプルの場合、e、p、k、rrqパラメーターが渡されますが、ここでpは回答者の性別、年齢、都道府県となります。Qualtricsを使った調査の場合、Web Service機能を使うことによって、このpパラメーターの解析（パーシング）が可能です。"
+    "text": "楽天インサイトから提供されるサンプルの場合、e、p、k、rrqパラメーターが渡されますが、ここでpは回答者の性別、年齢、都道府県となります。\nQualtricsを使った調査の場合、Web Service機能を使うことによって、このpパラメーターの解析（パーシング）が可能です。\n調査段階で回答者の性別、年齢、都道府県の情報が取得できるため、Quotaとして使用することも可能です。"
   },
   {
     "objectID": "software/scripts/rpp.html#使い方",
     "href": "software/scripts/rpp.html#使い方",
     "title": "楽天pパラメーターをパーシングする",
     "section": "使い方",
-    "text": "使い方\n\nQualtricsのSurvey flowを開く。\n楽天のパラメーター（e, p, k, rrq）を受け取るブロックの下にWeb Serviceブロックを追加する。\n本スクリプトのパスを入力する。\n\npパラメーターは必須 / langパラメーターは任意\n例）http://www.my_homepage.com/rpp.php?p=${e://Field/p}&lang=en\nwww.my_homepage.com/rpp.phpの部分をスクリプト名のURLに置き換えてください。\n「&lang=」が「en」なら都道府県名が英語、「jp」なら日本語、省略した場合は数字になります。\nつまり、都道府県を1〜47にしたい場合は「http://www.my_homepage.com/rpp.php?p=${e://Field/p}」だけで十分です。\n\n「Test」をクリックする。\n「All」をクリックし、下の「Add Embedded Data」をクリックする。\nテストしてみる。"
+    "text": "使い方\n\nQualtricsのSurvey flowを開く。\n楽天のパラメーター（e, p, k, rrq）を受け取るブロックの下にWeb Serviceブロックを追加する。\n本スクリプトのパス（パラメーター付き）を入力する。\n\npパラメーターは必須 / langパラメーターは任意\n例）http://www.my_homepage.com/rpp.php?p=${e://Field/p}&lang=en\nwww.my_homepage.com/rpp.phpの部分をスクリプト名のURLに置き換えてください。\n「&lang=」が「en」なら都道府県名が英語、「jp」なら日本語、省略した場合は数字になります。\nつまり、都道府県を1〜47にしたい場合は「http://www.my_homepage.com/rpp.php?p=${e://Field/p}」だけで十分です。\n\n「Test」をクリックする。\n「All」をクリックし、下の「Add Embedded Data」をクリックする。\nテストしてみる。"
   },
   {
     "objectID": "software/scripts/rpp.html#スクリプト",

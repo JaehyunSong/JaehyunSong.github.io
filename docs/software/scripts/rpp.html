@@ -255,14 +255,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <section id="概要" class="level2">
 <h2 class="anchored" data-anchor-id="概要">概要</h2>
-<p>楽天インサイトから提供されるサンプルの場合、<code>e</code>、<code>p</code>、<code>k</code>、<code>rrq</code>パラメーターが渡されますが、ここで<code>p</code>は回答者の性別、年齢、都道府県となります。Qualtricsを使った調査の場合、Web Service機能を使うことによって、この<code>p</code>パラメーターの解析（パーシング）が可能です。</p>
+<ul>
+<li>楽天インサイトから提供されるサンプルの場合、<code>e</code>、<code>p</code>、<code>k</code>、<code>rrq</code>パラメーターが渡されますが、ここで<code>p</code>は回答者の性別、年齢、都道府県となります。</li>
+<li>Qualtricsを使った調査の場合、Web Service機能を使うことによって、この<code>p</code>パラメーターの解析（パーシング）が可能です。</li>
+<li>調査段階で回答者の性別、年齢、都道府県の情報が取得できるため、Quotaとして使用することも可能です。</li>
+</ul>
 </section>
 <section id="使い方" class="level2">
 <h2 class="anchored" data-anchor-id="使い方">使い方</h2>
 <ol type="1">
 <li>QualtricsのSurvey flowを開く。</li>
 <li>楽天のパラメーター（<code>e</code>, <code>p</code>, <code>k</code>, <code>rrq</code>）を受け取るブロックの下にWeb Serviceブロックを追加する。</li>
-<li>本スクリプトのパスを入力する。
+<li>本スクリプトのパス（パラメーター付き）を入力する。
 <ul>
 <li><code>p</code>パラメーターは必須 / <code>lang</code>パラメーターは任意</li>
 <li>例）<code>http://www.my_homepage.com/rpp.php?p=${e://Field/p}&amp;lang=en</code></li>
