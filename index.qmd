@@ -49,7 +49,7 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 
 * Last Update: `r format(Sys.Date(), "%Y年%m月%d日")`
 * Environment
-   * macOS `r macos_ver` "Ventura"
+   * macOS `r macos_ver` "Sonoma"
    * Firefox `r ff_ver`
    * `r version$version.string`
    * RStudio `r rs_ver1`
