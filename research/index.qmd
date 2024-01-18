@@ -16,8 +16,8 @@ toc-depth: 5
 
 1. **[R&R]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
 1. **[Under Review]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
-1. **[Submitted]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
-1. **[Submitted]** Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California. (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
+1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
+1. **[Under Review]** Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California. (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
 1. Detecting the mechanism of "empathy" in human rights and environmental governance (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com), and Takahiro Yamada)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
@@ -100,6 +100,11 @@ toc-depth: 5
 ### Presentation
 
 (共同研究において下線は報告者を表す)
+
+##### 2024
+
+1. **[Scheduled]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). "Penalty or Premium of Foreign Ownership? Support for waste-to-energy plants," *American Political Science Association,* Philadelphia, PA: USA.
+1. **[Scheduled]** Takahashi, Yuriko, **Jaehyun Song**, and [Takeshi Iida](https://tiida.doshisha.ac.jp/). Mar. 30. 2024. "Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the “Hard-To-Reach” Populations," *Western Political Science Association,* Vancouver, BC: Canada.
 
 ##### 2023
 
