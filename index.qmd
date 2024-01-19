@@ -27,22 +27,11 @@ I am an associate professor in [Faculty of Informatics](https://www.kansai-u.ac.
 * 宋のCVは[CV](cv/index.qmd)
 * これまでの研究内容は[Research](research/index.qmd)
 * 担当科目については[Teaching](teaching/index.qmd)
-* 宋ゼミについては[Seminar](seminar/index.qmd)
+* 宋ゼミについては[Seminar](https://www.jaysong.net/seminar/)
 * これまで作成したアプリ/パッケージ/スクリプトは[Software](software/index.qmd)
 * 備忘録は[Note](notes/index.qmd)
 * 分析/調査ツールのチュートリアルは[Tutorial](tutorial/index.qmd)
 :::
-
-<!--
-:::{.callout-note}
-## 宋の授業を履修する方へ（2022年度）
-
-* [ミクロ政治データ分析実習](https://www.jaysong.net/micro-book/)（関西大学）
-* [マクロ政治データ分析実習](https://www.jaysong.net/macro-book/)（関西大学）
-* [社会科学における因果推論](https://www.jaysong.net/kandai-ci/)（関西大学）
-* [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)（神戸大学）
-:::
--->
 
 :::{.callout-note}
 ## Information

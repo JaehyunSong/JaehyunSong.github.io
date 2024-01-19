@@ -8,7 +8,7 @@ lang: ja
 website:
   site-url: "https://www.jaysong.net/"
   title: "Jaehyun Song, Ph.D."
-  page-footer: "Copyright 2023, Jaehyun Song. Powered by [Quarto](https://quarto.org/)"
+  page-footer: "Copyright 2024, Jaehyun Song. Powered by [Quarto](https://quarto.org/)"
   google-analytics: "G-BCE61P2YP7"
   favicon: "imgs/favicon.png"
   navbar:
@@ -62,3 +62,6 @@ format:
       light: flatly
       dark: darkly
     css: styles.css
+
+resources: 
+  - CNAME
