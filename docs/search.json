@@ -1355,14 +1355,14 @@
     "href": "software/index.html",
     "title": "Software / Packages / Scripts / Datasets",
     "section": "",
-    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
+    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc Manual GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
   },
   {
     "objectID": "software/index.html#r-packages",
     "href": "software/index.html#r-packages",
     "title": "Software / Packages / Scripts / Datasets",
     "section": "",
-    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
+    "text": "BalanceR GitHub\n\n実験データの共変量チェック; A balance check for experimental data using standaradized biases\n\nSimpleConjoint GitHub\n\nサーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）\n\nPRcalc Manual GitHub\n\n比例代表計算機; Proportional Representation Calculator\n\nwoRdle GitHub\n\nRパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.\n\nq2c GitHub Sample Dataset\n\nQualtris + Conjoint Survey Design Toolで収集されたデータを読み込み、{cjoint}/{cregg}に適したデータへ加工"
   },
   {
     "objectID": "software/index.html#web-application",

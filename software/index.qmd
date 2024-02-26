@@ -10,7 +10,7 @@ link-external-newwindow: true
    * 実験データの共変量チェック; A balance check for experimental data using standaradized biases
 * SimpleConjoint <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint)</span>
    * サーバーなしで（ていうか、宋のサーバーで）コンジョイント実験を行う（要Qualtrics）
-* PRcalc <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc)</span>
+* PRcalc <span class="jay_btn">[Manual](https://www.jaysong.net/PRcalc/)</span> <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/PRcalc)</span>
    * 比例代表計算機; Proportional Representation Calculator
 * woRdle <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/woRdle)</span>
    * Rパッケージ名で遊ぶWordle; woRdle: Enjoying Wordle with R package names.
