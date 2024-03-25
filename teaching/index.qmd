@@ -1,16 +1,17 @@
 ---
 title: "Teaching"
-date: "`r Sys.Date()`"
+date-modified: today
 link-external-newwindow: true
 ---
 
-## 2023年度
+## 2024年度
 
 #### 関西大学（前期）
 
 * [専門演習](../seminar/index.qmd) (学部; 月4)
-* [卒業研究](../seminar/index.qmd) (学部; 火3)
+* [卒業研究](../seminar/index.qmd) (学部; 金3)
 * 政治学 (学部; 木2)
+* ミクロ政治分析 (学部; 月2)
 * [ミクロ政治データ分析実習](https://www.jaysong.net/r4ps/) (学部; 木4)
 * 導入ゼミ (学部; 金5)
 * 公共領域におけるデータベース (修士)
@@ -18,7 +19,7 @@ link-external-newwindow: true
 #### 関西大学（後期）
 
 * [専門演習](../seminar/index.qmd) (学部; 月4)
-* [卒業研究](../seminar/index.qmd) (学部; 火3)
+* [卒業研究](../seminar/index.qmd) (学部; 金3)
 * 政治学 (学部; 木2)
 * [マクロ政治データ分析実習](https://www.jaysong.net/r4ps/) (学部; 木4)
 * [社会科学における因果推論](https://www.jaysong.net/kandai-ci/) (修士; 月2)
@@ -27,10 +28,9 @@ link-external-newwindow: true
 #### 神戸大学 (夏期集中)
 
 * [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)
+* 政治文化論
 
-#### 京都府立大学（冬期集中）
-
-* 情報処理応用演習
+#### 高知工科大学（冬季集中）
 
 ## 過去の担当科目
 
@@ -67,7 +67,7 @@ link-external-newwindow: true
 
 #### 神戸大学
 
-* 計量政治学方法論I (2018夏集、2019夏集、2020夏、2021夏集)
+* 計量政治学方法論I (2018、2019、2020、2021、2022、2023)
 
 #### 東京大学
 
