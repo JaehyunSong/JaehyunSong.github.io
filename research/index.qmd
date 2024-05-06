@@ -15,11 +15,11 @@ toc-depth: 5
 ### Work in Progress
 
 1. **[R&R]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
-1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
-1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and [Azusa Uji](https://www.azusa-uji.com))
+1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
 1. **[R&R]** Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California. (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
-1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and [Azusa Uji](https://www.azusa-uji.com))
-1. Detecting the mechanism of "empathy" in human rights and environmental governance (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), [Azusa Uji](https://www.azusa-uji.com), and Takahiro Yamada)
+1. **[Under Review]** I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), Azusa Uji, and Takahiro Yamada)
+1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
+1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
@@ -47,13 +47,13 @@ toc-depth: 5
 
 ##### 2023
 
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Does partisanship shape public support for suspending U.S federal gas tax? A survey experiment," *PLOS Climate,* 2(6): e0000163.
+(@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Does partisanship shape public support for suspending U.S federal gas tax? A survey experiment," *PLOS Climate,* 2(6): e0000163.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pclm.0000163) [Replication](https://doi.org/10.7910/DVN/7V6VVR)</div>
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.* 18(4): e0284208
+(@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Comparing public support for nuclear and wind energy in Washington State," *PLOS ONE.* 18(4): e0284208
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0284208) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
+(@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0280720) [Replication](https://doi.org/10.7910/DVN/ATNUCY)</div>
-(@) [Uji, Azusa](https://www.azusa-uji.com/), [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
+(@) Uji, Azusa, [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
 <div class="jay_btn">[Full-text](https://doi.org/10.1177/00223433221123369) [Replication](#)</div>
 
 ##### 2022
@@ -66,11 +66,11 @@ toc-depth: 5
 
 ##### 2021
 
-(@) [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
+(@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2021. "Public Support for Climate Adaptation Aid and Migrants: A Conjoint Experiment in Japan," *Environmental Research Letters,* 16(12): 124073. <div class="jay_btn">[Full-text](https://doi.org/10.1088/1748-9326/ac3b7b)</div>
 (@) Kobayashi, Tetsuro, **Jaehyun Song**, and [Polly Chan](https://pollyjchan.github.io/). 2021. "Does repression undermine opposition demands? The case of the Hong Kong National Security Law." *Japanese Journal of Political Science,* 22(4): 268-286. <div class="jay_btn">[Full-text](https://doi.org/10.1017/S1468109921000256) [Replication Data](https://doi.org/10.7910/DVN/KJBRQG) [Featured in *Mingpao* (June 12, 2020)](https://bit.ly/2YZw7sp)</div>
 (@) [Beiser-McGrath, Liam F.](http://www.liambeisermcgrath.com/), Thomas Bernauer, **Jaehyun Song**, and [Azusa Uji](https://www.azusa-uji.com/). 2021. "Understanding Public Support for Domestic Contributions to Global Collective Goods: Results from a survey experiment on carbon taxation in Japan." *Climatic Change,* 166:51. <div class="jay_btn">[Full-text](https://doi.org/10.1007/s10584-021-03137-6)</div>
 (@) **SONG Jaehyun**. 2021.「政治学における因果推論アプローチ」『文化情報学』15 (1・2): 36-43.
-(@) [Uji, Azusa](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and **Jaehyun Song**. 2021. "Does the "NIMBY syndrome" Undermine Public Support for Nuclear Power in Japan?" *Energy Policy,* 148 (A): 111944 <div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2020.111944) [Featured in *The Regulatory Review* (June 29, 2021)](https://bit.ly/38R8V3U)</div>
+(@) Uji, Azusa, [Aseem Prakash](http://aseemprakash.net/) and **Jaehyun Song**. 2021. "Does the "NIMBY syndrome" Undermine Public Support for Nuclear Power in Japan?" *Energy Policy,* 148 (A): 111944 <div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2020.111944) [Featured in *The Regulatory Review* (June 29, 2021)](https://bit.ly/38R8V3U)</div>
 
 ##### 2020
 
@@ -109,7 +109,7 @@ toc-depth: 5
 
 ##### 2024
 
-1. **[Scheduled]** [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). "Penalty or Premium of Foreign Ownership? Support for waste-to-energy plants," *American Political Science Association,* Philadelphia, PA: USA.
+1. **[Scheduled]** Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). "Penalty or Premium of Foreign Ownership? Support for waste-to-energy plants," *American Political Science Association,* Philadelphia, PA: USA.
 1. <u>Takahashi, Yuriko</u>, **Jaehyun Song**, and [Takeshi Iida](https://tiida.doshisha.ac.jp/). Mar. 30. 2024. "Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the "Hard-To-Reach" Populations," *Western Political Science Association,* Vancouver, BC: Canada.
 
 ##### 2023
@@ -122,7 +122,7 @@ toc-depth: 5
 1. <u>[秦正樹](http://hatam.sakura.ne.jp/)</u>・<u>[重村壮平](https://soheishigemura.com/)</u>・<u>**SONG Jaehyun**</u>. 2022年12月4日.「中点（Mid-point）選択のメカニズム：サーベイ実験による検証」公共選択学会. 於：名古屋市立大学
 1. <u>磯崎典世</u>・<u>**宋財泫**</u>. 2022年10月1日.「韓国における感情的分極化と投票参加」日本政治学会. 於：龍谷大学
 <div class="jay_btn">[Paper](https://drive.google.com/file/d/1ieW1W5qMBM2IeanKgawqndgcxCzvkfTc/view?usp=sharing) [Slide](https://www.jaysong.net/garage/2022/09/slide_jpsa.html) [Online Appendix](appendix/jpsa_2022.qmd)</div>
-1. [Uji, Azusa](https://www.azusa-uji.com/), **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [<u>Aseem Prakash</u>](http://aseemprakash.net/). Jun. 30, 2022. "Supply Chain Dimensions of Decarbonization: A Survey Experiment to Assess Local Support for Thacker Pass Lithium Mining," *Environmental Politics and Governance Conference,* University Park:PA, USA.
+1. Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [<u>Aseem Prakash</u>](http://aseemprakash.net/). Jun. 30, 2022. "Supply Chain Dimensions of Decarbonization: A Survey Experiment to Assess Local Support for Thacker Pass Lithium Mining," *Environmental Politics and Governance Conference,* University Park:PA, USA.
 1. **宋財泫**. 2022年3月17日.「原因と結果の政治学」関西大学法学会政治学研究会. 於：オンライン
 
 ##### 2021
