@@ -16,7 +16,6 @@ toc-depth: 5
 
 1. **[R&R]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
 1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
-1. **[R&R]** Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California. (w/ [Azusa Uji](https://www.azusa-uji.com/), [Aseem Prakash](http://aseemprakash.net/) and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. **[Under Review]** I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), Azusa Uji, and Takahiro Yamada)
 1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
@@ -41,6 +40,7 @@ toc-depth: 5
 
 ##### 2024
 
+(@) **[Accepted]** Uji, Azusa, Jaehyun Song, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). *forthcoming.* "Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California," *Energy Policy*.
 (@) **宋財泫.** 2024. 「投票率40%という「防衛ライン」と投票率86%という「理想」―義務投票制導入を巡る有権者の態度―」『研究双書―日本政治と自助・共助・公助』45-80.
 <div class="jay_btn">[Full-text](https://kansai-u.repo.nii.ac.jp/records/2001070)</div>
 (@) **宋財泫.** 2024. 「行財政改革に対する支持態度と共同体への負担」『情報研究』58: 1-13.
