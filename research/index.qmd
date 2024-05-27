@@ -40,7 +40,8 @@ toc-depth: 5
 
 ##### 2024
 
-(@) **[Accepted]** Uji, Azusa, Jaehyun Song, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). *forthcoming.* "Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California," *Energy Policy*.
+(@) Uji, Azusa, Jaehyun Song, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). 2024. "Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California," *Energy Policy*. 191: 114182.
+<div class="jay_btn">[Full-text](https://doi.org/10.1016/j.enpol.2024.114182)</div>
 (@) **宋財泫.** 2024. 「投票率40%という「防衛ライン」と投票率86%という「理想」―義務投票制導入を巡る有権者の態度―」『研究双書―日本政治と自助・共助・公助』45-80.
 <div class="jay_btn">[Full-text](https://kansai-u.repo.nii.ac.jp/records/2001070)</div>
 (@) **宋財泫.** 2024. 「行財政改革に対する支持態度と共同体への負担」『情報研究』58: 1-13.
