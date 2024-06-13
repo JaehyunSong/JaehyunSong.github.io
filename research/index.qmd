@@ -15,7 +15,7 @@ toc-depth: 5
 ### Work in Progress
 
 1. **[R&R]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
-1. **[Under Review]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
+1. **[R&R]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
 1. **[Under Review]** I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), Azusa Uji, and Takahiro Yamada)
 1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
@@ -54,14 +54,14 @@ toc-depth: 5
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0284208) [Replication](https://doi.org/10.7910/DVN/HM1KXT)</div>
 (@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). 2023. "Pursuing decarbonization along with national security: Assessing public support for the Thacker Pass lithium mine," *PLOS ONE.* 18(1): e0280720.
 <div class="jay_btn">[Full-text](https://doi.org/10.1371/journal.pone.0280720) [Replication](https://doi.org/10.7910/DVN/ATNUCY)</div>
-(@) Uji, Azusa, [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* Online first.
+(@) Uji, Azusa, [Sijeong Lim](https://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), and **Jaehyun Song**. 2023. "From Plastic to Peace: Overcoming Public Antipathy through Environmental Cooperation," *Journal of Peace Research.* 61 (2): 279-293.
 <div class="jay_btn">[Full-text](https://doi.org/10.1177/00223433221123369) [Replication](#)</div>
 
 ##### 2022
 
 (@) **Song, Jaehyun**, [Takeshi Iida](https://tiida.doshisha.ac.jp/), Yuriko Takahashi, and Jesús Tovar. 2022. "Buying Votes across Borders? A List Experiment on Mexican Immigrants in the US," *Canadian Journal of Political Science.* 18 (4): 852-872.
 <div class="jay_btn">[Full-text](https://www.doi.org/10.1017/S0008423922000567) [Working Paper](https://www.waseda.jp/fpse/winpec/public/working-paper/)</div>
-(@) [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Online first. 
+(@) [Iida, Takeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, José Luis Estrada, and Yuriko Takahashi. 2022. "Fake News and its Electoral Consequences: A Survey Experiment on Mexico," *AI & Society: Knowledge, Culture and Communication*. Open Forum.
 <div class="jay_btn">[Full-text](https://doi.org/10.1007/s00146-022-01541-9) [Replication Code](appendix/aiso_2022.qmd) [Replication Data](appendix/data/replication_data_aiso_2022.csv)</div>
 (@) **宋財泫**. 2022. 「国家間の「助け合い」はいかに実現されるか」『研究双書―自助・共助・公助の政治学』71-93. <div class="jay_btn">[Full-text](http://doi.org/10.32286/00026277)</div>
 
@@ -215,10 +215,10 @@ toc-depth: 5
 
 ### Invited Talks & Lectures
 
-1. **[予定]**「教育現場におけるJDCat分析ツールの活用」NIIオープンフォーラム2024（2024年6月）
-1. 「Qualtrics入門講座」早稲田大学（2018年6月）
-1. 「Qualtrics+Rによるコンジョイント分析の実施と分析」関西学院大学（2019年2月）
+1. 「教育現場におけるJDCat分析ツールの活用」NIIオープンフォーラム2024（2024年6月12日）
 1. 「Qualtrics講習会」高知工科大学（2020年12月）<span class="jay_btn">[Slide (学外用)](../tutorial/Qualtrics/Introduction_to_Qualtrics.pdf)</span>
+1. 「Qualtrics+Rによるコンジョイント分析の実施と分析」関西学院大学（2019年2月）
+1. 「Qualtrics入門講座」早稲田大学（2018年6月）
 
 ### Reports
 
