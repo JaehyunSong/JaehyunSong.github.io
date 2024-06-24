@@ -16,7 +16,7 @@ toc-depth: 5
 
 1. **[R&R]** Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections? (w/ [Tomohiro Ioku](https://sites.google.com/view/iokutomohiro/home) and Eiichiro Watamura)
 1. **[R&R]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
-1. **[Under Review]** I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), Azusa Uji, and Takahiro Yamada)
+1. **[R&R]** I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan (w/ [Sijeong Lim](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), Azusa Uji, and Takahiro Yamada)
 1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. Humanitarianism and accepting refugee (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
@@ -45,6 +45,7 @@ toc-depth: 5
 (@) **宋財泫.** 2024. 「投票率40%という「防衛ライン」と投票率86%という「理想」―義務投票制導入を巡る有権者の態度―」『研究双書―日本政治と自助・共助・公助』45-80.
 <div class="jay_btn">[Full-text](https://kansai-u.repo.nii.ac.jp/records/2001070)</div>
 (@) **宋財泫.** 2024. 「行財政改革に対する支持態度と共同体への負担」『情報研究』58: 1-13.
+<div class="jay_btn">[Full-text](https://kansai-u.repo.nii.ac.jp/records/2001455)</div>
 
 ##### 2023
 
@@ -207,7 +208,7 @@ toc-depth: 5
 
 ### Discussant
 
-1. **[予定]** **SONG Jaehyun**. 2024年6月22日「討論：自由論題A（社会的動乱と分極化のメカニズムを探る）」日本比較政治学会2024年度大会. 於：立命館大学
+1. **SONG Jaehyun**. 2024年6月22日「討論：自由論題A（社会的動乱と分極化のメカニズムを探る）」日本比較政治学会2024年度大会. 於：立命館大学
 1. **SONG Jaehyun**. 2023年9月17日「討論：企画委員会企画（疎外の時代の市民社会に関する実証的検討）」日本政治学会2023年度大会. 於：明治大学
 1. **SONG Jaehyun**. 2022年5月7日「討論：方法論部会（多様な政治参加の形態と先端的方法）」日本選挙学会2022年度大会. 於：石川県文教会館・金沢商工会議所会館
 1. **SONG Jaehyun**. 2021年6月27日「討論：自由論題E（比較政治学における量的方法）」日本比較政治学会2021年度大会. 於：オンライン
