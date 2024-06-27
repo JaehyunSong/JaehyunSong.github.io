@@ -1,6 +1,6 @@
 ---
 title: "ロジスティック回帰分析による分類と可視化・評価"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 toc: true
 ---

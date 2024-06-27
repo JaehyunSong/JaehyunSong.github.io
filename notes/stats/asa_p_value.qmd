@@ -1,6 +1,6 @@
 ---
 title: "The ASA’s statement on p-values [日本語まとめ]"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 toc: true
 ---

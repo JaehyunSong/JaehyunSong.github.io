@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.556">
+<meta name="generator" content="quarto-1.5.49">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jaehyun Song, Ph.D.&nbsp;- 一致性・不偏性・効率性</title>
+<title>一致性・不偏性・効率性 – Jaehyun Song, Ph.D.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -171,7 +171,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="サーチ"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -238,7 +238,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -265,7 +265,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">作成日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年8月29日</p>
+      <p class="date">2024年6月27日</p>
     </div>
   </div>
   
@@ -365,7 +365,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 <h2 class="anchored" data-anchor-id="不偏性とは">不偏性とは</h2>
 <p>　一致性と混同されやすい概念が「不偏性（unbiasedness）」です。これは推定値<span class="math inline">\(\hat{\theta}\)</span>の<strong>期待値</strong>が母数<span class="math inline">\(\theta\)</span>と一致することを意味します。数式で表すと<span class="math inline">\(\mathbb{E}[\hat{\theta}] = \theta\)</span>であり、一致性と違って、サンプルサイズ（<span class="math inline">\(n\)</span>）とは無関係な性質です。</p>
 <p>　たとえば、<span class="math inline">\(\mu = 0\)</span>、<span class="math inline">\(\sigma = 100\)</span>の正規分布から独立的に5個の値を抽出します（<span class="math inline">\(n = 5\)</span>）。そして、この5個の値の平均値（<span class="math inline">\(\bar{X}\)</span>）を計算します。この作業を1万回繰り返したいと思います。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-5_5774f71bfbf76f64aed960d8bbe9a11d">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Trial =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">X1    =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="dv">0</span>, <span class="dv">100</span>),</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">X2    =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="dv">0</span>, <span class="dv">100</span>),</span>
@@ -387,7 +387,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 </div>
 </div>
 <p>　それでは<span class="math inline">\(X_1\)</span>から<span class="math inline">\(X_5\)</span>までの平均値を計算します。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-6_40e8516d491581d7e4157d1f16e8226d">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">X_bar =</span> (X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4 <span class="sc">+</span> X5) <span class="sc">/</span> <span class="dv">5</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -405,7 +405,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 </div>
 </div>
 <p>　この<span class="math inline">\(\bar{X}\)</span>の平均値（<span class="math inline">\(\bar{\bar{X}}\)</span>）、つまり<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>はどうでしょうか。厳密には<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>ではありませんが、試行回数が無限回となると<span class="math inline">\(\mathbb{E}[\bar{X}]\)</span>となります。試行回数1万は十分多いと考えられるので、期待値に近い結果が得られると考えられます。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-7_0d0f1e28939c4c748b1dfd80bdcfaeb7">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>X_bar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.09291811</code></pre>
@@ -419,7 +419,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
   Y_2 &amp; = \frac{1}{9}(X_1 + 2 \cdot X_2 + 3 \cdot X_3 + 2 \cdot X_4 + X+5).
 \end{eqnarray}
 \]</span></p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-8_5d092045d068f0be6bb6d375ebc38c39">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Y1 =</span> X3,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Y2 =</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>) <span class="sc">*</span> (X1 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> X2 <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> X3 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> X4 <span class="sc">+</span> X5))</span>
@@ -489,7 +489,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 </div>
 </div>
 <p>　どれも母分散に非常に近い値が得られており、<span class="math inline">\(n\)</span>を無限にすると母分散に一致すると予想されます。したがって、<span class="math inline">\(s^2 \overset{p}{\rightarrow} \sigma^2\)</span>、<span class="math inline">\(\hat{\sigma}^2 \overset{p}{\rightarrow} \sigma^2\)</span>であり、どれも一致推定量であることが分かります。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-12_532f1780cbd09e96e58384cf82e2dc21">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Trial =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>,</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">X1    =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="dv">0</span>, <span class="dv">100</span>),</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">X2    =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="dv">0</span>, <span class="dv">100</span>),</span>
@@ -534,7 +534,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 <li><span class="math inline">\(|X_i| = \max{(|X_1|, |X_2|, |X_3|, ..., |X_i|, ..., |X_n|)}\)</span>の場合、<span class="math inline">\(\hat{\theta} = X_i\)</span></li>
 </ol>
 <p>　要するに、絶対値の最も高かった値を<span class="math inline">\(\theta\)</span>の推定量（<span class="math inline">\(\hat{\theta}\)</span>）として用いることを意味します。この場合、<span class="math inline">\(\hat{\theta}\)</span>は一致推定量でしょうか。<span class="math inline">\(n\)</span>を1から1000まで増やしながら確認してみましょう。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-14_98f88952c06dab8d82f7a0bd9fee6ee2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>theta_hat_vec <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">1000</span>) <span class="co"># 長さ1000の空ベクトルを作成</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {            <span class="co"># iを1から1000へ増やしながら反復</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  temp_vec <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(i, <span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># N(0, 100)からi個の乱数を抽出し、temp_vecに格納</span></span>
@@ -556,7 +556,7 @@ X_1, X_2, X_3, ..., X_n \overset{\text{iid}}{\sim} N(0, 100).
 </div>
 </div>
 <p>　このように<span class="math inline">\(n\)</span>をいくら増やしても<span class="math inline">\(\hat{\theta}\)</span>は母数である0へ収束しないことが分かります。つまり、この推定量は一致推定量ではありません。それでは、この推定量は不偏推定量でしょうか。ここでは話を単純にするために<span class="math inline">\(n = 3\)</span>の例を考えてみましょう。不偏性はサンプルサイズ（<span class="math inline">\(n\)</span>）と無関係ですので、これでも問題ないでしょう。試行数は100万とします。</p>
-<div class="cell" data-hash="consistency_cache/html/unnamed-chunk-15_ad46a8d05f30e65104e2d6188e23682f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># シミュレーション用のデータを作成</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Trial =</span> <span class="fu">paste0</span>(<span class="st">"Trial"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">1000000</span>),</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">X1    =</span> <span class="fu">rnorm</span>(<span class="dv">1000000</span>, <span class="dv">0</span>, <span class="dv">100</span>),</span>
@@ -775,18 +775,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -818,7 +807,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
@@ -826,7 +837,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

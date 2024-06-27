@@ -1,6 +1,6 @@
 ---
 title: "JASP入門: JASPの入手・インストール"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "JASP入門: t検定"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

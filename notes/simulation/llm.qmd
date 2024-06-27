@@ -1,6 +1,6 @@
 ---
 title: "大数の法則"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

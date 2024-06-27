@@ -1,6 +1,6 @@
 ---
 title: "JASP入門: 一元配置分散分析 (ANOVA)"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

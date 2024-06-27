@@ -1,6 +1,6 @@
 ---
 title: "JASP入門: 相関分析"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

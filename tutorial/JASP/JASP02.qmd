@@ -1,6 +1,6 @@
 ---
 title: "JASP入門: データの読み込み"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

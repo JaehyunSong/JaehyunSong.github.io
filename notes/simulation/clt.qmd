@@ -1,6 +1,6 @@
 ---
 title: "中心極限定理"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

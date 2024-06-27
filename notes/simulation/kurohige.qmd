@@ -1,6 +1,6 @@
 ---
 title: "黒ひげ危機一発"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 

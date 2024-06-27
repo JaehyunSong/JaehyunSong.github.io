@@ -1,6 +1,6 @@
 ---
 title: "JASP入門講座"
-date: "`r Sys.Date()`"
+date: today
 link-external-newwindow: true
 ---
 
