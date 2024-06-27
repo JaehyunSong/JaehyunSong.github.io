@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.330">
+<meta name="generator" content="quarto-1.5.49">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jaehyun Song, Ph.D.&nbsp;- オブジェクト指向型プログラミング入門</title>
+<title>オブジェクト指向型プログラミング入門 – Jaehyun Song, Ph.D.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,12 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -96,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "サーチ"
@@ -129,7 +131,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -140,7 +142,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     </a>
   </div>
             <div id="quarto-search" class="" title="サーチ"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -207,7 +209,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -257,7 +259,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">作成日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年8月29日</p>
+      <p class="date">2024年6月27日</p>
     </div>
   </div>
   
@@ -267,6 +269,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 
 </header>
+
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">はじめに</h2>
@@ -324,10 +327,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>　データの中身は変わっていませんが、<code>summary()</code>関数の動き方が変わりました。このように、Rで頻繁に使う<code>summary()</code>、<code>print()</code>、<code>plot()</code>などの関数は様々なクラスの対応しております。<code>lm()</code>関数を使った回帰分析の結果オブジェクトのクラス名は<code>lm</code>であり、その結果を見るためにも<code>summary()</code>関数を使います。他にも<code>plot(lmオブジェクト名)</code>をすると回帰診断の図が表示されます。これができないと、各クラスに応じた関数を作成する必要がありますね。numeric型専用の<code>numeric_print()</code>、character型専用の<code>character_print()</code>、lm型専用の<code>lm_plot()</code>など…、覚えなきゃいけない関数が増えてきます。ユーザー側でも大変ですが、コードを作成する側も大変です。実際、<a href="#fig-HardestTasks" class="quarto-xref">図&nbsp;1</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>を見ると、プログラマーにとって最も大変な仕事は「名付け」であることが分かります。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-HardestTasks" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">図&nbsp;1: Programmers’ Hardest Tasks</figcaption>
+<div id="fig-HardestTasks" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-HardestTasks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://images.techhive.com/images/idge/imported/article/itw/2013/10/23/programmers_hardest_tasks-600x700-100521914-orig.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-HardestTasks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;1: Programmers’ Hardest Tasks
+</figcaption>
 </figure>
 </div>
 </div>
@@ -462,7 +469,7 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (object, ...) 
 UseMethod("summary")
-&lt;bytecode: 0x1403bb3b8&gt;
+&lt;bytecode: 0x122ec4aa8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -521,7 +528,7 @@ UseMethod("summary")
     class(value) &lt;- c("summaryDefault", "table")
     value
 }
-&lt;bytecode: 0x1403ba970&gt;
+&lt;bytecode: 0x122ec7f70&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -574,12 +581,12 @@ UseMethod("summary")
 <span id="cb40-15"><a href="#cb40-15"></a>My_Score1 <span class="co"># My_Score1の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 49.52632 48.70059 37.48636 60.30512 54.56408 29.13396 76.08165 59.19741
- [9] 55.12367 56.19174
+ [1] 41.29945 42.37632 52.85468 34.55100 55.58491 50.25231 56.71928 53.55617
+ [9] 55.34780 69.99906
 
 $Score2
- [1] 48.41803 44.38909 45.43381 56.93790 36.98046 47.82416 48.68404 46.20630
- [9] 49.53879 42.20426
+ [1] 44.11700 50.28328 49.57434 37.60340 47.11708 54.99739 44.67372 46.98428
+ [9] 54.22989 32.61910
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -605,12 +612,12 @@ attr(,"class")
 <span id="cb44-12"><a href="#cb44-12"></a>My_Score2 <span class="co"># My_Score2の内部を見る</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Score1
- [1] 53.00339 72.12031 31.31356 65.92308 45.48152 54.02810 64.31770 55.71089
- [9] 51.42093 62.37281
+ [1] 40.49204 51.44093 51.20843 55.08347 48.31871 54.47846 53.38779 55.99094
+ [9] 46.85973 45.16676
 
 $Score2
- [1] 60.87286 55.88274 41.71335 35.35589 50.09007 53.63045 55.53709 47.62616
- [9] 39.57549 43.14708
+ [1] 38.13494 55.97089 60.51660 54.35110 52.18922 42.35497 55.76014 41.05788
+ [9] 63.52387 44.06512
 
 attr(,"class")
 [1] "Score"</code></pre>
@@ -641,8 +648,8 @@ attr(,"class")
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">mean</span>(My_Score1) <span class="co"># Scoreクラスのメソッドであるmean()を使う</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 52.63109
-[1] 46.66168</code></pre>
+<pre><code>[1] 51.2541
+[1] 46.21995</code></pre>
 </div>
 </div>
 <p>　<code>mean(c(1, 3, 5, 7, 9, 11))</code>は引数がnumeric型ベクトルであるため、既存の<code>mean()</code>関数が使用されます。一方、<code>mean(My_Score1)</code>は引数がScoreクラスであるため、<code>mean.Score()</code>が使用されます。このように<code>mean_Score()</code>のような別途の関数を作る必要なく、既存の関数名が利用できます。実際、<code>methods(mean)</code>を実行すると、Scoreクラスのメソッドとして<code>mean()</code>関数が用意されたことを確認できます。</p>
@@ -720,8 +727,8 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">my_func</span>(My_Score1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 52.63109
-[1] 46.66168</code></pre>
+<pre><code>[1] 51.2541
+[1] 46.21995</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">my_func</span>(My_Cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -817,12 +824,12 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 4
  $ data    :'data.frame':   20 obs. of  2 variables:
-  ..$ x: num [1:20] 2.78 1.74 2.3 1.98 2.07 ...
-  ..$ y: num [1:20] 172 169 152 164 175 ...
+  ..$ x: num [1:20] 1.64 2.12 2.22 1.77 1.6 ...
+  ..$ y: num [1:20] 151 165 171 161 167 ...
  $ var_name: chr [1:2] "1日当たりゲーム時間" "身長"
- $ cor     : Named num 0.213
+ $ cor     : Named num 0.278
   ..- attr(*, "names")= chr "cor"
- $ cor_ci  : num [1:2] -0.254 0.599
+ $ cor_ci  : num [1:2] -0.188 0.641
   ..- attr(*, "conf.level")= num 0.95
  - attr(*, "class")= chr "My_Cor_Object"</code></pre>
 </div>
@@ -832,21 +839,21 @@ see '?methods' for accessing help and source code</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">print</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 2.005
-身長の平均値: 162.638
-相関係数: 0.213 [-0.254, 0.599]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 1.996
+身長の平均値: 165.685
+相関係数: 0.278 [-0.188, 0.641]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">summary</span>(Cor_Obj) <span class="co"># summary()はprint()と同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1日当たりゲーム時間の平均値: 2.005
-身長の平均値: 162.638
-相関係数: 0.213 [-0.254, 0.599]</code></pre>
+<pre><code>1日当たりゲーム時間の平均値: 1.996
+身長の平均値: 165.685
+相関係数: 0.278 [-0.188, 0.641]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">plot</span>(Cor_Obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="opp_intro_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="opp_intro_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -953,14 +960,14 @@ see '?methods' for accessing help and source code</code></pre>
 </section>
 
 
-<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>図の出典は<a href="https://www.itworld.com/article/2833265/don-t-go-into-programming-if-you-don-t-have-a-good-thesaurus.html">IT WORLD</a>です (アクセス: 2020-05-21)。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>逆に特定のクラスで使用可能なメソッドを確認するときは<code>methods(class = "クラス名")</code>を入力します。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>ただし、実際の場合、<code>[</code>や<code>[&lt;-</code>などは<code>tbl</code>または<code>tbl_df</code>用のメソッドが別途用意されています。<code>data.frame</code>クラスから継承されているメソッドとしては<code>dim()</code>や<code>t()</code>などがあります。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside></div></main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1140,18 +1147,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1183,7 +1179,52 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1218,7 +1259,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1233,15 +1278,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1250,7 +1308,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1292,6 +1358,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1367,7 +1456,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -1447,20 +1535,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -1470,7 +1544,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+<p>Copyright 2024, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

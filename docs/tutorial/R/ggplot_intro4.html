@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.330">
+<meta name="generator" content="quarto-1.4.556">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -101,12 +102,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -115,6 +117,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "サーチ"
@@ -130,8 +133,35 @@ gtag('js', new Date());
 gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
@@ -150,7 +180,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -302,6 +332,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 </header>
 
+
 <section id="visual4-intro" class="level2">
 <h2 class="anchored" data-anchor-id="visual4-intro">概要</h2>
 <p>　<a href="../../tutorial/R/ggplot_intro1.html">理論編</a>では{ggplot2}の仕組みについて、<a href="../../tutorial/R/ggplot_intro2.html">基礎編</a>ではよく使われる5種類のプロット（棒グラフ、散布図、折れ線グラフ、箱ひげ図、ヒストグラム）の作り方を、<a href="../../tutorial/R/ggplot_intro3.html">応用編</a>ではスケール、座標系などの操作を通じたグラフの見た目調整について解説しました。本記事では<a href="../../tutorial/R/ggplot_intro2.html">基礎編</a>の延長線上に位置づけることができ、紹介しきれなかった様々なグラフの作り方について簡単に解説します。本記事で紹介するグラフは以下の通りです。</p>
@@ -337,7 +368,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -347,7 +378,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -357,7 +388,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -367,7 +398,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -386,7 +417,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -407,7 +438,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-violin6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-violin6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -422,7 +453,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-rug1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-rug1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -433,7 +464,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-rug2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-rug2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -444,7 +475,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-rug3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-rug3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -455,7 +486,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-rug4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-rug4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -466,7 +497,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-rug5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-rug5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -488,7 +519,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -507,7 +538,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -533,7 +564,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -555,7 +586,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -576,7 +607,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -600,7 +631,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -625,7 +656,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -647,7 +678,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-ridge9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-ridge9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -706,7 +737,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -762,7 +793,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -783,7 +814,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage10-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -812,7 +843,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage11-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-pointrage11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -833,7 +864,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -857,7 +888,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -880,7 +911,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -907,7 +938,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -933,7 +964,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-lollipop5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -954,7 +985,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -973,7 +1004,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -991,7 +1022,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1009,7 +1040,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1027,7 +1058,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1047,7 +1078,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1068,7 +1099,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-smooth7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-smooth7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1093,7 +1124,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-text-1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-text-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1107,7 +1138,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-text-2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-text-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1120,7 +1151,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-text-3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-text-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1143,7 +1174,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-text-4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-text-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1160,7 +1191,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-text-5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-text-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1252,7 +1283,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1271,7 +1302,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1330,7 +1361,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-heatmap6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1350,7 +1381,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-contour1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-contour1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1366,7 +1397,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-contour2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-contour2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1382,7 +1413,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-contour3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-contour3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1399,7 +1430,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-contour4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-contour4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1416,7 +1447,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-contour5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-contour5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1428,7 +1459,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ggplot_intro4_files/figure-html/visual4-contour6-1.png" class="img-fluid figure-img" width="2100"></p>
-<figcaption class="figure-caption">{RColorBrewer}が提供するパレート一覧</figcaption>
+<figcaption>{RColorBrewer}が提供するパレート一覧</figcaption>
 </figure>
 </div>
 </div>
@@ -1461,7 +1492,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1479,7 +1510,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1497,7 +1528,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1516,7 +1547,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1532,7 +1563,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1566,7 +1597,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1584,7 +1615,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map10-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1598,7 +1629,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map11-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1618,7 +1649,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map13-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1856,7 +1887,7 @@ First 10 features:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map18-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1888,7 +1919,7 @@ First 10 features:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map21-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1935,7 +1966,7 @@ First 10 features:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-map24-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-map24-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1949,7 +1980,7 @@ First 10 features:
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-dag1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-dag1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2008,7 +2039,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-dag5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-dag5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2021,7 +2052,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-dag6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-dag6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2061,7 +2092,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-dag9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-dag9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2084,7 +2115,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-dag10-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-dag10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2148,7 +2179,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-bump5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-bump5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2163,7 +2194,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-bump6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-bump6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2179,7 +2210,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-bump7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-bump7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2197,7 +2228,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-bump8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-bump8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2229,7 +2260,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-bump9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-bump9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2273,7 +2304,7 @@ Z -&gt; Y
 20    20 政党A  政党A </code></pre>
 </div>
 </div>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">変数名</th>
@@ -2338,7 +2369,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2354,7 +2385,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2370,7 +2401,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2388,7 +2419,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2407,7 +2438,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-alluvial9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2430,7 +2461,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2445,7 +2476,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2461,7 +2492,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2482,7 +2513,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2507,7 +2538,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2540,7 +2571,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-tree7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-tree7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2601,7 +2632,7 @@ Z -&gt; Y
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic6-1.png" class="img-fluid figure-img" width="1500"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1500"></p>
 </figure>
 </div>
 </div>
@@ -2624,7 +2655,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic7-1.png" class="img-fluid figure-img" width="1500"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1500"></p>
 </figure>
 </div>
 </div>
@@ -2643,7 +2674,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic8-1.png" class="img-fluid figure-img" width="1500"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1500"></p>
 </figure>
 </div>
 </div>
@@ -2663,7 +2694,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic9-1.png" class="img-fluid figure-img" width="2400"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400"></p>
 </figure>
 </div>
 </div>
@@ -2683,7 +2714,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic10-1.png" class="img-fluid figure-img" width="2400"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400"></p>
 </figure>
 </div>
 </div>
@@ -2703,7 +2734,7 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic11-1.png" class="img-fluid figure-img" width="2700"></p>
+<p><img src="ggplot_intro4_files/figure-html/visual4-mosaic11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2700"></p>
 </figure>
 </div>
 </div>
@@ -2718,14 +2749,14 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Hargian_Kleiner:1984" class="csl-entry" role="listitem">
 Hartigan, J. A., と Beat Kleiner. 1984. <span>「A Mosaic of Television Ratings」</span>. <em>The American Statistician</em> 38: 32–35.
 </div>
 <div id="ref-Heer_Bostock:2010" class="csl-entry" role="listitem">
 Heer, Jeffrey, と Michael Bostock. 2010. <span>「Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design」</span>. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>.
 </div>
-</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>最後の<code>_c</code>はマッピングする変数（ここでは<code>HDI_2018</code>）が連続変数（<strong>c</strong>ontinuous）であることを意味します。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -2734,7 +2765,7 @@ Heer, Jeffrey, と Michael Bostock. 2010. <span>「Crowdsourcing Graphical Perce
 <li id="fn4"><p>今回の例だと、<code>label</code>も<code>ggplot()</code>内部でマッピング可能です。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>他にも<strong>縦</strong>軸のみ共有する<code>"free_x"</code>、横軸のみ共有する<code>"free_y"</code>があり、既定値は<code>"fixed"</code>です。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside></div></main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -2958,6 +2989,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -2992,7 +3046,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -3007,15 +3065,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -3024,7 +3095,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -3066,6 +3145,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -3141,7 +3243,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -3221,20 +3322,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -3244,7 +3331,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+<p>Copyright 2024, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

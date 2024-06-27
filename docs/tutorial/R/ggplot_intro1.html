@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.330">
+<meta name="generator" content="quarto-1.4.556">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -101,12 +102,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -115,6 +117,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "サーチ"
@@ -132,8 +135,35 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
@@ -152,7 +182,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -301,12 +331,18 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 </header>
 
+
 <section id="visual-packages" class="level2">
 <h2 class="anchored" data-anchor-id="visual-packages">可視化のためのパッケージ</h2>
 <p>Rによる可視化は様々な方法がありますが、可視化のために使うパッケージとして代表的なものは (1) パッケージを使わない方法、(2) {lattice}パッケージ、(3) {ggplot2}パッケージがあります。ここでは、以下のデータ ( <a href="#tbl-visual1-sampledata" class="quarto-xref">表&nbsp;1</a> )を可視化しながら、それぞれの特徴について簡単に解説します。</p>
 <div class="cell" data-layout-align="center">
+<div id="tbl-visual1-sampledata" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-sampledata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;1: サンプルデータの最初の10行
+</figcaption>
+<div aria-describedby="tbl-visual1-sampledata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-visual1-sampledata" class="anchored">
 <div id="zqtxdawrvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#zqtxdawrvn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -747,63 +783,84 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>表&nbsp;1:  <p>サンプルデータの最初の10行</p> </caption>
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Country">Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="PPP">PPP</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="HDI">HDI</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OECD">OECD</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Country" class="gt_row gt_left">Afghanistan</td>
-<td headers="PPP" class="gt_row gt_right">2125</td>
-<td headers="HDI" class="gt_row gt_right">0.496</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Albania</td>
-<td headers="PPP" class="gt_row gt_right">13781</td>
-<td headers="HDI" class="gt_row gt_right">0.791</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Algeria</td>
-<td headers="PPP" class="gt_row gt_right">11324</td>
-<td headers="HDI" class="gt_row gt_right">0.759</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Angola</td>
-<td headers="PPP" class="gt_row gt_right">6649</td>
-<td headers="HDI" class="gt_row gt_right">0.574</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Argentina</td>
-<td headers="PPP" class="gt_row gt_right">22938</td>
-<td headers="HDI" class="gt_row gt_right">0.830</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Armenia</td>
-<td headers="PPP" class="gt_row gt_right">12974</td>
-<td headers="HDI" class="gt_row gt_right">0.760</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Australia</td>
-<td headers="PPP" class="gt_row gt_right">50001</td>
-<td headers="HDI" class="gt_row gt_right">0.938</td>
-<td headers="OECD" class="gt_row gt_center">加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Austria</td>
-<td headers="PPP" class="gt_row gt_right">55824</td>
-<td headers="HDI" class="gt_row gt_right">0.914</td>
-<td headers="OECD" class="gt_row gt_center">加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Azerbaijan</td>
-<td headers="PPP" class="gt_row gt_right">14257</td>
-<td headers="HDI" class="gt_row gt_right">0.754</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-    <tr><td headers="Country" class="gt_row gt_left">Bahrain</td>
-<td headers="PPP" class="gt_row gt_right">43624</td>
-<td headers="HDI" class="gt_row gt_right">0.838</td>
-<td headers="OECD" class="gt_row gt_center">非加盟国</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th id="PPP" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">PPP</th>
+<th id="HDI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">HDI</th>
+<th id="OECD" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">OECD</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Country">Afghanistan</td>
+<td class="gt_row gt_right" headers="PPP">2125</td>
+<td class="gt_row gt_right" headers="HDI">0.496</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Country">Albania</td>
+<td class="gt_row gt_right" headers="PPP">13781</td>
+<td class="gt_row gt_right" headers="HDI">0.791</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Country">Algeria</td>
+<td class="gt_row gt_right" headers="PPP">11324</td>
+<td class="gt_row gt_right" headers="HDI">0.759</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Country">Angola</td>
+<td class="gt_row gt_right" headers="PPP">6649</td>
+<td class="gt_row gt_right" headers="HDI">0.574</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Country">Argentina</td>
+<td class="gt_row gt_right" headers="PPP">22938</td>
+<td class="gt_row gt_right" headers="HDI">0.830</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Country">Armenia</td>
+<td class="gt_row gt_right" headers="PPP">12974</td>
+<td class="gt_row gt_right" headers="HDI">0.760</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Country">Australia</td>
+<td class="gt_row gt_right" headers="PPP">50001</td>
+<td class="gt_row gt_right" headers="HDI">0.938</td>
+<td class="gt_row gt_center" headers="OECD">加盟国</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Country">Austria</td>
+<td class="gt_row gt_right" headers="PPP">55824</td>
+<td class="gt_row gt_right" headers="HDI">0.914</td>
+<td class="gt_row gt_center" headers="OECD">加盟国</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Country">Azerbaijan</td>
+<td class="gt_row gt_right" headers="PPP">14257</td>
+<td class="gt_row gt_right" headers="HDI">0.754</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Country">Bahrain</td>
+<td class="gt_row gt_right" headers="PPP">43624</td>
+<td class="gt_row gt_right" headers="HDI">0.838</td>
+<td class="gt_row gt_center" headers="OECD">非加盟国</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</figure>
 </div>
 </div>
 <p>このデータは各国 (<code>Country</code>) の一人当たり購買力平価基準GDP (<code>PPP</code>)、人間開発指数 (<code>HDI</code>)、OECD加盟有無 (<code>OECD</code>)の変数で構成されています。このデータを使って横軸は<code>PPP</code>、縦軸は<code>HDI</code>とし、<code>OECD</code>の値によって色分けしたグラフを作成します。</p>
@@ -820,10 +877,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>), </span>
 <span id="cb1-7"><a href="#cb1-7"></a>       <span class="at">col    =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-baser" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid figure-img" width="1800"></p>
-<figcaption class="figure-caption">図&nbsp;1: Base Rによるグラフ</figcaption>
+<div id="fig-visual1-baser" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-baser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-baser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;1: Base Rによるグラフ
+</figcaption>
 </figure>
 </div>
 </div>
@@ -846,10 +907,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb2-10"><a href="#cb2-10"></a>                  <span class="at">text      =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"加盟国"</span>, <span class="st">"非加盟国"</span>))), </span>
 <span id="cb2-11"><a href="#cb2-11"></a>       <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid figure-img" width="1800"></p>
-<figcaption class="figure-caption">図&nbsp;2: {lattice}によるグラフ</figcaption>
+<div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-lattice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-lattice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;2: {lattice}によるグラフ
+</figcaption>
 </figure>
 </div>
 </div>
@@ -868,10 +933,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb3-5"><a href="#cb3-5"></a>       <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid figure-img" width="1800"></p>
-<figcaption class="figure-caption">図&nbsp;3: {ggplot2}によるグラフ</figcaption>
+<div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;3: {ggplot2}によるグラフ
+</figcaption>
 </figure>
 </div>
 </div>
@@ -910,10 +979,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>このデータ<code>df</code>を使って <a href="#fig-visual1-ggplot-image-2" class="quarto-xref">図&nbsp;4</a> のようなグラフを作成します。以下では作図のコードも載っていますが、詳しく理解しなくても結構です。理解しなくてもいいですが、必ずコードには目を通し、説明文との対応を自分で考えてください。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-2_2bc3ef17e81fe749977edda75b5049b9">
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;4: 鉄道駅の事業者区分による平均利用者数の推移</figcaption>
+<div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;4: 鉄道駅の事業者区分による平均利用者数の推移
+</figcaption>
 </figure>
 </div>
 </div>
@@ -927,10 +1000,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-3_d1a3d3ec0a3e66ad4293803b5d0117ed">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;5: 第1層: データとキャンバスの用意</figcaption>
+<div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;5: 第1層: データとキャンバスの用意
+</figcaption>
 </figure>
 </div>
 </div>
@@ -942,10 +1019,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング</figcaption>
+<div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;6: 第2層: 幾何オブジェクト (折れ線グラフ) の指定とマッピング
+</figcaption>
 </figure>
 </div>
 </div>
@@ -959,10 +1040,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1),  <span class="co">#&lt;</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>)         <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング</figcaption>
+<div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;7: 第3層: 幾何オブジェクト (散布図) の指定とマッピング
+</figcaption>
 </figure>
 </div>
 </div>
@@ -977,10 +1062,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb8-4"><a href="#cb8-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;8: ラベルの修</figcaption>
+<div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;8: ラベルの修
+</figcaption>
 </figure>
 </div>
 </div>
@@ -996,10 +1085,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
 <span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;9: スケールの修正</figcaption>
+<div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;9: スケールの修正
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1016,10 +1109,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;10: 見た目の調整</figcaption>
+<div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-image-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-image-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;10: 見た目の調整
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1027,10 +1124,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>これで図が出来上がりました。このように{ggplot2}では図の要素をレイヤーと捉えます。このレイヤーを生成する関数が<code>ggplot()</code>、<code>geom_line()</code>、<code>lab()</code>などであり、これらを<code>+</code>演算子を用いて重ねていきます。このイメージを図にすると <a href="#fig-visual1-ggplot-layer" class="quarto-xref">図&nbsp;11</a> のように表現できます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-layer_368243b11ca82ccc40e6750d87ea7ba5">
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/Layer_Example.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<figcaption class="figure-caption">図&nbsp;11: {ggplot2}の図が出来上がるまで (全体像)</figcaption>
+<div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/Layer_Example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;11: {ggplot2}の図が出来上がるまで (全体像)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1048,10 +1149,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>{ggplot2}の図は以上の3つ要素を重ねることで出来ます（ <a href="#fig-visual1-ggplot-structure-1" class="quarto-xref">図&nbsp;12</a> ）。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-structure-1_c1406b8e7486148c2de1f241ef2aa5b6">
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">図&nbsp;12: {ggplot2}の構造の例</figcaption>
+<div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-ggplot-structure-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-ggplot-structure-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;12: {ggplot2}の構造の例
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1096,9 +1201,13 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>マッピングに必要な変数、つまり<code>aes()</code>に必要な引数は幾何オブジェクトによって異なります。散布図や折れ線グラフならX軸とY軸の情報が必須であるため、2つ必要です (<code>x</code>と<code>y</code>)。ヒストグラムは連続変数の度数分布表を自動的に作成してからグラフが作られるから1つが必要です (<code>x</code>)。また、等高線図の場合、高さの情報も必要なので3つの変数が必要です (<code>x</code>と<code>y</code>、<code>z</code>)。これらの引数は必ず指定する必要があります。</p>
 <p>以上の引数に加え、追加のマッピング情報を入れることも可能です。たとえば、鉄道事業者ごとの平均利用者数を時系列で示した最初の例を考えてみましょう。これは折れ線グラフですので、<code>mapping = aes(x = 年度, y = 利用者数)</code>までは必須です。しかし、この図にはもう一つの情報がありますね。それは事業者のタイプです。事業者のタイプごとに線の色を変えたい場合は、<code>aes()</code>内に<code>color = 事業者のタイプ</code>を、線の種類を変えたい場合は、<code>linetype = 事業者のタイプ</code>のように引数を追加します。こうすると2次元のプロットに3次元の情報 (年度、利用者数、事業者タイプ)を乗せることが可能です。むろん、4次元以上にすることも可能です。たとえば、地域ごとに異なる色を、事業者タイプごとに異なる線のタイプを指定する場合は、<code>mapping = aes(x = 年度, y = 利用者数, color = 地域, linetype = 事業者のタイプ)</code>のように指定します。<code>color</code>や<code>linetype</code>以外にも大きさ (<code>size</code>)、透明度 (<code>alpha</code>)、点のタイプ (<code>shape</code>)、面の色 (<code>fill</code>)などを指定することができます。</p>
 <p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> です。</p>
-<div id="tbl-visual1-mapping-1" class="anchored">
-<table class="table">
-<caption>表&nbsp;2: <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピング情報</caption>
+<div id="tbl-visual1-mapping-1" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-mapping-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;2: <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピング情報
+</figcaption>
+<div aria-describedby="tbl-visual1-mapping-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">幾何オブジェクト</th>
@@ -1147,6 +1256,8 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>先ほどマッピング引数は幾何オブジェクト関数内で指定すると言いましたが、実は<code>ggplot()</code>内に入れ、<code>geom_*()</code>内では省略することも可能です。幾何オブジェクトが1つのみならどっちでも問題ありません。しかし、幾何オブジェクトが2つ以上の場合は注意が必要です。全ての幾何オブジェクトがマッピングを共有する場合は<code>ggplot()</code>の方が書く手間が省きます。たとえば、<a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> を見ると、<code>geom_line()</code>と<code>geom_point()</code>は<code>x</code>、<code>y</code>、<code>color</code>引数の値が同じですから、<code>ggplot()</code>内に<code>aes()</code>を入れることも可能です。しかし、幾何オブジェクトがマッピングを共有しない場合は幾何オブジェクト関数内に別途指定する必要があります。あるいは、共有するところだけ、<code>ggplot()</code>に書いて、共有しない部分だけ幾何オブジェクトで指定することも可能です。したがって、上の図は以下のコードでも作成することができます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-2_f55f144f6c0e8fdbe32c310f64cf5386">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># geom_line()とgeom_point()はマッピング情報を共有しているため、</span></span>
@@ -1173,10 +1284,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-4_4ea0044edac0ab11c29d02e17012e1c4">
 <div class="cell-output-display">
-<div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;13: <code>color</code>を<code>aes()</code>外側に置いた場合</figcaption>
+<div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-mapping-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-mapping-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;13: <code>color</code>を<code>aes()</code>外側に置いた場合
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1195,10 +1310,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-6_a68391c64a17720a2d632bb2b1b254a0">
 <div class="cell-output-display">
-<div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;14: <code>color</code>を<code>aes()</code>内側に置いた場合</figcaption>
+<div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-mapping-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-mapping-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;14: <code>color</code>を<code>aes()</code>内側に置いた場合
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1211,10 +1330,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>座標系のズームイン (zoom-in) やズームアウト (zoom-out) を行う<code>coord_cartesian()</code>、横軸と縦軸を交換する<code>coord_flip()</code>、横軸と縦軸の比率を固定する<code>coord_fixed()</code>がよく使われます。座標系の説明は次章以降で詳しく解説しますが、ここでは座標系のズームインを見てみましょう。以下の <a href="#fig-visual1-coord-1" class="quarto-xref">図&nbsp;15</a> は各国のCOVID19の感染者数を時系列で示したものです。これを見るとアメリカ、ブラジル、インドは大変だなーくらいしかわかりません。感染者数が比較的に少ない国のデータは線としては存在しますが、なかなか区別ができません。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-1_c0e90f17b6921241ac1ccbab328ad943">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;15: ズームイン前</figcaption>
+<div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-coord-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-coord-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;15: ズームイン前
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1222,10 +1345,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>ここで座標系をズームインすると、一部の情報は失われますが、ズームインされた箇所はより詳細にグラフを観察できます。ズームインと言っても難しいものではありません。単に、軸の上限、下限を調整するだけです。たとえば、縦軸の上限を10万人に変更したのが <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> です。アメリカなど感染者数が10万人を超える国家の時系列情報の一部は失われましたが、日中韓などのデータはより見やすくなったかと思います<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-2_a5eb2b303f30f4ebf144ba22deb62fdf">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;16: ズームイン後</figcaption>
+<div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-coord-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-coord-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;16: ズームイン後
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1239,10 +1366,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;17: 直交座標系と極座標系の比較 (1)</figcaption>
+<div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-coord-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-coord-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;17: 直交座標系と極座標系の比較 (1)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1250,10 +1381,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>こんな座標系を実際に使う機会は多くないかも知れませんが、極座標系は割と身近なところで見ることができます。それは積み上げ棒グラフと円グラフの関係です。<a href="#fig-visual1-coord-6" class="quarto-xref">図&nbsp;18</a> はデカルト座標系上の積み上げ棒グラフを極座標系に変換したものです。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;18: 直交座標系と極座標系の比較 (2)</figcaption>
+<div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-coord-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-coord-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;18: 直交座標系と極座標系の比較 (2)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1275,10 +1410,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-2_f4572449931facea5f4a7f54eaa3d895">
 <div class="cell-output-display">
-<div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更</figcaption>
+<div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-scale-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-scale-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;19: <code>scale_y_continuous()</code>を使って縦軸を5cm刻みに変更
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1295,10 +1434,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-4_29f84363b5d7d49af9728f91acae9a79">
 <div class="cell-output-display">
-<div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;20: さらに<code>scale_color_manual()</code>を使って色を指定</figcaption>
+<div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-scale-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-scale-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;20: さらに<code>scale_color_manual()</code>を使って色を指定
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1311,10 +1454,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>たとえば、フリーダムハウスでは毎年、各国を「自由」、「部分的に自由」、「不自由」と格付けをし、結果を公表しています。世界に自由な国、部分的に自由な国、不自由な国が何カ国あるかを大陸ごとに示したいとします。カテゴリごとの個数を示すには棒グラフが効果的であり、 <a href="#fig-visual1-facet-1" class="quarto-xref">図&nbsp;21</a> のように示すことができます。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-1_465242e959f17cecce96798316f8e84d">
 <div class="cell-output-display">
-<div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;21: ファセットを分けないグラフの例</figcaption>
+<div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-facet-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-facet-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;21: ファセットを分けないグラフの例
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1323,10 +1470,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>しかし、{ggplot2}のファセットを指定するとそのような手間が省けます。これはデータを大陸ごとの部分集合に分割し、1つのプロット上に小さい複数のプロットを出力します。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-2_62e26ae8794a4274d09f9f5ab3280a18">
 <div class="cell-output-display">
-<div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;22: 大陸ごとにファセットを分けたグラフの例</figcaption>
+<div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-facet-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-facet-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;22: 大陸ごとにファセットを分けたグラフの例
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1360,10 +1511,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>ここで1つの例を紹介します。たとえば、G20加盟国におけるCOVID19の累積感染者数を時系列で示すとします。そこで最近、インドにおいて感染者数が急増していることを示したいとします。まず、 <a href="#fig-visual1-dataink-1" class="quarto-xref">図&nbsp;23</a> から見ましょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-1_41bfe07e40bb4cc33305f93fed7491ee">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;23: データ・インク比の例 (改善前)</figcaption>
+<div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-dataink-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-dataink-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;23: データ・インク比の例 (改善前)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1371,10 +1526,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>そもそもどの線がインドを表しているのかが分かりにくいです。カテゴリが増えると使える色に制約が生じてしまうからです。実際、図からフランス、ドイツ、インド、インドネシアを区別するのは非常に難しいでしょう。現実に色分けが出来る天才的な色覚を持つ読者ならこちらの方が情報も豊富であり、いいかも知れません。しかし、インドにおける感染者数の急増を示すには無駄な情報が多すぎます。そこでインドを除く国の色をグレーにまとめたものが <a href="#fig-visual1-dataink-2" class="quarto-xref">図&nbsp;24</a> です。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-2_55b0e9de2bce6a733104364110b8c53d">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid figure-img" width="2400"></p>
-<figcaption class="figure-caption">図&nbsp;24: データ・インク比の例 (改善後)</figcaption>
+<div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-dataink-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-dataink-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;24: データ・インク比の例 (改善後)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1383,10 +1542,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>しかし、このデータ・インク比に基づく可視化は常に正しいとは言えません。そこでもう一つの例を紹介します。 <a href="#fig-visual1-dataink-3" class="quarto-xref">図&nbsp;25</a> の左は <span class="citation" data-cites="Kuznicki_McCutcheon:1979">Kuznicki と McCutcheon (<a href="#ref-Kuznicki_McCutcheon:1979" role="doc-biblioref">1979</a>)</span> の論文に掲載された図であり、右はTufteによる改善案です。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<figcaption class="figure-caption">図&nbsp;25: データ・インク比改善の例</figcaption>
+<div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-dataink-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-dataink-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;25: データ・インク比改善の例
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1402,20 +1565,28 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">図&nbsp;26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, と Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋</figcaption>
+<div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-dataink-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-dataink-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;26: <span class="citation" data-cites="Inbar_et_al:2007">Inbar, Tractinsky, と Meyer (<a href="#ref-Inbar_et_al:2007" role="doc-biblioref">2007</a>)</span> から抜粋
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>皆さんもある程度は結果が予想できたかと思いますが、いずれのグループにおいても、Tufteが推奨する <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のDが「美しさ」、「明瞭さ」、「簡潔さ」のすべての点において最下位でした。また、どの図が最も好きかに対しても <a href="#tbl-visual1-dataink-5" class="quarto-xref">表&nbsp;3</a> のような結果が得られました。</p>
 <div class="cell" data-layout-align="center">
+<div id="tbl-visual1-dataink-5" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-dataink-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+表&nbsp;3: Inbar, Tractinsky, and Meyer (2007)の実験結果
+</figcaption>
+<div aria-describedby="tbl-visual1-dataink-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-visual1-dataink-5" class="anchored">
-<table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<caption>表&nbsp;3: Inbar, Tractinsky, and Meyer (2007)の実験結果</caption>
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
@@ -1449,9 +1620,11 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
+
+
 </div>
-
-
+</div>
+</figure>
 </div>
 </div>
 <p><a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のDはデータ・インク比の観点から見れば最も優れた図ですが、それが分かりやすさを意味するわけではありません。今は、人々の認知の観点からも図を評価するようになり、近年の可視化の教科書ではこれらに関しても詳しく触れているものが多いです。<span class="citation" data-cites="Tufte:2001">Tufte (<a href="#ref-Tufte:2001" role="doc-biblioref">2001</a>)</span> の本は可視化を勉強する人にとって必読の書かも知れませんが、これだけでは十分ではなく、近年の教科書も合わせて読むことをおすすめします。</p>
@@ -1461,10 +1634,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>これまで見てきた全ての図は縦軸と横軸しか持たない2次元プロットです。しかし、実際の生活において3次元プロットを見にすることは珍しくないでしょう。3次元プロットの場合、縦軸と横軸以外に、高さ (深さ)といったもう一つの軸が含まれます。しかし、多くの場合、このもう一つの軸はグラフにおいて不要な場合が多いです。たとえば、 <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> をを見てみましょう<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。これはCOVID19による定額給付金の給付済み金額を時系列で並べたものです。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-1_206ed4e18ff2078e6109f7765ba30ede">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/garbage_graph.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">図&nbsp;27: 3次元プロットの例 (1)</figcaption>
+<div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/garbage_graph.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;27: 3次元プロットの例 (1)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1473,10 +1650,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>これは棒と壁（？）との間隔が理由です。 <a href="#fig-visual1-3dplot-2" class="quarto-xref">図&nbsp;28</a> の右下にある青い円を見ればお分かりかと思いますが、棒が浮いています。この棒を壁（？）側に密着すると12の線を超えると考えられますが、このままだと12兆円に達していないのに12兆円超えてると、何かの入力ミスじゃないかと考えさせるかも知れません。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-2_257cf7e921cdc9def7131b58b217577b">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">図&nbsp;28: 3次元プロットの罠</figcaption>
+<div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;28: 3次元プロットの罠
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1484,20 +1665,28 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>この図において3D要素の必要性は0と言えます。2次元の棒グラフ ( <a href="#fig-visual1-3dplot-3" class="quarto-xref">図&nbsp;29</a> )、または折れ線グラフ ( <a href="#fig-visual1-3dplot-4" class="quarto-xref">図&nbsp;30</a> )の方がデータ・インク比の観点からも、分かりやすさからも優れていると言えるでしょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-3_ba056249d08fe97099d6080b4191dbbe">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid figure-img" width="2100"></p>
-<figcaption class="figure-caption">図&nbsp;29: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)</figcaption>
+<div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;29: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (棒グラフ)
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-4_e82fec424114eba09919b12a42e183fe">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid figure-img" width="2100"></p>
-<figcaption class="figure-caption">図&nbsp;30: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)</figcaption>
+<div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;30: <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> を2次元プロットに再構成した例 (折れ線グラフ)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1505,10 +1694,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>ただ、総務省の図はまだマシかも知れません。世の中には誤解を招かすために作成された3次元プロットもあります。以下の図は早稲田アカデミーが作成した早慶高の合格者数を年度ごとに示した図です。2001年は754人で2012年は1494人です。比較対象がないので本当に12年連続全国No.1かどうかは判断できませんが、2倍近く増加したことは分かります。ただし、棒グラフの高さを見ると、2倍どころか3倍程度に見えます。他にも一時期、合格者が減少した時期 (2002、2003年)があるにもかかわらず、あまり目立ちません。これには2つの原因があります。それは(1)多分、ベースラインが0人ではない、(2) 遠近法により遠いものは小さく見えることです。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-5_40f79b1baa48ba03b42d89e3a60b2862">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">図&nbsp;31: 3次元プロットの例 (2)</figcaption>
+<div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;31: 3次元プロットの例 (2)
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1516,10 +1709,14 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <p>これを2次元棒グラフに直してものが <a href="#fig-visual1-3dplot-6" class="quarto-xref">図&nbsp;32</a> です。こちらの方が合格者をより客観的に確認することができるでしょう。</p>
 <div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-6_208af8a8dd78f14d54d531a2431d7dd1">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid figure-img" width="2100"></p>
-<figcaption class="figure-caption">図&nbsp;32: <a href="#fig-visual1-3dplot-5" class="quarto-xref">図&nbsp;31</a> を2次元プロットに再構成した例</figcaption>
+<div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visual1-3dplot-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visual1-3dplot-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+図&nbsp;32: <a href="#fig-visual1-3dplot-5" class="quarto-xref">図&nbsp;31</a> を2次元プロットに再構成した例
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1532,7 +1729,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Inbar_et_al:2007" class="csl-entry" role="listitem">
 Inbar, Ohad, Noam Tractinsky, と Joachim Meyer. 2007. <span>「Minimalism in Information Visualization: Attitudes Towards Maximizing the Data-ink Ratio」</span>. <em>ECCE ’07: Proceedings of the 14th European conference on Cognitive ergonomics: invent! explore!</em>, 185–88.
 </div>
@@ -1545,14 +1742,14 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information (2nd E
 <div id="ref-Wilkinson:2005" class="csl-entry" role="listitem">
 Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. Springer.
 </div>
-</div></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">注</h2>
 
 <ol>
 <li id="fn1"><p>厳密に言えば、大学院生の時代に開発したパッケージは{ggplot2}ではなく、{ggplot}です。このパッケージもグラフィックの文法の思想に基づいた可視化パッケージではありますが、今の{ggplot2}とは別物に近いパッケージです。このパッケージは2008年10月、バージョン0.4.2を以ってCRANから削除されました。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>実は <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> の左と <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> の右は似たような色が多く使われているため、褒められそうなグラフではありません。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p><a href="https://kyufukin.soumu.go.jp/ja-JP/transition/">総務省の定額給付金特設ホームページ</a>から取得（アクセス：2020年7月28日）<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside></div></main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1776,6 +1973,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1810,7 +2030,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1825,15 +2049,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1842,7 +2079,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1884,6 +2129,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1959,7 +2227,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -2039,20 +2306,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
@@ -2062,7 +2315,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2023, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
+<p>Copyright 2024, Jaehyun Song. Powered by <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
