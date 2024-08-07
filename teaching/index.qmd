@@ -28,7 +28,12 @@ link-external-newwindow: true
 #### 神戸大学 (夏期集中)
 
 * [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)
-* 政治文化論
+* 政治文化論<br/>
+<span class="jay_btn">[Slide 1](){target="_blank"}</span> 
+<span class="jay_btn">[Slide 2](){target="_blank"}</span> 
+<span class="jay_btn">[Slide 3](){target="_blank"}</span> 
+<span class="jay_btn">[Slide 4](){target="_blank"}</span> 
+<span class="jay_btn">[Slide 5](){target="_blank"}</span>
 
 #### 高知工科大学（冬季集中）
 
