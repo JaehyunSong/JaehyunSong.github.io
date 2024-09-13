@@ -28,12 +28,7 @@ link-external-newwindow: true
 #### 神戸大学 (夏期集中)
 
 * [方法論特殊講義III](https://www.jaysong.net/kobe-ci/)
-* 政治文化論<br/>
-<span class="jay_btn">[Slide 1](https://www.jaysong.net/garage/2024/202408_Kobe_PC/01_Particiaption.html){target="_blank"}</span> 
-<span class="jay_btn">[Slide 2](https://www.jaysong.net/garage/2024/202408_Kobe_PC/02_Choice.html){target="_blank"}</span> 
-<span class="jay_btn">[Slide 3](https://www.jaysong.net/garage/2024/202408_Kobe_PC/03_Review_Information.html){target="_blank"}</span> 
-<span class="jay_btn">[Slide 4](https://www.jaysong.net/garage/2024/202408_Kobe_PC/04_Policy_Economy.html){target="_blank"}</span> 
-<span class="jay_btn">[Slide 5](https://www.jaysong.net/garage/2024/202408_Kobe_PC/05_Method_Review.html){target="_blank"}</span> 
+* 政治文化論
 
 #### 高知工科大学（冬季集中）
 
@@ -75,7 +70,8 @@ link-external-newwindow: true
 
 #### 神戸大学
 
-* 計量政治学方法論I (2018、2019、2020、2021、2022、2023)
+- 計量政治学方法論I（2018、2019、2020、2021、2022、2023、2024）
+- 政治文化論（2024）
 
 #### 東京大学
 
