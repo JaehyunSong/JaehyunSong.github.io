@@ -14,7 +14,7 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[R&R]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
+1. **[Accepted]** Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019 (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
 1. **[Submitted]** Penalty or Premium for Foreign Ownership in Thailand? Comparing Public support for waste-to-energy plants operated by Thai, Japanese, and Chinese Companies (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
 1. **[Submitted]** Prejudice toward refugees and the counteracting role of empathy: the case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
 1. Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
@@ -39,7 +39,8 @@ toc-depth: 5
 
 ##### 2024
 
-(@) **[Accepted]** [Ioku, Tomohiro](https://sites.google.com/view/iokutomohiro/home), **Jaehyun Song**, and Eiichiro Watamura. *forthcoming*. "Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections?," *Big Data & Society*. 
+(@) [Ioku, Tomohiro](https://sites.google.com/view/iokutomohiro/home), **Jaehyun Song**, and Eiichiro Watamura. 2024. "Trade-offs in AI assistant selection: Do individuals prioritize transparency and environmental sustainability over performance quality when making selections?," *Big Data & Society*, 11(4).
+<div class="jay_btn">[Full-text](https://doi.org/10.1177/20539517241290217)</div>
 (@) [Lim, Sijeong](http://faculty.korea.ac.kr/kufaculty/sijeonglim/index.do), **Jaehyun Song**, Azusa Uji, and Takahiro Yamada. *forthcoming*. "I Feel and I Invest: Social Emotions and Sustainable Investing in Germany and Japan," *Sustainable Development.*
 <div class="jay_btn">[Full-text](http://doi.org/10.1002/sd.3202)</div>
 (@) Uji, Azusa, Jaehyun Song, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). 2024. "Willingness to incur private costs for climate adaptation? Public support for undergrounding electricity transmission lines in California," *Energy Policy*. 191: 114182.
