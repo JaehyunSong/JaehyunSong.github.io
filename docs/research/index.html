@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.33">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,12 +36,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8b864f0777c60eecff11d75b6b2e1175.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7b7d0123ccfbfdb0796b9cca8d47c84e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f42d9d6ea45a16f74cf9d1e4e45b926a.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-3a7994e3981a7bb4e4022c28f4fa56e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d4f090a197797c0bb0106b6ca9d6ece5.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -247,7 +247,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024年11月21日</p>
+      <p class="date-modified">2025年1月22日</p>
     </div>
   </div>
     
@@ -275,7 +275,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><strong>[Under Review]</strong> Penalty or Premium for Foreign Ownership in Thailand? Comparing Public support for waste-to-energy plants operated by Thai, Japanese, and Chinese Companies (w/ <a href="http://faculty.washington.edu/nives/">Nives Dolšak</a>, <a href="http://aseemprakash.net">Aseem Prakash</a>, and Azusa Uji)</li>
 <li><strong>[Under Review]</strong> Prejudice toward refugees and the counteracting role of empathy: the case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)</li>
 <li><strong>[Submitted]</strong> Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the Hard-to-Reach Population (w/ Yuriko Takahashi and <a href="https://tiida.doshisha.ac.jp/">Takeshi Iida</a>)</li>
-<li>Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ <a href="https://pollyjchan.github.io/">Polly Chan</a> and Tetsuro Kobayashi)</li>
+<li><strong>[R&amp;R]</strong> Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ <a href="https://pollyjchan.github.io/">Polly Chan</a> and Tetsuro Kobayashi)</li>
 <li>Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">
 <a href="https://ssrn.com/abstract=2984430">Working Paper</a>
@@ -933,8 +933,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1050,7 +1048,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
