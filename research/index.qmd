@@ -40,6 +40,7 @@ toc-depth: 5
 ##### 2025
 
 (@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). 2025. "Post-Materialism and Environmental Protection Revisited: Domestic Plastic Bags Regulations, 1992-2019," *Global Environmental Politics,* 46-66.
+<div class="jay_btn">[Full-text](https://doi.org/10.1162/glep_a_00771)</div>
 
 ##### 2024
 
@@ -116,9 +117,14 @@ toc-depth: 5
 
 (共同研究において下線は報告者を表す)
 
+
+##### 2025
+
+1. **[Scheduled]** 磯崎典世・**Song Jaehyun**. 2025年6月29日.「韓国における感情的分極化と投票参加」日本比較政治学会. 於：オンライン
+
 ##### 2024
 
-1. **[Scheduled]** Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and [Aseem Prakash](http://aseemprakash.net/). "Penalty or Premium of Foreign Ownership? Support for waste-to-energy plants," *American Political Science Association,* Philadelphia, PA: USA.
+1. Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and <u>[Aseem Prakash](http://aseemprakash.net/)</u>. "Penalty or Premium of Foreign Ownership? Support for waste-to-energy plants," *American Political Science Association,* Philadelphia, PA: USA.
 1. <u>Takahashi, Yuriko</u>, **Jaehyun Song**, and [Takeshi Iida](https://tiida.doshisha.ac.jp/). Mar. 30. 2024. "Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the "Hard-To-Reach" Populations," *Western Political Science Association,* Vancouver, BC: Canada.
 
 ##### 2023
