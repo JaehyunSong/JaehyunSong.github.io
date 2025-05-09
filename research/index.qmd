@@ -17,12 +17,12 @@ toc-depth: 5
 1. **[R&R]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. **[R&R]** Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the Hard-to-Reach Population (w/ Yuriko Takahashi and [Takeshi Iida](https://tiida.doshisha.ac.jp/))
 1. **[Under Review]** Penalty or Premium for Foreign Ownership in Thailand? Comparing Public support for waste-to-energy plants operated by Thai, Japanese, and Chinese Companies (w/ [Nives Dolšak](http://faculty.washington.edu/nives/), [Aseem Prakash](http://aseemprakash.net), and Azusa Uji)
-1. Prejudice toward refugees and the counteracting role of empathy: the case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
+1. **[Under Review]** Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
+1. **[Under Review]** Prejudice Toward Refugees and the Countervailing Role of Empathy: The Case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
 1. Get Out the Voter or Go Away? Evidence from Online Field Experiments. (w/ [Masaki Hata](http://hatam.sakura.ne.jp/))
-1.  **[Under Review]** Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
 1. 復活当選が投票率に与える影響
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
 1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
