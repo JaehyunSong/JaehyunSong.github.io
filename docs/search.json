@@ -347,7 +347,7 @@
     "href": "software/index.html#scripts",
     "title": "Software / Packages / Scripts / Datasets",
     "section": "Scripts",
-    "text": "Scripts\n\nFor Qualtrics\n\nリスト実験をする時に項目をランダマイズするスクリプト\n画像URLをランダムに取得するスクリプトGitHub\nSimpleConjoint.js GitHub\n\nサーバーなしでコンジョイント実験を行う（要Qualtrics）\n\nRPP: Rakuten p-Parameter Parser\n\nQualtricsで楽天インサイトのpパラメーターをパーシングする。"
+    "text": "Scripts\n\nFor Qualtrics\n\nリスト実験をする時に項目をランダマイズするスクリプト\n画像URLをランダムに取得するスクリプトGitHub\nSimpleConjoint.js GitHub\n\nサーバーなしでコンジョイント実験を行う（要Qualtrics）\n\nRPP: Rakuten p-Parameter Parser\n\nQualtricsで楽天インサイトのpパラメーターをパーシングする。\n\nItem randomizer for Qualtrics GitHub\n\nQualtricsでリスト実験（list experiment / item count technique）を実装する際、項目をランダム化するスクリプト"
   },
   {
     "objectID": "software/index.html#datasets",
@@ -1537,7 +1537,7 @@
     "href": "index.html",
     "title": "Jaehyun Song, Ph.D.",
     "section": "",
-    "text": "I am an associate professor in Faculty of Informatics, Kansai University. I earned my Ph.D. and master degree in political science from Kobe University, and a bachelor degree in law from Keio University. My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available here.\n\n\n\n\n\n\nメニュー案内\n\n\n\n\n宋のCVはCV\nこれまでの研究内容はResearch\n担当科目についてはTeaching\n宋ゼミについてはSeminar\nこれまで作成したアプリ/パッケージ/スクリプトはSoftware\n備忘録はNote\n分析/調査ツールのチュートリアルはTutorial\n\n\n\n\n\n\n\n\n\nInformation\n\n\n\n\nLast Update: 2025年04月03日\nEnvironment\n\nmacOS 15.3.2 “Sonoma”\nFirefox 136.0.4\nR version 4.4.3 (2025-02-28)\nRStudio 2024.12.1+563\nQuarto 1.6.42\nR package {quarto} 1.4.4"
+    "text": "I am an associate professor in Faculty of Informatics, Kansai University. I earned my Ph.D. and master degree in political science from Kobe University, and a bachelor degree in law from Keio University. My research interests are voting behavior, experimental political science, causal inference, and quantitative methodology. My CV is available here.\n\n\n\n\n\n\nメニュー案内\n\n\n\n\n宋のCVはCV\nこれまでの研究内容はResearch\n担当科目についてはTeaching\n宋ゼミについてはSeminar\nこれまで作成したアプリ/パッケージ/スクリプトはSoftware\n備忘録はNote\n分析/調査ツールのチュートリアルはTutorial\n\n\n\n\n\n\n\n\n\nInformation\n\n\n\n\nLast Update: 2025年06月16日\nEnvironment\n\nmacOS 15.5 “Sonoma”\nFirefox 139.0.1\nR version 4.5.0 (2025-04-11)\nRStudio 2025.05.1+513\nQuarto 1.7.31\nR package {quarto} 1.4.4"
   },
   {
     "objectID": "research/index.html",
