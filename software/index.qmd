@@ -39,3 +39,6 @@ link-external-newwindow: true
 
 * M-1 グランプリ決勝データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/M-1_Grand_Pix)</span>
 * インスタントラーメンの栄養成分データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/InstantNoodle)</span>
+- 日本の中高等学校データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/highschool-japan/)</span>
+- 中古車（プリウス）データ<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/dataset_prius)</span>
+- モバイルOSシェア（2009-2022）<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/mobile-os-share)</span>
