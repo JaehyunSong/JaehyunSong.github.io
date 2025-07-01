@@ -347,7 +347,7 @@
     "href": "software/index.html#scripts",
     "title": "Software / Packages / Scripts / Datasets",
     "section": "Scripts",
-    "text": "Scripts\n\nFor Qualtrics\n\nリスト実験をする時に項目をランダマイズするスクリプト\n画像URLをランダムに取得するスクリプトGitHub\nSimpleConjoint.js GitHub\n\nサーバーなしでコンジョイント実験を行う（要Qualtrics）\n\nRPP: Rakuten p-Parameter Parser\n\nQualtricsで楽天インサイトのpパラメーターをパーシングする。\n\nItem randomizer for Qualtrics GitHub\n\nQualtricsでリスト実験（list experiment / item count technique）を実装する際、項目をランダム化するスクリプト"
+    "text": "Scripts\n\nFor Qualtrics\n\nリスト実験をする時に項目をランダマイズするスクリプト\n画像URLをランダムに取得するスクリプトGitHub\nSimpleConjoint.js GitHub Field generator\n\nサーバーなしでコンジョイント実験を行う（要Qualtrics）\n\nRPP: Rakuten p-Parameter Parser\n\nQualtricsで楽天インサイトのpパラメーターをパーシングする。\n\nItem randomizer for Qualtrics GitHub\n\nQualtricsでリスト実験（list experiment / item count technique）を実装する際、項目をランダム化するスクリプト"
   },
   {
     "objectID": "software/index.html#datasets",
@@ -1552,5 +1552,12 @@
     "title": "Research",
     "section": "Review",
     "text": "Review\n\nSONG Jaehyun. 2023. 「書評：松林哲也著『政治学と因果推論』」『選挙研究』38 (2): 77-89.\n\n\nSoftware & Packages\n\n[R Packages] BalanceR GitHub\n[R Packages] SimpleConjoint GitHub\n[R Packages] woRdle GitHub\n[R Packages] PRcalc GitHub Homepage\n[Javascript] SimpleConjoint.js GitHub\n[Web Application] PRcalc for Web GitHub ShinyApps\n\n\n\nAwards\n\n優秀ポスター賞. 日本選挙学会2018年度大会. 日本選挙学会. 2019年.\n銅賞. 情報オリンピアード大会. ソウル東部教育庁. 2001年.\n銅賞. 情報オリンピアード大会. ソウル東部教育庁. 2000年.\n金賞. 情報オリンピアード大会. ソウル東部教育庁. 1998年.\n金賞. 情報オリンピアード大会. ソウル東部教育庁. 1997年.\n\n\n\nFunding\n\n[単独] Apr.2023~Mar.2028: 科学研究費 若手研究「政治的情報処理費用の測定と削減に関する研究 」 KAKEN\n[分担] Apr.2022~Mar.2026: 科学研究費 基盤研究 (B)「ポピュリストの体制化というパラドックス：エリート概念の拡張とポピュリズムの新測定」代表：日野愛郎 KAKEN\n[分担] Apr.2021~Mar.2026: 科学研究費 基盤研究 (B)「不確実性の高い社会における地方政治への信頼の変動要因とその帰結の実証的解明」代表：善教将大 KAKEN\n[分担] Apr.2021~Mar.2025: 科学研究費 基盤研究 (B)「在米メキシコ移民の政治意識・政治参加：混合手法を用いた実証分析」代表：高橋百合子 KAKEN\n[単独] Apr.2019~Mar.2023: 科学研究費 若手研究「争点空間の認知における歪みがもたらす政治的帰結と歪みの是正に関する研究」KAKEN\n[分担] Apr.2019~Mar.2023: 科学研究費 基盤研究 (A)「選挙ガバナンスが正確な投票(Correct Voting)に与える影響に関する研究」代表：大西裕 KAKEN\n[分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「日本における選挙研究の統合:メタ分析による研究成果の統一とデータベースの構築」代表：矢内勇生 KAKEN\n[分担] Apr.2019~Mar.2022: 科学研究費 挑戦的研究 (萌芽)「在外投票における票買収の実証的研究」代表：高橋百合子 KAKEN\n[単独] Dec.2018~Mar.2021: ヒロセ国際奨学財団「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結に関する研究」\n[単独] Apr.2018~Mar.2019: 早稲田大学 特定課題 (新任の教員等)「有権者の認知レベルにおける争点空間の歪みがもたらす政治的帰結の研究」\n[単独] Apr.2017~Mar.2018: 科学研究費 特別研究員奨励費「政策中心型民主主義における選挙公約の役割:有権者の政治リテラシー向上に向けて」 KAKEN\n[単独] 2013: 神戸大学 学外研究活動経費「Inter-university Consortium for Political and Social Research Summer Programへの参加」"
+  },
+  {
+    "objectID": "software/conjoint_field_generator.html",
+    "href": "software/conjoint_field_generator.html",
+    "title": "Conjoint Filed Generator",
+    "section": "",
+    "text": "パラメータ\n\n\n値\n\n\n\n\nPrefix\n\n\n\n\n\n\n\nTask\n\n\n\n\n\n\n\nProfile\n\n\n\n\n\n\n\nAttributes\n\n\n\n\n\n\n出力を生成\n\n結果"
   }
 ]

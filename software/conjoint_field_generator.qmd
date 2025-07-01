@@ -1,0 +1,55 @@
+---
+title: "Conjoint Filed Generator"
+date-modified: today
+link-external-newwindow: true
+---
+
+<table>
+    <tr>
+      <th>パラメータ</th>
+      <th>値</th>
+    </tr>
+    <tr>
+      <td>Prefix</td>
+      <td><input type="text" id="letter" value="F" size="3"></td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td><input type="number" id="task" value="3" size="3"></td>
+    </tr>
+    <tr>
+      <td>Profile</td>
+      <td><input type="number" id="profile" value="2" size="3"></td>
+    </tr>
+    <tr>
+      <td>Attributes</td>
+      <td><input type="number" id="attribute" value="4" size="3"></td>
+    </tr>
+  </table>
+
+  <button onclick="generateOutput()">出力を生成</button>
+
+  <h2>結果</h2>
+  <pre id="output"></pre>
+
+  <script>
+    function generateOutput() {
+      const letter = document.getElementById("letter").value;
+      const task = parseInt(document.getElementById("task").value);
+      const profile = parseInt(document.getElementById("profile").value);
+      const attribute = parseInt(document.getElementById("attribute").value);
+
+      let lines = [];
+
+      for (let t = 1; t <= task; t++) {
+        for (let a = 1; a <= attribute; a++) {
+          lines.push(`${letter}-${t}-${a}`);
+          for (let p = 1; p <= profile; p++) {
+            lines.push(`${letter}-${t}-${p}-${a}`);
+          }
+        }
+      }
+
+      document.getElementById("output").textContent = lines.join('\n');
+    }
+  </script>

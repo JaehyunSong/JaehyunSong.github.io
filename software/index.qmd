@@ -28,7 +28,7 @@ link-external-newwindow: true
 
 * [リスト実験をする時に項目をランダマイズするスクリプト](scripts/list_randomizer.qmd)
 * 画像URLをランダムに取得するスクリプト<span class="jay_btn">[GitHub](https://github.com/JaehyunSong/RIP)</span>
-* SimpleConjoint.js <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span>
+* SimpleConjoint.js <span class="jay_btn">[GitHub](https://github.com/JaehyunSong/SimpleConjoint.js)</span> <span class="jay_btn">[Field generator](conjoint_field_generator.qmd)</span>
    * サーバーなしでコンジョイント実験を行う（要Qualtrics）
 * [RPP: Rakuten p-Parameter Parser](scripts/rpp.qmd)
    * Qualtricsで楽天インサイトのpパラメーターをパーシングする。
