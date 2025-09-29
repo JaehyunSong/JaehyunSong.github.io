@@ -1,6 +1,6 @@
 ---
 title: "因果推論の道具箱"
-date: "`r Sys.Date()`"
+date-modified: today
 link-external-newwindow: true
 toc: true
 ---
@@ -158,11 +158,15 @@ toc: true
 
 - [Bruce E. Hansen. *Econometrics*. Web](https://www.ssc.wisc.edu/~bhansen/econometrics/)
 - [OpenIntro Statistics](https://www.openintro.org/book/os/)
-   * [日本語版](http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf)あり
+   - [日本語版](http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf)あり
 - [shinmee. 『俺の計量経済学』](https://datascience-blog.com/2019/12/21/post-607/)
 - [Rachel Rosenberg et al.. *Computational Applications to Behavioral Science*](https://gsbdbi.github.io/ml_for_behavioral_science/)
-* [Kohei Kawaguchi. Applied Econometrics Slides.](https://kohei-kawaguchi.github.io/AppliedEconometricsPublic/)
+- [Kohei Kawaguchi. Applied Econometrics Slides.](https://kohei-kawaguchi.github.io/AppliedEconometricsPublic/)
+
+## Probability & Statistics
+
+- Sun, Dennis, Gene Kim, and Anav Sood. *[The Art of Chance: A Beginner’s Guide to Probability](https://dlsun.github.io/skis/)*
 
 ## Dataset
 
-- [Hidenori Takahash. Data Source](https://sites.google.com/view/osipp-dsc/home)
+- [Hidenori Takahash. Data Source](https://sites.google.com/view/osipp-data/home)
