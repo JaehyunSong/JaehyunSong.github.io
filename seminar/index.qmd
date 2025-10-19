@@ -84,7 +84,7 @@ section > p {
 <br/>
 
 <center>
-[<i class="bi bi-mortarboard"></i> ゼミ紹介](index.qmd){class="btn btn-outline-primary" role="button"} [<i class="bi bi-person-add"></i> 応募について](entry.qmd){class="btn btn-outline-danger" role="button"} [<i class="bi bi-patch-question"></i> よくある質問](faq.qmd){class="btn btn-outline-success" role="button"} [<i class="bi bi-instagram"></i> Instagram](https://www.instagram.com/song_officehour/){class="btn btn-outline-danger" role="button" target="_blank"}
+[<i class="bi bi-mortarboard"></i> ゼミ紹介](index.qmd){class="btn btn-outline-primary" role="button"} [<i class="bi bi-person-add"></i> 応募について](entry.qmd){class="btn btn-outline-info" role="button"} [<i class="bi bi-patch-question"></i> よくある質問](faq.qmd){class="btn btn-outline-success" role="button"} [<i class="bi bi-instagram"></i> Instagram](https://www.instagram.com/song_officehour/){class="btn btn-outline-danger" role="button" target="_blank"}
 
 <span style="font-size:0.75em;">※ Instagramがゼミ生が運営しており、宋は関与しておりません。現役ゼミ生に質問のある方はDM送ってみてください。</spa>
 </center>
