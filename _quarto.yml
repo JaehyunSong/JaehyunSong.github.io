@@ -30,17 +30,11 @@ website:
       - text: "Tutorials"
         href: tutorial/index.qmd
     right: 
-      - icon: twitter
-        href: https://twitter.com/Tintstyle
-      - icon: facebook
-        href: https://www.facebook.com/tintstyle
-      - icon: instagram
-        href: https://www.instagram.com/tintstyle/
       - icon: github
         href: https://github.com/JaehyunSong
-      - icon: mortarboard-fill
+      - icon: google
         href: https://scholar.google.com/citations?user=8a-NxjkAAAAJ&hl=ja
-      - icon: map
+      - icon: mortarboard-fill
         href: https://researchmap.jp/jaysong
   sidebar:
     - id: seminar
@@ -84,7 +78,6 @@ format:
   html:
     theme: 
       light: flatly
-      dark: darkly
     css: styles.css
 
 resources: 

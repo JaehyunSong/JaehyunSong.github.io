@@ -38,14 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0e2e073a418c8b3f4aa149d3c42e9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8428255164a8e2d0836ac16eb82f39c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0e2e073a418c8b3f4aa149d3c42e9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0c0e2e073a418c8b3f4aa149d3c42e9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,169 +93,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -346,39 +180,23 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/Tintstyle"> <i class="bi bi-twitter" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.facebook.com/tintstyle"> <i class="bi bi-facebook" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/tintstyle/"> <i class="bi bi-instagram" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/JaehyunSong"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"> <i class="bi bi-mortarboard-fill" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"> <i class="bi bi-google" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://researchmap.jp/jaysong"> <i class="bi bi-map" role="img">
+    <a class="nav-link" href="https://researchmap.jp/jaysong"> <i class="bi bi-mortarboard-fill" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -390,7 +208,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
-
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -418,16 +235,16 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 
 
 <section id="年度" class="level2">
-<h2 class="anchored" data-anchor-id="年度">2024年度</h2>
+<h2 class="anchored" data-anchor-id="年度">2025年度</h2>
 <section id="関西大学前期" class="level4">
 <h4 class="anchored" data-anchor-id="関西大学前期">関西大学（前期）</h4>
 <ul>
 <li><a href="../seminar/index.html">専門演習</a> (学部; 月4)</li>
 <li><a href="../seminar/index.html">卒業研究</a> (学部; 金3)</li>
 <li>政治学 (学部; 木2)</li>
-<li>ミクロ政治分析 (学部; 月2)</li>
 <li><a href="https://www.jaysong.net/r4ps/">ミクロ政治データ分析実習</a> (学部; 木4)</li>
 <li>導入ゼミ (学部; 金5)</li>
+<li><a href="https://www.jaysong.net/kandai-ci/">社会科学における因果推論</a> (修士; 月2)</li>
 <li>公共領域におけるデータベース (修士)</li>
 </ul>
 </section>
@@ -438,7 +255,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li><a href="../seminar/index.html">卒業研究</a> (学部; 金3)</li>
 <li>政治学 (学部; 木2)</li>
 <li><a href="https://www.jaysong.net/r4ps/">マクロ政治データ分析実習</a> (学部; 木4)</li>
-<li><a href="https://www.jaysong.net/kandai-ci/">社会科学における因果推論</a> (修士; 月2)</li>
 <li>公共領域におけるデータベース (修士)</li>
 </ul>
 </section>
@@ -446,14 +262,12 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <h4 class="anchored" data-anchor-id="神戸大学-夏期集中">神戸大学 (夏期集中)</h4>
 <ul>
 <li><a href="https://www.jaysong.net/kobe-ci/">方法論特殊講義III</a></li>
-<li>政治文化論</li>
 </ul>
 </section>
-<section id="高知工科大学冬季集中" class="level4">
-<h4 class="anchored" data-anchor-id="高知工科大学冬季集中">高知工科大学（冬季集中）</h4>
+<section id="高知大学-夏期集中" class="level4">
+<h4 class="anchored" data-anchor-id="高知大学-夏期集中">高知大学 (夏期集中)</h4>
 <ul>
-<li>統計学2</li>
-<li>計量経済学応用</li>
+<li>計量経済学</li>
 </ul>
 </section>
 </section>
@@ -462,7 +276,7 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="大阪市立大学" class="level4">
 <h4 class="anchored" data-anchor-id="大阪市立大学">大阪市立大学</h4>
 <ul>
-<li>法学政治学方法論 (2017前)</li>
+<li>法学政治学方法論 (2017)</li>
 </ul>
 </section>
 <section id="関西大学" class="level4">
@@ -472,9 +286,9 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <li>計量分析 (2018)</li>
 <li>導入ゼミ (2021-)</li>
 <li>政治学 (2021-)</li>
-<li>ミクロ政治分析 (2021-2022)</li>
+<li>ミクロ政治分析 (2021, 2022, 2024)</li>
 <li>ミクロ政治データ分析実習 (2021-)</li>
-<li>マクロ政治分析 (2021-2022)</li>
+<li>マクロ政治分析 (2021, 2022)</li>
 <li>マクロ政治データ分析実習 (2021-)</li>
 <li>専門演習（2022-）</li>
 <li>公共領域におけるデータベース (2021-)</li>
@@ -491,13 +305,20 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="京都府立大学" class="level4">
 <h4 class="anchored" data-anchor-id="京都府立大学">京都府立大学</h4>
 <ul>
-<li>情報処理応用演習 (2020夏集、2021夏集)</li>
+<li>情報処理応用演習 (2020、2021)</li>
 </ul>
 </section>
 <section id="慶應義塾大学" class="level4">
 <h4 class="anchored" data-anchor-id="慶應義塾大学">慶應義塾大学</h4>
 <ul>
-<li>方法論探求 (2019後)</li>
+<li>方法論探求 (2019)</li>
+</ul>
+</section>
+<section id="高知工科大学" class="level4">
+<h4 class="anchored" data-anchor-id="高知工科大学">高知工科大学</h4>
+<ul>
+<li>統計学2（2024）</li>
+<li>計量経済学応用（2024）</li>
 </ul>
 </section>
 <section id="神戸大学" class="level4">
@@ -510,28 +331,28 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 <section id="東京大学" class="level4">
 <h4 class="anchored" data-anchor-id="東京大学">東京大学</h4>
 <ul>
-<li>特殊講義: ヨーロッパ国際政治経済 (2020冬集)</li>
+<li>特殊講義: ヨーロッパ国際政治経済 (2020)</li>
 </ul>
 </section>
 <section id="同志社大学" class="level4">
 <h4 class="anchored" data-anchor-id="同志社大学">同志社大学</h4>
 <ul>
-<li>文化情報学入門 (2020前)</li>
-<li>データサイエンス入門 (2020前)</li>
-<li>データサイエンス入門演習 (2020前)</li>
-<li>文化情報学演習3 (2020前)</li>
-<li>データサイエンス基礎 (2020後)</li>
-<li>データサイエンス演習 (2020後)</li>
-<li>コロキアム (2020後)</li>
-<li>アドバンスト・コロキアム (2020後)</li>
-<li>文化情報学演習2 (2020後)</li>
+<li>文化情報学入門 (2020)</li>
+<li>データサイエンス入門 (2020)</li>
+<li>データサイエンス入門演習 (2020)</li>
+<li>文化情報学演習3 (2020)</li>
+<li>データサイエンス基礎 (2020)</li>
+<li>データサイエンス演習 (2020)</li>
+<li>コロキアム (2020)</li>
+<li>アドバンスト・コロキアム (2020)</li>
+<li>文化情報学演習2 (2020)</li>
 </ul>
 </section>
 <section id="早稲田大学" class="level4">
 <h4 class="anchored" data-anchor-id="早稲田大学">早稲田大学</h4>
 <ul>
-<li>政治学実験 (2019前)</li>
-<li>研究方法集中セミナー（因果推論） (2021夏集)</li>
+<li>政治学実験 (2019)</li>
+<li>研究方法集中セミナー（因果推論） (2021)</li>
 </ul>
 
 
@@ -541,19 +362,6 @@ gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
