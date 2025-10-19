@@ -68,12 +68,25 @@ section > p {
     text-align: justify;
 }
 
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .mobile-only {
+        display: inline;
+    }
+}
 ```
 
-<center>
-[<i class="bi bi-mortarboard"></i> ゼミ紹介](index.qmd){class="btn btn-outline-primary" role="button"} [<i class="bi bi-person-add"></i> 応募について](entry.qmd){class="btn btn-outline-danger" role="button"} [<i class="bi bi-patch-question"></i> よくある質問](faq.qmd){class="btn btn-outline-success" role="button"}
+<span class="mobile-only">※ スマホの場合、画面上段の <i class="bi bi-layout-text-sidebar-reverse"></i> アイコンをタップするとメニューが開きます。</span>
 
-※ スマホの場合、画面上段の <i class="bi bi-layout-text-sidebar-reverse"></i> アイコンをタップするとメニューが開きます。
+<br/>
+
+<center>
+[<i class="bi bi-mortarboard"></i> ゼミ紹介](index.qmd){class="btn btn-outline-primary" role="button"} [<i class="bi bi-person-add"></i> 応募について](entry.qmd){class="btn btn-outline-danger" role="button"} [<i class="bi bi-patch-question"></i> よくある質問](faq.qmd){class="btn btn-outline-success" role="button"} [<i class="bi bi-instagram"></i> Instagram](https://www.instagram.com/song_officehour/){class="btn btn-outline-danger" role="button" target="_blank"}
+
+<span style="font-size:0.75em;">※ Instagramがゼミ生が運営しており、宋は関与しておりません。現役ゼミ生に質問のある方はDM送ってみてください。</spa>
 </center>
 
 # 宋ゼミについて
