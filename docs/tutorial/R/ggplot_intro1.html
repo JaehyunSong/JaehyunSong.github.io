@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.556">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jaehyun Song, Ph.D.&nbsp;- 可視化[理論]</title>
+<title>可視化[理論] – Jaehyun Song, Ph.D.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -85,17 +86,21 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../imgs/favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-0c0e2e073a418c8b3f4aa149d3c42e9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8428255164a8e2d0836ac16eb82f39c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-0c0e2e073a418c8b3f4aa149d3c42e9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -149,7 +154,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -178,7 +183,169 @@ window.Quarto = {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -186,14 +353,15 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../imgs/logo.png" alt="" class="navbar-logo">
+    <img src="../../imgs/logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../imgs/logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jaehyun Song, Ph.D.</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="サーチ"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -210,10 +378,45 @@ window.Quarto = {
     <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.jaysong.net/seminar/" target="_blank"> 
-<span class="menu-text">Seminar</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminar" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Seminar</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-seminar">    
+        <li>
+    <a class="dropdown-item" href="../../seminar/index.html">
+ <span class="dropdown-text">宋ゼミについて</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/entry.html">
+ <span class="dropdown-text">応募について</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/faq.html">
+ <span class="dropdown-text">よくある質問</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/people.html">
+ <span class="dropdown-text">宋ゼミのメンバー</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/course.html">
+ <span class="dropdown-text">ゼミ生の進路</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/research.html">
+ <span class="dropdown-text">ゼミ生の研究成果</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/competition.html">
+ <span class="dropdown-text">これまでの倍率</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../seminar/preparation.html">
+ <span class="dropdown-text">春休みの過ごし方</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../software/index.html"> 
 <span class="menu-text">Software</span></a>
@@ -260,7 +463,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -307,6 +510,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">可視化[理論]</h1>
@@ -320,7 +524,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">作成日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年8月29日</p>
+      <p class="date">2025年10月19日</p>
     </div>
   </div>
   
@@ -336,30 +540,30 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="visual-packages">可視化のためのパッケージ</h2>
 <p>Rによる可視化は様々な方法がありますが、可視化のために使うパッケージとして代表的なものは (1) パッケージを使わない方法、(2) {lattice}パッケージ、(3) {ggplot2}パッケージがあります。ここでは、以下のデータ ( <a href="#tbl-visual1-sampledata" class="quarto-xref">表&nbsp;1</a> )を可視化しながら、それぞれの特徴について簡単に解説します。</p>
 <div class="cell" data-layout-align="center">
-<div id="tbl-visual1-sampledata" class="cell quarto-float anchored" data-layout-align="center">
+<div id="tbl-visual1-sampledata" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-sampledata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 表&nbsp;1: サンプルデータの最初の10行
 </figcaption>
 <div aria-describedby="tbl-visual1-sampledata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="zqtxdawrvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zqtxdawrvn table {
+<div id="lpngelcqch" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lpngelcqch table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zqtxdawrvn thead, #zqtxdawrvn tbody, #zqtxdawrvn tfoot, #zqtxdawrvn tr, #zqtxdawrvn td, #zqtxdawrvn th {
+#lpngelcqch thead, #lpngelcqch tbody, #lpngelcqch tfoot, #lpngelcqch tr, #lpngelcqch td, #lpngelcqch th {
   border-style: none;
 }
 
-#zqtxdawrvn p {
+#lpngelcqch p {
   margin: 0;
   padding: 0;
 }
 
-#zqtxdawrvn .gt_table {
+#lpngelcqch .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -385,12 +589,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_caption {
+#lpngelcqch .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zqtxdawrvn .gt_title {
+#lpngelcqch .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -402,7 +606,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#zqtxdawrvn .gt_subtitle {
+#lpngelcqch .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -414,7 +618,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#zqtxdawrvn .gt_heading {
+#lpngelcqch .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -426,13 +630,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_bottom_border {
+#lpngelcqch .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_col_headings {
+#lpngelcqch .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -447,7 +651,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_col_heading {
+#lpngelcqch .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -467,7 +671,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#zqtxdawrvn .gt_column_spanner_outer {
+#lpngelcqch .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -479,15 +683,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#zqtxdawrvn .gt_column_spanner_outer:first-child {
+#lpngelcqch .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zqtxdawrvn .gt_column_spanner_outer:last-child {
+#lpngelcqch .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zqtxdawrvn .gt_column_spanner {
+#lpngelcqch .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -499,11 +703,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#zqtxdawrvn .gt_spanner_row {
+#lpngelcqch .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zqtxdawrvn .gt_group_heading {
+#lpngelcqch .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -529,7 +733,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#zqtxdawrvn .gt_empty_group_heading {
+#lpngelcqch .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -544,15 +748,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#zqtxdawrvn .gt_from_md > :first-child {
+#lpngelcqch .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zqtxdawrvn .gt_from_md > :last-child {
+#lpngelcqch .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zqtxdawrvn .gt_row {
+#lpngelcqch .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -571,7 +775,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#zqtxdawrvn .gt_stub {
+#lpngelcqch .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -584,7 +788,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#zqtxdawrvn .gt_stub_row_group {
+#lpngelcqch .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -598,15 +802,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#zqtxdawrvn .gt_row_group_first td {
+#lpngelcqch .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zqtxdawrvn .gt_row_group_first th {
+#lpngelcqch .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zqtxdawrvn .gt_summary_row {
+#lpngelcqch .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -616,16 +820,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#zqtxdawrvn .gt_first_summary_row {
+#lpngelcqch .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_first_summary_row.thick {
+#lpngelcqch .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zqtxdawrvn .gt_last_summary_row {
+#lpngelcqch .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -635,7 +839,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_grand_summary_row {
+#lpngelcqch .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -645,7 +849,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#zqtxdawrvn .gt_first_grand_summary_row {
+#lpngelcqch .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -655,7 +859,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_last_grand_summary_row_top {
+#lpngelcqch .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -665,11 +869,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_striped {
+#lpngelcqch .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zqtxdawrvn .gt_table_body {
+#lpngelcqch .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -678,7 +882,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_footnotes {
+#lpngelcqch .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -692,7 +896,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_footnote {
+#lpngelcqch .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -701,7 +905,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#zqtxdawrvn .gt_sourcenotes {
+#lpngelcqch .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -715,7 +919,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#zqtxdawrvn .gt_sourcenote {
+#lpngelcqch .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -723,70 +927,79 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#zqtxdawrvn .gt_left {
+#lpngelcqch .gt_left {
   text-align: left;
 }
 
-#zqtxdawrvn .gt_center {
+#lpngelcqch .gt_center {
   text-align: center;
 }
 
-#zqtxdawrvn .gt_right {
+#lpngelcqch .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zqtxdawrvn .gt_font_normal {
+#lpngelcqch .gt_font_normal {
   font-weight: normal;
 }
 
-#zqtxdawrvn .gt_font_bold {
+#lpngelcqch .gt_font_bold {
   font-weight: bold;
 }
 
-#zqtxdawrvn .gt_font_italic {
+#lpngelcqch .gt_font_italic {
   font-style: italic;
 }
 
-#zqtxdawrvn .gt_super {
+#lpngelcqch .gt_super {
   font-size: 65%;
 }
 
-#zqtxdawrvn .gt_footnote_marks {
+#lpngelcqch .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zqtxdawrvn .gt_asterisk {
+#lpngelcqch .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zqtxdawrvn .gt_indent_1 {
+#lpngelcqch .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zqtxdawrvn .gt_indent_2 {
+#lpngelcqch .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zqtxdawrvn .gt_indent_3 {
+#lpngelcqch .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zqtxdawrvn .gt_indent_4 {
+#lpngelcqch .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zqtxdawrvn .gt_indent_5 {
+#lpngelcqch .gt_indent_5 {
   text-indent: 25px;
+}
+
+#lpngelcqch .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lpngelcqch div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
 <th id="PPP" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">PPP</th>
 <th id="HDI" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">HDI</th>
@@ -868,16 +1081,16 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="base-r">Base R</h3>
 <p>Rは統計学、データ分析に特化したプログラミング言語であるため、別途のパッケージなしで作図が可能です。後ほど紹介する{lattice}や{ggplot2}を用いた作図とは違って、Base Rによる作図は、紙にペンでグラフを書くイメージに近いです。キャンバスを用意し、そこにペンで点や線を描く感じです。これはレイヤーという概念を導入した{ggplot2}に近いかも知れませんが、{ggplot2}はレイヤーを変更出来る一方、Base Rは図が気に入らない場合、一からやり直しです。つまり、キャンバスに引いた線や点は消すことができません。また、作成した図はオブジェクトとして保存することが出来ないため、もう一度図示するためには一から書く必要があります。Base Rによる作図は短所だけでなく、メリットもあります。まず、パッケージを必要としないため、Rインストール直後から使える点です。そして、{lattice}や{ggplot2}よりも速いです。他にも人によってはBase Rの方がシンプルでかっこいいという方もいますが、これは好みの問題でしょう。</p>
 <p>以下の <a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> はBase Rを使った散布図の例です。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-baser_5c2c995bc30643d5e3cfb7f6500f9845">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Base Rを用いた作図の例</span></span>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Base Rを用いた作図の例</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">plot</span>(<span class="at">x =</span> Country_df<span class="sc">$</span>PPP, <span class="at">y =</span> Country_df<span class="sc">$</span>HDI, <span class="at">pch =</span> <span class="dv">19</span>, </span>
 <span id="cb1-3"><a href="#cb1-3"></a>     <span class="at">col =</span> <span class="fu">ifelse</span>(Country_df<span class="sc">$</span>OECD <span class="sc">==</span> <span class="st">"加盟国"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
 <span id="cb1-4"><a href="#cb1-4"></a>     <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
 <span id="cb1-6"><a href="#cb1-6"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"OECD加盟国"</span>, <span class="st">"OECD非加盟国"</span>), </span>
-<span id="cb1-7"><a href="#cb1-7"></a>       <span class="at">col    =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a>       <span class="at">col    =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-baser" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-baser" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-baser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-baser-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
@@ -894,8 +1107,8 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="latticeパッケージ">{lattice}パッケージ</h3>
 <p>{lattice}は<a href="https://www.isid.ac.in/~deepayan/">Deepayan Sarkar</a>によって開発された可視化パッケージです。このパッケージの最大特徴は「1つの関数で可視化が出来る」点です。作図に必要な様々な情報が1つの関数内に全て入ります。むろん、指定しない情報に関しては多くの場合、自動的に処理してくれます。</p>
 <p><a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> を{lattice}を使って作る場合は <a href="#fig-visual1-lattice" class="quarto-xref">図&nbsp;2</a> のようなコードになります。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-lattice_29376e3a4caff511fe66a8bddaa9f881">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># latticeを用いた作図の例</span></span>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># latticeを用いた作図の例</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">xyplot</span>(HDI <span class="sc">~</span> PPP, <span class="at">data =</span> Country_df,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>       <span class="at">group =</span> OECD, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">grid =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb2-4"><a href="#cb2-4"></a>       <span class="at">auto.key =</span> <span class="cn">TRUE</span>,</span>
@@ -905,9 +1118,9 @@ window.Quarto = {
 <span id="cb2-8"><a href="#cb2-8"></a>                  <span class="at">points    =</span> <span class="fu">list</span>(<span class="at">col =</span> <span class="fu">c</span>(<span class="st">"magenta"</span>, <span class="st">"cyan"</span>),</span>
 <span id="cb2-9"><a href="#cb2-9"></a>                                   <span class="at">pch =</span> <span class="dv">19</span>),</span>
 <span id="cb2-10"><a href="#cb2-10"></a>                  <span class="at">text      =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"加盟国"</span>, <span class="st">"非加盟国"</span>))), </span>
-<span id="cb2-11"><a href="#cb2-11"></a>       <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11"></a>       <span class="at">xlab =</span> <span class="st">"一人当たり購買力平価GDP (USD)"</span>, <span class="at">ylab =</span> <span class="st">"人間開発指数"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-lattice" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-lattice" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-lattice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-lattice-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
@@ -925,15 +1138,15 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="ggplot2パッケージ">{ggplot2}パッケージ</h3>
 <p>{ggplot2}はHadely Wickhamが大学院生の時に開発した可視化パッケージであり<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>、 <span class="citation" data-cites="Wilkinson:2005">Wilkinson (<a href="#ref-Wilkinson:2005" role="doc-biblioref">2005</a>)</span> の「グラフィックの文法 (<strong>g</strong>rammer of <strong>g</strong>raphics)」の思想をR上で具現化したものです。グラフィックの文法という思想は今は{ggplot2}以外にも<a href="https://plotly.com">Plotly</a>や<a href="https://www.tableau.com/">Tableau</a>などでも採用されています。</p>
 <p>グラフィックの文法は後ほど詳細に解説しますが、{ggplot2}による作図の特徴は「レイヤーを重ねる」ことです。グラフの様々な要素をそれぞれ1つの層 (layer)と捉え、これを重ねられていくことでグラフが出来上がる仕組みです。これはBase Rの書き方に似ています。たとえば、{ggplot2}を使って <a href="#fig-visual1-baser" class="quarto-xref">図&nbsp;1</a> を作る場合、以下のようなコードになります。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot_489ee8b7c80664bbc49993528c2a656f">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># ggplot2を用いた作図の例</span></span>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># ggplot2を用いた作図の例</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Country_df) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PPP, <span class="at">y =</span> HDI, <span class="at">color =</span> OECD)) <span class="sc">+</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"一人あたり購買力平価GDP (USD)"</span>, <span class="at">y =</span> <span class="st">"人間開発指数"</span>,</span>
 <span id="cb3-5"><a href="#cb3-5"></a>       <span class="at">color =</span> <span class="st">"OECD加盟有無"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="1800">
@@ -977,9 +1190,13 @@ window.Quarto = {
 </div>
 </div>
 <p>このデータ<code>df</code>を使って <a href="#fig-visual1-ggplot-image-2" class="quarto-xref">図&nbsp;4</a> のようなグラフを作成します。以下では作図のコードも載っていますが、詳しく理解しなくても結構です。理解しなくてもいいですが、必ずコードには目を通し、説明文との対応を自分で考えてください。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-2_2bc3ef17e81fe749977edda75b5049b9">
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -997,10 +1214,10 @@ window.Quarto = {
 <li><code>ggplot(data = df)</code>の代わりに<code>ggplot(df)</code>、<code>df %&gt;% ggplot()</code>も可能</li>
 </ul></li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-3_d1a3d3ec0a3e66ad4293803b5d0117ed">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1015,11 +1232,11 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>折れ線グラフを作成します。折れ線グラフは点の位置を指定すると、勝手に点と点の間を線で繋いでぐれます。したがって、必要な情報は点の情報ですが、横軸 (X軸)は<code>Year</code>、縦軸 (Y軸)は<code>P</code>にした点を出力します。この点を<code>Company_Type1</code>ごとに色分けします。これで折れ線グラフが出来上がります。線の太さは1にします。</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-4_b8bc3c3fc1f613fc94e17d4eeeff259f">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1034,13 +1251,13 @@ window.Quarto = {
 <ol start="3" type="1">
 <li>続いて、折れ線グラフに散布図を載せます。これは線が引かれていない折れ線グラフと同じです。したがって、横軸、縦軸、色分けの情報は同じです。しかし、点と線が重なると点がよく見えないこともあるので、点の大きさを3にし、形は枠線付きの点にします。点の中身は白塗りをします。つまり、<code>Company_Type1</code>によって変わるのは、点の枠線です。</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-5_964f7d738e2733e97edf60e75757c0e9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1),  <span class="co">#&lt;</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>)         <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1),  <span class="co">#&lt;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>)         <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1055,14 +1272,14 @@ window.Quarto = {
 <ol start="4" type="1">
 <li>横軸と縦軸、そして凡例のタイトルを日本語に直します。日本語のレポート、論文なら図表も日本語にすべきです。横軸のラベルは<code>"年度"</code>、縦軸のラベルは<code>"平均利用者数 (人/日)"</code>にします。色の凡例タイトルは<code>"事業者区分"</code>にします。</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-6_9298366bea787539f0dea1f01f9538a0">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
-<span id="cb8-4"><a href="#cb8-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb9-4"><a href="#cb9-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1077,15 +1294,15 @@ window.Quarto = {
 <ol start="5" type="1">
 <li>横軸のスケールを修正します。横軸は連続 (continuous)変数です。今の目盛りは2012、2014、2016になっていますが、これを1年刻みにし、それぞれの目盛りのラベルも2011、2012、2013、…にします。</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-7_da7f75d433b6b7a8b016bbc42871dc04">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
-<span id="cb9-4"><a href="#cb9-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb10-4"><a href="#cb10-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-7" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1100,16 +1317,16 @@ window.Quarto = {
 <ol start="6" type="1">
 <li>グラフのテーマを{ggplot2}が基本的に提供しているminimalに変更し、フォントサイズを12に変更します。</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-image-8_68c59fbe98a8604c2aa7f42fb7f7b4d4">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
-<span id="cb10-4"><a href="#cb10-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="co">#&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1), </span>
+<span id="cb11-4"><a href="#cb11-4"></a>             <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="co">#&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-image-8" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-image-8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-image-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-ggplot-image-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1122,9 +1339,9 @@ window.Quarto = {
 </div>
 </div>
 <p>これで図が出来上がりました。このように{ggplot2}では図の要素をレイヤーと捉えます。このレイヤーを生成する関数が<code>ggplot()</code>、<code>geom_line()</code>、<code>lab()</code>などであり、これらを<code>+</code>演算子を用いて重ねていきます。このイメージを図にすると <a href="#fig-visual1-ggplot-layer" class="quarto-xref">図&nbsp;11</a> のように表現できます。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-layer_368243b11ca82ccc40e6750d87ea7ba5">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-layer" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-layer" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/Layer_Example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-fig-pos="H">
@@ -1147,9 +1364,9 @@ window.Quarto = {
 <p>この幾何オブジェクトに線や点、棒などを表示する際には、どの変数が横軸で、どの変数が縦軸かを明記する必要があります。また、変数によって点や線の色が変わったりする場合も、どの変数によって変わるかを明記します。これを <strong>マッピング (mapping)</strong>と呼びます。また、必要に応じて位置 (<code>position</code>)と統計量 (<code>stat</code>)を明記する必要がありますが、これは指定しなくてもとりあえず何らかの図は出力されます。</p>
 <p>最後に<strong>座標系 (coordinate system)</strong>は幾何オブジェクトが表示される空間の特徴を定義します。最も重要な特徴は横軸と縦軸の下限と上限です。または、空間を回転することなどもできます。</p>
 <p>{ggplot2}の図は以上の3つ要素を重ねることで出来ます（ <a href="#fig-visual1-ggplot-structure-1" class="quarto-xref">図&nbsp;12</a> ）。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-ggplot-structure-1_c1406b8e7486148c2de1f241ef2aa5b6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-ggplot-structure-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-ggplot-structure-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-ggplot-structure-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/Structure_Example2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
@@ -1163,16 +1380,16 @@ window.Quarto = {
 </div>
 <p>ただし、この中で座標系は適切だと判断される座標系に設定してくれるため、ユーザーが必ず指定すべきものはデータと幾何オブジェクトのみです。また、幾何オブジェクトはマッピングを含んでおり、これも必ず指定する必要があります。したがって、{ggplot2}で作図するための最小限のコードは以下のようになります。</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># ggplot2におけるプロットの基本形</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co"># データはggplotの第一引数と使う場合が多いため、「data =」は省略可能</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># マッピングは主に幾何オブジェクトの第一引数として使うため、「mapping =」は省略可能</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> データ名) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span>
-<span id="cb11-6"><a href="#cb11-6"></a></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># パイプを使う場合</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>データ名 <span class="sc">%&gt;%</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># ggplot2におけるプロットの基本形</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># データはggplotの第一引数と使う場合が多いため、「data =」は省略可能</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># マッピングは主に幾何オブジェクトの第一引数として使うため、「mapping =」は省略可能</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> データ名) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># パイプを使う場合</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>データ名 <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>  幾何オブジェクト関数(<span class="at">mapping =</span> <span class="fu">aes</span>(マッピング))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>注意すべき点は{ggplot2}においてレイヤーを重ねる際は<code>%&gt;%</code>でなく、<code>+</code>を使う点です。パイプ演算子は左側の結果を右に渡す意味を持ちますが、{ggplot2}はデータを渡すよりも、<strong>レイヤーを足していく</strong>イメージですから、<code>+</code>を使います。</p>
 <p>以下は{ggplot2}の必須要素であるデータと幾何オブジェクト、マッピングなどについて解説し、続いて図は見栄を調整するための関数群を紹介します。</p>
@@ -1186,9 +1403,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="幾何オブジェクト">幾何オブジェクト</h3>
 <p>しかし、データを指定しただけで図が出来上がるわけではありません。指定したデータを使ってどのような図を作るかも指定する必要があります。この図のタイプが幾何オブジェクト (geometry object)であり、<code>geom_*()</code>関数で表記します。たとえば、散布図を作る場合、</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>データ名 <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>データ名 <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>のように指定します。以上のコードは「あるデータを使って (<code>データ名 %&gt;%</code>)、キャンバスを用意し (<code>ggplot() +</code>)、散布図を作成する (<code>geom_point()</code>)。」と読むことが出来ます。</p>
 <p>また、この幾何オブジェクトは重ねることも可能です。よく見る例としては、散布図の上に回帰曲線 (<code>geom_smooth()</code>)や折れ線グラフ (<code>geom_line()</code>)を重ねたものであり、これらの幾何オブジェクトは<code>+</code>で繋ぐことが可能です。</p>
@@ -1201,7 +1418,7 @@ window.Quarto = {
 <p>マッピングに必要な変数、つまり<code>aes()</code>に必要な引数は幾何オブジェクトによって異なります。散布図や折れ線グラフならX軸とY軸の情報が必須であるため、2つ必要です (<code>x</code>と<code>y</code>)。ヒストグラムは連続変数の度数分布表を自動的に作成してからグラフが作られるから1つが必要です (<code>x</code>)。また、等高線図の場合、高さの情報も必要なので3つの変数が必要です (<code>x</code>と<code>y</code>、<code>z</code>)。これらの引数は必ず指定する必要があります。</p>
 <p>以上の引数に加え、追加のマッピング情報を入れることも可能です。たとえば、鉄道事業者ごとの平均利用者数を時系列で示した最初の例を考えてみましょう。これは折れ線グラフですので、<code>mapping = aes(x = 年度, y = 利用者数)</code>までは必須です。しかし、この図にはもう一つの情報がありますね。それは事業者のタイプです。事業者のタイプごとに線の色を変えたい場合は、<code>aes()</code>内に<code>color = 事業者のタイプ</code>を、線の種類を変えたい場合は、<code>linetype = 事業者のタイプ</code>のように引数を追加します。こうすると2次元のプロットに3次元の情報 (年度、利用者数、事業者タイプ)を乗せることが可能です。むろん、4次元以上にすることも可能です。たとえば、地域ごとに異なる色を、事業者タイプごとに異なる線のタイプを指定する場合は、<code>mapping = aes(x = 年度, y = 利用者数, color = 地域, linetype = 事業者のタイプ)</code>のように指定します。<code>color</code>や<code>linetype</code>以外にも大きさ (<code>size</code>)、透明度 (<code>alpha</code>)、点のタイプ (<code>shape</code>)、面の色 (<code>fill</code>)などを指定することができます。</p>
 <p>それでは、最初にお見せした <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピングはどうなるでしょうか。<a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> の幾何オブジェクトは折れ線グラフ (<code>geom_line()</code>)と散布図 (<code>geom_point()</code>)の2つです。それぞれの幾何オブジェクトのマッピング情報をまとめたのが <a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> です。</p>
-<div id="tbl-visual1-mapping-1" class="quarto-float anchored">
+<div id="tbl-visual1-mapping-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-mapping-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 表&nbsp;2: <a href="#fig-visual1-ggplot-image-8" class="quarto-xref">図&nbsp;10</a> のマッピング情報
@@ -1259,16 +1476,16 @@ window.Quarto = {
 </figure>
 </div>
 <p>先ほどマッピング引数は幾何オブジェクト関数内で指定すると言いましたが、実は<code>ggplot()</code>内に入れ、<code>geom_*()</code>内では省略することも可能です。幾何オブジェクトが1つのみならどっちでも問題ありません。しかし、幾何オブジェクトが2つ以上の場合は注意が必要です。全ての幾何オブジェクトがマッピングを共有する場合は<code>ggplot()</code>の方が書く手間が省きます。たとえば、<a href="#tbl-visual1-mapping-1" class="quarto-xref">表&nbsp;2</a> を見ると、<code>geom_line()</code>と<code>geom_point()</code>は<code>x</code>、<code>y</code>、<code>color</code>引数の値が同じですから、<code>ggplot()</code>内に<code>aes()</code>を入れることも可能です。しかし、幾何オブジェクトがマッピングを共有しない場合は幾何オブジェクト関数内に別途指定する必要があります。あるいは、共有するところだけ、<code>ggplot()</code>に書いて、共有しない部分だけ幾何オブジェクトで指定することも可能です。したがって、上の図は以下のコードでも作成することができます。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-2_f55f144f6c0e8fdbe32c310f64cf5386">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># geom_line()とgeom_point()はマッピング情報を共有しているため、</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># ggplot()内に指定</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1)) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># geom_line()とgeom_point()はマッピング情報を共有しているため、</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># ggplot()内に指定</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> P, <span class="at">color =</span> Company_Type1)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"平均利用者数 (人/日)"</span>, <span class="at">color =</span> <span class="st">"事業者区分"</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>, <span class="at">labels =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2017</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="マッピング-その他" class="level3">
@@ -1276,15 +1493,15 @@ window.Quarto = {
 <p>以上のことさえ覚えれば、とりあえず図は作れます。最後に、必須要素ではありませんが、幾何オブジェクトに使う引数について説明します。先ほど説明しました<code>color</code>や<code>linetype</code>、<code>size</code>などはマッピングの情報として使うことも可能ですが、<code>aes()</code>の外側に置くことも可能です。しかし、その挙動はかなり異なります。<code>color</code>が<code>aes()</code>の外側にある場合は、幾何オブジェクトの全要素に対して反映されます。</p>
 <p>たとえば、横軸が「ゲームのプレイ時間」、縦軸が「身長」の散布図を作成しるとします ( <a href="#fig-visual1-mapping-4" class="quarto-xref">図&nbsp;13</a> )。ここで<code>color</code>引数を追加しますが、まずは<code>aes()</code>の外側に入れます。</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 例1: 全ての点の色が赤になる</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>データ <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長),</span>
-<span id="cb14-5"><a href="#cb14-5"></a>             <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 例1: 全ての点の色が赤になる</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長),</span>
+<span id="cb15-5"><a href="#cb15-5"></a>             <span class="at">color =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-4_4ea0044edac0ab11c29d02e17012e1c4">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-mapping-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-mapping-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-mapping-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1303,14 +1520,14 @@ window.Quarto = {
 </ol>
 <p>以上の2点です。<code>aes()</code>の内側に<code>color</code>を指定する場合 ( <a href="#fig-visual1-mapping-6" class="quarto-xref">図&nbsp;14</a> ) は、以下のように変数名を指定します。たとえば、性別ごとに異なる色を付けるとしたら、</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 例2: 性別ごとに点の色が変わる</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>データ <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># 例2: 性別ごとに点の色が変わる</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-mapping-6_a68391c64a17720a2d632bb2b1b254a0">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-mapping-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-mapping-6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-mapping-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-mapping-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1328,9 +1545,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="座標系">座標系</h3>
 <p>座標系はデータが点や線、面などで出力される空間を意味し、<code>coord_*()</code>関数群を用いて操作します。</p>
 <p>座標系のズームイン (zoom-in) やズームアウト (zoom-out) を行う<code>coord_cartesian()</code>、横軸と縦軸を交換する<code>coord_flip()</code>、横軸と縦軸の比率を固定する<code>coord_fixed()</code>がよく使われます。座標系の説明は次章以降で詳しく解説しますが、ここでは座標系のズームインを見てみましょう。以下の <a href="#fig-visual1-coord-1" class="quarto-xref">図&nbsp;15</a> は各国のCOVID19の感染者数を時系列で示したものです。これを見るとアメリカ、ブラジル、インドは大変だなーくらいしかわかりません。感染者数が比較的に少ない国のデータは線としては存在しますが、なかなか区別ができません。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-1_c0e90f17b6921241ac1ccbab328ad943">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-coord-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-coord-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-coord-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1343,9 +1560,9 @@ window.Quarto = {
 </div>
 </div>
 <p>ここで座標系をズームインすると、一部の情報は失われますが、ズームインされた箇所はより詳細にグラフを観察できます。ズームインと言っても難しいものではありません。単に、軸の上限、下限を調整するだけです。たとえば、縦軸の上限を10万人に変更したのが <a href="#fig-visual1-coord-2" class="quarto-xref">図&nbsp;16</a> です。アメリカなど感染者数が10万人を超える国家の時系列情報の一部は失われましたが、日中韓などのデータはより見やすくなったかと思います<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-coord-2_a5eb2b303f30f4ebf144ba22deb62fdf">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-coord-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-coord-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-coord-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1366,7 +1583,7 @@ window.Quarto = {
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-coord-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-coord-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-coord-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1381,7 +1598,7 @@ window.Quarto = {
 <p>こんな座標系を実際に使う機会は多くないかも知れませんが、極座標系は割と身近なところで見ることができます。それは積み上げ棒グラフと円グラフの関係です。<a href="#fig-visual1-coord-6" class="quarto-xref">図&nbsp;18</a> はデカルト座標系上の積み上げ棒グラフを極座標系に変換したものです。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-coord-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-coord-6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-coord-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-coord-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1401,16 +1618,16 @@ window.Quarto = {
 <p>この形、色、大きさ、太さなどを調整するためには<code>scale_*_*()</code>関数群を使います。例えば、<a href="#fig-visual1-mapping-4" class="quarto-xref">図&nbsp;13</a> の場合、点は横軸上の位置、縦軸上の位置、色の3つのスケールを持っています。横軸と縦軸は連続変数 (時間と身長)、色は名目変数 (性別)です。ここで横軸のスケールを調整するためには<code>scale_x_continuous()</code>レイヤーを追加します。縦軸も同様に<code>scale_y_continuous()</code>を使います。ここの<code>x</code>と<code>y</code>はスケール、<code>continuous</code>は連続変数であることを意味します。それでは、色を調整するためにはどうすれば良いでしょうか。それは<code>scale_color_manual()</code>です。<code>color</code>は色を、<code>manual</code>は手動調整を意味しますが、主に性別や都道府県のような名目変数のスケール調整に使います。</p>
 <p>これらの<code>scale_*_*()</code>関数群は点、線、面が持つ位置情報や性別を変更することではなく、その見せ方を変更するだけです。<a href="#fig-visual1-mapping-6" class="quarto-xref">図&nbsp;14</a> の縦軸の目盛りは「150、160、170、180」となっていますが、<code>scale_y_continuous()</code>を使うとこの目盛りが変わります。点の位置が変わることはありません。たとえば、以下のコードは<code>scale_y_continuous()</code>を使って縦軸の目盛りを5cm刻みに変更するためのコードであり、<a href="#fig-visual1-scale-2" class="quarto-xref">図&nbsp;19</a> はその結果です。</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># scale_y_continuous()の例</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>データ <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
-<span id="cb17-6"><a href="#cb17-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># scale_y_continuous()の例</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
+<span id="cb18-6"><a href="#cb18-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-2_f4572449931facea5f4a7f54eaa3d895">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-scale-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-scale-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-scale-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-scale-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1424,17 +1641,17 @@ window.Quarto = {
 </div>
 <p>また、性別ごとの色を変更する際は<code>scale_color_manual()</code>を使います（ <a href="#fig-visual1-scale-4" class="quarto-xref">図&nbsp;20</a> ）。</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># scale_color_manual()の例</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>データ <span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
-<span id="cb18-6"><a href="#cb18-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>)) <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"男性"</span> <span class="ot">=</span> <span class="st">"#ff9900"</span>, <span class="st">"女性"</span> <span class="ot">=</span> <span class="st">"#339900"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r numberLines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># scale_color_manual()の例</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>データ <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> ゲームのプレイ時間, <span class="at">y =</span> 身長, <span class="at">color =</span> 性別)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>),</span>
+<span id="cb19-6"><a href="#cb19-6"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">145</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>)) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"男性"</span> <span class="ot">=</span> <span class="st">"#ff9900"</span>, <span class="st">"女性"</span> <span class="ot">=</span> <span class="st">"#339900"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-scale-4_29f84363b5d7d49af9728f91acae9a79">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-scale-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-scale-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-scale-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-scale-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1452,9 +1669,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="ファセット">ファセット</h3>
 <p>ファセット (facet)は日本語では「面」、「切子面」などで訳されますが、誤解を招く可能性があるため、本書ではそのままファセットと訳します。ファセットとはデータの部分集合 (subset)を対象にしたグラフを意味します。</p>
 <p>たとえば、フリーダムハウスでは毎年、各国を「自由」、「部分的に自由」、「不自由」と格付けをし、結果を公表しています。世界に自由な国、部分的に自由な国、不自由な国が何カ国あるかを大陸ごとに示したいとします。カテゴリごとの個数を示すには棒グラフが効果的であり、 <a href="#fig-visual1-facet-1" class="quarto-xref">図&nbsp;21</a> のように示すことができます。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-1_465242e959f17cecce96798316f8e84d">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-facet-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-facet-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-facet-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-facet-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1468,9 +1685,9 @@ window.Quarto = {
 </div>
 <p>このグラフを見ると各大陸に自由な国がどれほどあるかが分かりますが、人によっては読みにくいかも知れません。できれば大陸ごとに分けたグラフの方が見やすいでしょう。そのためにはデータを特定の大陸に絞って、そのデータを用いた棒グラフを作り、最終的には出来上がったグラフたちを結合する必要があります。</p>
 <p>しかし、{ggplot2}のファセットを指定するとそのような手間が省けます。これはデータを大陸ごとの部分集合に分割し、1つのプロット上に小さい複数のプロットを出力します。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-facet-2_62e26ae8794a4274d09f9f5ab3280a18">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-facet-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-facet-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-facet-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-facet-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1509,9 +1726,9 @@ window.Quarto = {
 \end{align}\]</span></p>
 <p>データ・インク比は「データ・インク」を「グラフの出力に使用されたインクの総量」で割ったものです。<strong>データ・インク</strong>とはデータの情報を含むインクの量を意味します。これを言い換えると、グラフにおいて情報損失なしに除去できるグラフの要素が占める割合を1から引いたものです。</p>
 <p>ここで1つの例を紹介します。たとえば、G20加盟国におけるCOVID19の累積感染者数を時系列で示すとします。そこで最近、インドにおいて感染者数が急増していることを示したいとします。まず、 <a href="#fig-visual1-dataink-1" class="quarto-xref">図&nbsp;23</a> から見ましょう。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-1_41bfe07e40bb4cc33305f93fed7491ee">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-dataink-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-dataink-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1524,9 +1741,9 @@ window.Quarto = {
 </div>
 </div>
 <p>そもそもどの線がインドを表しているのかが分かりにくいです。カテゴリが増えると使える色に制約が生じてしまうからです。実際、図からフランス、ドイツ、インド、インドネシアを区別するのは非常に難しいでしょう。現実に色分けが出来る天才的な色覚を持つ読者ならこちらの方が情報も豊富であり、いいかも知れません。しかし、インドにおける感染者数の急増を示すには無駄な情報が多すぎます。そこでインドを除く国の色をグレーにまとめたものが <a href="#fig-visual1-dataink-2" class="quarto-xref">図&nbsp;24</a> です。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-dataink-2_55b0e9de2bce6a733104364110b8c53d">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-dataink-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-dataink-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-dataink-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2400">
@@ -1542,7 +1759,7 @@ window.Quarto = {
 <p>しかし、このデータ・インク比に基づく可視化は常に正しいとは言えません。そこでもう一つの例を紹介します。 <a href="#fig-visual1-dataink-3" class="quarto-xref">図&nbsp;25</a> の左は <span class="citation" data-cites="Kuznicki_McCutcheon:1979">Kuznicki と McCutcheon (<a href="#ref-Kuznicki_McCutcheon:1979" role="doc-biblioref">1979</a>)</span> の論文に掲載された図であり、右はTufteによる改善案です。</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-dataink-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-dataink-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/Dataink_ratio2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-fig-pos="H">
@@ -1565,7 +1782,7 @@ window.Quarto = {
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-dataink-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-dataink-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-dataink-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/Dataink_ratio3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" data-fig-pos="H">
@@ -1579,14 +1796,14 @@ window.Quarto = {
 </div>
 <p>皆さんもある程度は結果が予想できたかと思いますが、いずれのグループにおいても、Tufteが推奨する <a href="#fig-visual1-dataink-4" class="quarto-xref">図&nbsp;26</a> のDが「美しさ」、「明瞭さ」、「簡潔さ」のすべての点において最下位でした。また、どの図が最も好きかに対しても <a href="#tbl-visual1-dataink-5" class="quarto-xref">表&nbsp;3</a> のような結果が得られました。</p>
 <div class="cell" data-layout-align="center">
-<div id="tbl-visual1-dataink-5" class="cell quarto-float anchored" data-layout-align="center">
+<div id="tbl-visual1-dataink-5" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visual1-dataink-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 表&nbsp;3: Inbar, Tractinsky, and Meyer (2007)の実験結果
 </figcaption>
 <div aria-describedby="tbl-visual1-dataink-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
@@ -1620,8 +1837,6 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </figure>
@@ -1632,9 +1847,9 @@ window.Quarto = {
 <section id="次元プロット" class="level3">
 <h3 class="anchored" data-anchor-id="次元プロット">3次元プロット</h3>
 <p>これまで見てきた全ての図は縦軸と横軸しか持たない2次元プロットです。しかし、実際の生活において3次元プロットを見にすることは珍しくないでしょう。3次元プロットの場合、縦軸と横軸以外に、高さ (深さ)といったもう一つの軸が含まれます。しかし、多くの場合、このもう一つの軸はグラフにおいて不要な場合が多いです。たとえば、 <a href="#fig-visual1-3dplot-1" class="quarto-xref">図&nbsp;27</a> をを見てみましょう<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。これはCOVID19による定額給付金の給付済み金額を時系列で並べたものです。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-1_206ed4e18ff2078e6109f7765ba30ede">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/garbage_graph.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
@@ -1648,9 +1863,9 @@ window.Quarto = {
 </div>
 <p>この図の目的は筆者にとってはよく分かりませんが、少なくとも給付金が順調（？）に配られているということですかね。その傾向を見るにはこの図は大きな問題はありません。しかし、細かい数値を見ようとすると誤解が生じる可能性があります。たとえば、7月22日の給付済み額は12.12兆円です。しかし、 <a href="#fig-visual1-3dplot-2" class="quarto-xref">図&nbsp;28</a> を見ると、7月22日の棒は12兆円に達しておりません。なぜでしょうか。</p>
 <p>これは棒と壁（？）との間隔が理由です。 <a href="#fig-visual1-3dplot-2" class="quarto-xref">図&nbsp;28</a> の右下にある青い円を見ればお分かりかと思いますが、棒が浮いています。この棒を壁（？）側に密着すると12の線を超えると考えられますが、このままだと12兆円に達していないのに12兆円超えてると、何かの入力ミスじゃないかと考えさせるかも知れません。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-2_257cf7e921cdc9def7131b58b217577b">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/garbage_graph2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
@@ -1663,9 +1878,9 @@ window.Quarto = {
 </div>
 </div>
 <p>この図において3D要素の必要性は0と言えます。2次元の棒グラフ ( <a href="#fig-visual1-3dplot-3" class="quarto-xref">図&nbsp;29</a> )、または折れ線グラフ ( <a href="#fig-visual1-3dplot-4" class="quarto-xref">図&nbsp;30</a> )の方がデータ・インク比の観点からも、分かりやすさからも優れていると言えるでしょう。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-3_ba056249d08fe97099d6080b4191dbbe">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
@@ -1677,9 +1892,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-4_e82fec424114eba09919b12a42e183fe">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
@@ -1692,9 +1907,9 @@ window.Quarto = {
 </div>
 </div>
 <p>ただ、総務省の図はまだマシかも知れません。世の中には誤解を招かすために作成された3次元プロットもあります。以下の図は早稲田アカデミーが作成した早慶高の合格者数を年度ごとに示した図です。2001年は754人で2012年は1494人です。比較対象がないので本当に12年連続全国No.1かどうかは判断できませんが、2倍近く増加したことは分かります。ただし、棒グラフの高さを見ると、2倍どころか3倍程度に見えます。他にも一時期、合格者が減少した時期 (2002、2003年)があるにもかかわらず、あまり目立ちません。これには2つの原因があります。それは(1)多分、ベースラインが0人ではない、(2) 遠近法により遠いものは小さく見えることです。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-5_40f79b1baa48ba03b42d89e3a60b2862">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figs/Visualization1/garbage_graph3.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H">
@@ -1707,9 +1922,9 @@ window.Quarto = {
 </div>
 </div>
 <p>これを2次元棒グラフに直してものが <a href="#fig-visual1-3dplot-6" class="quarto-xref">図&nbsp;32</a> です。こちらの方が合格者をより客観的に確認することができるでしょう。</p>
-<div class="cell" data-layout-align="center" data-hash="ggplot_intro1_cache/html/fig-visual1-3dplot-6_208af8a8dd78f14d54d531a2431d7dd1">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-visual1-3dplot-6" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-visual1-3dplot-6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-visual1-3dplot-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="ggplot_intro1_files/figure-html/fig-visual1-3dplot-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="2100">
@@ -1751,187 +1966,71 @@ Wilkinson, Leland. 2005. <em>The Grammar of Graphics</em>. Springer.
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1939,189 +2038,189 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2129,185 +2228,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

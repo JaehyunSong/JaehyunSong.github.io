@@ -22,9 +22,7 @@ website:
         href: research/index.qmd
       - text: "Teaching"
         href: teaching/index.qmd
-      - text: "Seminar"
-        href: https://www.jaysong.net/seminar/
-        target: "_blank"
+      - sidebar:seminar
       - text: "Software"
         href: software/index.qmd
       - text: "Notes"
@@ -44,6 +42,32 @@ website:
         href: https://scholar.google.com/citations?user=8a-NxjkAAAAJ&hl=ja
       - icon: map
         href: https://researchmap.jp/jaysong
+  sidebar:
+    - id: seminar
+      title: "Seminar"
+      style: "docked"
+      background: light
+      contents:
+        - text: 宋ゼミについて
+          icon: bi-mortarboard
+          href: seminar/index.qmd
+        - text: 応募について
+          icon: bi-person-add
+          href: seminar/entry.qmd
+        - text: よくある質問
+          icon: bi-patch-question
+          href: seminar/faq.qmd
+        - text: "---"
+        - text: 宋ゼミのメンバー
+          href: seminar/people.qmd
+        - text: ゼミ生の進路
+          href: seminar/course.qmd
+        - text: ゼミ生の研究成果
+          href: seminar/research.qmd
+        - text: これまでの倍率
+          href: seminar/competition.qmd
+        - text: 春休みの過ごし方
+          href: seminar/preparation.qmd  
   twitter-card:
     title: Jaehyun Song, Ph.D.
     description: Jaehyun Song's personal homepage

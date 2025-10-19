@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.jaysong.net/tutorial/R/rprogramming.html</loc>
-    <lastmod>2024-06-27T06:51:08.555Z</lastmod>
+    <loc>https://www.jaysong.net/cv/index.html</loc>
+    <lastmod>2023-08-13T06:17:09.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jaysong.net/cv/index.html</loc>
-    <lastmod>2023-08-13T06:17:09.688Z</lastmod>
+    <loc>https://www.jaysong.net/seminar/entry.html</loc>
+    <lastmod>2025-10-18T17:05:15.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/seminar/people.html</loc>
+    <lastmod>2025-10-18T09:01:13.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/seminar/preparation.html</loc>
+    <lastmod>2025-10-18T15:37:23.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/seminar/research.html</loc>
+    <lastmod>2025-10-18T08:58:22.868Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/stats/logit_classification.html</loc>
-    <lastmod>2024-06-27T07:00:42.980Z</lastmod>
+    <lastmod>2024-06-27T07:00:42.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/toolbox/toolbox.html</loc>
@@ -26,47 +38,51 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/simulation/consistency.html</loc>
-    <lastmod>2024-06-27T07:01:46.873Z</lastmod>
+    <lastmod>2024-06-27T07:01:46.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/simulation/llm.html</loc>
-    <lastmod>2024-06-27T07:01:17.054Z</lastmod>
+    <lastmod>2024-06-27T07:01:17.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/simulation/kurohige.html</loc>
-    <lastmod>2024-06-27T07:01:30.420Z</lastmod>
+    <lastmod>2024-06-27T07:01:30.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/software/scripts/rpp.html</loc>
-    <lastmod>2023-11-01T07:23:51.241Z</lastmod>
+    <lastmod>2023-11-01T07:23:51.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/software/index.html</loc>
     <lastmod>2025-07-01T12:29:01.733Z</lastmod>
   </url>
   <url>
+    <loc>https://www.jaysong.net/index.html</loc>
+    <lastmod>2024-01-19T01:18:33.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.jaysong.net/tutorial/index.html</loc>
-    <lastmod>2023-08-13T06:20:50.679Z</lastmod>
+    <lastmod>2023-08-13T06:20:50.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP07.html</loc>
-    <lastmod>2024-06-27T06:59:06.028Z</lastmod>
+    <lastmod>2024-06-27T06:59:06.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP10.html</loc>
-    <lastmod>2024-06-27T06:58:24.570Z</lastmod>
+    <lastmod>2024-06-27T06:58:24.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP01.html</loc>
-    <lastmod>2024-06-27T06:59:48.513Z</lastmod>
+    <lastmod>2024-06-27T06:59:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP02.html</loc>
-    <lastmod>2024-06-27T06:59:41.010Z</lastmod>
+    <lastmod>2024-06-27T06:59:41.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP09.html</loc>
-    <lastmod>2024-06-27T06:58:36.296Z</lastmod>
+    <lastmod>2024-06-27T06:58:36.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/R/purrr_intro.html</loc>
@@ -90,7 +106,35 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/R/ggplot_intro4.html</loc>
-    <lastmod>2024-07-29T09:00:24.519Z</lastmod>
+    <lastmod>2024-07-29T09:00:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/tutorial/R/opp_intro.html</loc>
+    <lastmod>2022-05-09T07:16:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/research/index.html</loc>
+    <lastmod>2025-09-12T01:53:59.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/research/appendix/aiso_2022.html</loc>
+    <lastmod>2022-07-25T02:25:46.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/research/appendix/jpsa_2022.html</loc>
+    <lastmod>2022-09-21T02:16:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/research/appendix/cjoint-n-sim.html</loc>
+    <lastmod>2022-05-04T08:28:03.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/tutorial/R/rprogramming.html</loc>
+    <lastmod>2024-06-27T06:51:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/tutorial/R/renv.html</loc>
+    <lastmod>2023-03-20T07:19:45.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/R/ggplot_intro1.html</loc>
@@ -114,27 +158,31 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP08.html</loc>
-    <lastmod>2024-06-27T06:58:48.297Z</lastmod>
+    <lastmod>2024-06-27T06:58:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/index.html</loc>
-    <lastmod>2024-06-27T06:59:56.950Z</lastmod>
+    <lastmod>2024-06-27T06:59:56.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP03.html</loc>
-    <lastmod>2024-06-27T06:59:34.575Z</lastmod>
+    <lastmod>2024-06-27T06:59:34.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP04.html</loc>
-    <lastmod>2024-06-27T06:59:27.791Z</lastmod>
+    <lastmod>2024-06-27T06:59:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP05.html</loc>
-    <lastmod>2024-06-27T06:59:20.589Z</lastmod>
+    <lastmod>2024-06-27T06:59:20.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/JASP/JASP06.html</loc>
-    <lastmod>2024-06-27T06:59:13.498Z</lastmod>
+    <lastmod>2024-06-27T06:59:13.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/software/conjoint_field_generator.html</loc>
+    <lastmod>2025-07-01T12:28:27.871Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/software/scripts/list_randomizer.html</loc>
@@ -146,11 +194,11 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/simulation/mhp.html</loc>
-    <lastmod>2024-06-27T07:01:08.075Z</lastmod>
+    <lastmod>2024-06-27T07:01:08.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/simulation/clt.html</loc>
-    <lastmod>2024-06-27T07:02:22.944Z</lastmod>
+    <lastmod>2024-06-27T07:02:22.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/index.html</loc>
@@ -162,26 +210,30 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/toolbox/ci_materials.html</loc>
-    <lastmod>2025-09-29T03:11:46.038Z</lastmod>
+    <lastmod>2025-09-29T03:11:51.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/notes/stats/asa_p_value.html</loc>
-    <lastmod>2024-06-27T07:00:33.722Z</lastmod>
+    <lastmod>2024-06-27T07:00:33.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/teaching/index.html</loc>
-    <lastmod>2024-09-13T01:35:45.686Z</lastmod>
+    <lastmod>2024-09-13T01:35:45.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jaysong.net/index.html</loc>
-    <lastmod>2024-01-19T01:18:33.000Z</lastmod>
+    <loc>https://www.jaysong.net/seminar/index.html</loc>
+    <lastmod>2025-10-18T18:00:00.245Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jaysong.net/research/index.html</loc>
-    <lastmod>2025-09-12T01:53:59.920Z</lastmod>
+    <loc>https://www.jaysong.net/seminar/faq.html</loc>
+    <lastmod>2025-10-18T14:49:29.881Z</lastmod>
   </url>
   <url>
-    <loc>https://www.jaysong.net/software/conjoint_field_generator.html</loc>
-    <lastmod>2025-07-01T12:28:27.871Z</lastmod>
+    <loc>https://www.jaysong.net/seminar/course.html</loc>
+    <lastmod>2025-10-17T02:36:49.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/seminar/competition.html</loc>
+    <lastmod>2025-10-18T15:24:54.383Z</lastmod>
   </url>
 </urlset>
