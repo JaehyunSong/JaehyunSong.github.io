@@ -1,1 +1,4 @@
+User-agent: *
+Disallow: /Garage/
+
 Sitemap: https://www.jaysong.net/sitemap.xml
