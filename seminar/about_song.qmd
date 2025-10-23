@@ -1,0 +1,102 @@
+---
+title: "担当教員について"
+date-modified: today
+format: html
+engine: knitr
+---
+
+```{css}
+/*| echo: false */
+.qa-1 {
+    max-width: 950px;
+    margin-bottom: 7px;
+    border: 1px solid #d6dde3;
+    border-radius: 5px;
+}
+
+.qa-1 summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em 1em 3em;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.qa-1 summary::before,
+.qa-1 p::before {
+    position: absolute;
+    left: 1em;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.qa-1 summary::before {
+    color: #75bbff;
+    content: "✓";
+}
+
+.qa-1 summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid #333333b3;
+    border-right: 3px solid #333333b3;
+    content: '';
+    transition: transform .5s;
+}
+
+.qa-1[open] summary::after {
+    transform: rotate(225deg);
+}
+
+section > p {
+    text-align: justify;
+}
+
+.qa-1 p {
+    position: relative;
+    margin: 0;
+    padding: .3em 3em 1.5em;
+    color: #333;
+    text-align: justify;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .mobile-only {
+        display: inline;
+    }
+}
+```
+
+　名前は宋財泫（そん・じぇひょん）です。ソウル（韓国）生まれ・ソウル育ちで、高校を卒業し、2005年に来日しました。徴兵と1年間の語学留学の時期を除けばずっと日本で暮らしていたので、日本歴もそろそろ20年になります。大学では政治学を勉強し、大学院でも政治学で博士学位を取得しました。趣味はグルメとゲームです。麺類（とりわけラーメン）が好きですが、最近は少し控えております。ゲームはRPG類全般が好きで、3D酔いがひどいのでFPSは苦手です。
+
+　私の専門は政治学であり、その中でも**政治行動論**と**政治学方法論**を専門としています。政治行動論は政治における様々な主体（有権者、市民、政治家、官僚、マスコミ、若者、ネット民など）の行動や意識を観察したり、因果関係を分析する学問ですが、私の主な観察対象は有権者です。この観察や分析を支えるのが政治学方法論です。観察には観察済み（=既に公開されている）のデータを使うこともあれば、自分の問いを検証するために世論調査などを通じて観察する場合もあります。要するに私の仕事は政治的現象をデータを用いて分析することです。
+
+### 職歴
+
+- 2021年度〜：[関西大学](https://www.kansai-u.ac.jp/ja/?stt_lang=ja)[総合情報学部](https://www.kansai-u.ac.jp/Fc_inf/)　准教授
+- 2020年度：[同志社大学](https://www.doshisha.ac.jp/)[文化情報学部](https://www.cis.doshisha.ac.jp/)　助教
+- 2018〜2019年度：[早稲田大学](https://www.waseda.jp/top/)[高等研究所](https://www.waseda.jp/inst/wias/)　講師
+- 2017年度：日本学術振興会特別研究員（DC2）
+
+### 学歴
+
+- 2015〜2017年度：[神戸大学](https://www.kobe-u.ac.jp/ja/)[法学研究科](https://www.law.kobe-u.ac.jp/)　博士課程後期課程
+   - 博士（政治学）
+      - 博士論文：「争点空間の歪みと有権者の選択―伸縮近接性モデルによる争点投票理論の統合―」
+- 2012〜2014年度：[神戸大学](https://www.kobe-u.ac.jp/ja/)[法学研究科](https://www.law.kobe-u.ac.jp/)　博士課程前期課程
+   - 修士（政治学）
+      - 修士論文：「韓国は地域主義を超えられるか―選挙公約の役割の実証分析―」
+   - 2012年度：語学留学（アメリカ）
+- 2006〜2011年度：[慶應義塾大学](https://www.keio.ac.jp/ja/)[法学部](https://www.law.keio.ac.jp/)政治学科
+   - 学士（法学）
+   - 2009〜2010年度：兵役による休学
+- 2002〜2004年度：[東国大学校師範大学附属高等学校](https://ddbk.sen.hs.kr/)

@@ -62,6 +62,8 @@ website:
           href: seminar/competition.qmd
         - text: 春休みの過ごし方
           href: seminar/preparation.qmd  
+        - text: 担当教員について
+          href: seminar/about_song.qmd  
   twitter-card:
     title: Jaehyun Song, Ph.D.
     description: Jaehyun Song's personal homepage

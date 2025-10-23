@@ -14,7 +14,6 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[R&R]** Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law (w/ [Polly Chan](https://pollyjchan.github.io/) and Tetsuro Kobayashi)
 1. **[Under Review]** Prejudice Toward Refugees and the Countervailing Role of Empathy: The Case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
 1. Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
@@ -37,6 +36,7 @@ toc-depth: 5
 
 ##### 2025
 
+(@) Kobayashi, Tetsuro, **Jaehyun Song**, and [Polly Chan](https://pollyjchan.github.io/). *forthcoming*. "Is a snapshot enough? Repeated list experiments in autocratizing Hong Kong under the National Security Law." *Journal of Elections, Public Opinion and Parties.*
 (@) Takahashi, Yuriko, **Jaehyun Song**, and [Takeshi Iida](https://tiida.doshisha.ac.jp/). 2025. "Transnational Political Participation of Undocumented Mexican Immigrants in the US: Respondent-Driven Sampling with the Hard-to-Reach Population." *Journal of Race, Ethnicity, and Politics,* Online first.
 <div class="jay_btn">[Full-text](https://doi.org/10.1017/rep.2025.10018 )</div>
 (@) Uji, Azusa, **Jaehyun Song**, [Nives Dolšak](http://faculty.washington.edu/nives/), and  [Aseem Prakash](http://aseemprakash.net/). 2025. "Penalty or Premium for Foreign Ownership in Thailand? Comparing Public support for waste-to-energy plants operated by Thai, Japanese, and Chinese Companies," *PLOS One.* 20(7): e0328165.

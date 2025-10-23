@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/index.html</loc>
-    <lastmod>2024-01-19T01:18:33.000Z</lastmod>
+    <lastmod>2024-01-19T01:18:33.885Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/tutorial/index.html</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/research/index.html</loc>
-    <lastmod>2025-09-12T01:53:59.000Z</lastmod>
+    <lastmod>2025-10-21T03:38:15.645Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/research/appendix/aiso_2022.html</loc>
@@ -222,7 +222,7 @@
   </url>
   <url>
     <loc>https://www.jaysong.net/seminar/index.html</loc>
-    <lastmod>2025-10-19T14:12:08.523Z</lastmod>
+    <lastmod>2025-10-23T03:53:05.505Z</lastmod>
   </url>
   <url>
     <loc>https://www.jaysong.net/seminar/faq.html</loc>
@@ -235,5 +235,9 @@
   <url>
     <loc>https://www.jaysong.net/seminar/competition.html</loc>
     <lastmod>2025-10-20T05:37:58.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.jaysong.net/seminar/about_song.html</loc>
+    <lastmod>2025-10-23T03:51:04.088Z</lastmod>
   </url>
 </urlset>
