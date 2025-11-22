@@ -79,35 +79,6 @@ gtag('js', new Date());
 gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Jaehyun Song, Ph.D.">
@@ -356,12 +327,12 @@ window.Quarto = {
 <ul>
 <li>オフィスアワー参加者：25名</li>
 <li>第1希望：7人応募、7人合格</li>
-<li>第2希望：12名（うち8名は第1希望で合格）、2人合格</li>
+<li>第2希望：4名応募、2人合格（第2希望応募者12名の内、8名は第1希望で合格）</li>
 </ul></li>
 <li>第2次募集
 <ul>
 <li>オフィスアワー参加者：21名</li>
-<li>第1希望：11人応募、<span class="math inline">\(\bigcirc\bigcirc\)</span>人合格</li>
+<li>第1希望：11人応募、3人合格</li>
 <li>第2希望：1人応募、0人合格</li>
 </ul></li>
 <li>第3次募集
