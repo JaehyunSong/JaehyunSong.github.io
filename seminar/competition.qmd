@@ -10,7 +10,7 @@ knitr:
 :::: {.callout-note collapse=true}
 ## 応募倍率の推移（図）
 
-倍率が1以下の場合は全員合格を意味します。
+点・線がない箇所は定員到達による募集なしを意味します。
 
 ```{r}
 #| echo: false
@@ -39,6 +39,7 @@ tibble(year = rep(2022:2026, each = 6)) |>
    geom_hline(yintercept = 1, linetype = "dashed") +
    geom_line(linewidth = 1, color = "tomato") +
    geom_point(size = 3, shape = 21, color = "white", fill = "tomato") +
+   scale_y_continuous(breaks = 0:10, labels = c("0（応募者なし）", "1（全員合格）", 2:10)) +
    facet_grid(time ~ kibo) +
    labs(x = "入ゼミ年度", y = "倍率") +
    theme_bw()
