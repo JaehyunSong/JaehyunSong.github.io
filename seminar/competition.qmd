@@ -39,7 +39,7 @@ tibble(year = rep(2022:2026, each = 6)) |>
    geom_hline(yintercept = 1, linetype = "dashed") +
    geom_line(linewidth = 1, color = "tomato") +
    geom_point(size = 3, shape = 21, color = "white", fill = "tomato") +
-   scale_y_continuous(breaks = 0:10, labels = c("0（応募者なし）", "1（全員合格）", 2:10)) +
+   scale_y_continuous(breaks = 0:10, labels = c("応募者なし：0", "全員合格：1", 2:10)) +
    facet_grid(time ~ kibo) +
    labs(x = "入ゼミ年度", y = "倍率") +
    theme_bw()
