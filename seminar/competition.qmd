@@ -1,7 +1,50 @@
 ---
 title: "これまでの応募倍率"
 toc: true
+knitr: 
+  opts_chunk: 
+    dev: "ragg_png"
+    dpi: 300
 ---
+
+:::: {.callout-note collapse=true}
+## 応募倍率の推移（図）
+
+倍率が1以下の場合は全員合格を意味します。
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+pacman::p_load(tidyverse, dplyr, stringr)
+
+tibble(year = rep(2022:2026, each = 6)) |> 
+   mutate(time = rep(rep(1:3, each = 2), n() / 6),
+          kibo = rep(1:2, n() / 2)) |> 
+   mutate(time = str_c("第", time, "次募集"),
+          kibo = str_c("第", kibo, "希望")) |> 
+   mutate(apply = c(0, 0, 6, 2, 4, NA,
+                    3, 1, 6, 1, 1, NA,
+                    2, 1, 10, NA, NA, NA,
+                    2, 5, 8, NA, NA, NA,
+                    7, 4, 11, NA, NA, NA),
+          pass  = c(0, 0, 6, 2, 4, NA,
+                    3, 1, 6, 1, 1, NA,
+                    2, 1, 9, NA, NA, NA,
+                    2, 5, 4, NA, NA, NA,
+                    7, 2, 3, NA, NA, NA)) |> 
+   mutate(comp = apply / pass,
+          comp = if_else(is.nan(comp), 0, comp)) |> 
+   ggplot(aes(x = year, y = comp)) +
+   geom_hline(yintercept = 1, linetype = "dashed") +
+   geom_line(linewidth = 1, color = "tomato") +
+   geom_point(size = 3, shape = 21, color = "white", fill = "tomato") +
+   facet_grid(time ~ kibo) +
+   labs(x = "入ゼミ年度", y = "倍率") +
+   theme_bw()
+
+```
+::::
 
 ## 5期生（2026年4月入ゼミ）
 
