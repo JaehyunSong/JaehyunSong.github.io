@@ -15,14 +15,15 @@ df <- read_csv("_data/list.csv")
 #| echo: false
 df |> 
     filter(Type == 4) |> 
-    arrange(ID) |> 
-    mutate(File = paste0("_abstract/", Year, "/", File, ".pdf")) |> 
+    arrange(desc(Year), ID) |> 
+    mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
     mutate(Year = str_c(Year, "年度")) |> 
     group_by(Year) |> 
     gt() |> 
     fmt_url(columns = File, as_button = TRUE, label = "PDF") |> 
     fmt_markdown(columns = Title) |> 
+    sub_missing(missing_text = "") |> 
     cols_label("Name"  = "氏名",
                "Title" = "題目",
                "File"  = "概要") |> 
@@ -37,19 +38,19 @@ df |>
 #| echo: false
 df |> 
     filter(Type == 3) |> 
-    arrange(ID) |> 
-    mutate(File = paste0("_slide/", Year, "/", File, ".pdf")) |> 
+    arrange(desc(Year), ID) |> 
+    mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
     mutate(Year = str_c(Year, "年度")) |> 
     group_by(Year) |> 
     gt() |> 
-    fmt_url(columns = File, as_button = TRUE, label = "Slide") |> 
+    fmt_url(columns = File, as_button = TRUE, label = "PDF") |> 
     fmt_markdown(columns = Title) |> 
-    sub_missing(missing_text = "（未定）") |> 
+    sub_missing(missing_text = "") |> 
     cols_label("Name"  = "氏名",
                "Title" = "題目",
-               "File"  = "スライド") |> 
+               "File"  = "概要") |> 
     cols_align(columns = File, align = "center") |> 
-    cols_width(Name  ~ px(450),
+    cols_width(Name  ~ px(150),
                File  ~ px(150))
 ```
