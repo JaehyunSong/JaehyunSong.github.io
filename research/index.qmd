@@ -121,6 +121,10 @@ toc-depth: 5
 (共同研究において下線は報告者を表す)
 
 
+##### 2026
+
+1. [Iida, Tekeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, and <u>Yuriko Takahashi</u>. Jan. 6. 2026. "Latino Reactions to New Immigrants and Shifting Political Alignments: Evidence from a Conjoint Experiment in Chicago," *Japanese Society for Quantitative Political Science 2026 Winter Meeting,* Tokyo: Japan.
+
 ##### 2025
 
 1. <u>Woo, Yujin</u>, **Jaehyun Song**. Jul. 13. 2025. "Public Support for Migration Policies in New Immigration Countries: Large Evidence from Framing and Conjoint Experiments in East Asia," *International Political Science Association,* Seoul: KOREA. 
