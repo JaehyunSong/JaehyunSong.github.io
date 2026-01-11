@@ -14,7 +14,7 @@ df <- read_csv("_data/list.csv")
 ```{r}
 #| echo: false
 df |> 
-    filter(Type == 4) |> 
+    filter(Type == 4 & !is.na(ID)) |> 
     arrange(desc(Year), ID) |> 
     mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
@@ -37,7 +37,7 @@ df |>
 ```{r}
 #| echo: false
 df |> 
-    filter(Type == 3) |> 
+    filter(Type == 3 & !is.na(ID)) |> 
     arrange(desc(Year), ID) |> 
     mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
