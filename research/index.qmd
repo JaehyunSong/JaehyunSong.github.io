@@ -14,15 +14,17 @@ toc-depth: 5
 
 ### Work in Progress
 
-1. **[Under Review]** Prejudice Toward Refugees and the Countervailing Role of Empathy: The Case of Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
-1. Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
+1. **[R&R]** Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea. (w/ Yujin Woo)
+1. **[R&R]** 韓国における格差認識・感情的分極化と投票参加 (w/ 磯崎典世)
+1. **[Under Review]** Subjective Prejudice and the Countervailing Power of Empathy: Evidence from Japan (w/ Sho Akahoshi, Daisuke Madokoro, and Azusa Uji)
+1. **[Submitted]** Trump 2.0 and Public Support for Bilateral Foreign Aid. (w/ Azusa Uji, [Aseem Prakash](http://aseemprakash.net/), and [Nives Dolšak](http://faculty.washington.edu/nives/))
 1. Restructuring Issue Space: Unifying Proximity and Direction Models
 <div class="jay_btn">[Working Paper](https://ssrn.com/abstract=2984430)</div>
 1. The Economy as the Most Important Problem: How does economic issue salience affect the economic voting? (w/ [Beomseob Brandon Park](https://sites.google.com/view/brandonpark/home))
 1. Get Out the Voter or Go Away? Evidence from Online Field Experiments. (w/ [Masaki Hata](http://hatam.sakura.ne.jp/))
 1. 復活当選が投票率に与える影響
 1. Post-Election Regret under Alternative Electoral Rules: Evidence from Mexico’s 2021 Federal Election (w/ Yuriko Takahashi and [Sohei Shigemura](https://soheishigemura.com/))
-1. 韓国における感情的分極化がもたらす政治的帰結 (w/ 磯崎典世)
+
 
 ### Books
 
