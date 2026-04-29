@@ -32,3 +32,4 @@
 /.luarc.json
 
 **/*.quarto_ipynb
+.positai

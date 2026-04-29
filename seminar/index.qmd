@@ -10,6 +10,8 @@ engine: knitr
 
 ```{css}
 /*| echo: false */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 .qa-1 {
     max-width: 950px;
     margin-bottom: 7px;
@@ -88,6 +90,10 @@ section > p {
 
 <span style="font-size:0.75em;">※ Instagramがゼミ生が運営しており、宋は関与しておりません。現役ゼミ生に質問のある方はDM送ってみてください。</spa>
 </center>
+
+<br/>
+
+<center>（<span style="color:#75bbff; font-weight:600;">✓</span>付きのボックスをクリックすると詳細が確認できます）</center>
 
 # 宋ゼミについて
 
