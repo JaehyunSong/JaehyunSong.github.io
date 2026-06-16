@@ -6,10 +6,15 @@ link-external-newwindow: true
 
 ## R
 
-* 宋財泫・[矢内勇生](https://yukiyanai.github.io/)『[私たちのR:ベストプラクティスの探求](https://www.jaysong.net/RBook/)』
-   * R Not for Everyone: An Esoteric Guide
-   * Rプログラミングの入門教材
-   * 現在、執筆中です
+* 宋財泫・[矢内勇生](https://yukiyanai.github.io/)『[私たちのR:ベストプラクティスの探求](https://www.jaysong.net/RBook/)』（執筆中）
+   - <https://www.jaysong.net/RBook>
+   * R**プログラミング**の入門教材
+
+## Quarto 
+
+- [Quartoを使った研究成果と分析プロセスの共有](https://www.jaysong.net/intro-to-quarto/)
+   - <https://www.jaysong.net/intro-to-quarto/>
+   - 2026年2月20日に行われる東京大学社会科学研究所計量分析セミナーの教材
 
 ## Qualtrics
 
