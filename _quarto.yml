@@ -84,3 +84,5 @@ format:
 
 resources: 
   - CNAME
+
+freeze: auto

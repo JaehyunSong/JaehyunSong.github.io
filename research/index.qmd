@@ -128,7 +128,8 @@ toc-depth: 5
 
 ##### 2026
 
-1. **[Scheduled]** **Song Jaehyun**・[飯田健](https://tiida.doshisha.ac.jp/)・高橋百合子. 2026年6月21日. 「Latino Attitudes toward New Immigrants and Shifting Political Alignments: A Conjoint Experiment in Chicago」日本選挙学会. 於：日本大学.
+1. **[Scheduled]** Iida, Takeshi, **Jaehyun Song**, and Yuriko Takahashi. Sep. 4. 2026. "Political Invisibility and Latino Non-Voters: Evidence from a Survey in Chicago," *American Political Science Association,* Boston, MA: USA.
+1. **Song Jaehyun**・[飯田健](https://tiida.doshisha.ac.jp/)・高橋百合子. 2026年6月21日. 「Latino Attitudes toward New Immigrants and Shifting Political Alignments: A Conjoint Experiment in Chicago」日本選挙学会. 於：日本大学.
 1. [Iida, Tekeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, and <u>Yuriko Takahashi</u>. Jan. 6. 2026. "Latino Reactions to New Immigrants and Shifting Political Alignments: Evidence from a Conjoint Experiment in Chicago," *Japanese Society for Quantitative Political Science 2026 Winter Meeting,* Tokyo: Japan.
 
 ##### 2025
@@ -243,6 +244,8 @@ toc-depth: 5
 
 ### Invited Talks & Lectures
 
+1. 「[Quartoを使った研究成果と分析プロセスの共有](https://csrda.iss.u-tokyo.ac.jp/quantitative/seminar/202512051307.html)」東京大学（2026年2月20日）
+1. 「[基調講演2：教育現場におけるJDCat分析ツールの利活用](https://www.hi.u-tokyo.ac.jp/di/news/26/)」東京大学（2026年1月30日）
 1. 「教育現場におけるJDCat分析ツールの活用」NIIオープンフォーラム2024（2024年6月12日）
 1. 「Qualtrics講習会」高知工科大学（2020年12月）<span class="jay_btn">[Slide (学外用)](../tutorial/Qualtrics/Introduction_to_Qualtrics.pdf)</span>
 1. 「Qualtrics+Rによるコンジョイント分析の実施と分析」関西学院大学（2019年2月）
@@ -283,6 +286,9 @@ toc-depth: 5
 
 ### Funding
 
+1. [分担] Apr.2025~Mar.2028: 科学研究費 基盤研究 (B)「ラテン系・アジア系米国人の政治意識研究：アイデンティ・政治的社会化・政策争点態度」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-25K00605/)</span>
+1. [分担] Apr.2024~Mar.2027: 科学研究費 	
+国際共同研究加速基金 (海外連携研究)「米国におけるマイノリティ集団の政治意識と政治参加：ヒスパニックの事例から」代表：高橋百合子 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-24KK0026/)</span>
 1. **[単独]** Apr.2023~Mar.2028: 科学研究費 若手研究「政治的情報処理費用の測定と削減に関する研究 」 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-23K12419/)</span>
 1. [分担] Apr.2022~Mar.2026: 科学研究費 基盤研究 (B)「ポピュリストの体制化というパラドックス：エリート概念の拡張とポピュリズムの新測定」代表：日野愛郎 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-22H00810/)</span>
 1. [分担] Apr.2021~Mar.2026: 科学研究費 基盤研究 (B)「不確実性の高い社会における地方政治への信頼の変動要因とその帰結の実証的解明」代表：善教将大 <span class="jay_btn">[KAKEN](https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-21H00684/)</span>

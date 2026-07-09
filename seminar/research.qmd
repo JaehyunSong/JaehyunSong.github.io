@@ -39,7 +39,7 @@ df |>
 df |> 
     filter(Type == 3 & !is.na(ID)) |> 
     arrange(desc(Year), ID) |> 
-    mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
+    mutate(File = if_else(!is.na(File), paste0("_slide/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
     mutate(Year = str_c(Year, "年度")) |> 
     group_by(Year) |> 
