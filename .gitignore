@@ -33,3 +33,5 @@
 
 **/*.quarto_ipynb
 .positai
+
+_freeze/

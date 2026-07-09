@@ -54,3 +54,5 @@ df |>
     cols_width(Name  ~ px(150),
                File  ~ px(150))
 ```
+
+[a](_slide/2025/inuzuka_obana_hayami.pdf)
