@@ -6,7 +6,7 @@ toc: true
 ```{r}
 #| include: false
 pacman::p_load(tidyverse, gt)
-df <- read_csv("_data/list.csv")
+df <- read_csv("data/list.csv")
 ```
 
 ## 卒業研究（4回生）
@@ -16,7 +16,7 @@ df <- read_csv("_data/list.csv")
 df |> 
     filter(Type == 4 & !is.na(ID)) |> 
     arrange(desc(Year), ID) |> 
-    mutate(File = if_else(!is.na(File), paste0("_abstract/", Year, "/", File, ".pdf"), NA)) |> 
+    mutate(File = if_else(!is.na(File), paste0("abstract/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
     mutate(Year = str_c(Year, "年度")) |> 
     group_by(Year) |> 
@@ -39,7 +39,7 @@ df |>
 df |> 
     filter(Type == 3 & !is.na(ID)) |> 
     arrange(desc(Year), ID) |> 
-    mutate(File = if_else(!is.na(File), paste0("_slide/", Year, "/", File, ".pdf"), NA)) |> 
+    mutate(File = if_else(!is.na(File), paste0("slide/", Year, "/", File, ".pdf"), NA)) |> 
     select(-Type, -ID) |> 
     mutate(Year = str_c(Year, "年度")) |> 
     group_by(Year) |> 
