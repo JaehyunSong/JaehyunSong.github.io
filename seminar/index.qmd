@@ -86,9 +86,11 @@ section > p {
 <br/>
 
 <center>
+<a href="https://www.jaysong.net/garage/2025/OH/reservation.html" class="btn btn-info btn-lg" target="_blank" role="button"><i class="bi bi-calendar-check"></i>&nbsp;&nbsp;&nbsp;オフィスアワーの予約</a>
+
 [<i class="bi bi-mortarboard"></i> ゼミ紹介](index.qmd){class="btn btn-outline-primary" role="button"} [<i class="bi bi-person-add"></i> 応募について](entry.qmd){class="btn btn-outline-info" role="button"} [<i class="bi bi-patch-question"></i> よくある質問](faq.qmd){class="btn btn-outline-success" role="button"} [<i class="bi bi-instagram"></i> Instagram](https://www.instagram.com/song_officehour/){class="btn btn-outline-danger" role="button" target="_blank"}
 
-<span style="font-size:0.75em;">※ Instagramがゼミ生が運営しており、宋は関与しておりません。現役ゼミ生に質問のある方はDM送ってみてください。</spa>
+<span style="font-size:0.75em;">※ Instagramはゼミ生が運営しており、宋は関与しておりません。現役ゼミ生に質問のある方はDM送ってみてください。</spa>
 </center>
 
 <br/>
