@@ -41,7 +41,7 @@ toc-depth: 5
 
 ##### 2026
 
-(@) Woo, Yujin and Jaehyun Song. *(forthcoming)*. "Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea." *International Political Science Review.*
+(@) Song, Jaehyun and Yujin Woo. *(forthcoming)*. "Public Perception toward Migrants: Impact of Multicultural Policies in Japan and South Korea." *International Political Science Review.*
 (@) 磯崎典世・SONG JAEHYUN. *(forthcoming)*. 「韓国における格差認識・感情的分極化と投票参加」『日本比較政治学会年報』28: ページ未定.
 
 ##### 2025
@@ -133,8 +133,9 @@ toc-depth: 5
 
 ##### 2026
 
-1. **[Scheduled]** Iida, Takeshi, **Jaehyun Song**, and Yuriko Takahashi. Sep. 4. 2026. "Political Invisibility and Latino Non-Voters: Evidence from a Survey in Chicago," *American Political Science Association,* Boston, MA: USA.
-1. **Song Jaehyun**・[飯田健](https://tiida.doshisha.ac.jp/)・高橋百合子. 2026年6月21日. 「Latino Attitudes toward New Immigrants and Shifting Political Alignments: A Conjoint Experiment in Chicago」日本選挙学会. 於：日本大学.
+1. <u>[飯田健](https://tiida.doshisha.ac.jp/)</u>・**SONG Jaehyun**・高橋百合子. 2026年10月3日. 「Latino Reactions to New Immigrants and Shifting Political Alignments: Evidence from a Conjoint Experiment in Chicago」日本政治学会. 於：大阪公立大学
+1. Iida, Takeshi, **Jaehyun Song**, and <u>Yuriko Takahashi</u>. Sep. 4. 2026. "Political Invisibility and Latino Non-Voters: Evidence from a Survey in Chicago," *American Political Science Association,* Boston, MA: USA.
+1. <u>**Song Jaehyun**</u>・[飯田健](https://tiida.doshisha.ac.jp/)・高橋百合子. 2026年6月21日. 「Latino Attitudes toward New Immigrants and Shifting Political Alignments: A Conjoint Experiment in Chicago」日本選挙学会. 於：日本大学.
 1. [Iida, Tekeshi](https://tiida.doshisha.ac.jp/), **Jaehyun Song**, and <u>Yuriko Takahashi</u>. Jan. 6. 2026. "Latino Reactions to New Immigrants and Shifting Political Alignments: Evidence from a Conjoint Experiment in Chicago," *Japanese Society for Quantitative Political Science 2026 Winter Meeting,* Tokyo: Japan.
 
 ##### 2025
