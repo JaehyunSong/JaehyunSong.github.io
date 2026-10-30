@@ -279,6 +279,7 @@
     .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
     .card h3{font-size:14px}
     .price{font-size:15px}
+    .price-row{flex-direction:column;align-items:flex-start;gap:8px}
   }
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -319,8 +320,8 @@
 <section id="requests">
   <h2><span class="tab"></span>リクエストフォーム</h2>
   <form class="req-form" id="req-form">
-    <label for="req-text">ほしい商品のリクエスト <span class="opt">（テキストとURLはどちらか一方でもOK!）</span></label>
-    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、具体的な商品名やURL など"></textarea>
+    <label for="req-text">ほしい商品のリクエスト / 既存商品へのコメント <span class="opt">（テキストとURLはどちらか一方でもOK!）</span></label>
+    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、◯◯は量が多すぎる、具体的な商品名やURL など"></textarea>
     <label for="req-url">参考URL <span class="opt">（商品ページ・写真など）</span></label>
     <input type="url" id="req-url" placeholder="https://...">
     <div class="submit-row">
@@ -489,8 +490,8 @@ function cardEl(it){
       '<div class="price-row">' +
         '<span class="price">' + esc(price) + '</span>' +
         '<div class="votes">' +
-          '<button class="vote-btn b-good" aria-label="良かったに投票">👍 <span class="n-good">' + Number(it.good || 0) + '</span></button>' +
-          '<button class="vote-btn b-bad" aria-label="良くなかったに投票">👎 <span class="n-bad">' + Number(it.bad || 0) + '</span></button>' +
+          '<button class="vote-btn b-good" aria-label="良かったに投票" title="もう一度押すと取消・反対ボタンで変更できます">👍 <span class="n-good">' + Number(it.good || 0) + '</span></button>' +
+          '<button class="vote-btn b-bad" aria-label="良くなかったに投票" title="もう一度押すと取消・反対ボタンで変更できます">👎 <span class="n-bad">' + Number(it.bad || 0) + '</span></button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -527,41 +528,54 @@ function refreshVoteUI(el, it){
   const mine = myVotes[it.id];
   bGood.classList.toggle('mine-good', mine === 'good');
   bBad.classList.toggle('mine-bad', mine === 'bad');
-  const voted = !!mine;
-  bGood.disabled = voted;
-  bBad.disabled = voted;
-  if (mine === 'good') bGood.textContent = '👍 投票済';
-  else bGood.innerHTML = '👍 <span class="n-good">' + Number(it.good || 0) + '</span>';
-  if (mine === 'bad') bBad.textContent = '👎 投票済';
-  else bBad.innerHTML = '👎 <span class="n-bad">' + Number(it.bad || 0) + '</span>';
+  bGood.disabled = false;
+  bBad.disabled = false;
 }
 
 /* ---------- 投票 ---------- */
 let db = null, auth = null;
 
+/* ローカル側の投票状態を更新（ボタンの再クリック＝取消、反対ボタン＝変更） */
+function applyLocalVote(it, dir, el){
+  const mine = myVotes[it.id];
+  if (mine === dir){
+    delete myVotes[it.id];
+    it[dir] = Math.max(0, (it[dir] || 0) - 1);
+  } else {
+    if (mine) it[mine] = Math.max(0, (it[mine] || 0) - 1);
+    myVotes[it.id] = dir;
+    it[dir] = (it[dir] || 0) + 1;
+  }
+  saveVotes();
+  refreshVoteUI(el, it);
+}
+
 async function vote(it, dir, el){
-  if (IS_DEMO){ toast('デモ表示のため投票は記録されません（設定後に有効化）'); return; }
-  if (myVotes[it.id]) return;
-  const btn = el.querySelector(dir === 'good' ? '.b-good' : '.b-bad');
-  btn.disabled = true;
+  const mine = myVotes[it.id];
+  if (IS_DEMO){ applyLocalVote(it, dir, el); return; }
+  const busy = [el.querySelector('.b-good'), el.querySelector('.b-bad')];
+  busy.forEach(b => b.disabled = true);
   try{
     if (!auth.currentUser) await auth.signInAnonymously();
     const ref = db.collection('items').doc(it.id);
+    const delta = {};
+    if (mine === dir){ delta[dir] = -1; }
+    else { delta[dir] = 1; if (mine) delta[mine] = -1; }
     await db.runTransaction(async tx => {
       const snap = await tx.get(ref);
       if (!snap.exists) throw new Error('not found');
-      tx.update(ref, { [dir]: (snap.data()[dir] || 0) + 1 });
+      const d = snap.data();
+      const upd = {};
+      Object.keys(delta).forEach(k => { upd[k] = Math.max(0, (d[k] || 0) + delta[k]); });
+      tx.update(ref, upd);
     });
-    myVotes[it.id] = dir;
-    saveVotes();
-    it[dir] = (it[dir] || 0) + 1;
-    refreshVoteUI(el, it);
-    toast('投票ありがとうございます！');
+    applyLocalVote(it, dir, el);
+    toast(mine === dir ? '投票を取り消しました。' : '投票ありがとうございます！');
   }catch(err){
     console.error(err);
-    btn.disabled = false;
-    toast('投票できませんでした。しばらくしてから再度お試しください。');
+    toast('投票を更新できませんでした。しばらくしてから再度お試しください。');
   }
+  busy.forEach(b => b.disabled = false);
 }
 
 /* ---------- リクエスト ---------- */
@@ -608,7 +622,7 @@ function renderRequests(list){
     if (r.reply){
       const rep = document.createElement('div');
       rep.className = 'reply-box';
-      rep.innerHTML = '<div class="reply-label">管理者からの返信 <span class="reply-date">' + esc(fmtDate(r.repliedAt)) + '</span></div>' +
+      rep.innerHTML = '<div class="reply-label">宋からの返信 <span class="reply-date">' + esc(fmtDate(r.repliedAt)) + '</span></div>' +
         '<div class="md">' + mdRender(r.reply) + '</div>';
       fixLinks(rep);
       li.appendChild(rep);

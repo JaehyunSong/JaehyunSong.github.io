@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - seminar/foods.html
+    - seminar/foods_illust.png
 
 #language: _language.yml
 lang: ja
