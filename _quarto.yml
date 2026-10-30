@@ -65,7 +65,8 @@ website:
         - text: 担当教員について
           href: seminar/about_song.qmd  
         - text: 宋ゼミのレンチン食堂
-          href: seminar/foods.qmd  
+          href: seminar/foods.html
+          target: "_blank"
   twitter-card:
     title: Jaehyun Song, Ph.D.
     description: Jaehyun Song's personal homepage

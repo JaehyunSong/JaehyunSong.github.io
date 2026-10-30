@@ -1,881 +1,724 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
-
+<html lang="ja">
+<head>
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>レンチン食堂の案内 – Jaehyun Song, Ph.D.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宋ゼミのレンチン食堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../imgs/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1d34df3d279a2d634f655fe5119287d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "サーチ"
+  :root{
+    --navy:#1F3A5F;
+    --navy-deep:#16283F;
+    --shu:#E4572E;
+    --shu-deep:#C2431F;
+    --paper:#FAF6EF;
+    --card:#FFFFFF;
+    --ink:#33302B;
+    --sub:#7A7263;
+    --line:#E7DFD2;
+    --ok:#5E8C61;
+    --radius:14px;
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BCE61P2YP7"></script>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{color:var(--navy)}
+  button{font-family:inherit;cursor:pointer}
+  img{display:block}
 
-<script type="text/javascript">
+  /* ===== ヘッダー（のれん） ===== */
+  header.banner{
+    background:linear-gradient(180deg,var(--navy-deep),var(--navy));
+    color:#fff;
+    padding:26px 20px 18px;
+    text-align:center;
+    position:relative;
+    z-index:0; /* スタッキングコンテキストを作り、丸バッジをこの中の背面に置く */
+  }
+  header.banner .eyebrow{
+    font-size:12px;letter-spacing:.35em;color:#B9C6DB;margin-bottom:4px;
+  }
+  header.banner h1{
+    font-family:'M PLUS Rounded 1c',sans-serif;
+    font-weight:800;font-size:clamp(24px,5vw,36px);
+    letter-spacing:.08em;
+  }
+  header.banner h1 .accent{color:#F2A65A}
+  .stamp{
+    position:absolute;right:calc(50% - 260px);top:14px;
+    width:88px;height:88px;border-radius:50%;
+    border:3px solid #F2A65A;
+    overflow:hidden;
+    display:none;
+    transform:rotate(8deg);
+    background:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+    z-index:-1; /* タイトル文字の背面に回す（ヘッダー背景よりは手前） */
+  }
+  .stamp img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;display:block}
+  .stamp .stamp-txt{
+    display:none;width:100%;height:100%;
+    align-items:center;justify-content:center;text-align:center;
+    color:#F2A65A;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;
+    font-size:13px;letter-spacing:.05em;line-height:1.3;
+    background:rgba(242,166,90,.08);
+  }
+  @media(min-width:560px){.stamp{display:block}}
 
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-BCE61P2YP7', { 'anonymize_ip': true});
-</script>
+  /* ===== 看板絵（店内イラスト） ===== */
+  .shop-frame{
+    max-width:944px;margin:16px auto 0;
+    border:5px solid var(--navy);border-radius:14px;overflow:hidden;
+    background:#fff;box-shadow:0 4px 14px rgba(31,58,95,.15);
+  }
+  .shop-frame img{width:100%;height:260px;object-fit:cover;object-position:50% 42%;display:block}
+  @media(max-width:480px){.shop-frame img{height:170px}}
+  .updated{
+    margin-top:10px;font-size:12px;color:#B9C6DB;
+  }
 
+  /* ===== 注意事項 ===== */
+  .notice{
+    max-width:960px;margin:18px auto 0;padding:14px 20px;
+    background:#FFF9E8;border:1px solid #EAD9A8;border-radius:var(--radius);
+    font-size:13.5px;color:#6B5B2E;
+  }
+  .notice ul{margin:4px 0 0 1.2em}
+  .notice li{margin:2px 0}
+  .notice strong{color:#8A4B1F}
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Jaehyun Song, Ph.D.">
-<meta property="og:description" content="Jaehyun Song’s personal homepage">
-<meta property="og:image" content="https://www.jaysong.net/seminar/imgs/favicon.png">
-<meta property="og:site_name" content="Jaehyun Song, Ph.D.">
-<meta name="twitter:title" content="Jaehyun Song, Ph.D.">
-<meta name="twitter:description" content="Jaehyun Song’s personal homepage">
-<meta name="twitter:image" content="https://www.jaysong.net/seminar/imgs/favicon.png">
-<meta name="twitter:creator" content="@Tintstyle">
-<meta name="twitter:site" content="@Tintstyle">
-<meta name="twitter:card" content="summary">
+  /* ===== カテゴリーナビ ===== */
+  nav.cats{
+    position:sticky;top:0;z-index:20;
+    background:rgba(250,246,239,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+    display:flex;gap:8px;overflow-x:auto;
+  }
+  nav.cats a{
+    flex:none;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;
+    font-size:13px;color:var(--navy);text-decoration:none;
+    padding:6px 14px;border:1.5px solid var(--navy);
+    border-radius:999px;background:#fff;transition:background .15s,color .15s;
+  }
+  nav.cats a:hover{background:var(--navy);color:#fff}
+
+  /* ===== メニュー ===== */
+  main{max-width:960px;margin:0 auto;padding:8px 16px 24px}
+  section.cat{margin-top:30px}
+  section.cat h2{
+    font-family:'M PLUS Rounded 1c',sans-serif;
+    font-weight:800;font-size:20px;color:var(--navy);
+    display:flex;align-items:center;gap:10px;
+    border-bottom:3px solid var(--navy);padding-bottom:6px;margin-bottom:14px;
+  }
+  section.cat h2 .tab{width:18px;height:18px;background:var(--shu);border-radius:4px;flex:none}
+  section.cat .cat-note{font-size:12.5px;color:var(--sub);margin:-8px 0 12px}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;
+  }
+  article.card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:0 2px 6px rgba(31,58,95,.06);
+  }
+  .card .ph{aspect-ratio:4/3;background:#EEE8DC;position:relative;cursor:default}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
+  .card .ph .ph-fallback{
+    position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+    color:var(--sub);font-size:13px;padding:10px;text-align:center;
+  }
+  .card h3.tappable{cursor:pointer}
+  .memo-badge{
+    position:absolute;top:8px;left:8px;z-index:2;
+    font-size:10.5px;font-weight:700;color:#fff;background:var(--navy);
+    border-radius:6px;padding:1px 7px;opacity:.92;
+  }
+  .card .tip{
+    position:absolute;left:8px;right:8px;bottom:8px;z-index:3;
+    background:rgba(22,40,63,.94);color:#fff;font-size:12.5px;line-height:1.5;
+    padding:10px 12px;border-radius:10px;
+    white-space:pre-wrap;word-break:break-word;
+    display:none;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.25);
+  }
+  .card .tip:before{
+    content:"";position:absolute;top:-6px;left:24px;
+    border:6px solid transparent;border-bottom-color:rgba(22,40,63,.94);border-top:0;
+  }
+  .card.tip-open .tip{display:block}
+  .card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{font-size:15.5px;font-weight:700;line-height:1.4;flex:1}
+  .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .price{
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:17px;
+    color:#fff;background:var(--shu);
+    padding:2px 12px;border-radius:8px;
+    transform:rotate(-2deg);box-shadow:0 2px 0 var(--shu-deep);
+    white-space:nowrap;
+  }
+  .votes{display:flex;gap:6px}
+  .vote-btn{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:13px;font-weight:700;
+    border:1.5px solid var(--line);background:#FBF9F4;color:var(--ink);
+    border-radius:999px;padding:4px 10px;
+    transition:transform .1s,background .15s,border-color .15s;
+  }
+  .vote-btn:not(:disabled):hover{transform:translateY(-1px);border-color:var(--navy)}
+  .vote-btn:disabled{cursor:default;opacity:.55}
+  .vote-btn.mine-good{background:#EAF3EA;border-color:var(--ok);opacity:1}
+  .vote-btn.mine-bad{background:#F9E9E4;border-color:var(--shu);opacity:1}
+  .vote-btn.mine{opacity:1}
+
+  .loading,.error-box,.demo-banner{
+    max-width:960px;margin:24px auto;padding:14px 20px;border-radius:var(--radius);
+    font-size:14px;
+  }
+  .loading{background:#EEF2F8;color:var(--navy);text-align:center}
+  .error-box{background:#F9E9E4;color:#8A2F14;border:1px solid #EFC4B4}
+  .demo-banner{
+    background:#EEF2F8;border:1px dashed var(--navy);color:var(--navy);
+    font-size:13px;
+  }
+
+  /* ===== リクエスト ===== */
+  #requests{max-width:960px;margin:40px auto 0;padding:0 16px 60px}
+  #requests h2{
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:20px;
+    color:var(--navy);border-bottom:3px solid var(--navy);
+    padding-bottom:6px;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  #requests h2 .tab{width:18px;height:18px;background:var(--shu);border-radius:4px;flex:none}
+  .req-form{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:0 2px 6px rgba(31,58,95,.06);
+  }
+  .req-form label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin:12px 0 4px}
+  .req-form label:first-child{margin-top:0}
+  .req-form label .opt{font-weight:400;color:var(--sub);font-size:12px}
+  .req-form textarea,.req-form input[type=url]{
+    width:100%;border:1.5px solid var(--line);border-radius:10px;
+    padding:10px 12px;font-family:inherit;font-size:14px;background:#FDFCF9;
+    transition:border-color .15s;
+  }
+  .req-form textarea{height:84px;resize:vertical}
+  .req-form textarea:focus,.req-form input[type=url]:focus{outline:none;border-color:var(--navy)}
+  .req-form .submit-row{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap}
+  .req-form button{
+    background:var(--shu);color:#fff;border:none;border-radius:10px;
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:15px;
+    padding:10px 28px;box-shadow:0 3px 0 var(--shu-deep);
+    transition:transform .1s,opacity .15s;
+  }
+  .req-form button:hover{transform:translateY(-1px)}
+  .req-form button:active{transform:translateY(1px);box-shadow:0 1px 0 var(--shu-deep)}
+  .req-form button:disabled{opacity:.5;cursor:default}
+  .req-hint{font-size:12px;color:var(--sub)}
+  .req-msg{font-size:13px;margin-top:8px;display:none}
+  .req-msg.ok{display:block;color:var(--ok)}
+  .req-msg.err{display:block;color:#B23A1B}
+
+  .req-history{margin-top:22px}
+  .req-history h3{font-size:14.5px;color:var(--navy);margin-bottom:10px}
+  ul.req-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  ul.req-list li{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;font-size:13.5px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  ul.req-list li.handled{opacity:.55;background:#F6F3EC}
+  .req-head{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--sub)}
+  .badge-done{
+    font-size:11px;color:#fff;background:var(--ok);border-radius:6px;padding:1px 8px;font-weight:700;
+  }
+  .req-text{word-break:break-word}
+  .req-text p{margin:0 0 .4em}
+  .req-text p:last-child{margin-bottom:0}
+  .req-text ul,.req-text ol{margin:.3em 0 .3em 1.4em}
+  .req-text code{background:#F1EDE3;border-radius:4px;padding:1px 5px;font-size:.9em}
+  .req-text pre{background:#F1EDE3;border-radius:6px;padding:8px;overflow-x:auto;font-size:12.5px}
+  .req-text blockquote{border-left:3px solid var(--line);padding-left:8px;color:var(--sub);margin:.3em 0}
+  .req-text a{word-break:break-all}
+  .req-text img{max-width:100%;border-radius:8px}
+  .reply-box{
+    margin-top:8px;padding:10px 12px;
+    background:#F2F6FB;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;
+  }
+  .reply-box .reply-label{font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .reply-box .reply-date{font-weight:400;color:var(--sub)}
+  .reply-box .md{font-size:13.5px;word-break:break-word}
+  .reply-box .md p{margin:0 0 .4em}
+  .reply-box .md p:last-child{margin-bottom:0}
+  .reply-box .md ul,.reply-box .md ol{margin:.3em 0 .3em 1.4em}
+  .reply-box .md code{background:#E3EAF3;border-radius:4px;padding:1px 5px;font-size:.9em}
+  .reply-box .md a{word-break:break-all}
+  .req-url{word-break:break-all;font-size:13px}
+
+  footer{
+    text-align:center;font-size:12px;color:var(--sub);
+    padding:24px 16px 40px;border-top:1px solid var(--line);
+  }
+
+  /* トースト */
+  #toast{
+    position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+    background:var(--navy-deep);color:#fff;font-size:13.5px;
+    padding:10px 20px;border-radius:999px;opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;z-index:50;max-width:90vw;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:480px){
+    .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+    .card h3{font-size:14px}
+    .price{font-size:15px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
 </head>
+<body>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../imgs/logo.png" alt="" class="navbar-logo light-content">
-    <img src="../imgs/logo.png" alt="" class="navbar-logo dark-content">
-    </a>
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Jaehyun Song, Ph.D.</span>
-    </a>
+<header class="banner">
+  <div class="stamp">
+    <img src="foods_illust.png" alt="レンチン食堂の看板イラスト">
+    <span class="stamp-txt">レンチン<br>食堂</span>
   </div>
-            <div id="quarto-search" class="" title="サーチ"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="ナビゲーションを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../cv/index.html"> 
-<span class="menu-text">CV</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../research/index.html"> 
-<span class="menu-text">Research</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
-<span class="menu-text">Teaching</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminar" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Seminar</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-seminar">    
-        <li>
-    <a class="dropdown-item" href="../seminar/index.html">
- <span class="dropdown-text">宋ゼミについて</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/entry.html">
- <span class="dropdown-text">応募について</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/faq.html">
- <span class="dropdown-text">よくある質問</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/people.html">
- <span class="dropdown-text">宋ゼミのメンバー</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/course.html">
- <span class="dropdown-text">ゼミ生の進路</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/research.html">
- <span class="dropdown-text">ゼミ生の研究成果</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/competition.html">
- <span class="dropdown-text">これまでの倍率</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/preparation.html">
- <span class="dropdown-text">春休みの過ごし方</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/about_song.html">
- <span class="dropdown-text">担当教員について</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../seminar/foods.html">
- <span class="dropdown-text">宋ゼミのレンチン食堂</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../software/index.html"> 
-<span class="menu-text">Software</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../notes/index.html"> 
-<span class="menu-text">Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../tutorial/index.html"> 
-<span class="menu-text">Tutorials</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JaehyunSong"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=8a-NxjkAAAAJ&amp;hl=ja"> <i class="bi bi-google" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://researchmap.jp/jaysong"> <i class="bi bi-mortarboard-fill" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../seminar/foods.html">宋ゼミのレンチン食堂</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-mortarboard" role="img">
-</i> 
- <span class="menu-text">宋ゼミについて</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/entry.html" class="sidebar-item-text sidebar-link"><i class="bi bi-person-add" role="img">
-</i> 
- <span class="menu-text">応募について</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/faq.html" class="sidebar-item-text sidebar-link"><i class="bi bi-patch-question" role="img">
-</i> 
- <span class="menu-text">よくある質問</span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/people.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">宋ゼミのメンバー</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/course.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ゼミ生の進路</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/research.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ゼミ生の研究成果</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/competition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">これまでの倍率</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/preparation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">春休みの過ごし方</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/about_song.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">担当教員について</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../seminar/foods.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">宋ゼミのレンチン食堂</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">レンチン食堂の案内</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    <div>
-    <div class="quarto-title-meta-heading">更新日</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">2026年10月30日</p>
-    </div>
-  </div>
-    
-  </div>
-  
-
-
+  <div class="eyebrow">BISTRO SONG SEMINAR</div>
+  <h1>宋ゼミの<span class="accent">レンチン食堂</span></h1>
+  <div class="updated">最終更新：2026年10月30日</div>
 </header>
 
-
-<div class="callout callout-style-default callout-note callout-titled" title="注意事項">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ノート</span>注意事項
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>支払い方法を含む利用方法についてはゼミ室内の案内文をご覧ください。</li>
-<li>一部大盛りの商品があります。そこそこの量となりますので、ご注意ください。</li>
-<li>食べた後は必ず片付けてください。ゼミ室内にゴミ箱はございません。ゼミ室から出て左の突き当りにゴミ箱があります。</li>
-<li>仕入れての提案（冷凍、冷蔵、常温）は大歓迎です。LINEでご連絡ください。</li>
-</ul>
-</div>
-</div>
-<section id="価格表" class="level1">
-<h1>価格表</h1>
-<p>※ 割り箸および紙皿を含む価格です。</p>
-<section id="パスタ" class="level2">
-<h2 class="anchored" data-anchor-id="パスタ">パスタ</h2>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item06.webp" height="200" class="figure-img"></p>
-<figcaption>【200円】旨辛ペペロンチーニ</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item01_1.webp" height="200" class="figure-img"></p>
-<figcaption>【200円】濃厚ボロネーゼ</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item03_1.webp" height="200" class="figure-img"></p>
-<figcaption>【200円】濃厚海老トマトクリーム</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://m.media-amazon.com/images/I/91fefC3cSBL._AC_SL1500_.jpg" height="200" class="figure-img"></p>
-<figcaption>【210円】ミートソース大盛り</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.nippn.co.jp/products/frozen/ohmy_big/detail/__icsFiles/afieldfile/2026/08/20/big_calbonara.jpg" height="200" class="figure-img"></p>
-<figcaption>【270円】BIGカルボナーラ</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="お米系" class="level2">
-<h2 class="anchored" data-anchor-id="お米系">お米系</h2>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://static.nichireifoods.co.jp/wp/wp-content/uploads/2025/01/sho_id41742-5.png" height="200" class="figure-img"></p>
-<figcaption>【400円】本格炒め炒飯</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="定食系" class="level2">
-<h2 class="anchored" data-anchor-id="定食系">定食系</h2>
-<p>※ 定食系はプレート付きですので、紙皿は基本不要ですが、1枚までは使って頂いて結構です。</p>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://d2w53g1q050m78.cloudfront.net/nippndirectjp/ec_assets/7065c63b10538dd697c7568d23de991cee08b3e6-original.jpg" height="200" class="figure-img"></p>
-<figcaption>【360円】デミグラスチーズハンバーグ＆濃厚ナポリタン</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://sm.r10s.jp/item/58/4902170584358.jpg" height="200" class="figure-img"></p>
-<figcaption>【360円】デミグラスチーズハンバーグ＆濃厚ナポリタン</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://m.media-amazon.com/images/I/71ZVSxZh26L.jpg" height="200" class="figure-img"></p>
-<figcaption>【310円】生姜ご飯ととんかつ卵とじ風</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://news.shoninsha.co.jp/wp-content/uploads/2023/09/heiwado_20230911_02.png" height="200" class="figure-img"></p>
-<figcaption>【310円】ハンバーグ&amp;ペンネグラタン</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<div class="notice">
+  <strong>ご利用にあたって</strong>
+  <ul>
+    <li>支払い方法を含む利用方法についてはゼミ室内の案内文をご覧ください。</li>
+    <li>食べた後は必ず片付けてください。ゼミ室内にゴミ箱はございません。ゼミ室から出て左の突き当りにゴミ箱があります。</li>
+  </ul>
 </div>
 
-
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.jaysong\.net\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>Copyright 2026, Jaehyun Song</p>
+<div id="demo-banner" class="demo-banner" style="display:none">
+  ※ 現在<strong>デモ表示</strong>です。Firebase の設定（READMEの手順2・6）を済ませると、実際のメニュー・投票・リクエストが有効になります。
 </div>
-    <div class="nav-footer-right">
-      &nbsp;
+<div id="loading" class="loading">メニューを読み込み中…</div>
+<div id="error-box" class="error-box" style="display:none"></div>
+
+<nav class="cats" id="cat-nav" aria-label="カテゴリー"></nav>
+
+<main id="menu"></main>
+
+<section id="requests">
+  <h2><span class="tab"></span>リクエストフォーム</h2>
+  <form class="req-form" id="req-form">
+    <label for="req-text">ほしい商品のリクエスト <span class="opt">（テキストとURLはどちらか一方でもOK!）</span></label>
+    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、具体的な商品名やURL など"></textarea>
+    <label for="req-url">参考URL <span class="opt">（商品ページ・写真など）</span></label>
+    <input type="url" id="req-url" placeholder="https://...">
+    <div class="submit-row">
+      <button type="submit" id="req-send">リクエストを送る</button>
     </div>
+    <p id="req-msg" class="req-msg"></p>
+  </form>
+
+  <div class="req-history">
+    <h3>これまでのリクエスト</h3>
+    <ul class="req-list" id="req-list"></ul>
   </div>
+</section>
+
+<footer>
+  お問い合わせは宋ゼミLINEまで<br>
+  © Jaehyun Song 2026
 </footer>
 
+<div id="toast" role="status"></div>
 
+<!-- Firebase (compat SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<!-- Markdown レンダリング（marked + DOMPurify で無害化） -->
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 
+<script>
+/* =========================================================
+   ★★★ ここを書き換えてください（README の手順6） ★★★
+   Firebase コンソール → プロジェクト設定 → ウェブアプリ の
+   firebaseConfig の中身をそのまま貼り付けてください。
+   ========================================================= */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCg8caxBOmnGnLucbFwhvYI1tLENmG0OjU",
+  authDomain: "bistro-song-zemi.firebaseapp.com",
+  projectId: "bistro-song-zemi",
+  storageBucket: "bistro-song-zemi.firebasestorage.app",
+  messagingSenderId: "390309737927",
+  appId: "1:390309737927:web:b06b27ef139153dadd15e2"
+};
+/* ========================================================= */
 
-</body></html>
+const IS_DEMO = !FIREBASE_CONFIG.apiKey || FIREBASE_CONFIG.projectId === "PASTE_PROJECT_ID";
+
+const VOTE_KEY = 'seminar_foods_votes';
+function loadVotes(){ try{ return JSON.parse(localStorage.getItem(VOTE_KEY) || '{}'); }catch(e){ return {}; } }
+let myVotes = loadVotes();
+function saveVotes(){ try{ localStorage.setItem(VOTE_KEY, JSON.stringify(myVotes)); }catch(e){} }
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* Markdown → 安全なHTML（marked + DOMPurify で無害化） */
+function mdRender(text){
+  if (window.marked && window.DOMPurify){
+    return DOMPurify.sanitize(marked.parse(String(text), { breaks: true, gfm: true }));
+  }
+  return '<p>' + esc(text).replace(/\n/g, '<br>') + '</p>';
+}
+function fixLinks(container){
+  container.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer nofollow'; });
+}
+
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- デモデータ ---------- */
+const DEMO_ITEMS = [
+  { id:'d1', name:'旨辛ペペロンチーニ', category:'パスタ', price:200, good:12, bad:2, visible:true, createdAt:'2026/09/01 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/40bncHbh243SIC1X?width=1024' },
+  { id:'d2', name:'濃厚ボロネーゼ', category:'パスタ', price:200, good:8, bad:3, visible:true, createdAt:'2026/09/02 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/BNKY0RkafY71NgRw?width=1024' },
+  { id:'d3', name:'濃厚海老トマトクリーム', category:'パスタ', price:200, good:10, bad:1, visible:true, createdAt:'2026/09/03 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/QgUD5vOaJIn0RqtZ?width=1024' },
+  { id:'d4', name:'ミートソース大盛り', category:'パスタ', price:210, good:6, bad:4, visible:true, createdAt:'2026/09/04 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/gmc7vvqTbHfCJcIG?width=1024' },
+  { id:'d5', name:'BIGカルボナーラ', category:'パスタ', price:270, good:15, bad:1, visible:true, createdAt:'2026/09/05 10:00',
+    note:'2人前の大盛りです。食欲があるときにどうぞ。',
+    imageUrl:'https://sspark.genspark.ai/i/rOSHIJ0bqDz882dv?width=1024' },
+  { id:'d6', name:'本格炒め炒飯', category:'お米系', price:400, good:9, bad:2, visible:true, createdAt:'2026/09/06 10:00',
+    note:'電子レンジは500Wで5分ちょうどがおすすめです。',
+    imageUrl:'https://sspark.genspark.ai/i/jevTkTvKY9al2cE7?width=1024' },
+  { id:'d7', name:'デミグラスチーズハンバーグ＆濃厚ナポリタン', category:'定食系', price:360, good:11, bad:1, visible:true, createdAt:'2026/09/20 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/E1bSDsvZ4yUocqI5?width=1024' },
+  { id:'d8', name:'生姜ご飯ととんかつ卵とじ風', category:'定食系', price:310, good:7, bad:2, visible:true, createdAt:'2026/09/25 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/OlqKhcBgvQ1FXqCu?width=1024' },
+  { id:'d9', name:'ハンバーグ&ペンネグラタン', category:'定食系', price:310, good:5, bad:3, visible:true, createdAt:'2026/09/30 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/UdzcRUeqHxfqpgjA?width=1024' }
+];
+const DEMO_REQUESTS = [
+  { id:'r1', text:'カレー系の商品を増やしてほしいです', url:'https://example.com/curry', handled:false, createdAt:'2026/10/28 12:30',
+    reply:'承知しました。**来週の仕入れ**でカレー系を2品ほど追加予定です。\n- 予算内で選定します\n- 追加できたら改めて報告します', repliedAt:'2026/10/29 09:10' },
+  { id:'r2', text:'', url:'https://example.com/gyoza', handled:true, createdAt:'2026/10/27 18:05' }
+];
+
+/* ---------- レンダリング ---------- */
+function timeOf(it){
+  if (!it.createdAt) return Number(it.order) || 0; // 登録日時がない旧データは並び順フィールドで代用
+  return it.createdAt.toDate ? it.createdAt.toDate().getTime() : new Date(it.createdAt).getTime();
+}
+
+function categoryOrder(items){
+  // カテゴリー内の並び：価格の安い順 → 同額は登録日時の早い順
+  items.sort((a,b) => (Number(a.price) - Number(b.price)) || (timeOf(a) - timeOf(b)));
+  // カテゴリーの並び：表示中の商品数が多い順（同数なら最安値が安いカテゴリーを先に）
+  const info = {};
+  items.forEach(it => {
+    const o = info[it.category] || (info[it.category] = { count: 0, min: Infinity });
+    o.count++;
+    const p = Number(it.price);
+    if (p < o.min) o.min = p;
+  });
+  return Object.keys(info).sort((a,b) => (info[b].count - info[a].count) || (info[a].min - info[b].min));
+}
+
+function renderMenu(items){
+  const menu = $('#menu');
+  const nav = $('#cat-nav');
+  menu.innerHTML = '';
+  nav.innerHTML = '';
+
+  const cats = categoryOrder(items);
+  cats.forEach(cat => {
+    const sec = document.createElement('section');
+    sec.className = 'cat';
+    sec.id = 'cat-' + encodeURIComponent(cat);
+    const h2 = document.createElement('h2');
+    h2.innerHTML = '<span class="tab"></span>' + esc(cat);
+    sec.appendChild(h2);
+    const note = { '定食系': '※ 定食系はプレート付きですので、紙皿は基本不要ですが、1枚までは使って頂いて結構です。' }[cat];
+    if (note){ const p = document.createElement('p'); p.className='cat-note'; p.textContent = note; sec.appendChild(p); }
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    items.filter(it => it.category === cat).forEach(it => grid.appendChild(cardEl(it)));
+    sec.appendChild(grid);
+    menu.appendChild(sec);
+
+    const a = document.createElement('a');
+    a.href = '#cat-' + encodeURIComponent(cat);
+    a.textContent = cat;
+    nav.appendChild(a);
+  });
+}
+
+function cardEl(it){
+  const el = document.createElement('article');
+  el.className = 'card';
+  el.dataset.id = it.id;
+  const price = it.price != null ? Number(it.price).toLocaleString('ja-JP') + '円' : '—';
+  el.innerHTML =
+    '<div class="ph">' +
+      '<img loading="lazy" src="' + esc(it.imageUrl) + '" alt="' + esc(it.name) + '">' +
+      '<div class="ph-fallback">写真を読み込めませんでした</div>' +
+    '</div>' +
+    '<div class="body">' +
+      '<h3>' + esc(it.name) + '</h3>' +
+      '<div class="price-row">' +
+        '<span class="price">' + esc(price) + '</span>' +
+        '<div class="votes">' +
+          '<button class="vote-btn b-good" aria-label="良かったに投票">👍 <span class="n-good">' + Number(it.good || 0) + '</span></button>' +
+          '<button class="vote-btn b-bad" aria-label="良くなかったに投票">👎 <span class="n-bad">' + Number(it.bad || 0) + '</span></button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  const img = el.querySelector('img');
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+    el.querySelector('.ph-fallback').style.display = 'flex';
+  });
+  if (it.note){
+    el.querySelector('.ph').insertAdjacentHTML('beforeend',
+      '<span class="memo-badge">宋のコメント</span><div class="tip" role="tooltip">' + esc(it.note) + '</div>');
+    el.querySelector('.ph').classList.add('tappable');
+    const toggleTip = () => {
+      const wasOpen = el.classList.contains('tip-open');
+      document.querySelectorAll('article.card.tip-open').forEach(c => c.classList.remove('tip-open'));
+      if (!wasOpen) el.classList.add('tip-open');
+    };
+    el.querySelector('.ph').addEventListener('click', toggleTip);
+    el.querySelector('h3').addEventListener('click', toggleTip);
+  }
+  const bGood = el.querySelector('.b-good');
+  const bBad = el.querySelector('.b-bad');
+  refreshVoteUI(el, it);
+  bGood.addEventListener('click', () => vote(it, 'good', el));
+  bBad.addEventListener('click', () => vote(it, 'bad', el));
+  return el;
+}
+
+function refreshVoteUI(el, it){
+  const bGood = el.querySelector('.b-good');
+  const bBad = el.querySelector('.b-bad');
+  el.querySelector('.n-good').textContent = Number(it.good || 0);
+  el.querySelector('.n-bad').textContent = Number(it.bad || 0);
+  const mine = myVotes[it.id];
+  bGood.classList.toggle('mine-good', mine === 'good');
+  bBad.classList.toggle('mine-bad', mine === 'bad');
+  const voted = !!mine;
+  bGood.disabled = voted;
+  bBad.disabled = voted;
+  if (mine === 'good') bGood.textContent = '👍 投票済';
+  else bGood.innerHTML = '👍 <span class="n-good">' + Number(it.good || 0) + '</span>';
+  if (mine === 'bad') bBad.textContent = '👎 投票済';
+  else bBad.innerHTML = '👎 <span class="n-bad">' + Number(it.bad || 0) + '</span>';
+}
+
+/* ---------- 投票 ---------- */
+let db = null, auth = null;
+
+async function vote(it, dir, el){
+  if (IS_DEMO){ toast('デモ表示のため投票は記録されません（設定後に有効化）'); return; }
+  if (myVotes[it.id]) return;
+  const btn = el.querySelector(dir === 'good' ? '.b-good' : '.b-bad');
+  btn.disabled = true;
+  try{
+    if (!auth.currentUser) await auth.signInAnonymously();
+    const ref = db.collection('items').doc(it.id);
+    await db.runTransaction(async tx => {
+      const snap = await tx.get(ref);
+      if (!snap.exists) throw new Error('not found');
+      tx.update(ref, { [dir]: (snap.data()[dir] || 0) + 1 });
+    });
+    myVotes[it.id] = dir;
+    saveVotes();
+    it[dir] = (it[dir] || 0) + 1;
+    refreshVoteUI(el, it);
+    toast('投票ありがとうございます！');
+  }catch(err){
+    console.error(err);
+    btn.disabled = false;
+    toast('投票できませんでした。しばらくしてから再度お試しください。');
+  }
+}
+
+/* ---------- リクエスト ---------- */
+function fmtDate(ts){
+  if (!ts) return '送信中…';
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  const p = n => String(n).padStart(2,'0');
+  return d.getFullYear() + '/' + p(d.getMonth()+1) + '/' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+
+function renderRequests(list){
+  const ul = $('#req-list');
+  ul.innerHTML = '';
+  if (!list.length){
+    const li = document.createElement('li');
+    li.textContent = 'まだリクエストはありません。最初の1件を送ってみませんか？';
+    ul.appendChild(li);
+    return;
+  }
+  list.forEach(r => {
+    const li = document.createElement('li');
+    if (r.handled) li.classList.add('handled');
+    const head = document.createElement('div');
+    head.className = 'req-head';
+    head.innerHTML = '<span>' + esc(fmtDate(r.createdAt)) + '</span>' +
+      (r.handled ? '<span class="badge-done">対応済み</span>' : '');
+    li.appendChild(head);
+    if (r.text){
+      const p = document.createElement('div');
+      p.className = 'req-text';
+      p.innerHTML = mdRender(r.text);
+      fixLinks(p);
+      li.appendChild(p);
+    }
+    if (r.url){
+      const a = document.createElement('a');
+      a.className = 'req-url';
+      a.href = r.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer nofollow';
+      a.textContent = r.url.length > 80 ? r.url.slice(0,80) + '…' : r.url;
+      li.appendChild(a);
+    }
+    if (r.reply){
+      const rep = document.createElement('div');
+      rep.className = 'reply-box';
+      rep.innerHTML = '<div class="reply-label">管理者からの返信 <span class="reply-date">' + esc(fmtDate(r.repliedAt)) + '</span></div>' +
+        '<div class="md">' + mdRender(r.reply) + '</div>';
+      fixLinks(rep);
+      li.appendChild(rep);
+    }
+    ul.appendChild(li);
+  });
+}
+
+function bindRequestForm(){
+  const form = $('#req-form');
+  const msg = $('#req-msg');
+  const btn = $('#req-send');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const text = $('#req-text').value.trim();
+    const url = $('#req-url').value.trim();
+    msg.className = 'req-msg';
+    if (!text && !url){
+      msg.classList.add('err');
+      msg.textContent = 'テキストかURLのどちらかを入力してください。';
+      return;
+    }
+    if (url && !/^https?:\/\/.+/.test(url)){
+      msg.classList.add('err');
+      msg.textContent = 'URLは http:// または https:// で始まる形式で入力してください。';
+      return;
+    }
+    if (IS_DEMO){
+      toast('デモ表示のため送信は記録されません（設定後に有効化）');
+      return;
+    }
+    btn.disabled = true;
+    try{
+      await db.collection('requests').add({
+        text: text,
+        url: url,
+        handled: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      form.reset();
+      msg.classList.add('ok');
+      msg.textContent = 'リクエストを送信しました。ありがとうございます！';
+    }catch(err){
+      console.error(err);
+      msg.classList.add('err');
+      msg.textContent = '送信できませんでした。しばらくしてから再度お試しください。';
+    }
+    btn.disabled = false;
+  });
+}
+
+/* ---------- 起動 ---------- */
+function initDemo(){
+  $('#demo-banner').style.display = 'block';
+  $('#loading').style.display = 'none';
+  renderMenu(DEMO_ITEMS);
+  renderRequests(DEMO_REQUESTS);
+}
+
+function initFirebase(){
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.firestore();
+  auth = firebase.auth();
+
+  db.collection('items').orderBy('order').onSnapshot(snap => {
+    const items = snap.docs
+      .map(d => Object.assign({ id: d.id }, d.data()))
+      .filter(it => it.visible);
+    $('#loading').style.display = 'none';
+    $('#error-box').style.display = 'none';
+    $('#demo-banner').style.display = 'none';
+    if (!items.length){
+      $('#menu').innerHTML = '<div class="loading">まだ商品が登録されていません。管理者ページから商品を追加してください。</div>';
+      return;
+    }
+    renderMenu(items);
+  }, err => {
+    console.error(err);
+    $('#loading').style.display = 'none';
+    const box = $('#error-box');
+    box.style.display = 'block';
+    box.textContent = 'メニューの読み込みに失敗しました（' + (err && err.code ? err.code : 'エラー') + '）。Firebase の設定・セキュリティルールをご確認ください。';
+  });
+
+  db.collection('requests').orderBy('createdAt', 'desc').limit(50).onSnapshot(snap => {
+    renderRequests(snap.docs.map(d => Object.assign({ id: d.id }, d.data())));
+  }, err => {
+    console.error(err);
+    const ul = $('#req-list');
+    ul.innerHTML = '<li>リクエスト履歴の読み込みに失敗しました。</li>';
+  });
+}
+
+/* 看板イラストが無い環境では、バッジは文字に戻り、看板絵フレームは非表示になる */
+(function(){
+  const si = document.querySelector('.stamp img');
+  const st = document.querySelector('.stamp .stamp-txt');
+  if (si) si.addEventListener('error', () => { si.style.display = 'none'; if (st) st.style.display = 'flex'; });
+  const sf = document.getElementById('shop-frame');
+  if (sf){
+    const im = sf.querySelector('img');
+    if (im) im.addEventListener('error', () => { sf.style.display = 'none'; });
+  }
+})();
+
+bindRequestForm();
+if (IS_DEMO){ initDemo(); } else { initFirebase(); }
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

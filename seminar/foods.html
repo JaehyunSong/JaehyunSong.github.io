@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宋ゼミのレンチン食堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F3A5F;
+    --navy-deep:#16283F;
+    --shu:#E4572E;
+    --shu-deep:#C2431F;
+    --paper:#FAF6EF;
+    --card:#FFFFFF;
+    --ink:#33302B;
+    --sub:#7A7263;
+    --line:#E7DFD2;
+    --ok:#5E8C61;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{color:var(--navy)}
+  button{font-family:inherit;cursor:pointer}
+  img{display:block}
+
+  /* ===== ヘッダー（のれん） ===== */
+  header.banner{
+    background:linear-gradient(180deg,var(--navy-deep),var(--navy));
+    color:#fff;
+    padding:26px 20px 18px;
+    text-align:center;
+    position:relative;
+    z-index:0; /* スタッキングコンテキストを作り、丸バッジをこの中の背面に置く */
+  }
+  header.banner .eyebrow{
+    font-size:12px;letter-spacing:.35em;color:#B9C6DB;margin-bottom:4px;
+  }
+  header.banner h1{
+    font-family:'M PLUS Rounded 1c',sans-serif;
+    font-weight:800;font-size:clamp(24px,5vw,36px);
+    letter-spacing:.08em;
+  }
+  header.banner h1 .accent{color:#F2A65A}
+  .stamp{
+    position:absolute;right:calc(50% - 260px);top:14px;
+    width:88px;height:88px;border-radius:50%;
+    border:3px solid #F2A65A;
+    overflow:hidden;
+    display:none;
+    transform:rotate(8deg);
+    background:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+    z-index:-1; /* タイトル文字の背面に回す（ヘッダー背景よりは手前） */
+  }
+  .stamp img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;display:block}
+  .stamp .stamp-txt{
+    display:none;width:100%;height:100%;
+    align-items:center;justify-content:center;text-align:center;
+    color:#F2A65A;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;
+    font-size:13px;letter-spacing:.05em;line-height:1.3;
+    background:rgba(242,166,90,.08);
+  }
+  @media(min-width:560px){.stamp{display:block}}
+
+  /* ===== 看板絵（店内イラスト） ===== */
+  .shop-frame{
+    max-width:944px;margin:16px auto 0;
+    border:5px solid var(--navy);border-radius:14px;overflow:hidden;
+    background:#fff;box-shadow:0 4px 14px rgba(31,58,95,.15);
+  }
+  .shop-frame img{width:100%;height:260px;object-fit:cover;object-position:50% 42%;display:block}
+  @media(max-width:480px){.shop-frame img{height:170px}}
+  .updated{
+    margin-top:10px;font-size:12px;color:#B9C6DB;
+  }
+
+  /* ===== 注意事項 ===== */
+  .notice{
+    max-width:960px;margin:18px auto 0;padding:14px 20px;
+    background:#FFF9E8;border:1px solid #EAD9A8;border-radius:var(--radius);
+    font-size:13.5px;color:#6B5B2E;
+  }
+  .notice ul{margin:4px 0 0 1.2em}
+  .notice li{margin:2px 0}
+  .notice strong{color:#8A4B1F}
+
+  /* ===== カテゴリーナビ ===== */
+  nav.cats{
+    position:sticky;top:0;z-index:20;
+    background:rgba(250,246,239,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+    display:flex;gap:8px;overflow-x:auto;
+  }
+  nav.cats a{
+    flex:none;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;
+    font-size:13px;color:var(--navy);text-decoration:none;
+    padding:6px 14px;border:1.5px solid var(--navy);
+    border-radius:999px;background:#fff;transition:background .15s,color .15s;
+  }
+  nav.cats a:hover{background:var(--navy);color:#fff}
+
+  /* ===== メニュー ===== */
+  main{max-width:960px;margin:0 auto;padding:8px 16px 24px}
+  section.cat{margin-top:30px}
+  section.cat h2{
+    font-family:'M PLUS Rounded 1c',sans-serif;
+    font-weight:800;font-size:20px;color:var(--navy);
+    display:flex;align-items:center;gap:10px;
+    border-bottom:3px solid var(--navy);padding-bottom:6px;margin-bottom:14px;
+  }
+  section.cat h2 .tab{width:18px;height:18px;background:var(--shu);border-radius:4px;flex:none}
+  section.cat .cat-note{font-size:12.5px;color:var(--sub);margin:-8px 0 12px}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;
+  }
+  article.card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:0 2px 6px rgba(31,58,95,.06);
+  }
+  .card .ph{aspect-ratio:4/3;background:#EEE8DC;position:relative;cursor:default}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
+  .card .ph .ph-fallback{
+    position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+    color:var(--sub);font-size:13px;padding:10px;text-align:center;
+  }
+  .card h3.tappable{cursor:pointer}
+  .memo-badge{
+    position:absolute;top:8px;left:8px;z-index:2;
+    font-size:10.5px;font-weight:700;color:#fff;background:var(--navy);
+    border-radius:6px;padding:1px 7px;opacity:.92;
+  }
+  .card .tip{
+    position:absolute;left:8px;right:8px;bottom:8px;z-index:3;
+    background:rgba(22,40,63,.94);color:#fff;font-size:12.5px;line-height:1.5;
+    padding:10px 12px;border-radius:10px;
+    white-space:pre-wrap;word-break:break-word;
+    display:none;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.25);
+  }
+  .card .tip:before{
+    content:"";position:absolute;top:-6px;left:24px;
+    border:6px solid transparent;border-bottom-color:rgba(22,40,63,.94);border-top:0;
+  }
+  .card.tip-open .tip{display:block}
+  .card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{font-size:15.5px;font-weight:700;line-height:1.4;flex:1}
+  .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .price{
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:17px;
+    color:#fff;background:var(--shu);
+    padding:2px 12px;border-radius:8px;
+    transform:rotate(-2deg);box-shadow:0 2px 0 var(--shu-deep);
+    white-space:nowrap;
+  }
+  .votes{display:flex;gap:6px}
+  .vote-btn{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:13px;font-weight:700;
+    border:1.5px solid var(--line);background:#FBF9F4;color:var(--ink);
+    border-radius:999px;padding:4px 10px;
+    transition:transform .1s,background .15s,border-color .15s;
+  }
+  .vote-btn:not(:disabled):hover{transform:translateY(-1px);border-color:var(--navy)}
+  .vote-btn:disabled{cursor:default;opacity:.55}
+  .vote-btn.mine-good{background:#EAF3EA;border-color:var(--ok);opacity:1}
+  .vote-btn.mine-bad{background:#F9E9E4;border-color:var(--shu);opacity:1}
+  .vote-btn.mine{opacity:1}
+
+  .loading,.error-box,.demo-banner{
+    max-width:960px;margin:24px auto;padding:14px 20px;border-radius:var(--radius);
+    font-size:14px;
+  }
+  .loading{background:#EEF2F8;color:var(--navy);text-align:center}
+  .error-box{background:#F9E9E4;color:#8A2F14;border:1px solid #EFC4B4}
+  .demo-banner{
+    background:#EEF2F8;border:1px dashed var(--navy);color:var(--navy);
+    font-size:13px;
+  }
+
+  /* ===== リクエスト ===== */
+  #requests{max-width:960px;margin:40px auto 0;padding:0 16px 60px}
+  #requests h2{
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:20px;
+    color:var(--navy);border-bottom:3px solid var(--navy);
+    padding-bottom:6px;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  #requests h2 .tab{width:18px;height:18px;background:var(--shu);border-radius:4px;flex:none}
+  .req-form{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:0 2px 6px rgba(31,58,95,.06);
+  }
+  .req-form label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin:12px 0 4px}
+  .req-form label:first-child{margin-top:0}
+  .req-form label .opt{font-weight:400;color:var(--sub);font-size:12px}
+  .req-form textarea,.req-form input[type=url]{
+    width:100%;border:1.5px solid var(--line);border-radius:10px;
+    padding:10px 12px;font-family:inherit;font-size:14px;background:#FDFCF9;
+    transition:border-color .15s;
+  }
+  .req-form textarea{height:84px;resize:vertical}
+  .req-form textarea:focus,.req-form input[type=url]:focus{outline:none;border-color:var(--navy)}
+  .req-form .submit-row{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap}
+  .req-form button{
+    background:var(--shu);color:#fff;border:none;border-radius:10px;
+    font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:15px;
+    padding:10px 28px;box-shadow:0 3px 0 var(--shu-deep);
+    transition:transform .1s,opacity .15s;
+  }
+  .req-form button:hover{transform:translateY(-1px)}
+  .req-form button:active{transform:translateY(1px);box-shadow:0 1px 0 var(--shu-deep)}
+  .req-form button:disabled{opacity:.5;cursor:default}
+  .req-hint{font-size:12px;color:var(--sub)}
+  .req-msg{font-size:13px;margin-top:8px;display:none}
+  .req-msg.ok{display:block;color:var(--ok)}
+  .req-msg.err{display:block;color:#B23A1B}
+
+  .req-history{margin-top:22px}
+  .req-history h3{font-size:14.5px;color:var(--navy);margin-bottom:10px}
+  ul.req-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  ul.req-list li{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;font-size:13.5px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  ul.req-list li.handled{opacity:.55;background:#F6F3EC}
+  .req-head{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--sub)}
+  .badge-done{
+    font-size:11px;color:#fff;background:var(--ok);border-radius:6px;padding:1px 8px;font-weight:700;
+  }
+  .req-text{word-break:break-word}
+  .req-text p{margin:0 0 .4em}
+  .req-text p:last-child{margin-bottom:0}
+  .req-text ul,.req-text ol{margin:.3em 0 .3em 1.4em}
+  .req-text code{background:#F1EDE3;border-radius:4px;padding:1px 5px;font-size:.9em}
+  .req-text pre{background:#F1EDE3;border-radius:6px;padding:8px;overflow-x:auto;font-size:12.5px}
+  .req-text blockquote{border-left:3px solid var(--line);padding-left:8px;color:var(--sub);margin:.3em 0}
+  .req-text a{word-break:break-all}
+  .req-text img{max-width:100%;border-radius:8px}
+  .reply-box{
+    margin-top:8px;padding:10px 12px;
+    background:#F2F6FB;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;
+  }
+  .reply-box .reply-label{font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .reply-box .reply-date{font-weight:400;color:var(--sub)}
+  .reply-box .md{font-size:13.5px;word-break:break-word}
+  .reply-box .md p{margin:0 0 .4em}
+  .reply-box .md p:last-child{margin-bottom:0}
+  .reply-box .md ul,.reply-box .md ol{margin:.3em 0 .3em 1.4em}
+  .reply-box .md code{background:#E3EAF3;border-radius:4px;padding:1px 5px;font-size:.9em}
+  .reply-box .md a{word-break:break-all}
+  .req-url{word-break:break-all;font-size:13px}
+
+  footer{
+    text-align:center;font-size:12px;color:var(--sub);
+    padding:24px 16px 40px;border-top:1px solid var(--line);
+  }
+
+  /* トースト */
+  #toast{
+    position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+    background:var(--navy-deep);color:#fff;font-size:13.5px;
+    padding:10px 20px;border-radius:999px;opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;z-index:50;max-width:90vw;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:480px){
+    .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+    .card h3{font-size:14px}
+    .price{font-size:15px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="stamp">
+    <img src="foods_illust.png" alt="レンチン食堂の看板イラスト">
+    <span class="stamp-txt">レンチン<br>食堂</span>
+  </div>
+  <div class="eyebrow">BISTRO SONG SEMINAR</div>
+  <h1>宋ゼミの<span class="accent">レンチン食堂</span></h1>
+  <div class="updated">最終更新：2026年10月30日</div>
+</header>
+
+<div class="notice">
+  <strong>ご利用にあたって</strong>
+  <ul>
+    <li>支払い方法を含む利用方法についてはゼミ室内の案内文をご覧ください。</li>
+    <li>食べた後は必ず片付けてください。ゼミ室内にゴミ箱はございません。ゼミ室から出て左の突き当りにゴミ箱があります。</li>
+  </ul>
+</div>
+
+<div id="demo-banner" class="demo-banner" style="display:none">
+  ※ 現在<strong>デモ表示</strong>です。Firebase の設定（READMEの手順2・6）を済ませると、実際のメニュー・投票・リクエストが有効になります。
+</div>
+<div id="loading" class="loading">メニューを読み込み中…</div>
+<div id="error-box" class="error-box" style="display:none"></div>
+
+<nav class="cats" id="cat-nav" aria-label="カテゴリー"></nav>
+
+<main id="menu"></main>
+
+<section id="requests">
+  <h2><span class="tab"></span>リクエストフォーム</h2>
+  <form class="req-form" id="req-form">
+    <label for="req-text">ほしい商品のリクエスト <span class="opt">（テキストとURLはどちらか一方でもOK!）</span></label>
+    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、具体的な商品名やURL など"></textarea>
+    <label for="req-url">参考URL <span class="opt">（商品ページ・写真など）</span></label>
+    <input type="url" id="req-url" placeholder="https://...">
+    <div class="submit-row">
+      <button type="submit" id="req-send">リクエストを送る</button>
+    </div>
+    <p id="req-msg" class="req-msg"></p>
+  </form>
+
+  <div class="req-history">
+    <h3>これまでのリクエスト</h3>
+    <ul class="req-list" id="req-list"></ul>
+  </div>
+</section>
+
+<footer>
+  お問い合わせは宋ゼミLINEまで<br>
+  © Jaehyun Song 2026
+</footer>
+
+<div id="toast" role="status"></div>
+
+<!-- Firebase (compat SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<!-- Markdown レンダリング（marked + DOMPurify で無害化） -->
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+
+<script>
+/* =========================================================
+   ★★★ ここを書き換えてください（README の手順6） ★★★
+   Firebase コンソール → プロジェクト設定 → ウェブアプリ の
+   firebaseConfig の中身をそのまま貼り付けてください。
+   ========================================================= */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCg8caxBOmnGnLucbFwhvYI1tLENmG0OjU",
+  authDomain: "bistro-song-zemi.firebaseapp.com",
+  projectId: "bistro-song-zemi",
+  storageBucket: "bistro-song-zemi.firebasestorage.app",
+  messagingSenderId: "390309737927",
+  appId: "1:390309737927:web:b06b27ef139153dadd15e2"
+};
+/* ========================================================= */
+
+const IS_DEMO = !FIREBASE_CONFIG.apiKey || FIREBASE_CONFIG.projectId === "PASTE_PROJECT_ID";
+
+const VOTE_KEY = 'seminar_foods_votes';
+function loadVotes(){ try{ return JSON.parse(localStorage.getItem(VOTE_KEY) || '{}'); }catch(e){ return {}; } }
+let myVotes = loadVotes();
+function saveVotes(){ try{ localStorage.setItem(VOTE_KEY, JSON.stringify(myVotes)); }catch(e){} }
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* Markdown → 安全なHTML（marked + DOMPurify で無害化） */
+function mdRender(text){
+  if (window.marked && window.DOMPurify){
+    return DOMPurify.sanitize(marked.parse(String(text), { breaks: true, gfm: true }));
+  }
+  return '<p>' + esc(text).replace(/\n/g, '<br>') + '</p>';
+}
+function fixLinks(container){
+  container.querySelectorAll('a').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer nofollow'; });
+}
+
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- デモデータ ---------- */
+const DEMO_ITEMS = [
+  { id:'d1', name:'旨辛ペペロンチーニ', category:'パスタ', price:200, good:12, bad:2, visible:true, createdAt:'2026/09/01 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/40bncHbh243SIC1X?width=1024' },
+  { id:'d2', name:'濃厚ボロネーゼ', category:'パスタ', price:200, good:8, bad:3, visible:true, createdAt:'2026/09/02 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/BNKY0RkafY71NgRw?width=1024' },
+  { id:'d3', name:'濃厚海老トマトクリーム', category:'パスタ', price:200, good:10, bad:1, visible:true, createdAt:'2026/09/03 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/QgUD5vOaJIn0RqtZ?width=1024' },
+  { id:'d4', name:'ミートソース大盛り', category:'パスタ', price:210, good:6, bad:4, visible:true, createdAt:'2026/09/04 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/gmc7vvqTbHfCJcIG?width=1024' },
+  { id:'d5', name:'BIGカルボナーラ', category:'パスタ', price:270, good:15, bad:1, visible:true, createdAt:'2026/09/05 10:00',
+    note:'2人前の大盛りです。食欲があるときにどうぞ。',
+    imageUrl:'https://sspark.genspark.ai/i/rOSHIJ0bqDz882dv?width=1024' },
+  { id:'d6', name:'本格炒め炒飯', category:'お米系', price:400, good:9, bad:2, visible:true, createdAt:'2026/09/06 10:00',
+    note:'電子レンジは500Wで5分ちょうどがおすすめです。',
+    imageUrl:'https://sspark.genspark.ai/i/jevTkTvKY9al2cE7?width=1024' },
+  { id:'d7', name:'デミグラスチーズハンバーグ＆濃厚ナポリタン', category:'定食系', price:360, good:11, bad:1, visible:true, createdAt:'2026/09/20 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/E1bSDsvZ4yUocqI5?width=1024' },
+  { id:'d8', name:'生姜ご飯ととんかつ卵とじ風', category:'定食系', price:310, good:7, bad:2, visible:true, createdAt:'2026/09/25 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/OlqKhcBgvQ1FXqCu?width=1024' },
+  { id:'d9', name:'ハンバーグ&ペンネグラタン', category:'定食系', price:310, good:5, bad:3, visible:true, createdAt:'2026/09/30 10:00',
+    imageUrl:'https://sspark.genspark.ai/i/UdzcRUeqHxfqpgjA?width=1024' }
+];
+const DEMO_REQUESTS = [
+  { id:'r1', text:'カレー系の商品を増やしてほしいです', url:'https://example.com/curry', handled:false, createdAt:'2026/10/28 12:30',
+    reply:'承知しました。**来週の仕入れ**でカレー系を2品ほど追加予定です。\n- 予算内で選定します\n- 追加できたら改めて報告します', repliedAt:'2026/10/29 09:10' },
+  { id:'r2', text:'', url:'https://example.com/gyoza', handled:true, createdAt:'2026/10/27 18:05' }
+];
+
+/* ---------- レンダリング ---------- */
+function timeOf(it){
+  if (!it.createdAt) return Number(it.order) || 0; // 登録日時がない旧データは並び順フィールドで代用
+  return it.createdAt.toDate ? it.createdAt.toDate().getTime() : new Date(it.createdAt).getTime();
+}
+
+function categoryOrder(items){
+  // カテゴリー内の並び：価格の安い順 → 同額は登録日時の早い順
+  items.sort((a,b) => (Number(a.price) - Number(b.price)) || (timeOf(a) - timeOf(b)));
+  // カテゴリーの並び：表示中の商品数が多い順（同数なら最安値が安いカテゴリーを先に）
+  const info = {};
+  items.forEach(it => {
+    const o = info[it.category] || (info[it.category] = { count: 0, min: Infinity });
+    o.count++;
+    const p = Number(it.price);
+    if (p < o.min) o.min = p;
+  });
+  return Object.keys(info).sort((a,b) => (info[b].count - info[a].count) || (info[a].min - info[b].min));
+}
+
+function renderMenu(items){
+  const menu = $('#menu');
+  const nav = $('#cat-nav');
+  menu.innerHTML = '';
+  nav.innerHTML = '';
+
+  const cats = categoryOrder(items);
+  cats.forEach(cat => {
+    const sec = document.createElement('section');
+    sec.className = 'cat';
+    sec.id = 'cat-' + encodeURIComponent(cat);
+    const h2 = document.createElement('h2');
+    h2.innerHTML = '<span class="tab"></span>' + esc(cat);
+    sec.appendChild(h2);
+    const note = { '定食系': '※ 定食系はプレート付きですので、紙皿は基本不要ですが、1枚までは使って頂いて結構です。' }[cat];
+    if (note){ const p = document.createElement('p'); p.className='cat-note'; p.textContent = note; sec.appendChild(p); }
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    items.filter(it => it.category === cat).forEach(it => grid.appendChild(cardEl(it)));
+    sec.appendChild(grid);
+    menu.appendChild(sec);
+
+    const a = document.createElement('a');
+    a.href = '#cat-' + encodeURIComponent(cat);
+    a.textContent = cat;
+    nav.appendChild(a);
+  });
+}
+
+function cardEl(it){
+  const el = document.createElement('article');
+  el.className = 'card';
+  el.dataset.id = it.id;
+  const price = it.price != null ? Number(it.price).toLocaleString('ja-JP') + '円' : '—';
+  el.innerHTML =
+    '<div class="ph">' +
+      '<img loading="lazy" src="' + esc(it.imageUrl) + '" alt="' + esc(it.name) + '">' +
+      '<div class="ph-fallback">写真を読み込めませんでした</div>' +
+    '</div>' +
+    '<div class="body">' +
+      '<h3>' + esc(it.name) + '</h3>' +
+      '<div class="price-row">' +
+        '<span class="price">' + esc(price) + '</span>' +
+        '<div class="votes">' +
+          '<button class="vote-btn b-good" aria-label="良かったに投票">👍 <span class="n-good">' + Number(it.good || 0) + '</span></button>' +
+          '<button class="vote-btn b-bad" aria-label="良くなかったに投票">👎 <span class="n-bad">' + Number(it.bad || 0) + '</span></button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  const img = el.querySelector('img');
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+    el.querySelector('.ph-fallback').style.display = 'flex';
+  });
+  if (it.note){
+    el.querySelector('.ph').insertAdjacentHTML('beforeend',
+      '<span class="memo-badge">宋のコメント</span><div class="tip" role="tooltip">' + esc(it.note) + '</div>');
+    el.querySelector('.ph').classList.add('tappable');
+    const toggleTip = () => {
+      const wasOpen = el.classList.contains('tip-open');
+      document.querySelectorAll('article.card.tip-open').forEach(c => c.classList.remove('tip-open'));
+      if (!wasOpen) el.classList.add('tip-open');
+    };
+    el.querySelector('.ph').addEventListener('click', toggleTip);
+    el.querySelector('h3').addEventListener('click', toggleTip);
+  }
+  const bGood = el.querySelector('.b-good');
+  const bBad = el.querySelector('.b-bad');
+  refreshVoteUI(el, it);
+  bGood.addEventListener('click', () => vote(it, 'good', el));
+  bBad.addEventListener('click', () => vote(it, 'bad', el));
+  return el;
+}
+
+function refreshVoteUI(el, it){
+  const bGood = el.querySelector('.b-good');
+  const bBad = el.querySelector('.b-bad');
+  el.querySelector('.n-good').textContent = Number(it.good || 0);
+  el.querySelector('.n-bad').textContent = Number(it.bad || 0);
+  const mine = myVotes[it.id];
+  bGood.classList.toggle('mine-good', mine === 'good');
+  bBad.classList.toggle('mine-bad', mine === 'bad');
+  const voted = !!mine;
+  bGood.disabled = voted;
+  bBad.disabled = voted;
+  if (mine === 'good') bGood.textContent = '👍 投票済';
+  else bGood.innerHTML = '👍 <span class="n-good">' + Number(it.good || 0) + '</span>';
+  if (mine === 'bad') bBad.textContent = '👎 投票済';
+  else bBad.innerHTML = '👎 <span class="n-bad">' + Number(it.bad || 0) + '</span>';
+}
+
+/* ---------- 投票 ---------- */
+let db = null, auth = null;
+
+async function vote(it, dir, el){
+  if (IS_DEMO){ toast('デモ表示のため投票は記録されません（設定後に有効化）'); return; }
+  if (myVotes[it.id]) return;
+  const btn = el.querySelector(dir === 'good' ? '.b-good' : '.b-bad');
+  btn.disabled = true;
+  try{
+    if (!auth.currentUser) await auth.signInAnonymously();
+    const ref = db.collection('items').doc(it.id);
+    await db.runTransaction(async tx => {
+      const snap = await tx.get(ref);
+      if (!snap.exists) throw new Error('not found');
+      tx.update(ref, { [dir]: (snap.data()[dir] || 0) + 1 });
+    });
+    myVotes[it.id] = dir;
+    saveVotes();
+    it[dir] = (it[dir] || 0) + 1;
+    refreshVoteUI(el, it);
+    toast('投票ありがとうございます！');
+  }catch(err){
+    console.error(err);
+    btn.disabled = false;
+    toast('投票できませんでした。しばらくしてから再度お試しください。');
+  }
+}
+
+/* ---------- リクエスト ---------- */
+function fmtDate(ts){
+  if (!ts) return '送信中…';
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  const p = n => String(n).padStart(2,'0');
+  return d.getFullYear() + '/' + p(d.getMonth()+1) + '/' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+
+function renderRequests(list){
+  const ul = $('#req-list');
+  ul.innerHTML = '';
+  if (!list.length){
+    const li = document.createElement('li');
+    li.textContent = 'まだリクエストはありません。最初の1件を送ってみませんか？';
+    ul.appendChild(li);
+    return;
+  }
+  list.forEach(r => {
+    const li = document.createElement('li');
+    if (r.handled) li.classList.add('handled');
+    const head = document.createElement('div');
+    head.className = 'req-head';
+    head.innerHTML = '<span>' + esc(fmtDate(r.createdAt)) + '</span>' +
+      (r.handled ? '<span class="badge-done">対応済み</span>' : '');
+    li.appendChild(head);
+    if (r.text){
+      const p = document.createElement('div');
+      p.className = 'req-text';
+      p.innerHTML = mdRender(r.text);
+      fixLinks(p);
+      li.appendChild(p);
+    }
+    if (r.url){
+      const a = document.createElement('a');
+      a.className = 'req-url';
+      a.href = r.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer nofollow';
+      a.textContent = r.url.length > 80 ? r.url.slice(0,80) + '…' : r.url;
+      li.appendChild(a);
+    }
+    if (r.reply){
+      const rep = document.createElement('div');
+      rep.className = 'reply-box';
+      rep.innerHTML = '<div class="reply-label">管理者からの返信 <span class="reply-date">' + esc(fmtDate(r.repliedAt)) + '</span></div>' +
+        '<div class="md">' + mdRender(r.reply) + '</div>';
+      fixLinks(rep);
+      li.appendChild(rep);
+    }
+    ul.appendChild(li);
+  });
+}
+
+function bindRequestForm(){
+  const form = $('#req-form');
+  const msg = $('#req-msg');
+  const btn = $('#req-send');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const text = $('#req-text').value.trim();
+    const url = $('#req-url').value.trim();
+    msg.className = 'req-msg';
+    if (!text && !url){
+      msg.classList.add('err');
+      msg.textContent = 'テキストかURLのどちらかを入力してください。';
+      return;
+    }
+    if (url && !/^https?:\/\/.+/.test(url)){
+      msg.classList.add('err');
+      msg.textContent = 'URLは http:// または https:// で始まる形式で入力してください。';
+      return;
+    }
+    if (IS_DEMO){
+      toast('デモ表示のため送信は記録されません（設定後に有効化）');
+      return;
+    }
+    btn.disabled = true;
+    try{
+      await db.collection('requests').add({
+        text: text,
+        url: url,
+        handled: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      form.reset();
+      msg.classList.add('ok');
+      msg.textContent = 'リクエストを送信しました。ありがとうございます！';
+    }catch(err){
+      console.error(err);
+      msg.classList.add('err');
+      msg.textContent = '送信できませんでした。しばらくしてから再度お試しください。';
+    }
+    btn.disabled = false;
+  });
+}
+
+/* ---------- 起動 ---------- */
+function initDemo(){
+  $('#demo-banner').style.display = 'block';
+  $('#loading').style.display = 'none';
+  renderMenu(DEMO_ITEMS);
+  renderRequests(DEMO_REQUESTS);
+}
+
+function initFirebase(){
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.firestore();
+  auth = firebase.auth();
+
+  db.collection('items').orderBy('order').onSnapshot(snap => {
+    const items = snap.docs
+      .map(d => Object.assign({ id: d.id }, d.data()))
+      .filter(it => it.visible);
+    $('#loading').style.display = 'none';
+    $('#error-box').style.display = 'none';
+    $('#demo-banner').style.display = 'none';
+    if (!items.length){
+      $('#menu').innerHTML = '<div class="loading">まだ商品が登録されていません。管理者ページから商品を追加してください。</div>';
+      return;
+    }
+    renderMenu(items);
+  }, err => {
+    console.error(err);
+    $('#loading').style.display = 'none';
+    const box = $('#error-box');
+    box.style.display = 'block';
+    box.textContent = 'メニューの読み込みに失敗しました（' + (err && err.code ? err.code : 'エラー') + '）。Firebase の設定・セキュリティルールをご確認ください。';
+  });
+
+  db.collection('requests').orderBy('createdAt', 'desc').limit(50).onSnapshot(snap => {
+    renderRequests(snap.docs.map(d => Object.assign({ id: d.id }, d.data())));
+  }, err => {
+    console.error(err);
+    const ul = $('#req-list');
+    ul.innerHTML = '<li>リクエスト履歴の読み込みに失敗しました。</li>';
+  });
+}
+
+/* 看板イラストが無い環境では、バッジは文字に戻り、看板絵フレームは非表示になる */
+(function(){
+  const si = document.querySelector('.stamp img');
+  const st = document.querySelector('.stamp .stamp-txt');
+  if (si) si.addEventListener('error', () => { si.style.display = 'none'; if (st) st.style.display = 'flex'; });
+  const sf = document.getElementById('shop-frame');
+  if (sf){
+    const im = sf.querySelector('img');
+    if (im) im.addEventListener('error', () => { sf.style.display = 'none'; });
+  }
+})();
+
+bindRequestForm();
+if (IS_DEMO){ initDemo(); } else { initFirebase(); }
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
