@@ -322,7 +322,7 @@
   <h2><span class="tab"></span>リクエストフォーム</h2>
   <form class="req-form" id="req-form">
     <label for="req-text">ほしい商品のリクエスト / 既存商品へのコメント <span class="opt">（テキストとURLはどちらか一方でもOK!）</span></label>
-    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、具体的な商品名やURL など"></textarea>
+    <textarea id="req-text" maxlength="500" placeholder="例：定食系を増やしてほしい、◯◯は美味しくなかった、多すぎた、具体的な商品名やURL など"></textarea>
     <label for="req-url">参考URL <span class="opt">（商品ページ・写真など）</span></label>
     <input type="url" id="req-url" placeholder="https://...">
     <div class="submit-row">
@@ -460,7 +460,7 @@ function renderMenu(items){
     const h2 = document.createElement('h2');
     h2.innerHTML = '<span class="tab"></span>' + esc(cat);
     sec.appendChild(h2);
-    const note = { '定食系': '※ 定食系はプレート付きですので、紙皿は基本不要ですが、1枚までは使って頂いて結構です。' }[cat];
+    const note = { '定食系': '※ 定食系はプレート付きですので、紙皿は基本不要ですが、使って頂いて結構です。' }[cat];
     if (note){ const p = document.createElement('p'); p.className='cat-note'; p.textContent = note; sec.appendChild(p); }
 
     const grid = document.createElement('div');
