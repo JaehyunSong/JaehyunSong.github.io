@@ -1,0 +1,51 @@
+---
+title: "レンチン食堂の案内"
+date-modified: today
+format: html
+engine: knitr
+---
+
+:::: {.callout-note title="利用方法について"}
+　支払い方法を含む利用方法についてはゼミ室内の案内文をご覧ください。
+::::
+
+# 価格表
+
+※ 割り箸および紙皿を含む価格です。
+
+## パスタ
+
+:::: {layout-ncol=3}
+
+![【200円】旨辛ペペロンチーニ](https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item06.webp){height=200px}
+
+![【200円】濃厚ボロネーゼ](https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item01_1.webp){height=200px}
+
+![【200円】濃厚海老トマトクリーム](https://www.nisshin-seifun-welna.com/index/mama/namapasta/assets/imgs/product02_item03_1.webp){height=200px}
+
+![【210円】ミートソース大盛り](https://m.media-amazon.com/images/I/91fefC3cSBL._AC_SL1500_.jpg){height=200px}
+
+![【270円】BIGカルボナーラ](https://www.nippn.co.jp/products/frozen/ohmy_big/detail/__icsFiles/afieldfile/2026/08/20/big_calbonara.jpg){height=200px}
+
+:::
+
+## お米系
+
+:::: {layout-ncol=3}
+
+![【400円】本格炒め炒飯](https://static.nichireifoods.co.jp/wp/wp-content/uploads/2025/01/sho_id41742-5.png){height=200px}
+
+:::
+
+## 定食系
+
+:::: {layout-ncol=3}
+
+![【360円】デミグラスチーズハンバーグ＆濃厚ナポリタン](https://d2w53g1q050m78.cloudfront.net/nippndirectjp/ec_assets/7065c63b10538dd697c7568d23de991cee08b3e6-original.jpg){height=200px}
+
+![【360円】デミグラスチーズハンバーグ＆濃厚ナポリタン](https://sm.r10s.jp/item/58/4902170584358.jpg){height=200px}
+
+![【310円】生姜ご飯ととんかつ卵とじ風](https://m.media-amazon.com/images/I/71ZVSxZh26L.jpg){height=200px}
+
+![【310円】ハンバーグ&ペンネグラタン](https://news.shoninsha.co.jp/wp-content/uploads/2023/09/heiwado_20230911_02.png){height=200px}
+:::
